@@ -1,19 +1,30 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 1
+ Total Files | 2
 
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\windowscontainers\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/c2520315b4fbd44b1c9c4c0b44a66f5014370905/virtualization/windowscontainers/TOC.md) | PartialHandedBack | [Details](#87f65c4adb94d4e19f9369a590b74ef24d80233f273)
+ [virtualization\windowscontainers\Nano_EULA.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/e8c2522788395c01addc4987c89d49f6ff1889a8/virtualization/windowscontainers/Nano_EULA.md) | HandedOff | [Details](#aa26c5fc60bcdfd7cd521799700e2f6eea48eb17225)
+ [virtualization\windowscontainers\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/e8c2522788395c01addc4987c89d49f6ff1889a8/virtualization/windowscontainers/TOC.md) | PartialHandedBack | [Details](#04d101913570c35c791327d521dd996ab9f681c2274)
 
 ## Item Details
-##### <a name='87f65c4adb94d4e19f9369a590b74ef24d80233f273'></a> Source: [virtualization\windowscontainers\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/c2520315b4fbd44b1c9c4c0b44a66f5014370905/virtualization/windowscontainers/TOC.md)
+##### <a name='aa26c5fc60bcdfd7cd521799700e2f6eea48eb17225'></a> Source: [virtualization\windowscontainers\Nano_EULA.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/e8c2522788395c01addc4987c89d49f6ff1889a8/virtualization/windowscontainers/Nano_EULA.md)
+* Status: HandedOff
+* Target File: 
+* Handoff File: [Nano_EULA.dc5fd75e218dabebc3dde5de2ed83d8f59835aa5.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/6b91b5d73619a30173ec7502fcd04f2c1803d3ad/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/Nano_EULA.dc5fd75e218dabebc3dde5de2ed83d8f59835aa5.zh-tw.xlf)
+* Handoff Datetime: 2016-01-05 20:44:02
+* Handoff Reason: Include
+* Handback File: 
+* Handback Datetime: 0001-01-01 00:00:00
+* [Back to Top](#report-top)
+
+##### <a name='04d101913570c35c791327d521dd996ab9f681c2274'></a> Source: [virtualization\windowscontainers\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/e8c2522788395c01addc4987c89d49f6ff1889a8/virtualization/windowscontainers/TOC.md)
 * Status: PartialHandedBack
 * Target File: 
-* Handoff File: [TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/278152e36a907196cc3ed1570a8c42bae7a43794/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.zh-tw.xlf)
-* Handoff Datetime: 2016-01-04 23:04:52
+* Handoff File: [TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/6b91b5d73619a30173ec7502fcd04f2c1803d3ad/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.zh-tw.xlf)
+* Handoff Datetime: 2016-01-05 20:44:02
 * Handoff Reason: Include
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
