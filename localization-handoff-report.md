@@ -6,19 +6,19 @@
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\windowscontainers\about\work_in_progress.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/561c94db1199e03bbac4a74ade92f0199ac63736/virtualization/windowscontainers/about/work_in_progress.md) | PartialHandedBack | [Details](#31ddc7a16a8567e9f146d1e3697a6f3870bf7565197)
+ [virtualization\windowscontainers\management\container_networking.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/3a8f4fb9a71ca837eaad4d949d68b47a528fd6a3/virtualization/windowscontainers/management/container_networking.md) | PartialHandedBack | [Details](#32705895b793260ec4ab4735fd6db7275230ddae208)
 
 ## Item Details
-##### <a name='31ddc7a16a8567e9f146d1e3697a6f3870bf7565197'></a> Source: [virtualization\windowscontainers\about\work_in_progress.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/561c94db1199e03bbac4a74ade92f0199ac63736/virtualization/windowscontainers/about/work_in_progress.md)
+##### <a name='32705895b793260ec4ab4735fd6db7275230ddae208'></a> Source: [virtualization\windowscontainers\management\container_networking.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/3a8f4fb9a71ca837eaad4d949d68b47a528fd6a3/virtualization/windowscontainers/management/container_networking.md)
 * Status: PartialHandedBack
 * Target File: 
-* Handoff File: [work_in_progress.4d0e298514e64fd94d18eb197e270fbbf7e07fd8.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/e5ade95ea7fdef2be9cffdf185d48ee12ba70b54/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/work_in_progress.4d0e298514e64fd94d18eb197e270fbbf7e07fd8.zh-tw.xlf)
-* Handoff Datetime: 2016-01-06 01:23:28
+* Handoff File: [container_networking.7cf72391b3aa727681997232feeeb0a32d363edc.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/518c573fba332bfa5750a7fad3862421c0bddeba/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/container_networking.7cf72391b3aa727681997232feeeb0a32d363edc.zh-tw.xlf)
+* Handoff Datetime: 2016-01-06 05:27:29
 * Handoff Reason: Include
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\windowscontainers\about\work_in_progress.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/3d25a194e9edb7ed5a0ed326cddf95a89a1b067c/virtualization/windowscontainers/about/work_in_progress.md)
-* Current Handback File: [work_in_progress.4d0e298514e64fd94d18eb197e270fbbf7e07fd8.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/b509d32091a37189d7430b047052fd66e1fbed57/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/work_in_progress.4d0e298514e64fd94d18eb197e270fbbf7e07fd8.zh-tw.xlf)
+* Current Target File: [virtualization\windowscontainers\management\container_networking.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/3d25a194e9edb7ed5a0ed326cddf95a89a1b067c/virtualization/windowscontainers/management/container_networking.md)
+* Current Handback File: [container_networking.7cf72391b3aa727681997232feeeb0a32d363edc.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/b509d32091a37189d7430b047052fd66e1fbed57/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/container_networking.7cf72391b3aa727681997232feeeb0a32d363edc.zh-tw.xlf)
 * Current Handback Datetime: 2016-01-04 21:53:37
 * [Back to Top](#report-top)
 
