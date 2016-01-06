@@ -45,7 +45,7 @@ Hyper-V 管理員是內建工具，可以診斷及管理本機 Hyper-V 主機和
 
 ## 管理相同的網域中的另一部 Hyper-V 主機
 
-若要將遠端 Hyper-V 主機加入 Hyper-V 管理員，請在 [選取電腦]**** 對話方塊中選取 [另一台電腦]****，然後在文字欄位中輸入遠端主機的主機名稱、NetBIOS 或 FQDN。
+若要將遠端 Hyper-V 主機加入 Hyper-V 管理員，請在 **[選取電腦]** 對話方塊中選取 **[另一台電腦]**，然後在文字欄位中輸入遠端主機的主機名稱、NetBIOS 或 FQDN。
 
 ![](media/HyperVManager-ConnectToRemoteHost.png)
 
