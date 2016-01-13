@@ -64,7 +64,7 @@ IT 專業人員可以使用容器為其開發、品管及生產小組提供標�
 ## 影片概觀
 
 <iframe 
-src="https://channel9.msdn.com/Blogs/containers/Containers-101-with-Microsoft-and-Docker/player#ccLang=tw" width="800" height="450" allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
+src="https://channel9.msdn.com/Blogs/containers/Containers-101-with-Microsoft-and-Docker/player#ccLang=zh-tw" width="800" height="450" allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
 
 
 ## 試用 Windows Server 容器
