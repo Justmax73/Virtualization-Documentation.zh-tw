@@ -2306,19 +2306,19 @@
 * Handoff Reason: Include
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\hyperv_on_windows\user_guide\vmsession.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/3dca3b56d2b03f1933ea0c6b98b4bdafefc5e436/virtualization/hyperv_on_windows/user_guide/vmsession.md)
-* Current Handback File: [vmsession.5b8e9c3583d826412e0ae8e2f58f1deca9901582.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/2b199068db48d2e8d8d2d15f7ff20a2723240404/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/vmsession.5b8e9c3583d826412e0ae8e2f58f1deca9901582.zh-tw.xlf)
-* Current Handback Datetime: 2016-01-05 22:05:35
+* Current Target File: [virtualization\hyperv_on_windows\user_guide\vmsession.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/bc8143955b3c5cc5060de1275724d047591c87ca/virtualization/hyperv_on_windows/user_guide/vmsession.md)
+* Current Handback File: [vmsession.5b8e9c3583d826412e0ae8e2f58f1deca9901582.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/ae814a244bd8c67bdcbde47f9eadc7d37ae9a519/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/vmsession.5b8e9c3583d826412e0ae8e2f58f1deca9901582.zh-tw.xlf)
+* Current Handback Datetime: 2016-01-14 21:51:05
 * [Back to Top](#report-top)
 
 ##### <a name='55e6b7d576cdaa06773b63556435753e1d191803185'></a> Source: [virtualization\hyperv_on_windows\windows_welcome.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/f9d155d4a61a8db99b65374bfa4dd79f3a55bc7a/virtualization/hyperv_on_windows/windows_welcome.md)
 * Status: InSyncHandedBackSuccess
-* Target File: [virtualization\hyperv_on_windows\windows_welcome.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/3dca3b56d2b03f1933ea0c6b98b4bdafefc5e436/virtualization/hyperv_on_windows/windows_welcome.md)
+* Target File: [virtualization\hyperv_on_windows\windows_welcome.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/bc8143955b3c5cc5060de1275724d047591c87ca/virtualization/hyperv_on_windows/windows_welcome.md)
 * Handoff File: [windows_welcome.5cc1a907523a3cc51d983b8dc14732d35513e54e.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/ef357a59371c41ac1dd4d96e7d9e4de2e59efc62/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/windows_welcome.5cc1a907523a3cc51d983b8dc14732d35513e54e.zh-tw.xlf)
 * Handoff Datetime: 2016-01-04 22:18:23
 * Handoff Reason: Include
-* Handback File: [windows_welcome.5cc1a907523a3cc51d983b8dc14732d35513e54e.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/2b199068db48d2e8d8d2d15f7ff20a2723240404/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/windows_welcome.5cc1a907523a3cc51d983b8dc14732d35513e54e.zh-tw.xlf)
-* Handback Datetime: 2016-01-05 22:05:35
+* Handback File: [windows_welcome.5cc1a907523a3cc51d983b8dc14732d35513e54e.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/ae814a244bd8c67bdcbde47f9eadc7d37ae9a519/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/windows_welcome.5cc1a907523a3cc51d983b8dc14732d35513e54e.zh-tw.xlf)
+* Handback Datetime: 2016-01-14 21:51:05
 * [Back to Top](#report-top)
 
 ##### <a name='7e2a65e10cd49e4598d091eb16968abf7b7ca70b186'></a> Source: [virtualization\windowscontainers\about\about_overview.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/955d199d111b55d44b5eb42fc9d10d2c8a3309ad/virtualization/windowscontainers/about/about_overview.md)
@@ -2810,9 +2810,9 @@
 * Handoff Reason: Include
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\windowscontainers\quick_start\manage_docker.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/3dca3b56d2b03f1933ea0c6b98b4bdafefc5e436/virtualization/windowscontainers/quick_start/manage_docker.md)
-* Current Handback File: [manage_docker.d8787c7831358fa02dcde847d887fa29a1767ee5.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/2b199068db48d2e8d8d2d15f7ff20a2723240404/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/manage_docker.d8787c7831358fa02dcde847d887fa29a1767ee5.zh-tw.xlf)
-* Current Handback Datetime: 2016-01-05 22:05:35
+* Current Target File: [virtualization\windowscontainers\quick_start\manage_docker.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/bc8143955b3c5cc5060de1275724d047591c87ca/virtualization/windowscontainers/quick_start/manage_docker.md)
+* Current Handback File: [manage_docker.d8787c7831358fa02dcde847d887fa29a1767ee5.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/ae814a244bd8c67bdcbde47f9eadc7d37ae9a519/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/manage_docker.d8787c7831358fa02dcde847d887fa29a1767ee5.zh-tw.xlf)
+* Current Handback Datetime: 2016-01-14 21:51:05
 * [Back to Top](#report-top)
 
 ##### <a name='d05456becc5cc12f4e383c6bdbe739d5fff3cb6e232'></a> Source: [virtualization\windowscontainers\quick_start\manage_powershell.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/8f56f106e445ba056b3a9cb9ab001761f272b326/virtualization/windowscontainers/quick_start/manage_powershell.md)
@@ -2823,9 +2823,9 @@
 * Handoff Reason: Include
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\windowscontainers\quick_start\manage_powershell.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/3dca3b56d2b03f1933ea0c6b98b4bdafefc5e436/virtualization/windowscontainers/quick_start/manage_powershell.md)
-* Current Handback File: [manage_powershell.fccfd13be3f4bd16afbe4f31a5ca5ed4e93806b7.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/2b199068db48d2e8d8d2d15f7ff20a2723240404/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/manage_powershell.fccfd13be3f4bd16afbe4f31a5ca5ed4e93806b7.zh-tw.xlf)
-* Current Handback Datetime: 2016-01-05 22:05:35
+* Current Target File: [virtualization\windowscontainers\quick_start\manage_powershell.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/bc8143955b3c5cc5060de1275724d047591c87ca/virtualization/windowscontainers/quick_start/manage_powershell.md)
+* Current Handback File: [manage_powershell.fccfd13be3f4bd16afbe4f31a5ca5ed4e93806b7.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/ae814a244bd8c67bdcbde47f9eadc7d37ae9a519/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/manage_powershell.fccfd13be3f4bd16afbe4f31a5ca5ed4e93806b7.zh-tw.xlf)
+* Current Handback Datetime: 2016-01-14 21:51:05
 * [Back to Top](#report-top)
 
 ##### <a name='62712c1c810e5e6fd902a4a81b1b55400408aa3f233'></a> Source: [virtualization\windowscontainers\quick_start\media\App-in-Container-Green.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fd01d85031748c73615a0fafeec80238f11b5cd6/virtualization/windowscontainers/quick_start/media/App-in-Container-Green.png)
