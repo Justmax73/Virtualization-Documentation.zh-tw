@@ -1,29 +1,29 @@
-# Windows Containers Quick Start - Docker
+# Windows 容器快速入門 - Docker
 
-Windows Containers can be used to rapidly deploy many isolated applications on a single computer system. This exercise will demonstrate Windows Container creation and management using Docker. When completed you should have a basic understanding of how Docker integrates with Windows Containers and will have gained hands on experience with the technology.
+Windows 容器可用來在單一電腦系統上快速部署許多隔離的應用程式。 此練習將示範如何使用 Docker 建立及管理 Windows 容器。 完成之後，您即應概略了解 Docker 與 Windows 容器的整合情形，且將獲得此技術的實務經驗。
 
-This walkthrough will detail both Windows Server containers and Hyper-V containers. Each type of container has its own basic requirements. Included with the Windows Container documentation is a procedure for quickly deploying a container host. This is the easiest way to quickly start with Windows Containers. If you do not already have a container host, see the [Container Host Deployment Quick Start](./container_setup.md).
+此逐步解說將詳細說明 Windows Server 容器和 Hyper-V 容器。 這兩種容器都有其本身的基本需求。 Windows 容器文件包含快速部署容器主機的程序。 要快速開始使用 Windows 容器，這是最簡單的方式。 如果您還沒有容器主機，請參閱[容器主機部署快速入門](./container_setup.md)。
 
-The following items will be required for each exercise.
+進行各項練習時，將需要下列項目。
 
-**Windows Server Containers:**
+**Windows Server 容器：**
 
-- A Windows Container Host running Windows Server 2016 (Full or Core), either on-prem or in Azure.
+- 執行 Windows Server 2016 (Full 或 Core) 的 Windows 容器主機，內部部署或在 Azure 中皆可。
 
-**Hyper-V Containers:**
+**Hyper-V 容器：**
 
-- A Windows Container host enabled with Nested Virtualization.
-- The Windows Server 2016 Media - [Download](https://aka.ms/tp4/serveriso).
+- 已啟用巢狀虛擬化的 Windows 容器主機。
+- Windows Server 2016 媒體 - [下載](https://aka.ms/tp4/serveriso)。
 
-> Microsoft Azure does not support Hyper-V containers. To complete the Hyper-V Container exercises, you need an on-prem container host.
+>Microsoft Azure 不支援 Hyper-V 容器。 若要完成 Hyper-V 容器練習，您必須要有內部部署容器主機。
 
-## Windows Server Container
+## Windows Server 容器
 
-Windows Server Containers provide an isolated, portable, and resource controlled operating environment for running applications and hosting processes. Windows Server Containers provide isolation between the container and host, through process and namespace isolation.
+Windows Server 容器提供隔離、可攜式、由資源控制的作業環境，用以執行應用程式和主控程序。 Windows Server 容器提供透過程序和命名空間隔離來隔離容器與主機的功能。
 
-### Create Container <!--1-->
+### 建立容器
 
-Before creating a container, use the `docker images` command to list container images installed on the host.
+建立容器前，請使用 `docker images` 命令，列出主機上所安裝的容器映像。
 
 ```powershell
 PS C:\> docker images
@@ -35,39 +35,39 @@ nanoserver          10.0.10586.0        8572198a60f1        2 weeks ago         
 nanoserver          latest              8572198a60f1        2 weeks ago         0 B
 ```
 
-For this example, create a container using the Windows Server Core image. This is done with the `docker run command`. For more information on `docker run`, see the [Docker Run reference on docker.com]( https://docs.docker.com/engine/reference/run/).
+在此範例中，請使用 Windows Server Core 映像建立容器。 這可藉由 `docker run` 命令來完成。 如需 `docker run` 的詳細資訊，請參閱 [docker.com 上的 Docker Run 參考](https://docs.docker.com/engine/reference/run/)。
 
-This example creates a container named `iisbase`, and starts an interactive session with the container. 
+此範例會建立名為 `iisbase` 的容器，並啟動容器的互動式工作階段。
 
 ```powershell
 C:\> docker run --name iisbase -it windowsservercore cmd
 ```
 
-When the container has been created, you will be working in a shell session from within the container. 
+容器建立後，您將會在來自該容器的殼層工作階段中工作。
 
 
-### Create IIS Image <!--1-->
+### 建立 IIS 映像
 
-IIS will be installed, and then an image created from the container. To install IIS, run the following.
+將會安裝 IIS，然後從容器建立映像。 若要安裝 IIS，請執行下列命令。
 
 ```powershell
 C:\> powershell.exe Install-WindowsFeature web-server
 ```
 
-When completed, exit the interactive shell session.
+完成之後，請結束互動式殼層工作階段。
 
 ```powershell
 C:\> exit
 ```
 
-Finally, the container will be committed to a new container image using `docker commit`. This example creates a new container image with the name `windowsservercoreiis`.
+最後，將會使用 `docker commit` 將容器認可至新的容器映像。 此範例會建立名稱為 `windowsservercoreiis` 的新容器映像。
 
 ```powershell
 C:\> docker commit iisbase windowsservercoreiis
 4193c9f34e320c4e2c52ec52550df225b2243927ed21f014fbfff3f29474b090
 ```
 
-The new IIS images can be viewed using the `docker images` command.
+可使用 `docker images` 命令來檢視新的 IIS 映像。
 
 ```powershell
 C:\> docker images
@@ -80,8 +80,9 @@ nanoserver             10.0.10586.0        8572198a60f1        2 weeks ago      
 nanoserver             latest              8572198a60f1        2 weeks ago         0 B
 ```
 
-### Configure Network
-Before creating a container with Docker, a rule needs to be created for the Windows Firewall that will allow network connectivity to the container. Run the following to create a rule for port 80.
+### 設定網路
+
+在使用 Docker 建立容器之前，必須為 Windows 防火牆建立一個允許透過網路連接到容器的規則。 請執行下列命令，以建立連接埠 80 的規則。
 
 ```powershell
 if (!(Get-NetFirewallRule | where {$_.Name -eq "TCP80"})) {
@@ -89,52 +90,52 @@ if (!(Get-NetFirewallRule | where {$_.Name -eq "TCP80"})) {
 }
 ```
 
-You may also want to take note of the container host IP address. This will be use throughout the exercise.
+您也可以記下容器主機的 IP 位址。 這在整個練習中都會用到。
 
-### Create IIS Container <!--1-->
+### 建立 IIS 容器
 
-You now have a container image that contains IIS, which can be used to deploy IIS ready operating environments. 
+現在您已有包含 IIS 的容器映像，可用來部署 IIS 就緒的作業環境。
 
-To create a container from the new image, use the `docker run` command, this time specifying the name of the IIS image. Notice that this sample has specified a parameter `-p 80:80`. Because the container is connected to a virtual switch that is supplying IP addresses .via network address translation, a port needs to be mapped from the container host, to a port on the containers NAT IP address. For more information on the `-p` see the [Docker Run reference on docker.com]( https://docs.docker.com/engine/reference/run/)
+若要從新的映像建立容器，請使用 `docker run` 命令，但這次請指定 IIS 映像的名稱。 請注意，此範例指定了參數 `-p 80:80`。 由於容器連接到透過網路位址轉譯來提供 IP 位址的虛擬交換器，因此，必須將容器主機的一個連接埠對應至容器 NAT IP 位址的連接埠。 如需 `-p` 的詳細資訊，請參閱 [docker.com 上的 Docker Run 參考](https://docs.docker.com/engine/reference/run/)
 
 ```powershell
 C:\> docker run --name iisdemo -it -p 80:80 windowsservercoreiis cmd
 ```
 
-When the container has been created, open a browser, and browse to the IP address of the container host. Because port 80 of the host has been mapped to port 80 if the container, the IIS splash screen should be displayed.
+容器建立後，請開啟瀏覽器，然後瀏覽至容器主機的 IP 位址。 由於主機的連接埠 80 已對應至容器的連接埠 80，因此應會顯示 IIS 啟動顯示畫面。
 
 ![](media/iis1.png)
 
-### Create Application <!--1-->
+### 建立應用程式
 
-Run the following command to remove the IIS splash screen.
+執行下列命令以移除 IIS 啟動顯示畫面。
 
 ```powershell
 C:\> del C:\inetpub\wwwroot\iisstart.htm
 ```
 
-Run the following command to replace the default IIS site with a new static site.
+執行下列命令，將預設 IIS 網站取代為新的靜態網站。
 
 ```powershell
 C:\> echo "Hello World From a Windows Server Container" > C:\inetpub\wwwroot\index.html
 ```
 
-Browse again to the IP Address of the container host, you should now see the ‘Hello World’ application. Note – you may need to close any existing browser connections, or clear browser cache to see the updated application.
+再次瀏覽至容器主機的 IP 位址，此時您應會看見 ‘Hello World’ 應用程式。 注意：您可能必須關閉任何現有的瀏覽器連線，或清除瀏覽器快取，才能看見更新的應用程式。
 
 ![](media/HWWINServer.png)
 
-Exit the interactive session with the container.
+結束容器的互動式工作階段。
 
 ```powershell
 C:\> exit
 ```
 
-Remove the container
+移除容器
 
 ```powershell
 C:\> docker rm iisdemo
 ```
-Remove the IIS image.
+移除 IIS 映像。
 
 ```powershell
 C:\> docker rmi windowsservercoreiis
@@ -142,23 +143,23 @@ C:\> docker rmi windowsservercoreiis
 
 ## Dockerfile
 
-Through the last exercise, a container was manually created, modified, and then captured into a new container image. Docker includes a method for automating this process, using what is called a dockerfile. This exercise will have identical results as the last, however this time the process will be completely automated.
+透過最後一項練習，容器已手動建立、修改，然後擷取至新的容器映像中。 Docker 含有將此程序自動化的方法，使用的是名為 dockerfile 的檔案。 此練習最後將有相同的結果，但這一次程序將會自動完成。
 
-### Create IIS Image
+### 建立 IIS 映像
 
-On the container host, create a directory `c:\build`, and in this directory create a file named `dockerfile`.
+在容器主機上建立目錄 `c:\build`，然後在此目錄中建立名為 `dockerfile` 的檔案。
 
 ```powershell
 C:\> powershell new-item c:\build\dockerfile -Force
 ```
 
-Open the dockerfile in notepad.
+在記事本中開啟 dockerfile。
 
 ```powershell
 C:\> notepad c:\build\dockerfile
 ```
 
-Copy the following text into the dockerfile and save the file. These commands instruct Docker to create a new image, using `windosservercore` as the base, and include the modifications specified with `RUN`. For more information on Dockerfiles, see the [Dockerfile reference at docker.com](http://docs.docker.com/engine/reference/builder/).
+將下列文字複製到 dockerfile 中，並儲存檔案。 這些命令會指示 Docker 以 `windosservercore` 做為基底建立新映像，並納入以 `RUN` 指定的修改。 如需 Dockerfile 的詳細資訊，請參閱 [docker.com 上的 Dockerfile 參考](http://docs.docker.com/engine/reference/builder/)。
 
 ```powershell
 FROM windowsservercore
@@ -166,13 +167,13 @@ RUN dism /online /enable-feature /all /featurename:iis-webserver /NoRestart
 RUN echo "Hello World - Dockerfile" > c:\inetpub\wwwroot\index.html
 ```
 
-This command will start the automated image build process. The `-t` parameter instructs the process to name the new image `iis`.
+此命令將會啟動自動化映像建置程序。 `-t` 參數會指示程序將新映像命名為 `iis`。
 
 ```powershell
 C:\> docker build -t iis c:\Build
 ```
 
-When completed, you can verify that the image has been created using the `docker images` command.
+完成之後，您可以使用 `docker images` 命令來證實映像是否已建立。
 
 ```powershell
 C:\> docker images
@@ -185,58 +186,58 @@ nanoserver          10.0.10586.0        8572198a60f1        2 weeks ago         
 nanoserver          latest              8572198a60f1        2 weeks ago         0 B
 ```
 
-### Deploy IIS Container
+### 部署 IIS 容器
 
-Now, just like in the last exercise, deploy the container, mapping port 80 of the host to port 80 of the container.
+現在，就像在最後一個練習中一樣，請部署容器，將主機的連接埠 80 對應至容器的連接埠 80。
 
 ```powershell
 C:\> docker run --name iisdemo -it -p 80:80 iis cmd
 ```
 
-Once the container has been created, browse to the IP address of the container host. You should see the hello world application.
+在容器建立後，請瀏覽至容器主機的 IP 位址。 您應會看見 hello world 應用程式。
 
 ![](media/dockerfile2.png)
 
-Exit the interactive session with the container.
+結束容器的互動式工作階段。
 
 ```powershell
 C:\> exit
 ```
 
-Remove the container
+移除容器
 
 ```powershell
 C:\> docker rm iisdemo
 ```
-Remove the IIS image.
+移除 IIS 映像。
 
 ```powershell
 C:\> docker rmi iis
 ```
 
-## Hyper-V Container
+## Hyper-V 容器
 
-Hyper-V Containers provide an additional layer of isolation over Windows Server Containers. Each Hyper-V Container is created within a highly optimized virtual machine. Where a Windows Server Container shares a kernel with the Container host, a Hyper-V container is completely isolated. Hyper-V Containers are created and managed identically to Windows Server Containers. For more information about Hyper-V Containers see [Managing Hyper-V Containers](../management/hyperv_container.md).
+Hyper-V 容器可提供比 Windows Server 容器更深層的隔離。 每個 Hyper-V 容器都是在高度最佳化的虛擬機器內建立的。 在 Windows Server 容器與容器主機共用核心的環境中，Hyper-V 容器是完全隔離的。 Hyper-V 容器的建立和管理方式與 Windows Server 容器完全相同。 如需 Hyper-V 容器的詳細資訊，請參閱[管理 Hyper-V 容器](../management/hyperv_container.md)。
 
-> Microsoft Azure does not support Hyper-V containers. To complete the Hyper-V exercises, you need an on-prem container host.
+>Microsoft Azure 不支援 Hyper-V 容器。 若要完成 Hyper-V 練習，您必須要有內部部署容器主機。
 
-### Create Container <!--2-->
+### 建立容器
 
-Because the container will be running a Nano Server OS Image, the Nano Server IIS packages will be needed to install IIS. These can be found on the Windows Server 2016 TP4 Installation media, under the `NanoServer\Packages` directory.
+由於容器將會執行 Nano Server OS 映像，因此必須要有 Nano Server IIS 封裝，才能安裝 IIS。 這些項目可在 Windows Sever 2016 TP4 安裝媒體中找到，位於 `NanoServer\Packages` 目錄下。
 
-In this example a directory from the container host will be made available to the running container using the `-v` parameter of `docker run`. Before doing so, the source directory will need to be configured. 
+在此範例中，會使用 `docker run` 的 `-v` 參數，使容器主機中的一個目錄可供執行中的容器使用。 在進行此作業前，必須先設定來源目錄。
 
-Create a directory on the container host that will be shared with the container. If you have already completed the PowerShell walkthrough, this directory and the needed files may already exist. 
+請在容器主機上建立將與容器共用的目錄。 如果您已完成 PowerShell 逐步解說中，此目錄和所需的檔案可能已存在。
 
 ```powershell
 C:\> powershell New-Item -Type Directory c:\share\en-us
 ```
 
-Copy `Microsoft-NanoServer-IIS-Package.cab` from `NanoServer\Packages` to `c:\share` on the container host. 
+將 `Microsoft-NanoServer-IIS-Package.cab` 從 `NanoServer\Packages` 複製到容器主機上的 `c:\share`。
 
-Copy `NanoServer\Packages\en-us\Microsoft-NanoServer-IIS-Package.cab` to `c:\share\en-us` on the container host.
+將 `NanoServer\Packages\en-us\Microsoft-NanoServer-IIS-Package.cab` 複製到容器主機上的 `c:\share\en-us`。
 
-Create a file in the c:\share folder named unattend.xml, copy this text into the unattend.xml file.
+在 c:\share 資料夾中建立名為 unattend.xml 的檔案，並將此文字複製到 unattend.xml 檔案中。
 
 ```powershell
 <?xml version="1.0" encoding="utf-8"?>
@@ -254,7 +255,7 @@ Create a file in the c:\share folder named unattend.xml, copy this text into the
 </unattend>
 ```
 
-When completed, the `c:\share` directory, on the container host, should be configured like this.
+完成之後，容器主機上的 `c:\share` 目錄應設定如下。
 
 ```
 c:\share
@@ -265,41 +266,41 @@ c:\share
 |-- unattend.xml
 ```
 
-To create a Hyper-V container using docker, specify the `--isolation=hyperv` parameter. This example mounts the `c:\share` directory from the host, to the `c:\iisinstall` directory of the container, and then creates an interactive shell session with the container.
+若要使用 docker 建立 Hyper-V 容器，請指定 `--isolation=hyperv` 參數。 此範例會將主機的 `c:\share` 目錄裝載到容器的 `c:\iisinstall` 目錄，然後建立容器的互動式殼層工作階段。
 
 ```powershell
 C:\> docker run --name iisnanobase -it -v c:\share:c:\iisinstall --isolation=hyperv nanoserver cmd
 ```
 
-### Create IIS Image <!--2-->
+### 建立 IIS 映像
 
-From within the container shell session, IIS can be installed using `dism`. Run the following command to install IIS in the container.
+從容器殼層工作階段中，可以使用 `dism` 來安裝 IIS。 執行下列命令，以在容器中安裝 IIS。
 
 ```powershell
 C:\> dism /online /apply-unattend:c:\iisinstall\unattend.xml
 ```
 
-When the IIS installation has complete, manually start IIS with the following command.
+IIS 安裝完成後，請使用下列命令手動啟動 IIS。
 
 ```powershell
 C:\> Net start w3svc
 ```
 
-Exit the container session.
+結束容器工作階段。
 
 ```powershell
 C:\> exit
 ```
 
-### Create IIS Container <!--2-->
+### 建立 IIS 容器
 
-The modified Nano Server container can now be committed to a new container image. To do so, use the `docker commit` command.
+修改過的 Nano Server 容器現在可以認可至新的容器映像。 若要這樣做，請使用 `docker commit` 命令。
 
 ```powershell
 C:\> docker commit iisnanobase nanoserveriis
 ```
 
-The results can be seen when returning a list of container images.
+傳回容器映像清單時可看到下列結果。
 
 ```powershell
 C:\> docker images
@@ -312,34 +313,39 @@ nanoserver          10.0.10586.0        8572198a60f1        2 weeks ago         
 nanoserver          latest              8572198a60f1        2 weeks ago          0 B
 ```
 
-### Create Application <!--2-->
+### 建立應用程式
 
-The Nano Server IIS image can now be deployed to a new container.
+Nano Server IIS 映像現在已可部署至新的容器。
 
 ```powershell
 C:\> docker run -it -p 80:80 --isolation=hyperv nanoserveriis cmd
 ```
 
-Run the following command to remove the IIS splash screen.
+執行下列命令以移除 IIS 啟動顯示畫面。
 
 ```powershell
 C:\> del C:\inetpub\wwwroot\iisstart.htm
 ```
 
-Run the following command to replace the default IIS site with a new static site.
+執行下列命令，將預設 IIS 網站取代為新的靜態網站。
 
 ```powershell
 C:\> echo "Hello World From a Hyper-V Container" > C:\inetpub\wwwroot\index.html
 ```
 
-Browse to the IP Address of the container host, you should now see the ‘Hello World’ application. Note – you may need to close any existing browser connections, or clear browser cache to see the updated application.
+瀏覽至容器主機的 IP 位址，您現在應該會看到 ’Hello World’ 應用程式。 注意：您可能必須關閉任何現有的瀏覽器連線，或清除瀏覽器快取，才能看見更新的應用程式。
 
 ![](media/HWWINServer.png)
 
-Exit the interactive session with the container.
+結束容器的互動式工作階段。
 
 ```powershell
 C:\> exit
 ```
 
 
+
+
+
+
+<!--HONumber=Jan16_HO1-->

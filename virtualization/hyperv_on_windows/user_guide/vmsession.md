@@ -1,83 +1,90 @@
-# Manage Windows with PowerShell Direct
+# 使用 PowerShell Direct 管理 Windows
 
-You can use PowerShell Direct to remotely manage a Windows 10 or Windows Server Technical Preview virtual machine from a Windows 10 or Windows Server Technical Preview Hyper-V host. PowerShell Direct allows PowerShell management inside a virtual machine regardless of the network configuration or remote management settings on either the Hyper-V host or the virtual machine. This makes it easier for Hyper-V Administrators to automate and script virtual machine management and configuration.
+您可以使用 PowerShell Direct，從 Windows 10 或 Windows Server 技術預覽 Hyper-V 主機遠端管理 Windows 10 或 Windows Server 技術預覽虛擬機器。 使用 PowerShell Direct 可在虛擬機器內用 PowerShell 管理，不論在 Hyper-V 主機上或虛擬機器上的網路設定或遠端管理設定為何。 這讓 Hyper-V 系統管理員更容易用指令碼自動化虛擬機器的管理和設定。
 
-There are two ways to run PowerShell Direct:  
-* As an interactive session -- [go to this section](vmsession.md#create-and-exit-an-interactive-powershell-session) to create and exit a PowerShell Direct session using PSSession cmdlets
-* To execute a set of commands or script -- [go to this section](vmsession.md#run-a-script-or-command-with-invoke-command) to run a script or command with the Invoke-Command cmdlet
+有兩種方式可以執行 PowerShell Direct：
+* 做為互動式工作階段 - [移至本節](vmsession.md#create-and-exit-an-interactive-powershell-session)，使用 PSSession Cmdlet 建立及結束 PowerShell Direct 工作階段
+* 執行一組命令或指令碼 -- [移至本節](vmsession.md#run-a-script-or-command-with-invoke-command)，使用 Invoke-Command Cmdlet 執行指令碼或命令
 
 
-## Requirements
-**Operating system requirements:**
-* The host operating system must run Windows 10, Windows Server Technical Preview, or a higher version.
-* The virtual machine must run Windows 10, Windows Server Technical Preview, or a higher version.
+## 需求
 
-If you're managing older virtual machines, use Virtual Machine Connection (VMConnect) or [configure a virtual network for the virtual machine](http://technet.microsoft.com/library/cc816585.aspx). 
+**作業系統需求：**
+* 主機作業系統必須執行 Windows 10、Windows Server 技術預覽或更高版本。
+* 虛擬機器必須執行 Windows 10、Windows Server 技術預覽或更高版本。
 
-To create a PowerShell Direct session on a virtual machine,
-* The virtual machine must be running locally on the host and booted. 
-* You must be logged into the host computer as a Hyper-V administrator.
-* You must supply valid user credentials for the virtual machine.
+如果您管理的是較舊的虛擬機器，請使用虛擬機器連線 (VMConnect)，或是[設定虛擬機器的虛擬網路](http://technet.microsoft.com/library/cc816585.aspx)。
 
-## Create and exit an interactive PowerShell session
-1. On the Hyper-V host, open Windows PowerShell as Administrator.
+若要在虛擬機器上建立 PowerShell Direct 工作階段，
+* 虛擬機器必須在本機主機上執行和啟動。
+* 您必須以 Hyper-V 系統管理員身分登入主機電腦。
+* 您必須提供虛擬機器的有效使用者認證。
 
-3. Run the one of the following commands to create a session by using the virtual machine name or GUID:  
+## 建立並結束互動式 PowerShell 工作階段
+
+1. 在 Hyper-V 主機上，以系統管理員身分開啟 Windows PowerShell。
+
+3. 使用虛擬機器名稱或 GUID，執行下列命令之一來建立工作階段：
 ``` PowerShell
 Enter-PSSession -VMName <VMName>
 Enter-PSSession -VMGUID <VMGUID>
 ```
 
-4. Run whatever commands you need to. These commands run on the virtual machine that you created the session with.
-5. When you're done, run the following command to close the session:  
+4. 執行您需要執行的命令。 這些命令會在您用來建立工作階段的虛擬機器上執行。
+5. 當您完成時，執行下列命令以關閉工作階段：
 ``` PowerShell
 Exit-PSSession 
-``` 
+```
 
-> Note:  If you're session won't connect, make sure you're using credentials for the virtual machine you're connecting to -- not the Hyper-V host.
+>附註：如果您的工作階段不會連線，請確定您使用的是您要連線之虛擬機器的認證，不是 Hyper-V 主機的認證。
 
-To learn more about these cmdlets, see [Enter-PSSession](http://technet.microsoft.com/library/hh849707.aspx) and [Exit-PSSession](http://technet.microsoft.com/library/hh849743.aspx). 
+若要深入了解這些 Cmdlet，請參閱 [Enter-PSSession](http://technet.microsoft.com/library/hh849707.aspx) 和 [Exit-PSSession](http://technet.microsoft.com/library/hh849743.aspx)。
 
-## Run a script or command with Invoke-Command
+## 執行指令碼或 Invoke-Command 命令
 
-You can use the [Invoke-Command](http://technet.microsoft.com/library/hh849719.aspx) cmdlet to run a pre-determined set of commands on the virtual machine. Here is an example of how you can use the Invoke-Command cmdlet where PSTest is the virtual machine name and the script to run (foo.ps1) is in the script folder on the C:/ drive:
+您可以使用 [Invoke-Command](http://technet.microsoft.com/library/hh849719.aspx) Cmdlet，在虛擬機器上執行一組預先決定的命令。 以下是如何使用 Invoke-Command Cmdlet 的範例，其中 PSTest 是虛擬機器名稱，要執行的指令碼 (foo.ps1) 位在 C:/ 磁碟機的指令碼資料夾：
 
  ``` PowerShell
  Invoke-Command -VMName PSTest -FilePath C:\script\foo.ps1 
  ```
 
-To run a single command, use the **-ScriptBlock** parameter:
+若要執行單一命令，請使用 **-ScriptBlock** 參數：
 
  ``` PowerShell
  Invoke-Command -VMName PSTest -ScriptBlock { cmdlet } 
  ```
 
-## Troubleshooting
+## 疑難排解
 
-There are a small set of common error messages surfaced through PowerShell direct.  Here are the most common, some causes, and tools for diagnosing issues.
+PowerShell Direct 有一小組常見錯誤訊息。 以下是最常見的訊息、部分原因，以及用來診斷問題的工具。
 
-### Error:  A remote session might have ended
-Error message:
+### 錯誤：遠端工作階段可能已經結束
+
+錯誤訊息：
 ```
 Enter-PSSession : An error has occurred which Windows PowerShell cannot handle. A remote session might have ended.
 ```
 
-Potential causes:
-* The VM is not running
-* The guest OS does not support PowerShell Direct (see [requirements](#Requirements))
-* PowerShell isn't available in the guest yet
-  * The operating system hasn't finished booting
-  * The operating system can't boot correctly
-  * Some boot time event needs user input
-* The guest credentials couldn't be validated
-  * The supplied credentials were incorrect
-  * There are no user accounts in the guest (the OS hasn't booted before)
-  * If connecting as Administrator:  Administrator has not been set as an active user.  Learn more [here](https://technet.microsoft.com/en-us/library/hh825104.aspx).
+可能的原因：
+* VM 未執行
+* 客體作業系統不支援 PowerShell Direct (請參閱[需求](#Requirements))
+* 客體中還沒有 PowerShell
+* 作業系統尚未完成開機
+* 作業系統無法正確開機
+* 某些開機期間事件需要使用者輸入
+* 無法驗證客體認證
+* 提供的認證不正確
+* 在客體 (作業系統未啟動之前) 中沒有使用者帳戶
+* 如果以系統管理員身分進行連接：系統管理員尚未設定為使用中的使用者。 按一下[此處](https://technet.microsoft.com/en-us/library/hh825104.aspx)以深入了解。
 
-You can use the [Get-VM](http://technet.microsoft.com/library/hh848479.aspx) cmdlet to check that the credentials you're using have the Hyper-V administrator role and to see which VMs are running locally on the host and booted.
+您可以使用 [Get-VM](http://technet.microsoft.com/library/hh848479.aspx) Cmdlet 來確認您使用的認證是否具有 Hyper-V 系統管理員角色，並查看哪些 VM 在本機主機上執行及啟動。
 
-## Samples
+## 範例
 
-Checkout samples on [GitHub](https://github.com/Microsoft/Virtualization-Documentation/search?l=powershell&q=-VMName+OR+-VMGuid&type=Code&utf8=%E2%9C%93).
+檢視 [GitHub](https://github.com/Microsoft/Virtualization-Documentation/search?l=powershell&q=-VMName+OR+-VMGuid&type=Code&utf8=%E2%9C%93) 的範例。
 
-See [PowerShell Direct snippets](../develop/powershell_snippets.md) for numerous examples of how to use PowerShell Direct in your environment as well as tips and tricks for writing Hyper-V scripts with PowerShell.
+請參閱 [PowerShell Direct 程式碼片段](../develop/powershell_snippets.md)，其中有許多有關如何在您的環境中使用 PowerShell Direct 的範例，以及使用 PowerShell 編寫 Hyper-V 指令碼的秘訣與竅門。
+
+
+
+<!--HONumber=Jan16_HO1-->
