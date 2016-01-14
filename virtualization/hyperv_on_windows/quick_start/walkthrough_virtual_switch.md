@@ -14,27 +14,27 @@
 
 1. 開啟 [Hyper-V 管理員]。
 
-2. 以滑鼠右鍵按一下 Hyper-V 主機的名稱，選取 [虛擬交換器管理員]****。
+2. 以滑鼠右鍵按一下 Hyper-V 主機的名稱，選取 [虛擬交換器管理員]。
 
-3. 在 [虛擬交換器] 下選取 [新增虛擬網路交換器]****。
+3. 在 [虛擬交換器] 下選取 [新增虛擬網路交換器]。
 
-4. 在 [建立虛擬交換器] 底下，選取 [外部]****。
+4. 在 [建立虛擬交換器] 底下，選取 [外部]。
 
-5. 選取 [建立虛擬交換器]**** 按鈕。
+5. 選取 [建立虛擬交換器] 按鈕。
 
 6. 在 [虛擬交換器內容] 下，指定新交換器的名稱，例如 **External VM Switch**。
 
-7. 在 [連線類型] 下方，確定已選取 [外部網路]****。
+7. 在 [連線類型] 下方，確定已選取 [外部網路]。
 
 8. 選取要與新虛擬交換器搭配的實體網路卡，這是實際連線到網路的網路卡。
 
-    ![](media/newSwitch_upd.png)
+![](media/newSwitch_upd.png)
 
-9. 選取 [套用]**** 建立虛擬交換器。 此時，您會看到下列訊息，請按一下 [是]**** 以繼續。
+9. 選取 [套用] 建立虛擬交換器。 此時，您會看到下列訊息，請按一下 [是] 以繼續。
 
-    ![](media/pen_changes_upd.png)
+![](media/pen_changes_upd.png)
 
-10. 選取 [確定]**** 關閉 [虛擬交換器管理員] 視窗。
+10. 選取 [確定] 關閉 [虛擬交換器管理員] 視窗。
 
 ## 使用 PowerShell 建立虛擬交換器
 
@@ -42,26 +42,26 @@
 
 1. 使用 **Get-NetAdapter** 傳回連線到 Windows 10 系統的網路介面卡清單。
 
-    ```powershell
-    PS C:\> Get-NetAdapter
-    
-    Name                      InterfaceDescription                    ifIndex Status       MacAddress             LinkSpeed
-    ----                      --------------------                    ------- ------       ----------             ---------
-    Ethernet 2                Broadcom NetXtreme 57xx Gigabit Cont...       5 Up           BC-30-5B-A8-C1-7F         1 Gbps
-    Ethernet                  Intel(R) PRO/100 M Desktop Adapter            3 Up           00-0E-0C-A8-DC-31        10 Mbps  
-    ```
+```powershell
+PS C:\> Get-NetAdapter
+
+Name                      InterfaceDescription                    ifIndex Status       MacAddress             LinkSpeed
+----                      --------------------                    ------- ------       ----------             ---------
+Ethernet 2                Broadcom NetXtreme 57xx Gigabit Cont...       5 Up           BC-30-5B-A8-C1-7F         1 Gbps
+Ethernet                  Intel(R) PRO/100 M Desktop Adapter            3 Up           00-0E-0C-A8-DC-31        10 Mbps  
+```
 
 2. 選取要與 Hyper-V 交換器搭配的網路介面卡，並在名為 **$net** 的變數中放個執行個體。
 
-    ```
-    $net = Get-NetAdapter -Name 'Ethernet'
-    ```
+```
+$net = Get-NetAdapter -Name 'Ethernet'
+```
 
 3. 執行下列命令以建立新的 Hyper-V 虛擬交換器。
 
-    ```
-    New-VMSwitch -Name "External VM Switch" -AllowManagementOS $True -NetAdapterName $net.Name
-    ```
+```
+New-VMSwitch -Name "External VM Switch" -AllowManagementOS $True -NetAdapterName $net.Name
+```
 
 ## 虛擬交換器與膝上型電腦
 
@@ -74,3 +74,4 @@
 
 
 
+<!--HONumber=Dec15_HO1-->
