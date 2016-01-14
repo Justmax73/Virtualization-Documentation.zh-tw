@@ -2093,9 +2093,9 @@
 * Handoff Reason: Include
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\hyperv_on_windows\user_guide\managing_ics.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/3d25a194e9edb7ed5a0ed326cddf95a89a1b067c/virtualization/hyperv_on_windows/user_guide/managing_ics.md)
-* Current Handback File: [managing_ics.8df7555f0b61b9ddcddca7419ee655ef1d9a2119.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/b509d32091a37189d7430b047052fd66e1fbed57/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/managing_ics.8df7555f0b61b9ddcddca7419ee655ef1d9a2119.zh-tw.xlf)
-* Current Handback Datetime: 2016-01-04 21:53:37
+* Current Target File: [virtualization\hyperv_on_windows\user_guide\managing_ics.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/9f8c50ae5ff29fc96579c0eb3d0246b626266e25/virtualization/hyperv_on_windows/user_guide/managing_ics.md)
+* Current Handback File: [managing_ics.8df7555f0b61b9ddcddca7419ee655ef1d9a2119.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/cc093aecd86a8bf14acba323db7be5ce7b26e2cd/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/managing_ics.8df7555f0b61b9ddcddca7419ee655ef1d9a2119.zh-tw.xlf)
+* Current Handback Datetime: 2016-01-14 20:10:51
 * [Back to Top](#report-top)
 
 ##### <a name='dcc854e9982c81a2ad99872fd40bbd940733ccdb162'></a> Source: [virtualization\hyperv_on_windows\user_guide\media\checkpoint.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fd01d85031748c73615a0fafeec80238f11b5cd6/virtualization/hyperv_on_windows/user_guide/media/checkpoint.png)
