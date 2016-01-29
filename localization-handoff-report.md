@@ -1,27 +1,11 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 1
+ Total Files | 0
 
 ## File List
- Source File | Status | Details 
- ----------- | ------ | ------- 
- [virtualization\hyperv_on_windows\user_guide\managing_ics.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/63d4478dbe32141dde1dd7ee48d25f2728d5a42a/virtualization/hyperv_on_windows/user_guide/managing_ics.md) | OutofSyncHandedBackSuccess | [Details](#86229e8504f52f959d1b564fce5fba821d2677e3163)
 
 ## Item Details
-##### <a name='86229e8504f52f959d1b564fce5fba821d2677e3163'></a> Source: [virtualization\hyperv_on_windows\user_guide\managing_ics.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/63d4478dbe32141dde1dd7ee48d25f2728d5a42a/virtualization/hyperv_on_windows/user_guide/managing_ics.md)
-* Status: OutofSyncHandedBackSuccess
-* Target File: 
-* Handoff File: [managing_ics.8df7555f0b61b9ddcddca7419ee655ef1d9a2119.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/d41079956527f8e64dfa2ae4fac4141945c2d53b/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/managing_ics.8df7555f0b61b9ddcddca7419ee655ef1d9a2119.zh-tw.xlf)
-* Handoff Datetime: 2016-01-21 17:46:21
-* Handoff Reason: Include
-* Handback File: 
-* Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\hyperv_on_windows\user_guide\managing_ics.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/f402930af57381d2294ed5148e7955bf68c92d24/virtualization/hyperv_on_windows/user_guide/managing_ics.md)
-* Current Handback File: [managing_ics.8df7555f0b61b9ddcddca7419ee655ef1d9a2119.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/c01f558af05ee8ff84ba9db9d497532d0870b076/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/managing_ics.8df7555f0b61b9ddcddca7419ee655ef1d9a2119.zh-tw.xlf)
-* Current Handback Datetime: 2016-01-21 00:26:08
-* [Back to Top](#report-top)
-
 
 ## Error Details
 
