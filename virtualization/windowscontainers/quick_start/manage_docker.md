@@ -159,7 +159,7 @@ C:\> powershell new-item c:\build\dockerfile -Force
 C:\> notepad c:\build\dockerfile
 ```
 
-將下列文字複製到 dockerfile 中，並儲存檔案。 這些命令會指示 Docker 以 `windosservercore` 做為基底建立新映像，並納入以 `RUN` 指定的修改。 如需 Dockerfile 的詳細資訊，請參閱 [docker.com 上的 Dockerfile 參考](http://docs.docker.com/engine/reference/builder/)。
+將下列文字複製到 dockerfile 中，並儲存檔案。 這些命令會指示 Docker 以 `windowsservercore` 做為基底建立新映像，並納入以 `RUN` 指定的修改。 如需 Dockerfile 的詳細資訊，請參閱 [docker.com 上的 Dockerfile 參考](http://docs.docker.com/engine/reference/builder/)。
 
 ```powershell
 FROM windowsservercore

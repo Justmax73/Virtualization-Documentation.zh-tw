@@ -16,7 +16,7 @@ Hyper-V 角色無法安裝在：
 - Windows 10 Mobile
 - Windows 10 Mobile Enterprise
 
->Windows 10 Home 可以升級到 Windows 10 Professional。 若要這麼做，請開啟 [設定] > [更新和安全性] > [啟用]。 您可以在此瀏覽市集並購買升級。
+>Windows 10 Home 可以升級到 Windows 10 Professional。 若要這麼做，請開啟 **[設定]** > **[更新和安全性]** > **[啟用]**。 您可以在此瀏覽市集並購買升級。
 
 ## 硬體需求
 
@@ -33,7 +33,7 @@ Hyper-V 角色無法安裝在：
 ## 確認硬體相容性
 
 若要確認相容性，請開啟 PowerShell 或命令提示字元 (cmd.exe)，並輸入 **systeminfo.exe**。 這樣會傳回關於 Hyper-V 相容性的資訊。
-如果所有列出的 Hyper-V 需求的值皆為[是]，則您的系統可執行 Hyper-V 角色。 如有任何項目傳回 [否]，請檢閱這份文件中列出的需求，並盡可能調整。
+如果所有列出的 Hyper-V 需求的值皆為 **[是]**，則您的系統可執行 Hyper-V 角色。 如有任何項目傳回 **[否]**，請檢閱這份文件中列出的需求，並盡可能調整。
 
 ![](media/SystemInfo_upd.png)
 

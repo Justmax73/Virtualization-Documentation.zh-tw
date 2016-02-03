@@ -46,7 +46,7 @@ NanoServer        CN=Microsoft 10.0.10586.0 True
 WindowsServerCore CN=Microsoft 10.0.10586.0 True
 ```
 
-若要建立 Windows Server 容器，請使用 `New-Container` 命令。 下列範例會從 `WindowsServerCore` OS 映像建立名為 `TP4Demo` 的容器，並將容器連接到名為`虛擬交換器`的 VM 交換器。 請注意，輸出 (代表容器的物件) 會儲存在變數 `$con` 中。 此變數會在後續的命令中使用。
+若要建立 Windows Server 容器，請使用 `New-Container` 命令。 下列範例會從 `WindowsServerCore` OS 映像建立名為 `TP4Demo` 的容器，並將容器連接到名為`虛擬交換器`的 VM 交換器。
 
 ```powershell
 PS C:\> New-Container -Name TP4Demo -ContainerImageName WindowsServerCore -SwitchName "Virtual Switch"
@@ -72,7 +72,7 @@ TP4Demo Off   00:00:00 WindowsServerCore
 PS C:\> Start-Container -Name TP4Demo
 ```
 
-使用 `Enter-Pssession` 命令連接到容器。 請注意，在建立容器的 PowerShell 工作階段後，PowerShell 提示會變更以反映容器名稱。
+使用 `Enter-PSSession` 命令連接到容器。 請注意，在建立容器的 PowerShell 工作階段後，PowerShell 提示會變更以反映容器名稱。
 
 ```powershell
 PS C:\> Enter-PSSession -ContainerName TP4Demo -RunAsAdministrator
@@ -145,7 +145,7 @@ PS C:\> Start-Container -Name IIS
 
 ### 設定網路功能
 
-Windows 容器快速入門的預設網路設定，是讓容器連接到設定了網路位址轉譯 (NAT) 的虛擬交換器。 因此，為了連接到在容器內執行的應用程式，容器主機的連接埠必須對應到容器的連接埠。
+Windows 容器快速入門的預設網路設定，是讓容器連接到設定了網路位址轉譯 (NAT) 的虛擬交換器。 因此，為了連接到在容器內執行的應用程式，容器主機的連接埠必須對應到容器的連接埠。 如需容器網路功能的詳細資訊，請參閱[容器網路功能](../management/container_networking.md)。
 
 在此練習中，會將一個網站裝載在執行於容器內的 IIS 中。 若要在連接埠 80 上存取網站，請將容器主機 IP 位址的連接埠 80 對應至容器 IP 位址的連接埠 80。
 
@@ -268,11 +268,11 @@ Name State Uptime   ParentImageName
 HYPV Off   00:00:00 NanoServer
 ```
 
-建立容器後，**請不要啟動它**。
+建立容器後，**請不要加以啟動**。
 
 ### 建立共用資料夾
 
-共用資料夾會將容器中的目錄公開給容器。 共用資料夾建立後，放置在共用資料夾中的任何檔案都可在容器中使用。 在此範例中，共用資料夾會用來將 Nano Server IIS 封裝複製到容器中。 接著，這些封裝會用來安裝 IIS。 如需共用資料夾的詳細資訊，請參閱[管理容器資料](../management/manage_data.md)。
+共用資料夾會將容器主機中的目錄公開給容器。 共用資料夾建立後，放置在共用資料夾中的任何檔案都可在容器中使用。 在此範例中，共用資料夾會用來將 Nano Server IIS 封裝複製到容器中。 接著，這些封裝會用來安裝 IIS。 如需共用資料夾的詳細資訊，請參閱[容器共用資料夾](../management/manage_data.md)。
 
 在容器主機上建立名為 `c:\share\en-us` 的目錄。
 

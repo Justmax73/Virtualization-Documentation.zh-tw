@@ -36,7 +36,7 @@ Enter-PSSession -VMGUID <VMGUID>
 Exit-PSSession 
 ```
 
->附註：如果您的工作階段不會連線，請確定您使用的是您要連線之虛擬機器的認證，不是 Hyper-V 主機的認證。
+> 附註：如果您的工作階段不會連線，請確定您使用的是您要連線之虛擬機器的認證，不是 Hyper-V 主機的認證。
 
 若要深入了解這些 Cmdlet，請參閱 [Enter-PSSession](http://technet.microsoft.com/library/hh849707.aspx) 和 [Exit-PSSession](http://technet.microsoft.com/library/hh849743.aspx)。
 
@@ -60,31 +60,47 @@ PowerShell Direct 有一小組常見錯誤訊息。 以下是最常見的訊息�
 
 ### 錯誤：遠端工作階段可能已經結束
 
-錯誤訊息：
+**錯誤訊息：**
 ```
 Enter-PSSession : An error has occurred which Windows PowerShell cannot handle. A remote session might have ended.
 ```
 
-可能的原因：
+**可能的原因：**
 * VM 未執行
-* 客體作業系統不支援 PowerShell Direct (請參閱[需求](#Requirements))
+* 客體作業系統不支援 PowerShell Direct (請參閱[需求](#Requirements)))
 * 客體中還沒有 PowerShell
-* 作業系統尚未完成開機
-* 作業系統無法正確開機
-* 某些開機期間事件需要使用者輸入
+  * 作業系統尚未完成開機
+  * 作業系統無法正確開機
+  * 某些開機期間事件需要使用者輸入
 * 無法驗證客體認證
-* 提供的認證不正確
-* 在客體 (作業系統未啟動之前) 中沒有使用者帳戶
-* 如果以系統管理員身分進行連接：系統管理員尚未設定為使用中的使用者。 按一下[此處](https://technet.microsoft.com/en-us/library/hh825104.aspx)以深入了解。
+  * 提供的認證不正確
+  * 在客體 (作業系統未啟動之前) 中沒有使用者帳戶
+  * 如果以系統管理員身分進行連接：系統管理員尚未設定為使用中的使用者。 按一下[這裡](https://technet.microsoft.com/en-us/library/hh825104.aspx)以深入了解。
 
 您可以使用 [Get-VM](http://technet.microsoft.com/library/hh848479.aspx) Cmdlet 來確認您使用的認證是否具有 Hyper-V 系統管理員角色，並查看哪些 VM 在本機主機上執行及啟動。
 
+### 錯誤：無法解析參數集
+
+**錯誤訊息：**
+``` 
+Enter-PSSession : Parameter set cannot be resolved using the specified named parameters.
+```
+
+**可能的原因：**  
+連接到虛擬機器時不支援 `-RunAsAdministrator`。
+
+PowerShell Direct 連接到虛擬機器與 Windows 容器時，會有不同的行為。 連接到 Windows 容器時，`-RunAsAdministrator` 旗標允許系統管理員不需明確的認證即可連線。 由於虛擬機器不會提供主機隱含的系統管理員存取權，所以您必須明確地輸入認證。
+
+利用 `-credential` 參數或在出現提示時手動輸入認證，即可將系統管理員認證傳遞到虛擬機器。
+
+
 ## 範例
 
-檢視 [GitHub](https://github.com/Microsoft/Virtualization-Documentation/search?l=powershell&q=-VMName+OR+-VMGuid&type=Code&utf8=%E2%9C%93) 的範例。
+檢視 [GitHub](https://github.com/Microsoft/Virtualization-Documentation/search?l=powershell&q=-VMName+OR+-VMGuid&type=Code&utf8=%E2%9C%93) 上的範例。
 
 請參閱 [PowerShell Direct 程式碼片段](../develop/powershell_snippets.md)，其中有許多有關如何在您的環境中使用 PowerShell Direct 的範例，以及使用 PowerShell 編寫 Hyper-V 指令碼的秘訣與竅門。
 
 
 
-<!--HONumber=Jan16_HO1-->
+
+<!--HONumber=Jan16_HO2-->

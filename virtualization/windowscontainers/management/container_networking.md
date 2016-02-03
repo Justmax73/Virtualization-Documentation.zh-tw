@@ -70,7 +70,7 @@ Add-NetNatStaticMapping -NatName "Nat" -Protocol TCP -ExternalIPAddress 0.0.0.0 
 ```powershell
 Add-NetNatStaticMapping -NatName "Nat" -Protocol TCP -ExternalIPAddress 0.0.0.0 -InternalIPAddress 172.16.0.3 -InternalPort 80 -ExternalPort 82
 ```
-> 每個外部連接埠需要有對應的防火牆規則。 這可使用 `New-NetFirewallRule` 來建立。 如需詳細資訊，請參閱 [New-NetFirewallRule 參考](https://technet.microsoft.com/en-us/library/jj554908.aspx)。
+>每個外部連接埠需要有對應的防火牆規則。 這可使用 `New-NetFirewallRule` 來建立。 如需詳細資訊，請參閱 [New-NetFirewallRule 參考](https://technet.microsoft.com/en-us/library/jj554908.aspx)。
 
 建立連接埠對應之後，即可透過容器主機 (實體或虛擬) 的 IP 位址和公開的外部連接埠存取容器應用程式。 例如，下圖說明 NAT 設定及一個以容器主機的外部連接埠 **82** 為目標的要求。 根據連接埠對應，此要求會傳回容器 2 中裝載的應用程式。
 
@@ -128,7 +128,7 @@ docker daemon -D -b “New Switch Name"
 Start-Service docker
 ```
 
-## 管理容器的網路介面卡
+## 管理網路介面卡
 
 有數個 PowerShell 命令可用來管理容器網路介面卡和虛擬交換器連線，而不論網路設定為何 (NAT 或透明)。
 
@@ -144,8 +144,9 @@ Start-Service docker
 - Connect-ContainerNetworkAdapter - 將容器連線到虛擬交換器。
 - Disconect-ContainerNetworkAdapter - 中斷容器與虛擬交換器的連線。
 
-如需每個這些命令的詳細資訊，請參閱[容器 PowerShell 參考](https://technet.microsoft.com/en-us/library/mt433069.aspx)。
+如需這些命令中每個命令的詳細資訊，請參閱[容器 PowerShell 參考](https://technet.microsoft.com/en-us/library/mt433069.aspx)。
 
 
 
 
+<!--HONumber=Jan16_HO1-->

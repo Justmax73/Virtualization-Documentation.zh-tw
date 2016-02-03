@@ -12,9 +12,9 @@
 
 ## [Azure 中的容器](quick_start/azure_setup.md)
 
-## [新 Hyper-V 虛擬機器中的容器](quick_start/container_setup.md)
+## [新 Hyper-V VM 中的容器](quick_start/container_setup.md)
 
-## [現有虛擬或實體系統中的容器](quick_start/inplace_setup.md)
+## [現有系統中的容器](quick_start/inplace_setup.md)
 
 ## [PowerShell 快速入門](quick_start/manage_powershell.md)
 
@@ -38,7 +38,7 @@
 
 ## [容器網路功能](management/container_networking.md)
 
-## [容器資料](management/manage_data.md)
+## [容器共用資料夾](management/manage_data.md)
 
 ## [容器資源控制](management/manage_resources.md)
 
@@ -60,6 +60,9 @@
 
 ## [應用程式相容性](reference/app_compat.md)
 
-# [使用者授權合約](EULA.md)
+# [Windows Server 使用者授權合約](EULA.md)
+
+# [Nano Server 使用者授權合約](Nano_EULA.md)
 
 
+<!--HONumber=Jan16_HO1-->

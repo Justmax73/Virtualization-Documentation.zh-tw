@@ -24,7 +24,7 @@ PS C:\> $con = New-Container -Name HYPVCON -ContainerImageName NanoServer -Switc
 
 除了在建置階段將容器建立為 Hyper-V 容器以外，使用 PowerShell 建立的容器也可從 Windows Server 容器轉換為 Hyper-V 容器。
 
-> 目前，唯一支援容器執行階段轉換的主機作業系統是 Nano Server。
+>目前，唯一支援容器執行階段轉換的主機作業系統是 Nano Server。
 
 使用預設執行階段建立新容器。
 
@@ -61,7 +61,7 @@ DEMO               HyperV
 
 ### 建立容器
 
-使用 Docker 管理 Hyper-V 容器的方式，與管理 Windows Server 容器幾乎完全相同。 使用 Docker 建立 Hyper-V 容器時，會使用 `–issolation=hyperv` 參數。
+使用 Docker 管理 Hyper-V 容器的方式，與管理 Windows Server 容器幾乎完全相同。 使用 Docker 建立 Hyper-V 容器時，會使用 `–-isolation=hyperv` 參數。
 
 ```powershell
 docker run -it --isolation=hyperv 646d6317b02f cmd
@@ -214,3 +214,4 @@ Handles  NPM(K)    PM(K)      WS(K) VM(M)   CPU(s)     Id  SI ProcessName
 
 
 
+<!--HONumber=Jan16_HO1-->

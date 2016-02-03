@@ -9,11 +9,14 @@
 Windows Server Technical Preview 4 提供兩種容器作業系統映像 (Windows Server Core 和 Nano Server)。 並非所有的設定都支援這兩種作業系統映像。 此表詳加說明所支援的設定。
 
 <table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:75%" cellpadding="5" cellspacing="5">
+<thead>
 <tr valign="top">
-<td><center>**主機作業系統**</center></td>
-<td><center>**Windows Server 容器**</center></td>
-<td><center>**Hyper-V 容器**</center></td>
+<th><center>主機作業系統</center></th>
+<th><center>Windows Server 容器</center></th>
+<th><center>Hyper-V 容器</center></th>
 </tr>
+</thead>
+<tbody>
 <tr valign="top">
 <td><center>Windows Server 2016 完整 UI</center></td>
 <td><center>Core 作業系統映像</center></td>
@@ -29,6 +32,7 @@ Windows Server Technical Preview 4 提供兩種容器作業系統映像 (Windows
 <td><center> Nano 作業系統映像</center></td>
 <td><center>Nano 作業系統映像</center></td>
 </tr>
+</tbody>
 </table>
 
 ## Hyper-V 容器需求
@@ -44,3 +48,4 @@ Windows Server Technical Preview 4 提供兩種容器作業系統映像 (Windows
 
 
 
+<!--HONumber=Jan16_HO1-->

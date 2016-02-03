@@ -8,12 +8,12 @@
 
 必須符合下列條件，才能完成此快速入門中的 **Windows Server** 和 **Hyper-V 容器**練習。
 
-* 執行 Windows 10 組建 1056 或更新版本/Windows Server Technical Preview 4 或更新版本的系統。
-* 啟用 Hyper-V 角色 ([請參閱指示](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install#UsingPowerShell))。
+* 執行 Windows 10 組建 10586 或更新版本/Windows Server Technical Preview 4 或更新版本的系統。
+* 啟用 Hyper-V 角色 ([請參閱指示](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install#UsingPowerShell)))。
 * 有 20 GB 的可用儲存體可供容器主機映像、OS 基本映像和安裝指令碼使用。
 * Hyper-V 主機的系統管理員權限。
 
-> 執行 Hyper-V 容器的虛擬化容器主機需要巢狀虛擬化。 實體主機和虛擬主機皆必須執行支援巢狀虛擬化的 OS。 如需詳細資訊，請參閱「[Windows Server 2016 Technical Preview](https://technet.microsoft.com/library/dn765471.aspx#BKMK_nested) 上的 Hyper-V 新功能」。
+> 執行 Hyper-V 容器的虛擬化容器主機需要巢狀虛擬化。 實體主機和虛擬主機皆必須執行支援巢狀虛擬化的 OS。 如需詳細資訊，請參閱 [Windows Server 2016 Technical Preview](https://technet.microsoft.com/library/dn765471.aspx#BKMK_nested) 上的「Hyper-V 新功能」。
 
 ## 在新的虛擬機器上安裝新的容器主機
 
@@ -39,7 +39,7 @@ PS C:\> Get-VMSwitch | where {$_.SwitchType –eq “External”}
 PS C:\> wget -uri https://aka.ms/tp4/New-ContainerHost -OutFile c:\New-ContainerHost.ps1
 ```
 
-執行下列命令以建立及設定容器主機，其中，`<containerhost>` 是虛擬機器名稱。
+執行下列命令以建立及設定容器主機，其中，`&lt;containerhost&gt;` 是虛擬機器名稱。
 
 ``` powershell
 PS C:\> c:\New-ContainerHost.ps1 –VmName <containerhost> -WindowsImage ServerDatacenterCore -Hyperv
@@ -71,3 +71,5 @@ license terms. Please confirm you have accepted and agree to the license terms.
 
 
 
+
+<!--HONumber=Jan16_HO2-->

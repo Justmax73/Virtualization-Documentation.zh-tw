@@ -100,7 +100,7 @@ PS C:\> Start-Container test2
 容器收到 169.254.***.*** APIPA IP 位址。
 
 **因應措施：**
-這是共用核心的副作用。 所有容器情感上具有相同的 MAC 位址。
+這是共用核心的副作用。 所有容器實際上具有相同的 MAC 位址。
 
 啟用容器主機上的 MAC 位址詐騙。
 
@@ -108,6 +108,9 @@ PS C:\> Start-Container test2
 ```
 Get-VMNetworkAdapter -VMName "[YourVMNameHere]"  | Set-VMNetworkAdapter -MacAddressSpoofing On
 ```
+### 不支援 HTTPS 和 TLS
+
+Windows Server 容器和 Hyper-V 容器都不支援 HTTPS 或 TLS。 我們正努力在未來達成此目標。
 
 --------------------------
 
@@ -145,7 +148,7 @@ C:\build>wmic product get
 No Instance(s) Available.
 ```
 
-這是重複資料刪除篩選器的互通性問題。 重複資料刪除會檢查重新命名目標，查看它是否為已重複資料刪除的檔案。 建立失敗就會發出 `STATUS_IO_REPARSE_TAG_NOT_HANDLED`，因為 Windows Server 容器篩選器在重複資料刪除之上。
+這是重複資料刪除篩選器的互通性問題。 重複資料刪除會檢查重新命名目標，查看它是否為已重複資料刪除的檔案。 建立失敗就會發出 `STATUS_IO_REPARSE_TAG_NOT_HANDLED`，因為 Windows Server 容器篩選器設定在重複資料刪除之上。
 
 
 如需可以將哪些應用程式容器化的相關資訊，請參閱[應用程式相容性文件](../reference/app_compat.md)。
@@ -162,9 +165,8 @@ No Instance(s) Available.
 
 ### 並非所有的 Docker 命令都能運作
 
-Docker 在 Hyper-V 容器中執行失敗。
-
-目前尚未支援與 DockerHub 相關的命令。
+* Docker 在 Hyper-V 容器中執行失敗。
+* 目前尚未支援與 DockerHub 相關的命令。
 
 如果不在此清單上的任何項目失敗 (或如果命令失敗原因與預期不同)，請透過[論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)讓我們知道。
 
@@ -187,6 +189,11 @@ net use S: \\your\sources\here /User:shareuser [yourpassword]
 ```
 
 
+--------------------------
+
+
+
+
 ## 遠端桌面
 
 在 TP4 中無法透過 RDP 工作階段管理 Windows 容器或與之互動。
@@ -200,8 +207,36 @@ net use S: \\your\sources\here /User:shareuser [yourpassword]
 
 這是正確的。 我們計劃在未來完整支援 CimSession。
 
+### 無法以 "exit" 來結束 Nano Server 容器主機中的容器
+
+如果您嘗試結束 Nano Server 容器主機中的容器，使用 "exit" 會讓您中斷與 Nano Server 容器主機的連線，但不會結束容器。
+
+**因應措施：**
+請改用 Exit-PSSession 來結束容器。
+
 歡迎您在[論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)中提出功能要求。
 
 
+--------------------------
 
 
+
+## 使用者和網域
+
+### 本機使用者
+
+可以建立本機使用者帳戶，並用於執行容器中的 Windows 服務和應用程式。
+
+
+### 網域成員資格
+
+容器無法加入 Active Directory 網域，而且無法以網域使用者、服務帳戶或電腦帳戶的身分執行服務或應用程式。
+
+容器的設計為可快速啟動至已知的一致狀態，且大致不受環境限制。 加入網域並套用網域的群組原則設定會增加啟動容器所需的時間、持續變更其運作方式，以及限制在開發人員之間及跨部署移動或共用映像的能力。
+
+我們一直都很仔細考慮有關服務和應用程式如何使用 Active Directory 以及在容器中部署這些項目之交集的意見反應。如果您有最適合您的使用方式詳細資訊，請在[論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)中與我們分享。我們正積極尋求解決方案來支援這些案例類型。
+
+
+
+
+<!--HONumber=Jan16_HO3-->

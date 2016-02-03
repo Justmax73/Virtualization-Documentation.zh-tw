@@ -16,7 +16,7 @@ PS C:\> New-Container –Name TestContainer –MaximumMemoryBytes 256MB -Contain
 您也可以使用 `Set-ContainerMemory` Cmdlet 設定現有容器的記憶體限制。
 
 ```powershell
-PS C:\> Set-ContainerMemory -ContainerName TestContainer -MaximumBytes 500mb
+PS C:\> Set-ContainerMemory -ContainerName TestContainer -MaximumBytes 256mb
 ```
 
 ### 網路頻寬
@@ -36,7 +36,7 @@ PS C:\> Set-ContainerNetworkAdapter –ContainerName TestContainer –MaximumBan
 以下將容器的相對權數設為 1000。 容器的預設權數為 100，因此，此容器的優先順序會是設為預設值的容器的 10 倍。 最大值為 10000。
 
 ```powershell
-PS C:\> Set-ContainerProcessor -ContainerName Container1 –RelativeWeight 10000.
+PS C:\> Set-ContainerProcessor -ContainerName Container1 –RelativeWeight 10000
 ```
 
 您也可以用 CPU 時間的百分比形式，對容器可使用的 CPU 數量設定固定限制。 根據預設，容器可以使用 100%的 CPU。 以下將容器可使用的 CPU 百分比上限設為 30%。 使用 –Maximum 旗標，會自動將 RelativeWeight 設為 100。
@@ -62,7 +62,7 @@ PS C:\> Set-ContainerStorage -ContainerName Container1 -MaximumIOPS 32
 
 ### CPU
 
-容器間的 CPU 共用可在執行階段透過 --cpu-shares 旗標來管理。 根據預設，所有容器會均分相等的 CPU 時間。 若要變更容器使用的相對 CPU 數量，請執行值從 1 到 10000 的 --cpu-shares 旗標。 根據預設，所有容器的權數皆為 5000。
+容器間的 CPU 共用可在執行階段透過 --cpu-shares 旗標來管理。 根據預設，所有容器會均分相等的 CPU 時間。 若要變更容器使用的相對 CPU 數量，請執行值從 1 到 10000 的 --cpu-shares 旗標。 根據預設，所有容器的權數皆為 5000。 如需 CPU 共用限制的詳細資訊，請參閱 [Docker Run 參考](https://docs.docker.com/engine/reference/run/#cpu-share-constraint)。
 
 ```powershell 
 C:\> docker run –it --cpu-shares 2 --name dockerdemo windowsservercore cmd
@@ -77,3 +77,4 @@ C:\> docker run –it --cpu-shares 2 --name dockerdemo windowsservercore cmd
 
 
 
+<!--HONumber=Jan16_HO1-->
