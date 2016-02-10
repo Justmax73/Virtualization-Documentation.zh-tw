@@ -1,6 +1,6 @@
-# 建立新的管理服務
+# 製作您自己的整合服務
 
-從 Windows 10 開始，Hyper-V 已允許 Hyper-V 客體與主機之間進行註冊的通訊端連線，而無需依賴網路連線。 使用 Hyper-V 通訊端時，服務將可在網路堆疊外獨立執行，且所有資料將會存留在相同的實體記憶體上。
+從 Windows 10 開始，任何人都可以製作與隨附 Hyper-V 整合服務相似的服務，其會使用 Hyper-V 主機和執行於其中之虛擬機器之間的新通訊端型通訊通道。 使用 Hyper-V 通訊端時，服務將可在網路堆疊外獨立執行，且所有資料將會存留在相同的實體記憶體上。
 
 本文將逐步說明如何建立在 Hyper-V 通訊端上建置的簡易應用程式，和如何開始加以使用。
 
@@ -31,7 +31,7 @@
 若要撰寫簡單的應用程式，您將需要：
 * C 編譯器。 如果您沒有，請查看 [Visual Studio 程式碼](https://aka.ms/vs)
 * 執行 Hyper-V 與虛擬機器的電腦。
-    * 主機和客體 (VM) OS 必須是 Windows 10、Windows Server Technical Preview 3 或更新版本。
+  * 主機和客體 (VM) OS 必須是 Windows 10、Windows Server Technical Preview 3 或更新版本。
 * Windows SDK -- 從這裡可以連結至包含 `hvsocket.h` 的 [Win10 SDK](https://dev.windows.com/en-us/downloads/windows-10-sdk)。
 
 ## 註冊新的應用程式
@@ -191,3 +191,5 @@ Accept()
 
 
 
+
+<!--HONumber=Feb16_HO1-->

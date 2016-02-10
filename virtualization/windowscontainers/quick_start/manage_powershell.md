@@ -1,6 +1,6 @@
 # Windows 容器快速入門 - PowerShell
 
-Windows 容器可用來在單一電腦系統上快速部署許多隔離的應用程式。 本快速入門示範如何使用 PowerShell 來部署及管理 Windows Server 和 Hyper-V 容器。 在這個練習中，您將從頭建置在 Windows Server 和 Hyper-V 容器中執行的簡易 ’hello world’ 應用程式。 在此過程中，您將建立容器映像、使用容器的共用資料夾，以及管理容器的生命週期。 完成之後，您將對 Widows 容器的部署和管理有基本的了解。
+Windows 容器可用來在單一電腦系統上快速部署許多隔離的應用程式。 本快速入門示範如何使用 PowerShell 來部署及管理 Windows Server 和 Hyper-V 容器。 在這個練習中，您將從頭建置在 Windows Server 和 Hyper-V 容器中執行的簡易 ’hello world’ 應用程式。 在此過程中，您將建立容器映像、使用容器的共用資料夾，以及管理容器的生命週期。 完成之後，您將對 Windows 容器的部署和管理有基本的了解。
 
 此逐步解說將詳細說明 Windows Server 容器和 Hyper-V 容器。 這兩種容器都有其本身的基本需求。 Windows 容器文件包含快速部署容器主機的程序。 要快速開始使用 Windows 容器，這是最簡單的方式。 如果您還沒有容器主機，請參閱[容器主機部署快速入門](./container_setup.md)。
 
@@ -15,7 +15,7 @@ Windows 容器可用來在單一電腦系統上快速部署許多隔離的應用
 - 已啟用巢狀虛擬化的 Windows 容器主機。
 - Windows Server 2016 媒體 - [下載](https://aka.ms/tp4/serveriso)。
 
->Microsoft Azure 不支援 Hyper-V 容器。 若要完成 Hyper-V 練習，您必須要有內部部署容器主機。
+> Microsoft Azure 不支援 Hyper-V 容器。 若要完成 Hyper-V 練習，您必須要有內部部署容器主機。
 
 ## Windows Server 容器
 
@@ -241,9 +241,9 @@ PS C:\> Remove-ContainerImage -Name WindowsServerCoreIIS -Force
 
 ## Hyper-V 容器
 
-Hyper-V 容器可提供比 Windows Server 容器更深層的隔離。 每個 Hyper-V 容器都是在高度最佳化的虛擬機器內建立的。 在 Windows Server 容器與容器主機以及所有其他在該主機上執行的 Windows Server 容器共用核心的環境中，Hyper-V 容器與其他容器是完全隔離的。 Hyper-V 容器的建立和管理方式與 Windows Server 容器完全相同。 如需 Hyper-V 容器的詳細資訊，請參閱[管理 Hyper-V 容器](../management/hyperv_container.md)。
+Hyper-V 容器可提供比 Windows Server 容器更深層的隔離。 每個 Hyper-V 容器都是在高度最佳化的虛擬機器內建立的。 在 Windows Server 容器與容器主機以及所有其他在該主機上執行的 Windows Server 容器共用核心的環境中，Hyper-V 容器與其他容器是完全隔離的。 Hyper-V 容器的建立和管理方式與 Windows Server 容器完全相同。 如需 Hyper-V 容器的詳細資訊，請參閱[Managing Hyper-V Containers](../management/hyperv_container.md)。
 
->Microsoft Azure 不支援 Hyper-V 容器。 若要完成 Hyper-V 容器練習，您必須要有內部部署容器主機。
+> Microsoft Azure 不支援 Hyper-V 容器。 若要完成 Hyper-V 容器練習，您必須要有內部部署容器主機。
 
 ### 建立容器
 
@@ -288,7 +288,7 @@ d-----       11/18/2015   5:27 PM                en-us
 
 使用 `Add-ContainerSharedFolder` 命令，在新的容器上建立新的共用資料夾。
 
->在建立共用資料夾時，容器必須處於停止狀態。
+> 在建立共用資料夾時，容器必須處於停止狀態。
 
 ```powershell
 PS C:\> Add-ContainerSharedFolder -ContainerName HYPV -SourcePath c:\share -DestinationPath c:\iisinstall
@@ -517,4 +517,4 @@ exit
 
 
 
-<!--HONumber=Jan16_HO1-->
+<!--HONumber=Feb16_HO1-->

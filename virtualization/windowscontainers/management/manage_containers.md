@@ -10,7 +10,7 @@
 
 ### 建立容器
 
-在建立新容器時，您需要將做為容器基底之容器映像的名稱。 可使用 `Get-ContainerImageName` 命令來找到此名稱。
+在建立新容器時，您需要將做為容器基底之容器映像的名稱。 可使用 `Get-ContainerImage` 命令來找到此名稱。
 
 ```powershell
 PS C:\> Get-ContainerImage
@@ -198,3 +198,4 @@ dc3e282c064d
 
 
 
+<!--HONumber=Feb16_HO1-->

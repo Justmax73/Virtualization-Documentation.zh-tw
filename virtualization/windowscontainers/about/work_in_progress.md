@@ -234,9 +234,10 @@ net use S: \\your\sources\here /User:shareuser [yourpassword]
 
 容器的設計為可快速啟動至已知的一致狀態，且大致不受環境限制。 加入網域並套用網域的群組原則設定會增加啟動容器所需的時間、持續變更其運作方式，以及限制在開發人員之間及跨部署移動或共用映像的能力。
 
-我們一直都很仔細考慮有關服務和應用程式如何使用 Active Directory 以及在容器中部署這些項目之交集的意見反應。如果您有最適合您的使用方式詳細資訊，請在[論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)中與我們分享。我們正積極尋求解決方案來支援這些案例類型。
+我們一直都很仔細考慮有關服務和應用程式如何使用 Active Directory 以及在容器中部署這些項目之交集的意見反應。如果您有最適合您的使用方式詳細資訊，請在[論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)中與我們分享。
+
+我們正積極尋求解決方案來支援這些案例類型。
 
 
 
-
-<!--HONumber=Jan16_HO3-->
+<!--HONumber=Feb16_HO1-->

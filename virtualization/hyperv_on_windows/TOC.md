@@ -26,11 +26,11 @@
 
 ## [移轉和升級虛擬機器](user_guide/migrating_vms.md)
 
-## [管理整合服務](user_guide/managing_ics.md)
+## [管理整合服務s](user_guide/managing_ics.md)
 
 ## [使用檢查點](user_guide/checkpoints.md)
 
-## [匯出和匯入](user_guide/export_import.md)
+## [匯出與匯入](user_guide/export_import.md)
 
 ## [PowerShell Direct](user_guide/vmsession.md)
 
@@ -46,7 +46,7 @@
 
 ## [PowerShell 範例](develop/powershell_snippets.md)
 
-## [管理服務](develop/make_mgmt_service.md)
+## [建置整合服務](develop/make_mgmt_service.md)
 
 ## [Hyper-V WMI 提供者 (V2)](https://msdn.microsoft.com/library/hh850319.aspx)
 
@@ -57,3 +57,4 @@
 ## [Hyper-V 論壇](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home?forum=winserverhyperv)
 
 
+<!--HONumber=Feb16_HO1-->

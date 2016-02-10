@@ -24,9 +24,11 @@
 
 ## [系統需求](deployment/system_requirements.md)
 
-## [部署容器主機](deployment/deployment.md)
+## [Windows Server 上的容器](deployment/deployment.md)
 
-## [在 Windows 上部署 Docker](deployment/docker_windows.md)
+## [Nano 伺服器上的容器](deployment/deployment_nano.md)
+
+## [Windows 上的 Docker](deployment/docker_windows.md)
 
 # 管理 Windows 容器
 
@@ -36,7 +38,7 @@
 
 ## [容器映像](management/manage_images.md)
 
-## [容器網路功能](management/container_networking.md)
+## [容器的網路功能](management/container_networking.md)
 
 ## [容器共用資料夾](management/manage_data.md)
 
@@ -65,4 +67,4 @@
 # [Nano Server 使用者授權合約](Nano_EULA.md)
 
 
-<!--HONumber=Jan16_HO1-->
+<!--HONumber=Feb16_HO1-->
