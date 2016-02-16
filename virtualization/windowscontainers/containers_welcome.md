@@ -2,7 +2,7 @@
 
 Windows 容器所提供的作業系統層級虛擬化，可讓多個隔離的應用程式在單一的系統上執行。 與功能一起隨附的容器執行階段有兩種類型，每一種皆具有不同程度的應用程式隔離。 Windows Server 容器透過命名空間和處理序隔離來完成隔離。 Hyper-V 容器將每個容器封裝在輕量虛擬機器中。 除了有兩個執行階段，這兩種容器皆可透過 PowerShell 或 Docker 來管理。 此文件集提供快速入門指南、部署指南和管理作業的技術詳細資料。
 
-<table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:80%" cellpadding="25" cellspacing="5">
+<table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:90%" cellpadding="25" cellspacing="5">
 <tr>
 <td><center>![](media/try.png)</center></td>
 <td>**快速啟動**<br /><br />
@@ -43,6 +43,16 @@ Windows 容器所提供的作業系統層級虛擬化，可讓多個隔離的應
 </td>
 </tr>
 <tr>
+<td><center>![](media/video.png)</center></td>
+<td>**觀看**<br /><br />
+對 Windows Container 小組提供的示範和訪談感興趣？<br /><br />
+<ul>
+<li>[容器頻道](https://channel9.msdn.com/Blogs/containers)</li>
+</ul>
+<br />
+</td>
+</tr>
+<tr>
 <td><center>![](media/question.png)</center></td>
 <td>**群體**<br /><br />
 與社群互動、試用範例及尋找其他資源。<br /><br />
@@ -58,3 +68,4 @@ Windows 容器所提供的作業系統層級虛擬化，可讓多個隔離的應
 
 
 
+<!--HONumber=Feb16_HO1-->

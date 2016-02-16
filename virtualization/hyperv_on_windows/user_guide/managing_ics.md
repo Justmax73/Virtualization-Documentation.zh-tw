@@ -7,13 +7,13 @@
 ## 使用 Hyper-V 管理員啟用或停用整合服務
 
 1. 選取虛擬機器並開啟設定。
-![](./media/HyperVManager-OpenVMSettings.png)
+  ![](./media/HyperVManager-OpenVMSettings.png)
 
 2. 在虛擬機器的 [設定] 視窗中，移至 [管理] 下的 [整合服務] 索引標籤。
 
-![](./media/HyperVManager-IntegrationServices.png)
+  ![](./media/HyperVManager-IntegrationServices.png)
 
-這裡您會看到此 Hyper-V 主機上所有可用的整合服務。 值得注意的是，客體作業系統不一定會支援所有列出的整合服務。
+  這裡您會看到此 Hyper-V 主機上所有可用的整合服務。 值得注意的是，客體作業系統不一定會支援所有列出的整合服務。
 
 ## 使用 PowerShell 啟用或停用整合服務
 
@@ -27,7 +27,7 @@
   Get-VMIntegrationService -VMName "demovm"
   ```
 
-輸出看起來像這樣：
+  輸出看起來像這樣：
   ``` PowerShell
   VMName      Name                    Enabled PrimaryStatusDescription SecondaryStatusDescription
   ------      ----                    ------- ------------------------ --------------------------
@@ -45,7 +45,7 @@
    Enable-VMIntegrationService -VMName "demovm" -Name "Guest Service Interface"
    ```
 
-若您執行 `Get-VMIntegrationService -VMName "demovm"`，您會看到「客體服務介面」整合服務已啟用。
+   若您執行 `Get-VMIntegrationService -VMName "demovm"`，您會看到「客體服務介面」整合服務已啟用。
 
 3. 停用`客體服務介面`整合服務
 
@@ -58,7 +58,7 @@
 
 ## 從客體作業系統 (Windows) 管理整合服務
 
->**附註：**停用整合服務可能會嚴重影響主機管理虛擬機器的能力。 整合服務在主機與客體系統上皆必須啟用才能運作。
+> **附註：**停用整合服務可能會嚴重影響主機管理虛擬機器的能力。 整合服務在主機與客體系統上皆必須啟用才能運作。
 
 整合服務在 Windows 中會顯示為服務。 若要啟用或停用整合服務，從虛擬機器內開啟 Windows 服務管理員。
 
@@ -103,7 +103,7 @@ Linux 整合服務通常是透過 Linux 核心提供。
   lsmod | grep hv_utils
   ```
 
-輸出應該看起來像這樣：
+  輸出應該看起來像這樣：
 
   ``` BASH
   Module                  Size   Used by
@@ -117,7 +117,7 @@ Linux 整合服務通常是透過 Linux 核心提供。
   ps -ef | grep hv
   ```
 
-輸出應該看起來像這樣：
+  輸出應該看起來像這樣：
 
   ``` BASH
   root       236     2  0 Jul11 ?        00:00:00 [hv_vmbus_con]
@@ -130,12 +130,12 @@ Linux 整合服務通常是透過 Linux 核心提供。
   scooley  43774 43755  0 21:20 pts/0    00:00:00 grep --color=auto hv          
   ```
 
-若要查看可使用哪些精靈，請執行：
+  若要查看可使用哪些精靈，請執行：
   ``` BASH
   compgen -c hv_
   ```
 
-輸出應該看起來像這樣：
+  輸出應該看起來像這樣：
 
   ``` BASH
   hv_vss_daemon
@@ -146,12 +146,12 @@ Linux 整合服務通常是透過 Linux 核心提供。
   hv_fcopy_daemon     
   ```
 
-您可能會看到這些整合服務精靈：
-* **`hv_vss_daemon`** – 建立即時的 Linux 虛擬機器備份需要此精靈。
-* * *`hv_kvp_daemon`* * – 此精靈可以設定和查詢內建和外來機碼值組。
-* * *`hv_fcopy_daemon`* * – 此精靈可實作主機和客體之間的檔案複製服務。
+  您可能會看到這些整合服務精靈：
+  * **`hv_vss_daemon`** – 建立即時的 Linux 虛擬機器備份需要此精靈。
+  * **`hv_kvp_daemon`** – 此精靈可以設定及查詢內建和外來機碼值組。
+  * **`hv_fcopy_daemon`** – 此精靈可實作主機和客體之間的檔案複製服務。
 
->**附註：**如果無法使用上述整合服務精靈，可能是您的系統不支援或未安裝它們。 移至[這裡](https://technet.microsoft.com/en-us/library/dn531030.aspx)取得更多 disto 特定資訊。
+> **附註：**如果無法使用上述整合服務精靈，可能是您的系統不支援或未安裝它們。 移至[這裡](https://technet.microsoft.com/en-us/library/dn531030.aspx)取得更多 disto 特定資訊。
 
 在此範例中，我們會停止並啟動 KVP 精靈 `hv_kvp_daemon`。
 
@@ -172,7 +172,7 @@ sudo hv_kvp_daemon
 現在，如果您再次執行 `ps-ef | hv`，將會發現 `hv_kvp_daemon` 處理序有了新的處理序識別碼。
 
 
-## 整合服務的維護
+## 整合服務維護
 
 為了獲得最佳的虛擬機器效能和功能，請使用最新的整合服務。
 
@@ -188,11 +188,12 @@ sudo hv_kvp_daemon
 | -| | |
 | Windows Server 2012 R2| Windows Update| |
 | Windows Server 2012| Windows Update| 需要「資料交換」整合服務。*****|
-| Windows Server 2008 R2| Windows Update| 需要「資料交換」整合服務。*****|
-| Windows Server 2008 (SP 2)| Windows Update| 需要「資料交換」整合服務。*****|
-| Windows Home Server 2011| Windows Update| 需要「資料交換」整合服務。*****|
-| Windows Small Business Server 2011| Windows Update| 需要「資料交換」整合服務。*****|
-
+| Windows Server 2008 R2 (SP 1)| Windows Update| 需要「資料交換」整合服務。*****|
+| Windows Server 2008 (SP 2)| Windows Update| 只在 Server 2016 中提供延伸支援 ([深入了解](https://support.microsoft.com/en-us/lifecycle?p1=12925)))。|
+| Windows Home Server 2011| Windows Update| 不在 Server 2016 中提供支援 ([深入了解](https://support.microsoft.com/en-us/lifecycle?p1=15820)))。|
+| Windows Small Business Server 2011| Windows Update| 不在主流支援下 ([深入了解](https://support.microsoft.com/en-us/lifecycle?p1=15817)))。|
+| -| | |
+| Linux 客體| 封裝管理員| Linux 整合元件內建在 distro 中，但有可能是可用的選擇性更新。********|
 
 **\*** 如果無法啟用「資料交換」整合服務，可以在[這裡](https://support.microsoft.com/en-us/kb/3071740)從下載中心取得這些客體的整合元件封包檔 (cab)。 [這裡](http://blogs.technet.com/b/virtualization/archive/2015/07/24/integration-components-available-for-virtual-machines-not-connected-to-windows-update.aspx)有套用 cab 的指示。
 
@@ -216,6 +217,9 @@ sudo hv_kvp_daemon
 | Windows Small Business Server 2011| 整合服務光碟| |
 | Windows Server 2003 R2 (SP 2)| 整合服務光碟| |
 | Windows Server 2003 (SP 2)| 整合服務光碟| |
+| -| | |
+| Linux 客體| 封裝管理員| Linux 整合元件內建在 distro 中，但有可能是可用的選擇性更新。********|
+
 
 **在 Windows 8 主機上執行虛擬機器：**
 
@@ -235,12 +239,15 @@ sudo hv_kvp_daemon
 | Windows Small Business Server 2011| 整合服務光碟| |
 | Windows Server 2003 R2 (SP 2)| 整合服務光碟| |
 | Windows Server 2003 (SP 2)| 整合服務光碟| |
+| -| | |
+| Linux 客體| 封裝管理員| Linux 整合元件內建在 distro 中，但有可能是可用的選擇性更新。********|
+
 
 [這裡](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4)有透過整合服務光碟來更新 Windows 8 和 Windows 8.1 的指示。
 
-**\*\*** 在[這裡](https://technet.microsoft.com/en-us/library/dn531030.aspx)可以找到 Linux 客體的更多相關資訊。
+ **\****** 在[這裡](https://technet.microsoft.com/en-us/library/dn531030.aspx)可以找到 Linux 客體的更多相關資訊。
 
 
 
 
-<!--HONumber=Dec15_HO1-->
+<!--HONumber=Jan16_HO3-->

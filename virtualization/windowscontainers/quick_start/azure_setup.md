@@ -6,7 +6,7 @@
 
 ## 開始使用 Azure 入口網站
 
-如果您有 Azure 帳戶，請直接跳至[建立容器主機 VM](#CreateacontainerhostVM)。
+如果您有 Azure 帳戶，請跳至[建立容器主機 VM](#CreateacontainerhostVM)。
 
 1. 移至 [azure.com](https://azure.com)，並遵循 [Azure 免費試用](https://azure.microsoft.com/en-us/pricing/free-trial/)的步驟。
 2. 使用您的 Microsoft 帳戶登入。
@@ -18,7 +18,7 @@
 
 ![](./media/newazure1.png)
 
-選取映像，然後按一下 [建立]``。
+選取映像，然後按一下 `[建立]`。
 
 ![](./media/tp41.png)
 
@@ -26,11 +26,11 @@
 
 ![](media/newazure2.png)
 
-選取 [選用設定] > [端點] >，並輸入具有私人和公用連接埠 80 的 HTTP 端點，如下所示。 完成之後，按 兩次 [確定]。
+選取 [選用設定] > [端點] >，並輸入具有私人和公用連接埠 80 的 HTTP 端點，如下所示。 完成之後，按兩次 [確定]。
 
 ![](./media/newazure3.png)
 
-選取 [建立]`` 按鈕，以啟動虛擬機器部署程序。
+選取 `[建立]` 按鈕，以啟動虛擬機器部署程序。
 
 ![](media/newazure2.png)
 
@@ -56,3 +56,4 @@ VM 部署完成後，請選取 [連接] 按鈕，以啟動 Windows Server 容器
 
 
 
+<!--HONumber=Feb16_HO1-->

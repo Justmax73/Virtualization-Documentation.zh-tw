@@ -45,9 +45,9 @@ Hyper-V Requirements: A hypervisor has been detected. Features required for Hype
 
 ## 下一步 - 安裝 Hyper-V
 
-[下一步 - 安裝 Hyper-V](walkthrough_install.md)
+[安裝 Hyper-V](walkthrough_install.md)
 
 
 
 
-<!--HONumber=Dec15_HO1-->
+<!--HONumber=Feb16_HO2-->

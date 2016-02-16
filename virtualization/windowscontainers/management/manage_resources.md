@@ -21,7 +21,7 @@ PS C:\> Set-ContainerMemory -ContainerName TestContainer -MaximumBytes 256mb
 
 ### 網路頻寬
 
-在現有容器上可以設定網路頻寬限制。 若要這樣做，請使用 `Get-ContainerNetworkAdapter` 命令確定容器具有網路介面卡。 如果網路介面卡不存在，請使用 `Add-ContainerNetworkAdapter` 命令建立一個。 最後，使用 `Set-ContainerNetworkAdapter` 命令限制容器的最大輸出網路頻寬。
+在現有容器上可以設定網路頻寬限制。 若要這樣做，請使用 `Get-ContainerNetworkAdapter` 命令確定容器具有網路介面卡。 如果網路介面卡不存在，請使用 `Add-ContainerNetworkAdapter` 命令建立一個。 最後，請使用 `Set-ContainerNetworkAdapter` 命令限制容器的最大輸出網路頻寬。
 
 下列範例將最大頻寬設為 100Mbps。
 
@@ -73,8 +73,12 @@ C:\> docker run –it --cpu-shares 2 --name dockerdemo windowsservercore cmd
 - CPU 和 IO 資源控制目前尚不支援 Hyper-V 容器。
 - IO 資源控制目前尚不支援容器共用資料夾。
 
+## 視訊逐步解說
+
+<iframe src="https://channel9.msdn.com/Blogs/containers/Container-Fundamentals--Part-4-Resource-Management/player" width="800" height="450"  allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
 
 
 
 
-<!--HONumber=Jan16_HO1-->
+
+<!--HONumber=Feb16_HO1-->

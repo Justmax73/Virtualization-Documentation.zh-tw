@@ -2,11 +2,11 @@
 
 **這是初版內容，後續可能會變更。**
 
-Windows 容器技術包含兩種不同的類型的容器，即 Windows Server 容器和 Hyper-V 容器。 這兩種容器的建立、管理和運作方式都相同。 兩者的差異在於，在容器、主機作業系統，以及所有在該主機上執行的其他容器之間建立的隔離層級。
+Windows 容器技術包含兩種不同的類型的容器，即 Windows Server 容器和 Hyper-V 容器。 這兩種容器的建立、管理和運作方式都相同。 它們甚至會產生和使用相同的容器映像。 兩者的差異在於，在容器、主機作業系統，以及所有在該主機上執行的其他容器之間建立的隔離層級。
 
-**Windows Server 容器** – 多個容器在一個主機上執行，透過命名空間和處理隔離技術來提供隔離功能。
+**Windows Server 容器** – 多個容器執行個體可以在一部主機上同時執行，透過命名空間、資源控制和處理隔離技術來提供隔離功能。 Windows Server 容器會與主機及彼此共用相同的核心。
 
-**Hyper-V 容器** – 多個容器在一個主機上執行，但每個容器皆執行於公用程式虛擬機器之中。 這可在 Hyper-V 容器、容器主機和任何其他在容器主機上執行的容器之間提供核心層級隔離。
+**Hyper-V 容器** – 多個容器執行個體可以在一部主機上同時執行，但每個容器皆執行於特定虛擬機器之中。 這可在每個 Hyper-V 容器與容器主機之間提供核心層級隔離。
 
 ## Hyper-V 容器 PowerShell
 
@@ -24,7 +24,7 @@ PS C:\> $con = New-Container -Name HYPVCON -ContainerImageName NanoServer -Switc
 
 除了在建置階段將容器建立為 Hyper-V 容器以外，使用 PowerShell 建立的容器也可從 Windows Server 容器轉換為 Hyper-V 容器。
 
->目前，唯一支援容器執行階段轉換的主機作業系統是 Nano Server。
+> 目前，唯一支援容器執行階段轉換的主機作業系統是 Nano Server。
 
 使用預設執行階段建立新容器。
 
@@ -211,7 +211,11 @@ Handles  NPM(K)    PM(K)      WS(K) VM(M)   CPU(s)     Id  SI ProcessName
     243      13     1732       5512 ...18     4.23   3484   2 csrss
 ```
 
+## 視訊逐步解說
+
+<iframe src="https://channel9.msdn.com/Blogs/containers/Container-Fundamentals--Part-5-Hyper-V-Containers/player" width="800" height="450"  allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
 
 
 
-<!--HONumber=Jan16_HO1-->
+
+<!--HONumber=Feb16_HO2-->

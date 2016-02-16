@@ -42,7 +42,7 @@ PS C:\> wget -uri https://aka.ms/tp4/New-ContainerHost -OutFile c:\New-Container
 執行下列命令以建立及設定容器主機，其中，`&lt;containerhost&gt;` 是虛擬機器名稱。
 
 ``` powershell
-PS C:\> c:\New-ContainerHost.ps1 –VmName <containerhost> -WindowsImage ServerDatacenterCore -Hyperv
+PS C:\> powershell.exe -NoProfile c:\New-ContainerHost.ps1 –VmName testcont -WindowsImage ServerDatacenterCore -Hyperv
 ```
 
 指令碼開始時，系統會提示您輸入密碼。 這會是指派給系統管理員帳戶的密碼。
@@ -72,4 +72,4 @@ license terms. Please confirm you have accepted and agree to the license terms.
 
 
 
-<!--HONumber=Jan16_HO2-->
+<!--HONumber=Feb16_HO2-->

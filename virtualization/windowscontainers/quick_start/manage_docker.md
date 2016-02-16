@@ -15,7 +15,7 @@ Windows 容器可用來在單一電腦系統上快速部署許多隔離的應用
 - 已啟用巢狀虛擬化的 Windows 容器主機。
 - Windows Server 2016 媒體 - [下載](https://aka.ms/tp4/serveriso)。
 
->Microsoft Azure 不支援 Hyper-V 容器。 若要完成 Hyper-V 容器練習，您必須要有內部部署容器主機。
+> Microsoft Azure 不支援 Hyper-V 容器。 若要完成 Hyper-V 容器練習，您必須要有內部部署容器主機。
 
 ## Windows Server 容器
 
@@ -82,7 +82,7 @@ nanoserver             latest              8572198a60f1        2 weeks ago      
 
 ### 設定網路
 
-在使用 Docker 建立容器之前，必須為 Windows 防火牆建立一個允許透過網路連接到容器的規則。 請執行下列命令，以建立連接埠 80 的規則。
+在使用 Docker 建立容器之前，必須為 Windows 防火牆建立一個允許透過網路連接到容器的規則。 請執行下列 PowerShell 指令碼，以建立連接埠 80 的規則。 注意 - 必須從 PowerShell 工作階段執行。
 
 ```powershell
 if (!(Get-NetFirewallRule | where {$_.Name -eq "TCP80"})) {
@@ -217,9 +217,9 @@ C:\> docker rmi iis
 
 ## Hyper-V 容器
 
-Hyper-V 容器可提供比 Windows Server 容器更深層的隔離。 每個 Hyper-V 容器都是在高度最佳化的虛擬機器內建立的。 在 Windows Server 容器與容器主機共用核心的環境中，Hyper-V 容器是完全隔離的。 Hyper-V 容器的建立和管理方式與 Windows Server 容器完全相同。 如需 Hyper-V 容器的詳細資訊，請參閱[管理 Hyper-V 容器](../management/hyperv_container.md)。
+Hyper-V 容器可提供比 Windows Server 容器更深層的隔離。 每個 Hyper-V 容器都是在高度最佳化的虛擬機器內建立的。 在 Windows Server 容器與容器主機共用核心的環境中，Hyper-V 容器是完全隔離的。 Hyper-V 容器的建立和管理方式與 Windows Server 容器完全相同。 如需 Hyper-V 容器的詳細資訊，請參閱[Managing Hyper-V Containers](../management/hyperv_container.md)。
 
->Microsoft Azure 不支援 Hyper-V 容器。 若要完成 Hyper-V 練習，您必須要有內部部署容器主機。
+> Microsoft Azure 不支援 Hyper-V 容器。 若要完成 Hyper-V 練習，您必須要有內部部署容器主機。
 
 ### 建立容器
 
@@ -348,4 +348,4 @@ C:\> exit
 
 
 
-<!--HONumber=Jan16_HO1-->
+<!--HONumber=Feb16_HO2-->

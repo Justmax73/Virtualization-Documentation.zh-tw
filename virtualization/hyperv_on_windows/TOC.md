@@ -10,7 +10,7 @@
 
 ## [Hyper-V 上的 Linux 和 FreeBSD](https://technet.microsoft.com/library/dn531030.aspx)
 
-# 開始使用 Hyper-V
+# Windows 快速入門上的 Hyper-V
 
 ## [系統需求](quick_start/walkthrough_compatibility.md)
 
@@ -22,7 +22,7 @@
 
 ## [Hyper-V 和 PowerShell](quick_start/walkthrough_powershell.md)
 
-# 使用者指南
+# 管理 Windows 上的 Hyper-V
 
 ## [移轉和升級虛擬機器](user_guide/migrating_vms.md)
 
@@ -40,7 +40,11 @@
 
 ## [疑難排解](user_guide/troubleshooting.md)
 
-# 開發
+# 社群與支援
+
+## [Hyper-V 論壇](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home?forum=winserverhyperv)
+
+# 參考資料
 
 ## [Hyper-V PowerShell](https://technet.microsoft.com/library/hh848559.aspx)
 
@@ -52,9 +56,5 @@
 
 ## [Hyper-V 架構](https://msdn.microsoft.com/en-us/library/cc768520(v=bts.10).aspx)
 
-# 聯繫社群和支援
 
-## [Hyper-V 論壇](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home?forum=winserverhyperv)
-
-
-<!--HONumber=Feb16_HO1-->
+<!--HONumber=Feb16_HO2-->
