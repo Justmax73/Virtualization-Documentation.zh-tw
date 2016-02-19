@@ -1,5 +1,5 @@
 {
-  "LastProcessedCommit": "a828dc35428d853039a0677e622fd1a42e845d66",
+  "LastProcessedCommit": "c7b3e9f03465892b4cf6fdf4606404c758fd3844",
   "LastTranslatedCommit": "dde71bc2230b005fad6554b95e1c03ea7d0ebf10",
   "Items": {
     "5090f6d60b5cbdce0990242d795d9e4e3736e791": {
@@ -6171,7 +6171,7 @@
     },
     "22320b32fb8af15c2e7125ec4f50c2b19643b9bf": {
       "FileHash": "22320b32fb8af15c2e7125ec4f50c2b19643b9bf",
-      "SourceFileCommit": "a828dc35428d853039a0677e622fd1a42e845d66",
+      "SourceFileCommit": "c7b3e9f03465892b4cf6fdf4606404c758fd3844",
       "SourceFilePath": "virtualization\\windowscontainers\\deployment\\media\\nssm1.png",
       "HandoffReason": 2,
       "DependencyFrom": [
@@ -6181,8 +6181,8 @@
         "virtualization\\windowscontainers\\deployment\\media\\nssm1.png"
       ],
       "HandoffFilePath": "ol-handoff\\Microsoft\\Virtualization-Documentation-Private.zh-tw\\live\\22320b32fb8af15c2e7125ec4f50c2b19643b9bf.png",
-      "HandoffFileCommit": "b4233f46cdf5dbd13804d7fd3770389ca5b61a67",
-      "HandoffDateTime": "2016-02-19T05:51:17.2182773Z",
+      "HandoffFileCommit": "0171382b91b6a4db1ceafbd5a63b9067b8e78104",
+      "HandoffDateTime": "2016-02-19T21:01:55.9805989Z",
       "HandoffException": null,
       "HandoffFailureTimes": 0,
       "TargetFileCommit": null,
