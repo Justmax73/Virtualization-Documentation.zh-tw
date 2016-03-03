@@ -1,35 +1,19 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 2
+ Total Files | 1
 
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\hyperv_on_windows\about\hyperv_on_windows.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/9fa08505c2d0a6d0da4f0ee778cab1a6c301481b/virtualization/hyperv_on_windows/about/hyperv_on_windows.md) | OutofSyncHandedBackSuccess | [Details](#cb834b4fe44e1716864babc1bfdb20936ebc1d7480)
- [virtualization\windowscontainers\deployment\media\nssm1.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/9fa08505c2d0a6d0da4f0ee778cab1a6c301481b/virtualization/windowscontainers/deployment/media/nssm1.png) | OutofSyncHandedBackSuccess | [Details](#22320b32fb8af15c2e7125ec4f50c2b19643b9bf215)
+ [virtualization\windowscontainers\deployment\media\nssm1.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/7a342efe17ad9a9cdb2526af8be267d3d8159c4e/virtualization/windowscontainers/deployment/media/nssm1.png) | OutofSyncHandedBackSuccess | [Details](#22320b32fb8af15c2e7125ec4f50c2b19643b9bf215)
 
 ## Item Details
-##### <a name='cb834b4fe44e1716864babc1bfdb20936ebc1d7480'></a> Source: [virtualization\hyperv_on_windows\about\hyperv_on_windows.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/9fa08505c2d0a6d0da4f0ee778cab1a6c301481b/virtualization/hyperv_on_windows/about/hyperv_on_windows.md)
+##### <a name='22320b32fb8af15c2e7125ec4f50c2b19643b9bf215'></a> Source: [virtualization\windowscontainers\deployment\media\nssm1.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/7a342efe17ad9a9cdb2526af8be267d3d8159c4e/virtualization/windowscontainers/deployment/media/nssm1.png)
 * Status: OutofSyncHandedBackSuccess
 * Target File: 
-* Handoff File: [hyperv_on_windows.d9da0ac74ee24f28f940324928905e38e074d9e2.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/693b3e199646afe62e3e967e430847f83f19e6a8/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/hyperv_on_windows.d9da0ac74ee24f28f940324928905e38e074d9e2.zh-tw.xlf)
-* Handoff Datetime: 2016-03-03 21:24:36
-* Handoff Reason: Include
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
-* Handback File: 
-* Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\hyperv_on_windows\about\hyperv_on_windows.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/3d25a194e9edb7ed5a0ed326cddf95a89a1b067c/virtualization/hyperv_on_windows/about/hyperv_on_windows.md)
-* Current Handback File: [hyperv_on_windows.d9da0ac74ee24f28f940324928905e38e074d9e2.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/b509d32091a37189d7430b047052fd66e1fbed57/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/hyperv_on_windows.d9da0ac74ee24f28f940324928905e38e074d9e2.zh-tw.xlf)
-* Current Handback Datetime: 2016-01-04 21:53:37
-* [Back to Top](#report-top)
-
-##### <a name='22320b32fb8af15c2e7125ec4f50c2b19643b9bf215'></a> Source: [virtualization\windowscontainers\deployment\media\nssm1.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/9fa08505c2d0a6d0da4f0ee778cab1a6c301481b/virtualization/windowscontainers/deployment/media/nssm1.png)
-* Status: OutofSyncHandedBackSuccess
-* Target File: 
-* Handoff File: [22320b32fb8af15c2e7125ec4f50c2b19643b9bf.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/693b3e199646afe62e3e967e430847f83f19e6a8/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/22320b32fb8af15c2e7125ec4f50c2b19643b9bf.png)
-* Handoff Datetime: 2016-03-03 21:24:36
+* Handoff File: [22320b32fb8af15c2e7125ec4f50c2b19643b9bf.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/82817a1126aa11caa990a0e397e882a10687c127/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/22320b32fb8af15c2e7125ec4f50c2b19643b9bf.png)
+* Handoff Datetime: 2016-03-03 22:14:22
 * Handoff Reason: IsDependency
 * Archive File: 
 * Archive Datetime: 0001-01-01 00:00:00
