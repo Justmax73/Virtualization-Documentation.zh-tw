@@ -1,19 +1,20 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 1
+ Total Files | 2
 
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\windowscontainers\deployment\media\nssm1.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/bed07110983dc57e98d4a4e7d669d96be72d2205/virtualization/windowscontainers/deployment/media/nssm1.png) | OutofSyncHandedBackSuccess | [Details](#22320b32fb8af15c2e7125ec4f50c2b19643b9bf215)
+ [virtualization\windowscontainers\deployment\media\nssm1.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/097451ac3b5f7e2bcf970cbabf7c226f2f760662/virtualization/windowscontainers/deployment/media/nssm1.png) | OutofSyncHandedBackSuccess | [Details](#22320b32fb8af15c2e7125ec4f50c2b19643b9bf215)
+ [virtualization\windowscontainers\quick_start\manage_powershell.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/097451ac3b5f7e2bcf970cbabf7c226f2f760662/virtualization/windowscontainers/quick_start/manage_powershell.md) | OutofSyncHandedBackSuccess | [Details](#6ae7df8521332b1b6086e68ede218645a51d9431245)
 
 ## Item Details
-##### <a name='22320b32fb8af15c2e7125ec4f50c2b19643b9bf215'></a> Source: [virtualization\windowscontainers\deployment\media\nssm1.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/bed07110983dc57e98d4a4e7d669d96be72d2205/virtualization/windowscontainers/deployment/media/nssm1.png)
+##### <a name='22320b32fb8af15c2e7125ec4f50c2b19643b9bf215'></a> Source: [virtualization\windowscontainers\deployment\media\nssm1.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/097451ac3b5f7e2bcf970cbabf7c226f2f760662/virtualization/windowscontainers/deployment/media/nssm1.png)
 * Status: OutofSyncHandedBackSuccess
 * Target File: 
-* Handoff File: [22320b32fb8af15c2e7125ec4f50c2b19643b9bf.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/82817a1126aa11caa990a0e397e882a10687c127/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/22320b32fb8af15c2e7125ec4f50c2b19643b9bf.png)
-* Handoff Datetime: 2016-03-04 06:03:32
+* Handoff File: [22320b32fb8af15c2e7125ec4f50c2b19643b9bf.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/9857321fd9f48e7158ed425a4be0a42d3eb6128e/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/22320b32fb8af15c2e7125ec4f50c2b19643b9bf.png)
+* Handoff Datetime: 2016-03-04 19:21:23
 * Handoff Reason: IsDependency
 * Archive File: 
 * Archive Datetime: 0001-01-01 00:00:00
@@ -23,6 +24,21 @@
 * Current Handback File: [312f08a0f7c0c08c7a7f0c005b76bc4ee38d6bc4.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/b509d32091a37189d7430b047052fd66e1fbed57/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/312f08a0f7c0c08c7a7f0c005b76bc4ee38d6bc4.png)
 * Current Handback Datetime: 2016-01-04 21:53:37
 * Dependency From: virtualization\windowscontainers\deployment\docker_windows.md
+* [Back to Top](#report-top)
+
+##### <a name='6ae7df8521332b1b6086e68ede218645a51d9431245'></a> Source: [virtualization\windowscontainers\quick_start\manage_powershell.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/097451ac3b5f7e2bcf970cbabf7c226f2f760662/virtualization/windowscontainers/quick_start/manage_powershell.md)
+* Status: OutofSyncHandedBackSuccess
+* Target File: 
+* Handoff File: [manage_powershell.fccfd13be3f4bd16afbe4f31a5ca5ed4e93806b7.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/9857321fd9f48e7158ed425a4be0a42d3eb6128e/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/manage_powershell.fccfd13be3f4bd16afbe4f31a5ca5ed4e93806b7.zh-tw.xlf)
+* Handoff Datetime: 2016-03-04 19:21:23
+* Handoff Reason: Include
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: 
+* Handback Datetime: 0001-01-01 00:00:00
+* Current Target File: [virtualization\windowscontainers\quick_start\manage_powershell.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/162c1204ec79d4f6f7b8295351333605450136d4/virtualization/windowscontainers/quick_start/manage_powershell.md)
+* Current Handback File: [manage_powershell.fccfd13be3f4bd16afbe4f31a5ca5ed4e93806b7.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/598b160bf6c627fc50542c7072ba383cc8678493/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/manage_powershell.fccfd13be3f4bd16afbe4f31a5ca5ed4e93806b7.zh-tw.xlf)
+* Current Handback Datetime: 2016-02-10 22:41:04
 * [Back to Top](#report-top)
 
 
