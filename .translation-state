@@ -1,6 +1,6 @@
 {
   "LastProcessedCommit": "2e6ddd8b9c0f52c1e11d53ab1ddc007ed53ed816",
-  "LastTranslatedCommit": "b9b368375c08ec1564b9f3d83f814f0f9e35981b",
+  "LastTranslatedCommit": "2d0bb97c8a0433bbaacfb9c771610e837e25115d",
   "Items": {
     "5090f6d60b5cbdce0990242d795d9e4e3736e791": {
       "FileHash": "5090f6d60b5cbdce0990242d795d9e4e3736e791",
@@ -6409,14 +6409,14 @@
       "HandoffPriority": "",
       "HandoffException": null,
       "HandoffFailureTimes": 0,
-      "TargetFileCommit": "b9b368375c08ec1564b9f3d83f814f0f9e35981b",
+      "TargetFileCommit": "2d0bb97c8a0433bbaacfb9c771610e837e25115d",
       "TargetFilePath": "virtualization\\windowscontainers\\deployment\\media\\nssm1.png",
       "HandbackFilePath": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.zh-tw\\live\\22320b32fb8af15c2e7125ec4f50c2b19643b9bf.png",
-      "HandbackFileCommit": "f1ac9e86325f98fadf0155c31877710ce8bb4fdf",
-      "HandbackDateTime": "2016-03-10T01:25:46.5470082Z",
+      "HandbackFileCommit": "b8e428efa3d8eff2dcb55beb22d87b4455ca4347",
+      "HandbackDateTime": "2016-03-16T05:14:14.1563727Z",
       "HandbackException": null,
       "HandbackFailureTimes": 0,
-      "UpdatedDateTime": "2016-03-10T01:25:46.5470082Z",
+      "UpdatedDateTime": "2016-03-16T05:14:14.1563727Z",
       "ArchiveFilePath": null,
       "ArchiveFileCommit": null,
       "ArchiveFileDateTime": "0001-01-01T00:00:00",
