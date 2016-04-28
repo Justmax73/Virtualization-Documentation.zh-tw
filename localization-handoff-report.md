@@ -1,11 +1,29 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 0
+ Total Files | 1
 
 ## File List
+ Source File | Status | Details 
+ ----------- | ------ | ------- 
+ [virtualization\windowscontainers\deployment\docker_windows.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/a0fd345c945b111324238f3f108d02885f56312d/virtualization/windowscontainers/deployment/docker_windows.md) | OutofSyncHandedBackSuccess | [Details](#4497da6c5df56b26d0e3f9e15cd016042aaa2756226)
 
 ## Item Details
+##### <a name='4497da6c5df56b26d0e3f9e15cd016042aaa2756226'></a> Source: [virtualization\windowscontainers\deployment\docker_windows.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/a0fd345c945b111324238f3f108d02885f56312d/virtualization/windowscontainers/deployment/docker_windows.md)
+* Status: OutofSyncHandedBackSuccess
+* Target File: 
+* Handoff File: [docker_windows.48c2b5c855b2e2f9c878a0dd97aec82b1b8b1a92.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/4b1b1e1280ca17c5211c50f1f2686cab893f1838/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/docker_windows.48c2b5c855b2e2f9c878a0dd97aec82b1b8b1a92.zh-tw.xlf)
+* Handoff Datetime: 2016-04-28 17:11:01
+* Handoff Reason: Include
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: 
+* Handback Datetime: 0001-01-01 00:00:00
+* Current Target File: [virtualization\windowscontainers\deployment\docker_windows.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/39a0e84505b34214c2f7446a34a5ae075007f023/virtualization/windowscontainers/deployment/docker_windows.md)
+* Current Handback File: [docker_windows.48c2b5c855b2e2f9c878a0dd97aec82b1b8b1a92.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/76da28e9cc40b6b8c65c6493852d3165ed3b6bbe/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/docker_windows.48c2b5c855b2e2f9c878a0dd97aec82b1b8b1a92.zh-tw.xlf)
+* Current Handback Datetime: 2016-02-03 21:59:38
+* [Back to Top](#report-top)
+
 
 ## Error Details
 
