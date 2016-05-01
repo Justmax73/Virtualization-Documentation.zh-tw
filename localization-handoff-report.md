@@ -6,21 +6,21 @@
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\windowscontainers\deployment\docker_windows.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/bd8e1b7d1c2994b577279a4545607165abbb8523/virtualization/windowscontainers/deployment/docker_windows.md) | OutofSyncHandedBackSuccess | [Details](#4110917190df7cef09bb546d199db7b429bb87ca226)
+ [virtualization\hyperv_on_windows\user_guide\vmsession.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/d6ac86f70e92653dda66d4933f36fcd2b565c770/virtualization/hyperv_on_windows/user_guide/vmsession.md) | OutofSyncHandedBackSuccess | [Details](#014dcd52e7b7cc688806af47d6ffd498b0a1a853206)
 
 ## Item Details
-##### <a name='4110917190df7cef09bb546d199db7b429bb87ca226'></a> Source: [virtualization\windowscontainers\deployment\docker_windows.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/bd8e1b7d1c2994b577279a4545607165abbb8523/virtualization/windowscontainers/deployment/docker_windows.md)
+##### <a name='014dcd52e7b7cc688806af47d6ffd498b0a1a853206'></a> Source: [virtualization\hyperv_on_windows\user_guide\vmsession.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/d6ac86f70e92653dda66d4933f36fcd2b565c770/virtualization/hyperv_on_windows/user_guide/vmsession.md)
 * Status: OutofSyncHandedBackSuccess
 * Target File: 
-* Handoff File: [docker_windows.48c2b5c855b2e2f9c878a0dd97aec82b1b8b1a92.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/a86e963c06ce4b744121ba6645822729d932af70/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/docker_windows.48c2b5c855b2e2f9c878a0dd97aec82b1b8b1a92.zh-tw.xlf)
-* Handoff Datetime: 2016-04-29 22:11:46
+* Handoff File: [vmsession.5b8e9c3583d826412e0ae8e2f58f1deca9901582.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/88538f0f288b637968ac3b932a213e4de53c0fa3/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/vmsession.5b8e9c3583d826412e0ae8e2f58f1deca9901582.zh-tw.xlf)
+* Handoff Datetime: 2016-05-01 00:17:48
 * Handoff Reason: Include
 * Archive File: 
 * Archive Datetime: 0001-01-01 00:00:00
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\windowscontainers\deployment\docker_windows.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/39a0e84505b34214c2f7446a34a5ae075007f023/virtualization/windowscontainers/deployment/docker_windows.md)
-* Current Handback File: [docker_windows.48c2b5c855b2e2f9c878a0dd97aec82b1b8b1a92.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/76da28e9cc40b6b8c65c6493852d3165ed3b6bbe/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/docker_windows.48c2b5c855b2e2f9c878a0dd97aec82b1b8b1a92.zh-tw.xlf)
+* Current Target File: [virtualization\hyperv_on_windows\user_guide\vmsession.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/39a0e84505b34214c2f7446a34a5ae075007f023/virtualization/hyperv_on_windows/user_guide/vmsession.md)
+* Current Handback File: [vmsession.5b8e9c3583d826412e0ae8e2f58f1deca9901582.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/76da28e9cc40b6b8c65c6493852d3165ed3b6bbe/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/vmsession.5b8e9c3583d826412e0ae8e2f58f1deca9901582.zh-tw.xlf)
 * Current Handback Datetime: 2016-02-03 21:59:38
 * [Back to Top](#report-top)
 
