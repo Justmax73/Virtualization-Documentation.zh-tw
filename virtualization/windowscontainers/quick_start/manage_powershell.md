@@ -1,6 +1,6 @@
-
-
-
+---
+author: neilpeterson
+---
 
 # Windows 容器快速入門 - PowerShell
 
@@ -281,7 +281,7 @@ HYPV Off   00:00:00 NanoServer
 在容器主機上建立名為 `c:\share\en-us` 的目錄。
 
 ```powershell
-S C:\> New-Item -Type Directory c:\share\en-us
+PS C:\> New-Item -Type Directory c:\share\en-us
 
     Directory: C:\share
 
@@ -500,7 +500,7 @@ PS C:\> Enter-PSSession -ContainerName IISApp -RunAsAdministrator
 執行下列命令以移除 IIS 啟動顯示畫面。
 
 ```powershell
-[IIS]: PS C:\> del C:\inetpub\wwwroot\iisstart.htm
+[IISApp]: PS C:\> del C:\inetpub\wwwroot\iisstart.htm
 ```
 執行下列命令，將預設 IIS 網站取代為新的靜態網站。
 
@@ -523,6 +523,6 @@ exit
 
 
 
-<!--HONumber=Feb16_HO3-->
+<!--HONumber=Mar16_HO1-->
 
 

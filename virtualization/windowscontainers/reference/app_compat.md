@@ -1,6 +1,6 @@
-
-
-
+---
+author: scooley
+---
 
 # Windows 容器中的應用程式相容性
 
@@ -29,7 +29,7 @@
 | ASP.NET| 5 beta 6| [是]| [是]| 兩者，x64 和 x86|
 | Django| | [是]| [是]| |
 | Go| 1.4.2| [是]| [是]| |
-| Internet Information Service| 10.0| [是]| [是]| 如果載入 dedup 篩選器，VC++ 執行階段就無法安裝。使用 `fltmc unload dedup` 卸載 dedup|
+| Internet Information Service| 10.0| [是]| 是| HTTPS/TLS 無法運作。如果載入 dedup 篩選器，VC++ 執行階段就無法安裝。使用 `fltmc unload dedup` 卸載 dedup|
 | Java| 1.8.0_51| [是]| [是]| 使用伺服器版本。用戶端版本未正確安裝|
 | MongoDB| 3.0.4| [是]| 不明| |
 | MySQL| 5.6.26| [是]| [是]| |
@@ -59,7 +59,7 @@
 | ASP.NET| 5 beta 6| [是]| 兩者，x64 和 x86|
 | Django| | [是]| 如果使用 DockerFile 建立映像，並將 python 二進位檔複製於其中，Python 即無法運作。啟動容器，然後複製 python 二進位檔。|
 | Go| 1.4.2| [是]| |
-| Internet Information Service| 10.0| [是]| IIS 無法直接使用 dism 進行安裝。使用 dism 命令執行 IIS 的自動安裝。|
+| Internet Information Service| 10.0| 是| HTTPS/TLS 無法運作。IIS 無法直接使用 dism 進行安裝。使用 dism 命令執行 IIS 的自動安裝。|
 | Java| 1.8.0_51| [是]| 使用伺服器版本。用戶端版本未正確安裝|
 | MySQL| 5.6.26| [是]| |
 | NGinx| 1.9.3| [是]| |
@@ -79,6 +79,6 @@
 
 
 
-<!--HONumber=Feb16_HO3-->
+<!--HONumber=Mar16_HO2-->
 
 
