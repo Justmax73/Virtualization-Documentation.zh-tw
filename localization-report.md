@@ -1668,9 +1668,9 @@
 * Archive Datetime: 0001-01-01 00:00:00
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\hyperv_on_windows\develop\tlfs.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/6484c4d41177d2a092c3f3e3d7f509eaf1e157da/virtualization/hyperv_on_windows/develop/tlfs.md)
-* Current Handback File: [tlfs.09da6c81a2f6035a13f0b2354b5f7fb114ee2f27.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/355a2419e98adffd684f41f97eb9caefc6dcb88d/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/tlfs.09da6c81a2f6035a13f0b2354b5f7fb114ee2f27.zh-tw.xlf)
-* Current Handback Datetime: 2016-05-04 07:48:45
+* Current Target File: [virtualization\hyperv_on_windows\develop\tlfs.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/7946d26df5d84cb7ef69e40c3572e6a6b76dbf34/virtualization/hyperv_on_windows/develop/tlfs.md)
+* Current Handback File: [tlfs.09da6c81a2f6035a13f0b2354b5f7fb114ee2f27.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/2f8395a09ca7e1c113ee0593aa79210bf2cf3c32/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/tlfs.09da6c81a2f6035a13f0b2354b5f7fb114ee2f27.zh-tw.xlf)
+* Current Handback Datetime: 2016-05-04 08:29:50
 * [Back to Top](#report-top)
 
 ##### <a name='360b3c1279ae100996ef862613d60953795f284396'></a> Source: [virtualization\hyperv_on_windows\docfx.json](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/1b5bed6708c414f32715438b5596a85071997178/virtualization/hyperv_on_windows/docfx.json)
@@ -2708,9 +2708,9 @@
 * Archive Datetime: 0001-01-01 00:00:00
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\hyperv_on_windows\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/6484c4d41177d2a092c3f3e3d7f509eaf1e157da/virtualization/hyperv_on_windows/TOC.md)
-* Current Handback File: [TOC.dc6d280c11d16ece7fbc1f22991c5fc34412dd1a.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/355a2419e98adffd684f41f97eb9caefc6dcb88d/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/TOC.dc6d280c11d16ece7fbc1f22991c5fc34412dd1a.zh-tw.xlf)
-* Current Handback Datetime: 2016-05-04 07:48:45
+* Current Target File: [virtualization\hyperv_on_windows\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/7946d26df5d84cb7ef69e40c3572e6a6b76dbf34/virtualization/hyperv_on_windows/TOC.md)
+* Current Handback File: [TOC.dc6d280c11d16ece7fbc1f22991c5fc34412dd1a.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/2f8395a09ca7e1c113ee0593aa79210bf2cf3c32/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/TOC.dc6d280c11d16ece7fbc1f22991c5fc34412dd1a.zh-tw.xlf)
+* Current Handback Datetime: 2016-05-04 08:29:50
 * [Back to Top](#report-top)
 
 ##### <a name='1d0df624e4410c1b14edd7f039ae84ad31c80cfe179'></a> Source: [virtualization\hyperv_on_windows\user_guide\checkpoints.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/e14ede0a2b13de08cea0a955b37a21a150fb88cf/virtualization/hyperv_on_windows/user_guide/checkpoints.md)
@@ -3112,9 +3112,9 @@
 * Archive Datetime: 0001-01-01 00:00:00
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\windowscontainers\about\about_overview.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/6484c4d41177d2a092c3f3e3d7f509eaf1e157da/virtualization/windowscontainers/about/about_overview.md)
-* Current Handback File: [about_overview.128dd77ccb6c6a944b03f43ade40980cc30f0f48.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/355a2419e98adffd684f41f97eb9caefc6dcb88d/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/about_overview.128dd77ccb6c6a944b03f43ade40980cc30f0f48.zh-tw.xlf)
-* Current Handback Datetime: 2016-05-04 07:48:45
+* Current Target File: [virtualization\windowscontainers\about\about_overview.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/7946d26df5d84cb7ef69e40c3572e6a6b76dbf34/virtualization/windowscontainers/about/about_overview.md)
+* Current Handback File: [about_overview.128dd77ccb6c6a944b03f43ade40980cc30f0f48.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/2f8395a09ca7e1c113ee0593aa79210bf2cf3c32/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/about_overview.128dd77ccb6c6a944b03f43ade40980cc30f0f48.zh-tw.xlf)
+* Current Handback Datetime: 2016-05-04 08:29:50
 * [Back to Top](#report-top)
 
 ##### <a name='c976d6361222a2e679a3c968ec09ef21890fc9fc209'></a> Source: [virtualization\windowscontainers\about\container_ecosystem.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/4200cc3aa78d6eaf3d43a62ea143ec376f16813d/virtualization/windowscontainers/about/container_ecosystem.md)
@@ -3336,9 +3336,9 @@
 * Archive Datetime: 0001-01-01 00:00:00
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\windowscontainers\deployment\deployment_nano.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/6484c4d41177d2a092c3f3e3d7f509eaf1e157da/virtualization/windowscontainers/deployment/deployment_nano.md)
-* Current Handback File: [deployment_nano.b4ad903b48200665d4d0c8e4d0956bddc0d52f79.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/355a2419e98adffd684f41f97eb9caefc6dcb88d/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/deployment_nano.b4ad903b48200665d4d0c8e4d0956bddc0d52f79.zh-tw.xlf)
-* Current Handback Datetime: 2016-05-04 07:48:45
+* Current Target File: [virtualization\windowscontainers\deployment\deployment_nano.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/7946d26df5d84cb7ef69e40c3572e6a6b76dbf34/virtualization/windowscontainers/deployment/deployment_nano.md)
+* Current Handback File: [deployment_nano.b4ad903b48200665d4d0c8e4d0956bddc0d52f79.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/2f8395a09ca7e1c113ee0593aa79210bf2cf3c32/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/deployment_nano.b4ad903b48200665d4d0c8e4d0956bddc0d52f79.zh-tw.xlf)
+* Current Handback Datetime: 2016-05-04 08:29:50
 * [Back to Top](#report-top)
 
 ##### <a name='0ed4e7f3c2e9e6a4109dca29c04b3ba6738d3903226'></a> Source: [virtualization\windowscontainers\deployment\docker_windows.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/4254e2a396a76281bb22ef44beb82bfcb55a10ed/virtualization/windowscontainers/deployment/docker_windows.md)
@@ -3705,9 +3705,9 @@
 * Archive Datetime: 0001-01-01 00:00:00
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\windowscontainers\management\manage_images.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/6484c4d41177d2a092c3f3e3d7f509eaf1e157da/virtualization/windowscontainers/management/manage_images.md)
-* Current Handback File: [manage_images.6d8d709cbc19bb63cc7d4553991616c57920cdfd.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/355a2419e98adffd684f41f97eb9caefc6dcb88d/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/manage_images.6d8d709cbc19bb63cc7d4553991616c57920cdfd.zh-tw.xlf)
-* Current Handback Datetime: 2016-05-04 07:48:45
+* Current Target File: [virtualization\windowscontainers\management\manage_images.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/7946d26df5d84cb7ef69e40c3572e6a6b76dbf34/virtualization/windowscontainers/management/manage_images.md)
+* Current Handback File: [manage_images.6d8d709cbc19bb63cc7d4553991616c57920cdfd.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/2f8395a09ca7e1c113ee0593aa79210bf2cf3c32/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/manage_images.6d8d709cbc19bb63cc7d4553991616c57920cdfd.zh-tw.xlf)
+* Current Handback Datetime: 2016-05-04 08:29:50
 * [Back to Top](#report-top)
 
 ##### <a name='1279da0edb01246459d9f32aa7450b6bb7901592254'></a> Source: [virtualization\windowscontainers\management\manage_resources.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/e14ede0a2b13de08cea0a955b37a21a150fb88cf/virtualization/windowscontainers/management/manage_resources.md)
@@ -3890,9 +3890,9 @@
 * Archive Datetime: 0001-01-01 00:00:00
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\windowscontainers\quick_start\azure_setup.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/6484c4d41177d2a092c3f3e3d7f509eaf1e157da/virtualization/windowscontainers/quick_start/azure_setup.md)
-* Current Handback File: [azure_setup.efbdfa56db2e296be3a4b34d7841c826cfcc65b5.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/355a2419e98adffd684f41f97eb9caefc6dcb88d/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/azure_setup.efbdfa56db2e296be3a4b34d7841c826cfcc65b5.zh-tw.xlf)
-* Current Handback Datetime: 2016-05-04 07:48:45
+* Current Target File: [virtualization\windowscontainers\quick_start\azure_setup.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/7946d26df5d84cb7ef69e40c3572e6a6b76dbf34/virtualization/windowscontainers/quick_start/azure_setup.md)
+* Current Handback File: [azure_setup.efbdfa56db2e296be3a4b34d7841c826cfcc65b5.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/2f8395a09ca7e1c113ee0593aa79210bf2cf3c32/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/azure_setup.efbdfa56db2e296be3a4b34d7841c826cfcc65b5.zh-tw.xlf)
+* Current Handback Datetime: 2016-05-04 08:29:50
 * [Back to Top](#report-top)
 
 ##### <a name='641ec262943d9b564fb8506caabe7732a82a7370268'></a> Source: [virtualization\windowscontainers\quick_start\container_setup.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/745b0b26e15ec1179e8b55cd1b3d2ab3e3fe34d2/virtualization/windowscontainers/quick_start/container_setup.md)
@@ -3905,9 +3905,9 @@
 * Archive Datetime: 0001-01-01 00:00:00
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\windowscontainers\quick_start\container_setup.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/6484c4d41177d2a092c3f3e3d7f509eaf1e157da/virtualization/windowscontainers/quick_start/container_setup.md)
-* Current Handback File: [container_setup.08ea6a3e6a859d063eb84a0b25eb20db0b7bdd52.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/355a2419e98adffd684f41f97eb9caefc6dcb88d/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/container_setup.08ea6a3e6a859d063eb84a0b25eb20db0b7bdd52.zh-tw.xlf)
-* Current Handback Datetime: 2016-05-04 07:48:45
+* Current Target File: [virtualization\windowscontainers\quick_start\container_setup.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/7946d26df5d84cb7ef69e40c3572e6a6b76dbf34/virtualization/windowscontainers/quick_start/container_setup.md)
+* Current Handback File: [container_setup.08ea6a3e6a859d063eb84a0b25eb20db0b7bdd52.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/2f8395a09ca7e1c113ee0593aa79210bf2cf3c32/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/container_setup.08ea6a3e6a859d063eb84a0b25eb20db0b7bdd52.zh-tw.xlf)
+* Current Handback Datetime: 2016-05-04 08:29:50
 * [Back to Top](#report-top)
 
 ##### <a name='abc60480f9b0b1f5df24c9acb5d0ff47a7423c95269'></a> Source: [virtualization\windowscontainers\quick_start\inplace_setup.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/af065ec180f1b5de9e40ef269e7278a16b0c3b7f/virtualization/windowscontainers/quick_start/inplace_setup.md)
