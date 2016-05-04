@@ -1,6 +1,6 @@
-
-
-
+---
+author: neilpeterson
+---
 
 # Azure 快速入門
 
@@ -46,6 +46,16 @@ VM 部署完成後，請選取 [連接] 按鈕，以啟動 Windows Server 容器
 
 ![](media/newazure7.png)
 
+## 更新 Docker 引擎
+
+若要搭配 Azure Windows 容器技術預覽映像使用 `docker pull`，必須更新Docker 引擎。 請在 Azure 虛擬機器上執行下列 PowerShell 命令，以完成這項更新。
+
+```powershell
+PS C:\> wget https://raw.githubusercontent.com/Microsoft/Virtualization-Documentation/live/windows-server-container-tools/Update-ContainerHost/Update-ContainerHost.ps1 -OutFile Update-ContainerHost.ps1
+
+PS C:\> ./Update-ContainerHost.ps1
+```
+
 ## 視訊逐步解說
 
 <iframe src="https://channel9.msdn.com/Blogs/containers/Quick-Start-Configure-Windows-Server-Containers-in-Microsoft-Azure/player#ccLang=zh-tw" width="800" height="450"  allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
@@ -62,6 +72,6 @@ VM 部署完成後，請選取 [連接] 按鈕，以啟動 Windows Server 容器
 
 
 
-<!--HONumber=Feb16_HO3-->
+<!--HONumber=Mar16_HO3-->
 
 

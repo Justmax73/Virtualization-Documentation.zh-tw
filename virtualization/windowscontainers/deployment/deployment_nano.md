@@ -1,6 +1,6 @@
-
-
-
+---
+author: neilpeterson
+---
 
 
 # 容器主機部署 - Nano Server
@@ -182,6 +182,11 @@ NanoServer        CN=Microsoft 10.0.10586.0 True
 
 Docker 精靈和命令列介面並未隨附於 Windows，且不會隨 Windows 容器功能一起安裝。 使用 Windows 容器時不需要 Docker。 如果想要安裝 Docker，請遵循 [Docker 與 Windows](./docker_windows.md) 一文中的指示作業。
 
+您可以在 HYPER-V 管理主機中使用 `Enter-PSSession` 命令，以連線至容器主機。
+
+```powershell
+PS C:\> Enter-PSSession -VMName <VM Name>
+```
 
 ## Hyper-V 容器主機
 
@@ -232,6 +237,6 @@ PS C:\> Get-VMNetworkAdapter -VMName <VM Name> | Set-VMNetworkAdapter -MacAddres
 
 
 
-<!--HONumber=Feb16_HO4-->
+<!--HONumber=Mar16_HO3-->
 
 

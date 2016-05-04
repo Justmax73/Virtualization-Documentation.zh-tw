@@ -1,6 +1,6 @@
-
-
-
+---
+author: neilpeterson
+---
 
 # 將 Windows 容器主機部署至新的 Hyper-V 虛擬機器
 
@@ -70,6 +70,12 @@ license terms. Please confirm you have accepted and agree to the license terms.
 
 現在您已有執行 Windows 容器功能的 Windows Server 2016 系統，接下來請移至下列指南，開始使用 Windows Server 容器和 Hyper-V 容器。
 
+您可以在 HYPER-V 管理主機中使用 `Enter-PSSession` 命令，以連線至容器主機。
+
+```powershell
+PS C:\> Enter-PSSession -VMName <VM Name>
+```
+
 [快速入門：Windows 容器和 PowerShell](./manage_powershell.md)  
 [快速入門：Windows 容器和 Docker](./manage_docker.md)
 
@@ -78,6 +84,6 @@ license terms. Please confirm you have accepted and agree to the license terms.
 
 
 
-<!--HONumber=Feb16_HO4-->
+<!--HONumber=Mar16_HO3-->
 
 

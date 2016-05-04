@@ -56,11 +56,11 @@
 
 ## [Hyper-V 架構](https://msdn.microsoft.com/en-us/library/cc768520(v=bts.10).aspx)
 
-## [Hypervisor TLFS](develop/tlfs.md)
+## [Hypervisor 規格](develop/tlfs.md)
 
 
 
 
-<!--HONumber=Feb16_HO3-->
+<!--HONumber=Mar16_HO2-->
 
 

@@ -1,6 +1,6 @@
-
-
-
+---
+author: neilpeterson
+---
 
 # Windows 容器
 
@@ -16,7 +16,7 @@
 
 當您在容器內時，您會感覺像是在全新安裝的實體電腦或虛擬機器內。 同時，若是 [Docker](https://www.docker.com/)，Windows Server 容器可以用和其他任何容器一樣的方式進行管理。
 
-## Windows 容器
+## Windows 容器類型
 
 Windows 容器包含兩種不同的容器類型，或執行階段。
 
@@ -81,6 +81,6 @@ src="https://channel9.msdn.com/Blogs/containers/Containers-101-with-Microsoft-an
 
 
 
-<!--HONumber=Feb16_HO3-->
+<!--HONumber=Mar16_HO2-->
 
 
