@@ -45,7 +45,7 @@ author: scooley
 | Ruby| 2.2.2| [是]| [是]| 兩者，x64 和 x86|
 | Ruby on Rails| 4.2.3| [是]| [是]| |
 | SQLite| 3.8.11.1| [是]| 否| |
-| SQL Server Express| 2014 LocalDB| 否| 否| |
+| SQL Server Express| 2014| 是| Unknown| 此[社群貢獻 Dockerfile](https://github.com/brogersyh/Dockerfiles-for-windows/tree/master/sqlexpress) 會安裝 SQL Express 2014，您可以加以建置以便快速開始。|
 | Sysinternals Tools| *| [是]| [是]| 僅試用不需要 GUI 的部分。PsExec 在目前的設計下無法運作|
 
 ## Hyper-V 容器
