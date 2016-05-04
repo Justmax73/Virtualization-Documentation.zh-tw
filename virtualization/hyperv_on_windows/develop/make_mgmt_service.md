@@ -7,14 +7,15 @@
 舉例來說，[PowerShell Direct](../user_guide/vmsession.md) 就是使用 Hyper-V 通訊端進行通訊的應用程式 (在此案例中為隨附 Windows 服務)。
 
 **支援的主機 OS**
-* Windows 10
-* Windows Server Technical Preview 3
+* Windows 10 組建 14290 及更新版本
+* Windows Server Technical Preview 4 及更新版本
 * 未來版本 (Server 2016 +)
 
 **支援的客體 OS**
 * Windows 10
-* Windows Server Technical Preview 3
+* Windows Server Technical Preview 4 及更新版本
 * 未來版本 (Server 2016 +)
+* 使用 Linux 整合服務的 Linux 客體 (請參閱 [Supported Linux and FreeBSD virtual machines for Hyper-V on Windows](https://technet.microsoft.com/library/dn531030(ws.12).aspx)) (Windows 上 Hyper-V 支援的 Linux 及 FreeBSD 虛擬機器)
 
 **功能和限制**
 * 支援核心模式或使用者模式動作
@@ -32,7 +33,22 @@
 * C 編譯器。 如果您沒有，請查看 [Visual Studio 程式碼](https://aka.ms/vs)
 * 執行 Hyper-V 與虛擬機器的電腦。
   * 主機和客體 (VM) OS 必須是 Windows 10、Windows Server Technical Preview 3 或更新版本。
-* Windows SDK -- 從這裡可以連結至包含 `hvsocket.h` 的 [Win10 SDK](https://dev.windows.com/en-us/downloads/windows-10-sdk)。
+* 安裝於 Hyper-V 主機的 [Windows 10 SDK](http://aka.ms/flightingSDK)
+
+**Windows SDK 詳細資料**
+
+通往 Windows SDK 的連結：
+* [供測試人員預覽的 Windows 10 SDK](http://aka.ms/flightingSDK)
+* [Windows 10 SDK](https://dev.windows.com/en-us/downloads/windows-10-sdk)
+
+適用於 Hyper-V 通訊端的 API 已在 Windows 10 組建 14290 中提供使用；這是正式發行前小眾測試下載，其符合最新測試人員速成正式發行前小眾測試組建。  
+若您遇到奇怪的行為，請在 [TechNet 論壇](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home "TechNet 論壇")讓我們知道。 請在您的貼文中加入以下內容：
+* 未預期的行為
+* 主機、客體及 SDK 的 OS 與組建編號。
+
+  您可以在 SDK 安裝程式標題看到 SDK 組建編號︰  
+  ![](./media/flightingSDK.png)
+
 
 ## 註冊新的應用程式
 
@@ -49,7 +65,7 @@ $friendlyName = "HV Socket Demo"
 
 # Create a new random GUID and add it to the services list then add the name as a value
 
-$service = New-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\GuestCommunicationServices" -Name ([System.Guid]::NewGuid().ToString())
+$service = New-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\GuestCommunicationServices" -Name ((New-Guid).Guid)
 
 $service.SetValue("ElementName", $friendlyName)
 
@@ -70,7 +86,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\G
 
 若要註冊您自己的服務，請使用您自己的 GUID 和好記名稱建立新的登錄機碼。
 
-好記名稱將會與您的新應用程式相關聯。 它會出現在效能計數器中，以及其他不適用 GUID 之處。
+易記名稱將會與您的新應用程式相關聯。 它會出現在效能計數器中，以及其他不適用 GUID 之處。
 
 登錄項目將如下所示：
 ```
@@ -83,7 +99,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\G
 
 > ** 提示：** 若要在 PowerShell 中產生 GUID，請將其複製到剪貼簿，執行：
 ``` PowerShell
-[System.Guid]::NewGuid().ToString() | clip.exe
+(New-Guid).Guid | clip.exe
 ```
 
 ## 建立 Hyper-V 通訊端
@@ -104,11 +120,11 @@ SOCKET WSAAPI socket(
 
 若是 Hyper-V 通訊端：
 * 位址家族 - `AF_HYPERV`
-* 類型 - `SOCK_STREAM`、`SOCK_DGRAM` 或 `SOCK_RAW`
+* 類型 - `SOCK_STREAM`
 * 通訊協定 - `HV_PROTOCOL_RAW`
 
 
-以下是範例宣告/instanciation：
+以下是範例宣告/實例：
 ``` C
 SOCKET sock = socket(AF_HYPERV, SOCK_STREAM, HV_PROTOCOL_RAW);
 ```
@@ -144,7 +160,7 @@ struct SOCKADDR_HV
 };
 ```
 
-AF_HYPERV 端點並不依賴 IP 或主機名稱，而是相當依賴兩個 GUIDS：
+AF_HYPERV 端點並不依賴 IP 或主機名稱，而是高度依賴兩個 GUID：
 * VM ID – 這是為每個 VM 指派的唯一 ID。 VM 的 ID 可使用下列 PowerShell 指令碼片段來尋找。
   ```PowerShell
   (Get-VM -Name $VMName).Id
@@ -192,4 +208,8 @@ Accept()
 
 
 
-<!--HONumber=Feb16_HO1-->
+
+
+<!--HONumber=Mar16_HO4-->
+
+

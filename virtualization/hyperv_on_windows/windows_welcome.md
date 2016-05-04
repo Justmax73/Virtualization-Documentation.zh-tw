@@ -38,7 +38,7 @@
             <p>其他技術支援和社群資源。</p>
             <ul>
                 <li class="unordered">[Hyper-V 論壇](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home?forum=winserverhyperv)<br /><br /></li>
-                <li class="unordered">[Hyper-V 與 Windows 容器的社群資源](/virtualization/community/community_overview.md)<br /><br /></li>
+                <li class="unordered">[Hyper-V 與 Windows 容器的社群資源](/virtualization/community/community_overview)<br /><br /></li>
             </ul>   
         </td>
     </tr>
@@ -47,4 +47,8 @@
 
 
 
-<!--HONumber=Jan16_HO1-->
+
+
+<!--HONumber=Mar16_HO3-->
+
+
