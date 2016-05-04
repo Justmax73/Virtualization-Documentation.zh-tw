@@ -1,3 +1,7 @@
+
+
+
+
 # Windows 容器需求
 
 **這是初版內容，後續可能會變更。**
@@ -48,4 +52,8 @@ Windows Server Technical Preview 4 提供兩種容器作業系統映像 (Windows
 
 
 
-<!--HONumber=Jan16_HO1-->
+
+
+<!--HONumber=Feb16_HO3-->
+
+

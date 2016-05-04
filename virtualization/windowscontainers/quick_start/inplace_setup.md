@@ -1,3 +1,7 @@
+
+
+
+
 # 將 Windows 容器主機部署至現有的虛擬或實體系統
 
 本文將引導您逐步使用 PowerShell 指令碼在現有的實體或虛擬系統上部署及設定 Windows 容器角色。
@@ -54,4 +58,8 @@ PS C:\> powershell.exe -NoProfile C:\Install-ContainerHost.ps1 -HyperV
 
 
 
-<!--HONumber=Feb16_HO2-->
+
+
+<!--HONumber=Feb16_HO3-->
+
+

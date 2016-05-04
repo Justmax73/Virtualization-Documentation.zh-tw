@@ -1,3 +1,7 @@
+
+
+
+
 # Windows Server 容器管理
 
 **這是初版內容，後續可能會變更。**
@@ -21,7 +25,7 @@ NanoServer        CN=Microsoft 10.0.10584.1000 True
 WindowsServerCore CN=Microsoft 10.0.10584.1000 True
 ```
 
-使用 `New-Container` 命令建立新容器。 使用 `-ContainerComputerName` 參數也可將 NetBIOS 名稱提供給容器。
+使用 `New-Container` 命令建立新容器。 使用 `-ContainerComputerName` 參數也可為容器提供 NetBIOS 名稱。
 
 ```powershell
 PS C:\> New-Container -ContainerImageName WindowsServerCore -Name demo -ContainerComputerName demo
@@ -34,7 +38,7 @@ demo  Off   00:00:00 WindowsServerCore
 容器建立後，請將網路介面卡新增至容器。
 
 ```powershell
-PS C:\> Add-ContainerNetworkAdapter -ContainerName TST
+PS C:\> Add-ContainerNetworkAdapter -ContainerName demo
 ```
 
 若要將容器網路介面卡連接到虛擬交換器，必須要有交換器名稱。 使用 `Get-VMSwitch` 傳回虛擬交換器的清單。
@@ -48,10 +52,10 @@ DHCP External   Microsoft Hyper-V Network Adapter
 NAT  NAT
 ```
 
-使用 `Connect-ContainerNetowkrAdapter`，將網路介面卡連接到虛擬交換器。 **注意** - 建立容器時也可以使用 –SwitchName 參數完成此動作。
+使用 `Connect-ContainerNetowkrAdapter`，將網路介面卡連接到虛擬交換器。 **注意** – 建立容器時使用 -SwitchName 參數也可完成此動作。
 
 ```powershell
-PS C:\> Connect-ContainerNetworkAdapter -ContainerName TST -SwitchName NAT
+PS C:\> Connect-ContainerNetworkAdapter -ContainerName demo -SwitchName NAT
 ```
 
 ### 啟動容器
@@ -59,7 +63,7 @@ PS C:\> Connect-ContainerNetworkAdapter -ContainerName TST -SwitchName NAT
 在啟動容器時，必須列舉代表容器的 PowerShell 物件。 將 `Get-Container` 的輸出放入 PowerShell 變數中，即可完成此動作。
 
 ```powershell
-PS C:\> $container = Get-Container -Name TST
+PS C:\> $container = Get-Container -Name demo
 ```
 
 接著，這項資料將可與 `Start-Container` 命令搭配使用，以啟動容器。
@@ -81,13 +85,13 @@ PowerShell Direct 可用來連接到容器。 如果您需要手動執行安裝�
 若要建立容器的互動式工作階段，請使用 `Enter-PSSession` 命令。
 
  ```powershell
-PS C:\> Enter-PSSession -ContainerName TST –RunAsAdministrator
+PS C:\> Enter-PSSession -ContainerName demo -RunAsAdministrator
  ```
 
 請注意，在遠端 PowerShell 工作階段建立後，殼層提示即會變更，以反映容器名稱。
 
 ```powershell
-[TST]: PS C:\>
+[demo]: PS C:\>
 ```
 
 此外也可直接對容器執行命令，而無需建立持續性 PowerShell 工作階段。 若要這麼做，請使用 `Invoke-Command`。
@@ -96,12 +100,12 @@ PS C:\> Enter-PSSession -ContainerName TST –RunAsAdministrator
 
 ```powershell
 
-PS C:\> Invoke-Command -ContainerName TST -ScriptBlock {New-Item -ItemType Directory -Path c:\application }
+PS C:\> Invoke-Command -ContainerName demo -ScriptBlock {New-Item -ItemType Directory -Path c:\application }
 
 Directory: C:\
 Mode                LastWriteTime         Length Name                                                 PSComputerName
 ----                -------------         ------ ----                                                 --------------
-d-----       10/28/2015   3:31 PM                application                                          TST
+d-----       10/28/2015   3:31 PM                application                                          demo
 ```
 
 ### 停止容器
@@ -109,7 +113,7 @@ d-----       10/28/2015   3:31 PM                application                    
 若要停用容器，將需要一個代表該容器的 PowerShell 物件。 將 `Get-Container` 的輸出放入 PowerShell 變數中，即可完成此動作。
 
 ```powershell
-PS C:\> $container = Get-Container -Name TST
+PS C:\> $container = Get-Container -Name demo
 ```
 
 接著，此資料將可與 `Stop-Container` 命令搭配使用，以停止容器。
@@ -129,7 +133,7 @@ PS C:\> Get-Container | Stop-Container
 當容器已不再需要時，即可被移除。 若要移除容器，容器必須處於停止狀態，且必須建立代表容器的 PowerShell 物件。
 
 ```powershell
-PS C:\> $container = Get-Container -Name TST
+PS C:\> $container = Get-Container -Name demo
 ```
 
 若要移除容器，請使用 `Remove-Container` 命令。
@@ -199,4 +203,8 @@ dc3e282c064d
 
 
 
-<!--HONumber=Feb16_HO1-->
+
+
+<!--HONumber=Feb16_HO4-->
+
+

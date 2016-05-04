@@ -1,3 +1,7 @@
+
+
+
+
 # 使用 PowerShell 和 Docker 管理 Windows 容器的比較
 
 有許多方式可管理 Windows 容器，包括使用現成的 Windows 工具 (在此預覽中使用 PowerShell)，以及開放原始碼管理工具 (例如 Docker)。  
@@ -24,8 +28,8 @@ PowerShell 的容器系列 Cmdlet 展現的 API 和 Docker 的大不相同，一
 | `docker rm`| `Remove-Container`|
 | `docker rmi`| `Remove-ContainerImage`|
 | `docker create`| `New-Container`|
-| `docker commit <container ID>`| `New-ContainerImage -Container <container>`|
-| `docker load <tarball>`| `Import-ContainerImage <AppX package>`|
+| `docker commit <container ID>`| `New-ContainerImage -Container &lt;container&gt;`|
+| `docker load &lt;tarball&gt;`| `Import-ContainerImage <AppX package>`|
 | `docker save`| `Export-ContainerImage`|
 | `docker start`| `Start-Container`|
 | `docker stop`| `Stop-Container`|
@@ -40,10 +44,10 @@ PowerShell Cmdlet 並不是完美的同等對應，而且有很多的命令我�
 
 1.  PowerShell 模型中容器的生命週期有些許不同。 在容器 PowerShell 模組中，我們展現 `New-Container` (可建立已停止的新容器) 及 `Start-Container` 更精細的作業。
 
-    在建立與啟動容器之間，您也可以設定容器的設定。針對 TP3，我們唯一計劃提供的其他設定是為容器設定網路連線的能力。 使用 (Add/Remove/Connect/Disconnect/Get/Set)-ContainerNetworkAdapter Cmdlet。
+  在建立與啟動容器之間，您也可以設定容器的設定。針對 TP3，我們唯一計劃提供的其他設定是為容器設定網路連線的能力。 使用 (Add/Remove/Connect/Disconnect/Get/Set)-ContainerNetworkAdapter Cmdlet。
 
 2.  目前您無法在啟動容器時傳遞要在容器內執行的命令。不過，您還是可以使用 `Enter-PSSession -ContainerId <ID of a running containe>` 取得執行中容器的互動式 PowerShell 工作階段，而且可以使用 `Invoke-Command -ContainerId <container id> -ScriptBlock { code to run inside the container }` 或 `Invoke-Command -ContainerId <container id> -FilePath <path to script>` 在執行中的容器內執行命令。  
-    這兩個命令都可使用選擇性的 `-RunAsAdministrator` 旗標以進行高權限的動作。
+這兩個命令都可使用選擇性的 `-RunAsAdministrator` 旗標以進行高權限的動作。
 
 
 ## 注意事項和已知問題
@@ -185,5 +189,10 @@ function Run-Container ([string]$ContainerImageName, [string]$Name="fancy_name",
 
 我們正在「進行的工作」文件中追蹤在 Docker API 中有作用和沒有作用的東西。
 
+
+
+
+
+<!--HONumber=Feb16_HO3-->
 
 

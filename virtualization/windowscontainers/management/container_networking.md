@@ -1,3 +1,7 @@
+
+
+
+
 # 容器的網路功能
 
 **這是初版內容，後續可能會變更。**
@@ -106,7 +110,7 @@ Get-VMNetworkAdapter -VMName DemoVM | Set-VMNetworkAdapter -MacAddressSpoofing O
 啟動 Docker 精靈時，可以選取網路橋接器。 在 Windows 上執行 Docker 時，這是外部或 NAT 虛擬交換器。 下列範例會啟動 Docker 精靈，並指定名為 `Virtual Switch` 的虛擬交換器。
 
 ```powershell
-Docker daemon –D –b “Virtual Switch” -H 0.0.0.0:2375
+Docker daemon -D -b “Virtual Switch” -H 0.0.0.0:2375
 ```
 
 如果您已使用「Windows 容器快速入門」中提供的指令碼部署容器主機和 Docker，則已建立 NAT 類型的內部虛擬交換器，也已建立 Docker 服務並預先設定為使用此交換器。 若要變更 Docker 服務所使用的虛擬交換器，需要停止 Docker 服務，修改設定檔，然後重新啟動服務。
@@ -149,4 +153,8 @@ Start-Service docker
 
 
 
-<!--HONumber=Feb16_HO1-->
+
+
+<!--HONumber=Feb16_HO4-->
+
+

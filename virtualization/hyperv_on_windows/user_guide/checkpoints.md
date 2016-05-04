@@ -6,12 +6,12 @@ Windows 10 Hyper-V 有兩種類型的檢查點：
 
 * **標準檢查點** – 在起始檢查點時，建立虛擬機器和虛擬機器記憶體狀態的快照。 快照不是完整備份，而且可能導致在不同節點之間複寫資料的系統 (例如 Active Directory) 的資料系統不一致的問題。 Hyper-V 只在 Windows 10 之前提供標準檢查點 (以前稱為快照)。
 
-* **生產檢查點** – 在 Linux 虛擬機器上使用「磁碟區陰影複製服務」或「檔案系統凍結」，建立虛擬機器的資料持續備份。
+* **實際執行檢查點** – 在 Linux 虛擬機器上使用「磁碟區陰影複製服務」或「檔案系統凍結」，可為虛擬機器建立一致的資料備份。
 
 預設會選取生產檢查點，不過這可使用 Hyper-V 管理員或 PowerShell 加以變更。
 
->**附註：**Hyper-V PowerShell 模組中有數個別名，讓檢查點和快照可以交換使用。
->本文件使用檢查點，不過請注意，使用字詞快照時您可能會看到類似的命令。
+> **附註：**Hyper-V PowerShell 模組中有數個別名，讓檢查點和快照可以交換使用。  
+>  本文件使用檢查點，不過請注意，使用字詞快照時您可能會看到類似的命令。
 
 ## 變更檢查點類型
 
@@ -46,7 +46,7 @@ Set-VM -Name <vmname> -CheckpointType ProductionOnly
 
 ## 建立檢查點
 
-建立虛擬機器設定之類型的檢查點。 有關如何變更此類型，請參閱本文件前面的[設定檢查點類型](checkpoints.md#changing-the-checkpoint-type-for-a-VM)一節的指示。
+建立虛擬機器設定之類型的檢查點。 如需如何變更此類型的指示，請參閱本文件稍早的[設定檢查點類型](checkpoints.md#changing-the-checkpoint-type-for-a-VM)一節。
 
 **使用 Hyper-V 管理員**
 
@@ -60,7 +60,7 @@ Set-VM -Name <vmname> -CheckpointType ProductionOnly
 使用 **CheckPoint-VM** 命令建立檢查點。
 
 ```powershell
-Checkpoint-VM –Name <VMName>
+Checkpoint-VM -Name <VMName>
 ```
 
 當檢查點程序完成時，可使用 **Get-VMCheckpoint** 命令查看虛擬機器的檢查點清單。
@@ -78,24 +78,24 @@ Get-VMCheckpoint -VMName <VMName>
 1.  在 **[Hyper-V 管理員]** 中的 **[虛擬機器]** 下，選取虛擬機器。
 2.  在 [檢查點] 區段中，以滑鼠右鍵按一下您要使用的檢查點，然後按一下 **[套用]**。
 3.  此時會出現一個對話方塊，內含下列選項：
-* **建立檢查點再套用**：在虛擬機器套用先前的檢查點之前，先建立新的檢查點。
-* **套用**：套用您所選擇的檢查點。 您無法復原此動作。
-* **取消**：關閉對話方塊，而不進行任何動作。
+  * **建立檢查點再套用**：在虛擬機器套用先前的檢查點之前，先建立新的檢查點。
+  * **套用**：套用您所選擇的檢查點。 您無法復原此動作。
+  * **取消**：關閉對話方塊，而不進行任何動作。
 
-選取 [套用] 選項來建立並套用檢查點。
+  選取 [套用] 選項來建立並套用檢查點。
 
 **使用 PowerShell**
 
 5. 若要查看虛擬機器的檢查點清單，可使用 **Get-VMCheckpoint** 命令。
 
-```powershell
-Get-VMCheckpoint -VMName <VMName>
-```
+    ```powershell
+    Get-VMCheckpoint -VMName <VMName>
+    ```
 6. 若要套用檢查點，可使用 **Restore-VMCheckpoint** 命令。
 
-```powershell
-Restore-VMCheckpoint -Name <checkpoint name> -VMName <VMName> -Confirm:$false
-```
+    ```powershell
+    Restore-VMCheckpoint -Name <checkpoint name> -VMName <VMName> -Confirm:$false
+    ```
 
 ## 重新命名檢查點
 
@@ -104,7 +104,7 @@ Restore-VMCheckpoint -Name <checkpoint name> -VMName <VMName> -Confirm:$false
 根據預設，檢查點的名稱會是虛擬機器的名稱加上建立檢查點的日期和時間。 這是標準格式：
 
 ```
-virtual_machine_name (MM/DD/YYY –hh:mm:ss AM\PM)
+virtual_machine_name (MM/DD/YYY -hh:mm:ss AM\PM)
 ```
 
 名稱限定為 100 個字元或更少，且名稱不可空白。
@@ -119,7 +119,7 @@ virtual_machine_name (MM/DD/YYY –hh:mm:ss AM\PM)
 **使用 PowerShell**
 
 ``` powershell
-Rename-VMCheckpoint –VMName <virtual machine name> –Name <checkpoint name> --NewName <new checkpoint name>
+Rename-VMCheckpoint -VMName <virtual machine name> -Name <checkpoint name> --NewName <new checkpoint name>
 ```
 
 ## 刪除檢查點
@@ -140,7 +140,7 @@ Rename-VMCheckpoint –VMName <virtual machine name> –Name <checkpoint name> -
 
 **使用 PowerShell**
 ```powershell
-Remove-VMCheckpoint –VMName <virtual machine name> –Name <checkpoint name>
+Remove-VMCheckpoint -VMName <virtual machine name> -Name <checkpoint name>
 ```
 
 ## 匯出檢查點
@@ -149,14 +149,14 @@ Remove-VMCheckpoint –VMName <virtual machine name> –Name <checkpoint name>
 
 **使用 PowerShell**
 ``` powershell
-Export-VMCheckpoint –VMName <virtual machine name>  –Name <checkpoint name> -Path <path for export>
+Export-VMCheckpoint -VMName <virtual machine name>  -Name <checkpoint name> -Path <path for export>
 ```
 
 ## 啟用或停用檢查點
 
 1.  在 **[Hyper-V 管理員]** 中，以滑鼠右鍵按一下虛擬機器的名稱，然後按一下 **[設定]**。
 2.  在 **[管理]** 區段中，選取 **[檢查點]**。
-3.  若要讓此虛擬機器取消檢查點，請確定已選取 [啟用檢查點] - 這是預設行為。
+3.  若要讓此虛擬機器取消檢查點，請確定已選取 [啟用檢查點] - 這是預設行為。  
 若要停用檢查點，請取消選取 **[啟用檢查點]** 核取方塊。
 4.  按一下 **[套用]** 以套用變更。 完成之後，請按一下 **[確定]** 以關閉對話方塊。
 
@@ -230,4 +230,8 @@ Export-VMCheckpoint –VMName <virtual machine name>  –Name <checkpoint name> 
 
 
 
-<!--HONumber=Dec15_HO3-->
+
+
+<!--HONumber=Feb16_HO4-->
+
+

@@ -1,14 +1,18 @@
+
+
+
+
 # 容器主機部署 - Windows Server
 
 **這是初版內容，後續可能會變更。**
 
-部署 Windows 容器主機有不同的步驟，視作業系統和主機系統類型 (實體或虛擬) 而定。 本文件中的步驟用於將 Windows 容器主機部署至實體或虛擬系統上的 Windows Server 2016 或 Windows Server Core 2016。 若要將 Windows 容器主機安裝到 Nano Server，請參閱[容器主機部署 - Nano Server](./deployment_nano.md)。
+部署 Windows 容器主機有不同的步驟，視作業系統和主機系統類型 (實體或虛擬) 而定。 您可利用這份文件中的步驟，在實體或虛擬系統上對 Windows Server 2016 或 Windows Server Core 2016 部署 Windows 容器主機。 若要對 Nano Server 安裝 Windows 容器主機，請參閱[容器主機部署 - Nano Server](./deployment_nano.md)。
 
-如需系統需求的詳細資訊，請參閱 [Windows 容器主機系統需求](./system_requirements.md)。
+如需系統需求的詳細資料，請參閱 [Windows 容器主機系統需求](./system_requirements.md)。
 
-PowerShell 指令碼也可用來自動化 Windows 容器主機的部署。
+同時也提供 PowerShell 指令碼，可用於自動進行 Windows 容器主機的部署。
 - [在新的 Hyper-V 虛擬機器中部署容器主機](../quick_start/container_setup.md)。
-- [將容器主機部署至現有的系統](../quick_start/inplace_setup.md)。
+- [在現有系統上部署容器主機](../quick_start/inplace_setup.md)。
 
 # Windows Server 主機
 
@@ -37,11 +41,11 @@ PowerShell 指令碼也可用來自動化 Windows 容器主機的部署。
 </tr>
 <tr>
 <td>[安裝 Docker](#docker)</td>
-<td>選用，但若要使用 Docker 來建立和管理 Windows 容器，則必須執行。</td>
+<td>此步驟是選用步驟，但若要以 Docker 建立及管理 Windows 容器，則必須進行此步驟。</td>
 </tr>
 </table>
 
-將會使用 Hyper-V 容器時，才需要採取這些步驟。 注意，如果容器主機本身就是 Hyper-V 虛擬機器，才必須執行標示 * 的步驟。
+如果將會使用 Hyper-V 容器，則必須進行這些步驟。 請注意，標有 * 的步驟只有在容器主機本身為 Hyper-V 虛擬機器時才需要。
 
 <table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:100%" cellpadding="5" cellspacing="5">
 <tr valign="top">
@@ -98,7 +102,7 @@ WIN-LJGU7HD7TEP C:\ProgramData\Microsoft\Windows\Hyper-V\Container Image Store
 
 ### <a name=vswitch></a>建立虛擬交換器
 
-每個容器都必須連接到虛擬交換器，才能透過網路進行通訊。 虛擬交換器是以 `New-VMSwitch` 命令來建立。 容器支援 `External` 或 `NAT` 類型的虛擬交換器。 如需 Windows 容器網路功能的詳細資訊，請參閱[容器網路功能](../management/container_networking.md)。
+每個容器都必須連接到虛擬交換器，才能透過網路進行通訊。 虛擬交換器是以 `New-VMSwitch` 命令來建立。 容器支援`外部`或 `NAT` 類型的虛擬交換器。 如需 Windows 容器網路功能的詳細資訊，請參閱[容器網路功能](../management/container_networking.md)。
 
 此範例會建立名稱為 “Virtual Switch”、類型為 NAT、Nat 子網路為 172.16.0.0/12 虛擬交換器。
 
@@ -137,7 +141,7 @@ OS 映像可做為任何 Windows Server 或 Hyper-V 容器的基底。 此映像
 PS C:\> Install-PackageProvider ContainerProvider -Force
 ```
 
-使用 `Find-ContainerImage` 從 PowerShell OneGet 封裝管理員傳回映像清單：
+使用 `Find-ContainerImage` 可從 PowerShell OneGet 封裝管理員傳回映像清單：
 ```powershell
 PS C:\> Find-ContainerImage
 
@@ -179,24 +183,24 @@ WindowsServerCore CN=Microsoft 10.0.10586.0 True
 
 ### <a name=docker></a>安裝 Docker
 
-Docker 精靈和命令列介面並未隨附於 Windows，且不會隨 Windows 容器功能一起安裝。 使用 Windows 容器時不需要 Docker。 如果您想要安裝 Docker，請依照 [Docker 和 Windows](./docker_windows.md) 一文中的指示操作。
+Docker 精靈和命令列介面並未隨附於 Windows，且不會隨 Windows 容器功能一起安裝。 使用 Windows 容器時不需要 Docker。 如果想要安裝 Docker，請遵循 [Docker 與 Windows](./docker_windows.md) 一文中的指示作業。
 
 
 ## Hyper-V 容器主機
 
 ### <a name=hypv></a>啟用 Hyper-V 角色
 
-如果將部署 Hyper-V 容器，需要在容器主機上啟用 Hyper-V 角色。 Hyper-V 角色可以使用 `Install-WindowsFeature` 命令安裝在 Windows Server 2016 或 Windows Server 2016 Core 上。 如果容器主機本身就是 Hyper-V 虛擬機器，則必須先啟用巢狀虛擬化。 若要執行這項操作，請參閱[設定巢狀虛擬化](#nest)。
+如果將部署 Hyper-V 容器，需要在容器主機上啟用 Hyper-V 角色。 使用 `Install-WindowsFeature` 命令可在 Windows Server 2016 或 Windows Server 2016 Core 上安裝 Hyper-V 角色。 如果容器主機本身為 Hyper-V 虛擬機器，則必須先啟用巢狀虛擬化。 若要執行此動作，請參閱[設定巢狀虛擬化](#nest)。
 
 ```powershell
 PS C:\> Install-WindowsFeature hyper-v
 ```
 
-### <a name=nest></a>設定巢狀虛擬化
+### <a name=nest></a>巢狀虛擬化
 
 如果容器主機本身將會在 Hyper-V 虛擬機器上執行，而且也會主控 Hyper-V 容器，則必須啟用巢狀虛擬化。 這可以使用下列 PowerShell 命令來完成。
 
-**注意** - 執行此命令時，必須要關閉虛擬機器。
+**注意** - 執行此命令時，必須關閉虛擬機器。
 
 ```powershell
 PS C:\> Set-VMProcessor -VMName <VM Name> -ExposeVirtualizationExtensions $true
@@ -204,27 +208,27 @@ PS C:\> Set-VMProcessor -VMName <VM Name> -ExposeVirtualizationExtensions $true
 
 ### <a name=proc></a>設定虛擬處理器
 
-如果容器主機本身將會在 Hyper-V 虛擬機器上執行，而且也會主控 Hyper-V 容器，則虛擬機器至少要有兩個處理器。 這可以透過虛擬機器的設定，或使用下列命令來設定。
+如果容器主機本身將會在 Hyper-V 虛擬機器上執行，而且也會主控 Hyper-V 容器，則虛擬機器至少要有兩個處理器。 其可透過虛擬機器的設定或使用下列命令進行設定。
 
-**注意** - 執行此命令時，必須要關閉虛擬機器。
+**注意** - 執行此命令時，必須關閉虛擬機器。
 
 ```poweshell
-PS C:\> Set-VMProcessor –VMName <VM Name> -Count 2
+PS C:\> Set-VMProcessor -VMName <VM Name> -Count 2
 ```
 
 ### <a name=dyn></a>停用動態記憶體
 
-如果容器主機本身就是 Hyper-V 虛擬機器，則必須在容器主機虛擬機器上停用動態記憶體。 這可以透過虛擬機器的設定，或使用下列命令來設定。
+如果容器主機本身就是 Hyper-V 虛擬機器，則必須在容器主機虛擬機器上停用動態記憶體。 其可透過虛擬機器的設定或使用下列命令進行設定。
 
-**注意** - 執行此命令時，必須要關閉虛擬機器。
+**注意** - 執行此命令時，必須關閉虛擬機器。
 
 ```poweshell
 PS C:\> Set-VMMemory <VM Name> -DynamicMemoryEnabled $false
 ```
 
-### <a name=mac></a>設定 MAC 位址詐騙
+### <a name=mac></a>MAC 位址詐騙
 
-最後，如果容器主機在 Hyper-V 虛擬機器內執行，則必須啟用 MAC 詐騙。 這可讓每個容器接收 IP 位址。 若要啟用 MAC 位址詐騙，請在 Hyper-V 主機上執行下列命令。 VMName 屬性會是容器主機的名稱。
+最後，如果容器主機執行於 Hyper-V 虛擬機器內，就必須啟用 MAC 詐騙。 這可讓每個容器接收 IP 位址。 若要啟用 MAC 位址詐騙，請在 Hyper-V 主機上執行下列命令。 VMName 屬性會是容器主機的名稱。
 
 ```powershell
 PS C:\> Get-VMNetworkAdapter -VMName <VM Name> | Set-VMNetworkAdapter -MacAddressSpoofing On
@@ -234,4 +238,8 @@ PS C:\> Get-VMNetworkAdapter -VMName <VM Name> | Set-VMNetworkAdapter -MacAddres
 
 
 
-<!--HONumber=Feb16_HO1-->
+
+
+<!--HONumber=Feb16_HO4-->
+
+

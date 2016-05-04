@@ -1,3 +1,7 @@
+
+
+
+
 # Azure 快速入門
 
 在 Azure 中建立及管理 Windows Server 容器之前，您必須部署已預先設定 Windows Server 容器功能的 Windows Server 2016 Technical Preview 映像。 本指南將逐步引導您完成此程序。
@@ -8,9 +12,9 @@
 
 如果您有 Azure 帳戶，請跳至[建立容器主機 VM](#CreateacontainerhostVM)。
 
-1. 移至 [azure.com](https://azure.com)，並遵循 [Azure 免費試用](https://azure.microsoft.com/en-us/pricing/free-trial/)的步驟。
+1. 前往 [azure.com](https://azure.com)，並遵循 [Azure 免費試用](https://azure.microsoft.com/en-us/pricing/free-trial/)的步驟作業。
 2. 使用您的 Microsoft 帳戶登入。
-3. 您的帳戶已準備就緒後，請登入 [Azure 管理入口網站](https://portal.azure.com)。
+3. 帳戶準備就緒後，請登入 [Azure 管理入口網站](https://portal.azure.com)。
 
 ## 建立容器主機 VM
 
@@ -18,7 +22,7 @@
 
 ![](./media/newazure1.png)
 
-選取映像，然後按一下 `[建立]`。
+選取映像，然後按一下 [建立]``。
 
 ![](./media/tp41.png)
 
@@ -30,7 +34,7 @@
 
 ![](./media/newazure3.png)
 
-選取 `[建立]` 按鈕，以啟動虛擬機器部署程序。
+選取 [建立]`` 按鈕，以啟動虛擬機器部署程序。
 
 ![](media/newazure2.png)
 
@@ -56,4 +60,8 @@ VM 部署完成後，請選取 [連接] 按鈕，以啟動 Windows Server 容器
 
 
 
-<!--HONumber=Feb16_HO1-->
+
+
+<!--HONumber=Feb16_HO3-->
+
+

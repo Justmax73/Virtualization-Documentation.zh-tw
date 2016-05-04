@@ -1,3 +1,7 @@
+
+
+
+
 # 將 Windows 容器主機部署至新的 Hyper-V 虛擬機器
 
 此文件將逐步說明如何使用 PowerShell 指令碼部署新的 Hyper-V 虛擬機器，然後設定為 Windows 容器主機。
@@ -30,7 +34,7 @@ PS C:\> start-process powershell -Verb runAs
 執行下列命令，會傳回外部虛擬交換器的清單。 若未傳回任何內容，請建立新的外部虛擬交換器，然後繼續執行本指南的下一個步驟。
 
 ```powershell
-PS C:\> Get-VMSwitch | where {$_.SwitchType –eq “External”}
+PS C:\> Get-VMSwitch | where {$_.SwitchType -eq “External”}
 ```
 
 使用下列命令下載設定指令碼。 您也可以手動從這個位置下載指令碼 - [設定指令碼](https://aka.ms/tp4/New-ContainerHost)。
@@ -42,7 +46,7 @@ PS C:\> wget -uri https://aka.ms/tp4/New-ContainerHost -OutFile c:\New-Container
 執行下列命令以建立及設定容器主機，其中，`&lt;containerhost&gt;` 是虛擬機器名稱。
 
 ``` powershell
-PS C:\> powershell.exe -NoProfile c:\New-ContainerHost.ps1 –VmName testcont -WindowsImage ServerDatacenterCore -Hyperv
+PS C:\> powershell.exe -NoProfile c:\New-ContainerHost.ps1 -VMName testcont -WindowsImage ServerDatacenterCore -Hyperv
 ```
 
 指令碼開始時，系統會提示您輸入密碼。 這會是指派給系統管理員帳戶的密碼。
@@ -72,4 +76,8 @@ license terms. Please confirm you have accepted and agree to the license terms.
 
 
 
-<!--HONumber=Feb16_HO2-->
+
+
+<!--HONumber=Feb16_HO4-->
+
+

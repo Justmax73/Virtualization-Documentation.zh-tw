@@ -8,7 +8,7 @@
 2.  執行下列命令，以顯示搜尋到的 Hyper-V PowerShell 模組可用 PowerShell 命令清單。
 
  ```powershell
-get-command –module hyper-v | out-gridview
+get-command -module hyper-v | out-gridview
  ```
   結果類似這樣：
 
@@ -37,15 +37,15 @@ get-vm
 
  ![](media\get_vm.png)
 
-2. 若只要傳回已開機的虛擬機器清單，請在 `get-vm` 命令加入篩選器。 使用 where 物件命令可以加入篩選器。 如需有關篩選的詳細資訊，請參閱[使用 Where-Object](https://technet.microsoft.com/en-us/library/ee177028.aspx) 文件。
+2. 若只要傳回已開機的虛擬機器清單，請在 `get-vm` 命令加入篩選器。 使用 where 物件命令可以加入篩選器。 如需篩選的詳細資訊，請參閱[使用 Where-Object](https://technet.microsoft.com/en-us/library/ee177028.aspx) 文件。
 
  ```powershell
- get-vm | where {$_.State –eq ‘Running’}
+ get-vm | where {$_.State -eq ‘Running’}
  ```
 3.  若要列出所有電源關閉狀態的虛擬機器清單，執行下列命令。 此命令是步驟 2 中使用的命令，只是篩選器從 Running 改為 Off。
 
  ```powershell
- get-vm | where {$_.State –eq ‘Off’}
+ get-vm | where {$_.State -eq ‘Off’}
  ```
 
 ### 啟動和關閉虛擬機器
@@ -53,18 +53,18 @@ get-vm
 1. 若要啟動特定虛擬機器，請用虛擬機器的名稱執行下列命令：
 
  ```powershell
- Start-vm –Name <virtual machine name>
+ Start-vm -Name <virtual machine name>
  ```
 
 2. 若要啟動所有目前電源關閉的虛擬機器，取得這些機器的清單，並使用管線傳送此清單給 start-vm 命令：
 
   ```powershell
- get-vm | where {$_.State –eq ‘Off’} | start-vm
+ get-vm | where {$_.State -eq ‘Off’} | start-vm
   ```
 3. 若要關閉所有執行中的虛擬機器，執行此命令：
 
   ```powershell
- get-vm | where {$_.State –eq ‘Running’} | stop-vm
+ get-vm | where {$_.State -eq ‘Running’} | stop-vm
   ```
 
 ### 建立 VM 檢查點
@@ -100,8 +100,13 @@ get-vm
 
 ## 結語與參考資料
 
-本文件示範了一些簡單的步驟，來介紹 Hyper-V PowerShell 模組以及一些範例案例。 如需 Hyper-V PowerShell 模組的詳細資訊，請參閱 [Windows PowerShell 中的 Hyper-V Cmdlet 參考資料](https://technet.microsoft.com/%5Clibrary/Hh848559.aspx)。
+本文件示範了一些簡單的步驟，來介紹 Hyper-V PowerShell 模組以及一些範例案例。 如需 Hyper-V PowerShell 模組的詳細資訊，請參閱 [Windows PowerShell 中 Hyper-V Cmdlet 參考資料](https://technet.microsoft.com/%5Clibrary/Hh848559.aspx)。
 
 
+
+
+
+
+<!--HONumber=Feb16_HO4-->
 
 

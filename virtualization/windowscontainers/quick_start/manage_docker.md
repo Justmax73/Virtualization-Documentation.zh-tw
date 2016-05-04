@@ -1,3 +1,7 @@
+
+
+
+
 # Windows 容器快速入門 - Docker
 
 Windows 容器可用來在單一電腦系統上快速部署許多隔離的應用程式。 此練習將示範如何使用 Docker 建立及管理 Windows 容器。 完成之後，您即應概略了解 Docker 與 Windows 容器的整合情形，且將獲得此技術的實務經驗。
@@ -82,12 +86,10 @@ nanoserver             latest              8572198a60f1        2 weeks ago      
 
 ### 設定網路
 
-在使用 Docker 建立容器之前，必須為 Windows 防火牆建立一個允許透過網路連接到容器的規則。 請執行下列 PowerShell 指令碼，以建立連接埠 80 的規則。 注意 - 必須從 PowerShell 工作階段執行。
+在使用 Docker 建立容器之前，必須為 Windows 防火牆建立一個允許透過網路連接到容器的規則。 請執行下列命令，以建立連接埠 80 的規則。
 
 ```powershell
-if (!(Get-NetFirewallRule | where {$_.Name -eq "TCP80"})) {
-    New-NetFirewallRule -Name "TCP80" -DisplayName "HTTP on TCP/80" -Protocol tcp -LocalPort 80 -Action Allow -Enabled True
-}
+powershell.exe "if(!(Get-NetFirewallRule | where {$_.Name -eq 'TCP80'})) { New-NetFirewallRule -Name 'TCP80' -DisplayName 'HTTP on TCP/80' -Protocol tcp -LocalPort 80 -Action Allow -Enabled True }" 
 ```
 
 您也可以記下容器主機的 IP 位址。 這在整個練習中都會用到。
@@ -348,4 +350,8 @@ C:\> exit
 
 
 
-<!--HONumber=Feb16_HO2-->
+
+
+<!--HONumber=Feb16_HO4-->
+
+

@@ -1,3 +1,7 @@
+
+
+
+
 # 容器映像
 
 **這是初版內容，後續可能會變更。**
@@ -43,7 +47,7 @@ NanoServer           10.0.10586.0            Container OS Image of Windows Serve
 WindowsServerCore    10.0.10586.0            Container OS Image of Windows Server 2016 Techn...
 ```
 
-若要下載並安裝 Nano Server 基本 OS 映像，請執行下列命令。 `–version` 是選擇性參數。 若未指定基本 OS 映像版本，將會安裝最新版本。
+若要下載並安裝 Nano Server 基本 OS 映像，請執行下列命令。 `-version` 是選擇性參數。 若未指定基本 OS 映像版本，將會安裝最新版本。
 
 ```powershell
 PS C:\> Install-ContainerImage -Name NanoServer -Version 10.0.10586.0
@@ -51,9 +55,9 @@ PS C:\> Install-ContainerImage -Name NanoServer -Version 10.0.10586.0
 Downloaded in 0 hours, 0 minutes, 10 seconds.
 ```
 
-同樣地，此命令也將下載並安裝 Windows Server Core 基本 OS 映像。 `–version` 是選擇性參數。 若未指定基本 OS 映像版本，將會安裝最新版本。
+同樣地，此命令也將下載並安裝 Windows Server Core 基本 OS 映像。 `-version` 是選擇性參數。 若未指定基本 OS 映像版本，將會安裝最新版本。
 
->**問題** Save-ContainerImage 和 Install-ContainerImage Cmdlet 無法在 PowerShell 遠端工作階段中使用 WindowsServerCore 容器映像。 **因應措施：**使用遠端桌面登入機器，並直接使用 Save-ContainerImage Cmdlet。
+> **問題** Save-ContainerImage 和 Install-ContainerImage Cmdlet 無法在 PowerShell 遠端工作階段中使用 WindowsServerCore 容器映像。 **因應措施：**使用遠端桌面登入機器，並直接使用 Save-ContainerImage Cmdlet。
 
 ```powershell
 PS C:\> Install-ContainerImage -Name WindowsServerCore -Version 10.0.10586.0
@@ -202,4 +206,8 @@ IMAGE               CREATED             CREATED BY          SIZE                
 
 
 
-<!--HONumber=Jan16_HO1-->
+
+
+<!--HONumber=Feb16_HO4-->
+
+

@@ -1,3 +1,7 @@
+
+
+
+
 # 容器共用資料夾
 
 **這是初版內容，後續可能會變更。**
@@ -71,12 +75,16 @@ PS C:\> Remove-ContainerSharedFolder -ContainerName DEMO2 -SourcePath c:\source 
 PS C:\> docker run -it -v c:\source:c:\destination 1f62aaf73140 cmd
 ```
 
-如需關於使用 Docker 管理容器資料的詳細資訊，請參閱 [Docker.com 上的 Docker 磁碟區](https://docs.docker.com/userguide/dockervolumes/)。
+如需以 Docker 管理容器中資料的詳細資訊，請參閱 [Docker.com 上的 Docker 磁碟區](https://docs.docker.com/userguide/dockervolumes/)。
 
 ## 視訊逐步解說
 
-<iframe src="https://channel9.msdn.com/Blogs/containers/Container-Fundamentals--Part-3-Shared-Folders/player" width="800" height="450"  allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
+<iframe src="https://channel9.msdn.com/Blogs/containers/Container-Fundamentals--Part-3-Shared-Folders/player#ccLang=zh-tw" width="800" height="450"  allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
 
 
 
-<!--HONumber=Feb16_HO1-->
+
+
+<!--HONumber=Feb16_HO3-->
+
+

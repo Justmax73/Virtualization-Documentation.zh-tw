@@ -1,10 +1,14 @@
+
+
+
+
 # Windows 容器中的應用程式相容性
 
 本文是產品預覽。 雖然執行於 Windows 上的應用程式終究也可在容器中執行，但我們不妨趁此機會檢視一下目前應用程式的相容情形。
 
 本文只是為了分享我們的體驗。
 
-此清單中是否遺漏了什麼？ 我們將透過[論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)了解在您的環境中執行成功和失敗的項目。
+此清單中是否遺漏了什麼？ 經由[論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)可讓我們了解您環境中成功與失敗的情況。
 
 ## Windows Server 容器
 
@@ -68,8 +72,13 @@
 
 ## 請與我們分享您的體驗
 
-此清單中是否遺漏了什麼？ 我們將透過[論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)了解在您的環境中執行成功和失敗的項目。
+此清單中是否遺漏了什麼？ 經由[論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)可讓我們了解您環境中成功與失敗的情況。
 
 
+
+
+
+
+<!--HONumber=Feb16_HO3-->
 
 

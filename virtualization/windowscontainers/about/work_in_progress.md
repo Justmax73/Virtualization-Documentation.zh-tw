@@ -1,3 +1,7 @@
+
+
+
+
 # 進行中的工作
 
 如果您在這裡沒有看到您的問題的相關討論，或有任何問題，請將問題張貼在[論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)。
@@ -16,15 +20,6 @@ Windows 容器需有一個作業系統映像，且映像的組建和修補程式
 
 **因應措施：**   
 下載並安裝符合容器主機的 OS 版本及修補程式等級的容器基底映像。
-
-### 可在容器中看到所有非 C:/ 的磁碟機
-
-容器主機的所有非 C:/ 磁碟機會自動對應到新的執行中 Windows 容器。
-
-現階段尚沒有任何方法可以選擇性地將資料夾對應至容器，因為系統會自動對應過渡期的操作磁碟機。
-
-**因應措施：**  
-我們正積極處理中。 未來將會有資料夾共用。
 
 ### 防火牆預設行為
 
@@ -94,11 +89,11 @@ PS C:\> Start-Container test2
 如果容器需公開多個端點，請使用 NAT 連接埠對應。
 
 
-### 靜態 NAT 對應可能會與透過 Docker 的連接埠對應衝突
+### 靜態 NAT 對應可能會與透過 Docker 的連接埠對應相衝突
 
-如果您使用 Windows PowerShell 建立容器並加入靜態 NAT 對應，若未在啟動容器之前使用 `docker -p &lt;src&gt;:&lt;dst&gt;` 移除這些對應，就會造成衝突。
+如果要使用 Windows PowerShell 建立容器，並加入靜態 NAT 對應，在未於啟動容器之前使用 `docker-p <來源>: <目的地>` 移除靜態 NAT 對應，就會發生衝突。
 
-以下是與連接埠 80 的靜態對應發生衝突的範例
+以下是與連接埠 80 上靜態對應發生衝突的範例
 ```
 PS C:\IISDemo> Add-NetNatStaticMapping -NatName "ContainerNat" -Protocol TCP -ExternalIPAddress 0.0.0.0 -InternalIPAddress
  172.16.0.2 -InternalPort 80 -ExternalPort 80
@@ -137,8 +132,8 @@ duplicate name exists on the network. If joining a domain, go to System in Contr
 ```
 
 
-***緩和***
-使用 PowerShell 移除連接埠對應可以解決此問題。 這麼做會移除以上範例造成的連接埠 80 衝突。
+***降低此情況***
+使用 PowerShell 移除連接埠對應可解決此問題。 如此可解決上述範例中所引發的連接埠 80 衝突。
 ```powershell
 Get-NetNatStaticMapping | ? ExternalPort -eq 80 | Remove-NetNatStaticMapping
 ```
@@ -292,4 +287,8 @@ net use S: \\your\sources\here /User:shareuser [yourpassword]
 
 
 
-<!--HONumber=Feb16_HO1-->
+
+
+<!--HONumber=Feb16_HO4-->
+
+

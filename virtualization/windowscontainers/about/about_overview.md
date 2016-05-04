@@ -1,8 +1,12 @@
+
+
+
+
 # Windows 容器
 
 應用程式促進了雲端和行動時代的創新。 隨之開發的容器和生態系統，將支援軟體開發人員建立新一代的應用程式體驗。
 
-觀看簡短的概觀：[Windows 型容器：企業級控制能力下的現代化應用程式開發](https://youtu.be/Ryx3o0rD5lY)。
+觀看簡短的概觀：[Windows 容器：具備企業級控制能力的現代化應用程式開發](https://youtu.be/Ryx3o0rD5lY)。
 
 ## 什麼是容器？
 
@@ -10,7 +14,7 @@
 
 基本上，容器是可讓應用程式執行而不會影響系統的其餘部分，且不會讓系統影響應用程式的隔離位置。 容器是虛擬化下一步的發展。
 
-當您在容器內時，您會感覺像是在全新安裝的實體電腦或虛擬機器內。 且對於 [Docker](https://www.docker.com/)，Windows Server 容器可以像任何其他容器一樣受到管理。
+當您在容器內時，您會感覺像是在全新安裝的實體電腦或虛擬機器內。 同時，若是 [Docker](https://www.docker.com/)，Windows Server 容器可以用和其他任何容器一樣的方式進行管理。
 
 ## Windows 容器
 
@@ -25,7 +29,7 @@ Windows 容器包含兩種不同的容器類型，或執行階段。
 
 當您開始使用容器時，您會發現容器和虛擬機器之間有許多相似之處。 容器可像實體或虛擬電腦系統一樣執行作業系統、具有檔案系統，並且可透過網路來存取。 即便如此，容器的基本技術和概念還是與虛擬機器非常不同。
 
-Mark Russinovich 的[此部落格文章](http://azure.microsoft.com/blog/2015/08/17/containers-docker-windows-and-trends/)對於容器有很好的說明。
+Mark Russinovich 的[此部落格文章](http://azure.microsoft.com/blog/2015/08/17/containers-docker-windows-and-trends/)對容器提供了詳盡的說明。
 
 在您開始建立及使用 Windows 容器時，下列主要概念將有所幫助。
 
@@ -73,5 +77,10 @@ src="https://channel9.msdn.com/Blogs/containers/Containers-101-with-Microsoft-an
 [開始在本機使用 Windows 容器](../quick_start/container_setup.md)
 
 
+
+
+
+
+<!--HONumber=Feb16_HO3-->
 
 

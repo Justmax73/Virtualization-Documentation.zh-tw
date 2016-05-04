@@ -10,7 +10,7 @@
 
 ## [Hyper-V 上的 Linux 和 FreeBSD](https://technet.microsoft.com/library/dn531030.aspx)
 
-# Windows 快速入門上的 Hyper-V
+# Windows 上 Hyper-V 快速入門
 
 ## [系統需求](quick_start/walkthrough_compatibility.md)
 
@@ -56,5 +56,11 @@
 
 ## [Hyper-V 架構](https://msdn.microsoft.com/en-us/library/cc768520(v=bts.10).aspx)
 
+## [Hypervisor TLFS](develop/tlfs.md)
 
-<!--HONumber=Feb16_HO2-->
+
+
+
+<!--HONumber=Feb16_HO3-->
+
+

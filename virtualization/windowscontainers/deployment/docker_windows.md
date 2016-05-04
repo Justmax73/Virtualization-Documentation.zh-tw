@@ -1,3 +1,7 @@
+
+
+
+
 # Docker 和 Windows
 
 **這是初版內容，後續可能會變更。**
@@ -26,7 +30,7 @@ PS C:\> wget https://aka.ms/tp4/docker -OutFile $env:SystemRoot\system32\docker.
 PS C:\> New-Item -ItemType File -Path C:\ProgramData\Docker\runDockerDaemon.cmd -Force
 ```
 
-將下列文字複製到 `runDockerDaemon.cmd` 檔案中。 這個批次檔會使用 `docker daemon –D –b “Virtual Switch”` 命令啟動 Docker 精靈。 注意：此檔案中的虛擬交換器名稱，必須符合容器將用於網路連線的虛擬交換器名稱。
+將下列文字複製到 `runDockerDaemon.cmd` 檔案中。 這個批次檔會使用 `docker daemon -D -b “Virtual Switch”` 命令啟動 Docker 精靈。 注意：此檔案中的虛擬交換器名稱，必須符合容器將用於網路連線的虛擬交換器名稱。
 
 ```powershell
 @echo off
@@ -70,7 +74,7 @@ PS C:\> start-process nssm install
 
 - **啟動目錄：**C:\Windows\System32
 
-- **引數：** /s /c C:\ProgramData\docker\runDockerDaemon.cmd
+- **引數：** /s /c C:\ProgramData\docker\runDockerDaemon.cmd < nul
 
 - **服務名稱** - Docker
 
@@ -174,4 +178,8 @@ docker daemon -D -H <ip address of Nano Server>:2375
 
 
 
-<!--HONumber=Jan16_HO3-->
+
+
+<!--HONumber=Feb16_HO4-->
+
+
