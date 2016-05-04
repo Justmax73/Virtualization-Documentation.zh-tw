@@ -1,11 +1,26 @@
 # <a name='report-top'></a> Localization Handback Report
 
 ## Summary
- Total Files | 0
+ Total Files | 1
 
 ## File List
+ Source File | Status | Details 
+ ----------- | ------ | ------- 
+ [virtualization\windowscontainers\removed\powershell_overview.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/af065ec180f1b5de9e40ef269e7278a16b0c3b7f/virtualization/windowscontainers/removed/powershell_overview.md) | InSyncHandedBackSuccess | [Details](#5463412d44bd7c657401c55558bb817df4cc1eb2316)
 
 ## Item Details
+##### <a name='5463412d44bd7c657401c55558bb817df4cc1eb2316'></a> Source: [virtualization\windowscontainers\removed\powershell_overview.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/af065ec180f1b5de9e40ef269e7278a16b0c3b7f/virtualization/windowscontainers/removed/powershell_overview.md)
+* Status: InSyncHandedBackSuccess
+* Target File: [virtualization\windowscontainers\removed\powershell_overview.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/6484c4d41177d2a092c3f3e3d7f509eaf1e157da/virtualization/windowscontainers/removed/powershell_overview.md)
+* Handoff File: [powershell_overview.7ebafcad4de4a5898fad700336a72f88d4aa8cb0.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/f5587b4005d70ddb6fbcde1957f93fadea2db2a0/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/powershell_overview.7ebafcad4de4a5898fad700336a72f88d4aa8cb0.zh-tw.xlf)
+* Handoff Datetime: 2016-02-18 21:23:29
+* Handoff Reason: Include
+* Archive File: [powershell_overview.7ebafcad4de4a5898fad700336a72f88d4aa8cb0.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/2c1556036e57096d64dd15372289c595b9455bc9/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/archive/powershell_overview.7ebafcad4de4a5898fad700336a72f88d4aa8cb0.zh-tw.xlf)
+* Archive Datetime: 2016-02-29 06:57:44
+* Handback File: [powershell_overview.7ebafcad4de4a5898fad700336a72f88d4aa8cb0.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/355a2419e98adffd684f41f97eb9caefc6dcb88d/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/powershell_overview.7ebafcad4de4a5898fad700336a72f88d4aa8cb0.zh-tw.xlf)
+* Handback Datetime: 2016-05-04 07:48:45
+* [Back to Top](#report-top)
+
 
 ## Error Details
 
