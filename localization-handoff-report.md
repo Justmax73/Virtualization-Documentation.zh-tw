@@ -1,55 +1,11 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 3
+ Total Files | 0
 
 ## File List
- Source File | Status | Details 
- ----------- | ------ | ------- 
- [virtualization\windowscontainers\deployment\deployment.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/59b8dd80f680af7d1356ddaca526ced7622db69b/virtualization/windowscontainers/deployment/deployment.md) | OutofSyncHandedBackSuccess | [Details](#a8adba1a2c68e0553a13db6642865aa3b966e6bb224)
- [virtualization\windowscontainers\quick_start\quick_start_images.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/59b8dd80f680af7d1356ddaca526ced7622db69b/virtualization/windowscontainers/quick_start/quick_start_images.md) | HandedOffSuccess | [Details](#eee61e546594e20f523be53f4d7081b4bec37dc1314)
- [virtualization\windowscontainers\quick_start\quick_start_windows_server.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/59b8dd80f680af7d1356ddaca526ced7622db69b/virtualization/windowscontainers/quick_start/quick_start_windows_server.md) | HandedOffSuccess | [Details](#50abbdedf9ad786e644bd95305f65cadd7f7cfd1316)
 
 ## Item Details
-##### <a name='a8adba1a2c68e0553a13db6642865aa3b966e6bb224'></a> Source: [virtualization\windowscontainers\deployment\deployment.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/59b8dd80f680af7d1356ddaca526ced7622db69b/virtualization/windowscontainers/deployment/deployment.md)
-* Status: OutofSyncHandedBackSuccess
-* Target File: 
-* Handoff File: [deployment.4ddcd8318b2db72f246478d26d82fb4a73b6da65.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/b08664d97eb66535769d44ff69b36609eb88d750/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/deployment.4ddcd8318b2db72f246478d26d82fb4a73b6da65.zh-tw.xlf)
-* Handoff Datetime: 2016-06-13 19:03:11
-* Handoff Reason: Include
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
-* Handback File: 
-* Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\windowscontainers\deployment\deployment.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/6484c4d41177d2a092c3f3e3d7f509eaf1e157da/virtualization/windowscontainers/deployment/deployment.md)
-* Current Handback File: [deployment.4ddcd8318b2db72f246478d26d82fb4a73b6da65.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/355a2419e98adffd684f41f97eb9caefc6dcb88d/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/deployment.4ddcd8318b2db72f246478d26d82fb4a73b6da65.zh-tw.xlf)
-* Current Handback Datetime: 2016-05-04 07:48:45
-* [Back to Top](#report-top)
-
-##### <a name='eee61e546594e20f523be53f4d7081b4bec37dc1314'></a> Source: [virtualization\windowscontainers\quick_start\quick_start_images.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/59b8dd80f680af7d1356ddaca526ced7622db69b/virtualization/windowscontainers/quick_start/quick_start_images.md)
-* Status: HandedOffSuccess
-* Target File: 
-* Handoff File: [quick_start_images.a9795e9bf873991bac21ba0e69a669599e6dac7b.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/b08664d97eb66535769d44ff69b36609eb88d750/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/quick_start_images.a9795e9bf873991bac21ba0e69a669599e6dac7b.zh-tw.xlf)
-* Handoff Datetime: 2016-06-13 19:03:11
-* Handoff Reason: Include
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
-* Handback File: 
-* Handback Datetime: 0001-01-01 00:00:00
-* [Back to Top](#report-top)
-
-##### <a name='50abbdedf9ad786e644bd95305f65cadd7f7cfd1316'></a> Source: [virtualization\windowscontainers\quick_start\quick_start_windows_server.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/59b8dd80f680af7d1356ddaca526ced7622db69b/virtualization/windowscontainers/quick_start/quick_start_windows_server.md)
-* Status: HandedOffSuccess
-* Target File: 
-* Handoff File: [quick_start_windows_server.08fee0ad7baa994cf3e7a42d3d35aeda89c5e556.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/b08664d97eb66535769d44ff69b36609eb88d750/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/quick_start_windows_server.08fee0ad7baa994cf3e7a42d3d35aeda89c5e556.zh-tw.xlf)
-* Handoff Datetime: 2016-06-13 19:03:11
-* Handoff Reason: Include
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
-* Handback File: 
-* Handback Datetime: 0001-01-01 00:00:00
-* [Back to Top](#report-top)
-
 
 ## Error Details
 
