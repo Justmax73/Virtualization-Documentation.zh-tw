@@ -1,3 +1,7 @@
+---
+redirect_url: http://aka.ms/upgradevmconfig
+---
+
 # 移轉和升級虛擬機器
 
 如果您將虛擬機器移至 Windows 10 主機時 (您原先在 Windows 8.1 或更早版本以 Hyper-V 建立的 Windows 10)，您將無法使用新的虛擬機器功能，直到您手動更新虛擬機器設定版本。
@@ -106,5 +110,10 @@ SGC VM      Running         0       538                 00:02:44.8350000    Oper
 
 
 
+
+
+
+
+<!--HONumber=May16_HO1-->
 
 
