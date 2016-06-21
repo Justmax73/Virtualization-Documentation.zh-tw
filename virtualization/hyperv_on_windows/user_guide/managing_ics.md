@@ -1,23 +1,36 @@
+---
+title: &435600756 管理 Hyper-V 整合服務
+description: 管理 Hyper-V 整合服務
+keywords: windows 10, hyper-v
+author: scooley
+manager: timlt
+ms.date: 05/02/2016
+ms.topic: article
+ms.prod: &594704012 windows-10-hyperv
+ms.service: windows-10-hyperv
+ms.assetid: 9cafd6cb-dbbe-4b91-b26c-dee1c18fd8c2
+---
+
 # 管理 Hyper-V 整合服務
 
 整合服務通常稱為「整合元件」，是可讓虛擬機器與 Hyper-V 主機通訊的服務。 其中許多服務很便利 (例如客體檔案複製)，另外有些則對於客體作業系統功能是否能正確運作來說相當重要 (時間同步處理)。
 
-本文會詳細說明如何在 Windows 10 中使用 Hyper-V 管理員和 PowerShell 來管理整合服務。 如需有關每個個別整合服務的詳細資訊，請參閱[整合服務](https://technet.microsoft.com/en-us/library/dn798297.aspx)。
+本文會詳細說明如何在 Windows 10 中使用 Hyper-V 管理員和 PowerShell 來管理整合服務。 如需有關每個個別整合服務的詳細資訊，請參閱<g id="2CapsExtId1" ctype="x-link"><g id="2CapsExtId2" ctype="x-linkText">整合服務</g><g id="2CapsExtId3" ctype="x-title"></g></g>。
 
 ## 使用 Hyper-V 管理員啟用或停用整合服務
 
 1. 選取虛擬機器並開啟設定。
-  ![](./media/HyperVManager-OpenVMSettings.png)
+  <g id="1" ctype="x-linkText"></g>
 
 2. 在虛擬機器的 [設定] 視窗中，移至 [管理] 下的 [整合服務] 索引標籤。
 
-  ![](./media/HyperVManager-IntegrationServices.png)
+  <g id="1" ctype="x-linkText"></g>
 
   這裡您會看到此 Hyper-V 主機上所有可用的整合服務。 值得注意的是，客體作業系統不一定會支援所有列出的整合服務。
 
 ## 使用 PowerShell 啟用或停用整合服務
 
-您也可以透過 PowerShell 執行 [`Enable-VMIntegrationService`] (https://technet.microsoft.com/en-us/library/hh848500.aspx) 和 [`Disable-VMIntegrationService`] (https://technet.microsoft.com/en-us/library/hh848488.aspx) 來啟用和停用整合服務。
+您也可以透過 PowerShell 執行 [<g id="2" ctype="x-code">Enable-VMIntegrationService</g>] (https://technet.microsoft.com/en-us/library/hh848500.aspx) 和 [<g id="4" ctype="x-code">Disable-VMIntegrationService</g>] (https://technet.microsoft.com/en-us/library/hh848488.aspx) 來啟用和停用整合服務。
 
 在此範例中，我們將先啟用再停用前例中的 demovm 虛擬機器上的客體檔案複製整合服務。
 
@@ -39,15 +52,15 @@
   demovm      VSS                     True    OK
   ```
 
-2. 啟用`客體服務介面`整合服務
+2. 啟用<g id="2" ctype="x-code">客體服務介面</g>整合服務
 
    ``` PowerShell
    Enable-VMIntegrationService -VMName "demovm" -Name "Guest Service Interface"
    ```
 
-   若您執行 `Get-VMIntegrationService -VMName "demovm"`，您會看到「客體服務介面」整合服務已啟用。
+   若您執行 <g id="2" ctype="x-code">Get-VMIntegrationService -VMName "demovm"</g>，您會看到「客體服務介面」整合服務已啟用。
 
-3. 停用`客體服務介面`整合服務
+3. 停用<g id="2" ctype="x-code">客體服務介面</g>整合服務
 
    ``` PowerShell
    Disable-VMIntegrationService -VMName "demovm" -Name "Guest Service Interface"
@@ -58,11 +71,11 @@
 
 ## 從客體作業系統 (Windows) 管理整合服務
 
-> **附註：**停用整合服務可能會嚴重影響主機管理虛擬機器的能力。 整合服務在主機與客體系統上皆必須啟用才能運作。
+> <g id="1" ctype="x-strong">附註：</g>停用整合服務可能會嚴重影響主機管理虛擬機器的能力。 整合服務在主機與客體系統上皆必須啟用才能運作。
 
 整合服務在 Windows 中會顯示為服務。 若要啟用或停用整合服務，從虛擬機器內開啟 Windows 服務管理員。
 
-![](media/HVServices.png)
+<g id="1" ctype="x-linkText"></g>
 
 尋找名稱中包含 Hyper-V 的服務。 以滑鼠右鍵按一下您想要啟用或停用的服務，並啟用或停止服務。
 
@@ -87,7 +100,9 @@ Stopped  vmicvmsession      Hyper-V VM Session Service
 Running  vmicvss            Hyper-V Volume Shadow Copy Requestor
 ```
 
-使用 [`Start-Service`](https://technet.microsoft.com/en-us/library/hh849825.aspx) 或 [`Stop-Service`](https://technet.microsoft.com/en-us/library/hh849790.aspx) 啟動或停止服務。
+使用 [<g id="2" ctype="x-code">Start-Service</g>](https://technet.microsoft.com/en-us/library/hh849825.aspx) 或 [<g id="4" ctype="x-code">Stop-Service</g>](https://technet.microsoft.com/en-us/library/hh849790.aspx) 啟動或停止服務。
+
+例如，若要停用 PowerShell Direct，您可以執行 <g id="2" ctype="x-code">Stop-Service -Name vmicvmsession</g>。
 
 根據預設，客體作業系統會啟用所有整合服務。
 
@@ -147,21 +162,21 @@ Linux 整合服務通常是透過 Linux 核心提供。
   ```
 
   您可能會看到這些整合服務精靈：
-  * **`hv_vss_daemon`** – 建立即時的 Linux 虛擬機器備份需要此精靈。
-  * **`hv_kvp_daemon`** – 此精靈可以設定及查詢內建和外來機碼值組。
-  * **`hv_fcopy_daemon`** – 此精靈可實作主機和客體之間的檔案複製服務。
+  * **<g id="2" ctype="x-code">hv_vss_daemon</g>** – 建立即時的 Linux 虛擬機器備份需要此精靈。
+  * **<g id="2" ctype="x-code">hv_kvp_daemon</g>** – 此精靈可以設定及查詢內建和外來機碼值組。
+  * **<g id="2" ctype="x-code">hv_fcopy_daemon</g>** – 此精靈可實作主機和客體之間的檔案複製服務。
 
-> **附註：**如果無法使用上述整合服務精靈，可能是您的系統不支援或未安裝它們。 移至[這裡](https://technet.microsoft.com/en-us/library/dn531030.aspx)取得更多 disto 特定資訊。
+> <g id="1" ctype="x-strong">附註：</g>如果無法使用上述整合服務精靈，可能是您的系統不支援或未安裝它們。 移至<g id="2CapsExtId1" ctype="x-link"><g id="2CapsExtId2" ctype="x-linkText">這裡</g><g id="2CapsExtId3" ctype="x-title"></g></g>取得更多 disto 特定資訊。
 
-在此範例中，我們會停止並啟動 KVP 精靈 `hv_kvp_daemon`。
+在此範例中，我們會停止並啟動 KVP 精靈 <g id="2" ctype="x-code">hv_kvp_daemon</g>。
 
-使用上述輸出第二個資料行中的 pid (處理序識別碼) 停止精靈的處理序。 或者，您可以使用 `pidof` 找到正確的處理序。 因為 Hyper-V 精靈是以 root 身分執行，您需要根權限。
+使用上述輸出第二個資料行中的 pid (處理序識別碼) 停止精靈的處理序。 或者，您可以使用 <g id="2" ctype="x-code">pidof</g> 找到正確的處理序。 因為 Hyper-V 精靈是以 root 身分執行，您需要根權限。
 
 ``` BASH
 sudo kill -15 `pidof hv_kvp_daemon`
 ```
 
-現在，如果您再次執行 `ps-ef | hv` 同樣地，將會發現所有 `hv_kvp_daemon` 處理序已消失。
+現在，如果您再次執行 <g id="2" ctype="x-code">ps-ef | hv</g> 同樣地，將會發現所有 <g id="4" ctype="x-code">hv_kvp_daemon</g> 處理序已消失。
 
 若要再次啟動精靈，請以 root 身分執行精靈。
 
@@ -169,36 +184,38 @@ sudo kill -15 `pidof hv_kvp_daemon`
 sudo hv_kvp_daemon
 ```
 
-現在，如果您再次執行 `ps-ef | hv`，將會發現 `hv_kvp_daemon` 處理序有了新的處理序識別碼。
+現在，如果您再次執行 <g id="2" ctype="x-code">ps-ef | hv</g>，將會發現 <g id="4" ctype="x-code">hv_kvp_daemon</g> 處理序有了新的處理序識別碼。
 
 
 ## 整合服務維護
 
 為了獲得最佳的虛擬機器效能和功能，請使用最新的整合服務。
 
-**在 Windows 10 主機上執行的虛擬機器：**
+<g id="1" ctype="x-strong">在 Windows 10 主機上執行的虛擬機器：</g>
 
-| 客體作業系統| 更新機制| 附註|
+> <g id="1" ctype="x-strong">請注意：</g>更新整合元件不再需要 ISO 映像檔案 vmguest.iso。 它並不包含在 Windows 10 上的 Hyper-V 中。
+
+| 客體 OS| 更新機制| 附註|
 |:---------|:---------|:---------|
 | Windows 10| Windows Update| |
 | Windows 8.1| Windows Update| |
-| Windows 8| Windows Update| 需要「資料交換」整合服務。*****|
-| Windows 7| Windows Update| 需要「資料交換」整合服務。*****|
-| Windows Vista (SP 2)| Windows Update| 需要「資料交換」整合服務。*****|
+| Windows 8| Windows Update| 需要「資料交換」整合服務。<g id="2" ctype="x-strong">*</g>|
+| Windows 7| Windows Update| 需要「資料交換」整合服務。<g id="2" ctype="x-strong">*</g>|
+| Windows Vista (SP 2)| Windows Update| 需要「資料交換」整合服務。<g id="2" ctype="x-strong">*</g>|
 | -| | |
 | Windows Server 2012 R2| Windows Update| |
-| Windows Server 2012| Windows Update| 需要「資料交換」整合服務。*****|
-| Windows Server 2008 R2 (SP 1)| Windows Update| 需要「資料交換」整合服務。*****|
-| Windows Server 2008 (SP 2)| Windows Update| 只在 Server 2016 中提供延伸支援 ([深入了解](https://support.microsoft.com/en-us/lifecycle?p1=12925)))。|
-| Windows Home Server 2011| Windows Update| 不在 Server 2016 中提供支援 ([深入了解](https://support.microsoft.com/en-us/lifecycle?p1=15820)))。|
-| Windows Small Business Server 2011| Windows Update| 不在主流支援下 ([深入了解](https://support.microsoft.com/en-us/lifecycle?p1=15817)))。|
+| Windows Server 2012| Windows Update| 需要「資料交換」整合服務。<g id="2" ctype="x-strong">*</g>|
+| Windows Server 2008 R2 (SP 1)| Windows Update| 需要「資料交換」整合服務。<g id="2" ctype="x-strong">*</g>|
+| Windows Server 2008 (SP 2)| Windows Update| 只在 Server 2016 中提供延伸支援 (<g id="2CapsExtId1" ctype="x-link"><g id="2CapsExtId2" ctype="x-linkText">深入了解</g><g id="2CapsExtId3" ctype="x-title"></g></g>)。|
+| Windows Home Server 2011| Windows Update| 不在 Server 2016 中提供支援 (<g id="2CapsExtId1" ctype="x-link"><g id="2CapsExtId2" ctype="x-linkText">深入了解</g><g id="2CapsExtId3" ctype="x-title"></g></g>)。|
+| Windows Small Business Server 2011| Windows Update| 不在主流支援下 (<g id="2CapsExtId1" ctype="x-link"><g id="2CapsExtId2" ctype="x-linkText">深入了解</g><g id="2CapsExtId3" ctype="x-title"></g></g>)。|
 | -| | |
-| Linux 客體| 封裝管理員| Linux 整合元件內建在 distro 中，但有可能是可用的選擇性更新。********|
+| Linux 客體| 封裝管理員| Linux 整合元件內建在 distro 中，但有可能是可用的選擇性更新。<g id="1" ctype="x-strong">****</g>|
 
-**\*** 如果無法啟用「資料交換」整合服務，可以在[這裡](https://support.microsoft.com/en-us/kb/3071740)從下載中心取得這些客體的整合元件封包檔 (cab)。 [這裡](http://blogs.technet.com/b/virtualization/archive/2015/07/24/integration-components-available-for-virtual-machines-not-connected-to-windows-update.aspx)有套用 cab 的指示。
+<g id="1" ctype="x-strong">\*</g> 如果無法啟用「資料交換」整合服務，可以在<g id="3CapsExtId1" ctype="x-link"><g id="3CapsExtId2" ctype="x-linkText">這裡</g><g id="3CapsExtId3" ctype="x-title"></g></g>從下載中心取得這些客體的整合元件封包檔 (cab)。 <g id="2CapsExtId1" ctype="x-link"><g id="2CapsExtId2" ctype="x-linkText">這裡</g><g id="2CapsExtId3" ctype="x-title"></g></g>有套用 cab 的指示。
 
 
-**在 Windows 8.1 主機上執行虛擬機器：**
+<g id="1" ctype="x-strong">在 Windows 8.1 主機上執行虛擬機器：</g>
 
 | 客體作業系統| 更新機制| 附註|
 |:---------|:---------|:---------|
@@ -218,10 +235,10 @@ sudo hv_kvp_daemon
 | Windows Server 2003 R2 (SP 2)| 整合服務光碟| |
 | Windows Server 2003 (SP 2)| 整合服務光碟| |
 | -| | |
-| Linux 客體| 封裝管理員| Linux 整合元件內建在 distro 中，但有可能是可用的選擇性更新。********|
+| Linux 客體| 封裝管理員| Linux 整合元件內建在 distro 中，但有可能是可用的選擇性更新。<g id="1" ctype="x-strong">****</g>|
 
 
-**在 Windows 8 主機上執行虛擬機器：**
+<g id="1" ctype="x-strong">在 Windows 8 主機上執行虛擬機器：</g>
 
 | 客體作業系統| 更新機制| 附註|
 |:---------|:---------|:---------|
@@ -240,14 +257,18 @@ sudo hv_kvp_daemon
 | Windows Server 2003 R2 (SP 2)| 整合服務光碟| |
 | Windows Server 2003 (SP 2)| 整合服務光碟| |
 | -| | |
-| Linux 客體| 封裝管理員| Linux 整合元件內建在 distro 中，但有可能是可用的選擇性更新。********|
+| Linux 客體| 封裝管理員| Linux 整合元件內建在 distro 中，但有可能是可用的選擇性更新。<g id="1" ctype="x-strong">****</g>|
 
 
-[這裡](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4)有透過整合服務光碟來更新 Windows 8 和 Windows 8.1 的指示。
+<g id="2CapsExtId1" ctype="x-link"><g id="2CapsExtId2" ctype="x-linkText">這裡</g><g id="2CapsExtId3" ctype="x-title"></g></g>有透過整合服務光碟來更新 Windows 8 和 Windows 8.1 的指示。
 
- **\****** 在[這裡](https://technet.microsoft.com/en-us/library/dn531030.aspx)可以找到 Linux 客體的更多相關資訊。
-
-
+ <g id="1" ctype="x-strong">\****</g> 在<g id="3CapsExtId1" ctype="x-link"><g id="3CapsExtId2" ctype="x-linkText">這裡</g><g id="3CapsExtId3" ctype="x-title"></g></g>可以找到 Linux 客體的更多相關資訊。
 
 
-<!--HONumber=Jan16_HO3-->
+
+
+
+
+<!--HONumber=May16_HO1-->
+
+

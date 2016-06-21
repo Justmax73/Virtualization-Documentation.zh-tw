@@ -1,6 +1,19 @@
+---
+title: 支援的 Windows 客體
+description: 支援的 Windows 客體。
+keywords: windows 10, hyper-v
+author: scooley
+manager: timlt
+ms.date: 05/02/2016
+ms.topic: article
+ms.prod: &249128930 windows-10-hyperv
+ms.service: windows-10-hyperv
+ms.assetid: ae4a18ed-996b-4104-90c5-539c90798e4c
+---
+
 # 支援的 Windows 客體
 
-本文列出在 Windows 上的 Hyper-V 所支援的作業系統組合。 也會介紹整合服務及支援中的其他因素。
+本文列出在 Windows 上的 Hyper-V 所支援的作業系統組合。 它也會介紹整合服務及支援中的其他因素。
 
 ## 支援是什麼意思？
 
@@ -9,7 +22,7 @@
 Microsoft 透過下列方式提供客體作業系統的支援：
 * Microsoft 作業系統和整合服務中發現的問題可獲得 Microsoft 支援服務的支援。
 * 經過作業系統廠商認證可在 Hyper-V 執行的其他作業系統上發現的問題，由廠商提供支援。
-* 對於其他作業系統發現的問題，Microsoft 會將問題提交給多個廠商支援社群 [TSANet](http://www.tsanet.org/)。
+* 對於其他作業系統發現的問題，Microsoft 會將問題提交給多個廠商支援社群 <g id="2CapsExtId1" ctype="x-link"><g id="2CapsExtId2" ctype="x-linkText">TSANet</g><g id="2CapsExtId3" ctype="x-title"></g></g>。
 
 為了獲得支援，必須以透過 Windows Update 取得的所有重大更新，更新 Hyper-V 主機和客體。
 
@@ -39,15 +52,20 @@ Microsoft 透過下列方式提供客體作業系統的支援：
 
 | 客體作業系統| |
 |:-----|:------|
-| [CentOS 和 Red Hat Enterprise Linux ](https://technet.microsoft.com/library/dn531026.aspx)| |
-| [Hyper-V 上的 Debian 虛擬機器](https://technet.microsoft.com/library/dn614985.aspx)| |
-| [SUSE](https://technet.microsoft.com/en-us/library/dn531027.aspx)| |
-| [Oracle Linux](https://technet.microsoft.com/en-us/library/dn609828.aspx)| |
-| [Ubuntu](https://technet.microsoft.com/en-us/library/dn531029.aspx)| |
-| [FreeBSD](https://technet.microsoft.com/library/dn848318.aspx)| |
+| <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">CentOS 和 Red Hat Enterprise Linux </g><g id="1CapsExtId3" ctype="x-title"></g></g>| |
+| <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Hyper-V 上的 Debian 虛擬機器</g><g id="1CapsExtId3" ctype="x-title"></g></g>| |
+| <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">SUSE</g><g id="1CapsExtId3" ctype="x-title"></g></g>| |
+| <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Oracle Linux</g><g id="1CapsExtId3" ctype="x-title"></g></g>| |
+| <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Ubuntu</g><g id="1CapsExtId3" ctype="x-title"></g></g>| |
+| <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">FreeBSD</g><g id="1CapsExtId3" ctype="x-title"></g></g>| |
 
-如需詳細資訊，包括舊版 Hyper-V 的支援資訊，請參閱 [Hyper-V 上的 Linux 和 FreeBSD 虛擬機器](https://technet.microsoft.com/library/dn531030.aspx)。
+如需詳細資訊，包括舊版 Hyper-V 的支援資訊，請參閱 <g id="2CapsExtId1" ctype="x-link"><g id="2CapsExtId2" ctype="x-linkText">Hyper-V 上的 Linux 和 FreeBSD 虛擬機器</g><g id="2CapsExtId3" ctype="x-title"></g></g>。
 
 
+
+
+
+
+<!--HONumber=May16_HO1-->
 
 

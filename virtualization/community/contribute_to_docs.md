@@ -1,116 +1,129 @@
-# Contribute to the docs
+---
+title: &203716473 社群資源
+description: 社群資源
+keywords: windows 10, hyper-v, container, docker
+author: scooley
+manager: timlt
+ms.date: 05/02/2016
+ms.topic: article
+ms.prod: &915477127 virtualization
+ms.service: virtualization
+ms.assetid: 731ed95a-ce13-4c6e-a450-49563bdc498c
+---
 
-> **Note:**  In order to contribute, you must have a [GitHub](https://www.github.com) account.
+# 參與文件編輯
 
-## Edit an existing doc
+> <g id="1" ctype="x-strong">注意：</g>若要參與編輯，您必須有 <g id="3CapsExtId1" ctype="x-link"><g id="3CapsExtId2" ctype="x-linkText">GitHub</g><g id="3CapsExtId3" ctype="x-title"></g></g> 帳戶。
 
-1. Find the doc you'd like to edit.
+## 編輯現有的文件
 
-2. Select **Contribute to this topic**  
-  ![](media/editDoc.png)
+1. 尋找您想要編輯的文件。
 
-  This will automatically redirect you to the markdown file in GitHub associated with this file.
+2. 選取<g id="2" ctype="x-strong">參與編輯此主題</g>  
+  <g id="1" ctype="x-linkText"></g>
 
-  Make sure you are signed into GitHub. If not, either sign in or create a GitHub account.
+  這會自動將您重新導向 GitHub 中與此檔案相關聯的 markdown 檔案。
 
-  ![](media/GitHubView.png)
+  請確定您已登入 GitHub。 如果沒有，請登入，或建立 GitHub 帳戶。
 
-3. Select the edit icon to edit with the in browser editor.
+  <g id="1" ctype="x-linkText"></g>
 
-  ![](media/GitHubEdit.png)
+3. 選取 [編輯] 圖示，開始在瀏覽器中編輯。
 
-4. Make changes inline.
+  <g id="1" ctype="x-linkText"></g>
 
-  Possible actions:
-  1. Edit file
-  2. Preview changes
-  3. Rename the file (it's very unlikely you'll want to do this)
+4. 直接在文件內變更。
 
-  ![](media/GitHubEditor.png)
+  可能的動作：
+  1. 編輯檔案
+  2. 預覽變更
+  3. 重新命名檔案 (幾乎不太可能會這樣做)
 
-5. Propose your changes as a pull request
+  <g id="1" ctype="x-linkText"></g>
 
-  ![](media/GitHubProposeChange.png)
+5. 以提取要求提議您的變更
 
-6. Review your changes
+  <g id="1" ctype="x-linkText"></g>
 
-  **What we're looking for in a pull request**
-  * The change is correct -- it accurately represents the technology
-  * Spelling/grammar are correct
-  * Logical location in the documentation
+6. 檢閱您的變更
 
-  ![](media/GitHubCreatePR.png)
+  <g id="1" ctype="x-strong">我們在提取要求中檢查的項目</g>
+  * 變更是正確的 -- 它準確地代表技術
+  * 拼字/文法正確無誤
+  * 文件中的邏輯位置
 
-7. Create a [pull request](contribute_to_docs.md#pull-requests)
+  <g id="1" ctype="x-linkText"></g>
 
-## Pull requests
+7. 建立<g id="2CapsExtId1" ctype="x-link"><g id="2CapsExtId2" ctype="x-linkText">提取要求</g><g id="2CapsExtId3" ctype="x-title"></g></g>
 
-Most changes will be committed via pull request. A pull request is a way of reviewing a change set with multiple reviewers, changing, and commenting on the current content.
+## 提取要求
+
+大部分的變更將透過提取要求來認可。 提取要求是由多位檢閱者檢閱變更集、對目前內容進行變更和提出意見的一種方法。
 
 
-## Fork the repo and edit locally
+## 分支存放庫，並在本機編輯
 
-For long term doc work Clone the repository locally and work on your machine.
+針對長期文件工作，請本機複製存放庫，並在您的電腦上使用。
 
-The following guide shows you how to emulate my (Sarah Cooley's) set up. There are many alternative setups that work equally well.
+下列指南說明如何模擬 Sarah Cooley 的設定。 有許多替代設定也同樣適用。
 
-> **Note:** All of these doc tools work equally well on Linux/OSX. If you want other guides, ask.
+> <g id="1" ctype="x-strong">注意：</g>其中所有文件工具皆適用於 Linux/OSX。 如果您想要其他指南，歡迎提出需求。
 
-This is broken into three sections:
-* [Set up git](contribute_to_docs.md#set-up-git)
-  * git installation
-  * initial set up
-  * forking the documentation repo
-  * cloning your copy to your local machine
-* [Initial credential management](contribute_to_docs.md#validate-and-stash-credentials)
-  * information about stashing credentials and cred helper.
-* [Set up doc environment](contribute_to_docs.md#set-up-markdown-editing-environment)
-  * install VSCode
-  * VSCode for Git walk through some handy features
-  * Make first commit.
+本內容分成三個區段：
+* <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">設定 Git</g><g id="1CapsExtId3" ctype="x-title"></g></g>
+  * Git 安裝
+  * 初始設定
+  * 分支文件存放庫
+  * 將複本複製到本機電腦
+* <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">初始認證管理</g><g id="1CapsExtId3" ctype="x-title"></g></g>
+  * 隱藏認證和認證協助程式的相關資訊。
+* <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">設定文件環境</g><g id="1CapsExtId3" ctype="x-title"></g></g>
+  * 安裝 VSCode
+  * 適用於 Git 之 VSCode 的一些實用功能逐步解說
+  * 進行第一次認可。
 
-### Set up Git
+### 設定 Git
 
-1. Install git (on Windows) from [here](https://git-for-windows.github.io/)
+1. 從<g id="2CapsExtId1" ctype="x-link"><g id="2CapsExtId2" ctype="x-linkText">這裡</g><g id="2CapsExtId3" ctype="x-title"></g></g>安裝 Git (在 Windows 上)
 
-  There is only one value in the installation you need to change:
+  您只需要在安裝中變更一個值：
 
-  **Adjusting your PATH environment**
-  Use Git from the Windows Command Prompt
+  <g id="1" ctype="x-strong">調整您的路徑環境</g>
+  從 Windows 命令提示字元使用 Git
 
-  ![](media/GitFromWinCMD.png)
+  <g id="1" ctype="x-linkText"></g>
 
-  This lets you use git commands in the PowerShell console/in any Windows console.
+  這可讓您在 PowerShell 主控台/任何 Windows 主控台中使用 Git 命令。
 
-2. Configure your git identity
+2. 設定您的 Git 身分識別
 
-  Open a PowerShell Window and run:
+  開啟 PowerShell 視窗，並執行：
 
   ``` PowerShell
   git config --global user.name "User Name"
   git config --global user.email username@microsoft.com
   ```
 
-  Git uses these values to label your commits.
+  Git 會使用這些值來標示您的認可。
 
-> If recieved the following error git probably isn't installed properly or you need to relaunch PowerShell.
+> 如果收到下列錯誤，表示 Git 可能未正確安裝，或您需要重新啟動 PowerShell。
 >    ``` PowerShell
->    git : The term 'git' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+>    Git : 無法辨識 'git' 字詞為 Cmdlet、函數、指令檔或可執行之程式的名稱。 請檢查名稱的拼字，若包含路徑，請確認路徑是否正確，然後再試一次。
 >    ```
 
-3. Configure your git environment
+3. 設定您的 Git 環境
 
-   Set up a credential helper so you only need to enter username and password once (at least on this machine).
-   I use this basic [Windows cred helper](https://github.com/Microsoft/Git-Credential-Manager-for-Windows#download-and-install)
+   設定認證協助程式，以便只需輸入使用者名稱和密碼一次 (至少在這部電腦上)。
+   我使用這個基本 <g id="2CapsExtId1" ctype="x-link"><g id="2CapsExtId2" ctype="x-linkText">Windows 認證協助程式</g><g id="2CapsExtId3" ctype="x-title"></g></g>
 
-   Once that is installed, run the following to enable the credential helper and set your push behavior:
+   安裝之後，請執行下列命令以啟用認證協助程式，並設定您的推入行為：
    ```
    git config --global credential.helper manager
    git config --global push.default simple
    ```
 
-   The first time you need to authenticate against GitHub - you will be prompted for your username, and the two-factor authcode if you have it enabled.
-   Example:
+   第一次進行 GitHub 驗證時，系統會提示您輸入使用者名稱以及雙因素驗證 (如果您有啟用的話)。
+   範例：
    ```
    C:\Users\plang\Source\Repos\Virtualization-Documentation [master]> git pull
    Please enter your GitHub credentials for https://github.com/
@@ -118,37 +131,37 @@ This is broken into three sections:
    password:
    authcode (app): 562689
    ```
-   This will automatically a [Personal Access Token](https://github.com/settings/tokens) with the right permissions on GitHub,
-   then store that token securely on the local machine. You shouldn't be prompted again in the future.
+   如此便會自動產生<g id="2CapsExtId1" ctype="x-link"><g id="2CapsExtId2" ctype="x-linkText">個人存取權杖</g><g id="2CapsExtId3" ctype="x-title"></g></g>以及 GitHub 的正確權限，
+   然後安全地在本機電腦上儲存該權杖。 未來，系統應該不會再向您提示。
 
-4. Fork the repository
+4. 分支存放庫
 
-5. Clone the repository
+5. 複製存放庫
 
-  Git clone makes a local copy of the git repository with the right hooks to sync with other clones of the same repository.
+  Git 複製會使用適當的勾點來製作 Git 存放庫的本機複本，以同步處理相同存放庫的其他複製。
 
-  By default, clone will create a folder with the same name as the repository in the current directory. I keep all of my git repos in my user directory. Read more about git clone [here](http://git-scm.com/docs/git-clone).
+  根據預設，複製會建立與目前目錄中的存放庫名稱相同的資料夾。 我將所有 Git 存放庫存放在我的使用者目錄中。 參閱<g id="2CapsExtId1" ctype="x-link"><g id="2CapsExtId2" ctype="x-linkText">這裡</g><g id="2CapsExtId3" ctype="x-title"></g></g>以深入了解 Git 複製。
 
   ``` PowerShell
   cd ~
   git clone https://github.com/Microsoft/Virtualization-Documentation.git
   ```
 
-  If successful, you now have a `Virtualization-Documentation` folder.
+  如果成功，您現在應已具備 <g id="2" ctype="x-code">Virtualization-Documentation</g> 資料夾。
 
   ``` PowerShell
   cd Virtualization-Documentation
   ```
 
-5. [Optional] Set up Posh-Git
+5. [選用] 設定 Posh-Git
 
-  Posh-Git is a community created PowerShell module that makes using Git in PowerShell a little friendlier. It adds tab completion for Git in PowerShell, and can also make your prompt display useful about branching and file state. Read more about it [here](https://github.com/dahlbyk/posh-git). You can install Posh-Git by running the following in an Administrator PowerShell console.
+  Posh-Git 是一種由社群建立的 PowerShell 模組，其可讓您更輕鬆地在 PowerShell 中使用 Git。 它在 PowerShell 中加入 Git 的 TAB 鍵自動完成，也可讓您的提示顯示實用的分支和檔案狀態相關資訊。 如需詳細資訊，請參閱<g id="2CapsExtId1" ctype="x-link"><g id="2CapsExtId2" ctype="x-linkText">這裡</g><g id="2CapsExtId3" ctype="x-title"></g></g>。 您可以在系統管理員 PowerShell 主控台中執行下列命令，以安裝 Posh-Git。
 
   ``` PowerShell
   Install-Module -Name posh-git
   ```
 
-  To make Posh-Git work automatically each time you start PowerShell, add the following code to your PowerShell Profile (e.g. `%UserProfile%\My Documents\WindowsPowerShell\profile.ps1 `)
+  若要在每次啟動 PowerShell 時讓 Posh-Git 自動運作，請將下列程式碼加入您的 PowerShell 設定檔 (例如 <g id="2" ctype="x-code">%UserProfile%\My Documents\WindowsPowerShell\profile.ps1 </g>)
 
   ``` PowerShell
   Import-Module posh-git
@@ -165,25 +178,29 @@ This is broken into three sections:
   }
   ```
 
-### Validate and stash credentials
+### 驗證和隱藏認證
 
-  To validate that the repository is set up correctly, try pulling new content.
+  若要驗證存放庫是否正確設定，請嘗試提取新的內容。
 
   ``` PowerShell
   git pull
   ```
 
 
-### Set up markdown editing environment
+### 設定 Markdown 編輯環境
 
-1. Download VSCode
+1. 下載 VSCode
 
-6. Make a test commit. If your credentials are stashed correctly, it should all work perfectly.
-
-
+6. 進行測試認可。 如果您的認證可正確地隱藏，則應該一切運作正常。
 
 
 
 
 
-<!--HONumber=Feb16_HO1-->
+
+
+
+
+<!--HONumber=May16_HO1-->
+
+
