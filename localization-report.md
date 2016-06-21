@@ -3650,6 +3650,8 @@
 * Archive Datetime: 2016-06-16 07:18:12
 * Handback File: [configure_docker_daemon.593d065aaeaa40359a3e774b03d152311eb6570c.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/5e9c2d3ee96cb303fdf1d7e421d583d3a084acfe/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/configure_docker_daemon.593d065aaeaa40359a3e774b03d152311eb6570c.zh-tw.xlf)
 * Handback Datetime: 2016-06-21 01:47:42
+* Bilingual File: [configure_docker_daemon.593d065aaeaa40359a3e774b03d152311eb6570c.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/5e9c2d3ee96cb303fdf1d7e421d583d3a084acfe/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/configure_docker_daemon.593d065aaeaa40359a3e774b03d152311eb6570c.zh-tw.xlf)
+* Bilingual Datetime: 2016-06-21 01:48:20
 * [Back to Top](#report-top)
 
 ##### <a name='9e12a0a1ff4e77ddcd4933dea1828bea87b5f3b6246'></a> Source: [virtualization\windowscontainers\docker\manage_windows_dockerfile.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/ef5aff5028181eb9d912d7b7d4882012c583c85c/virtualization/windowscontainers/docker/manage_windows_dockerfile.md)
@@ -4655,8 +4657,8 @@
 * Archive Datetime: 2016-06-16 07:18:12
 * Handback File: [TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/5e9c2d3ee96cb303fdf1d7e421d583d3a084acfe/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.zh-tw.xlf)
 * Handback Datetime: 2016-06-21 01:47:42
-* Bilingual File: [TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/19718c01c9164093c20a03f0dd20677ba59c0680/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.zh-tw.xlf)
-* Bilingual Datetime: 2016-06-16 07:49:22
+* Bilingual File: [TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/5e9c2d3ee96cb303fdf1d7e421d583d3a084acfe/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.zh-tw.xlf)
+* Bilingual Datetime: 2016-06-21 01:48:20
 * [Back to Top](#report-top)
 
 ##### <a name='600fd94bf56ee1f241fc7c06f31e2a49c744b394323'></a> Source: [windows-container-samples\nanoserver\golang\dockerfile](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/ef18b63c454b3c12a7067d3604ba142d55403226/windows-container-samples/nanoserver/golang/dockerfile)
