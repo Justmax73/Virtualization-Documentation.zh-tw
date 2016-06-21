@@ -1,245 +1,134 @@
-
-
-
+---
+title: 在 Windows Server 上部署 Windows 容器
+description: 在 Windows Server 上部署 Windows 容器
+keywords: docker, containers
+author: neilpeterson
+manager: timlt
+ms.date: 05/26/2016
+ms.topic: article
+ms.prod: windows-containers
+ms.service: windows-containers
+ms.assetid: ba4eb594-0cdb-4148-81ac-a83b4bc337bc
+---
 
 # 容器主機部署 - Windows Server
 
-**這是初版內容，後續可能會變更。**
+**這是初版內容，後續可能會變更。** 
 
-部署 Windows 容器主機有不同的步驟，視作業系統和主機系統類型 (實體或虛擬) 而定。 您可利用這份文件中的步驟，在實體或虛擬系統上對 Windows Server 2016 或 Windows Server Core 2016 部署 Windows 容器主機。 若要對 Nano Server 安裝 Windows 容器主機，請參閱[容器主機部署 - Nano Server](./deployment_nano.md)。
+部署 Windows 容器主機有不同的步驟，視作業系統和主機系統類型 (實體或虛擬) 而定。 這份文件詳細說明將 Windows 容器主機部署至實體或虛擬系統上的 Windows Server 2016 或 Windows Server Core 2016 的步驟。
 
-如需系統需求的詳細資料，請參閱 [Windows 容器主機系統需求](./system_requirements.md)。
+## 安裝容器功能
 
-同時也提供 PowerShell 指令碼，可用於自動進行 Windows 容器主機的部署。
-- [在新的 Hyper-V 虛擬機器中部署容器主機](../quick_start/container_setup.md)。
-- [在現有系統上部署容器主機](../quick_start/inplace_setup.md)。
+容器功能必須先啟用，才能使用 Windows 容器。 若要這麼做，請在提升權限的 PowerShell 工作階段中執行下列命令。 
 
-# Windows Server 主機
-
-下表所列的步驟可用於在 Windows Server 2016 和 Windows Server 2016 Core 上部署容器主機。 內含 Windows Server 和 Hyper-V 容器所需的組態。
-
-<table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:100%" cellpadding="5" cellspacing="5">
-<tr valign="top">
-<td width="30%"><strong>部署動作</strong></td>
-<td width="70%"><strong>詳細資料</strong></td>
-</tr>
-<tr>
-<td>[安裝容器功能](#role)</td>
-<td>容器功能可讓您使用 Windows Server 和 Hyper-V 容器。</td>
-</tr>
-<tr>
-<td>[建立虛擬交換器](#vswitch)</td>
-<td>容器會連接到虛擬交換器，以進行網路連線。</td>
-</tr>
-<tr>
-<td>[設定 NAT](#nat)</td>
-<td>如果虛擬交換器設定了網路位址轉譯，NAT 本身將需要設定。</td>
-</tr>
-<tr>
-<td>[安裝容器 OS 映像](#img)</td>
-<td>OS 映像可提供容器部署的基礎。</td>
-</tr>
-<tr>
-<td>[安裝 Docker](#docker)</td>
-<td>此步驟是選用步驟，但若要以 Docker 建立及管理 Windows 容器，則必須進行此步驟。</td>
-</tr>
-</table>
-
-如果將會使用 Hyper-V 容器，則必須進行這些步驟。 請注意，標有 * 的步驟只有在容器主機本身為 Hyper-V 虛擬機器時才需要。
-
-<table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:100%" cellpadding="5" cellspacing="5">
-<tr valign="top">
-<td width="30%"><strong>部署動作</strong></td>
-<td width="70%"><strong>詳細資料</strong></td>
-</tr>
-<tr>
-<td>[啟用 Hyper-V 角色](#hypv) </td>
-<td>只有將會使用 Hyper-V 容器時，才需要 Hyper-V。</td>
-</tr>
-<tr>
-<td>[啟用巢狀虛擬化 *](#nest)</td>
-<td>如果容器主機本身就是 Hyper-V 虛擬機器，則必須啟用巢狀虛擬化。</td>
-</tr>
-<tr>
-<td>[設定虛擬處理器 *](#proc)</td>
-<td>如果容器主機本身就是 Hyper-V 虛擬機器，則至少必須設定兩個虛擬處理器。</td>
-</tr>
-<tr>
-<td>[停用動態記憶體 *](#dyn)</td>
-<td>如果容器主機本身就是 Hyper-V 虛擬機器，則必須停用動態記憶體。</td>
-</tr>
-<tr>
-<td>[設定 MAC 位址詐騙 *](#mac)</td>
-<td>如果容器主機是虛擬化的，則必須啟用 MAC 詐騙。</td>
-</tr>
-</table>
-
-## 部署步驟
-
-### <a name=role></a>安裝容器功能
-
-容器功能可以使用 Windows 伺服器管理員或 PowerShell 安裝在 Windows Server 2016 或 Windows Server 2016 Core 上。
-
-若要使用 PowerShell 安裝角色，請在提高權限的 PowerShell 工作階段中執行下列命令。
-
-```powershell
-PS C:\> Install-WindowsFeature containers
-```
-容器角色安裝完成後，必須重新啟動系統。
-
-```powershell
-PS C:\> shutdown /r 
-```
-系統重新開機之後，請使用 `Get-ContainerHost` 命令確認容器角色已成功安裝：
-
-```powershell
-PS C:\> Get-ContainerHost
-
-Name            ContainerImageRepositoryLocation
-----            --------------------------------
-WIN-LJGU7HD7TEP C:\ProgramData\Microsoft\Windows\Hyper-V\Container Image Store
+```none
+Install-WindowsFeature containers
 ```
 
-### <a name=vswitch></a>建立虛擬交換器
+功能安裝完成時，請重新啟動電腦。
 
-每個容器都必須連接到虛擬交換器，才能透過網路進行通訊。 虛擬交換器是以 `New-VMSwitch` 命令來建立。 容器支援`外部`或 `NAT` 類型的虛擬交換器。 如需 Windows 容器網路功能的詳細資訊，請參閱[容器網路功能](../management/container_networking.md)。
+## 安裝 Docker
 
-此範例會建立名稱為 “Virtual Switch”、類型為 NAT、Nat 子網路為 172.16.0.0/12 虛擬交換器。
+需要 Docker，才能使用 Windows 容器。 Docker 是由 Docker 引擎及 Docker 用戶端所組成。 針對此練習，兩者都會安裝。
 
-```powershell
-PS C:\> New-VMSwitch -Name "Virtual Switch" -SwitchType NAT -NATSubnetAddress 172.16.0.0/12
+建立 Docker 可執行檔的資料夾。
+
+```none
+New-Item -Type Directory -Path 'C:\Program Files\docker\'
 ```
 
-### <a name=nat></a>設定 NAT
+下載 Docker 精靈。
 
-除了建立虛擬交換器以外，如果交換器類型為 NAT，則還必須建立 NAT 物件。 此步驟可使用 `New-NetNat` 命令來完成。 此範例會以名稱 `ContainerNat` 以及與指派給容器交換器的 NAT 子網路相符的位址首碼來建立 NAT 物件。
-
-```powershell
-PS C:\> New-NetNat -Name ContainerNat -InternalIPInterfaceAddressPrefix "172.16.0.0/12"
-
-Name                             : ContainerNat
-ExternalIPInterfaceAddressPrefix :
-InternalIPInterfaceAddressPrefix : 172.16.0.0/12
-IcmpQueryTimeout                 : 30
-TcpEstablishedConnectionTimeout  : 1800
-TcpTransientConnectionTimeout    : 120
-TcpFilteringBehavior             : AddressDependentFiltering
-UdpFilteringBehavior             : AddressDependentFiltering
-UdpIdleSessionTimeout            : 120
-UdpInboundRefresh                : False
-Store                            : Local
-Active                           : True
+```none
+Invoke-WebRequest https://aka.ms/tp5/b/dockerd -OutFile $env:ProgramFiles\docker\dockerd.exe
 ```
 
-### <a name=img></a>安裝 OS 映像
+下載 Docker 用戶端。
 
-OS 映像可做為任何 Windows Server 或 Hyper-V 容器的基底。 此映像可用來部署容器，接著容器可以修改，並擷取到新的容器映像中。 目前已建立以 Windows Server Core 和 Nano Server 做為基礎作業系統的 OS 映像。
-
-您可以使用 ContainerProvider PowerShell 模組尋找並安裝容器 OS 映像。 此模組必須先安裝，才可使用。 下列命令可用來安裝此模組。
-
-```powershell
-PS C:\> Install-PackageProvider ContainerProvider -Force
+```none
+Invoke-WebRequest https://aka.ms/tp5/b/docker -OutFile $env:ProgramFiles\docker\docker.exe
 ```
 
-使用 `Find-ContainerImage` 可從 PowerShell OneGet 封裝管理員傳回映像清單：
-```powershell
-PS C:\> Find-ContainerImage
+將 Docker 目錄新增至系統路徑。
 
-Name                 Version                 Description
-----                 -------                 -----------
-NanoServer           10.0.10586.0            Container OS Image of Windows Server 2016 Techn...
-WindowsServerCore    10.0.10586.0            Container OS Image of Windows Server 2016 Techn...
-```
-若要下載並安裝 Nano Server 基本 OS 映像，請執行下列命令。
-
-```powershell
-PS C:\> Install-ContainerImage -Name NanoServer -Version 10.0.10586.0
-
-Downloaded in 0 hours, 0 minutes, 10 seconds.
+```none
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\Docker", [EnvironmentVariableTarget]::Machine)
 ```
 
-同樣地，此命令會下載並安裝 Windows Server Core 基本 OS 映像。
+重新啟動 PowerShell 工作階段，以便辨識修改過的路徑。
 
-```powershell
-PS C:\> Install-ContainerImage -Name WindowsServerCore -Version 10.0.10586.0
+若要將 Docker 安裝為 Windows 服務，請執行下列命令。
 
-Downloaded in 0 hours, 2 minutes, 28 seconds.
+```none
+dockerd --register-service
 ```
 
-**問題：**Save-ContainerImage 和 Install-ContainerImage Cmdlet 無法在 PowerShell 遠端工作階段中使用 WindowsServerCore 容器映像。<br />**因應措施：**使用遠端桌面登入機器，並直接使用 Save-ContainerImage Cmdlet。
+安裝之後，就可以啟動服務。
 
-使用 `Get-ContainerImage` 命令確認已安裝映像。
-
-```powershell
-PS C:\> Get-ContainerImage
-
-Name              Publisher    Version      IsOSImage
-----              ---------    -------      ---------
-NanoServer        CN=Microsoft 10.0.10586.0 True
-WindowsServerCore CN=Microsoft 10.0.10586.0 True
+```none
+Start-Service Docker
 ```
-如需容器映像管理的詳細資訊，請參閱 [Windows 容器映像](../management/manage_images.md)。
 
+## 安裝基本容器映像
 
-### <a name=docker></a>安裝 Docker
+必須先下載容器基本 OS 映像，才能部署容器。 下列範例會下載 Windows Server Core 基本 OS 映像。 安裝 Nano Server 基本映像時，也需完成此相同程序。 安裝 Nano Server 基本映像時，也需完成此相同程序。 如需 Windows 容器映像的詳細資訊，請參閱[管理容器映像](../management/manage_images.md)。
+    
+首先，安裝容器映像套件提供者。
 
-Docker 精靈和命令列介面並未隨附於 Windows，且不會隨 Windows 容器功能一起安裝。 使用 Windows 容器時不需要 Docker。 如果想要安裝 Docker，請遵循 [Docker 與 Windows](./docker_windows.md) 一文中的指示作業。
+```none
+Install-PackageProvider ContainerImage -Force
+```
 
+接下來，安裝 Windows Server Core 映像。 此程序可能需要一些時間，因此您可以休息一下，等下載完成後再繼續。
+
+```none 
+Install-ContainerImage -Name WindowsServerCore    
+```
+
+基本映像安裝完成後，Docker 服務必須重新啟動。
+
+```none
+Restart-Service docker
+```
+
+最後，此映像必須加上「最新」版本的標籤。 若要這樣做，請執行以下命令。
+
+```none
+docker tag windowsservercore:10.0.14300.1000 windowsservercore:latest
+```
 
 ## Hyper-V 容器主機
 
-### <a name=hypv></a>啟用 Hyper-V 角色
+若要部署 Hyper-V 容器，需具備 Hyper-V 角色。 如果 Windows 容器主機本身為 Hyper-V 虛擬機器，則必須先啟用巢狀虛擬化，才能安裝 Hyper-V 角色。 如需巢狀虛擬化的詳細資訊，請參閱[巢狀虛擬化]( https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/user_guide/nesting)。
 
-如果將部署 Hyper-V 容器，需要在容器主機上啟用 Hyper-V 角色。 使用 `Install-WindowsFeature` 命令可在 Windows Server 2016 或 Windows Server 2016 Core 上安裝 Hyper-V 角色。 如果容器主機本身為 Hyper-V 虛擬機器，則必須先啟用巢狀虛擬化。 若要執行此動作，請參閱[設定巢狀虛擬化](#nest)。
+### 巢狀虛擬化
 
-```powershell
-PS C:\> Install-WindowsFeature hyper-v
+下列指令碼可設定容器主機的巢狀虛擬化。 您必須在裝載容器主機虛擬機器的 Hyper-V 機器上執行此指令碼。 執行這個指令碼時，容器主機的虛擬機器務必要關閉。
+
+```none
+#replace with the virtual machine name
+$vm = "<virtual-machine>"
+
+#configure virtual processor
+Set-VMProcessor -VMName $vm -ExposeVirtualizationExtensions $true -Count 2
+
+#disable dynamic memory
+Set-VMMemory $vm -DynamicMemoryEnabled $false
+
+#enable mac spoofing
+Get-VMNetworkAdapter -VMName $vm | Set-VMNetworkAdapter -MacAddressSpoofing On
 ```
 
-### <a name=nest></a>巢狀虛擬化
+### 啟用 Hyper-V 角色
 
-如果容器主機本身將會在 Hyper-V 虛擬機器上執行，而且也會主控 Hyper-V 容器，則必須啟用巢狀虛擬化。 這可以使用下列 PowerShell 命令來完成。
+若要使用 PowerShell 啟用 Hyper-V 功能，請在提升權限的 PowerShell 工作階段中執行下列命令。
 
-**注意** - 執行此命令時，必須關閉虛擬機器。
-
-```powershell
-PS C:\> Set-VMProcessor -VMName <VM Name> -ExposeVirtualizationExtensions $true
-```
-
-### <a name=proc></a>設定虛擬處理器
-
-如果容器主機本身將會在 Hyper-V 虛擬機器上執行，而且也會主控 Hyper-V 容器，則虛擬機器至少要有兩個處理器。 其可透過虛擬機器的設定或使用下列命令進行設定。
-
-**注意** - 執行此命令時，必須關閉虛擬機器。
-
-```poweshell
-PS C:\> Set-VMProcessor -VMName <VM Name> -Count 2
-```
-
-### <a name=dyn></a>停用動態記憶體
-
-如果容器主機本身就是 Hyper-V 虛擬機器，則必須在容器主機虛擬機器上停用動態記憶體。 其可透過虛擬機器的設定或使用下列命令進行設定。
-
-**注意** - 執行此命令時，必須關閉虛擬機器。
-
-```poweshell
-PS C:\> Set-VMMemory <VM Name> -DynamicMemoryEnabled $false
-```
-
-### <a name=mac></a>MAC 位址詐騙
-
-最後，如果容器主機執行於 Hyper-V 虛擬機器內，就必須啟用 MAC 詐騙。 這可讓每個容器接收 IP 位址。 若要啟用 MAC 位址詐騙，請在 Hyper-V 主機上執行下列命令。 VMName 屬性會是容器主機的名稱。
-
-```powershell
-PS C:\> Get-VMNetworkAdapter -VMName <VM Name> | Set-VMNetworkAdapter -MacAddressSpoofing On
+```none
+Install-WindowsFeature hyper-v
 ```
 
 
 
-
-
-
-
-<!--HONumber=Feb16_HO4-->
+<!--HONumber=May16_HO4-->
 
 

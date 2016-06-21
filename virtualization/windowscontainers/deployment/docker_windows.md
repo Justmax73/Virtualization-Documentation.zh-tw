@@ -1,38 +1,45 @@
-
-
-
+---
+title: 在 Windows 中部署 Docker
+description: 在 Windows 中部署 Docker
+keywords: docker, containers
+author: neilpeterson
+manager: timlt
+ms.date: 05/26/2016
+ms.topic: article
+ms.prod: windows-containers
+ms.service: windows-containers
+ms.assetid: bdfa4545-2291-4827-8165-2d6c98d72d37
+---
 
 # Docker 和 Windows
 
-**這是初版內容，後續可能會變更。**
+**這是初版內容，後續可能會變更。** 
 
-Docker 是一個適用於 Linux 和 Windows 容器的容器部署和管理平台。 Docker 可用來建立、管理和刪除容器及容器映像。 Docker 可讓您將容器映像儲存在公用登錄 (Docker Hub) 和私人登錄 (Docker 信任登錄) 中。 此外，Docker 還透過 Docker Swarm 提供容器主機叢集功能，並透過 Docker Compose 提供部署自動化功能。 如需有關 Docker 和 Docker 工具組的詳細資訊，請造訪 [Docker.com](https://www.docker.com/)。
+Docker 引擎並未隨附於 Windows，且需要個別安裝及設定。 用來在 Windows 上執行 Docker 引擎的步驟會和在 Linux 上執行的步驟不同。 本文將逐步講解在 Windows Server 2016、Nano Server 和 Windows Client 上安裝和設定 Docker 引擎的步驟。 也請注意，Docker 引擎及命令列介面最近已分割成兩個檔案。 這份文件包含以上兩者的安裝指示。
 
-> 必須先啟用 Windows 容器功能，Docker 才可用來建立及管理 Windows Server 和 Hyper-V 容器。 如需有關啟用這項功能的指示，請參閱[容器主機部署指南](./docker_windows.md)。
+如需有關 Docker 和 Docker 工具組的詳細資訊，請造訪 [Docker.com](https://www.docker.com/)。 
 
-## Windows Server
+> 必須先啟動 Windows 容器功能，Docker 才可用來建立及管理 Windows 容器。 如需有關啟動這項功能的指示，請參閱[容器主機部署指南](./docker_windows.md)。
 
-### 安裝 Docker
+## Windows Server 2016
 
-Docker 精靈和 CLI 並未隨附於 Windows 或 Windows Server Core，且不會隨 Windows 容器功能一起安裝。 Docker 必須另外安裝。 本文將逐步引導您手動安裝 Docker 精靈和 Docker 用戶端。 此外也會提供完成這些工作的自動化方法。
+### 安裝 Docker 精靈 <!--1-->
 
-Docker 精靈和 Docker 命令列介面是以 Go 語言開發的。 目前，docker.exe 不會安裝為 Windows 服務。 有數種方法可用來建立 Windows 服務，這裡顯示的一個範例使用 `nssm.exe`。
+從 `https://aka.ms/tp5/dockerd` 下載 dockerd.exe，將它放在容器主機的 System32 目錄中。
 
-從 `https://aka.ms/tp4/docker` 下載 docker.exe，將它放在容器主機的 System32 目錄中。
-
-```powershell
-PS C:\> wget https://aka.ms/tp4/docker -OutFile $env:SystemRoot\system32\docker.exe
+```none
+wget https://aka.ms/tp5/dockerd -OutFile $env:SystemRoot\system32\dockerd.exe
 ```
 
 建立名為 `c:\programdata\docker` 的目錄。 在此目錄中，建立名為 `runDockerDaemon.cmd` 的檔案。
 
-```powershell
-PS C:\> New-Item -ItemType File -Path C:\ProgramData\Docker\runDockerDaemon.cmd -Force
+```none
+New-Item -ItemType File -Path C:\ProgramData\Docker\runDockerDaemon.cmd -Force
 ```
 
-將下列文字複製到 `runDockerDaemon.cmd` 檔案中。 這個批次檔會使用 `docker daemon -D -b “Virtual Switch”` 命令啟動 Docker 精靈。 注意：此檔案中的虛擬交換器名稱，必須符合容器將用於網路連線的虛擬交換器名稱。
+將下列文字複製到 `runDockerDaemon.cmd` 檔案中。
 
-```powershell
+```none
 @echo off
 set certs=%ProgramData%\docker\certs.d
 
@@ -40,146 +47,256 @@ if exist %ProgramData%\docker (goto :run)
 mkdir %ProgramData%\docker
 
 :run
-if exist %certs%\server-cert.pem (goto :secure)
+if exist %certs%\server-cert.pem (if exist %ProgramData%\docker\tag.txt (goto :secure))
 
-docker daemon -D -b "Virtual Switch"
+if not exist %systemroot%\system32\dockerd.exe (goto :legacy)
+
+dockerd -H npipe:// 
+goto :eof
+
+:legacy
+docker daemon -H npipe:// 
 goto :eof
 
 :secure
-docker daemon -D -b "Virtual Switch" -H 0.0.0.0:2376 --tlsverify --tlscacert=%certs%\ca.pem --tlscert=%certs%\server-cert.pem --tlskey=%certs%\server-key.pem
+if not exist %systemroot%\system32\dockerd.exe (goto :legacysecure)
+dockerd -H npipe:// -H 0.0.0.0:2376 --tlsverify --tlscacert=%certs%\ca.pem --tlscert=%certs%\server-cert.pem --tlskey=%certs%\server-key.pem
+goto :eof
+
+:legacysecure
+docker daemon -H npipe:// -H 0.0.0.0:2376 --tlsverify --tlscacert=%certs%\ca.pem --tlscert=%certs%\server-cert.pem --tlskey=%certs%\server-key.pem
 ```
 從 [https://nssm.cc/release/nssm-2.24.zip](https://nssm.cc/release/nssm-2.24.zip) 下載 nssm.exe。
 
-```powershell
-PS C:\> wget https://nssm.cc/release/nssm-2.24.zip -OutFile $env:ALLUSERSPROFILE\nssm.zip
+```none
+wget https://nssm.cc/release/nssm-2.24.zip -OutFile $env:ALLUSERSPROFILE\nssm.zip
 ```
 
-解壓縮檔案，並將 `nssm-2.24\win64\nssm.exe` 複製到 `c:\windows\system32` 目錄中。
+將壓縮過的封裝解壓縮。
 
-```powershell
-PS C:\> Expand-Archive -Path $env:ALLUSERSPROFILE\nssm.zip $env:ALLUSERSPROFILE
-PS C:\> Copy-Item $env:ALLUSERSPROFILE\nssm-2.24\win64\nssm.exe $env:SystemRoot\system32
+```none
+Expand-Archive -Path $env:ALLUSERSPROFILE\nssm.zip $env:ALLUSERSPROFILE
+```
+
+將 `nssm-2.24\win64\nssm.exe` 複製到 `c:\windows\system32` 目錄中。
+
+```none
+Copy-Item $env:ALLUSERSPROFILE\nssm-2.24\win64\nssm.exe $env:SystemRoot\system32
 ```
 執行 `nssm install` 以設定 Docker 服務。
 
-```powershell
-PS C:\> start-process nssm install
+```none
+start-process nssm install
 ```
 
 將下列資料輸入到 NSSM 服務安裝程式的對應欄位中。
 
 應用程式索引標籤：
 
-- **路徑：**C:\Windows\System32\cmd.exe
+**路徑：**C:\Windows\System32\cmd.exe
 
-- **啟動目錄：**C:\Windows\System32
+**啟動目錄：**C:\Windows\System32
 
-- **引數：** /s /c C:\ProgramData\docker\runDockerDaemon.cmd < nul
+**引數：** /s /c C:\ProgramData\docker\runDockerDaemon.cmd < nul
 
-- **服務名稱** - Docker
+**服務名稱** - Docker
 
 ![](media/nssm1.png)
 
 詳細資料索引標籤：
 
-- **顯示名稱：**Docker
+**顯示名稱：**Docker
 
-- **描述：**Docker 精靈可為 docker 用戶端提供容器的管理功能。
-
+**描述：**Docker 精靈可為 Docker 用戶端提供容器的管理功能。
 
 ![](media/nssm2.png)
 
 IO 索引標籤：
 
-- **輸出 (stdout)：**C:\ProgramData\docker\daemon.log
+**輸出 (stdout)：**C:\ProgramData\docker\daemon.log
 
-- **錯誤 (stderr)：**C:\ProgramData\docker\daemon.log
-
+**錯誤 (stderr)：**C:\ProgramData\docker\daemon.log
 
 ![](media/nssm3.png)
 
-完成時，請按一下 `[安裝服務]` 按鈕。
+完成時按一下 `Install Service` 按鈕。
 
-此作業成後，當 Windows 啟動時，Docker 精靈 (服務) 也也啟動。
+Docker 精靈現在已設定為 Windows 服務。
 
-### 移除 Docker
+### 防火牆 <!--1-->
 
-如果依照本指南從 docker.exe 建立 Windows 服務，下列命令將會移除服務。
+如果您想要啟動遠端 Docker 管理，您也必須開啟 TCP 連接埠 2376。
 
-```powershell
-PS C:\> sc.exe delete Docker
+```none
+netsh advfirewall firewall add rule name="Docker daemon " dir=in action=allow protocol=TCP localport=2376
+```
 
-[SC] DeleteService SUCESS
+### 移除 Docker <!--1-->
+
+下列命令會移除 Docker 服務。
+
+```none
+sc.exe delete Docker
+```
+
+### 安裝 Docker CLI
+
+從 `https://aka.ms/tp5/docker` 下載 docker.exe ，並將其置於容器主機的 System32 目錄中，或您將在其中執行 Docker 命令的任何其他系統。
+
+```none
+wget https://aka.ms/tp5/docker -OutFile $env:SystemRoot\system32\docker.exe
 ```
 
 ## Nano Server
 
-### 安裝 Docker
+### 安裝 Docker <!--2-->
 
-從 `https://aka.ms/tp4/docker` 下載 docker.exe，並將其複製到 Nano Server 容器主機的 `windows\system32` 資料夾中。
+從 `https://aka.ms/tp5/dockerd` 下載 dockerd.exe 並將它複製到 Nano Server 容器主機的 `windows\system32` 資料夾。
 
-執行下列命令以啟動 docker 精靈。 容器主機每次啟動時，都必須執行此動作。 此命令會啟動 Docker 精靈、指定容器連線的虛擬交換器，並設定精靈在連接埠 2375 上接聽傳入 Docker 要求。 在此設定中，Docker 可從遠端電腦來管理。
+建立名為 `c:\programdata\docker` 的目錄。 在此目錄中，建立名為 `runDockerDaemon.cmd` 的檔案。
 
-```powershell
-PS C:\> start-process cmd "/k docker daemon -D -b <Switch Name> -H 0.0.0.0:2375”
+```none
+New-Item -ItemType File -Path C:\ProgramData\Docker\runDockerDaemon.cmd -Force
 ```
 
-### 移除 Docker
+將下列文字複製到 `runDockerDaemon.cmd` 檔案中。
 
-若要從 Nano Server 中移除 docker 精靈和 cli，請從 Windows\system32 目錄中刪除 `docker.exe`。
+```none
+@echo off
+set certs=%ProgramData%\docker\certs.d
 
-```powershell
-PS C:\> Remove-Item $env:SystemRoot\system32\docker.exe
+if exist %ProgramData%\docker (goto :run)
+mkdir %ProgramData%\docker
+
+:run
+if exist %certs%\server-cert.pem (if exist %ProgramData%\docker\tag.txt (goto :secure))
+
+if not exist %systemroot%\system32\dockerd.exe (goto :legacy)
+
+dockerd -H npipe:// 
+goto :eof
+
+:legacy
+docker daemon -H npipe:// 
+goto :eof
+
+:secure
+if not exist %systemroot%\system32\dockerd.exe (goto :legacysecure)
+dockerd -H npipe:// -H 0.0.0.0:2376 --tlsverify --tlscacert=%certs%\ca.pem --tlscert=%certs%\server-cert.pem --tlskey=%certs%\server-key.pem
+goto :eof
+
+:legacysecure
+docker daemon -H npipe:// -H 0.0.0.0:2376 --tlsverify --tlscacert=%certs%\ca.pem --tlscert=%certs%\server-cert.pem --tlskey=%certs%\server-key.pem
+```
+
+下列指令碼可以用來建立排程工作，會在 Windows 開機時啟動 Docker 精靈。
+
+```none
+# Creates a scheduled task to start docker.exe at computer start up.
+
+$dockerData = "$($env:ProgramData)\docker"
+$dockerDaemonScript = "$dockerData\runDockerDaemon.cmd"
+$dockerLog = "$dockerData\daemon.log"
+$action = New-ScheduledTaskAction -Execute "cmd.exe" -Argument "/c $dockerDaemonScript > $dockerLog 2>&1" -WorkingDirectory $dockerData
+$trigger = New-ScheduledTaskTrigger -AtStartup
+$settings = New-ScheduledTaskSettingsSet -Priority 5
+Register-ScheduledTask -TaskName Docker -Action $action -Trigger $trigger -Settings $settings -User SYSTEM -RunLevel Highest | Out-Null
+Start-ScheduledTask -TaskName Docker 
+```
+
+### 防火牆 <!--2-->
+
+如果您想要啟動遠端 Docker 管理，您也必須開啟 TCP 連接埠 2376。
+
+```none
+netsh advfirewall firewall add rule name="Docker daemon " dir=in action=allow protocol=TCP localport=2376
 ```
 
 ### 互動式 Nano 工作階段
 
-> 如需從遠端管理 Nano Server 的詳細資訊，請參閱[開始使用 Nano Server](https://technet.microsoft.com/en-us/library/mt126167.aspx#bkmk_ManageRemote)。
+Nano Server 是透過遠端 PowerShell 工作階段管理。 如需從遠端管理 Nano Server 的詳細資訊，請參閱 [Getting Started with Nano Server]( https://technet.microsoft.com/en-us/library/mt126167.aspx#bkmk_ManageRemote) (開始使用 Nano Server)。
 
-以互動方式管理 Nano Server 主機上的容器時，您可能會收到此錯誤。
+並非所有的 Docker 作業 (像是 'docker attach') 都可以透過此遠端 PowerShell 工作階段執行。 通常解決之道和最佳做法是透過安全的 TCP 連線從遠端用戶端管理 Docker。
 
-```powershell
-docker : cannot enable tty mode on non tty input
-+ CategoryInfo          : NotSpecified: (cannot enable tty mode on non tty input:String) [], RemoteException
-+ FullyQualifiedErrorId : NativeCommandError 
+若要這樣做，請確定已將 Docker 精靈設定為接聽 TCP 連接埠，且可在遠端用戶端電腦上使用 Docker 命令列介面。 設定時，可以將 Docker 命令發出至具有 -H 參數的主機。 如需有關從遠端系統存取 Docker 精靈的詳細資訊，請參閱 [Daemon socket options on Docker.com](https://docs.docker.com/engine/reference/commandline/daemon/#daemon-socket-option) (Docker.com 上的精靈通訊端選項)。
+
+若要從遠端部署容器並進入互動式工作階段，請執行下列命令。
+
+```none
+docker -H tcp://<ipaddress of server>:2376 run -it nanoserver cmd
 ```
 
-這種情形可能會發生於嘗試使用 -it 以互動式工作階段執行容器時：
+您可建立會移除 -H 參數需求的環境變數 DOCKER_HOST。 您可以使用下列 PowerShell 命令來完成此作業。
 
-```powershell
-Docker run -it <image> <command>
-```
-或嘗試附加到執行中的容器：
-
-```powershell
-Docker attach <container name>
+```none
+$env:DOCKER_HOST = "tcp://<ipaddress of server:2376"
 ```
 
-若要使用 Docker 在 Nano Server 主機上建立的容器來建立互動式工作階段，必須從遠端管理 Docker 精靈。 若要這樣做，請從[這個位置](https://aka.ms/ContainerTools)下載 docker.exe 並將它複製到遠端系統。
+使用此變數集時，此命令現在會看起來像這樣。
 
-首先，您必須在 Nano Server 中設定 Docker 精靈，以接聽遠端命令。 在 Nano Server 中執行以下命令，即可執行這項操作：
-
-```powershell
-docker daemon -D -H <ip address of Nano Server>:2375
+```none
+docker run -it nanoserver cmd
 ```
 
-現在，在您的電腦上開啟 PowerShell 或 CMD 工作階段，然後執行 Docker 命令以 `-H` 指定遠端主機。
+### 移除 Docker <!--2-->
 
-```powershell
-.\docker.exe -H tcp://<ip address of Nano Server>:2375
+若要從 Nano Server 中移除 Docker 精靈和 CLI，請從 Windows\system32 目錄中刪除 `docker.exe`。
+
+```none
+Remove-Item $env:SystemRoot\system32\docker.exe
+``` 
+
+執行下列命令取消註冊 Docker 排定的工作。
+
+```none
+Get-ScheduledTask -TaskName Docker | UnRegister-ScheduledTask
 ```
 
-例如，如果您想要查看可用的映像：
+### 安裝 Docker CLI
 
-```powershell
-.\docker.exe -H tcp://<ip address of Nano Server>:2375 images
+從 `https://aka.ms/tp5/docker` 下載 docker.exe，並將其複製到 Nano Server 容器主機的 windows\system32 資料夾中。
+
+```none
+wget https://aka.ms/tp5/docker -OutFile $env:SystemRoot\system32\docker.exe
+```
+
+## 設定 Docker 啟動
+
+Docker 精靈有數種啟動選項可使用。 本節中，將詳細說明這些在 Windows 上的 Docker 精靈相關部分。 如需完整涵蓋所有的精靈選項，請參閱 [Docker daemon documentation on docker.com]( https://docs.docker.com/engine/reference/commandline/daemon/) (docker.com 上的 Docker 精靈文件)
+
+### 接聽 TCP 連接埠
+
+Docker 精靈可以設定為透過具名管道或遠端透過 TCP 連線接聽本機連入連線。 預設啟動行為是只接聽具名管道，這會防止遠端連線。
+
+```none
+docker daemon -D
+```
+
+這可以使用下列啟動命令修改為接聽安全的連入連線。 如需有關保障連線安全的詳細資訊，請參閱 [Security Configuration docs on docker.com](https://docs.docker.com/engine/security/https/) (docker.com 上的安全性設定文件)。
+
+```none
+docker daemon -D -H npipe:// -H tcp://0.0.0.0:2376 --tlsverify --tlscacert=%certs%\ca.pem --tlscert=%certs%\server-cert.pem --tlskey=%certs%\server-key.pem
+``` 
+
+### 具名管道存取
+
+在容器主機上以本機執行的 Docker 命令是透過具名管道所接收。 若要執行這些命令，需要系統管理存取權。 另一個選項是指定一個可存取具名管道的群組。 在下列範例中，會給予名為 `docker` 的 Windows 群組此權限。
+
+```none
+dockerd -H npipe:// -G docker
+```  
+
+
+### 預設執行階段
+
+Windows 容器具有兩個不同的執行階段類型，Windows Server 和 Hyper-V 。 Docker 精靈已經設定成預設使用 Windows Server 的執行階段，不過這項設定可以變更。 若要將 Hyper-V 設定為預設的執行階段，請在將 Docker 精靈初始化時指定 ‘—exec-opt isolation=hyperv`。
+
+```none
+docker daemon -D —exec-opt isolation=hyperv
 ```
 
 
 
-
-
-
-<!--HONumber=Feb16_HO4-->
+<!--HONumber=May16_HO5-->
 
 

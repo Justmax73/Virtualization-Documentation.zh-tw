@@ -1,90 +1,111 @@
+---
+title: 容器的資料磁碟區
+description: 使用 Windows 容器建立和管理資料磁碟區。
+keywords: docker, containers
+author: neilpeterson
+manager: timlt
+ms.date: 05/02/2016
+ms.topic: article
+ms.prod: windows-containers
+ms.service: windows-containers
+ms.assetid: f5998534-917b-453c-b873-2953e58535b1
+---
 
+# 容器的資料磁碟區
 
+**這是初版內容，後續可能會變更。** 
 
+在建立容器時，您可能需要建立新的資料目錄，或將現有的目錄加入容器中。 這可以透過新增資料磁碟區來完成。 資料磁碟區會在容器及容器主機上顯示，而且可以在兩者之間共用資料。 資料磁碟區也可以在相同容器主機上的多個容器之間共用。 本文將詳細說明如何建立、檢查和移除資料磁碟區。
 
-# 容器共用資料夾
+## 資料磁碟區
 
-**這是初版內容，後續可能會變更。**
+### 建立新的資料磁碟區
 
-共用資料夾可讓資料在容器主機與容器之間共用。 共用資料夾建立後，即可在容器內使用該共用資料夾。 任何從主機放入共用資料夾的資料，都將可在容器內使用。 任何從容器之中放入共用資料夾的資料，都將可在主機上使用。 主機上的單一資料夾可與多個容器共用，在此設定中，資料夾將可在執行中的容器之間共用。
+使用 `docker run` 命令的 `-v` 參數建立新的資料磁碟區。 根據預設，新的資料磁碟區會儲存在 'c:\ProgramData\Docker\volumes' 下的主機。
 
-## 管理資料 - PowerShell
+這個範例會建立名為 'new-data-volume' 的資料磁碟區。 此資料磁碟區可以在 'c:\new-data-volume' 的執行中容器存取。
 
-### 建立共用資料夾
-
-若要建立共用資料夾，請使用 `Add-ContainerSharedFolder` 命令。 下列範例會在容器中建立一個目錄 `c:\shared_data`，與主機上的目錄 `c:\data_source` 相對應。
-
-> 容器在新增共用資料夾時，必須處於停止狀態。
-
-```powershell
-PS C:\> Add-ContainerSharedFolder -ContainerName DEMO -SourcePath c:\data_source -DestinationPath c:\shared_data
-
-ContainerName SourcePath       DestinationPath AccessMode
-------------- ----------       --------------- ----------
-DEMO          c:\data_source   c:\shared_data  ReadWrite
+```none
+docker run -it -v c:\new-data-volume windowsservercore cmd
 ```
 
-### 唯讀共用資料夾
+如需有關建立磁碟區的詳細資訊，請參閱 [Manage data in containers on docker.com](https://docs.docker.com/engine/userguide/containers/dockervolumes/#data-volumes) (docker.com 上管理容器中的資料)。
 
-```powershell
-PS C:\> Add-ContainerSharedFolder -ContainerName DEMO -SourcePath c:\sf1 -DestinationPath c:\sf2 -AccessMode ReadOnly
+### 掛接現有的目錄
 
-ContainerName SourcePath DestinationPath AccessMode
-------------- ---------- --------------- ----------
-DEMO         c:\sf1     c:\sf2          ReadOnly
+除了建立新的資料磁碟區外，您可能會想要將主機的現有目錄傳遞至容器。 這也可以使用 `docker run` 命令的 `-v` 參數完成。 主機目錄內的所有檔案也都可以在容器中使用。 在掛接磁碟區中容器所建立的任何檔案也可在主機上使用。 可將相同的目錄掛接至許多容器。 在此設定中，容器之間可以共用資料。
+
+在此範例中，來源目錄 'c:\source' 已作為 'c:\destination' 掛接至容器。
+
+```none
+docker run -it -v c:\source:c:\destination windowsservercore cmd
 ```
 
-### 列出共用資料夾
+如需有關掛接主機目錄的詳細資訊，請參閱 [Manage data in containers on docker.com](https://docs.docker.com/engine/userguide/containers/dockervolumes/#mount-a-host-directory-as-a-data-volume) (docker.com 上管理容器中的資料)。
 
-若要檢視特定容器的共用資料夾清單，請使用 `Get-ContainerSharedFolder` 命令。
+### 掛接單一檔案
 
-```powershell
-PS C:\> Get-ContainerSharedFolder -ContainerName DEMO2
+可以藉由明確指定檔案名稱，將單一檔案掛接至容器中。 在此範例中，共用的目錄包含許多檔案，不過只有 'config.ini' 檔案可供在容器內使用。 
 
-ContainerName SourcePath DestinationPath AccessMode
-------------- ---------- --------------- ----------
-DEMO         c:\source  c:\source       ReadWrite
+```none
+docker run -it -v c:\container-share\config.ini windowsservercore cmd
 ```
 
-### 修改共用資料夾
+在執行的容器中，只會顯示 config.ini 檔案。
 
-若要修改現有的共用資料夾設定，請使用 `Set-ContainerSharedFolder` 命令。
+```none
+c:\container-share>dir
+ Volume in drive C has no label.
+ Volume Serial Number is 7CD5-AC14
 
-```powershell
-PS C:\> Set-ContainerSharedFolder -ContainerName SFRO -SourcePath c:\sf1 -DestinationPath c:\sf1
+ Directory of c:\container-share
+
+04/04/2016  12:53 PM    <DIR>          .
+04/04/2016  12:53 PM    <DIR>          ..
+04/04/2016  12:53 PM    <SYMLINKD>     config.ini
+               0 File(s)              0 bytes
+               3 Dir(s)  21,184,208,896 bytes free
 ```
 
-### 移除共用資料夾
+如需有關掛接單一檔案的詳細資訊，請參閱 [Manage data in containers on docker.com](https://docs.docker.com/engine/userguide/containers/dockervolumes/#mount-a-host-directory-as-a-data-volume) (docker.com 上管理容器中的資料)。
 
-若要移除共用資料夾，請使用 `Remove-ContainerSharedFolder` 命令。
+### 資料磁碟區容器
 
-> 在移除共用資料夾時，容器必須處於停止狀態
+可以使用 `docker run` 命令的 `--volumes-from` 參數從其他正在執行的容器繼承資料磁碟區。 使用此繼承便可建立一個容器，其明確目的為主控容器化應用程式的資料磁碟區。 
 
-```powershell
-PS C:\> Remove-ContainerSharedFolder -ContainerName DEMO2 -SourcePath c:\source -DestinationPath c:\source
-```
-## 管理資料 - Docker
+本範例會從容器 ‘cocky_bell` 將資料磁碟區掛接至新的容器。 一旦啟動新的容器，此磁碟區中找到的資料將可供在容器中執行的應用程式使用。  
 
-### 裝載磁碟區
-
-在使用 Docker 來管理 Windows 容器時，可使用 `-v` 選項來裝載磁碟區。
-
-在下列範例中，來源資料夾為 c:\source，目的地資料夾為 c:\destination。
-
-```powershell
-PS C:\> docker run -it -v c:\source:c:\destination 1f62aaf73140 cmd
+```none
+docker run -it --volumes-from cocky_bell windowsservercore cmd
 ```
 
-如需以 Docker 管理容器中資料的詳細資訊，請參閱 [Docker.com 上的 Docker 磁碟區](https://docs.docker.com/userguide/dockervolumes/)。
+如需有關資料容器的詳細資訊，請參閱 [Manage data in containers on docker.com](https://docs.docker.com/engine/userguide/containers/dockervolumes/#mount-a-host-file-as-a-data-volume) (docker.com 上管理容器中的資料)。
 
-## 視訊逐步解說
+### 檢查共用的資料磁碟區
 
-<iframe src="https://channel9.msdn.com/Blogs/containers/Container-Fundamentals--Part-3-Shared-Folders/player#ccLang=zh-tw" width="800" height="450"  allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
+您可以使用 `docker inspect` 命令檢視掛接的磁碟區。
+
+```none
+docker inspect backstabbing_kowalevski
+```
+
+這會傳回容器的相關資訊，包括名為 ‘Mounts’ 的區段，其中包含掛接磁碟區的相關資料，例如來源和目的地目錄。
+
+```none
+"Mounts": [
+    {
+        "Source": "c:\\container-share",
+        "Destination": "c:\\data",
+        "Mode": "",
+        "RW": true,
+        "Propagation": ""
+}
+```
+
+如需有關檢查磁碟區的詳細資訊，請參閱 [Manage data in containers on docker.com](https://docs.docker.com/engine/userguide/containers/dockervolumes/#locating-a-volume) (docker.com 上管理容器中的資料)。
 
 
 
-
-
-<!--HONumber=Feb16_HO3-->
+<!--HONumber=May16_HO4-->
 
 
