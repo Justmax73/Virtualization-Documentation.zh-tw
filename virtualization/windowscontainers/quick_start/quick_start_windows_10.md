@@ -40,9 +40,13 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 
 安裝完成時，請重新啟動電腦。
 
+```none
+Restart-Computer -Force
+```
+
 ## 2.安裝 Docker
 
-需要 Docker，才能使用 Windows 容器。 Docker 是由 Docker 引擎及 Docker 用戶端所組成。 針對此練習，兩者都會安裝。 若要這樣做，請執行以下命令。 
+需要先安裝 Docker，才能搭配使用 Windows 容器。 Docker 是由 Docker 引擎及 Docker 用戶端所組成。 針對此練習，兩者都會安裝。 若要這樣做，請執行以下命令。 
 
 建立 Docker 可執行檔的資料夾。
 
@@ -116,13 +120,13 @@ Restart-Service docker
 docker images
 
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-nanoserver          10.0.14300.1010     cb48429c84fa        8 weeks ago         817.1 MB
+nanoserver          10.0.14300.1016     3f5112ddd185        3 weeks ago         810.2 MB
 ```
 
 在繼續之前，此映像必須加上「最新」版本的標籤。 若要這樣做，請執行以下命令。
 
 ```none
-docker tag nanoserver:10.0.14300.1010 nanoserver:latest
+docker tag nanoserver:10.0.14300.1016 nanoserver:latest
 ```
 
 如需 Windows 容器映像的深入資訊，請參閱[管理容器映像](../management/manage_images.md)。
@@ -143,9 +147,9 @@ docker pull microsoft/sample-dotnet
 docker images
 
 REPOSITORY               TAG                 IMAGE ID            CREATED             SIZE
-microsoft/sample-dotnet   latest              289f9cdaf773        32 minutes ago      929.9 MB
-nanoserver               10.0.14300.1010     cb48429c84fa        8 weeks ago         817.1 MB
-nanoserver               latest              cb48429c84fa        8 weeks ago         817.1 MB
+microsoft/sample-dotnet  latest              28da49c3bff4        41 hours ago        918.3 MB
+nanoserver               10.0.14300.1016     3f5112ddd185        3 weeks ago         810.2 MB
+nanoserver               latest              3f5112ddd185        3 weeks ago         810.2 MB
 ```
 
 使用 `docker run` 命令執行容器。 下列範例指定 `--rm` 參數，這會指示 Docker 引擎刪除不再執行的容器。 
@@ -165,6 +169,6 @@ docker run --isolation=hyperv --rm microsoft/sample-dotnet
 
 
 
-<!--HONumber=May16_HO5-->
+<!--HONumber=Jun16_HO2-->
 
 

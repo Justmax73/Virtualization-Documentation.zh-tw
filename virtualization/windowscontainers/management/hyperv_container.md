@@ -28,7 +28,7 @@ Windows 容器技術包含兩種不同類型的容器，即 Windows Server 容�
 使用 Docker 管理 Hyper-V 容器的方式，與管理 Windows Server 容器幾乎完全相同。 以 Docker 建立 Hyper-V 容器時，會使用 `--isolation=hyperv` 參數。
 
 ```none
-docker run -it --isolation=hyperv windowsservercore cmd
+docker run -it --isolation=hyperv nanoserver cmd
 ```
 
 ### 隔離說明
@@ -97,6 +97,6 @@ Handles  NPM(K)    PM(K)      WS(K) VM(M)   CPU(s)     Id  SI ProcessName
 ```
 
 
-<!--HONumber=May16_HO3-->
+<!--HONumber=Jun16_HO2-->
 
 
