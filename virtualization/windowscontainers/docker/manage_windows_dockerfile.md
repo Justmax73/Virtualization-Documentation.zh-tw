@@ -101,14 +101,14 @@ RUN ["<executable", "<param 1>", "<param 2>"
 RUN <command>
 ```
 
-Exec. 和 殼層表單的差異在於 `RUN` 指令的執行方式。 使用 exec 方法時會明確地執行指定的程式。 
+Exec 和 Shell 形式的差別在於 `RUN` 指令的執行方式。 使用 Exec 形式時會明確執行指定的程式。 
 
-以下範例使用 exec. 表單。
+以下範例使用 Exec 形式。
 
 ```none
 FROM windowsservercore
 
-RUN ["powershell","New-Item","c:/test"]
+RUN ["powershell", "New-Item", "c:/test"]
 ```
 
 檢查產生出的映像，所執行的命令為 `powershell new-item c:/test`。
@@ -142,7 +142,7 @@ IMAGE               CREATED             CREATED BY                              
 在 Windows 中，當使用 exec 格式的 `RUN` 指令時，反斜線必須逸出。
 
 ```none
-RUN ["powershell","New-Item","c:\\test"]
+RUN ["powershell", "New-Item", "c:\\test"]
 ```
 
 **範例**
@@ -179,7 +179,7 @@ COPY ["<source>" "<destination>"]
 
 **Windows 考量**
  
-在 Windows 中，目的格式必須使用正斜線。 比方說，這些是有效的 `ADD` 指令。
+在 Windows 中，目的格式必須使用正斜線。 比方說，這些是有效的 `COPY` 指令。
 
 ```none
 COPY test1.txt /temp/
@@ -204,9 +204,11 @@ COPY source /sqlite/
 COPY config* c:/temp/
 ```
 
+如需 `COPY` 指令的詳細資訊，請參閱 [Docker.com 上的 COPY 參考]( https://docs.docker.com/engine/reference/builder/#copy)。
+
 ### 新增
 
-ADD 指令與 COPY 指令非常類似，但是前者包含額外的功能。 除了將檔案從主機複製到容器映像，`ADD` 指令也可以從具有 URL 規格的遠端位置複製檔案。
+ADD 指令與 COPY 指令非常類似，但是前者包含其他功能。 除了將檔案從主機複製到容器映像，`ADD` 指令也可以從具有 URL 規格的遠端位置複製檔案。
 
 **格式**
 
@@ -297,7 +299,7 @@ WORKDIR c:\\Apache24\\bin
 ```none
 # exec form
 
-CMD ["<executable";"<param>"]
+CMD ["<executable", "<param>"]
 
 # shell form
 
@@ -311,7 +313,7 @@ CMD <command>
 ```none
 # exec form
 
-CMD ["c:\\Apache24\\bin\\httpd.exe","-w"]
+CMD ["c:\\Apache24\\bin\\httpd.exe", "-w"]
 
 # shell form
 
@@ -371,7 +373,7 @@ RUN powershell.exe -Command \
 
 在某些情況下，在映像建立程序期間將指令碼複製到使用的容器，然後從容器中執行可能會有幫助。 請注意 - 這會限制任何映像層快取，並降低 Dockerfile 的可讀性。
 
-此範例使用 `ADD` 指令，從組建電腦中將指令碼複製至容器。 此指令碼是使用 RUN 指令來執行。
+此範例使用 `ADD` 指令，從組建電腦中將指令碼複製到容器中。 接著使用 RUN 指令來執行此指令碼。
 
 ```
 FROM windowsservercore
@@ -381,7 +383,7 @@ RUN powershell.exe -executionpolicy bypass c:\windows\temp\script.ps1
 
 ## Docker 建置 
 
-一旦建立了 Dockerfile 並儲存到磁碟後，就可以執行 `docker build` 建立新的映像。 `docker build` 命令會使用幾個選擇性參數和通往 Dockerfile 的路徑。 如需 Docker 建置的完整文件，包括一份所有建置選項的清單，請參閱 [Build at Docker.com](https://docs.docker.com/engine/reference/commandline/build/#build-with) (在 Docker.com 的建置)。
+一旦建立了 Dockerfile 並儲存到磁碟後，就可以執行 `docker build` 建立新的映像。 `docker build` 命令會使用幾個選擇性參數和通往 Dockerfile 的路徑。 如需 Docker 組建的完整文件，包括所有版本選項的清單，請參閱 [Docker.com 上的組建參考](https://docs.docker.com/engine/reference/commandline/build/#build)。
 
 ```none
 Docker build [OPTIONS] PATH
@@ -440,6 +442,6 @@ windowsservercore   latest              6801d964fda5        4 months ago        
 [Docker.com 上的 Dockerfile 參考](https://docs.docker.com/engine/reference/builder/)
 
 
-<!--HONumber=May16_HO4-->
+<!--HONumber=Jun16_HO3-->
 
 
