@@ -48,6 +48,8 @@ echo "Hello World From a Windows Server Container" > C:\inetpub\wwwroot\index.ht
 
 從不同的系統中，瀏覽至容器主機的 IP 位址。 現在您應會看見 ‘Hello World’ 應用程式。
 
+**注意︰** 如果您正在使用 Azure，必須有允許流量通過連接埠 80 的網路安全性群組規則。 如需詳細資訊，請參閱[建立現有 NSG 中的規則]( https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-create-nsg-arm-pportal/#create-rules-in-an-existing-nsg)。
+
 ![](media/hello.png)
 
 回到容器中，結束互動式容器工作階段。
@@ -159,6 +161,6 @@ docker rm -f cranky_brown
 
 [Windows 10 上的 Windows 容器](./quick_start_windows_10.md)
 
-<!--HONumber=May16_HO4-->
+<!--HONumber=Jun16_HO2-->
 
 

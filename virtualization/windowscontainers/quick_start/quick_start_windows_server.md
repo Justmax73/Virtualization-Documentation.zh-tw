@@ -13,9 +13,9 @@ ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
 
 # Windows Server 上的 Windows 容器
 
-**這是初版內容，後續可能會變更。** 
+**這是初版內容，後續可能會變更。**
 
-本練習將引導進行 Windows Server 上的 Windows 容器功能基本部署和使用。 完成之後，您將會安裝容器角色，並部署簡單的 Windows Server 容器。 開始本快速入門之前，請先熟悉基本的容器概念與術語。 這項資訊可在[快快速入門簡介](./quick_start.md)中找到。 
+本練習將引導進行 Windows Server 上的 Windows 容器功能基本部署和使用。 完成之後，您將會安裝容器角色，並部署簡單的 Windows Server 容器。 開始本快速入門之前，請先熟悉基本的容器概念與術語。 這項資訊可在[快快速入門簡介](./quick_start.md)中找到。
 
 本快速入門是針對 Windows Server 2016 上的 Windows Server 容器。 在此頁面左側的目錄中，可以找到其他的快速入門文件。
 
@@ -25,7 +25,7 @@ ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
 
 ## 1.安裝容器功能
 
-容器功能必須先啟用，才能使用 Windows 容器。 要這麼做，請在提高權限的 PowerShell 工作階段中執行下列命令。 
+容器功能必須先啟用，才能使用 Windows 容器。 若要這麼做，請在提升權限的 PowerShell 工作階段中執行下列命令。
 
 ```none
 Install-WindowsFeature containers
@@ -33,9 +33,13 @@ Install-WindowsFeature containers
 
 功能安裝完成時，請重新啟動電腦。
 
+```none
+Restart-Computer -Force
+```
+
 ## 2.安裝 Docker
 
-需要 Docker，才能使用 Windows 容器。 Docker 是由 Docker 引擎及 Docker 用戶端所組成。 針對此練習，兩者都會安裝。
+需要先安裝 Docker，才能搭配使用 Windows 容器。 Docker 是由 Docker 引擎及 Docker 用戶端所組成。 此演練將會安裝這兩者。
 
 建立 Docker 可執行檔的資料夾。
 
@@ -55,7 +59,7 @@ Invoke-WebRequest https://aka.ms/tp5/b/dockerd -OutFile $env:ProgramFiles\docker
 Invoke-WebRequest https://aka.ms/tp5/b/docker -OutFile $env:ProgramFiles\docker\docker.exe
 ```
 
-將 Docker 目錄新增至系統路徑。 完成時，重新啟動 PowerShell 工作階段，以便辨識修改過的路徑。
+將 Docker 目錄加入系統路徑中。 完成時，重新啟動 PowerShell 工作階段，以便識別修改過的路徑。
 
 ```none
 [Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\Docker", [EnvironmentVariableTarget]::Machine)
@@ -70,13 +74,13 @@ dockerd --register-service
 安裝之後，就可以啟動服務。
 
 ```none
-Start-Service Docker
+Start-Service docker
 ```
 
 ## 3.安裝基礎容器映像
 
-會從範本或映像部署 Windows 容器。 必須先下載基礎 OS 映像，才能部署容器。 下列命令會下載 Windows Server Core 基礎映像。 
-    
+會從範本或映像部署 Windows 容器。 必須先下載基礎 OS 映像，才能部署容器。 下列命令會下載 Windows Server Core 基礎映像。
+
 首先，安裝容器映像套件提供者。
 
 ```none
@@ -85,11 +89,11 @@ Install-PackageProvider ContainerImage -Force
 
 接下來，安裝 Windows Server Core 映像。 此程序可能需要一些時間，因此您可以休息一下，等下載完成後再繼續。
 
-```none 
+```none
 Install-ContainerImage -Name WindowsServerCore    
 ```
 
-基礎映像安裝完成後，Docker 服務必須重新啟動。
+基本映像安裝完成後，Docker 服務必須重新啟動。
 
 ```none
 Restart-Service docker
@@ -175,6 +179,8 @@ CONTAINER ID    IMAGE                             COMMAND               CREATED 
 
 從不同的電腦開啟網頁瀏覽器，並輸入容器主機的 IP 位址。 如果所有項目都已正確設定，您應該會看到 IIS 啟動顯示畫面。 這是要由裝載於 Windows 容器中的 IIS 執行個體所提供。
 
+**注意︰** 如果您正在使用 Azure，必須有允許流量通過連接埠 80 的網路安全性群組規則。 如需詳細資訊，請參閱[建立現有 NSG 中的規則]( https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-create-nsg-arm-pportal/#create-rules-in-an-existing-nsg)。
+
 ![](media/iis1.png)
 
 回到容器主機上，使用 `docker rm` 命令以移除容器。 請注意，請將此範例中的容器名稱取代為實際的容器名稱。
@@ -189,6 +195,6 @@ docker rm -f grave_jang
 [Windows 10 上的 Windows 容器](./quick_start_windows_10.md)
 
 
-<!--HONumber=May16_HO4-->
+<!--HONumber=Jun16_HO3-->
 
 

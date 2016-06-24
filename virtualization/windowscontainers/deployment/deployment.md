@@ -13,13 +13,13 @@ ms.assetid: ba4eb594-0cdb-4148-81ac-a83b4bc337bc
 
 # 容器主機部署 - Windows Server
 
-**這是初版內容，後續可能會變更。** 
+**這是初版內容，後續可能會變更。**
 
 部署 Windows 容器主機有不同的步驟，視作業系統和主機系統類型 (實體或虛擬) 而定。 這份文件詳細說明將 Windows 容器主機部署至實體或虛擬系統上的 Windows Server 2016 或 Windows Server Core 2016 的步驟。
 
 ## 安裝容器功能
 
-容器功能必須先啟用，才能使用 Windows 容器。 若要這麼做，請在提升權限的 PowerShell 工作階段中執行下列命令。 
+容器功能必須先啟用，才能使用 Windows 容器。 若要這麼做，請在提升權限的 PowerShell 工作階段中執行下列命令。
 
 ```none
 Install-WindowsFeature containers
@@ -27,9 +27,13 @@ Install-WindowsFeature containers
 
 功能安裝完成時，請重新啟動電腦。
 
+```none
+Restart-Computer -Force
+```
+
 ## 安裝 Docker
 
-需要 Docker，才能使用 Windows 容器。 Docker 是由 Docker 引擎及 Docker 用戶端所組成。 針對此練習，兩者都會安裝。
+需要先安裝 Docker，才能搭配使用 Windows 容器。 Docker 是由 Docker 引擎及 Docker 用戶端所組成。 此演練將會安裝這兩者。
 
 建立 Docker 可執行檔的資料夾。
 
@@ -71,8 +75,8 @@ Start-Service Docker
 
 ## 安裝基本容器映像
 
-必須先下載容器基本 OS 映像，才能部署容器。 下列範例會下載 Windows Server Core 基本 OS 映像。 安裝 Nano Server 基本映像時，也需完成此相同程序。 安裝 Nano Server 基本映像時，也需完成此相同程序。 如需 Windows 容器映像的詳細資訊，請參閱[管理容器映像](../management/manage_images.md)。
-    
+必須先下載容器基本 OS 映像，才能部署容器。 下列範例會下載 Windows Server Core 基本 OS 映像。 安裝 Nano Server 基本映像時，也需完成此相同程序。 如需 Windows 容器映像的詳細資訊，請參閱[管理容器映像](../management/manage_images.md)。
+
 首先，安裝容器映像套件提供者。
 
 ```none
@@ -81,7 +85,7 @@ Install-PackageProvider ContainerImage -Force
 
 接下來，安裝 Windows Server Core 映像。 此程序可能需要一些時間，因此您可以休息一下，等下載完成後再繼續。
 
-```none 
+```none
 Install-ContainerImage -Name WindowsServerCore    
 ```
 
@@ -99,11 +103,11 @@ docker tag windowsservercore:10.0.14300.1000 windowsservercore:latest
 
 ## Hyper-V 容器主機
 
-若要部署 Hyper-V 容器，需具備 Hyper-V 角色。 如果 Windows 容器主機本身為 Hyper-V 虛擬機器，則必須先啟用巢狀虛擬化，才能安裝 Hyper-V 角色。 如需巢狀虛擬化的詳細資訊，請參閱[巢狀虛擬化]( https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/user_guide/nesting)。
+若要執行 Hyper-V 容器，需具備 Hyper-V 角色。 如果 Windows 容器主機本身為 Hyper-V 虛擬機器，則必須先啟用巢狀虛擬化，才能安裝 Hyper-V 角色。 如需巢狀虛擬化的詳細資訊，請參閱[巢狀虛擬化]( https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/user_guide/nesting)。
 
 ### 巢狀虛擬化
 
-下列指令碼可設定容器主機的巢狀虛擬化。 您必須在裝載容器主機虛擬機器的 Hyper-V 機器上執行此指令碼。 執行這個指令碼時，容器主機的虛擬機器務必要關閉。
+下列指令碼可設定容器主機的巢狀虛擬化。 此指令碼要在父 HYPER-V 機器上執行。 執行這個指令碼時，容器主機的虛擬機器務必要關閉。
 
 ```none
 #replace with the virtual machine name
@@ -128,7 +132,6 @@ Install-WindowsFeature hyper-v
 ```
 
 
-
-<!--HONumber=May16_HO4-->
+<!--HONumber=Jun16_HO2-->
 
 

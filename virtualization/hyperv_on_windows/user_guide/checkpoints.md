@@ -52,7 +52,7 @@ Set-VM -Name <vmname> -CheckpointType Standard
 Set-VM -Name <vmname> -CheckpointType Production
 ```
 
-設定為生產檢查點，如果生產檢查點失敗，則不建立標準檢查點。 
+設定為生產檢查點，如果生產檢查點失敗，不會建立標準檢查點。 
 ```powershell
 Set-VM -Name <vmname> -CheckpointType ProductionOnly
 ```
@@ -162,7 +162,7 @@ Remove-VMCheckpoint -VMName <virtual machine name> -Name <checkpoint name>
 
 **使用 PowerShell**
 ``` powershell
-Export-VMCheckpoint -VMName <virtual machine name>  -Name <checkpoint name> -Path <path for export>
+Export-VMCheckpoint -VMName <virtual machine name> -Name <checkpoint name> -Path <path for export>
 ```
 
 ## 啟用或停用檢查點
@@ -245,6 +245,6 @@ This folder will contain the .VMRS file with the runtime and saved state data an
 2. 會看到文字檔案已還原。 但不同於標準檢查點，[記事本] 並未開啟。   
 
 
-<!--HONumber=May16_HO3-->
+<!--HONumber=Jun16_HO3-->
 
 
