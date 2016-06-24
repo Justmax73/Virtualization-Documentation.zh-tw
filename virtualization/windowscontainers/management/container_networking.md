@@ -52,7 +52,7 @@ Stop-Service docker
 設定檔位於 `c:\programdata\docker\runDockerDaemon.cmd`。 編輯下列程式碼行，並加入 `-b "none"`
 
 ```none
-dockerd -b "none"
+dockerd <options> -b “none”
 ```
 
 重新啟動服務。
@@ -102,19 +102,19 @@ IsDeleted          : False
 
 ### NAT 網路
 
-**網路位址轉譯** – 此網路模式可用來快速將私人 IP 位址指派給容器。 其會透過對應外部 IP 位址與連接埠 (容器主機) 之間的連接埠，以及內部 IP 位址和容器的連接埠，來提供容器的外部存取權。 外部 IP 位址/連接埠組合上收到的所有網路流量都會與 WinNAT 連接埠對應表進行比較，並轉送至正確的容器 IP 位址和連接埠。 此外，NAT 還可藉由將通訊連接埠與唯一外部連接埠對應，以讓多個容器裝載可能需要相同 (內部) 通訊連接埠的應用程式。 在 TP5 中，只能有一個 NAT 網路。
+**網路位址轉譯** – 此網路模式可用來快速將私人 IP 位址指派給容器。 其會透過對應外部 IP 位址與連接埠 (容器主機) 之間的連接埠，以及內部 IP 位址和容器的連接埠，來提供容器的外部存取權。 外部 IP 位址/連接埠組合上收到的所有網路流量都會與 WinNAT 連接埠對應表進行比較，並轉送至正確的容器 IP 位址和連接埠。 此外，NAT 還可藉由將通訊連接埠與唯一外部連接埠對應，以讓多個容器裝載可能需要相同 (內部) 通訊連接埠的應用程式。 Windows 只支援每部主機有一個 NAT 網路內部首碼。 如需詳細資訊，請參閱部落格文章 [Windows NAT (WinNAT) — Capabilities and limitations](https://blogs.technet.microsoft.com/virtualization/2016/05/25/windows-nat-winnat-capabilities-and-limitations/) (WinNAT：功能與限制)。 
 
-> 在 TP5 中，會自動為所有 NAT 靜態連接埠對應建立防火牆規則。 此防火牆規則對容器主機來說是通用的，亦不會針對特定容器端點或網路介面卡進行當地語系化。
+> 從 TP5 開始，所有 NAT 靜態連接埠對應都會自動建立防火牆規則。 此防火牆規則對容器主機來說是通用的，亦不會針對特定容器端點或網路介面卡進行當地語系化。
 
 #### 主機設定 <!--1-->
 
-若要使用 NAT 網路模式，請使用驅動程式名稱 'nat' 建立容器網路。
+若要使用 NAT 網路模式，請使用驅動程式名稱 'nat' 建立容器網路。 
+
+> 因為每部主機只能建立一個 _nat_ 預設網路，所以當移除了所有其他 NAT 網路並使用 '-b "none"' 選項執行 docker 精靈時，請確定您只建立新的 NAT 網路。 或者，如果您只想要控制 NAT 使用哪個內部 IP 網路，可以將 _--fixed-cidr=<NAT 內部首碼 / 遮罩>_ 選項加入 C:\ProgramData\docker\runDockerDaemon.cmd 中。
 
 ```none
-docker network create -d nat MyNatNetwork
+docker network create -d nat MyNatNetwork [--subnet=<string[]>] [--gateway=<string[]>]
 ```
-
-您可在 Docker 網路建立命令中，加入閘道 IP 位址 (--gateway=<string[]>) 和子網路首碼 (--subnet=<string[]>) 等其他參數。 如需其他詳細資訊，請參閱下方。
 
 若要使用 PowerShell 建立 NAT 網路，可以使用下列語法。 請注意，您可以使用 PowerShell 指定其他參數，包括 DNSServers 和 DNSSuffix。 如果未指定，這些設定就會繼承容器主機的內容。
 
@@ -122,7 +122,30 @@ docker network create -d nat MyNatNetwork
 New-ContainerNetwork -Name MyNatNetwork -Mode NAT -SubnetPrefix "172.16.0.0/12" [-GatewayAddress <address>] [-DNSServers <address>] [-DNSSuffix <string>]
 ```
 
-### 廣域網路
+> 在 Windows Server 2016 Technical Preview 5 與最新 Windows Insider Preview (WIP)「正式發行前小眾測試」組建中有個已知錯誤，即升級為新組建時，會造成容器網路和 vSwitch 重複 (即「流失」)。 若要解決這個問題，請執行下列指令碼。
+```none
+PS> $KeyPath = "HKLM:\SYSTEM\CurrentControlSet\Services\vmsmp\parameters\SwitchList"
+PS> $keys = get-childitem $KeyPath
+PS> foreach($key in $keys)
+PS> {
+PS>    if ($key.GetValue("FriendlyName") -eq 'nat')
+PS>    {
+PS>       $newKeyPath = $KeyPath+"\"+$key.PSChildName
+PS>       Remove-Item -Path $newKeyPath -Recurse
+PS>    }
+PS> }
+PS> remove-netnat -Confirm:$false
+PS> Get-ContainerNetwork | Remove-ContainerNetwork
+PS> Get-VmSwitch -Name nat | Remove-VmSwitch (_failure is expected_)
+PS> Stop-Service docker
+PS> Set-Service docker -StartupType Disabled
+Reboot Host
+PS> Get-NetNat | Remove-NetNat
+PS> Set-Service docker -StartupType automaticac
+PS> Start-Service docker 
+```
+
+### 透明網路
 
 **廣域網路** – 此網路模式應該僅限用於需要容器和實體網路之間直接連線的極小部署。 在這個設定中，可透過實體網路，直接存取容器中執行的所有網路服務。 您可以靜態方式指派 IP 位址，方法是假設該位址位於實體網路的 IP 子網路首碼內，且不會與其他實體網路上的 IP 產生衝突。 您也可以透過實體網路上的外部 DHCP 伺服器，以動態方式指派 IP 位址。 如果不使用 DHCP 指派 IP，則可以指定閘道的 IP 位址。 
 
@@ -140,18 +163,14 @@ docker network create -d transparent MyTransparentNetwork
 docker network create -d transparent --gateway=10.50.34.1 "MyTransparentNet"
 ```
 
-PowerShell 命令應如下所示：
-
-```none
-New-ContainerNetwork -Name MyTransparentNet -Mode Transparent -NetworkAdapterName "Ethernet"
-```
-
 如果容器主機已虛擬化，而且您想要使用 DHCP 進行 IP 指派，則必須在虛擬機器網路介面卡上啟用 MACAddressSpoofing。
 
 ```none
 Get-VMNetworkAdapter -VMName ContainerHostVM | Set-VMNetworkAdapter -MacAddressSpoofing On
 ```
 
+> 如果要建立多個廣域網路 (或 l2bridge)，您必須指定外部 HYPER-V 虛擬交換器 (自動建立) 應該繫結的 (虛擬) 網路介面卡。
+ 
 ### L2 橋接網路
 
 **L2 橋接網路** – 在此設定中，容器主機中的虛擬篩選平台 (VFP) vSwitch 擴充功能會作為橋接器，並視需要執行 Layer-2 位址轉譯 (MAC 地址重寫)。 Layer-3 的 IP 位址和 Layer-4 的連接埠將維持不變。 您可以靜態方式指派 IP 位址，以對應實體網路的 IP 子網路首碼，或對應來自虛擬網路之子網路首碼的 IP (若是使用私人雲端部署的話)。
@@ -164,12 +183,6 @@ Get-VMNetworkAdapter -VMName ContainerHostVM | Set-VMNetworkAdapter -MacAddressS
 docker network create -d l2bridge --subnet=192.168.1.0/24 --gateway=192.168.1.1 MyBridgeNetwork
 ```
 
-PowerShell 命令應如下所示：
-
-```none
-New-ContainerNetwork -Name MyBridgeNetwork -Mode L2Bridge -NetworkAdapterName "Ethernet"
-```
-
 ## 移除網路
 
 使用 `docker network rm` 刪除容器網路。
@@ -179,16 +192,11 @@ docker network rm "<network name>"
 ```
 或者，使用 PowerShell 的 `Remove-ContainerNetwork`：
 
-透過 PowerShell
-```
-Remove-ContainerNetwork -Name <network name>
-```
-
 這會清除容器網路所使用的任何 Hyper-V 虛擬交換器，以及任何針對 nat 容器網路所建立的網路位址轉譯物件。
 
 ## 網路選項
 
-您可以在建立容器網路或建立容器時，指定不同的 Docker 網路選項。 建立容器網路時，除了 -d (--driver=<network mode>) 選項可指定網路模式以外，也支援使用 --gateway、--subnet 和 -o 選項。
+您可以在建立容器網路或建立容器時，指定不同的 Docker 網路選項。 除指定網路模式的 -d (--driver=<network mode>) 選項外，建立容器網路時也支援 --gateway、--subnet 和 -o 選項。
 
 ### 其他選項
 
@@ -217,7 +225,6 @@ docker network create -d transparent -o com.docker.network.windowsshim.interface
 您可以在單一容器主機上建立多個容器網路，注意事項如下：
 * 每個容器主機只能建立一個 NAT 網路。
 * 使用外部 vSwitch 進行連線的多個網路 (例如廣域網路、L2 橋接或 L2 廣域網路) 皆必須使用自己的網路介面卡。
-* 不同網路必須使用不同的 Vswitch。
 
 ### 網路選取
 
@@ -231,7 +238,7 @@ docker run -it --net=MyTransparentNet windowsservercore cmd
 
 ### 靜態 IP 位址
 
-您可在容器網路介面卡上設定靜態 IP 位址，其僅支援 NAT、廣域網路和 L2 橋接網路模式。 此外，不支援透過 Docker 進行預設 "nat" 網路的靜態 IP 指派。
+容器網路介面卡上會設定靜態 IP 位址，只有 NAT、廣域網路 (擱置 [PR](https://github.com/docker/docker/pull/22208) 和 L2Bridge 網路模式予以支援。 此外，不支援透過 Docker 進行預設 "nat" 網路的靜態 IP 指派。
 
 ```none
 docker run -it --net=MyTransparentNet --ip=10.80.123.32 windowsservercore cmd
@@ -303,7 +310,6 @@ bbf72109b1fc        windowsservercore   "cmd"               6 seconds ago       
 
 ![](./media/PortMapping.png)
 
-
 ## 注意事項和陷阱
 
 ### 防火牆
@@ -327,6 +333,6 @@ bbf72109b1fc        windowsservercore   "cmd"               6 seconds ago       
  * --internal
  * --ip-range
 
-<!--HONumber=May16_HO3-->
+<!--HONumber=Jun16_HO1-->
 
 
