@@ -1,6 +1,6 @@
 ---
-title: Dockerfile 與 Windows 容器
-description: 建立 Windows 容器 的 Dockerfiles。
+title: "Dockerfile 與 Windows 容器"
+description: "建立 Windows 容器 的 Dockerfiles。"
 keywords: docker, containers
 author: neilpeterson
 manager: timlt
@@ -9,6 +9,9 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 75fed138-9239-4da9-bce4-4f2e2ad469a1
+ms.sourcegitcommit: 960b40e8c1eda9c19ebff0972df2c87e70c7e8f6
+ms.openlocfilehash: 71e0fb430498f8a5ae4ac5b297cf5e4a2c904098
+
 ---
 
 # Windows 上的 Dockerfile
@@ -327,6 +330,40 @@ CMD c:\Apache24\bin\httpd.exe -w
 
 如需 `CMD` 指令的詳細資訊，請參閱 [CMD Reference on Docker.com]( https://docs.docker.com/engine/reference/builder/#cmd) (Docker.com 上的 CMD 參考)。 
 
+## 逸出字元
+
+在許多情況下，Dockerfile 指示必須跨多行列出，而這全都仰賴逸出字元。 預設的 Dockerfile 逸出字元為反斜線 `\`。 因為反斜線也是 Windows 的檔案路徑分隔符號，所以可能會造成問題。 若要變更預設的逸出字元，可以使用剖析器指示詞。 如需剖析器指示詞的詳細資訊，請參閱 [Docker.com 上的剖析器指示詞]( https://docs.docker.com/engine/reference/builder/#parser-directives)。
+
+下列範例顯示單一個 RUN 指示如何使用預設的逸出字元跨多行列出。
+
+```none
+FROM windowsservercore
+
+RUN powershell.exe -Command \
+    $ErrorActionPreference = 'Stop'; \
+    wget https://www.python.org/ftp/python/3.5.1/python-3.5.1.exe -OutFile c:\python-3.5.1.exe ; \
+    Start-Process c:\python-3.5.1.exe -ArgumentList '/quiet InstallAllUsers=1 PrependPath=1' -Wait ; \
+    Remove-Item c:\python-3.5.1.exe -Force
+```
+
+若要修改此逸出字元，可以將逸出剖析器指示詞置於 Dockerfile 的第一行。 如下列範例所示。
+
+> 請注意，只有 `\` 及 `` ` `` 兩個值可以用為逸出字元。
+
+```none
+# escape=`
+
+FROM windowsservercore
+
+RUN powershell.exe -Command `
+    $ErrorActionPreference = 'Stop'; `
+    wget https://www.python.org/ftp/python/3.5.1/python-3.5.1.exe -OutFile c:\python-3.5.1.exe ; `
+    Start-Process c:\python-3.5.1.exe -ArgumentList '/quiet InstallAllUsers=1 PrependPath=1' -Wait ; `
+    Remove-Item c:\python-3.5.1.exe -Force
+```
+
+如需逸出的剖析器指示詞的詳細資訊，請參閱 [Docker.com 上的逸出剖析器指示詞]( https://docs.docker.com/engine/reference/builder/#escape)。
+
 ## Dockerfile 中的 PowerShell
 
 ### PowerShell 命令
@@ -439,9 +476,10 @@ windowsservercore   latest              6801d964fda5        4 months ago        
 
 [將 Dockerfiles 和適用於 Window 的 Docker 建置最佳化] (./optimize_windows_dockerfile.md)
 
-[Docker.com 上的 Dockerfile 參考](https://docs.docker.com/engine/reference/builder/)
+[Dockerfile Reference on Docker.com (Docker.com 上的 Dockerfile 參考)](https://docs.docker.com/engine/reference/builder/)
 
 
-<!--HONumber=Jun16_HO3-->
+
+<!--HONumber=Jun16_HO4-->
 
 
