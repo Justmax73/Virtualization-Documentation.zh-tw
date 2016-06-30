@@ -1,6 +1,6 @@
 ---
-title: 將 Windows Dockerfiles 最佳化
-description: 將 Windows 容器的 Dockerfiles 最佳化。
+title: "將 Windows Dockerfiles 最佳化"
+description: "將 Windows 容器的 Dockerfiles 最佳化。"
 keywords: docker, containers
 author: neilpeterson
 manager: timlt
@@ -9,6 +9,10 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb2848ca-683e-4361-a750-0d1d14ec8031
+translationtype: Human Translation
+ms.sourcegitcommit: cc216f56acd5e547d05a48beea57450ba5fcb28b
+ms.openlocfilehash: 4822ff2f0248b2d7752299ea55b08e3499e2e2f7
+
 ---
 # 將 Windows Dockerfiles 最佳化
 
@@ -300,6 +304,7 @@ RUN powershell -Command \
 [Docker.com 上寫入 Dockerfiles 的最佳做法](https://docs.docker.com/engine/reference/builder/)
 
 
-<!--HONumber=May16_HO4-->
+
+<!--HONumber=Jun16_HO4-->
 
 
