@@ -1,6 +1,6 @@
 ---
-title: 使用 PowerShell Direct 管理 Windows 虛擬機器
-description: 使用 PowerShell Direct 管理 Windows 虛擬機器
+title: "使用 PowerShell Direct 管理 Windows 虛擬機器"
+description: "使用 PowerShell Direct 管理 Windows 虛擬機器"
 keywords: windows 10, hyper-v
 author: scooley
 manager: timlt
@@ -9,6 +9,10 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: fb228e06-e284-45c0-b6e6-e7b0217c3a49
+translationtype: Human Translation
+ms.sourcegitcommit: 6eb26eda92217917a3abe7d9dd4c77c48283c8dc
+ms.openlocfilehash: 91927b751021efa9ba2cf696516ba50af28c6e05
+
 ---
 
 # 使用 PowerShell Direct 管理 Windows 虛擬機器
@@ -276,6 +280,7 @@ PowerShell Direct 支援 JEA (Just Enough Administration)。  請參閱本使用
 請參閱 [PowerShell Direct 程式碼片段](../develop/powershell_snippets.md)，其中有許多有關如何在您的環境中使用 PowerShell Direct 的範例，以及使用 PowerShell 編寫 Hyper-V 指令碼的秘訣與訣竅。
 
 
-<!--HONumber=May16_HO4-->
+
+<!--HONumber=Jun16_HO4-->
 
 

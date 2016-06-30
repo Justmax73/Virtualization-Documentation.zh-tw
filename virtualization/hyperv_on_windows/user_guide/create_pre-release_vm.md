@@ -1,6 +1,6 @@
 ---
-title: 嘗試 Hyper-V 的發行前版本功能
-description: 嘗試 Hyper-V 的發行前版本功能
+title: "嘗試 Hyper-V 的發行前版本功能"
+description: "嘗試 Hyper-V 的發行前版本功能"
 keywords: windows 10, hyper-v
 author: scooley
 manager: timlt
@@ -9,6 +9,10 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 426c87cc-fa50-4b8d-934e-0b653d7dea7d
+translationtype: Human Translation
+ms.sourcegitcommit: 7d97a2177a14f455ed5b54b0773e3003969303e2
+ms.openlocfilehash: 7dee9e53f0e95b0c3b0ec0afc5b9d510c1962dbc
+
 ---
 
 # 嘗試 Hyper-V 的發行前版本功能
@@ -48,6 +52,7 @@ New-VM -Name <VM Name> -Prerelease
 - [Supported virtual machine configuration versions](https://technet.microsoft.com/library/mt695898.aspx#BKMK_SupportedConfigVersions) (支援的虛擬機器設定版本) - 深入了解如何檢查虛擬機器設定版本，以及 Microsoft 支援哪些版本。
 
 
-<!--HONumber=May16_HO5-->
+
+<!--HONumber=Jun16_HO4-->
 
 

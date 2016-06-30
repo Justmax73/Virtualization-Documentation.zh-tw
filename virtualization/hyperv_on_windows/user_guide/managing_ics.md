@@ -1,6 +1,6 @@
 ---
-title: 管理 Hyper-V 整合服務
-description: 管理 Hyper-V 整合服務
+title: "管理 Hyper-V 整合服務"
+description: "管理 Hyper-V 整合服務"
 keywords: windows 10, hyper-v
 author: scooley
 manager: timlt
@@ -9,6 +9,10 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 9cafd6cb-dbbe-4b91-b26c-dee1c18fd8c2
+translationtype: Human Translation
+ms.sourcegitcommit: ef9ce04b2532fd314a21920b9cc5c28459c9a438
+ms.openlocfilehash: d2fbf3b714ac70e096ba80aadd9533c62cf0c34e
+
 ---
 
 # 管理 Hyper-V 整合服務
@@ -266,6 +270,7 @@ sudo hv_kvp_daemon
  > ** 如需 Linux 客體的詳細資訊，請參閱[這裡](https://technet.microsoft.com/en-us/library/dn531030.aspx)。 
 
 
-<!--HONumber=Jun16_HO3-->
+
+<!--HONumber=Jun16_HO4-->
 
 

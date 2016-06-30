@@ -1,6 +1,6 @@
 ---
-title: Windows 容器常見問題集
-description: Windows 容器常見問題集
+title: "Windows 容器常見問題集"
+description: "Windows 容器常見問題集"
 keywords: docker, containers
 author: scooley
 manager: timlt
@@ -9,6 +9,10 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 25de368c-5a10-40a4-b4aa-ac8c9a9ca022
+translationtype: Human Translation
+ms.sourcegitcommit: cfa3c14e932f8b86edf6667200ac028ea0a16b67
+ms.openlocfilehash: c3a7decaf087741c82419a8a541867ae01f0f4da
+
 ---
 
 # 常見問題集
@@ -79,6 +83,7 @@ Docker 有兩個重點，即專案的開放原始碼群組和 Docker 這家公�
 如需詳細資訊，請參閱 [New Windows Server containers and Azure support for Docker](http://azure.microsoft.com/blog/2014/10/15/new-windows-server-containers-and-azure-support-for-docker/?WT.mc_id=Blog_ServerCloud_Announce_TTD) (新的 Windows Server 容器與 Docker 的 Azure 支援) 部落格文章。
 
 
-<!--HONumber=May16_HO3-->
+
+<!--HONumber=Jun16_HO4-->
 
 

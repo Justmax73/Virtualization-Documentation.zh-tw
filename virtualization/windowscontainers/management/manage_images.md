@@ -1,6 +1,6 @@
 ---
-title: Windows 容器映像
-description: 使用 Windows 容器建立和管理容器映像。
+title: "Windows 容器映像"
+description: "使用 Windows 容器建立和管理容器映像。"
 keywords: docker, containers
 author: neilpeterson
 manager: timlt
@@ -9,6 +9,10 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: d8163185-9860-4ee4-9e96-17b40fb508bc
+translationtype: Human Translation
+ms.sourcegitcommit: 3db43b433e7b1a9484d530cf209ea80ef269a307
+ms.openlocfilehash: 505cc64fa19fb9fc8c2d5c109830f460f09332dd
+
 ---
 
 # Windows 容器映像
@@ -286,6 +290,7 @@ latest: digest: sha256:ae3a2971628c04d5df32c3bbbfc87c477bb814d5e73e2787900da1322
 
 
 
-<!--HONumber=Jun16_HO3-->
+
+<!--HONumber=Jun16_HO4-->
 
 

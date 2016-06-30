@@ -1,5 +1,9 @@
 ---
 redirect_url: ../windows_welcome
+translationtype: Human Translation
+ms.sourcegitcommit: 3491d21a31a92f0a97de572afafc29ae8e661c12
+ms.openlocfilehash: 54b496f535b94f0b9aa83cce3ae5504830faee65
+
 ---
 
 ## 網路介面卡和記憶體的熱新增和移除
@@ -84,6 +88,7 @@ Update-VmConfigurationVersion <VMObject>
 
 > **重要事項：**.VMCX 檔案是一種二進位格式。 不支援直接編輯 .VMCX 或 .VMRS 檔案。
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=Jun16_HO4-->
 
 
