@@ -1,28 +1,11 @@
 # <a name='report-top'></a> Localization Handback Report
 
 ## Summary
- Total Files | 1
+ Total Files | 0
 
 ## File List
- Source File | Status | Details 
- ----------- | ------ | ------- 
- [virtualization\windowscontainers\docker\optimize_windows_dockerfile.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/cc216f56acd5e547d05a48beea57450ba5fcb28b/virtualization/windowscontainers/docker/optimize_windows_dockerfile.md) | InSyncHandedBackSuccess | [Details](#4822ff2f0248b2d7752299ea55b08e3499e2e2f7247)
 
 ## Item Details
-##### <a name='4822ff2f0248b2d7752299ea55b08e3499e2e2f7247'></a> Source: [virtualization\windowscontainers\docker\optimize_windows_dockerfile.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/cc216f56acd5e547d05a48beea57450ba5fcb28b/virtualization/windowscontainers/docker/optimize_windows_dockerfile.md)
-* Status: InSyncHandedBackSuccess
-* Target File: [virtualization\windowscontainers\docker\optimize_windows_dockerfile.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/c8d9bf12d839936a7f2fc725062c63022f9ef466/virtualization/windowscontainers/docker/optimize_windows_dockerfile.md)
-* Handoff File: [optimize_windows_dockerfile.8acb58c9a0cb3119d370c90c749222ed5b757368.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/76f6f642fc1699d005a68f7b603036e7a3b77625/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/optimize_windows_dockerfile.8acb58c9a0cb3119d370c90c749222ed5b757368.zh-tw.xlf)
-* Handoff Datetime: 2016-06-28 17:46:42
-* Handoff Reason: Include
-* Archive File: [optimize_windows_dockerfile.8acb58c9a0cb3119d370c90c749222ed5b757368.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/041b17f3785600cb2482a0db7e8cc9e362110ce6/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/archive/optimize_windows_dockerfile.8acb58c9a0cb3119d370c90c749222ed5b757368.zh-tw.xlf)
-* Archive Datetime: 2016-06-30 07:22:32
-* Handback File: [optimize_windows_dockerfile.8acb58c9a0cb3119d370c90c749222ed5b757368.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/c74278237b77fc40512981dd3c0860bf16b2e2a2/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/optimize_windows_dockerfile.8acb58c9a0cb3119d370c90c749222ed5b757368.zh-tw.xlf)
-* Handback Datetime: 2016-06-30 12:20:24
-* Bilingual File: [optimize_windows_dockerfile.8acb58c9a0cb3119d370c90c749222ed5b757368.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/8710429098bc2344ebdbcdcae27ba1c497f29a99/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/optimize_windows_dockerfile.8acb58c9a0cb3119d370c90c749222ed5b757368.zh-tw.xlf)
-* Bilingual Datetime: 2016-06-21 12:25:00
-* [Back to Top](#report-top)
-
 
 ## Error Details
 
