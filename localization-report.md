@@ -3625,8 +3625,8 @@
 * Archive Datetime: 2016-06-30 07:22:32
 * Handback File: [optimize_windows_dockerfile.8acb58c9a0cb3119d370c90c749222ed5b757368.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/c74278237b77fc40512981dd3c0860bf16b2e2a2/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/optimize_windows_dockerfile.8acb58c9a0cb3119d370c90c749222ed5b757368.zh-tw.xlf)
 * Handback Datetime: 2016-06-30 12:20:24
-* Bilingual File: [optimize_windows_dockerfile.8acb58c9a0cb3119d370c90c749222ed5b757368.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/8710429098bc2344ebdbcdcae27ba1c497f29a99/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/optimize_windows_dockerfile.8acb58c9a0cb3119d370c90c749222ed5b757368.zh-tw.xlf)
-* Bilingual Datetime: 2016-06-21 12:25:00
+* Bilingual File: [optimize_windows_dockerfile.8acb58c9a0cb3119d370c90c749222ed5b757368.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/c74278237b77fc40512981dd3c0860bf16b2e2a2/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/optimize_windows_dockerfile.8acb58c9a0cb3119d370c90c749222ed5b757368.zh-tw.xlf)
+* Bilingual Datetime: 2016-06-30 12:20:57
 * [Back to Top](#report-top)
 
 ##### <a name='f2cb1cdc1a98bf328a24610af6f7313a1071b079248'></a> Source: [virtualization\windowscontainers\EULA.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/4cff38fe495e9237285d2895bf3e45b99aaf5c6d/virtualization/windowscontainers/EULA.md)
