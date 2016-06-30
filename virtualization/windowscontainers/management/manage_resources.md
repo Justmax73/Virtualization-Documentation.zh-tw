@@ -1,6 +1,6 @@
 ---
-title: 容器資源管理
-description: 使用 Windows 容器管理容器資源。
+title: "容器資源管理"
+description: "使用 Windows 容器管理容器資源。"
 keywords: docker, containers
 author: neilpeterson
 manager: timlt
@@ -9,6 +9,10 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: b2192e64-9d74-474e-8af0-2d8b3ad1deee
+translationtype: Human Translation
+ms.sourcegitcommit: cfa3c14e932f8b86edf6667200ac028ea0a16b67
+ms.openlocfilehash: 82cc37e4bcf001e938dcff7308be16978fa955e2
+
 ---
 
 # 容器資源管理
@@ -34,6 +38,7 @@ docker run -it --cpu-shares 2 --name dockerdemo windowsservercore cmd
 - Hyper-V 容器目前尚不支援 CPU 和 IO 資源控制。
 - 容器資料磁碟區目前尚不支援 IO 資源控制。
 
-<!--HONumber=May16_HO3-->
+
+<!--HONumber=Jun16_HO4-->
 
 

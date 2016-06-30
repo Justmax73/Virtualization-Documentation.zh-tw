@@ -1,6 +1,5 @@
 # 關於 Windows 容器
 ## [Windows 容器概觀](about/about_overview.md)
-## [工作進行中](about/work_in_progress.md)
 ## [常見問題集](about/faq.md)
 
 # 容器快速啟動
@@ -42,6 +41,6 @@
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Jun16_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: 在 Windows 中設定 Docker
-description: 在 Windows 中設定 Docker
+title: "在 Windows 中設定 Docker"
+description: "在 Windows 中設定 Docker"
 keywords: docker, containers
 author: neilpeterson
 manager: timlt
@@ -9,9 +9,14 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
+ms.sourcegitcommit: 7113f1dc1e9a0a18d4eb25e6d604e89f96f826c4
+ms.openlocfilehash: 1fddaff6fc260c0cf91c8626a60d768a06995e53
+
 ---
 
-Docker 引擎並未隨附於 Windows，需要個別安裝及設定。 此外，Docker 精靈可接受許多自訂設定。 部分範例包括設定精靈接受連入要求的方式、預設網路功能選項，以及偵錯/記錄設定。 在 Windows 中，這些設定可以在設定檔中指定，或使用 Windows 服務控制管理員指定。 此文件詳細說明如何安裝及設定 Docker 精靈，且提供常用設定的範例。
+# Windows 上的 Docker 精靈
+
+Docker 引擎並未隨附於 Windows，且需要個別安裝及設定。 此外，Docker 精靈可接受許多自訂設定。 部分範例包括設定精靈接受連入要求的方式、預設網路功能選項，以及偵錯/記錄設定。 在 Windows 中，這些設定可以在設定檔中指定，或使用 Windows 服務控制管理員指定。 此文件詳細說明如何安裝及設定 Docker 精靈，且提供常用設定的範例。
 
 ## 安裝 Docker
 
@@ -151,6 +156,7 @@ sc config docker binpath= "\"C:\Program Files\docker\dockerd.exe\" --run-service
 ```
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=Jun16_HO4-->
 
 
