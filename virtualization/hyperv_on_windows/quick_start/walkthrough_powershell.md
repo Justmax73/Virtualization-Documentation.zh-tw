@@ -1,14 +1,18 @@
 ---
-title: &622872510 使用 Hyper-V 與 Windows PowerShell
-description: 使用 Hyper-V 與 Windows PowerShell
+title: "使用 Hyper-V 與 Windows PowerShell"
+description: "使用 Hyper-V 與 Windows PowerShell"
 keywords: windows 10, hyper-v
 author: neilpeterson
 manager: timlt
 ms.date: 05/02/2016
 ms.topic: article
-ms.prod: &2016104147 windows-10-hyperv
+ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 6d1ae036-0841-4ba5-b7e0-733aad31e9a7
+translationtype: Human Translation
+ms.sourcegitcommit: e14ede0a2b13de08cea0a955b37a21a150fb88cf
+ms.openlocfilehash: a8e567b6447aa73f14825b7054d977d2b003a726
+
 ---
 
 # 使用 Hyper-V 與 Windows PowerShell
@@ -17,40 +21,40 @@ ms.assetid: 6d1ae036-0841-4ba5-b7e0-733aad31e9a7
 
 ### 傳回 Hyper-V 命令清單
 
-1.  按一下 Windows [開始] 按鈕，輸入 <g id="2" ctype="x-strong">PowerShell</g>。
+1.  按一下 Windows 開始按鈕，輸入 **PowerShell**。
 2.  執行下列命令，以顯示搜尋到的 Hyper-V PowerShell 模組可用 PowerShell 命令清單。
 
  ```powershell
 get-command -module hyper-v | out-gridview
- ```
+```
   結果類似這樣：
 
-  <g id="1" ctype="x-linkText"></g>
+  ![](media\command_grid.png)
 
-3. 若要深入了解特定 PowerShell 命令，請使用 <g id="2" ctype="x-code">get-help</g>。 例如，執行下列命令會傳回 <g id="2" ctype="x-code">get-vm</g> Hyper-V 命令的相關資訊。
+3. 若要深入了解特定 PowerShell 命令，請使用 `get-help`。 例如，執行下列命令會傳回 `get-vm` Hyper-V 命令的相關資訊。
 
   ```powershell
 get-help get-vm
-  ```
+```
  輸出會顯示如何建構命令、有哪些必要和選擇性參數、以及您可以使用的別名。
 
- <g id="1" ctype="x-linkText"></g>
+ ![](media\get_help.png)
 
 
 ### 傳回虛擬機器清單
 
-使用 <g id="2" ctype="x-code">get-vm</g> 命令，以傳回虛擬機器的清單。
+使用 `get-vm` 命令，以傳回虛擬機器的清單。
 
 1. 在 PowerShell 中執行下列命令：
-
+ 
  ```powershell
 get-vm
- ```
+```
  結果類似這樣：
 
- <g id="1" ctype="x-linkText"></g>
+ ![](media\get_vm.png)
 
-2. 若只要傳回已開機的虛擬機器清單，請在 <g id="2" ctype="x-code">get-vm</g> 命令加入篩選器。 使用 where 物件命令可以加入篩選器。 如需篩選的詳細資訊，請參閱<g id="2CapsExtId1" ctype="x-link"><g id="2CapsExtId2" ctype="x-linkText">使用 Where-Object</g><g id="2CapsExtId3" ctype="x-title"></g></g> 文件。
+2. 若只要傳回已開機的虛擬機器清單，請在 `get-vm` 命令中加入篩選條件。 使用 where 物件命令可以加入篩選器。 如需篩選的詳細資訊，請參閱 [Using the Where-Object Cmdlet](https://technet.microsoft.com/en-us/library/ee177028.aspx) (使用 Where-Object Cmdlet) 文件。   
 
  ```powershell
  get-vm | where {$_.State -eq ‘Running’}
@@ -73,16 +77,16 @@ get-vm
 
   ```powershell
  get-vm | where {$_.State -eq ‘Off’} | start-vm
-  ```
+ ```
 3. 若要關閉所有執行中的虛擬機器，執行此命令：
-
+ 
   ```powershell
  get-vm | where {$_.State -eq ‘Running’} | stop-vm
-  ```
+ ```
 
 ### 建立 VM 檢查點
 
-若要使用 PowerShell 建立檢查點，請使用 <g id="2" ctype="x-code">get-vm</g> 命令選取虛擬機器，並使用管線傳送給 <g id="4" ctype="x-code">checkpoint-vm</g> 命令。 最後，使用 <g id="2" ctype="x-code">-snapshotname</g> 來命名檢查點。 完整的命令看起來像這樣：
+若要使用 PowerShell 建立檢查點，請使用 `get-vm` 命令選取虛擬機器，並將此輸送給 `checkpoint-vm` 命令。 最後，使用 `-snapshotname` 為檢查點命名。 完整的命令看起來像這樣：
 
  ```powershell
  get-vm -Name <VM Name> | checkpoint-vm -snapshotname <name for snapshot>
@@ -91,8 +95,8 @@ get-vm
 
 下列範例示範如何在 PowerShell 整合式指令碼環境 (ISE) 中建立新的虛擬機器。 這是一個簡單的範例，可以再擴大包，含其他 PowerShell 功能和更進階的 VM 部署。
 
-1. 若要開啟 PowerShell ISE，請按一下 [開始]，輸入 <g id="2" ctype="x-strong">PowerShell ISE</g>。
-2. 執行下列程式碼建立虛擬機器。 如需 New-VM 命令的詳細資訊，請參閱 <g id="2CapsExtId1" ctype="x-link"><g id="2CapsExtId2" ctype="x-linkText">New-VM</g><g id="2CapsExtId3" ctype="x-title"></g></g> 文件。
+1. 若要開啟 PowerShell ISE，請按一下開始，輸入 **PowerShell ISE**。
+2. 執行下列程式碼建立虛擬機器。 如需 New-VM 命令的詳細資訊，請參閱 [New-VM](https://technet.microsoft.com/en-us/library/hh848537.aspx) 文件。
 
   ```powershell
  $VMName = "VMNAME"
@@ -113,13 +117,10 @@ get-vm
 
 ## 結語與參考資料
 
-本文件示範了一些簡單的步驟，來介紹 Hyper-V PowerShell 模組以及一些範例案例。 如需 Hyper-V PowerShell 模組的詳細資訊，請參閱 <g id="2CapsExtId1" ctype="x-link"><g id="2CapsExtId2" ctype="x-linkText">Windows PowerShell 中 Hyper-V Cmdlet 參考資料</g><g id="2CapsExtId3" ctype="x-title"></g></g>。
+本文件示範了一些簡單的步驟，來介紹 Hyper-V PowerShell 模組以及一些範例案例。 如需 Hyper-V PowerShell 模組的詳細資訊，請參閱 [Windows PowerShell 參考中的 Hyper-V Cmdlet](https://technet.microsoft.com/%5Clibrary/Hh848559.aspx) 。  
+ 
 
 
-
-
-
-
-<!--HONumber=May16_HO1-->
+<!--HONumber=Jun16_HO4-->
 
 

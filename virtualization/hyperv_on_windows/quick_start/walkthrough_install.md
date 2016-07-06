@@ -1,14 +1,18 @@
 ---
-title: &1665656703 在 Windows 10 上安裝 Hyper-V
-description: 在 Windows 10 上安裝 Hyper-V
+title: "在 Windows 10 上安裝 Hyper-V"
+description: "在 Windows 10 上安裝 Hyper-V"
 keywords: windows 10, hyper-v
 author: neilpeterson
 manager: timlt
 ms.date: 05/02/2016
 ms.topic: article
-ms.prod: &1177792073 windows-10-hyperv
+ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 752dc760-a33c-41bb-902c-3bb2ecd9ac86
+translationtype: Human Translation
+ms.sourcegitcommit: e14ede0a2b13de08cea0a955b37a21a150fb88cf
+ms.openlocfilehash: 9e2b16f3e6c9882246a5a4c21683112eaa089ce8
+
 ---
 
 # 在 Windows 10 上安裝 Hyper-V
@@ -23,7 +27,7 @@ ms.assetid: 752dc760-a33c-41bb-902c-3bb2ecd9ac86
 
 2. 選取 **[開啟或關閉 Windows 功能]**。
 
-3. 選取 **[Hyper-V]**，然後按一下 **[確定]**。
+3. 選取 **[Hyper-V]**，然後按一下 **[確定]**。  
 
 ![](media/enable_role_upd.png)
 
@@ -44,7 +48,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 
 ## 使用 DISM 安裝 Hyper-V
 
-部署映像服務與管理工具 (DISM) 可用來服務 Windows 映像，及準備 Windows 安裝前環境。 Windows 作業系統正在執行時，DISM 也可用來啟用它的功能。 如需詳細資訊，請參閱 [DISM 技術參考資料](https://technet.microsoft.com/en-us/library/hh824821.aspx)。
+部署映像服務與管理工具 (DISM) 可用來服務 Windows 映像，及準備 Windows 安裝前環境。 Windows 作業系統正在執行時，DISM 也可用來啟用它的功能。 如需詳細資訊，請參閱 [DISM - 部署映像服務與管理技術參考](https://technet.microsoft.com/en-us/library/hh824821.aspx)。
 
 使用 DISM 啟動 Hyper-V 角色：
 
@@ -59,14 +63,10 @@ DISM /Online /Enable-Feature /All /FeatureName:Microsoft-Hyper-V
 
 
 ## 後續步驟 - 建立虛擬交換器
-
 [建立虛擬交換器](walkthrough_virtual_switch.md)
 
 
 
-
-
-
-<!--HONumber=May16_HO1-->
+<!--HONumber=Jun16_HO4-->
 
 

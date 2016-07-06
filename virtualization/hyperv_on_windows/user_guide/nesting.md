@@ -1,6 +1,6 @@
 ---
-title: 巢狀虛擬化
-description: 巢狀虛擬化
+title: "巢狀虛擬化"
+description: "巢狀虛擬化"
 keywords: windows 10, hyper-v
 author: theodthompson
 manager: timlt
@@ -9,11 +9,14 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 68c65445-ce13-40c9-b516-57ded76c1b15
+ms.sourcegitcommit: 26a8adb426a7cf859e1a9813da2033e145ead965
+ms.openlocfilehash: d17413fc572e59ec21ff513ef5de994c6716aa08
+
 ---
 
 # 在巢狀虛擬化的虛擬機器中執行 Hyper-V
 
-巢狀虛擬化功能可讓在 Hyper-V 虛擬機器中執行 Hyper-V。 換言之，使用巢狀虛擬化，Hyper-V 主機本身也能虛擬化。 舉例來說，巢狀虛擬化可讓您在虛擬化的容器主機中執行 Hyper-V 容器；在虛擬化環境中設定 HYPER-V 實驗室；或無須配備個別的硬體，就能測試多部機器。 本文件詳細說明軟硬體先決條件、設定步驟，以及如何疑難排解問題。
+巢狀虛擬化功能可讓在 Hyper-V 虛擬機器中執行 Hyper-V。 換言之，使用巢狀虛擬化，Hyper-V 主機本身也能虛擬化。 舉例來說，巢狀虛擬化可讓您在虛擬化的容器主機中執行 Hyper-V 容器；在虛擬化環境中設定 HYPER-V 實驗室；或無須配備個別的硬體，就能測試多部機器。 本文件詳細說明軟硬體先決條件、設定步驟，以及如何疑難排解問題。 如果您是在 Windows Insider Preview 組建 14361 或更新版本上執行 Hyper-V，請參閱 [Nested Virtualization Preview for Windows Insiders: Builds 14361+](https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/user_guide/nesting#nested-virtualization-preview-for-windows-insiders-builds-14361-) (適用於 Windows 測試人員的巢狀虛擬化：組建 14361+)。
 
 ## 先決條件
 
@@ -86,7 +89,51 @@ Netsh interface ip add dnsserver “Ethernet” address=<my DNS server>
 
 您可以利用 Windows 意見反應應用程式、[虛擬化論壇](https://social.technet.microsoft.com/Forums/windowsserver/En-us/home?forum=winserverhyperv)或 [GitHub](https://github.com/Microsoft/Virtualization-Documentation) 回報其他問題。
 
+##適用於 Windows 測試人員的巢狀虛擬化：組建 14361+
+幾個月前，我們公佈了 Hyper-V 巢狀虛擬化與組建 10565 的預先預覽版本。 我們很高興這項功能引起眾人的高度期待，並很榮幸能與 Windows 測試人員分享相關更新。
 
-<!--HONumber=Jun16_HO3-->
+###需使用新的 VM 版本以支援巢狀虛擬化
+從組建 14361 開始，啟用巢狀虛擬化的 VM 需為 8.0 版。 因此，如果是在舊版主機上建立並啟用巢狀功能的 VM，就需要更新版本。 
+
+####更新 VM 版本
+若要繼續使用巢狀虛擬化，您需要將 VM 版本更新至 8.0 版。 這表示您必須移除儲存狀態，並將 VM 關閉。 下列 PowerShell Cmdlet 可更新 VM 版本︰
+```none
+Update-VMVersion -Name <VMName>
+```
+####停用巢狀虛擬化
+如果您不想更新 VM，可以停用巢狀虛擬化，以讓 VM 開機︰
+```none
+Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $false
+```
+
+###VM 8.0 版的新行為 
+在此預覽版本中，已啟用巢狀功能之 VM 的運作方式有下列幾點變更︰
+-   現在，您可針對已啟用巢狀虛擬化的 VM，建立及套用檢查點。
+-   您現在可以儲存並啟動啟用巢狀功能的 VM。
+-   啟用巢狀虛擬化的 VM 現可在啟用虛擬式安全性的主機上執行 (包括 Device Guard 和 Credential Guard)。
+-   我們已改善現有限制的錯誤訊息。
+
+###功能限制
+-   巢狀虛擬化功能是專為在 Hyper-V 虛擬機器內執行 Hyper-V 所設計。 目前不支援協力廠商虛擬化應用程式，因此在 Hyper-V VM 中可能無法使用這些應用程式。
+-   動態記憶體與巢狀虛擬化不相容。 當 Hyper-V 在 VM 內部執行時，VM 就無法變更它的執行階段記憶體。 
+-   執行階段記憶體大小調整與巢狀虛擬化不相容。 當 Hyper-V 在 VM 內部執行時，VM 的記憶體大小調整就會失敗。 
+-   僅有 Intel 系統支援巢狀虛擬化。
+
+###已知問題
+組建 14361 中有下列已知問題：第 2 代 VM 無法開機，並發生如下錯誤︰
+```none
+“Cannot modify property without enabling VirtualizationBasedSecurityOptOut”
+```
+您可以停用巢狀虛擬化，或選擇取消虛擬式安全性，以暫時修正此問題︰
+```none
+Set-VMSecurity -VMName <vmname> -VirtualizationBasedSecurityOptOut $true
+```
+
+###我們很重視您的意見
+歡迎您繼續使用 Windows 意見反應應用程式傳送意見給我們。 如有任何問題，請在我們的說明文件 [GitHub](https://github.com/Microsoft/Virtualization-Documentation) 頁面上提出問題。 
+
+
+
+<!--HONumber=Jun16_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Windows Server 上的 Windows 容器
-description: 容器部署快速入門
+title: "Windows Server 上的 Windows 容器"
+description: "容器部署快速入門"
 keywords: docker, containers
 author: neilpeterson
 manager: timlt
@@ -9,6 +9,10 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
+translationtype: Human Translation
+ms.sourcegitcommit: eae45c2c81c7edc94d963da69dcdee2b6f08f37d
+ms.openlocfilehash: 40b55028820472aadc5d70d338de417616c653d3
+
 ---
 
 # Windows Server 上的 Windows 容器
@@ -21,7 +25,13 @@ ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
 
 **必要條件：**
 
-- 一個執行 [Windows Server 2016 Technical Preview 5](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-technical-preview) 的電腦系統 (實體或虛擬)。
+一個執行 [Windows Server 2016 Technical Preview 5](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-technical-preview) 的電腦系統 (實體或虛擬)。
+
+Azure 提供完整設定的 Windows Server 映像。 若要使用此映像，請按一下下方的按鈕部署虛擬機器。 部署約需要 10 分鐘。 完成之後，請登入 Azure 虛擬機器，並直接跳到本教學課程的步驟四。 
+
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2FVirtualization-Documentation%2Fmaster%2Fwindows-server-container-tools%2Fcontainers-azure-template%2Fazuredeploy.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
+</a>
 
 ## 1.安裝容器功能
 
@@ -50,13 +60,13 @@ New-Item -Type Directory -Path 'C:\Program Files\docker\'
 下載 Docker 精靈。
 
 ```none
-Invoke-WebRequest https://aka.ms/tp5/b/dockerd -OutFile $env:ProgramFiles\docker\dockerd.exe
+Invoke-WebRequest https://aka.ms/tp5/b/dockerd -OutFile $env:ProgramFiles\docker\dockerd.exe -UseBasicParsing
 ```
 
 下載 Docker 用戶端。
 
 ```none
-Invoke-WebRequest https://aka.ms/tp5/b/docker -OutFile $env:ProgramFiles\docker\docker.exe
+Invoke-WebRequest https://aka.ms/tp5/b/docker -OutFile $env:ProgramFiles\docker\docker.exe -UseBasicParsing
 ```
 
 將 Docker 目錄加入系統路徑中。 完成時，重新啟動 PowerShell 工作階段，以便識別修改過的路徑。
@@ -179,7 +189,7 @@ CONTAINER ID    IMAGE                             COMMAND               CREATED 
 
 從不同的電腦開啟網頁瀏覽器，並輸入容器主機的 IP 位址。 如果所有項目都已正確設定，您應該會看到 IIS 啟動顯示畫面。 這是要由裝載於 Windows 容器中的 IIS 執行個體所提供。
 
-**注意︰** 如果您正在使用 Azure，必須有允許流量通過連接埠 80 的網路安全性群組規則。 如需詳細資訊，請參閱[建立現有 NSG 中的規則]( https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-create-nsg-arm-pportal/#create-rules-in-an-existing-nsg)。
+**注意︰**如果您在 Azure 中進行作業，則需具備虛擬機器的外部 IP 位址，並設定好網路安全性。 如需詳細資訊，請參閱[建立現有 NSG 中的規則]( https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-create-nsg-arm-pportal/#create-rules-in-an-existing-nsg)。
 
 ![](media/iis1.png)
 
@@ -195,6 +205,7 @@ docker rm -f grave_jang
 [Windows 10 上的 Windows 容器](./quick_start_windows_10.md)
 
 
-<!--HONumber=Jun16_HO3-->
+
+<!--HONumber=Jun16_HO5-->
 
 

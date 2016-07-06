@@ -1,66 +1,35 @@
 # 關於 Hyper-V
-
-## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Windows 上的 Hyper-V</g><g id="1CapsExtId3" ctype="x-title"></g></g>
-
-## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Hyper-V 簡介</g><g id="1CapsExtId3" ctype="x-title"></g></g>
-
-## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">支援的客體作業系統</g><g id="1CapsExtId3" ctype="x-title"></g></g>
-
-## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Hyper-V 上的 Linux 和 FreeBSD</g><g id="1CapsExtId3" ctype="x-title"></g></g>
-
+## [Windows 上的 Hyper-V](./windows_welcome.md)
+## [Hyper-V 簡介](./about/hyperv_on_windows.md)
+## [支援的客體 OS](about/supported_guest_os.md)
+## [Hyper-V 上的 Linux 和 FreeBSD](https://technet.microsoft.com/library/dn531030.aspx)
 # Hyper-V 快速入門
-
-## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">系統需求</g><g id="1CapsExtId3" ctype="x-title"></g></g>
-
-## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">安裝 Hyper-V</g><g id="1CapsExtId3" ctype="x-title"></g></g>
-
-## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">建立虛擬交換器</g><g id="1CapsExtId3" ctype="x-title"></g></g>
-
-## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">建立虛擬機器</g><g id="1CapsExtId3" ctype="x-title"></g></g>
-
-## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Hyper-V 和 PowerShell</g><g id="1CapsExtId3" ctype="x-title"></g></g>
-
+## [系統需求](quick_start/walkthrough_compatibility.md)
+## [安裝 Hyper-V](quick_start/walkthrough_install.md)
+## [建立虛擬交換器](quick_start/walkthrough_virtual_switch.md)
+## [建立虛擬機器](quick_start/walkthrough_create_vm.md)
+## [Hyper-V 和 PowerShell](quick_start/walkthrough_powershell.md)
 # 使用 Hyper-V 管理虛擬機器
-
-## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">移轉和升級虛擬機器</g><g id="1CapsExtId3" ctype="x-title"></g></g>
-
-## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">管理整合服務s</g><g id="1CapsExtId3" ctype="x-title"></g></g>
-
-## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">使用檢查點</g><g id="1CapsExtId3" ctype="x-title"></g></g>
-
-## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">匯出和匯入虛擬機器</g><g id="1CapsExtId3" ctype="x-title"></g></g>
-
-## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">使用 PowerShell Direct 連線</g><g id="1CapsExtId3" ctype="x-title"></g></g>
-
-## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">建立發行前版本的 VM</g><g id="1CapsExtId3" ctype="x-title"></g></g>
-
+## [移轉和升級虛擬機器](http://aka.ms/upgradevmconfig)
+## [管理整合服務](user_guide/managing_ics.md)
+## [使用檢查點](user_guide/checkpoints.md)
+## [匯出和匯入虛擬機器](user_guide/export_import.md)
+## [使用 PowerShell Direct 連線](user_guide/vmsession.md)
+## [建立發行前版本的 VM](user_guide/create_pre-release_vm.md) 
 # 管理 Hyper-V 主機
-
-## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">管理遠端 Hyper-V 主機</g><g id="1CapsExtId3" ctype="x-title"></g></g>
-
-## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">啟用巢狀虛擬化</g><g id="1CapsExtId3" ctype="x-title"></g></g>
-
-## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">設定 NAT 網路</g><g id="1CapsExtId3" ctype="x-title"></g></g>
-
-## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">建置整合服務</g><g id="1CapsExtId3" ctype="x-title"></g></g>
-
+## [管理遠端 Hyper-V 主機](user_guide/remote_host_management.md)
+## [啟用巢狀虛擬化](user_guide/nesting.md)
+## [設定 NAT 網路](user_guide/setup_nat_network.md)
+## [建置整合服務](develop/make_mgmt_service.md)
 # 社群與支援
-
-## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Hyper-V 論壇</g><g id="1CapsExtId3" ctype="x-title"></g></g>
-
+## [Hyper-V 論壇](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home?forum=winserverhyperv)
 # 參考資料
-
-## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Hyper-V PowerShell</g><g id="1CapsExtId3" ctype="x-title"></g></g>
-
-## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Hyper-V WMI 提供者 (V2)</g><g id="1CapsExtId3" ctype="x-title"></g></g>
-
-## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Hyper-V 架構</g><g id="1CapsExtId3" ctype="x-title"></g></g>
-
-## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Hypervisor 規格</g><g id="1CapsExtId3" ctype="x-title"></g></g>
+## [Hyper-V PowerShell](https://technet.microsoft.com/library/hh848559.aspx)
+## [Hyper-V WMI 提供者 (V2)](https://msdn.microsoft.com/library/hh850319.aspx)
+## [Hyper-V 架構](https://msdn.microsoft.com/en-us/library/cc768520(v=bts.10).aspx)
+## [Hypervisor 規格](develop/tlfs.md)
 
 
-
-
-<!--HONumber=May16_HO1-->
+<!--HONumber=Jun16_HO4-->
 
 
