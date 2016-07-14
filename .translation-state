@@ -1,5 +1,5 @@
 {
-  "LastProcessedCommit": "03c3ede85ff8b2fe4783581c717c1c97810b3bdd",
+  "LastProcessedCommit": "85833ab8741ba8e3a5a873ce05b46c81f2b8b1bf",
   "LastTranslatedCommit": "b7c0f39562e73edb25244c449d4e295cce91023a",
   "Items": {
     "5090f6d60b5cbdce0990242d795d9e4e3736e791": {
@@ -22346,6 +22346,41 @@
       "HandoffFilePath": "ol-handoff\\Microsoft\\Virtualization-Documentation-Private.zh-tw\\live\\ic_info.98dd018260e2c766210a8b9aa82efa377f584781.zh-tw.xlf",
       "HandoffFileCommit": "d8a6060c6f3a884239c346c452d73cc0666a6834",
       "HandoffDateTime": "2016-07-14T20:21:00.3923752Z",
+      "HandoffPriority": "",
+      "HandoffException": null,
+      "HandoffFailureTimes": 0,
+      "TargetFileCommit": null,
+      "TargetFilePath": null,
+      "HandbackFilePath": null,
+      "HandbackFileCommit": null,
+      "HandbackDateTime": "0001-01-01T00:00:00",
+      "HandbackException": null,
+      "HandbackFailureTimes": 0,
+      "UpdatedDateTime": "0001-01-01T00:00:00",
+      "ArchiveFilePath": null,
+      "ArchiveFileCommit": null,
+      "ArchiveFileDateTime": "0001-01-01T00:00:00",
+      "ArchiveException": null,
+      "BilingualFilePath": null,
+      "BilingualFileCommit": null,
+      "BilingualDateTime": "0001-01-01T00:00:00",
+      "BilingualException": null
+    },
+    "0fafad917ad48da40fee1f6164383cd45bf97dfd": {
+      "FileHash": "0fafad917ad48da40fee1f6164383cd45bf97dfd",
+      "SourceFileCommit": "85833ab8741ba8e3a5a873ce05b46c81f2b8b1bf",
+      "SourceFilePath": "virtualization\\windowscontainers\\quick_start\\quick_start_windows_10.md",
+      "HandoffReason": 1,
+      "DependencyFrom": null,
+      "TokenReference": null,
+      "FilePathList": [
+        "virtualization\\windowscontainers\\quick_start\\quick_start_windows_10.md"
+      ],
+      "HasMetadata": true,
+      "TranslationType": 1,
+      "HandoffFilePath": "ol-handoff\\Microsoft\\Virtualization-Documentation-Private.zh-tw\\live\\quick_start_windows_10.5f887ea7d45d865c81fe971abab095fb8e272cc8.zh-tw.xlf",
+      "HandoffFileCommit": "098e8b78f2fd7f83f2b121213806a9162ebc07db",
+      "HandoffDateTime": "2016-07-14T21:49:22.26023Z",
       "HandoffPriority": "",
       "HandoffException": null,
       "HandoffFailureTimes": 0,
