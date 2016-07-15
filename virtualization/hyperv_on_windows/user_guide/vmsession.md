@@ -1,7 +1,7 @@
 ---
 title: "使用 PowerShell Direct 管理 Windows 虛擬機器"
 description: "使用 PowerShell Direct 管理 Windows 虛擬機器"
-keywords: windows 10, hyper-v
+keywords: windows 10, hyper-v, powershell, integration services, integration components, automation, powershell direct
 author: scooley
 manager: timlt
 ms.date: 05/02/2016
@@ -10,19 +10,19 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: fb228e06-e284-45c0-b6e6-e7b0217c3a49
 translationtype: Human Translation
-ms.sourcegitcommit: 6eb26eda92217917a3abe7d9dd4c77c48283c8dc
-ms.openlocfilehash: 91927b751021efa9ba2cf696516ba50af28c6e05
+ms.sourcegitcommit: 87f8fb2ae8958c9c6177f6eda90678708054fce7
+ms.openlocfilehash: 75186d48346efbaaac264b00f0f92fe82fcfe424
 
 ---
 
-# 使用 PowerShell Direct 管理 Windows 虛擬機器
+# 使用 PowerShell 進行虛擬機器自動化與管理
  
-您可以使用 PowerShell Direct，從 Windows 10 或 Windows Server 技術預覽 Hyper-V 主機遠端管理 Windows 10 或 Windows Server 技術預覽虛擬機器。 使用 PowerShell Direct 可在虛擬機器內用 PowerShell 管理，不論 Hyper-V 主機上或虛擬機器上的網路設定或遠端管理設定為何。 這讓 Hyper-V 系統管理員更容易用指令碼自動化管理和設定工作。
+您可以使用 PowerShell Direct，透過 Hyper-V 主機，在 Windows 10 或 Windows Server Technical Preview 虛擬機器中執行任意 PowerShell (不論網路設定或遠端管理設定為何皆可)。
 
 **執行 PowerShell Direct 的方式：**  
 * 作為互動式工作階段 - [按一下這裡](vmsession.md#create-and-exit-an-interactive-powershell-session)使用 Enter-PSSession 建立並結束互動式 PowerShell 工作階段。
 * 作為單次使用工作階段來執行單一命令或指令碼 - [按一下這裡](vmsession.md#run-a-script-or-command-with-invoke-command)使用 Invoke-Command 執行指令碼或命令。
-* 作為持續性的工作階段 (組建 14280 和更新版本) - [按一下這裡](vmsession.md#copy-files-with-New-PSSession-and-Copy-Item)使用 New-PSSSession 建立持續性工作階段。  
+* 作為持續工作階段 (組建 14280 和更新版本) - [按一下這裡](vmsession.md#copy-files-with-New-PSSession-and-Copy-Item)使用 New-PSSSession 來建立持續工作階段。  
 繼續使用 Copy-Item 來複製檔案至虛擬機器或從中複製檔案，然後使用 Remove-PSSession 中斷連線。
 
 ## 需求
@@ -281,6 +281,6 @@ PowerShell Direct 支援 JEA (Just Enough Administration)。  請參閱本使用
 
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Jul16_HO1-->
 
 

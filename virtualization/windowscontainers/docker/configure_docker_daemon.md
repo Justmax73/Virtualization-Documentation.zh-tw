@@ -9,8 +9,9 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
-ms.sourcegitcommit: 7113f1dc1e9a0a18d4eb25e6d604e89f96f826c4
-ms.openlocfilehash: 1fddaff6fc260c0cf91c8626a60d768a06995e53
+translationtype: Human Translation
+ms.sourcegitcommit: 2d6f2c24624883457302c925c2bb47e6c867b730
+ms.openlocfilehash: 533f3a3277e3d9654f0d425c9c0f442c93e2d24a
 
 ---
 
@@ -156,7 +157,20 @@ sc config docker binpath= "\"C:\Program Files\docker\dockerd.exe\" --run-service
 ```
 
 
+## 收集記錄檔
+Docker 精靈會將事件記錄至 Windows 應用程式事件記錄檔，而不是記錄至檔案。 您可以使用 Windows PowerShell，輕鬆讀取、排序和篩選這些記錄檔
 
-<!--HONumber=Jun16_HO4-->
+比方說，這會顯示 Docker 精靈前 5 分鐘的記錄檔，並從最舊的開始排序。
+```
+Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-5) | Sort-Object Time 
+```
+
+您也可以輕鬆透過管道將記錄檔傳送至 CSV 檔案，以供其他工具或試算表讀取。
+```
+Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-30)  | Sort-Object Time | Export-CSV ~/last30minutes.csv ```
+
+
+
+<!--HONumber=Jul16_HO1-->
 
 

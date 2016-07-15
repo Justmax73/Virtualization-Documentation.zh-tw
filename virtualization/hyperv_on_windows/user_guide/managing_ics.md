@@ -1,7 +1,7 @@
 ---
 title: "管理 Hyper-V 整合服務"
 description: "管理 Hyper-V 整合服務"
-keywords: windows 10, hyper-v
+keywords: windows 10, hyper-v, integration services, integration components
 author: scooley
 manager: timlt
 ms.date: 05/02/2016
@@ -10,16 +10,18 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 9cafd6cb-dbbe-4b91-b26c-dee1c18fd8c2
 translationtype: Human Translation
-ms.sourcegitcommit: ef9ce04b2532fd314a21920b9cc5c28459c9a438
-ms.openlocfilehash: d2fbf3b714ac70e096ba80aadd9533c62cf0c34e
+ms.sourcegitcommit: 852f7fafe7192d85b0e9840ea3767a1206a1c285
+ms.openlocfilehash: e7abf05c899e2acca07312813b7808a5db00a9f7
 
 ---
 
 # 管理 Hyper-V 整合服務
 
-整合服務通常稱為「整合元件」，是可讓虛擬機器與 Hyper-V 主機通訊的服務。 其中許多服務很便利 (例如客體檔案複製)，另外有些則對於客體作業系統功能是否能正確運作來說相當重要 (時間同步處理)。
+整合服務通常稱為「整合元件」，是可讓虛擬機器與 Hyper-V 主機通訊的服務。 其中許多服務很便利 (例如客體檔案複製)，另外有些服務則是虛擬機器功能是否能正常運作的關鍵 (時間同步化)。
 
-本文會詳細說明如何在 Windows 10 中使用 Hyper-V 管理員和 PowerShell 來管理整合服務。 如需每一項整合服務的詳細資訊，請參閱[整合服務]( https://technet.microsoft.com/en-us/library/dn798297.aspx)。
+本文會詳細說明如何在 Windows 10 中使用 Hyper-V 管理員和 PowerShell 來管理整合服務。  
+
+如需每一項整合服務的詳細資訊，請參閱[整合服務](../reference/ic_info.md)。
 
 ## 使用 Hyper-V 管理員啟用或停用整合服務
 
@@ -41,33 +43,33 @@ ms.openlocfilehash: d2fbf3b714ac70e096ba80aadd9533c62cf0c34e
 1. 看看哪些整合服務正在執行
   
   ``` PowerShell
-  Get-VMIntegrationService -VMName "demovm"
+  Get-VMIntegrationService -VMName "DemoVM"
   ```
 
   輸出看起來像這樣：  
   ``` PowerShell
   VMName      Name                    Enabled PrimaryStatusDescription SecondaryStatusDescription
   ------      ----                    ------- ------------------------ --------------------------
-  demovm      Guest Service Interface False   OK
-  demovm      Heartbeat               True    OK                       OK
-  demovm      Key-Value Pair Exchange True    OK
-  demovm      Shutdown                True    OK
-  demovm      Time Synchronization    True    OK
-  demovm      VSS                     True    OK
+  DemoVM      Guest Service Interface False   OK
+  DemoVM      Heartbeat               True    OK                       OK
+  DemoVM      Key-Value Pair Exchange True    OK
+  DemoVM      Shutdown                True    OK
+  DemoVM      Time Synchronization    True    OK
+  DemoVM      VSS                     True    OK
   ```
 
 2. 啟用 `Guest Service Interface` 整合服務
 
    ``` PowerShell
-   Enable-VMIntegrationService -VMName "demovm" -Name "Guest Service Interface"
+   Enable-VMIntegrationService -VMName "DemoVM" -Name "Guest Service Interface"
    ```
    
-   若是執行 `Get-VMIntegrationService -VMName "demovm"`，將會啟用客體服務介面整合服務。
+   若是執行 `Get-VMIntegrationService -VMName "DemoVM"`，將會啟用客體服務介面整合服務。
  
 3. 停用 `Guest Service Interface` 整合服務
 
    ``` PowerShell
-   Disable-VMIntegrationService -VMName "demovm" -Name "Guest Service Interface"
+   Disable-VMIntegrationService -VMName "DemoVM" -Name "Guest Service Interface"
    ```
    
 在主機和客體系統上，整合服務皆設計為必須啟用才能運作。  Windows 客體作業系統預設會啟用所有的整合服務，而您可以將其停用。  做法請參閱下一節。
@@ -193,7 +195,9 @@ sudo hv_kvp_daemon
 
 ## 整合服務維護
 
-為了獲得最佳的虛擬機器效能和功能，請使用最新的整合服務。
+只要您的虛擬機器可以從 Windows Update 接收重要更新，Windows 10 即會依預設執行整合服務的維護。  
+
+若要提供最佳的虛擬機器效能和功能，請使用最新版的整合服務。
 
 **在 Windows 10 主機上執行的虛擬機器：**
 
@@ -226,19 +230,19 @@ sudo hv_kvp_daemon
 |:---------|:---------|:---------|
 | Windows 10 | Windows Update | |
 | Windows 8.1 | Windows Update | |
-| Windows 8 | 整合服務光碟 | |
-| Windows 7 | 整合服務光碟 | |
-| Windows Vista (SP 2) | 整合服務光碟 | |
-| Windows XP (SP 2、SP 3) | 整合服務光碟 | |
+| Windows 8 | 整合服務光碟 | 您可在[這裡](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4)取得相關指示。 |
+| Windows 7 | 整合服務光碟 | 您可在[這裡](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4)取得相關指示。 |
+| Windows Vista (SP 2) | 整合服務光碟 | 您可在[這裡](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4)取得相關指示。 |
+| Windows XP (SP 2、SP 3) | 整合服務光碟 | 您可在[這裡](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4)取得相關指示。 |
 | - | | |
 | Windows Server 2012 R2 | Windows Update | |
-| Windows Server 2012 | 整合服務光碟 | |
-| Windows Server 2008 R2 | 整合服務光碟 | |
-| Windows Server 2008 (SP 2) | 整合服務光碟 | |
-| Windows Home Server 2011 | 整合服務光碟 | |
-| Windows Small Business Server 2011 | 整合服務光碟 | |
-| Windows Server 2003 R2 (SP 2) | 整合服務光碟 | |
-| Windows Server 2003 (SP 2) | 整合服務光碟 | |
+| Windows Server 2012 | 整合服務光碟 | 您可在[這裡](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4)取得相關指示。 |
+| Windows Server 2008 R2 | 整合服務光碟 | 您可在[這裡](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4)取得相關指示。 |
+| Windows Server 2008 (SP 2) | 整合服務光碟 | 您可在[這裡](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4)取得相關指示。 |
+| Windows Home Server 2011 | 整合服務光碟 | 您可在[這裡](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4)取得相關指示。 |
+| Windows Small Business Server 2011 | 整合服務光碟 | 您可在[這裡](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4)取得相關指示。 |
+| Windows Server 2003 R2 (SP 2) | 整合服務光碟 | 您可在[這裡](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4)取得相關指示。 |
+| Windows Server 2003 (SP 2) | 整合服務光碟 | 您可在[這裡](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4)取得相關指示。 |
 | - | | |
 | Linux 客體 | 封裝管理員 | Linux 整合元件內建在 distro 中，但有可能是可用的選擇性更新。 ** |
 
@@ -248,29 +252,26 @@ sudo hv_kvp_daemon
 | 客體作業系統 | 更新機制 | 附註 |
 |:---------|:---------|:---------|
 | Windows 8.1 | Windows Update | |
-| Windows 8 | 整合服務光碟 | |
-| Windows 7 | 整合服務光碟 | |
-| Windows Vista (SP 2) | 整合服務光碟 | |
-| Windows XP (SP 2、SP 3) | 整合服務光碟 | |
+| Windows 8 | 整合服務光碟 | 您可在[這裡](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4)取得相關指示。 |
+| Windows 7 | 整合服務光碟 | 您可在[這裡](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4)取得相關指示。 |
+| Windows Vista (SP 2) | 整合服務光碟 | 您可在[這裡](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4)取得相關指示。 |
+| Windows XP (SP 2、SP 3) | 整合服務光碟 | 您可在[這裡](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4)取得相關指示。 |
 | - | | |
 | Windows Server 2012 R2 | Windows Update | |
-| Windows Server 2012 | 整合服務光碟 | |
-| Windows Server 2008 R2 | 整合服務光碟 | |
-| Windows Server 2008 (SP 2) | 整合服務光碟 | |
-| Windows Home Server 2011 | 整合服務光碟 | |
-| Windows Small Business Server 2011 | 整合服務光碟 | |
-| Windows Server 2003 R2 (SP 2) | 整合服務光碟 | |
-| Windows Server 2003 (SP 2) | 整合服務光碟 | |
+| Windows Server 2012 | 整合服務光碟 | 您可在[這裡](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4)取得相關指示。 |
+| Windows Server 2008 R2 | 整合服務光碟 | 您可在[這裡](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4)取得相關指示。|
+| Windows Server 2008 (SP 2) | 整合服務光碟 | 您可在[這裡](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4)取得相關指示。 |
+| Windows Home Server 2011 | 整合服務光碟 | 您可在[這裡](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4)取得相關指示。 |
+| Windows Small Business Server 2011 | 整合服務光碟 | 您可在[這裡](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4)取得相關指示。 |
+| Windows Server 2003 R2 (SP 2) | 整合服務光碟 | 您可在[這裡](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4)取得相關指示。 |
+| Windows Server 2003 (SP 2) | 整合服務光碟 | 您可在[這裡](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4)取得相關指示。 |
 | - | | |
 | Linux 客體 | 封裝管理員 | Linux 整合元件內建在 distro 中，但有可能是可用的選擇性更新。 ** |
-
-
-如需如何透過 Windows 8 及 Windows 8.1 之整合服務光碟執行更新的指示，請參閱[這裡](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4)。
 
  > ** 如需 Linux 客體的詳細資訊，請參閱[這裡](https://technet.microsoft.com/en-us/library/dn531030.aspx)。 
 
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Jul16_HO1-->
 
 

@@ -26,10 +26,11 @@
 # 參考資料
 ## [Hyper-V PowerShell](https://technet.microsoft.com/library/hh848559.aspx)
 ## [Hyper-V WMI 提供者 (V2)](https://msdn.microsoft.com/library/hh850319.aspx)
+## [Hyper-V 整合服務](reference/ic_info.md)
 ## [Hyper-V 架構](https://msdn.microsoft.com/en-us/library/cc768520(v=bts.10).aspx)
-## [Hypervisor 規格](develop/tlfs.md)
+## [Hypervisor 規格](reference/tlfs.md)
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Jun16_HO5-->
 
 
