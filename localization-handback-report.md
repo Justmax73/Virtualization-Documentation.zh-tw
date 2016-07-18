@@ -1,27 +1,11 @@
 # <a name='report-top'></a> Localization Handback Report
 
 ## Summary
- Total Files | 1
+ Total Files | 0
 
 ## File List
- Source File | Status | Details 
- ----------- | ------ | ------- 
- [virtualization\windowscontainers\quick_start\media\hello.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/80238e2f42ed6c21f7e84b38cfe99bdbe6f9e27f/virtualization/windowscontainers/quick_start/media/hello.png) | InSyncHandedBackSuccess | [Details](#19c1070cee496d52eba1b2ce80f4f939edccdffd297)
 
 ## Item Details
-##### <a name='19c1070cee496d52eba1b2ce80f4f939edccdffd297'></a> Source: [virtualization\windowscontainers\quick_start\media\hello.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/80238e2f42ed6c21f7e84b38cfe99bdbe6f9e27f/virtualization/windowscontainers/quick_start/media/hello.png)
-* Status: InSyncHandedBackSuccess
-* Target File: [virtualization\windowscontainers\quick_start\media\hello.png](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/7a17ac1f3f502b0a9264def90b386c58533628c6/virtualization/windowscontainers/quick_start/media/hello.png)
-* Handoff File: [19c1070cee496d52eba1b2ce80f4f939edccdffd.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/2643d9c6db215947c94025792681f238b2f2553c/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/19c1070cee496d52eba1b2ce80f4f939edccdffd.png)
-* Handoff Datetime: 2016-04-27 13:40:59
-* Handoff Reason: IsDependency
-* Dependency From: virtualization\windowscontainers\quick_start\manage_docker.md, virtualization\windowscontainers\quick_start\quick_start_images.md
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
-* Handback File: [19c1070cee496d52eba1b2ce80f4f939edccdffd.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/a660735136fcedc8f93ea30634b34c1130a1ebef/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/poison/19c1070cee496d52eba1b2ce80f4f939edccdffd.png)
-* Handback Datetime: 2016-07-18 08:45:15
-* [Back to Top](#report-top)
-
 
 ## Error Details
 
