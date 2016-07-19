@@ -4,14 +4,14 @@ description: "容器部署快速入門"
 keywords: docker, containers
 author: neilpeterson
 manager: timlt
-ms.date: 06/28/2016
+ms.date: 07/07/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
 translationtype: Human Translation
-ms.sourcegitcommit: 5980babe886024de93f6d6c5f04eaed47407209d
-ms.openlocfilehash: 188c85a9e6f5d1c334e51853efd8fa3ca461837c
+ms.sourcegitcommit: 5f42cae373b1f8f0484ffac82f5ebc761c37d050
+ms.openlocfilehash: 9ef41ff031e8b7bc463e71f39ee6a3b8e4fd846e
 
 ---
 
@@ -19,7 +19,7 @@ ms.openlocfilehash: 188c85a9e6f5d1c334e51853efd8fa3ca461837c
 
 **這是初版內容，後續可能會變更。** 
 
-本練習將引導進行 Windows 10 (測試人員組建 14352 或更高版本) 上的 Windows 容器功能基本部署和使用。 完成之後，您將會安裝容器角色，並部署簡單的 Hyper-V 容器。 開始本快速入門之前，請先熟悉基本的容器概念與術語。 這項資訊可在[快速入門簡介](./quick_start.md)中找到。 
+本練習將逐步引導您了解 Windows 10 (測試人員組建 14372 及更高版本) 上 Windows 容器功能的基本部署與使用。 完成之後，您將會安裝容器角色，並部署簡單的 Hyper-V 容器。 開始本快速入門之前，請先熟悉基本的容器概念與術語。 這項資訊可在[快速入門簡介](./quick_start.md)中找到。 
 
 本快速入門是針對 Windows 10 上的 Hyper-V 容器。 在此頁面左側的目錄中，可以找到其他的快速入門文件。
 
@@ -61,19 +61,19 @@ New-Item -Type Directory -Path $env:ProgramFiles\docker\
 下載 Docker 精靈。
 
 ```none
-Invoke-WebRequest https://aka.ms/tp5/b/dockerd -OutFile $env:ProgramFiles\docker\dockerd.exe
+Invoke-WebRequest https://master.dockerproject.org/windows/amd64/dockerd.exe -OutFile $env:ProgramFiles\docker\dockerd.exe
 ```
 
 下載 Docker 用戶端。
 
 ```none
-Invoke-WebRequest https://aka.ms/tp5/b/docker -OutFile $env:ProgramFiles\docker\docker.exe
+Invoke-WebRequest https://master.dockerproject.org/windows/amd64/docker.exe -OutFile $env:ProgramFiles\docker\docker.exe
 ```
 
 將 Docker 目錄新增至系統路徑。
 
 ```none
-[Environment]::SetEnvironmentVariable("Path", $env:Path + ";$env:ProgramFiles\docker\\Docker", [EnvironmentVariableTarget]::Machine)
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";$env:ProgramFiles\docker\", [EnvironmentVariableTarget]::Machine)
 ```
 
 重新啟動 PowerShell 工作階段，以便辨識修改過的路徑。
@@ -94,28 +94,18 @@ Start-Service Docker
 
 會從範本或映像部署 Windows 容器。 必須先下載容器基礎 OS 映像，才能部署容器。 下列命令會下載 Nano Server 基礎映像。
     
-設定目前 PowerShell 處理序的 PowerShell 執行原則。 這只會影響目前 PowerShell 工作階段中執行的指令碼，不過，變更執行原則時需要特別注意。
+> 此程序適用於高於 14372 的 Windows 測試人員組建，並將於 ‘docker pull’ 運作後停止。
+
+下載 Nano Server 基礎映像。 
 
 ```none
-Set-ExecutionPolicy Bypass -scope Process
+Start-BitsTransfer https://aka.ms/tp5/6b/docker/nanoserver -Destination nanoserver.tar.gz
 ```
 
-安裝容器映像套件提供者。
+安裝基礎映像。
 
 ```none  
-Install-PackageProvider ContainerImage -Force
-```
-
-接下來，安裝 Nano Server 映像。
-
-```none
-Install-ContainerImage -Name NanoServer
-```
-
-基礎映像安裝完成後，Docker 服務必須重新啟動。
-
-```none
-Restart-Service docker
+docker load -i nanoserver.tar.gz
 ```
 
 在這個階段，執行 `docker images` 會傳回一份已安裝的映像，在此案例中為 Nano Server 映像。
@@ -124,13 +114,13 @@ Restart-Service docker
 docker images
 
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-nanoserver          10.0.14300.1016     3f5112ddd185        3 weeks ago         810.2 MB
+nanoserver          10.0.14300.1030     3f5112ddd185        3 weeks ago         810.2 MB
 ```
 
 在繼續之前，此映像必須加上「最新」版本的標籤。 若要這樣做，請執行以下命令。
 
 ```none
-docker tag nanoserver:10.0.14300.1016 nanoserver:latest
+docker tag microsoft/nanoserver:10.0.14300.1030 nanoserver:latest
 ```
 
 如需 Windows 容器映像的深入資訊，請參閱[管理容器映像](../management/manage_images.md)。
@@ -148,11 +138,11 @@ docker pull microsoft/sample-dotnet
 您可以使用 `docker images` 命令來驗證。
 
 ```none
-docker images
+docker 
 
 REPOSITORY               TAG                 IMAGE ID            CREATED             SIZE
 microsoft/sample-dotnet  latest              28da49c3bff4        41 hours ago        918.3 MB
-nanoserver               10.0.14300.1016     3f5112ddd185        3 weeks ago         810.2 MB
+nanoserver               10.0.14300.1030     3f5112ddd185        3 weeks ago         810.2 MB
 nanoserver               latest              3f5112ddd185        3 weeks ago         810.2 MB
 ```
 
@@ -180,6 +170,6 @@ Set-ItemProperty -Path 'HKLM:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtua
 
 
 
-<!--HONumber=Jul16_HO1-->
+<!--HONumber=Jul16_HO2-->
 
 

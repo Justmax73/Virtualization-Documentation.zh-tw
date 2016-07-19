@@ -10,8 +10,8 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 18930864-476a-40db-aa21-b03dfb4fda98
 translationtype: Human Translation
-ms.sourcegitcommit: eae8f504039a1b3732ecfb31b8068667aab104f9
-ms.openlocfilehash: 633a6b2f3fe737a6e7515fd3f923335e39cf9d17
+ms.sourcegitcommit: 94e00095a41163c5f635685af01c215f4b4efce5
+ms.openlocfilehash: e1c0404ee45ad8e775dc2319359cd16c6487ef12
 
 ---
 
@@ -20,6 +20,13 @@ ms.openlocfilehash: 633a6b2f3fe737a6e7515fd3f923335e39cf9d17
 整合服務通常稱為「整合元件」，是可讓虛擬機器與 Hyper-V 主機通訊的服務。 這當中有許多便利的服務，亦有些服務是虛擬機器功能是否能正常運作的關鍵。
 
 本文提供 Windows 適用之每一項整合服務的參考資料。  如需特定整合服務或其歷程記錄的任何相關資訊，也可以將這篇文章作為起點。
+
+**使用者指南：**  
+* [從 Hyper-V 主機啟用/停用整合服務](../user_guide/managing_ics.md#enable-or-disable-integration-services-using-powershell)
+* 從虛擬機器內啟用/停用整合服務。
+  * [Windows](../user_guide/managing_ics.md#manage-integration-services-from-guest-os-windows)
+  * [Linux](../user_guide/managing_ics.md#manage-integration-services-from-guest-os-linux)
+* [整合服務更新與維護](../user_guide/managing_ics.md#integration-service-maintenance)
 
 
 ## 快速參考
@@ -149,16 +156,7 @@ PowerShell Direct 目前仍在開發中，因此只能在 Windows 10 和 Windows
 * [在虛擬機器之間複製檔案](../user_guide/vmsession.md#copy-files-with-new-pssession-and-copy-item)
 
 
-## 其他資源
 
-**使用者指南：**  
-* [從 Hyper-V 主機啟用/停用整合服務](../user_guide/managing_ics.md#enable-or-disable-integration-services-using-powershell)
-* 從虛擬機器啟用/停用整合服務
-** [Windows](../user_guide/managing_ics.md#manage-integration-services-from-guest-os-windows)
-** [Linux](../user_guide/managing_ics.md#manage-integration-services-from-guest-os-linux)
-* [整合服務更新與維護](../user_guide/managing_ics.md#integration-service-maintenance)
-
-
-<!--HONumber=Jul16_HO1-->
+<!--HONumber=Jul16_HO2-->
 
 
