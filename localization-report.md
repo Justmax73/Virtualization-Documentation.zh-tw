@@ -1585,8 +1585,8 @@
 * Current Target File: [virtualization\hyperv_on_windows\about\hyperv_on_windows.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/cf17322dd8e56637e6f3eea441e0a4b68692771e/virtualization/hyperv_on_windows/about/hyperv_on_windows.md)
 * Current Handback File: [hyperv_on_windows.d9da0ac74ee24f28f940324928905e38e074d9e2.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/31b02a7783ec89bac28738c7c69caef152c2019c/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/hyperv_on_windows.d9da0ac74ee24f28f940324928905e38e074d9e2.zh-tw.xlf)
 * Current Handback Datetime: 2016-07-19 18:31:38
-* Bilingual File: [hyperv_on_windows.d9da0ac74ee24f28f940324928905e38e074d9e2.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/da7dacd2f812d1140f886fecabc2674adb84cb63/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/hyperv_on_windows.d9da0ac74ee24f28f940324928905e38e074d9e2.zh-tw.xlf)
-* Bilingual Datetime: 2016-07-06 10:49:17
+* Bilingual File: [hyperv_on_windows.d9da0ac74ee24f28f940324928905e38e074d9e2.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/31b02a7783ec89bac28738c7c69caef152c2019c/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/hyperv_on_windows.d9da0ac74ee24f28f940324928905e38e074d9e2.zh-tw.xlf)
+* Bilingual Datetime: 2016-07-19 18:33:33
 * [Back to Top](#report-top)
 
 ##### <a name='00f8d7cfb9fbdf0f9d67f239aff5575dcdaaaed089'></a> Source: [virtualization\hyperv_on_windows\about\media\ProductionCheckpoints.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/493b669bc47fc589486a82cfea73a0bb1e88cf79/virtualization/hyperv_on_windows/about/media/ProductionCheckpoints.png)
@@ -2643,8 +2643,8 @@
 * Archive Datetime: 2016-07-14 07:15:27
 * Handback File: [walkthrough_compatibility.b81630a3813897e1115f050cb3fb67a3db007cf8.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/31b02a7783ec89bac28738c7c69caef152c2019c/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/walkthrough_compatibility.b81630a3813897e1115f050cb3fb67a3db007cf8.zh-tw.xlf)
 * Handback Datetime: 2016-07-19 18:31:38
-* Bilingual File: [walkthrough_compatibility.b81630a3813897e1115f050cb3fb67a3db007cf8.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/da7dacd2f812d1140f886fecabc2674adb84cb63/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/walkthrough_compatibility.b81630a3813897e1115f050cb3fb67a3db007cf8.zh-tw.xlf)
-* Bilingual Datetime: 2016-07-06 10:49:17
+* Bilingual File: [walkthrough_compatibility.b81630a3813897e1115f050cb3fb67a3db007cf8.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/31b02a7783ec89bac28738c7c69caef152c2019c/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/walkthrough_compatibility.b81630a3813897e1115f050cb3fb67a3db007cf8.zh-tw.xlf)
+* Bilingual Datetime: 2016-07-19 18:33:33
 * [Back to Top](#report-top)
 
 ##### <a name='206521ae366d5e0f5f7ca2ca510736cc178557fe174'></a> Source: [virtualization\hyperv_on_windows\quick_start\walkthrough_create_vm.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/4885ad982804d17c8b3643f8a855fb3f3f834505/virtualization/hyperv_on_windows/quick_start/walkthrough_create_vm.md)
@@ -2730,8 +2730,8 @@
 * Current Target File: [virtualization\hyperv_on_windows\reference\ic_info.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/cf17322dd8e56637e6f3eea441e0a4b68692771e/virtualization/hyperv_on_windows/reference/ic_info.md)
 * Current Handback File: [ic_info.98dd018260e2c766210a8b9aa82efa377f584781.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/31b02a7783ec89bac28738c7c69caef152c2019c/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/ic_info.98dd018260e2c766210a8b9aa82efa377f584781.zh-tw.xlf)
 * Current Handback Datetime: 2016-07-19 18:31:38
-* Bilingual File: [ic_info.98dd018260e2c766210a8b9aa82efa377f584781.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/84ed3887443b611e9786e1e381e0de1316eb0f27/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/ic_info.98dd018260e2c766210a8b9aa82efa377f584781.zh-tw.xlf)
-* Bilingual Datetime: 2016-07-15 08:04:20
+* Bilingual File: [ic_info.98dd018260e2c766210a8b9aa82efa377f584781.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/31b02a7783ec89bac28738c7c69caef152c2019c/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/ic_info.98dd018260e2c766210a8b9aa82efa377f584781.zh-tw.xlf)
+* Bilingual Datetime: 2016-07-19 18:33:33
 * [Back to Top](#report-top)
 
 ##### <a name='49fd4f7f5a035c68975e3c38b2daabeed8e7dd5f180'></a> Source: [virtualization\hyperv_on_windows\reference\tlfs.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/e62373c30c6e233ab1db94720c5b2a1512dfb936/virtualization/hyperv_on_windows/reference/tlfs.md)
@@ -4530,8 +4530,8 @@
 * Current Target File: [virtualization\windowscontainers\quick_start\quick_start_windows_10.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/cf17322dd8e56637e6f3eea441e0a4b68692771e/virtualization/windowscontainers/quick_start/quick_start_windows_10.md)
 * Current Handback File: [quick_start_windows_10.5f887ea7d45d865c81fe971abab095fb8e272cc8.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/31b02a7783ec89bac28738c7c69caef152c2019c/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/quick_start_windows_10.5f887ea7d45d865c81fe971abab095fb8e272cc8.zh-tw.xlf)
 * Current Handback Datetime: 2016-07-19 18:31:38
-* Bilingual File: [quick_start_windows_10.5f887ea7d45d865c81fe971abab095fb8e272cc8.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/5d2c77ba012f838663bdb34ae5ded7d1f8fe5aa7/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/quick_start_windows_10.5f887ea7d45d865c81fe971abab095fb8e272cc8.zh-tw.xlf)
-* Bilingual Datetime: 2016-07-07 08:17:35
+* Bilingual File: [quick_start_windows_10.5f887ea7d45d865c81fe971abab095fb8e272cc8.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/31b02a7783ec89bac28738c7c69caef152c2019c/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/quick_start_windows_10.5f887ea7d45d865c81fe971abab095fb8e272cc8.zh-tw.xlf)
+* Bilingual Datetime: 2016-07-19 18:33:33
 * [Back to Top](#report-top)
 
 ##### <a name='40b55028820472aadc5d70d338de417616c653d3318'></a> Source: [virtualization\windowscontainers\quick_start\quick_start_windows_server.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/eae45c2c81c7edc94d963da69dcdee2b6f08f37d/virtualization/windowscontainers/quick_start/quick_start_windows_server.md)
