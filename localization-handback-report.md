@@ -1,28 +1,11 @@
 # <a name='report-top'></a> Localization Handback Report
 
 ## Summary
- Total Files | 1
+ Total Files | 0
 
 ## File List
- Source File | Status | Details 
- ----------- | ------ | ------- 
- [virtualization\hyperv_on_windows\reference\ic_info.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/03c3ede85ff8b2fe4783581c717c1c97810b3bdd/virtualization/hyperv_on_windows/reference/ic_info.md) | InSyncHandedBackSuccess | [Details](#a2fc8845bdc3e5f977d50b99ca9687b3dafd0cb6179)
 
 ## Item Details
-##### <a name='a2fc8845bdc3e5f977d50b99ca9687b3dafd0cb6179'></a> Source: [virtualization\hyperv_on_windows\reference\ic_info.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/03c3ede85ff8b2fe4783581c717c1c97810b3bdd/virtualization/hyperv_on_windows/reference/ic_info.md)
-* Status: InSyncHandedBackSuccess
-* Target File: [virtualization\hyperv_on_windows\reference\ic_info.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/ee590050dbb83777f51498655b55a3fcd7fc3868/virtualization/hyperv_on_windows/reference/ic_info.md)
-* Handoff File: [ic_info.98dd018260e2c766210a8b9aa82efa377f584781.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/d8a6060c6f3a884239c346c452d73cc0666a6834/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/ic_info.98dd018260e2c766210a8b9aa82efa377f584781.zh-tw.xlf)
-* Handoff Datetime: 2016-07-14 20:21:00
-* Handoff Reason: Include
-* Archive File: [ic_info.98dd018260e2c766210a8b9aa82efa377f584781.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/b2d3fa8573d9bd2ad5741c33b43b9eb24a409ec0/ol-archive/Microsoft/Virtualization-Documentation-Private.zh-tw/live/ic_info.98dd018260e2c766210a8b9aa82efa377f584781.zh-tw.xlf)
-* Archive Datetime: 2016-07-21 07:09:59
-* Handback File: [ic_info.98dd018260e2c766210a8b9aa82efa377f584781.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/50489c060e2e81f8a1108a66f68ed59078bba068/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/ic_info.98dd018260e2c766210a8b9aa82efa377f584781.zh-tw.xlf)
-* Handback Datetime: 2016-07-21 08:42:15
-* Bilingual File: [ic_info.98dd018260e2c766210a8b9aa82efa377f584781.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/31b02a7783ec89bac28738c7c69caef152c2019c/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/ic_info.98dd018260e2c766210a8b9aa82efa377f584781.zh-tw.xlf)
-* Bilingual Datetime: 2016-07-19 18:33:33
-* [Back to Top](#report-top)
-
 
 ## Error Details
 
