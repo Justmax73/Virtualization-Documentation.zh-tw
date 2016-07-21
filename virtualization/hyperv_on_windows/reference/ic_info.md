@@ -10,8 +10,8 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 18930864-476a-40db-aa21-b03dfb4fda98
 translationtype: Human Translation
-ms.sourcegitcommit: 94e00095a41163c5f635685af01c215f4b4efce5
-ms.openlocfilehash: e1c0404ee45ad8e775dc2319359cd16c6487ef12
+ms.sourcegitcommit: 03c3ede85ff8b2fe4783581c717c1c97810b3bdd
+ms.openlocfilehash: a2fc8845bdc3e5f977d50b99ca9687b3dafd0cb6
 
 ---
 
@@ -76,9 +76,9 @@ DemoVM  Running  Operating normally
 
 **Windows 服務名稱：**vmicshutdown  
 **Linux 精靈名稱：**hv_utils  
-**描述︰**可讓 Hyper-V 主機要求虛擬機器關機。  主機一律可以強制關閉虛擬機器，但這就像直接按電源開關來關機一樣。
+**描述︰**可讓 Hyper-V 主機要求虛擬機器關機。  主機一律可以強制關閉虛擬機器，但這就像直接按電源開關來關機一樣。  
 **已新增至：**Windows Server 2012、Windows 8  
-**影響︰****強烈影響：**停用時，主機即無法觸發虛擬機器內的溫和關機程序。  所有的關機都會採用硬性關機，這可能會導致資料遺失或資料損毀。
+**影響︰****強烈影響：**停用時，主機即無法觸發虛擬機器內的溫和關機程序。  所有的關機都會採用硬性關機，這可能會導致資料遺失或資料損毀。  
 
 
 ## Hyper-V 時間同步化服務
@@ -96,7 +96,7 @@ DemoVM  Running  Operating normally
 **Linux 精靈名稱：**hv_kvp_daemon  
 **描述：**提供在虛擬機器和主機之間交換基本中繼資料的機制。  
 **已新增至：**Windows Server 2012、Windows 8  
-**影響︰**停用時，執行 Windows 8 或 Windows Server 2012 (或更早版本) 的虛擬機器將不會收到 Hyper-V 整合服務的更新。  停用資料交換時，可能也會影響某些類型的監視與主機端診斷功能。
+**影響︰**停用時，執行 Windows 8 或 Windows Server 2012 (或更早版本) 的虛擬機器將不會收到 Hyper-V 整合服務的更新。  停用資料交換時，可能也會影響某些類型的監視與主機端診斷功能。  
 
 資料交換服務有時稱為 KVP，其會透過 Windows 登錄來使用機碼值組 (KVP)，以共用虛擬機器與 Hyper-V 主機之間的少量電腦資訊。  您也可以使用相同的機制，共用虛擬機器和主機之間的自訂資料。
 
@@ -106,7 +106,7 @@ DemoVM  Running  Operating normally
 
 
 **使用者指南：**  
-* [Using key-value pairs to share information between the host and guest on Hyper-V](https://technet.microsoft.com/en-us/library/dn798287.aspx) (使用機碼值組在 Hyper-V 的主機與客體之間共用資訊)。
+* [Using key-value pairs to share information between the host and guest on Hyper-V](https://technet.microsoft.com/en-us/library/dn798287.aspx) (使用機碼值組在 Hyper-V 的主機與客體之間共用資訊)。  
 
 
 ## Hyper-V 磁碟區陰影複製要求者
