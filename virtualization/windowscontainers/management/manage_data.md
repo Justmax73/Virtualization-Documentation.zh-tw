@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: f5998534-917b-453c-b873-2953e58535b1
 translationtype: Human Translation
-ms.sourcegitcommit: 111a4ca9f5d693cd1159f7597110409d670f0f5c
-ms.openlocfilehash: b8eca51e347f17e787095b7e4349337cc3ae69a7
+ms.sourcegitcommit: 493b669bc47fc589486a82cfea73a0bb1e88cf79
+ms.openlocfilehash: 26c010e79a4913b2e138f6d1d78f9406dbacbc6b
 
 ---
 
@@ -73,6 +73,20 @@ c:\container-share>dir
 
 如需有關掛接單一檔案的詳細資訊，請參閱 [Manage data in containers on docker.com](https://docs.docker.com/engine/userguide/containers/dockervolumes/#mount-a-host-directory-as-a-data-volume) (docker.com 上管理容器中的資料)。
 
+### 裝載完整的磁碟機
+
+您可以使用類似下列所示的命令裝載完整的磁碟機。 請注意不要加入反斜線。
+
+```none
+docker run -it -v d: windowsservercore cmd
+```
+
+此處無法執行裝載第二部磁碟機的步驟。 例如無法執行下列作業。
+
+```none
+docker run -it -v d:\source:d:\destination windowsservercore cmd
+```
+
 ### 資料磁碟區容器
 
 可以使用 `docker run` 命令的 `--volumes-from` 參數從其他正在執行的容器繼承資料磁碟區。 使用此繼承便可建立一個容器，其明確目的為主控容器化應用程式的資料磁碟區。 
@@ -111,6 +125,6 @@ docker inspect backstabbing_kowalevski
 
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Jul16_HO3-->
 
 

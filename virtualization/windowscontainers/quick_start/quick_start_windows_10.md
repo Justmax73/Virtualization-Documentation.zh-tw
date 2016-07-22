@@ -4,14 +4,14 @@ description: "容器部署快速入門"
 keywords: docker, containers
 author: neilpeterson
 manager: timlt
-ms.date: 07/07/2016
+ms.date: 07/13/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
 translationtype: Human Translation
-ms.sourcegitcommit: 5f42cae373b1f8f0484ffac82f5ebc761c37d050
-ms.openlocfilehash: 9ef41ff031e8b7bc463e71f39ee6a3b8e4fd846e
+ms.sourcegitcommit: edf2c2597e57909a553eb5e6fcc75cdb820fce68
+ms.openlocfilehash: b37d402f2e6c950db061f5de0c86f0e9aace62b4
 
 ---
 
@@ -46,6 +46,12 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 
 ```none
 Restart-Computer -Force
+```
+
+備份之後，請執行下列命令，以修正 Windows Containers Technical Preview 的已知問題。  
+
+ ```none
+Set-ItemProperty -Path 'HKLM:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\Containers' -Name VSmbDisableOplocks -Type DWord -Value 1 -Force
 ```
 
 ## 2.安裝 Docker
@@ -127,40 +133,51 @@ docker tag microsoft/nanoserver:10.0.14300.1030 nanoserver:latest
 
 ## 4.部署您的第一個容器
 
-針對這個簡單的範例，已預先建立 .NET Core 映像。 使用 `docker pull` 命令下載此映像。
+在這個簡單的範例中，將會建立及部署 'Hello World' 容器映像。 請在提高權限的 Windows 命令殼層中執行這些命令，讓作業進行得更加順暢。
 
-執行時，將會啟動容器、執行簡單的 .NET Core 應用程式，然後容器會結束。 
-
-```none
-docker pull microsoft/sample-dotnet
-```
-
-您可以使用 `docker images` 命令來驗證。
+首先，請利用互動式工作階段，從 `nanoserver` 映像啟動容器。 容器啟動之後，會在容器中顯示命令殼層。  
 
 ```none
-docker 
-
-REPOSITORY               TAG                 IMAGE ID            CREATED             SIZE
-microsoft/sample-dotnet  latest              28da49c3bff4        41 hours ago        918.3 MB
-nanoserver               10.0.14300.1030     3f5112ddd185        3 weeks ago         810.2 MB
-nanoserver               latest              3f5112ddd185        3 weeks ago         810.2 MB
+docker run -it nanoserver cmd
 ```
 
-使用 `docker run` 命令執行容器。 下列範例指定 `--rm` 參數，這會指示 Docker 引擎刪除不再執行的容器。 
-
-如需 Docker Run 命令的深入資訊，請參閱 [Docker.com 上的 Docker Run Reference]( https://docs.docker.com/engine/reference/run/)。
+我們將在容器中建立簡單的 'Hello World' 指令碼。
 
 ```none
-docker run --isolation=hyperv --rm microsoft/sample-dotnet
-```
+powershell.exe Add-Content C:\helloworld.ps1 'Write-Host "Hello World"'
+```   
 
-**注意：**如果擲回逾時事件錯誤，請執行下列 PowerShell 指令碼，然後重試作業。
+完成之後，請結束容器。
 
 ```none
-Set-ItemProperty -Path 'HKLM:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\Containers' -Name VSmbDisableOplocks -Type DWord -Value 1 -Force
+exit
 ```
 
-`docker run` 命令的結果，是從 sample-dotnet 映像建立 Hyper-V 容器，然後執行範例應用程式 (將輸出傳到殼層)，接著停止並移除容器。 後續的 Windows 10 及容器快速啟動將會深入探究在 Windows 10 上的容器中建立及部署應用程式。
+接下來，請使用修改後的容器建立新的容器映像。 如需容器的清單，請執行下列命令並記下容器的識別碼。
+
+```none
+docker ps -a
+```
+
+請執行下列命令來建立新的 'HelloWorld' 映像。 以您的容器識別碼取代 <containerid>。
+
+```none
+docker commit <containerid> helloworld
+```
+
+完成之後，您的自訂映像中就會包含 'Hello World' 指令碼。 您可以使用下列命令確認。
+
+```none
+docker images
+```
+
+最後，若要執行該容器，請使用 `docker run` 命令。
+
+```none
+docker run --rm helloworld powershell c:\helloworld.ps1
+```
+
+`docker run` 命令的結果，在從 'HelloWorld’ 映像建立 Hyper-V 容器，接著執行範例 'HelloWorld’ 指令碼 (將輸出傳送到殼層)，然後停止容器並加以移除。 後續的 Windows 10 及容器快速啟動將會深入探究在 Windows 10 上的容器中建立及部署應用程式。
 
 ## 後續步驟
 

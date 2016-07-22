@@ -4,14 +4,14 @@ description: "在 Windows 中設定 Docker"
 keywords: docker, containers
 author: neilpeterson
 manager: timlt
-ms.date: 06/02/2016
+ms.date: 07/15/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
 translationtype: Human Translation
-ms.sourcegitcommit: 2d6f2c24624883457302c925c2bb47e6c867b730
-ms.openlocfilehash: 533f3a3277e3d9654f0d425c9c0f442c93e2d24a
+ms.sourcegitcommit: 475240afdf97af117519cfaa287f1e4fec8837a5
+ms.openlocfilehash: 5b86442643fb5937b62a67d144ae0d1c98373b41
 
 ---
 
@@ -121,8 +121,6 @@ Start-Service Docker
 }
 ```
 
-
-
 ## 服務控制管理員
 
 也可以透過使用 `sc config` 修改 Docker 服務來設定 Docker 精靈。 若使用此方法，會直接在 Docker 服務上設定 Docker 精靈旗標。
@@ -156,6 +154,21 @@ sc config docker binpath= "\"C:\Program Files\docker\dockerd.exe\" --run-service
 }
 ```
 
+## Proxy 組態
+
+若要設定 `docker search` 與 `docker pull` 的 Proxy 資訊,，請以名稱 `HTTP_PROXY` 或 `HTTPS_PROXY` 建立 Windows 環境變數，並設定 Proxy 資訊的值。 此作業可透過類似下列所示的 PowerShell 命令完成︰
+
+```none
+[Environment]::SetEnvironmentVariable("HTTP_PROXY”, “http://username:password@proxy:port/”, [EnvironmentVariableTarget]::Machine)
+```
+
+完成變數設定之後，請重新啟動 Docker 服務。
+
+```none
+restart-service docker
+```
+
+如需詳細資訊，請參閱 [Docker.com 上的精靈通訊端選項](https://docs.docker.com/v1.10/engine/reference/commandline/daemon/#daemon-socket-option)。
 
 ## 收集記錄檔
 Docker 精靈會將事件記錄至 Windows 應用程式事件記錄檔，而不是記錄至檔案。 您可以使用 Windows PowerShell，輕鬆讀取、排序和篩選這些記錄檔
@@ -171,6 +184,6 @@ Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-3
 
 
 
-<!--HONumber=Jul16_HO1-->
+<!--HONumber=Jul16_HO3-->
 
 

@@ -10,8 +10,8 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: eb2b827c-4a6c-4327-9354-50d14fee7ed8
 translationtype: Human Translation
-ms.sourcegitcommit: 53539a0325b3f07e542ca1dd0a4352239e8a65b3
-ms.openlocfilehash: 25295b8a2888e25090439a3490c9ff7c3214f23a
+ms.sourcegitcommit: c3e7cc07ac7e7d4e1c5f1827deb5951daa1e3749
+ms.openlocfilehash: ad84961d0a79853e2aadcf9ed0e37e340103835a
 
 ---
 
@@ -44,7 +44,7 @@ Hyper-V 僅適用於 Windows 8 及更高版本的 Windows 專業版、企業版�
 
 您可以在具有 4GB RAM 的主機上執行 3 或 4 部基本虛擬機器，但更多虛擬機器會需要更多資源。 反之，您也可以建立具有 32 個處理器和 512GB RAM 的大型虛擬機器，視您的實體硬體而定。
 
-如需 Hyper-V 系統需求及如何驗證 Hyper-V 有在機器上執行的詳細資訊，請參閱[逐步解說：Windows 10 Hyoer-V 系統需求](..\quick_start\walkthrough_install.md)
+如需 Hyper-V 系統需求及如何驗證您電腦上之 Hyper-V 作業的詳細資訊，請參閱[逐步解說：Windows 10 Hyoer-V 系統需求](..\quick_start\walkthrough_install.md)。
 
 
 ## 可在虛擬機器中執行的作業系統

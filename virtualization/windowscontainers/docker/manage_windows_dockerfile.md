@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 75fed138-9239-4da9-bce4-4f2e2ad469a1
 translationtype: Human Translation
-ms.sourcegitcommit: daf82c943f9e19ec68e37207bba69fb0bf46f46f
-ms.openlocfilehash: ace5fd12856cdcff3a380eb35e4982c4c1ce4c5a
+ms.sourcegitcommit: 97a7d5fdd25f755d73e05bfc5f3c4a80a7b6b8c5
+ms.openlocfilehash: 84baad10511eb070e654f1ee7d71eb547d3f2ee7
 
 ---
 
@@ -158,17 +158,11 @@ RUN ["powershell", "New-Item", "c:\\test"]
 RUN dism.exe /online /enable-feature /all /featurename:iis-webserver /NoRestart
 ```
 
-此範例會安裝 Visual Studio 可轉散發套件。
-```none
-RUN powershell.exe -Command c:\vcredist_x86.exe /quiet
-``` 
+此範例會安裝 Visual Studio 可轉散發套件。 注意：`start-process` 及 `-wait` 參數的用途在於執行安裝程式。 這可確保安裝確實完成之後，才會繼續執行 Docerkfile 中的下一個步驟。
 
-此範例會先擷取 .NET Framework 4.5.2 開發人員套件，並啟動實際安裝程式，以安裝 .NET Framework 4.5.2 開發人員套件。 
 ```none
-RUN start /wait C:\temp\NDP452-KB2901951-x86-x64-DevPack.exe /q /x:C:\temp\NDP452DevPackSetupDir && \
-    start /wait C:\temp\NDP452DevPackSetupDir\Setup.exe /norestart /q /log %TEMP%\ndp452_install_log.txt && \
-    rmdir /s /q C:\temp\NDP452DevPackSetupDir
-```
+RUN start-Process c:\vcredist_x86.exe -ArgumentList '/quiet' -Wait
+``` 
 
 如需 RUN 指令的詳細資訊，請參閱 [RUN Reference on Docker.com]( https://docs.docker.com/engine/reference/builder/#run) (Docker.com 上的 RUN 參考)。 
 
@@ -490,6 +484,6 @@ windowsservercore   latest              6801d964fda5        4 months ago        
 
 
 
-<!--HONumber=Jul16_HO1-->
+<!--HONumber=Jul16_HO3-->
 
 

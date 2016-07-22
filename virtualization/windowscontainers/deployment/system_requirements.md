@@ -1,7 +1,7 @@
 ---
 title: "Windows 容器需求"
 description: "Windows 容器需求。"
-keywords: metadata, containers
+keywords: "中繼資料, 容器"
 author: neilpeterson
 manager: timlt
 ms.date: 05/26/2016
@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 3c3d4c69-503d-40e8-973b-ecc4e1f523ed
 translationtype: Human Translation
-ms.sourcegitcommit: cc216f56acd5e547d05a48beea57450ba5fcb28b
-ms.openlocfilehash: 12ae565f012dc87a2cab883c0486322db42b1dcc
+ms.sourcegitcommit: 6f1d9c09774adde047508835caf9dcf54deab9d2
+ms.openlocfilehash: 9d015a570a0b1a9d7304e601daa7ace73df4e827
 
 ---
 
@@ -23,7 +23,7 @@ ms.openlocfilehash: 12ae565f012dc87a2cab883c0486322db42b1dcc
 
 ## 作業系統需求
 
-- Windows 容器角色只在 Windows Server 2016 TP5 (完整版及核心版)、Nano Server 和 Windows 10 (測試人員組建 14352 及更高版本) 上供使用。
+- 只有 Windows Server 2016 (Core 與 Desktop 版)、Nano Server 及 Windows 10 專業版與企業版 (測試人員組建 14352 及更高版本) 才提供 Windows 容器功能。
 - 必須安裝 Hyper-V 角色才可執行 Hyper-V 容器。
 - Windows Server 容器主機必須將 Windows 安裝到 c:\\。 如果僅會部署 Hyper-V 容器，則不適用這項限制。
 
@@ -74,6 +74,6 @@ Windows Server Technical Preview 5 提供兩種容器作業系統映像 (Windows
 
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Jul16_HO3-->
 
 
