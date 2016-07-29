@@ -1,5 +1,5 @@
 {
-  "LastProcessedCommit": "6f1d9c09774adde047508835caf9dcf54deab9d2",
+  "LastProcessedCommit": "5cb7dca9469a687add1348753d89d04dc4a633b7",
   "LastTranslatedCommit": "6b1ba420ab0ed89ece7c6dc8ea888e92dc77f2e8",
   "Items": {
     "5090f6d60b5cbdce0990242d795d9e4e3736e791": {
@@ -22601,6 +22601,41 @@
       "BilingualFilePath": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.zh-tw\\live\\system_requirements.579a5475e3bd1d3d3fd9d5b53488ab4ae55a4423.zh-tw.xlf",
       "BilingualFileCommit": "4ae4bca9c5c751acbb55511f8d1749df7cee9337",
       "BilingualDateTime": "2016-07-22T01:55:06.8003987Z",
+      "BilingualException": null
+    },
+    "406966a2bc80cdfc6fbe7461bf478fab317ed7e5": {
+      "FileHash": "406966a2bc80cdfc6fbe7461bf478fab317ed7e5",
+      "SourceFileCommit": "5cb7dca9469a687add1348753d89d04dc4a633b7",
+      "SourceFilePath": "virtualization\\windowscontainers\\management\\container_networking.md",
+      "HandoffReason": 1,
+      "DependencyFrom": null,
+      "TokenReference": null,
+      "FilePathList": [
+        "virtualization\\windowscontainers\\management\\container_networking.md"
+      ],
+      "HasMetadata": true,
+      "TranslationType": 1,
+      "HandoffFilePath": "ol-handoff\\Microsoft\\Virtualization-Documentation-Private.zh-tw\\live\\container_networking.7cf72391b3aa727681997232feeeb0a32d363edc.zh-tw.xlf",
+      "HandoffFileCommit": "16f7c7ffdc6d9d55a30e1991355a16774b6323cb",
+      "HandoffDateTime": "2016-07-29T20:10:58.8848679Z",
+      "HandoffPriority": "",
+      "HandoffException": null,
+      "HandoffFailureTimes": 0,
+      "TargetFileCommit": null,
+      "TargetFilePath": null,
+      "HandbackFilePath": null,
+      "HandbackFileCommit": null,
+      "HandbackDateTime": "0001-01-01T00:00:00",
+      "HandbackException": null,
+      "HandbackFailureTimes": 0,
+      "UpdatedDateTime": "0001-01-01T00:00:00",
+      "ArchiveFilePath": null,
+      "ArchiveFileCommit": null,
+      "ArchiveFileDateTime": "0001-01-01T00:00:00",
+      "ArchiveException": null,
+      "BilingualFilePath": null,
+      "BilingualFileCommit": null,
+      "BilingualDateTime": "0001-01-01T00:00:00",
       "BilingualException": null
     }
   }
