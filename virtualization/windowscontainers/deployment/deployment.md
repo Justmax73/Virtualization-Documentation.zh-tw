@@ -1,7 +1,7 @@
 ---
 title: "在 Windows Server 上部署 Windows 容器"
 description: "在 Windows Server 上部署 Windows 容器"
-keywords: docker, containers
+keywords: "docker, 容器"
 author: neilpeterson
 manager: timlt
 ms.date: 05/26/2016
@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ba4eb594-0cdb-4148-81ac-a83b4bc337bc
 translationtype: Human Translation
-ms.sourcegitcommit: eae45c2c81c7edc94d963da69dcdee2b6f08f37d
-ms.openlocfilehash: cbbff2bf4a68ee348bcc33979ef4469daf54a8a7
+ms.sourcegitcommit: 6c7ce9f1767c6c6391cc6d33a553216bd815ff72
+ms.openlocfilehash: ce387b29f1bd311c70c17f3e7a98ae4f625bd3c2
 
 ---
 
@@ -45,24 +45,18 @@ Restart-Computer -Force
 
 ## 安裝 Docker
 
-需要先安裝 Docker，才能搭配使用 Windows 容器。 Docker 是由 Docker 引擎及 Docker 用戶端所組成。 此演練將會安裝這兩者。
+需要先安裝 Docker，才能搭配使用 Windows 容器。 Docker 是由 Docker 引擎及 Docker 用戶端所組成。 針對此練習，兩者都會安裝。
 
-建立 Docker 可執行檔的資料夾。
+下載 Docker 引擎與用戶端的 zip 封存。
 
 ```none
-New-Item -Type Directory -Path 'C:\Program Files\docker\'
+Invoke-WebRequest "https://get.docker.com/builds/Windows/x86_64/docker-1.12.0.zip" -OutFile "$env:TEMP\docker-1.12.0.zip" -UseBasicParsing
 ```
 
-下載 Docker 精靈。
+將該 zip 封存展開到 Program Files; 該封存內容已在 docker 目錄中。
 
 ```none
-Invoke-WebRequest https://aka.ms/tp5/b/dockerd -OutFile $env:ProgramFiles\docker\dockerd.exe
-```
-
-下載 Docker 用戶端。
-
-```none
-Invoke-WebRequest https://aka.ms/tp5/b/docker -OutFile $env:ProgramFiles\docker\docker.exe
+Expand-Archive -Path "$env:TEMP\docker-1.12.0.zip" -DestinationPath $env:ProgramFiles
 ```
 
 將 Docker 目錄新增至系統路徑。
@@ -76,7 +70,7 @@ Invoke-WebRequest https://aka.ms/tp5/b/docker -OutFile $env:ProgramFiles\docker\
 若要將 Docker 安裝為 Windows 服務，請執行下列命令。
 
 ```none
-dockerd --register-service
+& $env:ProgramFiles\docker\dockerd.exe --register-service
 ```
 
 安裝之後，就可以啟動服務。
@@ -145,6 +139,6 @@ Install-WindowsFeature hyper-v
 
 
 
-<!--HONumber=Jun16_HO5-->
+<!--HONumber=Aug16_HO1-->
 
 

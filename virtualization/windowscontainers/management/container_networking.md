@@ -1,7 +1,7 @@
 ---
 title: "Windows 容器的網路功能"
 description: "設定 Windows 容器的網路功能。"
-keywords: docker, containers
+keywords: "docker, 容器"
 author: jmesser81
 manager: timlt
 ms.date: 05/02/2016
@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
 translationtype: Human Translation
-ms.sourcegitcommit: cd344ef02f03149129171b99bfdd92338ffdf24f
-ms.openlocfilehash: 161aaeed6c625d92b45be59dde4357836934956b
+ms.sourcegitcommit: 5cb7dca9469a687add1348753d89d04dc4a633b7
+ms.openlocfilehash: 406966a2bc80cdfc6fbe7461bf478fab317ed7e5
 
 ---
 
@@ -145,7 +145,7 @@ PS> Stop-Service docker
 PS> Set-Service docker -StartupType Disabled
 Reboot Host
 PS> Get-NetNat | Remove-NetNat
-PS> Set-Service docker -StartupType automaticac
+PS> Set-Service docker -StartupType automatic
 PS> Start-Service docker 
 ```
 
@@ -220,6 +220,11 @@ docker network create -d nat --subnet=192.168.0.0/24 "MyCustomNatNetwork"
 若要指定廣域網路、L2 橋接網路或 L2 通道網路要使用容器主機中的哪個網路介面卡，可指定 *com.docker.network.windowsshim.interface* 選項。 
 ```none
 docker network create -d transparent -o com.docker.network.windowsshim.interface="Ethernet 2" "TransparentNetTwo"
+```
+
+*com.docker.network.windowsshim.interface* 的值是配接器的*名稱*，來自︰ 
+```none
+Get-NetAdapter
 ```
 
 > Docker 精靈必須先重新啟動，才能在 Docker 中使用透過 PowerShell 建立的容器網路。 透過 PowerShell 對容器網路進行任何其他變更時，也必須重新啟動 Docker 精靈，變更才會生效。
@@ -338,6 +343,6 @@ bbf72109b1fc        windowsservercore   "cmd"               6 seconds ago       
  * --ip-range
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Jul16_HO5-->
 
 
