@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
 translationtype: Human Translation
-ms.sourcegitcommit: 6c7ce9f1767c6c6391cc6d33a553216bd815ff72
-ms.openlocfilehash: bd93f5a73268b552710304d7da568e1497239679
+ms.sourcegitcommit: 9aa443b24e5c8a004b08203f67e578dd2d104746
+ms.openlocfilehash: 0ee1231b923e25975a4dfddb70c16366a86c9565
 
 ---
 
@@ -54,6 +54,8 @@ Restart-Computer -Force
 Set-ItemProperty -Path 'HKLM:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\Containers' -Name VSmbDisableOplocks -Type DWord -Value 1 -Force
 ```
 
+> 在目前的版本中，您必須停用 OpLocks，才能安心使用 Hyper-V 容器。 若要重新啟用 OpLocks，請使用下列命令：  `Set-ItemProperty -Path 'HKLM:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\Containers' -Name VSmbDisableOplocks -Type DWord -Value 0 -Force`
+
 ## 2.安裝 Docker
 
 需要先安裝 Docker，才能搭配使用 Windows 容器。 Docker 是由 Docker 引擎及 Docker 用戶端所組成。 針對此練習，兩者都會安裝。 若要這樣做，請執行以下命令。 
@@ -93,34 +95,20 @@ Start-Service Docker
 ## 3.安裝基礎容器映像
 
 會從範本或映像部署 Windows 容器。 必須先下載容器基礎 OS 映像，才能部署容器。 下列命令會下載 Nano Server 基礎映像。
-    
-> 此程序適用於高於 14372 的 Windows 測試人員組建，並將於 ‘docker pull’ 運作後停止。
 
-下載 Nano Server 基礎映像。 
+提取 Nano Server 基礎映像。 
 
 ```none
-Start-BitsTransfer https://aka.ms/tp5/6b/docker/nanoserver -Destination nanoserver.tar.gz
+docker pull microsoft/nanoserver
 ```
 
-安裝基礎映像。
-
-```none  
-docker load -i nanoserver.tar.gz
-```
-
-在這個階段，執行 `docker images` 會傳回一份已安裝的映像，在此案例中為 Nano Server 映像。
+提取映像之後再執行 `docker images`，將會傳回已安裝之映像的清單。在此案例中為 Nano Server 映像。
 
 ```none
 docker images
 
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-nanoserver          10.0.14300.1030     3f5112ddd185        3 weeks ago         810.2 MB
-```
-
-在繼續之前，此映像必須加上「最新」版本的標籤。 若要這樣做，請執行以下命令。
-
-```none
-docker tag microsoft/nanoserver:10.0.14300.1030 nanoserver:latest
+REPOSITORY             TAG                 IMAGE ID            CREATED             SIZE
+microsoft/nanoserver   latest              3a703c6e97a2        7 weeks ago         969.8 MB
 ```
 
 如需 Windows 容器映像的深入資訊，請參閱[管理容器映像](../management/manage_images.md)。
