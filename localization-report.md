@@ -3659,8 +3659,8 @@
 * Archive Datetime: 2016-06-30 07:22:32
 * Handback File: [EULA.0ba9560e121100b89b5825e4c97105b9c4695644.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/ff85289faef01048be916b06284357eb65b21bdd/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/EULA.0ba9560e121100b89b5825e4c97105b9c4695644.zh-tw.xlf)
 * Handback Datetime: 2016-08-16 15:43:04
-* Bilingual File: [EULA.0ba9560e121100b89b5825e4c97105b9c4695644.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/a1693e88de4966da9e2190b272c1ba0122888d5e/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/EULA.0ba9560e121100b89b5825e4c97105b9c4695644.zh-tw.xlf)
-* Bilingual Datetime: 2016-08-16 09:37:55
+* Bilingual File: [EULA.0ba9560e121100b89b5825e4c97105b9c4695644.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/ff85289faef01048be916b06284357eb65b21bdd/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/EULA.0ba9560e121100b89b5825e4c97105b9c4695644.zh-tw.xlf)
+* Bilingual Datetime: 2016-08-16 15:49:43
 * [Back to Top](#report-top)
 
 ##### <a name='eb7d2c25d929cb51abfad17c26a89105f6574a48251'></a> Source: [virtualization\windowscontainers\management\container_networking.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/c412171773e9c66569eab2252b5adfc187eedafd/virtualization/windowscontainers/management/container_networking.md)

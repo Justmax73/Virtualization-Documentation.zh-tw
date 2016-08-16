@@ -1,11 +1,28 @@
 # <a name='report-top'></a> Localization Bilingual Report
 
 ## Summary
- Total Files | 0
+ Total Files | 1
 
 ## File List
+ Source File | Status | Details 
+ ----------- | ------ | ------- 
+ [virtualization\windowscontainers\EULA.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/4cff38fe495e9237285d2895bf3e45b99aaf5c6d/virtualization/windowscontainers/EULA.md) | InSyncHandedBackSuccess | [Details](#f2cb1cdc1a98bf328a24610af6f7313a1071b079250)
 
 ## Item Details
+##### <a name='f2cb1cdc1a98bf328a24610af6f7313a1071b079250'></a> Source: [virtualization\windowscontainers\EULA.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/4cff38fe495e9237285d2895bf3e45b99aaf5c6d/virtualization/windowscontainers/EULA.md)
+* Status: InSyncHandedBackSuccess
+* Target File: [virtualization\windowscontainers\EULA.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/c645d74e98b1cba24cafa9b6900d9b394431fd8c/virtualization/windowscontainers/EULA.md)
+* Handoff File: [EULA.0ba9560e121100b89b5825e4c97105b9c4695644.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/76f6f642fc1699d005a68f7b603036e7a3b77625/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/EULA.0ba9560e121100b89b5825e4c97105b9c4695644.zh-tw.xlf)
+* Handoff Datetime: 2016-06-28 17:46:42
+* Handoff Reason: Include
+* Archive File: [EULA.0ba9560e121100b89b5825e4c97105b9c4695644.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/041b17f3785600cb2482a0db7e8cc9e362110ce6/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/archive/EULA.0ba9560e121100b89b5825e4c97105b9c4695644.zh-tw.xlf)
+* Archive Datetime: 2016-06-30 07:22:32
+* Handback File: [EULA.0ba9560e121100b89b5825e4c97105b9c4695644.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/ff85289faef01048be916b06284357eb65b21bdd/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/EULA.0ba9560e121100b89b5825e4c97105b9c4695644.zh-tw.xlf)
+* Handback Datetime: 2016-08-16 15:43:04
+* Bilingual File: [EULA.0ba9560e121100b89b5825e4c97105b9c4695644.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/ff85289faef01048be916b06284357eb65b21bdd/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/EULA.0ba9560e121100b89b5825e4c97105b9c4695644.zh-tw.xlf)
+* Bilingual Datetime: 2016-08-16 15:49:43
+* [Back to Top](#report-top)
+
 
 ## Error Details
 
