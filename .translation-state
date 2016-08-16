@@ -2495,8 +2495,8 @@
       "ArchiveFileDateTime": "2016-06-30T07:22:32.1154747Z",
       "ArchiveException": null,
       "BilingualFilePath": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.zh-tw\\live\\EULA.0ba9560e121100b89b5825e4c97105b9c4695644.zh-tw.xlf",
-      "BilingualFileCommit": "da7dacd2f812d1140f886fecabc2674adb84cb63",
-      "BilingualDateTime": "2016-07-06T10:49:17.9848324Z",
+      "BilingualFileCommit": "a1693e88de4966da9e2190b272c1ba0122888d5e",
+      "BilingualDateTime": "2016-08-16T09:37:55.6178395Z",
       "BilingualException": null
     },
     "872baaa41af6965a01248ffdedac4b7043ae45f1": {
@@ -13249,8 +13249,8 @@
       "ArchiveFileDateTime": "2016-06-30T07:22:32.1154747Z",
       "ArchiveException": null,
       "BilingualFilePath": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.zh-tw\\live\\Nano_EULA.dc5fd75e218dabebc3dde5de2ed83d8f59835aa5.zh-tw.xlf",
-      "BilingualFileCommit": "da7dacd2f812d1140f886fecabc2674adb84cb63",
-      "BilingualDateTime": "2016-07-06T10:49:17.9848324Z",
+      "BilingualFileCommit": "a1693e88de4966da9e2190b272c1ba0122888d5e",
+      "BilingualDateTime": "2016-08-16T09:37:55.6178395Z",
       "BilingualException": null
     },
     "67033992a84c3de364ef80551cb5e6b7d1fb39c9": {

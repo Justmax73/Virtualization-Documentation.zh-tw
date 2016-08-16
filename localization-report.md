@@ -3659,8 +3659,8 @@
 * Archive Datetime: 2016-06-30 07:22:32
 * Handback File: [EULA.0ba9560e121100b89b5825e4c97105b9c4695644.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/a1693e88de4966da9e2190b272c1ba0122888d5e/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/EULA.0ba9560e121100b89b5825e4c97105b9c4695644.zh-tw.xlf)
 * Handback Datetime: 2016-08-16 09:29:21
-* Bilingual File: [EULA.0ba9560e121100b89b5825e4c97105b9c4695644.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/da7dacd2f812d1140f886fecabc2674adb84cb63/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/EULA.0ba9560e121100b89b5825e4c97105b9c4695644.zh-tw.xlf)
-* Bilingual Datetime: 2016-07-06 10:49:17
+* Bilingual File: [EULA.0ba9560e121100b89b5825e4c97105b9c4695644.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/a1693e88de4966da9e2190b272c1ba0122888d5e/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/EULA.0ba9560e121100b89b5825e4c97105b9c4695644.zh-tw.xlf)
+* Bilingual Datetime: 2016-08-16 09:37:55
 * [Back to Top](#report-top)
 
 ##### <a name='eb7d2c25d929cb51abfad17c26a89105f6574a48251'></a> Source: [virtualization\windowscontainers\management\container_networking.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/c412171773e9c66569eab2252b5adfc187eedafd/virtualization/windowscontainers/management/container_networking.md)
@@ -3928,8 +3928,8 @@
 * Archive Datetime: 2016-06-30 07:22:32
 * Handback File: [Nano_EULA.dc5fd75e218dabebc3dde5de2ed83d8f59835aa5.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/a1693e88de4966da9e2190b272c1ba0122888d5e/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/Nano_EULA.dc5fd75e218dabebc3dde5de2ed83d8f59835aa5.zh-tw.xlf)
 * Handback Datetime: 2016-08-16 09:29:21
-* Bilingual File: [Nano_EULA.dc5fd75e218dabebc3dde5de2ed83d8f59835aa5.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/da7dacd2f812d1140f886fecabc2674adb84cb63/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/Nano_EULA.dc5fd75e218dabebc3dde5de2ed83d8f59835aa5.zh-tw.xlf)
-* Bilingual Datetime: 2016-07-06 10:49:17
+* Bilingual File: [Nano_EULA.dc5fd75e218dabebc3dde5de2ed83d8f59835aa5.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/a1693e88de4966da9e2190b272c1ba0122888d5e/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/Nano_EULA.dc5fd75e218dabebc3dde5de2ed83d8f59835aa5.zh-tw.xlf)
+* Bilingual Datetime: 2016-08-16 09:37:55
 * [Back to Top](#report-top)
 
 ##### <a name='207ab784e2c64a6075c427509e7269820ed22d47271'></a> Source: [virtualization\windowscontainers\quick_start\azure_setup.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/c412171773e9c66569eab2252b5adfc187eedafd/virtualization/windowscontainers/quick_start/azure_setup.md)
