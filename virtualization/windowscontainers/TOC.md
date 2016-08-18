@@ -14,7 +14,7 @@
 ## [容器主機 - Nano Server](deployment/deployment_nano.md)
 
 # Windows 上的 Docker
-## [Windows 上的 Docker 精靈](docker/configure_docker_daemon.md)
+## [Windows 上的 Docker 引擎](docker/configure_docker_daemon.md)
 ## [Windows 上的 Dockerfiles](docker/manage_windows_dockerfile.md)
 ## [最佳化 Dockerfiles](docker/optimize_windows_dockerfile.md)
 
@@ -41,6 +41,6 @@
 
 
 
-<!--HONumber=Jun16_HO5-->
+<!--HONumber=Aug16_HO3-->
 
 
