@@ -4,14 +4,14 @@ description: "容器部署快速入門"
 keywords: "docker, 容器"
 author: neilpeterson
 manager: timlt
-ms.date: 07/13/2016
+ms.date: 08/17/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
 translationtype: Human Translation
-ms.sourcegitcommit: 9aa443b24e5c8a004b08203f67e578dd2d104746
-ms.openlocfilehash: 0ee1231b923e25975a4dfddb70c16366a86c9565
+ms.sourcegitcommit: fac57150de3ffd6c7d957dd628b937d5c41c1b35
+ms.openlocfilehash: 57d35f9e871bdd3bd0798833bcbaf6a7948a65f2
 
 ---
 
@@ -19,7 +19,7 @@ ms.openlocfilehash: 0ee1231b923e25975a4dfddb70c16366a86c9565
 
 **這是初版內容，後續可能會變更。** 
 
-本練習將逐步引導您了解 Windows 10 (測試人員組建 14372 及更高版本) 上 Windows 容器功能的基本部署與使用。 完成之後，您將會安裝容器角色，並部署簡單的 Hyper-V 容器。 開始本快速入門之前，請先熟悉基本的容器概念與術語。 這項資訊可在[快速入門簡介](./quick_start.md)中找到。 
+本練習將逐步引導您了解 Windows 10 Professional 或 Enterprise (Anniversary Edition) 上 Windows 容器功能的基本部署與使用。 完成之後，您將會安裝容器角色，並部署簡單的 Hyper-V 容器。 開始本快速入門之前，請先熟悉基本的容器概念與術語。 這項資訊可在[快速入門簡介](./quick_start.md)中找到。 
 
 本快速入門是針對 Windows 10 上的 Hyper-V 容器。 在此頁面左側的目錄中，可以找到其他的快速入門文件。
 
@@ -169,6 +169,6 @@ docker run --rm helloworld powershell c:\helloworld.ps1
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO3-->
 
 

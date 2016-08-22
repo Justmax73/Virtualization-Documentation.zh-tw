@@ -1,23 +1,23 @@
 ---
 title: "在 Windows 中設定 Docker"
 description: "在 Windows 中設定 Docker"
-keywords: docker, containers
+keywords: "docker, 容器"
 author: neilpeterson
 manager: timlt
-ms.date: 07/15/2016
+ms.date: 08/17/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
 translationtype: Human Translation
-ms.sourcegitcommit: 475240afdf97af117519cfaa287f1e4fec8837a5
-ms.openlocfilehash: 5b86442643fb5937b62a67d144ae0d1c98373b41
+ms.sourcegitcommit: fac57150de3ffd6c7d957dd628b937d5c41c1b35
+ms.openlocfilehash: 7ba03dbcedbe42d54c955ff321e9f3f180a5a674
 
 ---
 
-# Windows 上的 Docker 精靈
+# Windows 上的 Docker 引擎
 
-Docker 引擎並未隨附於 Windows，且需要個別安裝及設定。 此外，Docker 精靈可接受許多自訂設定。 部分範例包括設定精靈接受連入要求的方式、預設網路功能選項，以及偵錯/記錄設定。 在 Windows 中，這些設定可以在設定檔中指定，或使用 Windows 服務控制管理員指定。 此文件詳細說明如何安裝及設定 Docker 精靈，且提供常用設定的範例。
+Docker 引擎和代理程式並未隨附於 Windows，且需要個別安裝及設定。 此外，Docker 引擎可接受許多自訂設定。 部分範例包括設定精靈接受連入要求的方式、預設網路功能選項，以及偵錯/記錄設定。 在 Windows 中，這些設定可以在設定檔中指定，或使用 Windows 服務控制管理員指定。 本文詳細說明如何安裝及設定 Docker 引擎，且提供常用設定的範例。
 
 ## 安裝 Docker
 
@@ -29,7 +29,7 @@ Docker 引擎並未隨附於 Windows，且需要個別安裝及設定。 此外�
 New-Item -Type Directory -Path 'C:\Program Files\docker\'
 ```
 
-下載 Docker 精靈。
+下載 Docker 引擎。
 
 ```none
 Invoke-WebRequest https://aka.ms/tp5/b/dockerd -OutFile $env:ProgramFiles\docker\dockerd.exe
@@ -41,7 +41,7 @@ Invoke-WebRequest https://aka.ms/tp5/b/dockerd -OutFile $env:ProgramFiles\docker
 Invoke-WebRequest https://aka.ms/tp5/b/docker -OutFile $env:ProgramFiles\docker\docker.exe
 ```
 
-將 Docker 目錄加入系統路徑中。 完成時，重新啟動 PowerShell 工作階段，以便識別修改過的路徑。
+將 Docker 目錄新增至系統路徑。 完成時，重新啟動 PowerShell 工作階段，以便識別修改過的路徑。
 
 ```none
 [Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\Docker", [EnvironmentVariableTarget]::Machine)
@@ -63,9 +63,9 @@ Start-Service Docker
 
 ## Docker 設定檔
 
-建議使用設定檔在 Windows 上設定 Docker 精靈。 設定檔位於 'c:\ProgramData\docker\config\daemon.json'。 若尚未有此檔案，請加以建立。
+建議使用設定檔在 Windows 上設定 Docker 引擎。 設定檔位於 'c:\ProgramData\docker\config\daemon.json'。 若尚未有此檔案，請加以建立。
 
-請注意，並非所有可用的 Docker 設定選項都適用於 Windows 上的 Docker。 下列所示範例為適用的選項。 如需 Docker 精靈設定的完整文件 (包含適用於 Linux 的文件)，請參閱 [Docker Daemon]( https://docs.docker.com/v1.10/engine/reference/commandline/daemon/) (Docker 精靈)。
+請注意，並非所有可用的 Docker 設定選項都適用於 Windows 上的 Docker。 下列所示範例為適用的選項。 如需 Docker 引擎設定的完整文件 (包含適用於 Linux 的文件)，請參閱 [Docker Daemon]( https://docs.docker.com/v1.10/engine/reference/commandline/daemon/) (Docker 精靈)。
 
 ```none
 {
@@ -101,7 +101,7 @@ Start-Service Docker
 }
 ```
 
-只需將所需的設定變更加入設定檔中。 例如，此範例將 Docker 精靈設定為接受連接埠 2375 上的連入連線。 其他所有設定選項將使用預設值。
+只需將所需的設定變更加入設定檔中。 例如，此範例將 Docker 引擎設定為接受連接埠 2375 上的連入連線。 其他所有設定選項將使用預設值。
 
 ```none
 {
@@ -123,7 +123,7 @@ Start-Service Docker
 
 ## 服務控制管理員
 
-也可以透過使用 `sc config` 修改 Docker 服務來設定 Docker 精靈。 若使用此方法，會直接在 Docker 服務上設定 Docker 精靈旗標。
+也可以透過使用 `sc config` 修改 Docker 服務來設定 Docker 引擎。 若使用此方法，會直接在 Docker 服務上設定 Docker 引擎旗標。
 
 
 ```none
@@ -136,7 +136,7 @@ sc config docker binpath= "\"C:\Program Files\docker\dockerd.exe\" --run-service
 
 ### 建立預設網路 
 
-若要設定 Docker 精靈而不建立預設 NAT 網路，請使用下列項目。 如需詳細資訊，請參閱 [Manage Docker Networks](../management/container_networking.md) (管理 Docker 網路)。
+若要設定 Docker 引擎而不建立預設 NAT 網路，請使用下列項目。 如需詳細資訊，請參閱 [Manage Docker Networks](../management/container_networking.md) (管理 Docker 網路)。
 
 ```none
 {
@@ -146,7 +146,7 @@ sc config docker binpath= "\"C:\Program Files\docker\dockerd.exe\" --run-service
 
 ### 設定 Docker 安全性群組
 
-當登入 Docker 主機並在本機執行 Docker 命令時，會透過具名管道執行這些命令。 根據預設，只有系統管理員群組的成員可以透過具名管道存取 Docker 精靈。 若要指定具有此存取權的安全性群組，請使用 `group` 旗標。
+當登入 Docker 主機並在本機執行 Docker 命令時，會透過具名管道執行這些命令。 依預設，只有系統管理員群組的成員可以透過具名管道存取 Docker 引擎。 若要指定具有此存取權的安全性群組，請使用 `group` 旗標。
 
 ```none
 {
@@ -171,9 +171,9 @@ restart-service docker
 如需詳細資訊，請參閱 [Docker.com 上的精靈通訊端選項](https://docs.docker.com/v1.10/engine/reference/commandline/daemon/#daemon-socket-option)。
 
 ## 收集記錄檔
-Docker 精靈會將事件記錄至 Windows 應用程式事件記錄檔，而不是記錄至檔案。 您可以使用 Windows PowerShell，輕鬆讀取、排序和篩選這些記錄檔
+Docker 引擎會將事件記錄至 Windows 應用程式事件記錄檔，而不是記錄至檔案。 您可以使用 Windows PowerShell，輕鬆讀取、排序和篩選這些記錄檔
 
-比方說，這會顯示 Docker 精靈前 5 分鐘的記錄檔，並從最舊的開始排序。
+比方說，這會顯示 Docker 引擎前 5 分鐘的記錄檔，並從最舊的開始排序。
 ```
 Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-5) | Sort-Object Time 
 ```
@@ -184,6 +184,6 @@ Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-3
 
 
 
-<!--HONumber=Jul16_HO3-->
+<!--HONumber=Aug16_HO3-->
 
 

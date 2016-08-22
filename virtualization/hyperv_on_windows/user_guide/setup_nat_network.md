@@ -10,8 +10,8 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 1f8a691c-ca75-42da-8ad8-a35611ad70ec
 translationtype: Human Translation
-ms.sourcegitcommit: b22150198f199f9b2be38a9c08e0e08972781f6e
-ms.openlocfilehash: d98445932ccbe77b6a4e798c3c2edb9c63bd351b
+ms.sourcegitcommit: 03a72e6608c08d6adcf32fc5665533831904a032
+ms.openlocfilehash: 5a1cb0964034db491481e2d6db84221730264fa0
 
 ---
 
@@ -129,6 +129,7 @@ NAT 讓虛擬機器透過內部的 Hyper-V 虛擬交換器，使用主機電腦�
 
 
 ## 設定範例︰將 VM 和容器連結到 NAT 網路
+
 _如果要將多個 VM 和容器連結到單一 NAT，您必須確定 NAT 內部子網路首碼夠大，足以納入不同應用程式或服務 (例如 Docker for Windows 和 Windows Containers – HNS) 所指派的 IP 範圍。 這需要應用程式層級的 IP 指派和網路設定，或是必須由管理員手動設定，並保證不會在相同的主機上重複使用現有的 IP 指派。_
 
 ### Docker for Windows (Linux VM) 和 Windows Containers
@@ -163,84 +164,6 @@ Docker/HNS 會將 IP 指派給來自 <container prefix> 的 Windows 容器；管
 
 最後，您應該要有兩個內部 VM 交換器，而且兩者共用一個 NetNat。
 
-## 疑難排解
-確定您只有一個 NAT
-```none
-Get-NetNat
-```
-如果 NAT 已經存在，請刪除它
-```none
-Get-NetNat | Remove-NetNat
-```
-請確定您只有一個「內部」vmSwitch 供應用程式或功能使用 (例如 Windows 容器)。 記錄 vSwitch 的名稱
-```none
-Get-VMSwitch
-```
-查看來自舊 NAT 的私人 IP 位址 (例如 NAT 預設閘道 IP 位址 - 通常是 *.1) 是否仍指派給配接器
-```none
-Get-NetIPAddress -InterfaceAlias "vEthernet(<name of vSwitch>)"
-```
-如果舊的私人 IP 位址正在使用中，請將它刪除
-```none
-Remove-NetIPAddress -InterfaceAlias "vEthernet(<name of vSwitch>)" -IPAddress <IPAddress>
-```
-移除多個 NAT。我們看到報告顯示意外建立了多個 NAT 網路。 這是近期組建的 Bug 所造成 (包括 Windows Server 2016 Technical Preview 5 和 Windows 10 Insider Preview 組建)。 如果您在執行 docker 網路 ls 或 Get-ContainerNetwork 之後，看到多個 NAT 網路，請從提高權限的 PowerShell 執行下列作業︰
-
-```none
-PS> $KeyPath = "HKLM:\SYSTEM\CurrentControlSet\Services\vmsmp\parameters\SwitchList"
-PS> $keys = get-childitem $KeyPath
-PS> foreach($key in $keys)
-PS> {
-PS>    if ($key.GetValue("FriendlyName") -eq 'nat')
-PS>    {
-PS>       $newKeyPath = $KeyPath+"\"+$key.PSChildName
-PS>       Remove-Item -Path $newKeyPath -Recurse
-PS>    }
-PS> }
-PS> remove-netnat -Confirm:$false
-PS> Get-ContainerNetwork | Remove-ContainerNetwork
-PS> Get-VmSwitch -Name nat | Remove-VmSwitch (_failure is expected_)
-PS> Stop-Service docker
-PS> Set-Service docker -StartupType Disabled
-Reboot Host
-PS> Get-NetNat | Remove-NetNat
-PS> Set-Service docker -StartupType automaticac
-PS> Start-Service docker 
-```
-
-## 疑難排解
-
-此工作流程假設主機上沒有其他 NAT。 不過，有時候多個應用程式或服務都必須使用 NAT。 由於 Windows (WinNAT) 只支援一個內部 NAT 子網路首碼，嘗試建立多個 NAT 會讓系統進入不明的狀態。
-
-### 疑難排解步驟
-1. 確定您只有一個 NAT
-
-  ``` PowerShell
-  Get-NetNat
-  ```
-2. 如果 NAT 已經存在，請刪除它
-
-  ``` PowerShell
-  Get-NetNat | Remove-NetNat
-  ```
-
-3. 確定您只有一個 NAT 的「內部」vmSwitch。 記錄 vSwitch 名稱以便進行步驟 4
-
-  ``` PowerShell
-  Get-VMSwitch
-  ```
-
-4. 檢查是否有來自舊 NAT 的私人 IP 位址 (例如 NAT 預設閘道 IP 位址 - 通常是 *.1) 仍指派給配接器
-
-  ``` PowerShell
-  Get-NetIPAddress -InterfaceAlias "vEthernet(<name of vSwitch>)"
-  ```
-
-5. 如果舊的私人 IP 位址正在使用中，請將它刪除  
-   ``` PowerShell
-  Remove-NetIPAddress -InterfaceAlias "vEthernet(<name of vSwitch>)" -IPAddress <IPAddress>
-  ```
-
 ## 多個應用程式使用相同的 NAT
 
 某些情況下需要多個應用程式或服務使用相同的 NAT。 在此情況下，必須遵循下列工作流程，以便多個應用程式/服務可以使用較大的 NAT 內部子網路首碼
@@ -272,11 +195,67 @@ PS> Start-Service docker
 最後，您應該有兩個內部 vSwitch – 一個名為 DockerNAT，另一個名為 nat。 您只能只會有一個透過執行 Get-NetNat 確認的 NAT 網路 (10.0.0.0/17)。 Windows 主機網路服務 (HNS) 會從 10.0.76.0/24 子網路指派 Windows 容器的 IP 位址。 根據現有的 MobyLinux.ps1 指令碼，將會從 10.0.75.0/24 子網路指派 Docker 4 Windows 的 IP 位址。
 
 
+## 疑難排解
+
+### 不支援多個 NAT 網路  
+本指南假設主機上沒有其他 NAT。 不過，應用程式或服務將會需要使用 NAT，而且可能會在安裝程序中建立。 由於 Windows (WinNAT) 只支援一個內部 NAT 子網路首碼，嘗試建立多個 NAT 會讓系統進入不明的狀態。
+
+若要看看這是否是問題，請確定您只有一個 NAT：
+``` PowerShell
+Get-NetNat
+```
+
+如果 NAT 已經存在，請刪除它
+``` PowerShell
+Get-NetNat | Remove-NetNat
+```
+請確定您只有一個「內部」vmSwitch 供應用程式或功能使用 (例如 Windows 容器)。 記錄 vSwitch 的名稱
+``` PowerShell
+Get-VMSwitch
+```
+
+查看來自舊 NAT 的私人 IP 位址 (例如 NAT 預設閘道 IP 位址 - 通常是 *.1) 是否仍指派給配接器
+``` PowerShell
+Get-NetIPAddress -InterfaceAlias "vEthernet(<name of vSwitch>)"
+```
+
+如果舊的私人 IP 位址正在使用中，請將它刪除
+``` PowerShell
+Remove-NetIPAddress -InterfaceAlias "vEthernet(<name of vSwitch>)" -IPAddress <IPAddress>
+```
+
+**移除多個 NAT**  
+我們看到報告顯示意外建立了多個 NAT 網路。 這是近期組建的 Bug 所造成 (包括 Windows Server 2016 Technical Preview 5 和 Windows 10 Insider Preview 組建)。 如果您在執行 docker 網路 ls 或 Get-ContainerNetwork 之後，看到多個 NAT 網路，請從提高權限的 PowerShell 執行下列作業︰
+
+```none
+PS> $KeyPath = "HKLM:\SYSTEM\CurrentControlSet\Services\vmsmp\parameters\SwitchList"
+PS> $keys = get-childitem $KeyPath
+PS> foreach($key in $keys)
+PS> {
+PS>    if ($key.GetValue("FriendlyName") -eq 'nat')
+PS>    {
+PS>       $newKeyPath = $KeyPath+"\"+$key.PSChildName
+PS>       Remove-Item -Path $newKeyPath -Recurse
+PS>    }
+PS> }
+PS> remove-netnat -Confirm:$false
+PS> Get-ContainerNetwork | Remove-ContainerNetwork
+PS> Get-VmSwitch -Name nat | Remove-VmSwitch (_failure is expected_)
+PS> Stop-Service docker
+PS> Set-Service docker -StartupType Disabled
+Reboot Host
+PS> Get-NetNat | Remove-NetNat
+PS> Set-Service docker -StartupType automaticac
+PS> Start-Service docker 
+```
+
+請參閱[使用相同 NAT 的多個應用程式設定指南](setup_nat_network.md#multiple-applications-using-the-same-nat)，視需要重建 NAT 環境。 
+
 ## 參考
 深入了解 [NAT 網路](https://en.wikipedia.org/wiki/Network_address_translation)
 
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Aug16_HO2-->
 
 

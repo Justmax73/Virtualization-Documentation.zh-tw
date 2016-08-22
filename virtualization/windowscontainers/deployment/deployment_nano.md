@@ -1,7 +1,7 @@
 ---
 title: "在 Nano Server 上部署 Windows 容器"
 description: "在 Nano Server 上部署 Windows 容器"
-keywords: docker, containers
+keywords: "docker, 容器"
 author: neilpeterson
 manager: timlt
 ms.date: 07/06/2016
@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: b82acdf9-042d-4b5c-8b67-1a8013fa1435
 translationtype: Human Translation
-ms.sourcegitcommit: e035a45e22eee04263861d935b338089d8009e92
-ms.openlocfilehash: 876ffb4f4da32495fb77b735391203c33c78cff3
+ms.sourcegitcommit: fac57150de3ffd6c7d957dd628b937d5c41c1b35
+ms.openlocfilehash: d2f19e96f06ba18ab7e23e62652f569265c6f43f
 
 ---
 
@@ -74,7 +74,7 @@ Restart-Computer
 
 ## 安裝 Docker
 
-需要先安裝 Docker，才能搭配使用 Windows 容器。 Docker 是由 Docker 引擎及 Docker 用戶端所組成。 使用這些步驟安裝 Docker 精靈與用戶端。
+需要先安裝 Docker，才能搭配使用 Windows 容器。 Docker 是由 Docker 引擎及 Docker 用戶端所組成。 使用這些步驟安裝 Docker 引擎與用戶端。
 
 在 Nano Server 上，為 Docker 可執行檔建立一個資料夾。
 
@@ -82,7 +82,7 @@ Restart-Computer
 New-Item -Type Directory -Path $env:ProgramFiles'\docker\'
 ```
 
-下載 Docker 精靈及用戶端，然後將其複製到容器主機上的 'C:\Program Files\docker\' 中。 
+下載 Docker 引擎及用戶端，然後將其複製到容器主機上的 'C:\Program Files\docker\' 中。 
 
 **注意** - Nano Server 目前不支援 `Invoke-WebRequest`，因此必須從遠端系統完成下載，然後複製到 Nano Server 主機。
 
@@ -96,7 +96,7 @@ Invoke-WebRequest https://aka.ms/tp5/b/dockerd -OutFile .\dockerd.exe
 Invoke-WebRequest https://aka.ms/tp5/b/docker -OutFile .\docker.exe
 ```
 
-下載 Docker 精靈和用戶端之後，請將其複製到 Nano Server 容器主機中的 'C:\Program Files\docker\' 資料夾。 Nano Server 防火牆必須設為允許連入的 SMB 連線。 您可以使用 PowerShell 或 Nano Server 修復主控台來完成這項作業。 
+下載 Docker 引擎和用戶端之後，請將其複製到 Nano Server 容器主機中的 'C:\Program Files\docker\' 資料夾。 Nano Server 防火牆必須設為允許連入的 SMB 連線。 您可以使用 PowerShell 或 Nano Server 修復主控台來完成這項作業。 
 
 ```none
 Set-NetFirewallRule -Name FPS-SMB-In-TCP -Enabled True
@@ -116,7 +116,7 @@ Set-NetFirewallRule -Name FPS-SMB-In-TCP -Enabled True
 Start-Service Docker
 ```
 
-## 安裝基本容器映像
+## 安裝基礎容器映像
 
 基本 OS 映像可作為任何 Windows Server 或 Hyper-V 容器的基底。 基本 OS 映像可作為 Windows Server Core 和 Nano Server 的基礎作業系統，而且可以使用容器映像提供者加以安裝。 如需 Windows 容器映像的詳細資訊，請參閱[管理容器映像](../management/manage_images.md)。
 
@@ -158,7 +158,7 @@ Restart-Service Docker
 netsh advfirewall firewall add rule name="Docker daemon " dir=in action=allow protocol=TCP localport=2376
 ```
 
-將 Docker 精靈設為接受透過 TCP 的連入連線。
+將 Docker 引擎設為接受透過 TCP 的連入連線。
 
 首先，在 Nano Server 主機上的 `c:\ProgramData\docker\config\daemon.json` 位置，建立 `daemon.json` 檔案。
 
@@ -166,7 +166,7 @@ netsh advfirewall firewall add rule name="Docker daemon " dir=in action=allow pr
 new-item -Type File c:\ProgramData\docker\config\daemon.json
 ```
 
-接著，執行下列命令，將連線設定新增至 `daemon.json` 檔案。 如此會將 Docker 精靈設為接受透過 TCP 連接埠 2375 的連入連線。 這是不安全的連線，因此並不建議您使用，但可用於隔離測試。 如需保護連線安全的詳細資訊，請參閱 Docker.com 上的 [Protect the Docker Daemon](https://docs.docker.com/engine/security/https/) (保護 Docker 精靈)。
+接著，執行下列命令，將連線設定新增至 `daemon.json` 檔案。 如此會將 Docker 引擎設為接受透過 TCP 連接埠 2375 的連入連線。 這是不安全的連線，因此並不建議您使用，但可用於隔離測試。 如需保護連線安全的詳細資訊，請參閱 Docker.com 上的 [Protect the Docker Daemon](https://docs.docker.com/engine/security/https/) (保護 Docker 精靈)。
 
 ```none
 Add-Content 'c:\programdata\docker\config\daemon.json' '{ "hosts": ["tcp://0.0.0.0:2375", "npipe://"] }'
@@ -238,6 +238,6 @@ Restart-Computer
 ```
 
 
-<!--HONumber=Jul16_HO1-->
+<!--HONumber=Aug16_HO3-->
 
 

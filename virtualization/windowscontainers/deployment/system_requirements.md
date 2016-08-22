@@ -4,14 +4,14 @@ description: "Windows 容器需求。"
 keywords: "中繼資料, 容器"
 author: neilpeterson
 manager: timlt
-ms.date: 05/26/2016
+ms.date: 08/17/2016
 ms.topic: deployment-article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 3c3d4c69-503d-40e8-973b-ecc4e1f523ed
 translationtype: Human Translation
-ms.sourcegitcommit: 6f1d9c09774adde047508835caf9dcf54deab9d2
-ms.openlocfilehash: 9d015a570a0b1a9d7304e601daa7ace73df4e827
+ms.sourcegitcommit: fac57150de3ffd6c7d957dd628b937d5c41c1b35
+ms.openlocfilehash: f76dc45e6035c72fd7b07f25d4b4c55f2a95aafb
 
 ---
 
@@ -23,7 +23,7 @@ ms.openlocfilehash: 9d015a570a0b1a9d7304e601daa7ace73df4e827
 
 ## 作業系統需求
 
-- 只有 Windows Server 2016 (Core 與 Desktop 版)、Nano Server 及 Windows 10 專業版與企業版 (測試人員組建 14352 及更高版本) 才提供 Windows 容器功能。
+- 只有 Windows Server 2016 (Core 與 Desktop 版)、Nano Server 及 Windows 10 Professional 與 Enterprise (Anniversary Edition) 才提供 Windows 容器功能。
 - 必須安裝 Hyper-V 角色才可執行 Hyper-V 容器。
 - Windows Server 容器主機必須將 Windows 安裝到 c:\\。 如果僅會部署 Hyper-V 容器，則不適用這項限制。
 
@@ -65,7 +65,7 @@ Windows Server Technical Preview 5 提供兩種容器作業系統映像 (Windows
 <td><center>Nano Server 映像</center></td>
 </tr>
 <tr valign="top">
-<td><center>Windows 10 測試人員版本</center></td>
+<td><center>Windows 10 Anniversary Edition</center></td>
 <td><center>無法使用</center></td>
 <td><center>Nano Server 映像</center></td>
 </tr>
@@ -74,6 +74,6 @@ Windows Server Technical Preview 5 提供兩種容器作業系統映像 (Windows
 
 
 
-<!--HONumber=Jul16_HO3-->
+<!--HONumber=Aug16_HO3-->
 
 
