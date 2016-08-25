@@ -4,14 +4,14 @@ description: "設定 Windows 容器的網路功能。"
 keywords: "docker, 容器"
 author: jmesser81
 manager: timlt
-ms.date: 05/02/2016
+ms.date: 08/22/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
 translationtype: Human Translation
-ms.sourcegitcommit: c412171773e9c66569eab2252b5adfc187eedafd
-ms.openlocfilehash: eb7d2c25d929cb51abfad17c26a89105f6574a48
+ms.sourcegitcommit: 7b5cf299109a967b7e6aac839476d95c625479cd
+ms.openlocfilehash: 2e26177f3e653e9102dc91070b987e28ef713bed
 
 ---
 
@@ -37,7 +37,7 @@ Docker 引擎依預設會在 dockerd 服務第一次執行時建立 NAT 網路�
 
 - **L2 通道** - _ 這種模式應該僅限用於 Microsoft 雲端堆疊_
 
-> 若要了解如何將容器端點連接至具有 Microsoft SDN 堆疊的重疊虛擬網路，請參閱[將容器連接至虛擬網路](location)主題。
+> 若要了解如何將容器端點連接至具有 Microsoft SDN 堆疊的重疊虛擬網路，請參閱[將容器連接至虛擬網路](https://technet.microsoft.com/en-us/windows-server-docs/networking/sdn/manage/connect-container-endpoints-to-a-tenant-virtual-network)主題。
 
 ## 單一節點
 
@@ -182,7 +182,7 @@ C:\> docker network create -d l2bridge --subnet=192.168.1.0/24 --gateway=192.168
 
 只有 l2bridge 網路支援靜態 IP 指派。 
 
-> 在 SDN 網狀架構上使用 l2bridge 網路時，只支援動態 IP 指派。 如需詳細資訊，請參閱[將容器連接到虛擬網路](location)主題。
+> 在 SDN 網狀架構上使用 l2bridge 網路時，只支援動態 IP 指派。 如需詳細資訊，請參閱[將容器連接到虛擬網路](https://technet.microsoft.com/en-us/windows-server-docs/networking/sdn/manage/connect-container-endpoints-to-a-tenant-virtual-network)主題。
 
 ## 其他的作業和設定
 
@@ -291,6 +291,6 @@ Start-Service docker
 
 
 
-<!--HONumber=Aug16_HO3-->
+<!--HONumber=Aug16_HO4-->
 
 

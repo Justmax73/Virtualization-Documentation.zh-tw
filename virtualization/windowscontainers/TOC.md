@@ -12,6 +12,7 @@
 ## [系統需求](deployment/system_requirements.md)
 ## [容器主機 - Windows Server](deployment/deployment.md)
 ## [容器主機 - Nano Server](deployment/deployment_nano.md)
+## [防毒程式最佳化](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
 
 # Windows 上的 Docker
 ## [Windows 上的 Docker 引擎](docker/configure_docker_daemon.md)
@@ -32,15 +33,11 @@
 # 社群與支援
 ## [容器論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)
 
-# 參考
-## [容器映像提供者](https://github.com/PowerShell/ContainerProvider)
-## [應用程式相容性](reference/app_compat.md)
-## [防毒程式最佳化](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
 # [Windows Server EULA](EULA.md)
 # [Nano Server EULA](Nano_EULA.md)
 
 
 
-<!--HONumber=Aug16_HO3-->
+<!--HONumber=Aug16_HO4-->
 
 

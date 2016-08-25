@@ -1,7 +1,7 @@
 ---
 title: "容器部署快速入門 - 映像"
 description: "容器部署快速入門"
-keywords: docker, containers
+keywords: "docker, 容器"
 author: neilpeterson
 manager: timlt
 ms.date: 05/26/2016
@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 479e05b1-2642-47c7-9db4-d2a23592d29f
 translationtype: Human Translation
-ms.sourcegitcommit: eae45c2c81c7edc94d963da69dcdee2b6f08f37d
-ms.openlocfilehash: ac9596d210e72b9fd576f728e8e6bbdc293597d7
+ms.sourcegitcommit: f2a3eec656acf5a3cd48a2be71169b76ce25400b
+ms.openlocfilehash: a9bc0b1511e161ef9b648bfafd4d0456966d8f9f
 
 ---
 
@@ -35,7 +35,7 @@ ms.openlocfilehash: ac9596d210e72b9fd576f728e8e6bbdc293597d7
 手動建立容器映像的第一個步驟是部署容器。 針對此範例，請從預先建立的 IIS 映像部署 IIS 容器。 部署容器後，您將會在來自該容器的殼層工作階段中工作。 互動式工作階段會以 `-it` 旗標起始。 如需 Docker Run 命令的深入詳細資訊，請參閱 [Docker.com 上的 Docker Run Reference]( https://docs.docker.com/engine/reference/run/)。 
 
 ```none
-docker run -it -p 80:80 microsoft/iis:windowsservercore cmd
+docker run -it -p 80:80 microsoft/iis cmd
 ```
 
 接下來，將會修改容器。 執行下列命令以移除 IIS 啟動顯示畫面。
@@ -68,7 +68,7 @@ exit
 docker ps -a
 
 CONTAINER ID     IMAGE                             COMMAND   CREATED             STATUS   PORTS   NAMES
-489b0b447949     microsoft/iis:windowsservercore   "cmd"     About an hour ago   Exited           pedantic_lichterman
+489b0b447949     microsoft/iis   "cmd"     About an hour ago   Exited           pedantic_lichterman
 ```
 
 若要建立新容器映像，請使用 `docker commit` 命令。 Docker commit 的形式為 “docker commit 容器名稱 新映像名稱”。 請注意，請將此範例中的容器名稱取代為實際的容器名稱。
@@ -112,7 +112,7 @@ notepad c:\build\Dockerfile
 如需 Dockerfile 的詳細資訊，請參閱 [Windows 上的 Dockerfile](../docker/manage_windows_dockerfile.md)。
 
 ```none
-FROM microsoft/iis:windowsservercore
+FROM microsoft/iis
 RUN echo "Hello World - Dockerfile" > c:\inetpub\wwwroot\index.html
 ```
 
@@ -166,6 +166,7 @@ docker rm -f cranky_brown
 [Windows 10 上的 Windows 容器](./quick_start_windows_10.md)
 
 
-<!--HONumber=Jun16_HO5-->
+
+<!--HONumber=Aug16_HO3-->
 
 
