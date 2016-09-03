@@ -1,17 +1,17 @@
 ---
 title: "Windows 容器映像"
 description: "使用 Windows 容器建立和管理容器映像。"
-keywords: docker, containers
+keywords: "docker, 容器"
 author: neilpeterson
 manager: timlt
-ms.date: 05/02/2016
+ms.date: 08/22/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: d8163185-9860-4ee4-9e96-17b40fb508bc
 translationtype: Human Translation
-ms.sourcegitcommit: 3db43b433e7b1a9484d530cf209ea80ef269a307
-ms.openlocfilehash: 505cc64fa19fb9fc8c2d5c109830f460f09332dd
+ms.sourcegitcommit: 7b5cf299109a967b7e6aac839476d95c625479cd
+ms.openlocfilehash: 8b9ec6370d1f9f9187fbb6d74168e9e88391b657
 
 ---
 
@@ -19,148 +19,34 @@ ms.openlocfilehash: 505cc64fa19fb9fc8c2d5c109830f460f09332dd
 
 **這是初版內容，後續可能會變更。** 
 
-容器映像可用來部署容器。 這些映像可包含作業系統、應用程式和所有的應用程式相依性。 例如，您可以開發已預先設定 Nano Server、IIS 和執行於 IIS 之應用程式的容器映像。 接著，此容器映像可儲存在容器登錄中供後續使用、部署在任何 Windows 容器主機上 (內部部署、雲端，甚至是容器服務)，也可以作為新容器映像的基底。
+>Windows 容器是以 Docker 來管理。 Windows 容器文件為 [docker.com](https://www.docker.com/) 上文件的補充文件。
 
-容器映像分成兩種類型：
-
-**基本 OS 映像** – 此類型由 Microsoft 提供，其中包含核心 OS 元件。 
-
-**容器映像** – 從基本 OS 映像衍生出的自訂容器映像。
-
-## 基本 OS 映像
+容器映像可用來部署容器。 這些映像可包含應用程式和所有的應用程式相依性。 例如，您可以開發已預先設定 Nano Server、IIS 和執行於 IIS 之應用程式的容器映像。 接著，此容器映像可儲存在容器登錄中供後續使用、部署在任何 Windows 容器主機上 (內部部署、雲端，甚至是容器服務)，也可以作為新容器映像的基底。
 
 ### 安裝映像
 
-您可以使用 ContainerImage PowerShell 模組尋找並安裝容器 OS 映像。 此模組必須先安裝，才可使用。 您可以使用下列命令來安裝此模組。 如需有關使用容器映像 OneGet PowerShell 模組的詳細資訊，請參閱 [Container Image Provider](https://github.com/PowerShell/ContainerProvider) (容器映像提供者)。 
+使用 Windows 容器之前，必須先安裝基礎映像。 目前已經有以 Windows Server Core 或 Nano Server 做為基礎作業系統的基礎映像。 如需支援設定的資訊，請參閱 [Windows 容器系統需求](../deployment/system_requirements.md)。
+
+若要安裝 Windows Server Core 基礎映像，請執行下列步驟：
 
 ```none
-Install-PackageProvider ContainerImage -Force
+docker pull microsoft/windowsservercore
 ```
 
-安裝完成後，即可使用 `Find-ContainerImage` 傳回基本 OS 映像的清單。
+若要安裝 Nano Server 基礎映像，請執行下列步驟：
 
 ```none
-Find-ContainerImage
-
-Name                 Version          Source           Summary
-----                 -------          ------           -------
-NanoServer           10.0.14300.1010  ContainerImag... Container OS Image of Windows Server 2016 Technical...
-WindowsServerCore    10.0.14300.1000  ContainerImag... Container OS Image of Windows Server 2016 Technical...
+docker pull microsoft/nanoserver
 ```
-
-若要下載並安裝 Nano Server 基本 OS 映像，請執行下列命令。 `-version` 參數是選擇性的。 若未指定基本 OS 映像版本，將會安裝最新版本。
-
-```none
-Install-ContainerImage -Name NanoServer -Version 10.0.14300.1010
-```
-
-同樣地，此命令也將下載並安裝 Windows Server Core 基本 OS 映像。 `-version` 參數是選擇性的。 若未指定基本 OS 映像版本，將會安裝最新版本。
-
-```none
-Install-ContainerImage -Name WindowsServerCore -Version 10.0.14300.1000
-```
-
-使用 `docker images` 命令驗證已安裝映像。 
-
-```none
-docker images
-
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-nanoserver          10.0.14300.1010     40356b90dc80        2 weeks ago         793.3 MB
-windowsservercore   10.0.14304.1000     7837d9445187        2 weeks ago         9.176 GB
-```  
-
-安裝之後，建議您為映像標上「最新」標籤。 可以在下方 [標籤] 區段找到這些指示的詳細解說。
-
-> 如果基本 OS 映像已下載完畢，但在執行 `docker images` 時未顯示，請使用服務控制台小程式或依序使用命令 'sc stop docker' 和 'sc start docker'，以重新啟動 Docker 服務
-
-### 標籤映像
-
-依名稱參考容器映像時，Docker 引擎會搜尋最新版本的映像。 如果無法判斷最新版本，將會擲回下列錯誤。
-
-```none
-docker run -it windowsservercore cmd
-
-Unable to find image 'windowsservercore:latest' locally
-Pulling repository docker.io/library/windowsservercore
-C:\Windows\system32\docker.exe: Error: image library/windowsservercore not found.
-```
-
-安裝 Windows Server Core 或 Nano Server 基本 OS 映像後，將必須以「最新」版本加以標記。 若要這樣做，請使用 `docker tag` 命令。 
-
-如需有關 `docker tag` 的詳細資訊，請參閱 [Tag, push, and pull you images on docker.com](https://docs.docker.com/mac/step_six/) (在 docker.com 上標記、推播及提取您的映像)。 
-
-```none
-docker tag <image id> windowsservercore:latest
-```
-
-在加上標籤後，`docker images` 的輸出會顯示相同映像的兩種版本，一個具有映像版本的標籤，另一個則有「最新」標籤。 現在可依名稱參考映像。
-
-```none
-docker images
-
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-nanoserver          10.0.14300.1010     df03a4b28c50        2 days ago          783.2 MB
-windowsservercore   10.0.14300.1000     290ab6758cec        2 days ago          9.148 GB
-windowsservercore   latest              290ab6758cec        2 days ago          9.148 GB
-```
-
-### 離線安裝
-
-基本 OS 映像也可以在沒有網際網路連線的情況下安裝。 若要這樣做，請在具有網際網路連線的電腦上下載映像、將它複製到目標系統，然後使用 `Install-ContainerOSImages` 命令匯入映像。
-
-在下載基本 OS 映像前，請執行下列命令，讓**連接至網路**的系統備有容器映像提供者。
-
-```none
-Install-PackageProvider ContainerImage -Force
-```
-
-從 PowerShell OneGet 封裝管理員傳回映像清單：
-
-```none
-Find-ContainerImage
-```
-
-輸出：
-
-```none
-Name                 Version                 Description
-----                 -------                 -----------
-NanoServer           10.0.14300.1010         Container OS Image of Windows Server 2016 Techn...
-WindowsServerCore    10.0.14300.1000         Container OS Image of Windows Server 2016 Techn...
-```
-
-若要下載映像，請使用 `Save-ContainerImage` 命令。
-
-```none
-Save-ContainerImage -Name NanoServer -Path c:\container-image
-```
-
-現在可以將下載好的容器映像複製到**離線容器主機**，並使用 `Install-ContainerOSImage` 命令進行安裝。
-
-```none
-Install-ContainerOSImage -WimPath C:\container-image\NanoServer.wim -Force
-```
-
-### 將 OS 映像解除安裝
-
-可使用 `Uninstall-ContainerOSImage` 命令將基本 OS 映像解除安裝。 下列範例會將 NanoServer 基本 OS 映像解除安裝。
-
-```none
-Uninstall-ContainerOSImage -FullName CN=Microsoft_NanoServer_10.0.14304.1003
-```
-
-## 容器映像
 
 ### 列出映像
 
 ```none
 docker images
 
-REPOSITORY             TAG                 IMAGE ID            CREATED              VIRTUAL SIZE
-windowsservercoreiis   latest              ca40b33453f8        About a minute ago   44.88 MB
-windowsservercore      10.0.14300.1000     6801d964fda5        2 weeks ago          0 B
-nanoserver             10.0.14300.1010     8572198a60f1        2 weeks ago          0 B
+REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE
+microsoft/windowsservercore   latest              02cb7f65d61b        9 weeks ago         7.764 GB
+microsoft/nanoserver          latest              3a703c6e97a2        9 weeks ago         969.8 MB
 ```
 
 ### 建立新的映像
@@ -197,7 +83,7 @@ IMAGE               CREATED             CREATED BY          SIZE                
 
 Docker Hub 登錄包含可下載至容器主機上的預先建置映像。 這些映像在下載後，將可作為 Windows 容器應用程式的基底。
 
-若要查看可從 Docker Hub 取得的映像清單，請使用 `docker search` 命令。 請注意，從 Docker Hub 提取這些依存容器映像前，必須先安裝 Windows Server Core 或 Nano Server 基本 OS 映像。
+若要查看可從 Docker Hub 取得的映像清單，請使用 `docker search` 命令。 請注意，從 Docker Hub 提取這些依存容器映像前，必須先安裝 Windows Server Core 或 Nano Server 基礎 OS 映像。
 
 這些映像大部分都具有 Windows Server Core 和 Nano Server 版本。 若要取得特定版本，只需加入 ":windowsservercore" 或 ":nanoserver" 標籤。 根據預設，除非只有 Nano Server 版本可用，否則「最新」標籤會傳回 Windows Server Core 版本。
 
@@ -291,6 +177,6 @@ latest: digest: sha256:ae3a2971628c04d5df32c3bbbfc87c477bb814d5e73e2787900da1322
 
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -4,14 +4,14 @@ description: "在 Nano Server 上部署 Windows 容器"
 keywords: "docker, 容器"
 author: neilpeterson
 manager: timlt
-ms.date: 07/06/2016
+ms.date: 08/23/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: b82acdf9-042d-4b5c-8b67-1a8013fa1435
 translationtype: Human Translation
-ms.sourcegitcommit: fac57150de3ffd6c7d957dd628b937d5c41c1b35
-ms.openlocfilehash: d2f19e96f06ba18ab7e23e62652f569265c6f43f
+ms.sourcegitcommit: 2319649d1dd39677e59a9431fbefaf82982492c6
+ms.openlocfilehash: a79469987879656117812ff6f9563046584172c0
 
 ---
 
@@ -29,22 +29,20 @@ ms.openlocfilehash: d2f19e96f06ba18ab7e23e62652f569265c6f43f
 
 請先從[這個位置](https://msdn.microsoft.com/en-us/virtualization/windowscontainers/nano_eula)下載 Nano Server 評估 VHD。 透過這個 VHD 建立虛擬機器、啟動虛擬機器，並使用 Hyper-V 連線選項 (或依據所使用之虛擬化平台的對等項目) 連接到該虛擬機器。
 
-接下來，您必須設定系統管理密碼。 若要這樣做，請在 Nano Server 修復主控台上按 `F11`。 隨即顯示 [變更密碼] 對話方塊。
-
 ### 建立遠端 PowerShell 工作階段
 
-由於 Nano Server 沒有互動式登入功能，因此所有管理作業都需透過遠端 PowerShell 工作階段來完成。 若要建立遠端工作階段，請使用 Nano Server 修復主控台的網路區段，取得系統的 IP 位址，然後在遠端主機上執行下列命令。 將 IPADDRESS 取代為 Nano Server 系統的實際 IP 位址。
+由於 Nano Server 沒有互動式登入功能，因此所有管理作業都需使用 PowerShell 從遠端系統來完成。
 
-將 Nano Server 系統新增至信任的主機。
+將 Nano Server 系統新增至遠端系統信任的主機。 以 Nano Server 的 IP 位址來取代此 IP 位址。
 
 ```none
-set-item WSMan:\localhost\Client\TrustedHosts IPADDRESS -Force
+Set-Item WSMan:\localhost\Client\TrustedHosts 192.168.1.50 -Force
 ```
 
 建立遠端 PowerShell 工作階段。
 
 ```none
-Enter-PSSession -ComputerName IPADDRESS -Credential ~\Administrator
+Enter-PSSession -ComputerName 192.168.1.50 -Credential ~\Administrator
 ```
 
 完成這些步驟後，您即會進入 Nano Server 系統的遠端 PowerShell 工作階段。 除非另有說明，否則本文件其餘內容皆為透過遠端工作階段來執行。
@@ -74,7 +72,13 @@ Restart-Computer
 
 ## 安裝 Docker
 
-需要先安裝 Docker，才能搭配使用 Windows 容器。 Docker 是由 Docker 引擎及 Docker 用戶端所組成。 使用這些步驟安裝 Docker 引擎與用戶端。
+需要先安裝 Docker 引擎，才能搭配使用 Windows 容器。 請使用下列步驟安裝 Docker 引擎。
+
+首先，確定已經在 Nano Server 防火牆設定 SMB。 在 Nano Server 主機上執行此命令，即可完成此工作。
+
+```none
+Set-NetFirewallRule -Name FPS-SMB-In-TCP -Enabled True
+```
 
 在 Nano Server 上，為 Docker 可執行檔建立一個資料夾。
 
@@ -84,30 +88,34 @@ New-Item -Type Directory -Path $env:ProgramFiles'\docker\'
 
 下載 Docker 引擎及用戶端，然後將其複製到容器主機上的 'C:\Program Files\docker\' 中。 
 
-**注意** - Nano Server 目前不支援 `Invoke-WebRequest`，因此必須從遠端系統完成下載，然後複製到 Nano Server 主機。
+> Nano Server 目前不支援 `Invoke-WebRequest`。 下載必須在遠端系統上完成，並將檔案複製到 Nano Server 主機。
 
 ```none
-Invoke-WebRequest https://aka.ms/tp5/b/dockerd -OutFile .\dockerd.exe
+Invoke-WebRequest "https://get.docker.com/builds/Windows/x86_64/docker-1.12.0.zip" -OutFile .\docker-1.12.0.zip -UseBasicParsing
 ```
 
-下載 Docker 用戶端。
+將下載的封裝解壓縮。 完成後，將會有包含 **dockerd.exe** 與 **docker.exe** 的目錄。 將這兩個檔案複製到 Nano Server 容器主機中的 **C:\Program Files\docker\** 資料夾。 
 
 ```none
-Invoke-WebRequest https://aka.ms/tp5/b/docker -OutFile .\docker.exe
+Expand-Archive .\docker-1.12.0.zip
 ```
 
-下載 Docker 引擎和用戶端之後，請將其複製到 Nano Server 容器主機中的 'C:\Program Files\docker\' 資料夾。 Nano Server 防火牆必須設為允許連入的 SMB 連線。 您可以使用 PowerShell 或 Nano Server 修復主控台來完成這項作業。 
+將 Docker 目錄新增至 Nano Server 上的系統路徑。
+
+> 請務必切換回到遠端 Nano Server 工作階段。
 
 ```none
-Set-NetFirewallRule -Name FPS-SMB-In-TCP -Enabled True
+# for quick use, does not require shell to be restarted
+$env:path += “;C:\program files\docker”
+
+# for persistent use, will apply even after a reboot 
+setx PATH $env:path /M
 ```
 
-現在，您可以使用標準的 SMB 檔案複製方法來複製檔案。
-
-將 dockerd.exe 檔案複製到主機後，請執行此命令以將 Docker 安裝為 Windows 服務。
+將 Docker 安裝為 Windows 服務。
 
 ```none
-& $env:ProgramFiles'\docker\dockerd.exe' --register-service
+dockerd --register-service
 ```
 
 啟動 Docker 服務。
@@ -118,33 +126,15 @@ Start-Service Docker
 
 ## 安裝基礎容器映像
 
-基本 OS 映像可作為任何 Windows Server 或 Hyper-V 容器的基底。 基本 OS 映像可作為 Windows Server Core 和 Nano Server 的基礎作業系統，而且可以使用容器映像提供者加以安裝。 如需 Windows 容器映像的詳細資訊，請參閱[管理容器映像](../management/manage_images.md)。
+基礎 OS 映像可作為任何 Windows Server 或 Hyper-V 容器的基底。 目前已經有以 Windows Server Core 與 Nano Server 做為基礎作業系統的基礎映像，並能使用 `docker pull` 來安裝。 如需 Windows 容器映像的詳細資訊，請參閱[管理容器映像](../management/manage_images.md)。
 
-您可以使用下列命令來安裝容器映像提供者。
-
-```none
-Install-PackageProvider ContainerImage -Force
-```
-
-若要下載並安裝 Nano Server 基本映像，請執行下列命令：
+若要下載並安裝 Nano Server 基礎映像，請執行下列命令：
 
 ```none
-Install-ContainerImage -Name NanoServer
+docker pull microsoft/nanoserver
 ```
 
-**注意：**目前只有 Nano Server 基本映像與 Nano Server 容器主機相容。
-
-重新啟動 Docker 服務。
-
-```none
-Restart-Service Docker
-```
-
-將此 Nano Server 基底映像標記為最新版。
-
-```none
-& $env:ProgramFiles'\docker\docker.exe' tag nanoserver:10.0.14300.1016 nanoserver:latest
-```
+> 目前只有 Nano Server 基礎映像與 Nano Server 容器主機相容。
 
 ## 管理 Nano Server 上的 Docker
 
@@ -155,7 +145,7 @@ Restart-Service Docker
 針對 Docker 連線在容器主機上建立防火牆規則。 如果是不安全的連線，為連接埠 `2375`；安全的連線則為連接埠 `2376`。
 
 ```none
-netsh advfirewall firewall add rule name="Docker daemon " dir=in action=allow protocol=TCP localport=2376
+netsh advfirewall firewall add rule name="Docker daemon " dir=in action=allow protocol=TCP localport=2375
 ```
 
 將 Docker 引擎設為接受透過 TCP 的連入連線。
@@ -180,25 +170,27 @@ Restart-Service docker
 
 ### 準備遠端用戶端
 
-在您要使用的遠端系統上建立目錄，以儲存 Docker 用戶端。
+在您要使用的遠端系統上，下載 Docker 用戶端。
 
 ```none
-New-Item -Type Directory -Path 'C:\Program Files\docker\'
+Invoke-WebRequest "https://get.docker.com/builds/Windows/x86_64/docker-1.12.0.zip" -OutFile "$env:TEMP\docker-1.12.0.zip" -UseBasicParsing
 ```
 
-將 Docker 用戶端下載至這個目錄中。
+將壓縮過的封裝解壓縮。
 
 ```none
-Invoke-WebRequest https://aka.ms/tp5/b/docker -OutFile "$env:ProgramFiles\docker\docker.exe"
+Expand-Archive -Path "$env:TEMP\docker-1.12.0.zip" -DestinationPath $env:ProgramFiles
 ```
 
-將 Docker 目錄加入系統路徑中。
+執行下列兩個命令，以新增 Docker 目錄至系統路徑。
 
 ```none
-$env:Path += ";$env:ProgramFiles\Docker"
-```
+# for quick use, does not require shell to be restarted
+$env:path += ";c:\program files\docker"
 
-重新啟動 PowerShell 或命令工作階段，使其能辨識修改後的路徑。
+# for persistent use, will apply even after a reboot 
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\Docker", [EnvironmentVariableTarget]::Machine)
+```
 
 完成後即可使用 `docker -H` 參數存取遠端 Docker 主機。
 
@@ -238,6 +230,6 @@ Restart-Computer
 ```
 
 
-<!--HONumber=Aug16_HO3-->
+<!--HONumber=Aug16_HO4-->
 
 

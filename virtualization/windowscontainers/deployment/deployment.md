@@ -4,14 +4,14 @@ description: "在 Windows Server 上部署 Windows 容器"
 keywords: "docker, 容器"
 author: neilpeterson
 manager: timlt
-ms.date: 05/26/2016
+ms.date: 08/22/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ba4eb594-0cdb-4148-81ac-a83b4bc337bc
 translationtype: Human Translation
-ms.sourcegitcommit: 6c7ce9f1767c6c6391cc6d33a553216bd815ff72
-ms.openlocfilehash: ce387b29f1bd311c70c17f3e7a98ae4f625bd3c2
+ms.sourcegitcommit: 2319649d1dd39677e59a9431fbefaf82982492c6
+ms.openlocfilehash: b60329a09ea0f119446fa2aa20de68e3edc2b245
 
 ---
 
@@ -59,9 +59,13 @@ Invoke-WebRequest "https://get.docker.com/builds/Windows/x86_64/docker-1.12.0.zi
 Expand-Archive -Path "$env:TEMP\docker-1.12.0.zip" -DestinationPath $env:ProgramFiles
 ```
 
-將 Docker 目錄新增至系統路徑。
+執行下列兩個命令，以新增 Docker 目錄至系統路徑。
 
 ```none
+# for quick use, does not require shell to be restarted
+$env:path += ";c:\program files\docker"
+
+# for persistent use, will apply even after a reboot 
 [Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\Docker", [EnvironmentVariableTarget]::Machine)
 ```
 
@@ -70,7 +74,7 @@ Expand-Archive -Path "$env:TEMP\docker-1.12.0.zip" -DestinationPath $env:Program
 若要將 Docker 安裝為 Windows 服務，請執行下列命令。
 
 ```none
-& $env:ProgramFiles\docker\dockerd.exe --register-service
+dockerd --register-service
 ```
 
 安裝之後，就可以啟動服務。
@@ -79,32 +83,20 @@ Expand-Archive -Path "$env:TEMP\docker-1.12.0.zip" -DestinationPath $env:Program
 Start-Service Docker
 ```
 
-## 安裝基本容器映像
+## 安裝基礎容器映像
 
-必須先下載容器基本 OS 映像，才能部署容器。 下列範例會下載 Windows Server Core 基本 OS 映像。 安裝 Nano Server 基本映像時，也需完成此相同程序。 如需 Windows 容器映像的詳細資訊，請參閱[管理容器映像](../management/manage_images.md)。
+使用 Windows 容器之前，必須先安裝基礎映像。 目前已經有以 Windows Server Core 或 Nano Server 做為基礎作業系統的基礎映像。 如需 Windows 容器映像的詳細資訊，請參閱[管理容器映像](../management/manage_images.md)。
 
-首先，安裝容器映像套件提供者。
+若要安裝 Windows Server Core 基礎映像，請執行下列步驟：
 
 ```none
-Install-PackageProvider ContainerImage -Force
+docker pull microsoft/windowsservercore
 ```
 
-接下來，安裝 Windows Server Core 映像。 此程序可能需要一些時間，因此您可以休息一下，等下載完成後再繼續。
+若要安裝 Nano Server 基礎映像，請執行下列步驟：
 
 ```none
-Install-ContainerImage -Name WindowsServerCore    
-```
-
-基本映像安裝完成後，Docker 服務必須重新啟動。
-
-```none
-Restart-Service docker
-```
-
-最後，此映像必須加上「最新」版本的標籤。 若要這樣做，請執行以下命令。
-
-```none
-docker tag windowsservercore:10.0.14300.1000 windowsservercore:latest
+docker pull microsoft/nanoserver
 ```
 
 ## Hyper-V 容器主機
@@ -139,6 +131,6 @@ Install-WindowsFeature hyper-v
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 
