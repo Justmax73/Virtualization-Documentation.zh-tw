@@ -17,13 +17,13 @@ ms.openlocfilehash: b50c27e723fb8db13adec37d6b969e93d607243e
 
 # Windows 容器文件
 
-Windows 容器所提供的作業系統層級虛擬化，可讓多個隔離的應用程式在單一的系統上執行。 與功能一起隨附的容器執行階段有兩種類型，每一種皆具有不同程度的應用程式隔離。 Windows Server 容器透過命名空間和處理序隔離來完成隔離。 Hyper-V 容器將每個容器封裝在輕量虛擬機器中。 此文件集提供快速入門指南、部署指南和管理作業的技術詳細資料。
+Windows 容器可提供作業系統層級的虛擬化，讓多個隔離的應用程式在單一系統上執行。 此功能包括兩種不同類型的容器執行階段，能提供不同程度的應用程式隔離。 Windows Server 容器會針對命名空間和處理序來實施隔離， 而 Hyper-V 容器則是將各容器封裝於輕量的虛擬機器中。 此文件集提供快速入門指南、部署指南和管理作業的技術詳細資料。
 
 <table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:90%" cellpadding="25" cellspacing="5">
 <tr>
 <td ><center>![](media/try.png)</center></td>
 <td>**快速入門**<br /><br />
-透過使用下列快速入門指南，嘗試使用 Windows Server 和 Hyper-V 容器。<br /><br />
+請試著透過使用下列的快速入門指南來使用 Windows Server 容器和 Hyper-V 容器。<br /><br />
 <ul>
 <li>[1 - 概念與術語](quick_start/quick_start.md)<br /><br /></li>
 <li>[2 - Windows Server 上的容器](quick_start/quick_start_windows_server.md)<br /><br /></li>
@@ -47,7 +47,7 @@ Windows 容器所提供的作業系統層級虛擬化，可讓多個隔離的應
 
 <tr>
 <td ><center>![](media/explore.png)</center></td>
-<td>**Management**<br /><br />
+<td>**管理**<br /><br />
 了解如何在 Windows Server 2016 和 Nano Server 中管理 Windows 容器。<br /><br />
 <ul>
 <li>[管理映像](management/manage_images.md)<br /><br /></li>
@@ -61,7 +61,7 @@ Windows 容器所提供的作業系統層級虛擬化，可讓多個隔離的應
 <tr>
 <td ><center>![](media/video.png)</center></td>
 <td>**觀看**<br /><br />
-對於 Windows 容器小組的示範與訪談感到興趣嗎?<br /><br />
+對於 Windows 容器小組的示範與訪談感到興趣嗎？<br /><br />
 <ul>
 <li>[容器頻道](https://channel9.msdn.com/Blogs/containers)</li>
 </ul>
