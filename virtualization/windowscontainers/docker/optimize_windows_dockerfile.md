@@ -1,7 +1,7 @@
 ---
 title: "將 Windows Dockerfiles 最佳化"
 description: "將 Windows 容器的 Dockerfiles 最佳化。"
-keywords: docker, containers
+keywords: "docker, 容器"
 author: neilpeterson
 manager: timlt
 ms.date: 05/26/2016
@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb2848ca-683e-4361-a750-0d1d14ec8031
 translationtype: Human Translation
-ms.sourcegitcommit: cc216f56acd5e547d05a48beea57450ba5fcb28b
-ms.openlocfilehash: 4822ff2f0248b2d7752299ea55b08e3499e2e2f7
+ms.sourcegitcommit: 7ebd83d5d3a098fc8760f5dfba7e350c3f167232
+ms.openlocfilehash: 19a363aa013b51e0c80d56572de77e94f27e546f
 
 ---
 # 將 Windows Dockerfiles 最佳化
@@ -65,7 +65,7 @@ f0e017e5b088        21 seconds ago       cmd /S /C echo "Hello World - Dockerfil
 
 下列兩個範例將示範相同的作業，這會使容器映像具有相同功能，不過這兩個 Dockerfiles 則是以不同的方式建構。 同時也會對生產出的映像進行比較。  
 
-第一個範例會下載、擷取，並清除 Visual Studio 可轉散發套件。 每個動作都會依自己的 `RUN` 指令執行。
+第一個範例會下載並安裝 Python for Windows，然後移除下載的安裝檔加以清空。 每個動作都會依自己的 `RUN` 指令執行。
 
 ```none
 FROM windowsservercore
@@ -305,6 +305,6 @@ RUN powershell -Command \
 
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Aug16_HO5-->
 
 
