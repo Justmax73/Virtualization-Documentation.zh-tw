@@ -6,24 +6,24 @@
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\windowscontainers\management\manage_data.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/960f523b7ff72bbb1eff6db5172c20b253fc7182/virtualization/windowscontainers/management/manage_data.md) | ArchivedSuccess | [Details](#bd7e6af1dabadce2b89a48b916596849371026a8256)
+ [virtualization\windowscontainers\deployment\deployment_nano.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/939a1b69f159504b998792adb95ccabc326db333/virtualization/windowscontainers/deployment/deployment_nano.md) | ArchivedSuccess | [Details](#538fb27d6170f0a8dab5c189b90040e40c546e14228)
 
 ## Item Details
-##### <a name='bd7e6af1dabadce2b89a48b916596849371026a8256'></a> Source: [virtualization\windowscontainers\management\manage_data.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/960f523b7ff72bbb1eff6db5172c20b253fc7182/virtualization/windowscontainers/management/manage_data.md)
+##### <a name='538fb27d6170f0a8dab5c189b90040e40c546e14228'></a> Source: [virtualization\windowscontainers\deployment\deployment_nano.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/939a1b69f159504b998792adb95ccabc326db333/virtualization/windowscontainers/deployment/deployment_nano.md)
 * Status: ArchivedSuccess
 * Target File: 
-* Handoff File: [manage_data.126a73641d5e96ee6d89d8d64e7ecfbdcacd6929.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/07d554a69b6fc4f1912394452944b603492cd109/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/manage_data.126a73641d5e96ee6d89d8d64e7ecfbdcacd6929.zh-tw.xlf)
-* Handoff Datetime: 2016-09-08 22:11:50
+* Handoff File: [deployment_nano.b4ad903b48200665d4d0c8e4d0956bddc0d52f79.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/7504a7d5f9fc436aded2de884eaef86f22b210fd/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/deployment_nano.b4ad903b48200665d4d0c8e4d0956bddc0d52f79.zh-tw.xlf)
+* Handoff Datetime: 2016-09-12 16:37:58
 * Handoff Reason: Include
-* Archive File: [manage_data.126a73641d5e96ee6d89d8d64e7ecfbdcacd6929.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/6040cc6f602b646d503b36d360a31e33d7053566/ol-archive/Microsoft/Virtualization-Documentation-Private.zh-tw/live/manage_data.126a73641d5e96ee6d89d8d64e7ecfbdcacd6929.zh-tw.xlf)
-* Archive Datetime: 2016-09-09 00:10:31
+* Archive File: [deployment_nano.b4ad903b48200665d4d0c8e4d0956bddc0d52f79.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/f2bae7c5753cadcaeaf4e6474cc576e7c97a9014/ol-archive/Microsoft/Virtualization-Documentation-Private.zh-tw/live/deployment_nano.b4ad903b48200665d4d0c8e4d0956bddc0d52f79.zh-tw.xlf)
+* Archive Datetime: 2016-09-13 00:13:54
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\windowscontainers\management\manage_data.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/3dcdb95022587fcb8551778c23269a2839fa349f/virtualization/windowscontainers/management/manage_data.md)
-* Current Handback File: [manage_data.126a73641d5e96ee6d89d8d64e7ecfbdcacd6929.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/4ae4bca9c5c751acbb55511f8d1749df7cee9337/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/manage_data.126a73641d5e96ee6d89d8d64e7ecfbdcacd6929.zh-tw.xlf)
-* Current Handback Datetime: 2016-07-22 01:53:45
-* Bilingual File: [manage_data.126a73641d5e96ee6d89d8d64e7ecfbdcacd6929.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/4ae4bca9c5c751acbb55511f8d1749df7cee9337/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/manage_data.126a73641d5e96ee6d89d8d64e7ecfbdcacd6929.zh-tw.xlf)
-* Bilingual Datetime: 2016-07-22 01:55:06
+* Current Target File: [virtualization\windowscontainers\deployment\deployment_nano.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/b92d5a97093a51946c40da4b9e35a64ba87b8bae/virtualization/windowscontainers/deployment/deployment_nano.md)
+* Current Handback File: [deployment_nano.b4ad903b48200665d4d0c8e4d0956bddc0d52f79.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/9b23bea80d9c8dae754895a49aa3dd073fabe0f4/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/deployment_nano.b4ad903b48200665d4d0c8e4d0956bddc0d52f79.zh-tw.xlf)
+* Current Handback Datetime: 2016-09-07 21:28:03
+* Bilingual File: [deployment_nano.b4ad903b48200665d4d0c8e4d0956bddc0d52f79.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/9b23bea80d9c8dae754895a49aa3dd073fabe0f4/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/deployment_nano.b4ad903b48200665d4d0c8e4d0956bddc0d52f79.zh-tw.xlf)
+* Bilingual Datetime: 2016-09-07 21:28:51
 * [Back to Top](#report-top)
 
 
