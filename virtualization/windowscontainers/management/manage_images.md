@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: d8163185-9860-4ee4-9e96-17b40fb508bc
 translationtype: Human Translation
-ms.sourcegitcommit: 7b5cf299109a967b7e6aac839476d95c625479cd
-ms.openlocfilehash: 8b9ec6370d1f9f9187fbb6d74168e9e88391b657
+ms.sourcegitcommit: eccce83d7e376be592694162f54ccb67be9d3c12
+ms.openlocfilehash: bb99d0c15d6d1dd9e126fde05207431153b4f94a
 
 ---
 
@@ -19,7 +19,7 @@ ms.openlocfilehash: 8b9ec6370d1f9f9187fbb6d74168e9e88391b657
 
 **這是初版內容，後續可能會變更。** 
 
->Windows 容器是以 Docker 來管理。 Windows 容器文件為 [docker.com](https://www.docker.com/) 上文件的補充文件。
+>Windows 容器是以 Docker 來管理。 Windows 容器文件為 [docs.docker.com](https://docs.docker.com/) 上文件的補充文件。
 
 容器映像可用來部署容器。 這些映像可包含應用程式和所有的應用程式相依性。 例如，您可以開發已預先設定 Nano Server、IIS 和執行於 IIS 之應用程式的容器映像。 接著，此容器映像可儲存在容器登錄中供後續使用、部署在任何 Windows 容器主機上 (內部部署、雲端，甚至是容器服務)，也可以作為新容器映像的基底。
 
@@ -177,6 +177,6 @@ latest: digest: sha256:ae3a2971628c04d5df32c3bbbfc87c477bb814d5e73e2787900da1322
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO1-->
 
 
