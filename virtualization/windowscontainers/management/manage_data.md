@@ -1,7 +1,7 @@
 ---
 title: "容器的資料磁碟區"
 description: "使用 Windows 容器建立和管理資料磁碟區。"
-keywords: docker, containers
+keywords: "docker, 容器"
 author: neilpeterson
 manager: timlt
 ms.date: 05/02/2016
@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: f5998534-917b-453c-b873-2953e58535b1
 translationtype: Human Translation
-ms.sourcegitcommit: 493b669bc47fc589486a82cfea73a0bb1e88cf79
-ms.openlocfilehash: 26c010e79a4913b2e138f6d1d78f9406dbacbc6b
+ms.sourcegitcommit: 08f893b646046d18def65602eb926bc0ea211804
+ms.openlocfilehash: a175091c943cf596b2a810245b1b73b8baddb0c6
 
 ---
 
@@ -49,29 +49,17 @@ docker run -it -v c:\source:c:\destination windowsservercore cmd
 
 ### 掛接單一檔案
 
-可以藉由明確指定檔案名稱，將單一檔案掛接至容器中。 在此範例中，共用的目錄包含許多檔案，不過只有 'config.ini' 檔案可供在容器內使用。 
+單一檔案無法掛接至 Windows 容器。 執行下列命令並不會失敗，但是產生的容器不會包含檔案。 
 
 ```none
-docker run -it -v c:\container-share\config.ini windowsservercore cmd
+docker run -it -v c:\config\config.ini microsoft/windowsservercore cmd
 ```
 
-在執行的容器中，只會顯示 config.ini 檔案。
+因應措施：任何要掛接至容器的檔案，都需要從目錄進行掛接。
 
 ```none
-c:\container-share>dir
- Volume in drive C has no label.
- Volume Serial Number is 7CD5-AC14
-
- Directory of c:\container-share
-
-04/04/2016  12:53 PM    <DIR>          .
-04/04/2016  12:53 PM    <DIR>          ..
-04/04/2016  12:53 PM    <SYMLINKD>     config.ini
-               0 File(s)              0 bytes
-               3 Dir(s)  21,184,208,896 bytes free
+docker run -it -v c:\config:c:\config microsoft/windowsservercore cmd
 ```
-
-如需有關掛接單一檔案的詳細資訊，請參閱 [Manage data in containers on docker.com](https://docs.docker.com/engine/userguide/containers/dockervolumes/#mount-a-host-directory-as-a-data-volume) (docker.com 上管理容器中的資料)。
 
 ### 裝載完整的磁碟機
 
@@ -125,6 +113,6 @@ docker inspect backstabbing_kowalevski
 
 
 
-<!--HONumber=Jul16_HO3-->
+<!--HONumber=Sep16_HO1-->
 
 
