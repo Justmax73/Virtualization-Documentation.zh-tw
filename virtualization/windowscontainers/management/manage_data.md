@@ -9,9 +9,10 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: f5998534-917b-453c-b873-2953e58535b1
+redirect_url: https://docs.docker.com/engine/tutorials/dockervolumes/
 translationtype: Human Translation
-ms.sourcegitcommit: 08f893b646046d18def65602eb926bc0ea211804
-ms.openlocfilehash: a175091c943cf596b2a810245b1b73b8baddb0c6
+ms.sourcegitcommit: 59626096d428072dec098c7817e2d6b39c10e9cf
+ms.openlocfilehash: 60dc25d879b5c8de6515899d9de9e920a08b7e62
 
 ---
 
@@ -63,10 +64,10 @@ docker run -it -v c:\config:c:\config microsoft/windowsservercore cmd
 
 ### 裝載完整的磁碟機
 
-您可以使用類似下列所示的命令裝載完整的磁碟機。 請注意不要加入反斜線。
+您可以使用類似下列所示的命令裝載完整的磁碟機。
 
 ```none
-docker run -it -v d: windowsservercore cmd
+docker run -it -v d:\:d: windowsservercore cmd
 ```
 
 此處無法執行裝載第二部磁碟機的步驟。 例如無法執行下列作業。
@@ -113,6 +114,6 @@ docker inspect backstabbing_kowalevski
 
 
 
-<!--HONumber=Sep16_HO1-->
+<!--HONumber=Sep16_HO2-->
 
 
