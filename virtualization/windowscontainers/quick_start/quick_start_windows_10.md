@@ -10,16 +10,16 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
 translationtype: Human Translation
-ms.sourcegitcommit: 39e480b8bf3f90cfe9b7d4d17141b9dbec5f93e5
-ms.openlocfilehash: 78c67351f3e5606b8225c71d221a871e58530e57
+ms.sourcegitcommit: 16630b534367791114a4844c3c1f582f13d09d6d
+ms.openlocfilehash: 02b4e01e404fe5ab3a6fadbb3481c741cb4aa563
 
 ---
 
 # Windows 10 上的 Windows 容器
 
-**這是初版內容，後續可能會變更。** 
+**這是初版內容，後續可能會變更。**
 
-本練習將逐步引導您了解 Windows 10 Professional 或 Enterprise (Anniversary Edition) 上 Windows 容器功能的基本部署與使用。 完成之後，您將會安裝容器角色，並部署簡單的 Hyper-V 容器。 開始本快速入門之前，請先熟悉基本的容器概念與術語。 這項資訊可在[快速入門簡介](./quick_start.md)中找到。 
+本練習將逐步引導您了解 Windows 10 Professional 或 Enterprise (Anniversary Edition) 上 Windows 容器功能的基本部署與使用。 完成之後，您將會安裝容器角色，並部署簡單的 Hyper-V 容器。 開始本快速入門之前，請先熟悉基本的容器概念與術語。 這項資訊可在[快速入門簡介](./quick_start.md)中找到。
 
 本快速入門是針對 Windows 10 上的 Hyper-V 容器。 在此頁面左側的目錄中，可以找到其他的快速入門文件。
 
@@ -30,7 +30,7 @@ ms.openlocfilehash: 78c67351f3e5606b8225c71d221a871e58530e57
 
 ## 1.安裝容器功能
 
-容器功能必須先啟用，才能使用 Windows 容器。 要這麼做，請在提高權限的 PowerShell 工作階段中執行下列命令。 
+容器功能必須先啟用，才能使用 Windows 容器。 要這麼做，請在提高權限的 PowerShell 工作階段中執行下列命令。
 
 ```none
 Enable-WindowsOptionalFeature -Online -FeatureName containers -All
@@ -48,7 +48,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 Restart-Computer -Force
 ```
 
-備份之後，請執行下列命令，以修正 Windows Containers Technical Preview 的已知問題。  
+備份之後，請執行下列命令修正 Windows 10 中 Windows 容器的已知問題。  
 
  ```none
 Set-ItemProperty -Path 'HKLM:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\Containers' -Name VSmbDisableOplocks -Type DWord -Value 1 -Force
@@ -58,7 +58,7 @@ Set-ItemProperty -Path 'HKLM:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtua
 
 ## 2.安裝 Docker
 
-需要先安裝 Docker，才能搭配使用 Windows 容器。 Docker 是由 Docker 引擎及 Docker 用戶端所組成。 針對此練習，兩者都會安裝。 若要這樣做，請執行以下命令。 
+需要先安裝 Docker，才能搭配使用 Windows 容器。 Docker 是由 Docker 引擎及 Docker 用戶端所組成。 針對此練習，兩者都會安裝。 若要這樣做，請執行以下命令。
 
 下載 Docker 引擎與用戶端的 zip 封存。
 
@@ -78,7 +78,7 @@ Expand-Archive -Path "$env:TEMP\docker-1.13.0-dev.zip" -DestinationPath $env:Pro
 # For quick use, does not require shell to be restarted.
 $env:path += ";c:\program files\docker"
 
-# For persistent use, will apply even after a reboot. 
+# For persistent use, will apply even after a reboot.
 [Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\Docker", [EnvironmentVariableTarget]::Machine)
 ```
 
@@ -100,7 +100,7 @@ Start-Service Docker
 
 會從範本或映像部署 Windows 容器。 必須先下載容器基礎 OS 映像，才能部署容器。 下列命令會下載 Nano Server 基礎映像。
 
-提取 Nano Server 基礎映像。 
+提取 Nano Server 基礎映像。
 
 ```none
 docker pull microsoft/nanoserver
@@ -163,7 +163,8 @@ docker images
 docker run --rm helloworld powershell c:\helloworld.ps1
 ```
 
-`docker run` 命令的結果，在從 'HelloWorld’ 映像建立 Hyper-V 容器，接著執行範例 'HelloWorld’ 指令碼 (將輸出傳送到殼層)，然後停止容器並加以移除。 後續的 Windows 10 及容器快速啟動將會深入探究在 Windows 10 上的容器中建立及部署應用程式。
+`docker run` 命令的結果，在從 'HelloWorld’ 映像建立 Hyper-V 容器，接著執行範例 'HelloWorld’ 指令碼 (將輸出傳送到殼層)，然後停止容器並加以移除。
+後續的 Windows 10 及容器快速啟動將會深入探究在 Windows 10 上的容器中建立及部署應用程式。
 
 ## 後續步驟
 
@@ -171,8 +172,6 @@ docker run --rm helloworld powershell c:\helloworld.ps1
 
 
 
-
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

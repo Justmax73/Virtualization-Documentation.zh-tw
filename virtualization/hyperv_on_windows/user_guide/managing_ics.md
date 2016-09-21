@@ -1,7 +1,7 @@
 ---
 title: "管理 Hyper-V 整合服務"
 description: "管理 Hyper-V 整合服務"
-keywords: windows 10, hyper-v, integration services, integration components
+keywords: "windows 10, hyper-v, 整合服務, 整合元件"
 author: scooley
 manager: timlt
 ms.date: 05/02/2016
@@ -10,8 +10,8 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 9cafd6cb-dbbe-4b91-b26c-dee1c18fd8c2
 translationtype: Human Translation
-ms.sourcegitcommit: 852f7fafe7192d85b0e9840ea3767a1206a1c285
-ms.openlocfilehash: e7abf05c899e2acca07312813b7808a5db00a9f7
+ms.sourcegitcommit: 22d29dbde56319a2a9d7fbc8afd041d1dc224101
+ms.openlocfilehash: 0779ef5b3f83bcf99f5681c13d445bcd33720dc6
 
 ---
 
@@ -32,7 +32,9 @@ ms.openlocfilehash: e7abf05c899e2acca07312813b7808a5db00a9f7
   
   ![](./media/HyperVManager-IntegrationServices.png)
   
-  這裡您會看到此 Hyper-V 主機上所有可用的整合服務。  值得注意的是，客體作業系統不一定會支援所有列出的整合服務。
+  這裡您會看到此 Hyper-V 主機上所有可用的整合服務。  值得注意的是，客體作業系統不一定會支援所有列出的整合服務。 若要判斷客體作業系統的版本資訊，請登入客體作業系統，然後從命令提示字元執行下列命令。
+
+REG QUERY "HKLM\Software\Microsoft\Virtual Machine\Auto" /v IntegrationServicesVersion
 
 ## 使用 PowerShell 啟用或停用整合服務
 
@@ -272,6 +274,6 @@ sudo hv_kvp_daemon
 
 
 
-<!--HONumber=Jul16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 
