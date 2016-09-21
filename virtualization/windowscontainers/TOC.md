@@ -14,17 +14,11 @@
 ## [容器主機 - Nano Server](deployment/deployment_nano.md)
 ## [防毒程式最佳化](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
 
-# Windows 上的 Docker
+# 在 Windows 上管理 Docker
 ## [Windows 上的 Docker 引擎](docker/configure_docker_daemon.md)
 ## [Windows 上的 Dockerfiles](docker/manage_windows_dockerfile.md)
 ## [最佳化 Dockerfiles](docker/optimize_windows_dockerfile.md)
-
-# 管理 Windows 容器
-## [Hyper-V 容器](management/hyperv_container.md)
-## [容器映像](management/manage_images.md)
 ## [容器的網路功能](management/container_networking.md)
-## [容器的資料磁碟區](management/manage_data.md)
-## [容器資源控制](management/manage_resources.md)
 
 # 範例容器
 ## [Dockerfiles - Windows Server Core](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/windowsservercore)
@@ -38,6 +32,6 @@
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO2-->
 
 

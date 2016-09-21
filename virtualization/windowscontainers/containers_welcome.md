@@ -1,7 +1,7 @@
 ---
 title: "Windows 容器文件"
 description: "Windows 容器文件"
-keywords: docker, containers
+keywords: "docker, 容器"
 author: neilpeterson
 manager: timlt
 ms.date: 05/02/2016
@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 74c9d604-0915-4d89-bc69-0263b76bc66b
 translationtype: Human Translation
-ms.sourcegitcommit: 9070126c8cc944f9db0f8bacee8dbf135a3a23db
-ms.openlocfilehash: b50c27e723fb8db13adec37d6b969e93d607243e
+ms.sourcegitcommit: 59626096d428072dec098c7817e2d6b39c10e9cf
+ms.openlocfilehash: 2c9821ef7ac414640790b3cfdb7fd457710a67f4
 
 ---
 
@@ -40,24 +40,25 @@ Windows 容器可提供作業系統層級的虛擬化，讓多個隔離的應用
 <li>[系統需求](deployment/system_requirements.md)<br /><br /></li>
 <li>[部署容器主機 - Windows Server](deployment/deployment.md)<br /><br /></li>
 <li>[部署容器主機 - Nano Server](deployment/deployment_nano.md)<br /><br /></li>
-
+<li>[防毒程式最佳化](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)<br /><br /></li>
 </ul>
 </td>
 </tr>
 
 <tr>
 <td ><center>![](media/explore.png)</center></td>
-<td>**管理**<br /><br />
-了解如何在 Windows Server 2016 和 Nano Server 中管理 Windows 容器。<br /><br />
+<td>**Windows 上的 Docker**<br /><br />
+了解如何在 Windows 上管理 Docker。<br /><br />
 <ul>
-<li>[管理映像](management/manage_images.md)<br /><br /></li>
-<li>[管理網路功能](management/container_networking.md)<br /><br /></li>
+<li>[Windows 上的 Docker 引擎](docker/configure_docker_daemon.md)<br /><br /></li>
+<li>[Windows 上的 Dockerfiles](docker/manage_windows_dockerfile.md)<br /><br /></li>
 <li>[管理容器資料](management/manage_data.md)<br /><br /></li>
-<li>[管理 Hyper-V 容器](management/hyperv_container.md)<br /><br /></li>
-<li>[管理容器資源](management/manage_resources.md)<br /><br /></li>
+<li>[最佳化 Dockerfiles](docker/optimize_windows_dockerfile.md)<br /><br /></li>
+<li>[容器的網路功能](management/container_networking.md)<br /><br /></li>
 </ul>
 </td>
 </tr>
+
 <tr>
 <td ><center>![](media/video.png)</center></td>
 <td>**觀看**<br /><br />
@@ -68,6 +69,7 @@ Windows 容器可提供作業系統層級的虛擬化，讓多個隔離的應用
 <br />
 </td>
 </tr>
+
 <tr>
 <td ><center>![](media/question.png)</center></td>
 <td>**社群**<br /><br />
@@ -82,6 +84,6 @@ Windows 容器可提供作業系統層級的虛擬化，讓多個隔離的應用
 
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Sep16_HO2-->
 
 
