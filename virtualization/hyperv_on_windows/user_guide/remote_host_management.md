@@ -10,8 +10,8 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 2d34e98c-6134-479b-8000-3eb360b8b8a3
 translationtype: Human Translation
-ms.sourcegitcommit: c73e1fa48b21a4daf2821ba3aae756d9a46e9f94
-ms.openlocfilehash: 3fbcdb7b93941a0ccc1cdbe659e70f3881b9d0cd
+ms.sourcegitcommit: e0d957ebb953f1e5b3e56de9764c7c3e560024c1
+ms.openlocfilehash: 852800b19fb39737f0d7104eb2d50521b6cca982
 
 ---
 
@@ -21,7 +21,7 @@ Hyper-V 管理員是內建工具，可以診斷及管理本機 Hyper-V 主機和
 
 > 在[任何包含 Hyper-V 的 Windows OS](../quick_start/walkthrough_compatibility.md#OperatingSystemRequirements) 上，可透過 **[程式和功能]** 的 **[Hyper-V 管理工具]**，取得 Hyper-V 管理員。  Hyper-V 平台不需要啟用，即能管理遠端主機。
 
-若要在 Hyper-V 管理員中連線到 Hyper-V 主機，請確定已選取左窗格的 **[Hyper-V 管理員]**，然後選取右窗格的 **[連線到伺服器...]**。
+若要連線到 Hyper-V 管理員中的 Hyper-V 主機，請務必在左窗格中選取 [Hyper-V 管理員]，然後再選取右窗格中的 [連線到伺服器]。
 
 ![](media/HyperVManager-ConnectToHost.png)
 
@@ -60,7 +60,7 @@ Windows Vista 及 Windows Server 2008 中的 Hyper-V 管理員可讓您管理：
 如果無法建立連線：
 *  請確定已啟用「Hyper-V 平台」角色。  
   請參閱[檢查相容性的逐步解說](../quick_start/walkthrough_compatibility.md)一節，以了解是否支援 Hyper-V。
-*  請確認您的使用者帳戶屬於「Hyper-V 系統管理員」群組的一員。
+*  請確認您的使用者帳戶為「Hyper-V 系統管理員」群組的成員。
 
 
 ## 管理相同的網域中的另一部 Hyper-V 主機 ##
@@ -99,7 +99,7 @@ Windows 10 大幅擴充遠端連線類型的可能組合。
 ### 使用 IP 位址連線至遠端主機
 > 只有在連線到 Windows 10 或 Server 2016 Technical Preview 3 或更新版本的遠端主機時，才能使用此功能
 
-有時候使用 IP 位址連線會比使用主機名稱連線容易。Windows 10 也提供這項彈性。
+有時候使用 IP 位址進行連線比用主機名稱更容易。 Windows 10 允許您這麼做。
 
 若要使用 IP 位址連線，請在 **[另一台電腦]** 文字欄位中，輸入 IP 位址。
 
@@ -107,7 +107,7 @@ Windows 10 大幅擴充遠端連線類型的可能組合。
 ## 管理網域外 (或沒有網域) 的 Hyper-V 主機 ##
 > 只有在連線到 Windows 10 或 Server 2016 Technical Preview 3 或更新版本的遠端主機時，才能使用此功能
 
-在要管理的 Hyper-V 主機上，以系統管理員身分執行下列命令：
+以系統管理員身分，在要管理的 Hyper-V 主機上執行下列命令：
 
 1.  [Enable-PSRemoting](https://technet.microsoft.com/en-us/library/hh849694.aspx)
   * [Enable-PSRemoting](https://technet.microsoft.com/en-us/library/hh849694.aspx) 會為*私人*網路區域建立必要的防火牆規則。 若要在公用區域上允許這項存取，您必須啟用 CredSSP 和 WinRM 的這條規則。
@@ -115,15 +115,10 @@ Windows 10 大幅擴充遠端連線類型的可能組合。
 
 在管理電腦上，以系統管理員身分執行下列命令：
 
-1. Set-Item WSMan:\localhost\Client\TrustedHosts -value "fqdn-of-hyper-v-host"
-  * 或者，您可以透過以下命令讓所有主機受信任以進行管理：
-  * Set-Item WSMan:\localhost\Client\TrustedHosts -value * -force
+1. Set-Item WSMan:\localhost\Client\TrustedHosts -Value "fqdn-of-hyper-v-host"
 2. [Enable-WSManCredSSP](https://technet.microsoft.com/en-us/library/hh849872.aspx) -Role client -DelegateComputer "fqdn-of-hyper-v-host"
-  * 或者，您可以透過以下命令讓所有主機受信任以進行管理：
-  * [Enable-WSManCredSSP](https://technet.microsoft.com/en-us/library/hh849872.aspx) -Role client -DelegateComputer *
 3. 此外，您還需要設定下列群組原則：**電腦設定 |系統管理範本 |系統 |認證委派 |允許使用僅限 NTLM 伺服器驗證的新認證**
     * 按一下 **[啟用]**，並新增 *wsman/fqdn-of-hyper-v-host*
-    * 或者，您可以新增 _wsman/*_，讓所有主機受信任以進行管理：
 
 
 
