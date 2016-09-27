@@ -1,7 +1,7 @@
 ---
 title: "Windows 容器快速入門"
 description: "Windows 容器快速入門。"
-keywords: docker, containers
+keywords: "docker, 容器"
 author: neilpeterson
 manager: timlt
 ms.date: 05/26/2016
@@ -10,14 +10,12 @@ ms.prod: windows-contianers
 ms.service: windows-containers
 ms.assetid: 4878f5d2-014f-4f3c-9933-97f03348a147
 translationtype: Human Translation
-ms.sourcegitcommit: 4ea609a6e4636e53cc8632bb700e37ba58f3cc72
-ms.openlocfilehash: c0176d4f5445263a5fd522a80ce2a9dca7ac90e6
+ms.sourcegitcommit: f721639b1b10ad97cc469df413d457dbf8d13bbe
+ms.openlocfilehash: f795cfde1174a62b85aefd58c6bd07e81e196718
 
 ---
 
 # Windows 容器快速入門
-
-**這是初版內容，後續可能會變更。** 
 
 Windows 容器快速入門會介紹產品和容器術語、逐步說明簡單的容器部署範例，也提供更進階主題的參考。 如果您不熟悉容器或 Windows 容器，逐步檢視本快速入門中的每個步驟將提供您實際操作技術的體驗。
 
@@ -60,6 +58,6 @@ Windows 容器包含兩種不同的容器類型，或執行階段。
 
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Sep16_HO4-->
 
 

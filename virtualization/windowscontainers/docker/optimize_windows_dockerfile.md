@@ -10,13 +10,11 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb2848ca-683e-4361-a750-0d1d14ec8031
 translationtype: Human Translation
-ms.sourcegitcommit: 7ebd83d5d3a098fc8760f5dfba7e350c3f167232
-ms.openlocfilehash: 19a363aa013b51e0c80d56572de77e94f27e546f
+ms.sourcegitcommit: f721639b1b10ad97cc469df413d457dbf8d13bbe
+ms.openlocfilehash: 59f096ce914e0f1cbee5678b7db980297ca89364
 
 ---
 # 將 Windows Dockerfiles 最佳化
-
-**這是初版內容，後續可能會變更。** 
 
 有數種方法可用來將 Docker 建置流程及產生的 Docker 映像最佳化。 本文件詳述 Docker 建置流程的運作方式，並示範幾種可用來將映像建立與 Windows 容器最佳化的策略。
 
@@ -305,6 +303,6 @@ RUN powershell -Command \
 
 
 
-<!--HONumber=Aug16_HO5-->
+<!--HONumber=Sep16_HO4-->
 
 
