@@ -10,8 +10,8 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 68c65445-ce13-40c9-b516-57ded76c1b15
 translationtype: Human Translation
-ms.sourcegitcommit: 4eb3e733990ca86f28620e23bf408ff71b879173
-ms.openlocfilehash: c94b7f2c9c90eaf2834a1d0c54fb1f9b2a8f9669
+ms.sourcegitcommit: 6f003c6e78fb6a0977f30611b7da135a30268f51
+ms.openlocfilehash: 46c43a38dc3a3ee56ac3136cda60c41019cc733d
 
 ---
 
@@ -30,8 +30,9 @@ ms.openlocfilehash: c94b7f2c9c90eaf2834a1d0c54fb1f9b2a8f9669
 
 1. 建立虛擬機器。 如需了解所需的 OS 及 VM 版本，請參閱上列必要條件。
 2. 當虛擬機器為「關閉」狀態時，請對實體 HYPER-V 主機執行下列命令。 這可巢狀虛擬化虛擬機器。
+
 ```none
-    Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $true
+Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $true
 ```
 3. 啟動虛擬機器。
 4. 一如在實體主機中，在虛擬機器上安裝 HYPER-V。 如需如何安裝 Hyper-V 的詳細資訊，請參閱 [安裝 Hyper-V]( https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/quick_start/walkthrough_install)。
@@ -79,6 +80,6 @@ HYPER-V 虛擬機器不支援 HYPER-V 以外的虛擬化應用程式，而且可
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 
