@@ -1,11 +1,28 @@
 # <a name='report-top'></a> Localization Handback Report
 
 ## Summary
- Total Files | 0
+ Total Files | 1
 
 ## File List
+ Source File | Status | Details 
+ ----------- | ------ | ------- 
+ [virtualization\hyperv_on_windows\user_guide\nesting.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/6f003c6e78fb6a0977f30611b7da135a30268f51/virtualization/hyperv_on_windows/user_guide/nesting.md) | InSyncHandedBackSuccess | [Details](#46c43a38dc3a3ee56ac3136cda60c41019cc733d205)
 
 ## Item Details
+##### <a name='46c43a38dc3a3ee56ac3136cda60c41019cc733d205'></a> Source: [virtualization\hyperv_on_windows\user_guide\nesting.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/6f003c6e78fb6a0977f30611b7da135a30268f51/virtualization/hyperv_on_windows/user_guide/nesting.md)
+* Status: InSyncHandedBackSuccess
+* Target File: [virtualization\hyperv_on_windows\user_guide\nesting.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/026e55e0f74b98ba6904f086b8dac641c1c62f8e/virtualization/hyperv_on_windows/user_guide/nesting.md)
+* Handoff File: [nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/60a569465958c0750e90e152db93563f876fa62b/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.zh-tw.xlf)
+* Handoff Datetime: 2016-09-27 19:07:34
+* Handoff Reason: Include
+* Archive File: [nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/4031b47916c93533936145193a20e2648b85f9a7/ol-archive/Microsoft/Virtualization-Documentation-Private.zh-tw/live/nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.zh-tw.xlf)
+* Archive Datetime: 2016-09-29 00:17:11
+* Handback File: [nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/ec2af5d1659b101b8ddbd5d5f0ae3a4f98945c93/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.zh-tw.xlf)
+* Handback Datetime: 2016-09-29 05:42:41
+* Bilingual File: [nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/c0cdb8f9b17872cff4bddb06dfce90ebc7268adc/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.zh-tw.xlf)
+* Bilingual Datetime: 2016-09-21 03:02:25
+* [Back to Top](#report-top)
+
 
 ## Error Details
 
