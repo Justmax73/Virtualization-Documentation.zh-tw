@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 74c9d604-0915-4d89-bc69-0263b76bc66b
 translationtype: Human Translation
-ms.sourcegitcommit: 59626096d428072dec098c7817e2d6b39c10e9cf
-ms.openlocfilehash: 2c9821ef7ac414640790b3cfdb7fd457710a67f4
+ms.sourcegitcommit: f721639b1b10ad97cc469df413d457dbf8d13bbe
+ms.openlocfilehash: 1ee40d330234f8800ba73d0c4abe36859cfa2989
 
 ---
 
@@ -23,12 +23,16 @@ Windows 容器可提供作業系統層級的虛擬化，讓多個隔離的應用
 <tr>
 <td ><center>![](media/try.png)</center></td>
 <td>**快速入門**<br /><br />
-請試著透過使用下列的快速入門指南來使用 Windows Server 容器和 Hyper-V 容器。<br /><br />
+Windows Server 快速入門<br /><br />
 <ul>
-<li>[1 - 概念與術語](quick_start/quick_start.md)<br /><br /></li>
-<li>[2 - Windows Server 上的容器](quick_start/quick_start_windows_server.md)<br /><br /></li>
-<li>[3 - Windows Server 上的容器映像](quick_start/quick_start_images.md)<br /><br /></li>
-<li>[4 - Windows 10 上的容器](quick_start/quick_start_windows_10.md)<br /><br /></li>
+<li>[步驟 1 - 概念與術語](quick_start/quick_start.md)<br /><br /></li>
+<li>[步驟 2 - 設定 Windows Server 與第一個容器](quick_start/quick_start_windows_server.md)<br /><br /></li>
+<li>[步驟 3 - 建立與推送容器映像](quick_start/quick_start_images.md)<br /><br /></li>
+</ul>
+Windows 10 快速入門<br /><br />
+<ul>
+<li>[步驟 1 - 概念與術語](quick_start/quick_start.md)<br /><br /></li>
+<li>[步驟 2 - 設定 Windows 10 與第一個容器](quick_start/quick_start_windows_10.md)<br /><br /></li>
 </ul>
 </td>
 </tr>
@@ -84,6 +88,6 @@ Windows 容器可提供作業系統層級的虛擬化，讓多個隔離的應用
 
 
 
-<!--HONumber=Sep16_HO2-->
+<!--HONumber=Sep16_HO4-->
 
 
