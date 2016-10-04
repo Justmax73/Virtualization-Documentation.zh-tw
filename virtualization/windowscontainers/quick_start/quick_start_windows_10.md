@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
 translationtype: Human Translation
-ms.sourcegitcommit: f721639b1b10ad97cc469df413d457dbf8d13bbe
-ms.openlocfilehash: 1bc3d9c5094eb5b30f2845c83b9842079edc22c4
+ms.sourcegitcommit: 0fae34a5a85678a25c47b0312650e67aa6cd7efd
+ms.openlocfilehash: 74686f222e8eec1daacd45a9e388d94abf6381f4
 
 ---
 
@@ -25,6 +25,8 @@ ms.openlocfilehash: 1bc3d9c5094eb5b30f2845c83b9842079edc22c4
 
 - 執行 Windows 10 年度版 (專業版或企業版) 的一部實體電腦系統。   
 - 本快速入門可以在 Windows 10 虛擬機器上執行，但是需要啟用巢狀虛擬化。 [巢狀虛擬化指南](https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/user_guide/nesting)中可以找到詳細資訊。
+
+> Windows 容器功能需要重大更新才能運作。 請先安裝所有更新，再循序完成本教學課程。
 
 ## 1.安裝容器功能
 
@@ -164,6 +166,6 @@ docker run --rm helloworld powershell c:\helloworld.ps1
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Sep16_HO5-->
 
 
