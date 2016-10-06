@@ -21,6 +21,7 @@
 ## [Windows 上的 Dockerfiles](docker/manage_windows_dockerfile.md)
 ## [最佳化 Dockerfiles](docker/optimize_windows_dockerfile.md)
 ## [容器的網路功能](management/container_networking.md)
+## [透過 PowerShell 管理 Docker](https://github.com/Microsoft/Docker-PowerShell)
 
 # 範例容器
 ## [Dockerfiles - Windows Server Core](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/windowsservercore)
@@ -32,6 +33,6 @@
 # [容器 OS 映像授權條款](Images_EULA.md)
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 
