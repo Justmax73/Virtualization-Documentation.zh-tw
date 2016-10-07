@@ -1,29 +1,42 @@
 # <a name='report-top'></a> Localization Archive Report
 
 ## Summary
- Total Files | 1
+ Total Files | 2
 
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\windowscontainers\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/055f90709bd814684bbbdcecb98444f025e8a9bf/virtualization/windowscontainers/TOC.md) | ArchivedSuccess | [Details](#6337f860aaad43a9bc5e9939442a447033ecce2b311)
+ [virtualization\windowscontainers\samples.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/c483c7722355093e50d1c8a9856f04ef4aabf0a1/virtualization/windowscontainers/samples.md) | ArchivedSuccess | [Details](#5a407d00cd11df6c65c979ee283c94a9cc5bf746311)
+ [virtualization\windowscontainers\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/7039bb010c58f364d774dfb1d50a8df4e99f63b3/virtualization/windowscontainers/TOC.md) | ArchivedSuccess | [Details](#e5807f86034da2a6e63a20cc6ee40f0c07b4a3d0312)
 
 ## Item Details
-##### <a name='6337f860aaad43a9bc5e9939442a447033ecce2b311'></a> Source: [virtualization\windowscontainers\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/055f90709bd814684bbbdcecb98444f025e8a9bf/virtualization/windowscontainers/TOC.md)
+##### <a name='5a407d00cd11df6c65c979ee283c94a9cc5bf746311'></a> Source: [virtualization\windowscontainers\samples.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/c483c7722355093e50d1c8a9856f04ef4aabf0a1/virtualization/windowscontainers/samples.md)
 * Status: ArchivedSuccess
 * Target File: 
-* Handoff File: [TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/a36de9ee722244e0e29f8e70d6d1f6ce654a8645/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.zh-tw.xlf)
-* Handoff Datetime: 2016-10-04 17:44:42
+* Handoff File: [samples.31014494d9f148c358b40bd77949cf0f75f2ea75.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/dd451eac33165161f481eaf81fd8959ac0f363d0/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/samples.31014494d9f148c358b40bd77949cf0f75f2ea75.zh-tw.xlf)
+* Handoff Datetime: 2016-10-06 18:45:01
 * Handoff Reason: Include
-* Archive File: [TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/c4f325d5496878b0f29d497d541fe7a505a8be21/ol-archive/Microsoft/Virtualization-Documentation-Private.zh-tw/live/TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.zh-tw.xlf)
-* Archive Datetime: 2016-10-05 00:21:23
+* Archive File: [samples.31014494d9f148c358b40bd77949cf0f75f2ea75.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/41b3fda80f0626c7492e80b7be4e5b1b95394c64/ol-archive/Microsoft/Virtualization-Documentation-Private.zh-tw/live/samples.31014494d9f148c358b40bd77949cf0f75f2ea75.zh-tw.xlf)
+* Archive Datetime: 2016-10-07 00:15:51
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\windowscontainers\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/c8bbcffbd967748792226736e8f52a2115512d5c/virtualization/windowscontainers/TOC.md)
-* Current Handback File: [TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/c312c5b3cd1e9ad368dcd37c27d6c8e06ec7870f/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.zh-tw.xlf)
-* Current Handback Datetime: 2016-09-30 08:32:33
-* Bilingual File: [TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/c312c5b3cd1e9ad368dcd37c27d6c8e06ec7870f/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.zh-tw.xlf)
-* Bilingual Datetime: 2016-09-30 08:33:23
+* [Back to Top](#report-top)
+
+##### <a name='e5807f86034da2a6e63a20cc6ee40f0c07b4a3d0312'></a> Source: [virtualization\windowscontainers\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/7039bb010c58f364d774dfb1d50a8df4e99f63b3/virtualization/windowscontainers/TOC.md)
+* Status: ArchivedSuccess
+* Target File: 
+* Handoff File: [TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/dd451eac33165161f481eaf81fd8959ac0f363d0/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.zh-tw.xlf)
+* Handoff Datetime: 2016-10-06 18:45:01
+* Handoff Reason: Include
+* Archive File: [TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/41b3fda80f0626c7492e80b7be4e5b1b95394c64/ol-archive/Microsoft/Virtualization-Documentation-Private.zh-tw/live/TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.zh-tw.xlf)
+* Archive Datetime: 2016-10-07 00:15:51
+* Handback File: 
+* Handback Datetime: 0001-01-01 00:00:00
+* Current Target File: [virtualization\windowscontainers\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/92795f29669b3a98b9372cf56a6d89e2a2e80d44/virtualization/windowscontainers/TOC.md)
+* Current Handback File: [TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/f895417eed2645f65c085202e323885378e453b0/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.zh-tw.xlf)
+* Current Handback Datetime: 2016-10-06 04:28:46
+* Bilingual File: [TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/f895417eed2645f65c085202e323885378e453b0/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.zh-tw.xlf)
+* Bilingual Datetime: 2016-10-06 04:29:18
 * [Back to Top](#report-top)
 
 
