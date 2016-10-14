@@ -3593,9 +3593,9 @@
 * Archive Datetime: 2016-10-14 00:08:11
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\windowscontainers\docker\configure_docker_daemon.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/c8bbcffbd967748792226736e8f52a2115512d5c/virtualization/windowscontainers/docker/configure_docker_daemon.md)
-* Current Handback File: [configure_docker_daemon.593d065aaeaa40359a3e774b03d152311eb6570c.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/c312c5b3cd1e9ad368dcd37c27d6c8e06ec7870f/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/configure_docker_daemon.593d065aaeaa40359a3e774b03d152311eb6570c.zh-tw.xlf)
-* Current Handback Datetime: 2016-09-30 08:32:33
+* Current Target File: [virtualization\windowscontainers\docker\configure_docker_daemon.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/ab4402fefdfc440908ea5a1b3f73f92918bdce78/virtualization/windowscontainers/docker/configure_docker_daemon.md)
+* Current Handback File: [configure_docker_daemon.593d065aaeaa40359a3e774b03d152311eb6570c.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/3fd0883d21c746e801076ac8024a5b72b11de0a8/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/configure_docker_daemon.593d065aaeaa40359a3e774b03d152311eb6570c.zh-tw.xlf)
+* Current Handback Datetime: 2016-10-14 10:23:05
 * Bilingual File: [configure_docker_daemon.593d065aaeaa40359a3e774b03d152311eb6570c.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/c312c5b3cd1e9ad368dcd37c27d6c8e06ec7870f/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/configure_docker_daemon.593d065aaeaa40359a3e774b03d152311eb6570c.zh-tw.xlf)
 * Bilingual Datetime: 2016-09-30 08:33:23
 * [Back to Top](#report-top)
