@@ -3616,8 +3616,8 @@
 * Archive Datetime: 2016-10-14 00:08:11
 * Handback File: [manage_windows_dockerfile.cf56579c9136245b4cbef41fabc5df7a6ab9832a.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/c317ca017c2d8676049ebf8fdd82980da840a3d2/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/manage_windows_dockerfile.cf56579c9136245b4cbef41fabc5df7a6ab9832a.zh-tw.xlf)
 * Handback Datetime: 2016-10-14 07:06:15
-* Bilingual File: [manage_windows_dockerfile.cf56579c9136245b4cbef41fabc5df7a6ab9832a.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/7c4125d9465f86baef1d372647c11c9147a38c1c/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/manage_windows_dockerfile.cf56579c9136245b4cbef41fabc5df7a6ab9832a.zh-tw.xlf)
-* Bilingual Datetime: 2016-09-27 13:24:49
+* Bilingual File: [manage_windows_dockerfile.cf56579c9136245b4cbef41fabc5df7a6ab9832a.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/c317ca017c2d8676049ebf8fdd82980da840a3d2/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/manage_windows_dockerfile.cf56579c9136245b4cbef41fabc5df7a6ab9832a.zh-tw.xlf)
+* Bilingual Datetime: 2016-10-14 07:06:48
 * [Back to Top](#report-top)
 
 ##### <a name='59f096ce914e0f1cbee5678b7db980297ca89364248'></a> Source: [virtualization\windowscontainers\docker\optimize_windows_dockerfile.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/f721639b1b10ad97cc469df413d457dbf8d13bbe/virtualization/windowscontainers/docker/optimize_windows_dockerfile.md)
