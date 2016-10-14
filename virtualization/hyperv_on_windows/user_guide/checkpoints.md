@@ -10,8 +10,8 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: d9c398c4-ee72-45c6-9ce8-4f06569dae6c
 translationtype: Human Translation
-ms.sourcegitcommit: 4cdf81cace246c5de041d378391dca9b9d318dd5
-ms.openlocfilehash: bd0ee06f4e5eab4f33bb7e7c6dd71119dddde5c9
+ms.sourcegitcommit: 54f3855efd820d77b17c171b5b4c2a0c66957bc3
+ms.openlocfilehash: d3340019629a3ad92f856372345e4c2ceef85b6c
 
 ---
 
@@ -21,9 +21,9 @@ ms.openlocfilehash: bd0ee06f4e5eab4f33bb7e7c6dd71119dddde5c9
 
 Windows 10 Hyper-V 有兩種類型的檢查點：
 
-* **標準檢查點** – 在起始檢查點時，建立虛擬機器和虛擬機器記憶體狀態的快照。 快照不是完整備份，而且可能導致在不同節點之間複寫資料的系統 (例如 Active Directory) 的資料系統不一致的問題。  Hyper-V 只在 Windows 10 之前提供標準檢查點 (以前稱為快照)。
+* **標準檢查點** – 在起始檢查點時，建立虛擬機器和虛擬機器記憶體狀態的快照。 快照不是完整備份，而且可能導致在不同節點 (例如 Active Directory) 之間複寫資料的系統發生不一致問題。  Hyper-V 只在 Windows 10 之前提供標準檢查點 (以前稱為快照)。
 
-* **生產檢查點** – 在 Linux 虛擬機器上使用「磁碟區陰影複製服務」或「檔案系統凍結」，可為虛擬機器建立一致的資料備份。 系統並不會建立虛擬機器記憶體狀態的任何快照。
+* **生產檢查點** -- 在 Linux 虛擬機器上使用「磁碟區陰影複製服務」或「檔案系統凍結」，為虛擬機器建立資料一致的備份。 系統並不會建立虛擬機器記憶體狀態的任何快照。
 
 預設會選取生產檢查點，不過這可使用 Hyper-V 管理員或 PowerShell 加以變更。
 
@@ -250,6 +250,6 @@ This folder will contain the .VMRS file with the runtime and saved state data an
 
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Oct16_HO2-->
 
 
