@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
 translationtype: Human Translation
-ms.sourcegitcommit: f721639b1b10ad97cc469df413d457dbf8d13bbe
-ms.openlocfilehash: f3eceaa84de7dfb4e6783835939a498a3e798e91
+ms.sourcegitcommit: ac962391cd3b82be2dd18b145ee5e6d7a483a91a
+ms.openlocfilehash: 11bc16813153beb5b819c80284a30f9f188709d0
 
 ---
 
@@ -19,11 +19,22 @@ ms.openlocfilehash: f3eceaa84de7dfb4e6783835939a498a3e798e91
 
 Docker 引擎和代理程式並未隨附於 Windows，且需要個別安裝及設定。 此外，Docker 引擎可接受許多自訂設定。 部分範例包括設定精靈接受連入要求的方式、預設網路功能選項，以及偵錯/記錄設定。 在 Windows 中，這些設定可以在設定檔中指定，或使用 Windows 服務控制管理員指定。 本文詳細說明如何安裝及設定 Docker 引擎，且提供常用設定的範例。
 
+
 ## 安裝 Docker
+需要有 Docker 才能使用 Windows 容器。 Docker 是由 Docker Engine (dockerd.exe) 及 Docker 用戶端 (docker.exe) 所組成。 您可以在快速入門指南中找到安裝所有項目最簡單的方法。 指南會協助您設定好所有項目，以及執行您的第一個容器。 
 
-需要先安裝 Docker，才能搭配使用 Windows 容器。 Docker 是由 Docker 引擎及 Docker 用戶端所組成。 針對此練習，兩者都會安裝。
+* [Windows Server 2016 上的 Windows 容器](https://msdn.microsoft.com/en-us/virtualization/windowscontainers/quick_start/quick_start_windows_server)
+* [Windows 10 上的 Windows 容器](https://msdn.microsoft.com/en-us/virtualization/windowscontainers/quick_start/quick_start_windows_10)
 
-下載 Docker 引擎。
+
+### 手動安裝
+如果您要改用開發中的 Docker Engine 及用戶端版本，可以使用後續步驟。 這會安裝 Docker Engine 及用戶端。 否則，請跳至下一章節。
+
+> 如果您已安裝 Docker for Windows，請務必先將其移除，再遵循以下手動安裝步驟。 
+
+下載 Docker Engine
+
+最新版本一律位於 https://master.dockerproject.org。 這個範例使用 v1.13-development 分支提供的最新版本。 
 
 ```none
 Invoke-WebRequest "https://download.docker.com/components/engine/windows-server/cs-1.12/docker.zip" -OutFile "$env:TEMP\docker.zip" -UseBasicParsing
@@ -117,12 +128,14 @@ Start-Service Docker
 
 ## 在 Docker 服務設定 Docker
 
-也可以透過使用 `sc config` 修改 Docker 服務來設定 Docker 引擎。 若使用此方法，會直接在 Docker 服務上設定 Docker 引擎旗標。
+也可以透過使用 `sc config` 修改 Docker 服務來設定 Docker 引擎。 若使用此方法，會直接在 Docker 服務上設定 Docker 引擎旗標。 在命令提示字元 (cmd.exe 而非 Powershell) 執行下列命令︰
 
 
 ```none
 sc config docker binpath= "\"C:\Program Files\docker\dockerd.exe\" --run-service -H tcp://0.0.0.0:2375"
 ```
+
+注意︰若您的 daemon.json 檔案已包含 `"hosts": ["tcp://0.0.0.0:2375"]` 項目，就不需要執行此命令。
 
 ## 一般設定
 
@@ -181,6 +194,6 @@ Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-3
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO2-->
 
 
