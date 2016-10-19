@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ba4eb594-0cdb-4148-81ac-a83b4bc337bc
 translationtype: Human Translation
-ms.sourcegitcommit: f721639b1b10ad97cc469df413d457dbf8d13bbe
-ms.openlocfilehash: 4d7e8fb1fcbb7e9680b7d5bd143ef6d59e45035e
+ms.sourcegitcommit: 41561cacc8c2531f1351154d85861f1712182c9a
+ms.openlocfilehash: 091007ea301226ca98c93855d8c36b09f3e4d0be
 
 ---
 
@@ -19,56 +19,30 @@ ms.openlocfilehash: 4d7e8fb1fcbb7e9680b7d5bd143ef6d59e45035e
 
 部署 Windows 容器主機有不同的步驟，視作業系統和主機系統類型 (實體或虛擬) 而定。 這份文件詳細說明將 Windows 容器主機部署至實體或虛擬系統上的 Windows Server 2016 或 Windows Server Core 2016 的步驟。
 
-## 安裝容器功能
+## 安裝 Docker
 
-容器功能必須先啟用，才能使用 Windows 容器。 若要這麼做，請在提升權限的 PowerShell 工作階段中執行下列命令。
+需要先安裝 Docker，才能搭配使用 Windows 容器。 Docker 是由 Docker 引擎及 Docker 用戶端所組成。 
+
+我們將使用 [OneGet 提供者 PowerShell 模組](https://github.com/oneget/oneget)安裝 Docker。 提供者會啟用您電腦上的 [容器] 功能並安裝 Docker，這會需要重新開機。 
+
+開啟提高權限的 PowerShell 工作階段，並執行下列命令。
+
+首先安裝 OneGet PowerShell 模組。
 
 ```none
-Install-WindowsFeature containers
+Install-Module -Name DockerMsftProvider -Repository PSGallery -Force
 ```
 
-功能安裝完成時，請重新啟動電腦。
+接著使用 OneGet 安裝最新版的 Docker。
+
+```none
+Install-Package -Name docker -ProviderName DockerMsftProvider
+```
+
+安裝完成時，請重新啟動電腦。
 
 ```none
 Restart-Computer -Force
-```
-
-## 安裝 Docker
-
-需要先安裝 Docker，才能搭配使用 Windows 容器。 Docker 是由 Docker 引擎及 Docker 用戶端所組成。 針對此練習，兩者都會安裝。
-
-下載 Docker 引擎與用戶端的 zip 封存。
-
-```none
-Invoke-WebRequest "https://download.docker.com/components/engine/windows-server/cs-1.12/docker.zip" -OutFile "$env:TEMP\docker.zip" -UseBasicParsing
-```
-
-將該 zip 封存展開到 Program Files; 該封存內容已在 docker 目錄中。
-
-```none
-Expand-Archive -Path "$env:TEMP\docker.zip" -DestinationPath $env:ProgramFiles
-```
-
-執行下列兩個命令，以新增 Docker 目錄至系統路徑。
-
-```none
-# For quick use, does not require shell to be restarted.
-$env:path += ";c:\program files\docker"
-
-# For persistent use, will apply even after a reboot. 
-[Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\Docker", [EnvironmentVariableTarget]::Machine)
-```
-
-若要將 Docker 安裝為 Windows 服務，請執行下列命令。
-
-```none
-dockerd --register-service
-```
-
-安裝之後，就可以啟動服務。
-
-```none
-Start-Service Docker
 ```
 
 ## 安裝基礎容器映像
@@ -121,6 +95,6 @@ Install-WindowsFeature hyper-v
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO2-->
 
 
