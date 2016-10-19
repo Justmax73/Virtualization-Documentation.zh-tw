@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
 translationtype: Human Translation
-ms.sourcegitcommit: 1c1ca88aaf383973a4cfb879580db5325f49a868
-ms.openlocfilehash: 7b4276dd8e961bf278bee2baea2449e04eef7a2f
+ms.sourcegitcommit: 38d9f06af87cf1d69529d28e30cab60f16e0982b
+ms.openlocfilehash: 185831094b63a1b7fb1931db7fb82a6c59c2b060
 
 ---
 
@@ -70,7 +70,7 @@ Start-Service Docker
 
 建議使用設定檔在 Windows 上設定 Docker 引擎。 設定檔位於 'c:\ProgramData\docker\config\daemon.json'。 若尚未有此檔案，請加以建立。
 
-請注意，並非所有可用的 Docker 設定選項都適用於 Windows 上的 Docker。 下列所示範例為適用的選項。 如需 Docker 引擎設定的完整文件 (包含適用於 Linux 的文件)，請參閱 [Docker Daemon]( https://docs.docker.com/v1.10/engine/reference/commandline/daemon/) (Docker 精靈)。
+請注意，並非所有可用的 Docker 設定選項都適用於 Windows 上的 Docker。 下列所示範例為適用的選項。 如需 Docker Engine 設定的完整文件，請參閱 [Docker 精靈的組態檔](https://docs.docker.com/engine/reference/commandline/dockerd/#/windows-configuration-file)。
 
 ```none
 {
@@ -177,23 +177,8 @@ restart-service docker
 
 如需詳細資訊，請參閱 [Docker.com 上的精靈通訊端選項](https://docs.docker.com/v1.10/engine/reference/commandline/daemon/#daemon-socket-option)。
 
-## 收集記錄檔
-
-Docker 引擎會將事件記錄至 Windows 應用程式事件記錄檔，而不是記錄至檔案。 您可以使用 Windows PowerShell，輕鬆讀取、排序和篩選這些記錄檔
-
-比方說，這會顯示 Docker 引擎前 5 分鐘的記錄檔，並從最舊的開始排序。
-
-```
-Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-5) | Sort-Object Time 
-```
-
-您也可以輕鬆透過管道將記錄檔傳送至 CSV 檔案，以供其他工具或試算表讀取。
-
-```
-Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-30)  | Sort-Object Time | Export-CSV ~/last30minutes.csv ```
 
 
-
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Oct16_HO3-->
 
 
