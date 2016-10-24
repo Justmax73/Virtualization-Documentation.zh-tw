@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
 translationtype: Human Translation
-ms.sourcegitcommit: 38d9f06af87cf1d69529d28e30cab60f16e0982b
-ms.openlocfilehash: 185831094b63a1b7fb1931db7fb82a6c59c2b060
+ms.sourcegitcommit: ea86e2dd88413569e4329ab27a8b6a4d3a7afca9
+ms.openlocfilehash: d2fe856b9d00c5f7ac33d683f1c2204dc06d4a11
 
 ---
 
@@ -166,7 +166,7 @@ sc config docker binpath= "\"C:\Program Files\docker\dockerd.exe\" --run-service
 若要設定 `docker search` 與 `docker pull` 的 Proxy 資訊,，請以名稱 `HTTP_PROXY` 或 `HTTPS_PROXY` 建立 Windows 環境變數，並設定 Proxy 資訊的值。 此作業可透過類似下列所示的 PowerShell 命令完成︰
 
 ```none
-[Environment]::SetEnvironmentVariable("HTTP_PROXY”, “http://username:password@proxy:port/”, [EnvironmentVariableTarget]::Machine)
+[Environment]::SetEnvironmentVariable("HTTP_PROXY", "http://username:password@proxy:port/", [EnvironmentVariableTarget]::Machine)
 ```
 
 完成變數設定之後，請重新啟動 Docker 服務。
@@ -175,7 +175,8 @@ sc config docker binpath= "\"C:\Program Files\docker\dockerd.exe\" --run-service
 restart-service docker
 ```
 
-如需詳細資訊，請參閱 [Docker.com 上的精靈通訊端選項](https://docs.docker.com/v1.10/engine/reference/commandline/daemon/#daemon-socket-option)。
+如需詳細資訊，請參閱 [Docker.com Windows 的組態檔](https://docs.docker.com/engine/reference/commandline/dockerd/#/windows-configuration-file)。
+
 
 
 
