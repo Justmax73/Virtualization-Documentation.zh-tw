@@ -1,11 +1,31 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 0
+ Total Files | 1
 
 ## File List
+ Source File | Status | Details 
+ ----------- | ------ | ------- 
+ [virtualization\windowscontainers\docker\configure_docker_daemon.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/78d91946bcbf5a86513be10c6fd643965a3c71f8/virtualization/windowscontainers/docker/configure_docker_daemon.md) | HandedOffSuccess | [Details](#79924db17adefceb1a19617768d31e5c66403c83248)
 
 ## Item Details
+##### <a name='79924db17adefceb1a19617768d31e5c66403c83248'></a> Source: [virtualization\windowscontainers\docker\configure_docker_daemon.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/78d91946bcbf5a86513be10c6fd643965a3c71f8/virtualization/windowscontainers/docker/configure_docker_daemon.md)
+* Status: HandedOffSuccess
+* Target File: 
+* Handoff File: [configure_docker_daemon.593d065aaeaa40359a3e774b03d152311eb6570c.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/e070c15ab59c2008a6aa655ead54381bbb84df5d/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/configure_docker_daemon.593d065aaeaa40359a3e774b03d152311eb6570c.zh-tw.xlf)
+* Handoff Datetime: 2016-10-26 23:36:19
+* Handoff Reason: Include
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: 
+* Handback Datetime: 0001-01-01 00:00:00
+* Current Target File: [virtualization\windowscontainers\docker\configure_docker_daemon.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/82ca55c290d1dd484931343cf95564f83c7c1469/virtualization/windowscontainers/docker/configure_docker_daemon.md)
+* Current Handback File: [configure_docker_daemon.593d065aaeaa40359a3e774b03d152311eb6570c.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/12144e6f0434194d315dced42a5189e03959fcf4/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/configure_docker_daemon.593d065aaeaa40359a3e774b03d152311eb6570c.zh-tw.xlf)
+* Current Handback Datetime: 2016-10-24 10:52:46
+* Bilingual File: [configure_docker_daemon.593d065aaeaa40359a3e774b03d152311eb6570c.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/12144e6f0434194d315dced42a5189e03959fcf4/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/configure_docker_daemon.593d065aaeaa40359a3e774b03d152311eb6570c.zh-tw.xlf)
+* Bilingual Datetime: 2016-10-24 10:53:15
+* [Back to Top](#report-top)
+
 
 ## Error Details
 
