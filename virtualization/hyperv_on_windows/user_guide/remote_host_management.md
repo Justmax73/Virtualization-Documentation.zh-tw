@@ -3,15 +3,14 @@ title: "使用 Hyper-V 管理員管理遠端 Hyper-V 主機"
 description: "使用 Hyper-V 管理員管理遠端 Hyper-V 主機"
 keywords: windows 10, hyper-v
 author: scooley
-manager: timlt
 ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 2d34e98c-6134-479b-8000-3eb360b8b8a3
 translationtype: Human Translation
-ms.sourcegitcommit: e0d957ebb953f1e5b3e56de9764c7c3e560024c1
-ms.openlocfilehash: 852800b19fb39737f0d7104eb2d50521b6cca982
+ms.sourcegitcommit: 906eba05c921757b9655505c3f419fcf003d5160
+ms.openlocfilehash: 9ae09f49af4a0d7a3dd91b739ec30d4989615799
 
 ---
 
@@ -71,7 +70,7 @@ Windows Vista 及 Windows Server 2008 中的 Hyper-V 管理員可讓您管理：
 
 為了管理遠端 Hyper-V 主機，在本機電腦和遠端主機上皆必須啟用遠端管理。
 
-您可以透過 `System Properties -> Remote Management Settings` 啟用，或以系統管理員身分執行下列 PowerShell 命令：  
+您可以透過 `Server Manager -> Remote management` 啟用，或以系統管理員身分執行下列 PowerShell 命令： 
 
 ``` PowerShell
 Enable-PSRemoting
@@ -122,6 +121,6 @@ Windows 10 大幅擴充遠端連線類型的可能組合。
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO4-->
 
 
