@@ -2,16 +2,15 @@
 title: "Windows Server 上的 Windows 容器"
 description: "容器部署快速入門"
 keywords: "docker, 容器"
-author: neilpeterson
-manager: timlt
+author: enderb-ms
 ms.date: 09/26/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
 translationtype: Human Translation
-ms.sourcegitcommit: af648c1235ab9af181a88a65901401bfbd40656e
-ms.openlocfilehash: 791de65ac6e4222c4cae77fe9dd24f4e07e5a936
+ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
+ms.openlocfilehash: 80a2efcb9fff58d357dc1630a335665fc91147cb
 
 ---
 
@@ -50,7 +49,35 @@ Install-Package -Name docker -ProviderName DockerMsftProvider
 Restart-Computer -Force
 ```
 
-## 2.部署您的第一個容器
+## 2.安裝 Windows Updates
+
+為確保 Windows Server 系統隨時處於最新狀態，應執行如下來安裝 Windows 更新︰
+
+```none
+sconfig
+```
+
+您會看到文字型的設定功能表。您可以從中選擇選項 6，以下載並安裝更新︰
+
+```none
+===============================================================================
+                         Server Configuration
+===============================================================================
+
+1) Domain/Workgroup:                    Workgroup:  WORKGROUP
+2) Computer Name:                       WIN-HEFDK4V68M5
+3) Add Local Administrator
+4) Configure Remote Management          Enabled
+
+5) Windows Update Settings:             DownloadOnly
+6) Download and Install Updates
+7) Remote Desktop:                      Disabled
+...
+```
+
+當出現提示時，請選擇選項 A 下載所有的更新。
+
+## 3.部署您的第一個容器
 
 在這項練習中，您將從 Docker Hub 登錄下載預先建立的 .NET 範例映像，並部署執行 .Net Hello World 應用程式的簡單容器。  
 
@@ -113,6 +140,6 @@ docker run microsoft/sample-dotnet
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Oct16_HO4-->
 
 

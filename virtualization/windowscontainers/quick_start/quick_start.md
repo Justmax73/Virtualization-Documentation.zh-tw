@@ -2,16 +2,15 @@
 title: "Windows 容器快速入門"
 description: "Windows 容器快速入門。"
 keywords: "docker, 容器"
-author: neilpeterson
-manager: timlt
+author: enderb-ms
 ms.date: 05/26/2016
 ms.topic: article
 ms.prod: windows-contianers
 ms.service: windows-containers
 ms.assetid: 4878f5d2-014f-4f3c-9933-97f03348a147
 translationtype: Human Translation
-ms.sourcegitcommit: f721639b1b10ad97cc469df413d457dbf8d13bbe
-ms.openlocfilehash: f795cfde1174a62b85aefd58c6bd07e81e196718
+ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
+ms.openlocfilehash: 16bd0cb8a39c160703e30cf645709c70f6c91093
 
 ---
 
@@ -33,7 +32,7 @@ Windows 容器包含兩種不同的容器類型，或執行階段。
 
 **Windows Server 容器** – 透過程序和命名空間隔離技術，提供應用程式隔離功能。 Windows Server 容器可與容器主機和所有執行於主機上的容器共用核心。
 
-**Hyper-V 容器** – 藉由在高度最佳化的虛擬機器中執行每個容器，擴充 Windows Server 容器所提供的隔離能力。 在此設定中，容器主機的核心不會與 Hyper-V 容器共用。
+**Hyper-V 容器** – 藉由在高度最佳化的虛擬機器中執行每個容器，擴充 Windows Server 容器所提供的隔離能力。 在此設定中，容器主機的核心不會與其他 Hyper-V 容器共用。
 
 ## 3.容器的基礎
 
@@ -58,6 +57,6 @@ Windows 容器包含兩種不同的容器類型，或執行階段。
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO4-->
 
 

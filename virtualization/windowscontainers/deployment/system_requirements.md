@@ -2,16 +2,15 @@
 title: "Windows 容器需求"
 description: "Windows 容器需求。"
 keywords: "中繼資料, 容器"
-author: neilpeterson
-manager: timlt
+author: enderb-ms
 ms.date: 09/26/2016
 ms.topic: deployment-article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 3c3d4c69-503d-40e8-973b-ecc4e1f523ed
 translationtype: Human Translation
-ms.sourcegitcommit: d4c453e800d4057b3ad0be06c28e7f23b81443f0
-ms.openlocfilehash: 008eff4731a8835b0b3f664edc9955f85c12a629
+ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
+ms.openlocfilehash: af8d8a05fc953dcc93672a0f936caca5e37f0de3
 
 ---
 
@@ -89,6 +88,6 @@ PS C:\Users\Administrator> (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows N
 每個 Hyper-V 容器都會利用自身的 Windows 核心執行個體，不像 Windows Server 容器會共用容器和主機之間的核心。  因此容器主機和容器映像的版本可以不符。  此時若組建的組建編號等於或大於 Windows Server 2016 GA (10.0.14393.206) 便可在受支援的設定中，不受修訂編號的限制執行 Windows Server Core 或 Nano Server 的 Windows Server 2016 GA 映像。  我們會根據客戶的意見反應在未來提供特定指引，告知組建編號之間受支援的差距範圍。  請務必了解，為了使用 Windows 更新所提供的完整功能、可靠性和安全性保證，您應該在所有系統上皆維持最新的版本。  
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Oct16_HO4-->
 
 
