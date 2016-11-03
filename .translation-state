@@ -1,6 +1,6 @@
 {
   "LastProcessedCommit": "a06a7fe0aa77819a3ab004ce1c511dc93f1f1bde",
-  "LastTranslatedCommit": "987b9ef247e0d4ab3113ba9e6c81801ca4d0e9df",
+  "LastTranslatedCommit": "2d1dd3319b679e0cdb044f60621f56901cbc26fa",
   "LastTansformerVersion": null,
   "Items": {
     "5090f6d60b5cbdce0990242d795d9e4e3736e791": {
@@ -27442,9 +27442,17 @@
       "TargetFilePath": null,
       "HandbackFilePath": null,
       "HandbackFileCommit": null,
-      "HandbackDateTime": "0001-01-01T00:00:00",
-      "HandbackException": null,
-      "HandbackFailureTimes": 0,
+      "HandbackDateTime": "2016-11-03T20:22:07.0936717Z",
+      "HandbackException": {
+        "internal_error_code": "handback_file_rejected",
+        "internal_error_message": "Targeting source file commit fa073b0347ee6c580f0a658b3cbdb471f0bbf909 is lower than latest handed back source file commit ffdf89b0ae346197b9ae631ee5260e0565261c55",
+        "internal_error_retriable": false,
+        "exception_message": "Targeting source file commit fa073b0347ee6c580f0a658b3cbdb471f0bbf909 is lower than latest handed back source file commit ffdf89b0ae346197b9ae631ee5260e0565261c55",
+        "exception_type": "Microsoft.OpenLocalization.Common.ErrorHandling.OpenLocalizationException",
+        "stack_trace": null,
+        "extended_information": null
+      },
+      "HandbackFailureTimes": 1,
       "UpdatedDateTime": "0001-01-01T00:00:00",
       "ArchiveFilePath": "ol-archive\\Microsoft\\Virtualization-Documentation-Private.zh-tw\\live\\deployment_nano.b4ad903b48200665d4d0c8e4d0956bddc0d52f79.zh-tw.xlf",
       "ArchiveFileCommit": "5d662db4146148d8a1e509892a566f156a451461",
@@ -27514,9 +27522,17 @@
       "TargetFilePath": null,
       "HandbackFilePath": null,
       "HandbackFileCommit": null,
-      "HandbackDateTime": "0001-01-01T00:00:00",
-      "HandbackException": null,
-      "HandbackFailureTimes": 0,
+      "HandbackDateTime": "2016-11-03T20:22:07.0936717Z",
+      "HandbackException": {
+        "internal_error_code": "handback_file_rejected",
+        "internal_error_message": "Targeting source file commit 6c85bb2ac3922dac4b09939d3ea71d7fbb5e16ad is lower than latest handed back source file commit ffdf89b0ae346197b9ae631ee5260e0565261c55",
+        "internal_error_retriable": false,
+        "exception_message": "Targeting source file commit 6c85bb2ac3922dac4b09939d3ea71d7fbb5e16ad is lower than latest handed back source file commit ffdf89b0ae346197b9ae631ee5260e0565261c55",
+        "exception_type": "Microsoft.OpenLocalization.Common.ErrorHandling.OpenLocalizationException",
+        "stack_trace": null,
+        "extended_information": null
+      },
+      "HandbackFailureTimes": 1,
       "UpdatedDateTime": "0001-01-01T00:00:00",
       "ArchiveFilePath": "ol-archive\\Microsoft\\Virtualization-Documentation-Private.zh-tw\\live\\quick_start_windows_server.08fee0ad7baa994cf3e7a42d3d35aeda89c5e556.zh-tw.xlf",
       "ArchiveFileCommit": "5d662db4146148d8a1e509892a566f156a451461",
