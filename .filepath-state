@@ -93,9 +93,6 @@
   "4e887dc8c284dd189dc59a71aa9d22d6c8a231ea": [
     "virtualization\\hyperv_on_windows\\user_guide\\checkpoints.md"
   ],
-  "ed4a2cb6fb3cd4006a5085e4ce8e058a3f201e41": [
-    "virtualization\\hyperv_on_windows\\user_guide\\checkpoints.md"
-  ],
   "620a2c38514488100bae4eb71d0683e3994801b4": [
     "virtualization\\hyperv_on_windows\\user_guide\\export_import.md"
   ],
@@ -118,9 +115,6 @@
     "virtualization\\hyperv_on_windows\\user_guide\\nesting.md"
   ],
   "c562e1a1370e9286680afa1b498d625195edebb2": [
-    "virtualization\\hyperv_on_windows\\user_guide\\remote_host_management.md"
-  ],
-  "7d7aee3d87237b93887ac7303c70cf6c9a02285d": [
     "virtualization\\hyperv_on_windows\\user_guide\\remote_host_management.md"
   ],
   "5f21c845594a8663b7458e86c121563d3b199e4d": [
@@ -260,12 +254,6 @@
   "ccd1e0fc96b96349a04e6f3f33b97e5dc28582cd": [
     "virtualization\\windowscontainers\\deployment\\deployment_nano.md"
   ],
-  "ef5b189a56502ce8b76c094ecbd0c6174bb1bc4f": [
-    "virtualization\\windowscontainers\\deployment\\deployment_nano.md"
-  ],
-  "a9d398de94cb0d6c54c2e82f4a024bb65de9806d": [
-    "virtualization\\windowscontainers\\deployment\\deployment_nano.md"
-  ],
   "54974198eb9f9f9ea840b99e83eab5952f3f6b9a": [
     "virtualization\\community\\media\\GitFromWinCMD.png"
   ],
@@ -342,9 +330,6 @@
     "virtualization\\windowscontainers\\samples.md"
   ],
   "71ce38a8d6cd75079558827c806fdbbc5a2bcfd2": [
-    "virtualization\\windowscontainers\\troubleshooting.md"
-  ],
-  "b13bdde63b55be50771d63bb0baa146cf4661e66": [
     "virtualization\\windowscontainers\\troubleshooting.md"
   ],
   "0c841b3134550b4b11d720dd91e43c1088211092": [
