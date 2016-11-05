@@ -9,8 +9,8 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 2d34e98c-6134-479b-8000-3eb360b8b8a3
 translationtype: Human Translation
-ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
-ms.openlocfilehash: 7d7aee3d87237b93887ac7303c70cf6c9a02285d
+ms.sourcegitcommit: 8f08c85921b9d41f10f3b8cff5e4bafe945bd4af
+ms.openlocfilehash: c562e1a1370e9286680afa1b498d625195edebb2
 
 ---
 
@@ -18,7 +18,7 @@ ms.openlocfilehash: 7d7aee3d87237b93887ac7303c70cf6c9a02285d
 
 Hyper-V 管理員是內建工具，可以診斷及管理本機 Hyper-V 主機和少量的遠端主機。  本文記載使用 Hyper-V 管理員中所有支援的設定，連線到 Hyper-V 主機的設定步驟。
 
-> 在[任何包含 Hyper-V 的 Windows OS](../quick_start/walkthrough_compatibility.md#OperatingSystemRequirements) 上，可透過 **[程式和功能]** 的 **[Hyper-V 管理工具]**，取得 Hyper-V 管理員。  Hyper-V 平台不需要啟用，即能管理遠端主機。
+> 在[任何包含 Hyper-V 的 Windows OS](../quick_start/walkthrough_compatibility.md#operating-system-requirements) 上，可透過 **[程式和功能]** 的 **[Hyper-V 管理工具]**，取得 Hyper-V 管理員。  Hyper-V 平台不需要啟用，即能管理遠端主機。
 
 若要連線到 Hyper-V 管理員中的 Hyper-V 主機，請務必在左窗格中選取 [Hyper-V 管理員]，然後再選取右窗格中的 [連線到伺服器]。
 
@@ -121,6 +121,6 @@ Windows 10 大幅擴充遠端連線類型的可能組合。
 
 
 
-<!--HONumber=Oct16_HO4-->
+<!--HONumber=Nov16_HO1-->
 
 

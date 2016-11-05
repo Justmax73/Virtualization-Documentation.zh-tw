@@ -3,7 +3,7 @@
 您有設定電腦或執行容器方面的問題嗎？ 我們建立了一份 PowerShell 指令碼，可讓您用於檢查常見的問題。 請嘗試先使用這份指令碼進行檢查，然後將結果提供給我們。
 
 ```PowerShell
-Invoke-WebRequest https://raw.githubusercontent.com/Microsoft/Virtualization-Documentation/master/windows-server-container-tools/Debug-ContainerHost/Debug-ContainerHost.ps1 | Invoke-Expression
+Invoke-WebRequest https://raw.githubusercontent.com/Microsoft/Virtualization-Documentation/master/windows-server-container-tools/Debug-ContainerHost/Debug-ContainerHost.ps1 -UseBasicParsing | Invoke-Expression
 ```
 指令碼的[讀我檔案](https://github.com/Microsoft/Virtualization-Documentation/blob/master/windows-server-container-tools/Debug-ContainerHost/README.md)中列有一份清單，包括了此指令碼所執行的各項測試及其常用解決方法。
 
@@ -84,6 +84,6 @@ Get-WinEvent -LogName Microsoft-Windows-Hyper-V-Compute-Operational
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO1-->
 
 

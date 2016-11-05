@@ -9,8 +9,8 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: d9c398c4-ee72-45c6-9ce8-4f06569dae6c
 translationtype: Human Translation
-ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
-ms.openlocfilehash: ed4a2cb6fb3cd4006a5085e4ce8e058a3f201e41
+ms.sourcegitcommit: 8f08c85921b9d41f10f3b8cff5e4bafe945bd4af
+ms.openlocfilehash: 4e887dc8c284dd189dc59a71aa9d22d6c8a231ea
 
 ---
 
@@ -62,7 +62,7 @@ Set-VM -Name <vmname> -CheckpointType ProductionOnly
 
 ## 建立檢查點
 
-建立虛擬機器設定之類型的檢查點。 如需如何變更此類型的指示，請參閱本文件稍早的[設定檢查點類型](checkpoints.md#changing-the-checkpoint-type-for-a-VM)一節。
+建立虛擬機器設定之類型的檢查點。 如需如何變更此類型的指示，請參閱本文件稍早的[設定檢查點類型](checkpoints.md#changing-the-checkpoint-type)一節。
 
 **使用 Hyper-V 管理員**
 
@@ -201,7 +201,7 @@ This folder will contain the .VMRS file with the runtime and saved state data an
 
 1. 登入您的虛擬機器，並在桌面上建立文字檔。
 2. 以 [記事本] 開啟此檔案，並輸入文字「這是標準檢查點」。 **不要儲存檔案或關閉記事本**。  
-3. 將檢查點變更為標準 -- [這裡](checkpoints.md#changing-the-checkpoint-type-using-hyper-V-manager)提供指示。
+3. 將檢查點變更為標準 -- [這裡](checkpoints.md#changing-the-checkpoint-type)提供指示。
 4. 建立新的檢查點。
 
 <br />
@@ -249,6 +249,6 @@ This folder will contain the .VMRS file with the runtime and saved state data an
 
 
 
-<!--HONumber=Oct16_HO4-->
+<!--HONumber=Nov16_HO1-->
 
 
