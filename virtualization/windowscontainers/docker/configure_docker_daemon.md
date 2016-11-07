@@ -2,16 +2,15 @@
 title: "在 Windows 中設定 Docker"
 description: "在 Windows 中設定 Docker"
 keywords: "docker, 容器"
-author: neilpeterson
-manager: timlt
+author: PatrickLang
 ms.date: 08/23/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
 translationtype: Human Translation
-ms.sourcegitcommit: ea86e2dd88413569e4329ab27a8b6a4d3a7afca9
-ms.openlocfilehash: d2fe856b9d00c5f7ac33d683f1c2204dc06d4a11
+ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
+ms.openlocfilehash: 569b8861ca01ee8a0b794e01b0acb1a1c501fa55
 
 ---
 
@@ -114,6 +113,14 @@ Start-Service Docker
 }
 ```
 
+此範例同樣會設定 Docker 精靈將映像和容器保留在的替代路徑中。 若未指定，則預設路徑為 c:\programdata\docker。
+
+```none
+{    
+    "graph": "d:\\docker"
+}
+```
+
 同樣地，此範例會將 Docker 精靈設定為只接受透過連接埠 2376 連接的安全連線。
 
 ```none
@@ -180,6 +187,6 @@ restart-service docker
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Oct16_HO4-->
 
 

@@ -1,17 +1,16 @@
 ---
 title: "使用 PowerShell Direct 管理 Windows 虛擬機器"
 description: "使用 PowerShell Direct 管理 Windows 虛擬機器"
-keywords: windows 10, hyper-v, powershell, integration services, integration components, automation, powershell direct
+keywords: "windows 10, hyper-v, powershell, 整合服務, 整合元件, 自動化, powershell direct"
 author: scooley
-manager: timlt
 ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: fb228e06-e284-45c0-b6e6-e7b0217c3a49
 translationtype: Human Translation
-ms.sourcegitcommit: 87f8fb2ae8958c9c6177f6eda90678708054fce7
-ms.openlocfilehash: 75186d48346efbaaac264b00f0f92fe82fcfe424
+ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
+ms.openlocfilehash: 16624e181bec81d90c960df30e89f25eab23f7ea
 
 ---
 
@@ -281,6 +280,6 @@ PowerShell Direct 支援 JEA (Just Enough Administration)。  請參閱本使用
 
 
 
-<!--HONumber=Jul16_HO1-->
+<!--HONumber=Oct16_HO4-->
 
 
