@@ -34,11 +34,13 @@
 
 # 社群與支援
 ## [容器論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)
+## [社群影片與部落格](communitylinks.md)
 ## [疑難排解](troubleshooting.md)
+
 
 # [容器 OS 映像授權條款](Images_EULA.md)
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO1-->
 
 
