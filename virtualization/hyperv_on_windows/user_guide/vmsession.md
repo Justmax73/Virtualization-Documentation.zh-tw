@@ -9,8 +9,8 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: fb228e06-e284-45c0-b6e6-e7b0217c3a49
 translationtype: Human Translation
-ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
-ms.openlocfilehash: 16624e181bec81d90c960df30e89f25eab23f7ea
+ms.sourcegitcommit: 8f08c85921b9d41f10f3b8cff5e4bafe945bd4af
+ms.openlocfilehash: 807043a744c4735158720371ec3afb22ebe7fc24
 
 ---
 
@@ -21,7 +21,7 @@ ms.openlocfilehash: 16624e181bec81d90c960df30e89f25eab23f7ea
 **執行 PowerShell Direct 的方式：**  
 * 作為互動式工作階段 - [按一下這裡](vmsession.md#create-and-exit-an-interactive-powershell-session)使用 Enter-PSSession 建立並結束互動式 PowerShell 工作階段。
 * 作為單次使用工作階段來執行單一命令或指令碼 - [按一下這裡](vmsession.md#run-a-script-or-command-with-invoke-command)使用 Invoke-Command 執行指令碼或命令。
-* 作為持續工作階段 (組建 14280 和更新版本) - [按一下這裡](vmsession.md#copy-files-with-New-PSSession-and-Copy-Item)使用 New-PSSSession 來建立持續工作階段。  
+* 作為持續工作階段 (組建 14280 和更新版本) - [按一下這裡](vmsession.md#copy-files-with-new-pssession-and-copy-item)使用 New-PSSSession 來建立持續工作階段。  
 繼續使用 Copy-Item 來複製檔案至虛擬機器或從中複製檔案，然後使用 Remove-PSSession 中斷連線。
 
 ## 需求
@@ -280,6 +280,6 @@ PowerShell Direct 支援 JEA (Just Enough Administration)。  請參閱本使用
 
 
 
-<!--HONumber=Oct16_HO4-->
+<!--HONumber=Nov16_HO1-->
 
 

@@ -9,8 +9,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
 translationtype: Human Translation
-ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
-ms.openlocfilehash: 80a2efcb9fff58d357dc1630a335665fc91147cb
+ms.sourcegitcommit: 13a33a6003cfa77d81a6e8e2afdf1da8d017ee30
+ms.openlocfilehash: a5537a4cb56127e51e0a550220995cd5f6b93722
 
 ---
 
@@ -81,7 +81,7 @@ sconfig
 
 在這項練習中，您將從 Docker Hub 登錄下載預先建立的 .NET 範例映像，並部署執行 .Net Hello World 應用程式的簡單容器。  
 
-使用 `docker run` 部署 .NET 容器。 這也會下載容器映像，並可能花費幾分鐘的時間。
+使用 `docker run` 部署 .Net 容器。 這也會下載容器映像，並可能花費幾分鐘的時間。
 
 ```none
 docker run microsoft/sample-dotnet
@@ -140,6 +140,6 @@ docker run microsoft/sample-dotnet
 
 
 
-<!--HONumber=Oct16_HO4-->
+<!--HONumber=Nov16_HO1-->
 
 
