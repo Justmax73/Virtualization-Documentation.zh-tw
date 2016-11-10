@@ -15,6 +15,7 @@
 ## [容器主機 - Windows Server](deployment/deployment.md)
 ## [容器主機 - Nano Server](deployment/deployment_nano.md)
 ## [防毒程式最佳化](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
+## [Active Directory 服務帳戶](management/manage_serviceaccounts.md)
 
 # 在 Windows 上管理 Docker
 ## [Windows 上的 Docker 引擎](docker/configure_docker_daemon.md)
