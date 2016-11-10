@@ -9,8 +9,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 75fed138-9239-4da9-bce4-4f2e2ad469a1
 translationtype: Human Translation
-ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
-ms.openlocfilehash: 6603289599e7ca51558d54f35ab809528f53bcd7
+ms.sourcegitcommit: 31515396358c124212b53540af8a0dcdad3580e4
+ms.openlocfilehash: 20dcc6d263488673bf0a025058c3dee8d30168a2
 
 ---
 
@@ -24,7 +24,7 @@ Docker 引擎會包含自動建立容器映像的工具。 雖然可以使用 `d
 
 驅動這項自動化的 Docker 元件是 Dockerfile 和 `docker build` 命令。
 
-- **Dockerfile** – 文字檔案，包含建立新容器映像所需的指令。 這些指令包含將用作基底的現有映像識別碼、在映像建立程序中執行的命令，以及部署容器映像新執行個體時所執行的命令。
+- **Dockerfile** - 文字檔案，包含建立新容器映像所需的指令。 這些指令包含將用作基底的現有映像識別碼、在映像建立程序中執行的命令，以及部署容器映像新執行個體時所執行的命令。
 - **Docker 建置** - Docker 引擎命令，其使用 Dockerfile 並觸發映像建立程序。
 
 這份文件將介紹如何使用 Dockerfile 與 Windows 容器、討論語法並詳細說明常用的 Dockerfile 指令。 
@@ -43,7 +43,7 @@ Dockerfile 在最基本的形式中可以極度簡易。 下列範例會建立�
 # Sample Dockerfile
 
 # Indicates that the windowsservercore image will be used as the base image.
-FROM windowsservercore
+FROM microsoft/windowsservercore
 
 # Metadata indicating an image maintainer.
 MAINTAINER jshelton@contoso.com
@@ -51,7 +51,7 @@ MAINTAINER jshelton@contoso.com
 # Uses dism.exe to install the IIS role.
 RUN dism.exe /online /enable-feature /all /featurename:iis-webserver /NoRestart
 
-# Creates an html file and adds content to this file.
+# Creates an HTML file and adds content to this file.
 RUN echo "Hello World - Dockerfile" > c:\inetpub\wwwroot\index.html
 
 # Sets a command or process that will run each time a container is run from the new image.
@@ -112,7 +112,7 @@ FROM windowsservercore
 RUN ["powershell", "New-Item", "c:/test"]
 ```
 
-檢查產生出的映像，所執行的命令為 `powershell new-item c:/test`。
+檢查產生出的映像，所執行的命令為 `powershell New-Item c:/test`。
 
 ```none
 docker history doc-exe-method
@@ -126,16 +126,16 @@ b3452b13e472        2 minutes ago       powershell New-Item c:/test   30.76 MB
 ```none
 FROM windowsservercore
 
-RUN powershell new-item c:\test
+RUN powershell New-Item c:\test
 ```
 
-這會導致 `cmd /S /C powershell new-item c:\test` 的執行指令。 
+這會導致 `cmd /S /C powershell New-Item c:\test` 的執行指令。 
 
 ```none
 docker history doc-shell-method
 
 IMAGE               CREATED             CREATED BY                              SIZE                COMMENT
-062a543374fc        19 seconds ago      cmd /S /C powershell new-item c:\test   30.76 MB
+062a543374fc        19 seconds ago      cmd /S /C powershell New-Item c:\test   30.76 MB
 ```
 
 **Windows 考量**
@@ -155,10 +155,10 @@ RUN ["powershell", "New-Item", "c:\\test"]
 RUN dism.exe /online /enable-feature /all /featurename:iis-webserver /NoRestart
 ```
 
-此範例會安裝 Visual Studio 可轉散發套件。 注意：`start-process` 及 `-wait` 參數的用途在於執行安裝程式。 這可確保安裝確實完成之後，才會繼續執行 Docerkfile 中的下一個步驟。
+此範例會安裝 Visual Studio 可轉散發套件。 注意：`Start-Process` 及 `-Wait` 參數的用途在於執行安裝程式。 這可確保安裝確實完成之後，才會繼續執行 Docerkfile 中的下一個步驟。
 
 ```none
-RUN start-Process c:\vcredist_x86.exe -ArgumentList '/quiet' -Wait
+RUN Start-Process c:\vcredist_x86.exe -ArgumentList '/quiet' -Wait
 ``` 
 
 如需 RUN 指令的詳細資訊，請參閱 [RUN Reference on Docker.com]( https://docs.docker.com/engine/reference/builder/#run) (Docker.com 上的 RUN 參考)。 
@@ -266,7 +266,7 @@ ADD https://www.python.org/ftp/python/3.5.1/python-3.5.1.exe /temp/python-3.5.1.
 
 ### WORKDIR
 
-`WORKDIR` 的指示會為其他 Dockerfile 指令設定工作目錄，例如 `RUN``CMD`，也會設定執行容器映像執行個體的工作目錄。
+`WORKDIR` 指令會為其他 Dockerfile 指令設定工作目錄，例如 `RUN`、`CMD`，也會為執行中的容器映像執行個體設定工作目錄。
 
 **格式**
 
@@ -369,7 +369,7 @@ RUN powershell.exe -Command `
 
 ### PowerShell 命令
 
-可以使用 `RUN` 作業在 Dockerfile 中執行 Powershell 命令。 
+可以使用 `RUN` 作業在 Dockerfile 中執行 PowerShell 命令。 
 
 ```none
 FROM windowsservercore
@@ -393,7 +393,7 @@ RUN powershell.exe -Command \
 
 > Nano Server 目前不支援 Invoke-WebRequest
 
-您也可以選擇使用 .Net WebClient 媒體櫃，便可在映像建立程序期間使用 PowerShell 下載檔案。 這樣會增進下載效能。 下列範例會使用 WebClient 媒體櫃下載 Python 軟體。
+您也可以選擇使用 .NET WebClient 文件庫，便可在映像建立程序期間使用 PowerShell 下載檔案。 這樣會增進下載效能。 下列範例會使用 WebClient 媒體櫃下載 Python 軟體。
 
 ```none
 FROM windowsservercore
@@ -481,6 +481,6 @@ windowsservercore   latest              6801d964fda5        4 months ago        
 
 
 
-<!--HONumber=Oct16_HO4-->
+<!--HONumber=Nov16_HO1-->
 
 

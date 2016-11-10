@@ -9,8 +9,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 25de368c-5a10-40a4-b4aa-ac8c9a9ca022
 translationtype: Human Translation
-ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
-ms.openlocfilehash: 90e32caabde1afafbd8170db77c6e84696395870
+ms.sourcegitcommit: 2ab9a4b09a2db72e5e2be71ced5d5400761a5ad8
+ms.openlocfilehash: b084bf179d9360e4a72e8e88b4fec80eafb2906c
 
 ---
 
@@ -26,7 +26,7 @@ Windows Server 容器是一種輕量型作業系統虛擬化方法，可用來�
 
 您可以將 Hyper-V 容器視為在 Hyper-V 磁碟分割內執行的 Windows Server 容器。
 
-Hyper-V 容器在高效率、高密度的 Windows Server 容器與高隔離性的硬體虛擬化 Hyper-V 虛擬機器之間，提供了另一種部署選項。 如果環境中的應用程式來自相同主機上的不同信任界限，則可能需要進一步的隔離。 Hyper-V 容器可藉由最佳化虛擬化和 Windows Server 作業系統，分隔不同的容器以及分隔容器與主機作業系統，而提供更高的隔離性。 這兩種容器部署選項使用相同的管理 API、工具和映像格式，在部署期間，客戶可選擇最符合其需求的部署模式。
+Hyper-V 容器在高效率、高密度的 Windows Server 容器與高隔離性的硬體虛擬化 Hyper-V 虛擬機器之間，提供了另一種部署選項。 如果環境中的應用程式來自執行於相同主機的不同信任界限，則可能需要進一步的隔離。 Hyper-V 容器可藉由最佳化虛擬化和 Windows Server 作業系統，分隔不同的容器以及分隔容器與主機作業系統，而提供更高的隔離性。 兩個容器部署選項都使用相同的管理 API、工具及映像格式。 在部署時，客戶只要選取最符合其需求的部署模式即可。
 
 **Linux 與 Windows Server 容器有何差異？**
 
@@ -35,7 +35,7 @@ Linux 與 Windows Server 容器很類似 -- 兩者都在其核心和核心作業
 
 **身為開發人員，我是否必須為每一種容器重新撰寫應用程式？**
 
-否，Windows 容器映像在 Windows Server 容器與 Hyper-V 容器之間是通用的。 容器類型的選擇會在您啟動容器時決定。 就開發人員的觀點而言，Windows Server 容器和 Hyper-V 容器只是風格上的不同。  它們提供相同的開發、程式設計和管理體驗，是開放且可延伸的，且未來在使用 Docker 時也將有相同層級的整合能力和支援。
+否，Windows 容器映像在 Windows Server 容器與 Hyper-V 容器之間是通用的。 容器類型的選擇會在您啟動容器時決定。 就開發人員的觀點而言，Windows Server 容器和 Hyper-V 容器只是風格上的不同。 它們提供相同的開發、程式設計和管理體驗，是開放且可延伸的，且未來在使用 Docker 時也將有相同層級的整合能力和支援。
 
 開發人員可以使用 Windows Server 容器來建立容器映像，並將它部署為 Hyper-V 容器 (反之亦然)，除了須指定適當的執行階段旗標以外，不需進行任何變更。
 
@@ -43,7 +43,7 @@ Linux 與 Windows Server 容器很類似 -- 兩者都在其核心和核心作業
 
 **Hyper-V/Windows Server 容器是不是附加元件？還是會整合至 Windows Server？**
 
-容器功能將會整合至 Windows Server 2016。 關於正式上市的詳細資訊將在近期提供。  
+容器功能將會整合至 Windows Server 2016。  
 
 **Windows Server 容器與 Drawbridge 之間的關係為何？**
 
@@ -79,6 +79,6 @@ Docker 有兩個重點，即專案的開放原始碼群組和 Docker 這家公�
 
 
 
-<!--HONumber=Oct16_HO4-->
+<!--HONumber=Nov16_HO1-->
 
 
