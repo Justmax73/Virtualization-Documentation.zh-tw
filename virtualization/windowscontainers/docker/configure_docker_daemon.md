@@ -9,8 +9,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
 translationtype: Human Translation
-ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
-ms.openlocfilehash: 569b8861ca01ee8a0b794e01b0acb1a1c501fa55
+ms.sourcegitcommit: 16220e5afd42ecbbef648c469822c68570f8577c
+ms.openlocfilehash: dee119983c9dca1cd9ce5caff1c4f87d4accab2a
 
 ---
 
@@ -35,19 +35,19 @@ Docker 引擎和代理程式並未隨附於 Windows，且需要個別安裝及�
 
 最新版本一律位於 https://master.dockerproject.org。 這個範例使用 v1.13-development 分支提供的最新版本。 
 
-```none
+```powershell
 Invoke-WebRequest "https://download.docker.com/components/engine/windows-server/cs-1.12/docker.zip" -OutFile "$env:TEMP\docker.zip" -UseBasicParsing
 ```
 
 將該 zip 封存展開到 Program Files。
 
-```
+```powershell
 Expand-Archive -Path "$env:TEMP\docker.zip" -DestinationPath $env:ProgramFiles
 ```
 
 將 Docker 目錄新增至系統路徑。 完成時，重新啟動 PowerShell 工作階段，以便識別修改過的路徑。
 
-```none
+```powershell
 [Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\Docker", [EnvironmentVariableTarget]::Machine)
 ```
 
@@ -59,7 +59,7 @@ dockerd --register-service
 
 安裝之後，就可以啟動服務。
 
-```none
+```powershell
 Start-Service Docker
 ```
 
@@ -135,7 +135,7 @@ Start-Service Docker
 
 ## 在 Docker 服務設定 Docker
 
-也可以透過使用 `sc config` 修改 Docker 服務來設定 Docker 引擎。 若使用此方法，會直接在 Docker 服務上設定 Docker 引擎旗標。 在命令提示字元 (cmd.exe 而非 Powershell) 執行下列命令︰
+也可以透過使用 `sc config` 修改 Docker 服務來設定 Docker 引擎。 若使用此方法，會直接在 Docker 服務上設定 Docker 引擎旗標。 在命令提示字元 (cmd.exe 而非 PowerShell) 執行下列命令︰
 
 
 ```none
@@ -172,14 +172,14 @@ sc config docker binpath= "\"C:\Program Files\docker\dockerd.exe\" --run-service
 
 若要設定 `docker search` 與 `docker pull` 的 Proxy 資訊,，請以名稱 `HTTP_PROXY` 或 `HTTPS_PROXY` 建立 Windows 環境變數，並設定 Proxy 資訊的值。 此作業可透過類似下列所示的 PowerShell 命令完成︰
 
-```none
+```powershell
 [Environment]::SetEnvironmentVariable("HTTP_PROXY", "http://username:password@proxy:port/", [EnvironmentVariableTarget]::Machine)
 ```
 
 完成變數設定之後，請重新啟動 Docker 服務。
 
-```none
-restart-service docker
+```powershell
+Restart-Service docker
 ```
 
 如需詳細資訊，請參閱 [Docker.com Windows 的組態檔](https://docs.docker.com/engine/reference/commandline/dockerd/#/windows-configuration-file)。
@@ -187,6 +187,6 @@ restart-service docker
 
 
 
-<!--HONumber=Oct16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 
