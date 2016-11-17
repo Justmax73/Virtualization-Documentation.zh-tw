@@ -29664,9 +29664,9 @@
       "ArchiveFileCommit": "f8b5e13fbeb3a1febdc1961742d15565efdac15b",
       "ArchiveFileDateTime": "2016-11-10T01:08:43.207348Z",
       "ArchiveException": null,
-      "BilingualFilePath": null,
-      "BilingualFileCommit": null,
-      "BilingualDateTime": "0001-01-01T00:00:00",
+      "BilingualFilePath": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.zh-tw\\live\\quick_start_windows_server.08fee0ad7baa994cf3e7a42d3d35aeda89c5e556.zh-tw.xlf",
+      "BilingualFileCommit": "29d114a63383a5516eaa98a0b67ab8bb9ca2fded",
+      "BilingualDateTime": "2016-11-17T09:57:17.9186891Z",
       "BilingualException": null
     },
     "1b57ad289368fb7d5f628e605cfc320748854c30": {
@@ -29700,9 +29700,9 @@
       "ArchiveFileCommit": "f8b5e13fbeb3a1febdc1961742d15565efdac15b",
       "ArchiveFileDateTime": "2016-11-10T01:08:43.207348Z",
       "ArchiveException": null,
-      "BilingualFilePath": null,
-      "BilingualFileCommit": null,
-      "BilingualDateTime": "0001-01-01T00:00:00",
+      "BilingualFilePath": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.zh-tw\\live\\quick_start_windows_10.5f887ea7d45d865c81fe971abab095fb8e272cc8.zh-tw.xlf",
+      "BilingualFileCommit": "29d114a63383a5516eaa98a0b67ab8bb9ca2fded",
+      "BilingualDateTime": "2016-11-17T09:57:17.9186891Z",
       "BilingualException": null
     },
     "aa1af44908d623b43ea0095552d7d95b5a5236ac": {
