@@ -9,8 +9,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
 translationtype: Human Translation
-ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
-ms.openlocfilehash: 34ab361ea415ab2d8d5133927beafc7911f1aaf1
+ms.sourcegitcommit: b7cd9b43f001fe8625b0c4ea8cc507c8f11de7ef
+ms.openlocfilehash: 1b57ad289368fb7d5f628e605cfc320748854c30
 
 ---
 
@@ -31,7 +31,9 @@ ms.openlocfilehash: 34ab361ea415ab2d8d5133927beafc7911f1aaf1
 
 ## 1.安裝容器功能
 
-容器功能必須先啟用，才能使用 Windows 容器。 要這麼做，請在提高權限的 PowerShell 工作階段中執行下列命令。
+容器功能必須先啟用，才能使用 Windows 容器。 若要執行此作業，請在**提高權限**的 PowerShell 工作模式中執行下列命令。
+
+如有顯示錯誤指出 `Enable-WindowsOptionalFeature` 不存在，請再次確認您是以系統管理員身分執行 PowerShell。
 
 ```none
 Enable-WindowsOptionalFeature -Online -FeatureName containers -All
@@ -53,7 +55,7 @@ Restart-Computer -Force
 
 ## 2.安裝 Docker
 
-需要先安裝 Docker，才能搭配使用 Windows 容器。 Docker 是由 Docker 引擎及 Docker 用戶端所組成。 針對此練習，兩者都會安裝。 若要這樣做，請執行以下命令。
+需要先安裝 Docker，才能搭配使用 Windows 容器。 Docker 是由 Docker 引擎及 Docker 用戶端所組成。 針對此練習，兩者都會安裝。 若要執行此作業，請執行下列命令。
 
 下載 Docker 引擎與用戶端的 zip 封存。
 
@@ -167,6 +169,6 @@ docker run --rm helloworld powershell c:\helloworld.ps1
 
 
 
-<!--HONumber=Oct16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 
