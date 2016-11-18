@@ -9,8 +9,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: b82acdf9-042d-4b5c-8b67-1a8013fa1435
 translationtype: Human Translation
-ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
-ms.openlocfilehash: ccd1e0fc96b96349a04e6f3f33b97e5dc28582cd
+ms.sourcegitcommit: 9b99982abfbbda12758bb1c922ed1bd431ecca20
+ms.openlocfilehash: b90120bb085f0f44fde2eadd13cfa1b93011c5a7
 
 ---
 
@@ -105,7 +105,9 @@ docker pull microsoft/windowsservercore
 
 ## 管理 Nano Server 上的 Docker
 
-若要獲得最佳體驗，最佳做法是透過遠端系統管理 Nano Server 上的 Docker。 若要這樣做，必須先完成下列項目。
+若要獲得最佳體驗，最佳做法是透過遠端系統管理 Nano Server 上的 Docker。 因為 PowerShell Remoting 目前無法將互動容器殼層的 TTY 終端輸出重新導向到初始用戶端的命令提示字元。 可以啟動中斷連接的容器，而且會使用 `docker run -dt` 在背景執行，但使用 `docker run -it` 的互動容器不會如預期般運作。 PowerShell ISE 也是因為類似的原因而有互動式輸出的問題。
+
+若要管理遠端 Docker 伺服器，必須完成下列項目。
 
 ### 準備容器主機
 
@@ -198,6 +200,6 @@ Restart-Computer
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 
