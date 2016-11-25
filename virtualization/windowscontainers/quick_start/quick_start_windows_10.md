@@ -9,8 +9,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
 translationtype: Human Translation
-ms.sourcegitcommit: b7cd9b43f001fe8625b0c4ea8cc507c8f11de7ef
-ms.openlocfilehash: 1b57ad289368fb7d5f628e605cfc320748854c30
+ms.sourcegitcommit: 9b99982abfbbda12758bb1c922ed1bd431ecca20
+ms.openlocfilehash: c9f3a7669ae82e0b3a91956336d67225687c715b
 
 ---
 
@@ -116,7 +116,9 @@ microsoft/nanoserver   latest              105d76d0f40e        4 days ago       
 
 ## 4.部署您的第一個容器
 
-在這個簡單的範例中，將會建立及部署 'Hello World' 容器映像。 請在提高權限的 Windows 命令殼層中執行這些命令，讓作業進行得更加順暢。
+在這個簡單的範例中，將會建立及部署 'Hello World' 容器映像。 請在提高權限的 Windows CMD 殼層或 PowerShell 中執行這些命令，以取得最佳體驗。
+
+> Windows PowerShell ISE 不適用於容器的互動式工作階段。 即使容器為執行中，也會顯示為停止回應。
 
 首先，請利用互動式工作階段，從 `nanoserver` 映像啟動容器。 容器啟動之後，會在容器中顯示命令殼層。  
 

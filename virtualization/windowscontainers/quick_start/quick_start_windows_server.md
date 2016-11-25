@@ -9,16 +9,16 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
 translationtype: Human Translation
-ms.sourcegitcommit: 295199bbb8c93f26562ef918df30082e1dd78f6d
-ms.openlocfilehash: bb61ccfb9756b341be2e989cb7c5bbe571072aab
+ms.sourcegitcommit: f0584aecd1148300e4075dd6e2e84e0ff92d50d5
+ms.openlocfilehash: aa1af44908d623b43ea0095552d7d95b5a5236ac
 
 ---
 
 # Windows Server 上的 Windows 容器
 
-本練習將引導進行 Windows Server 上的 Windows 容器功能基本部署和使用。 完成之後，您將會安裝容器角色，並部署簡單的 Windows Server 容器。 開始本快速入門之前，請先熟悉基本的容器概念與術語。 這項資訊可在[快快速入門簡介](./quick_start.md)中找到。
+本練習將引導您以基本方式部署及使用 Windows Server 2016 上的 Windows 容器功能。 在本練習中，您會安裝容器角色並部署簡易的 Windows Server 容器。 開始本快速入門之前，請先熟悉基本的容器概念與術語。 您可在[快速入門簡介](./quick_start.md)中找到這項資訊。
 
-本快速入門是針對 Windows Server 2016 上的 Windows Server 容器。 在此頁面左側的目錄中，可以找到其他的快速入門文件。
+本快速入門是針對 Windows Server 2016 上的 Windows Server 容器。 在此頁面左側的目錄中，可以找到其他的快速入門文件及 Windows 10 中的容器。
 
 **必要條件：**
 
@@ -34,7 +34,7 @@ ms.openlocfilehash: bb61ccfb9756b341be2e989cb7c5bbe571072aab
 
 ## 1.安裝 Docker
 
-我們將使用 [OneGet 提供者 PowerShell 模組](https://github.com/oneget/oneget)安裝 Docker。 提供者會啟用您電腦上的 [容器] 功能並安裝 Docker，這會需要重新開機。 需要先安裝 Docker，才能搭配使用 Windows 容器。 Docker 是由 Docker 引擎及 Docker 用戶端所組成。
+我們將使用 [OneGet 提供者 PowerShell 模組](https://github.com/oneget/oneget)安裝 Docker。 提供者可讓您的電腦使用容器功能。 您同時會安裝 Docker，並需要重新開機。 需要先安裝 Docker，才能搭配使用 Windows 容器。 Docker 是由 Docker 引擎及 Docker 用戶端所組成。
 
 開啟提高權限的 PowerShell 工作階段，並執行下列命令。
 
@@ -57,13 +57,13 @@ Restart-Computer -Force
 
 ## 2.安裝 Windows Updates
 
-為確保 Windows Server 系統隨時處於最新狀態，應執行如下來安裝 Windows 更新︰
+請確定您的 Windows Server 系統為最新狀態，方法是執行︰
 
 ```none
 sconfig
 ```
 
-您會看到文字型的設定功能表。您可以從中選擇選項 6，以下載並安裝更新︰
+這會顯示文字型的設定功能表，您可從中選擇選項 6，以下載並安裝更新︰
 
 ```none
 ===============================================================================
