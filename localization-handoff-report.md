@@ -6,24 +6,24 @@
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\windowscontainers\docker\configure_docker_daemon.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/c6c165fb3fedde2fa40fec4b9b25e67d96fb088b/virtualization/windowscontainers/docker/configure_docker_daemon.md) | HandedOffSuccess | [Details](#aef11acd0207f715127fa94f7d12cfca4802a21c258)
+ [virtualization\windowscontainers\communitylinks.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/4f2090faebd516c6a0ba2efc3210b953fcd2fc79/virtualization/windowscontainers/communitylinks.md) | HandedOffSuccess | [Details](#1161353ef72476806329c594672815bd1e040bd4237)
 
 ## Item Details
-##### <a name='aef11acd0207f715127fa94f7d12cfca4802a21c258'></a> Source: [virtualization\windowscontainers\docker\configure_docker_daemon.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/c6c165fb3fedde2fa40fec4b9b25e67d96fb088b/virtualization/windowscontainers/docker/configure_docker_daemon.md)
+##### <a name='1161353ef72476806329c594672815bd1e040bd4237'></a> Source: [virtualization\windowscontainers\communitylinks.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/4f2090faebd516c6a0ba2efc3210b953fcd2fc79/virtualization/windowscontainers/communitylinks.md)
 * Status: HandedOffSuccess
 * Target File: 
-* Handoff File: [configure_docker_daemon.593d065aaeaa40359a3e774b03d152311eb6570c.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/aca5732f57c118c8da71167901de8013fb32f681/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/configure_docker_daemon.593d065aaeaa40359a3e774b03d152311eb6570c.zh-tw.xlf)
-* Handoff Datetime: 2016-12-02 20:21:40
+* Handoff File: [communitylinks.2bb7ea2ddbb713bc85f6355770d609c04778fa4e.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/2744d6839d61a52b71ee6561dddb60cd496af3db/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/communitylinks.2bb7ea2ddbb713bc85f6355770d609c04778fa4e.zh-tw.xlf)
+* Handoff Datetime: 2016-12-06 18:34:00
 * Handoff Reason: Include
 * Archive File: 
 * Archive Datetime: 0001-01-01 00:00:00
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\windowscontainers\docker\configure_docker_daemon.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/5b0b44c36efd35aadd44211bc0decb72f33fbb92/virtualization/windowscontainers/docker/configure_docker_daemon.md)
-* Current Handback File: [configure_docker_daemon.593d065aaeaa40359a3e774b03d152311eb6570c.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/0a7412f4f666a8a8c7d6881999ec1c7dc8ce07ca/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/configure_docker_daemon.593d065aaeaa40359a3e774b03d152311eb6570c.zh-tw.xlf)
-* Current Handback Datetime: 2016-11-11 14:48:55
-* Bilingual File: [configure_docker_daemon.593d065aaeaa40359a3e774b03d152311eb6570c.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/0a7412f4f666a8a8c7d6881999ec1c7dc8ce07ca/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/configure_docker_daemon.593d065aaeaa40359a3e774b03d152311eb6570c.zh-tw.xlf)
-* Bilingual Datetime: 2016-11-11 14:50:09
+* Current Target File: [virtualization\windowscontainers\communitylinks.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/17b05cba9e8cf11e80e83ea152ed9d146b6a43b0/virtualization/windowscontainers/communitylinks.md)
+* Current Handback File: [communitylinks.2bb7ea2ddbb713bc85f6355770d609c04778fa4e.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/6c44e168e20b7d4e35cb1ba899b5eeb38d77eee6/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/communitylinks.2bb7ea2ddbb713bc85f6355770d609c04778fa4e.zh-tw.xlf)
+* Current Handback Datetime: 2016-11-07 19:30:57
+* Bilingual File: [communitylinks.2bb7ea2ddbb713bc85f6355770d609c04778fa4e.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/6c44e168e20b7d4e35cb1ba899b5eeb38d77eee6/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/communitylinks.2bb7ea2ddbb713bc85f6355770d609c04778fa4e.zh-tw.xlf)
+* Bilingual Datetime: 2016-11-07 19:31:27
 * [Back to Top](#report-top)
 
 
