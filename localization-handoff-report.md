@@ -1,11 +1,28 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 0
+ Total Files | 1
 
 ## File List
+ Source File | Status | Details 
+ ----------- | ------ | ------- 
+ [virtualization\hyper-v-on-windows\about\supported_guest_os.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/a3b6949cc0ff8f2ebe47538fd7b8ea806efeb8f5/virtualization/hyper-v-on-windows/about/supported_guest_os.md) | HandedOffSuccess | [Details](#dfb94dfcc92ae6ae5efcbd924695ffe9bd099e34104)
 
 ## Item Details
+##### <a name='dfb94dfcc92ae6ae5efcbd924695ffe9bd099e34104'></a> Source: [virtualization\hyper-v-on-windows\about\supported_guest_os.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/a3b6949cc0ff8f2ebe47538fd7b8ea806efeb8f5/virtualization/hyper-v-on-windows/about/supported_guest_os.md)
+* Status: HandedOffSuccess
+* Target File: 
+* Handoff File: [supported_guest_os.f568f428f572d9f5be164a2d44cdffdff59325e2.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/b77dab9035b2fe2a737aa2061f66f0ef60878e96/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/supported_guest_os.f568f428f572d9f5be164a2d44cdffdff59325e2.zh-tw.xlf)
+* Handoff Datetime: 2017-01-12 00:06:06
+* Handoff Reason: Include
+* Handoff Name: 
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: 
+* Handback Datetime: 0001-01-01 00:00:00
+* Handback Name: 
+* [Back to Top](#report-top)
+
 
 ## Error Details
 
