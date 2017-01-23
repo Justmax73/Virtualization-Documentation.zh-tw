@@ -5,13 +5,13 @@
  -------- | ----- 
  Total Files | 532
 [ Handoff Failed Files ](#handoff-failed-list)| 0
-[ Handoff Success Files ](#handoff-success-list)| 47
+[ Handoff Success Files ](#handoff-success-list)| 46
 [ Archive Failed Files ](#archive-failed-list)| 0
 [ Archive Success Files ](#archive-success-list)| 0
 [ Handback Failed Files ](#handback-failed-list)| 0
 [ Out Of Sync Handback Files ](#outofsync-handback-success-list)| 0
 [ In Sync Handback Files ](#insync-handback-success-list)| 82
-[ Ignored Files ](#ignored-list)| 403
+[ Ignored Files ](#ignored-list)| 404
 
 ## <a name='handoff-failed-list'></a> Handoff Failed File List
 
@@ -41,7 +41,6 @@
  [virtualization\hyper-v-on-windows\quick-start\enable-hyper-v.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/2cf6d04c4a8de0148a2f981d21bec72cff23f6e8/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v.md) | HandedOffSuccess | [Details](#c87e964aac32183eddf000d84d96ffa1122075f7118)
  [virtualization\hyper-v-on-windows\quick-start\index.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/d1153f99c93df3b7c82cc8713fc51f368a886e5a/virtualization/hyper-v-on-windows/quick-start/index.md) | HandedOffSuccess | [Details](#d03fec3bf9de363974cefc60c72363e872a22634119)
  [virtualization\hyper-v-on-windows\reference\hyper-v-requirements.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/d1153f99c93df3b7c82cc8713fc51f368a886e5a/virtualization/hyper-v-on-windows/reference/hyper-v-requirements.md) | HandedOffSuccess | [Details](#2d8b0d14d4c57a2a224fdbf4ac58c457c8c080e7195)
- [virtualization\hyper-v-on-windows\reference\integration-services.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/54eff4bb74ac9f4dc870d6046654bf918eac9bb5/virtualization/hyper-v-on-windows/reference/integration-services.md) | HandedOffSuccess | [Details](#46019a10c55cc11c2f25b8c4b23edc6f5d140e36196)
  [virtualization\hyper-v-on-windows\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/8216a364399efab6a34868b854722ee128bbf1aa/virtualization/hyper-v-on-windows/TOC.md) | HandedOffSuccess | [Details](#e89b44692e99454cba0044958422e85693df4e3f199)
  [virtualization\hyper-v-on-windows\user_guide\checkpoints.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fe1e5d1f35e088581d44c43108c843347111eaef/virtualization/hyper-v-on-windows/user_guide/checkpoints.md) | HandedOffSuccess | [Details](#9519f9770b0bcb30bd60714c76ac75ae555afeb5226)
  [virtualization\hyper-v-on-windows\user_guide\create_pre-release_vm.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/54eff4bb74ac9f4dc870d6046654bf918eac9bb5/virtualization/hyper-v-on-windows/user_guide/create_pre-release_vm.md) | HandedOffSuccess | [Details](#910ab0b9686d18fbaba738b8d0bd99b5f0825787227)
@@ -165,7 +164,7 @@
  ----------- | ------ | ------- 
  [.github\ISSUE_TEMPLATE.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fe1e5d1f35e088581d44c43108c843347111eaef/.github/ISSUE_TEMPLATE.md) | Ignored | [Details](#519e7712565f327521733df4596443cbd6a014b70)
  [.gitignore](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fe1e5d1f35e088581d44c43108c843347111eaef/.gitignore) | Ignored | [Details](#c486d6ee4436f74246667ac257c4e02b7cbe1dd31)
- [.localization-config](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fe1e5d1f35e088581d44c43108c843347111eaef/.localization-config) | Ignored | [Details](#dcf9a5f5a0a1c5222192650f0259865a9ac3cf6f2)
+ [.localization-config](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fe1e5d1f35e088581d44c43108c843347111eaef/.localization-config) | Ignored | [Details](#352f6516b97f30819dc02c137caf2bcc157ad2902)
  [.openpublishing.build.ps1](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fe1e5d1f35e088581d44c43108c843347111eaef/.openpublishing.build.ps1) | Ignored | [Details](#21cd29cbfb24b46f4feb52e76e167967ec26b21b3)
  [.openpublishing.publish.config.json](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fe1e5d1f35e088581d44c43108c843347111eaef/.openpublishing.publish.config.json) | Ignored | [Details](#58b185e781c0f0895e46f78f5eb17a8326c8f1794)
  [demos\2015-BigBuild\BigBuild.ps1](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fe1e5d1f35e088581d44c43108c843347111eaef/demos/2015-BigBuild/BigBuild.ps1) | Ignored | [Details](#4183786b8623f0de96cf694c44b52eb31ddff8b85)
@@ -311,6 +310,7 @@
  [virtualization\hyper-v-on-windows\quick-start\media\virtual_switch_manager.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fe1e5d1f35e088581d44c43108c843347111eaef/virtualization/hyper-v-on-windows/quick-start/media/virtual_switch_manager.png) | Ignored | [Details](#64a15781d204035d9309edfbfb5d9da7489f707e182)
  [virtualization\hyper-v-on-windows\quick-start\media\virtual_switch_manager1.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fe1e5d1f35e088581d44c43108c843347111eaef/virtualization/hyper-v-on-windows/quick-start/media/virtual_switch_manager1.png) | Ignored | [Details](#2d6238ee2a2ab32abb8c554ed523d991dd2872a5183)
  [virtualization\hyper-v-on-windows\quick-start\media\vmconnect_start_button.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fe1e5d1f35e088581d44c43108c843347111eaef/virtualization/hyper-v-on-windows/quick-start/media/vmconnect_start_button.png) | Ignored | [Details](#264bde04cf7bc72f9718fbe8753b29f714c02572184)
+ [virtualization\hyper-v-on-windows\reference\integration-services.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fe1e5d1f35e088581d44c43108c843347111eaef/virtualization/hyper-v-on-windows/reference/integration-services.md) | Ignored | [Details](#647c47998334600dc4f143d2471c0104e5d4e9a9196)
  [virtualization\hyper-v-on-windows\user-guide\media\checkpoint.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fe1e5d1f35e088581d44c43108c843347111eaef/virtualization/hyper-v-on-windows/user-guide/media/checkpoint.png) | Ignored | [Details](#dcc854e9982c81a2ad99872fd40bbd940733ccdb204)
  [virtualization\hyper-v-on-windows\user-guide\media\checkpoint_button.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fe1e5d1f35e088581d44c43108c843347111eaef/virtualization/hyper-v-on-windows/user-guide/media/checkpoint_button.png) | Ignored | [Details](#0d2809240461a6599a34c795b237533f55698452205)
  [virtualization\hyper-v-on-windows\user-guide\media\EnterCreds.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fe1e5d1f35e088581d44c43108c843347111eaef/virtualization/hyper-v-on-windows/user-guide/media/EnterCreds.png) | Ignored | [Details](#e4bd46363518215cafab94f61cd83be673624f7e207)
@@ -342,7 +342,7 @@
  [virtualization\windowscontainers\Images_EULA.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fe1e5d1f35e088581d44c43108c843347111eaef/virtualization/windowscontainers/Images_EULA.md) | Ignored | [Details](#8824e9e6864f5cf7ed5e3a5a574a060d5b7b65b7282)
  [virtualization\windowscontainers\index.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fe1e5d1f35e088581d44c43108c843347111eaef/virtualization/windowscontainers/index.md) | Ignored | [Details](#9b630e372b575ef1721c0d0926ec2caec3e5ec34283)
  [virtualization\windowscontainers\manage-containers\container-base-images.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fe1e5d1f35e088581d44c43108c843347111eaef/virtualization/windowscontainers/manage-containers/container-base-images.md) | Ignored | [Details](#622c8f638a815e19a54aa75b6b5ea0688d966ae3284)
- [virtualization\windowscontainers\manage-containers\container-networking.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fe1e5d1f35e088581d44c43108c843347111eaef/virtualization/windowscontainers/manage-containers/container-networking.md) | Ignored | [Details](#8059037bb25373e98b871589f6fd9378f1159d4a285)
+ [virtualization\windowscontainers\manage-containers\container-networking.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fe1e5d1f35e088581d44c43108c843347111eaef/virtualization/windowscontainers/manage-containers/container-networking.md) | Ignored | [Details](#aff515917e195008899382c491ab0af2ebdb3c13285)
  [virtualization\windowscontainers\manage-containers\media\imagecommit.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fe1e5d1f35e088581d44c43108c843347111eaef/virtualization/windowscontainers/manage-containers/media/imagecommit.png) | Ignored | [Details](#70d9d123171e564192e70631951058b0639e0f67288)
  [virtualization\windowscontainers\manage-containers\media\imagelayer.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fe1e5d1f35e088581d44c43108c843347111eaef/virtualization/windowscontainers/manage-containers/media/imagelayer.png) | Ignored | [Details](#79ca6518022758718f4adb9f5af0b408051b4180289)
  [virtualization\windowscontainers\manage-containers\media\nwconfig.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fe1e5d1f35e088581d44c43108c843347111eaef/virtualization/windowscontainers/manage-containers/media/nwconfig.png) | Ignored | [Details](#f38c2cd178b4cd8c1dd2e187ef4fa05546755d43291)
@@ -596,7 +596,7 @@
 * Handback Name: 
 * [Back to Top](#report-top)
 
-##### <a name='dcf9a5f5a0a1c5222192650f0259865a9ac3cf6f2'></a> Source: [.localization-config](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fe1e5d1f35e088581d44c43108c843347111eaef/.localization-config)
+##### <a name='352f6516b97f30819dc02c137caf2bcc157ad2902'></a> Source: [.localization-config](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fe1e5d1f35e088581d44c43108c843347111eaef/.localization-config)
 * Status: Ignored
 * Target File: 
 * Handoff File: 
@@ -3339,12 +3339,12 @@
 * Handback Name: 
 * [Back to Top](#report-top)
 
-##### <a name='46019a10c55cc11c2f25b8c4b23edc6f5d140e36196'></a> Source: [virtualization\hyper-v-on-windows\reference\integration-services.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/54eff4bb74ac9f4dc870d6046654bf918eac9bb5/virtualization/hyper-v-on-windows/reference/integration-services.md)
-* Status: HandedOffSuccess
+##### <a name='647c47998334600dc4f143d2471c0104e5d4e9a9196'></a> Source: [virtualization\hyper-v-on-windows\reference\integration-services.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fe1e5d1f35e088581d44c43108c843347111eaef/virtualization/hyper-v-on-windows/reference/integration-services.md)
+* Status: Ignored
 * Target File: 
-* Handoff File: [integration-services.813ccf046e3136730daeb29ece0fa5a3c4b801bb.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/f038ccad63012d77db3fb152309103585e5b3446/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/integration-services.813ccf046e3136730daeb29ece0fa5a3c4b801bb.zh-tw.xlf)
-* Handoff Datetime: 2017-01-12 21:07:07
-* Handoff Reason: Include
+* Handoff File: 
+* Handoff Datetime: 0001-01-01 00:00:00
+* Handoff Reason: Ignored
 * Handoff Name: 
 * Archive File: 
 * Archive Datetime: 0001-01-01 00:00:00
@@ -4649,7 +4649,7 @@
 * Handback Name: 
 * [Back to Top](#report-top)
 
-##### <a name='8059037bb25373e98b871589f6fd9378f1159d4a285'></a> Source: [virtualization\windowscontainers\manage-containers\container-networking.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fe1e5d1f35e088581d44c43108c843347111eaef/virtualization/windowscontainers/manage-containers/container-networking.md)
+##### <a name='aff515917e195008899382c491ab0af2ebdb3c13285'></a> Source: [virtualization\windowscontainers\manage-containers\container-networking.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fe1e5d1f35e088581d44c43108c843347111eaef/virtualization/windowscontainers/manage-containers/container-networking.md)
 * Status: Ignored
 * Target File: 
 * Handoff File: 
