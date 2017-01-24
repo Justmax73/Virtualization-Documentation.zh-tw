@@ -1,0 +1,90 @@
+---
+title: "在 Windows 10 上安裝 Hyper-V"
+description: "在 Windows 10 上安裝 Hyper-V"
+keywords: windows 10, hyper-v
+author: scooley
+ms.date: 05/02/2016
+ms.topic: article
+ms.prod: windows-10-hyperv
+ms.service: windows-10-hyperv
+ms.assetid: 752dc760-a33c-41bb-902c-3bb2ecd9ac86
+translationtype: Human Translation
+ms.sourcegitcommit: 2cf6d04c4a8de0148a2f981d21bec72cff23f6e8
+ms.openlocfilehash: c87e964aac32183eddf000d84d96ffa1122075f7
+
+---
+
+# 在 Windows 10 上安裝 Hyper-V
+
+在 Windows 10 上啟用 Hyper-V 以便建立虛擬機器。  
+啟用 Hyper-V 的方法有很多種，包括使用 Windows 10 控制台、PowerShell (我個人最偏好)，或是使用部署映像服務與管理工具 (DISM)。 本文件會逐步解說每一種選項。
+
+> **注意︰**Hyper-V 是 Windows 內建的選用功能，Hyper-V 並沒有可供單獨下載或安裝的元件。 
+
+## 檢查需求
+
+* Windows 10 企業版、專業版或教育版
+* 使用第二層位址轉譯 (SLAT) 的 64 位元處理器。
+* CPU 對 VM 監視模式延伸模組的支援 (Intel CPU 上的 VT-c)。
+* 至少 4 GB 記憶體。
+
+Hyper-V 角色「無法」****安裝於 Windows 10 家用版。  
+請開啟 [設定]**** > [更新與安全性]**** > [啟用]****，將 Windows 10 家用版升級為 Windows 10 專業版。
+
+如需詳細資訊及疑難排解資訊，請參閱 [Windows 10 Hyper-V 系統需求](../reference/hyper-v-requirements.md)。
+
+
+## 安裝 Hyper-V 
+Hyper-V 是 Windows 內建的選用功能，Hyper-V 並沒有可供單獨下載或安裝的元件。  有幾種方式可啟用內建的 Hyper-V 角色。
+
+### 使用 PowerShell 啟用 Hyper-V
+
+1. 以系統管理員身分開啟 PowerShell 主控台。
+
+2. 執行下列命令：
+  ```powershell
+  Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+  ```  
+
+  如果找不到此命令，請確定您是以系統管理員身分執行 PowerShell。  
+
+安裝完成時，您需要將電腦重新開機。  
+
+### 使用 CMD 和 DISM 啟用 Hyper-V
+
+部署映像服務與管理工具 (DISM) 可協助您設定 Windows 和 Windows 映像。  DISM 有許多方面的應用，其中一項即是可於作業系統正在執行時啟用 Windows 功能。  
+
+使用 DISM 啟用 Hyper-V 角色：
+1. 以系統管理員身分開啟 PowerShell 或 CMD 工作階段。
+
+2. 輸入下列命令：  
+  ```powershell
+  DISM /Online /Enable-Feature /All /FeatureName:Microsoft-Hyper-V
+  ```  
+  ![](media/dism_upd.png)
+
+如需 DISM 的詳細資訊，請參閱 [DISM - 部署映像服務與管理技術參考](https://technet.microsoft.com/en-us/library/hh824821.aspx)。
+
+### 手動啟用 Hyper-V 角色
+
+1. 以滑鼠右鍵按一下 Windows 鍵，然後選取 [程式和功能]。
+
+2. 選取 **[開啟或關閉 Windows 功能]**。
+
+3. 選取 **[Hyper-V]**，然後按一下 **[確定]**。  
+
+![](media/enable_role_upd.png)
+
+安裝完成時，系統會提示您將電腦重新開機。
+
+![](media/restart_upd.png)
+
+
+## 後續步驟 - 設定網路
+[連線到網際網路](connect-to-network.md)
+
+
+
+<!--HONumber=Jan17_HO2-->
+
+

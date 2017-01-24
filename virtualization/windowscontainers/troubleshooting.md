@@ -1,11 +1,27 @@
+---
+title: "Windows 容器疑難排解"
+description: "適用於 Windows 容器和 Docker 的疑難排解秘訣、自動化指令碼，以及記錄檔資訊"
+keywords: "docker, 容器, 疑難排解, 記錄檔"
+author: PatrickLang
+ms.date: 12/19/2016
+ms.topic: article
+ms.prod: windows-containers
+ms.service: windows-containers
+ms.assetid: ebd79cd3-5fdd-458d-8dc8-fc96408958b5
+translationtype: Human Translation
+ms.sourcegitcommit: c65353d0b6dff233819dcc8f4f92eb186bf3b8fc
+ms.openlocfilehash: 9f28c35c6eaddd8bcf3883863b63251378f845a7
+
+---
+
 # 疑難排解
 
 您有設定電腦或執行容器方面的問題嗎？ 我們建立了一份 PowerShell 指令碼，可讓您用於檢查常見的問題。 請嘗試先使用這份指令碼進行檢查，然後將結果提供給我們。
 
 ```PowerShell
-Invoke-WebRequest https://raw.githubusercontent.com/Microsoft/Virtualization-Documentation/master/windows-server-container-tools/Debug-ContainerHost/Debug-ContainerHost.ps1 -UseBasicParsing | Invoke-Expression
+Invoke-WebRequest https://aka.ms/Debug-ContainerHost.ps1 -UseBasicParsing | Invoke-Expression
 ```
-指令碼的[讀我檔案](https://github.com/Microsoft/Virtualization-Documentation/blob/master/windows-server-container-tools/Debug-ContainerHost/README.md)中列有一份清單，包括了此指令碼所執行的各項測試及其常用解決方法。
+指令碼的[讀我檔案](https://github.com/Microsoft/Virtualization-Documentation/blob/live/windows-server-container-tools/Debug-ContainerHost/README.md)中列有一份清單，包括了此指令碼所執行的各項測試及其常用解決方法。
 
 若執行這份指令碼無法找出問題的根源，請將您的指令碼輸出張貼到[容器論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)。 論壇社群中的各方高手 (包括 Windows 測試人員及開發人員) 是為您提供協助的最佳人選。
 
@@ -84,6 +100,7 @@ Get-WinEvent -LogName Microsoft-Windows-Hyper-V-Compute-Operational
 
 
 
-<!--HONumber=Nov16_HO1-->
+
+<!--HONumber=Jan17_HO4-->
 
 

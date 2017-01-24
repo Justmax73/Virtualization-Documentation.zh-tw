@@ -1,6 +1,22 @@
+---
+title: "Windows 容器範例"
+description: "尋找使用 Windows 容器的熱門專案與程式碼範例的連結。"
+keywords: "docker, 容器, windows, 範例"
+author: enderb-ms
+ms.date: 12/19/2016
+ms.topic: article
+ms.prod: windows-containers
+ms.service: windows-containers
+ms.assetid: 5c6f6350-f8d6-4426-b53d-9fb09c2bf267
+translationtype: Human Translation
+ms.sourcegitcommit: b2950dca4b29e97eb951379645c118468a1fb403
+ms.openlocfilehash: eac2026cff552315a4cb256b595f1bd3317ee11c
+
+---
+
 # Windows 容器範例
 
-此為範例集合與 Windows 團隊及社群成員所提交的範例。  提供的這些範例沒有任何擔保或保證。  請不吝提供其他範例，或改善目前的集合。
+此為 Windows 小組及社群成員所提交的範例集合。  提供的這些範例沒有任何擔保或保證。  請不吝提供其他範例，或改善目前的集合。
 
 # Categories
 
@@ -64,6 +80,7 @@
 ## 其他
 
 
-<!--HONumber=Oct16_HO1-->
+
+<!--HONumber=Dec16_HO3-->
 
 
