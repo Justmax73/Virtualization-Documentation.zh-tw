@@ -1,11 +1,28 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 0
+ Total Files | 1
 
 ## File List
+ Source File | Status | Details 
+ ----------- | ------ | ------- 
+ [virtualization\windowscontainers\manage-containers\container-networking.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/13c409e0d83850d3e99593497b3e338582d5be1e/virtualization/windowscontainers/manage-containers/container-networking.md) | HandedOffSuccess | [Details](#7205dce0aef50e9e907092f722232e866083b9a0287)
 
 ## Item Details
+##### <a name='7205dce0aef50e9e907092f722232e866083b9a0287'></a> Source: [virtualization\windowscontainers\manage-containers\container-networking.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/13c409e0d83850d3e99593497b3e338582d5be1e/virtualization/windowscontainers/manage-containers/container-networking.md)
+* Status: HandedOffSuccess
+* Target File: 
+* Handoff File: [container-networking.925e90f386932bf7a0a7f6b1b149c3456acbb560.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/9cb419ce2d72d26f4b0439d320bc75a5ec2c7f52/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/container-networking.925e90f386932bf7a0a7f6b1b149c3456acbb560.zh-tw.xlf)
+* Handoff Datetime: 2017-01-25 05:18:26
+* Handoff Reason: Include
+* Handoff Name: 
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: 
+* Handback Datetime: 0001-01-01 00:00:00
+* Handback Name: 
+* [Back to Top](#report-top)
+
 
 ## Error Details
 
