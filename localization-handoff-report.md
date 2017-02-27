@@ -1,33 +1,11 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 1
+ Total Files | 0
 
 ## File List
- Source File | Status | Details 
- ----------- | ------ | ------- 
- [virtualization\hyper-v-on-windows\reference\tlfs.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/b2699f1ec29e4b84b6c6af3b64969457ce7b58b6/virtualization/hyper-v-on-windows/reference/tlfs.md) | HandedOffSuccess | [Details](#495bd9228e93a1981a646f13e2e583a741eec217201)
 
 ## Item Details
-##### <a name='495bd9228e93a1981a646f13e2e583a741eec217201'></a> Source: [virtualization\hyper-v-on-windows\reference\tlfs.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/b2699f1ec29e4b84b6c6af3b64969457ce7b58b6/virtualization/hyper-v-on-windows/reference/tlfs.md)
-* Status: HandedOffSuccess
-* Target File: 
-* Handoff File: [tlfs.1bc1ee9abc2adf060143e30b11346b0456729304.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/d1fb88b05ef3aeb5018806d7f746ba39ec32141b/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/tlfs.1bc1ee9abc2adf060143e30b11346b0456729304.zh-tw.xlf)
-* Handoff Datetime: 2017-02-27 21:23:53
-* Handoff Reason: Include
-* Handoff Name: 
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
-* Handback File: 
-* Handback Datetime: 0001-01-01 00:00:00
-* Handback Name: 
-* Current Target File: [virtualization\hyperv_on_windows\reference\tlfs.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/987b9ef247e0d4ab3113ba9e6c81801ca4d0e9df/virtualization/hyperv_on_windows/reference/tlfs.md)
-* Current Handback File: [tlfs.dcdda4ab93a4524cae3e7de93cf82726d2099b87.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/9dd6d949691a9d66cf4f36c0393dcf5514ca5e7e/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/tlfs.dcdda4ab93a4524cae3e7de93cf82726d2099b87.zh-tw.xlf)
-* Current Handback Datetime: 2016-11-02 14:12:43
-* Bilingual File: [tlfs.dcdda4ab93a4524cae3e7de93cf82726d2099b87.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/9dd6d949691a9d66cf4f36c0393dcf5514ca5e7e/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/tlfs.dcdda4ab93a4524cae3e7de93cf82726d2099b87.zh-tw.xlf)
-* Bilingual Datetime: 2016-11-02 14:14:27
-* [Back to Top](#report-top)
-
 
 ## Error Details
 
