@@ -6,14 +6,14 @@
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\windowscontainers\quick-start\quick-start-windows-10.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/5c3c2ebc1e8118996f9cef0e49dc699ba5ae160c/virtualization/windowscontainers/quick-start/quick-start-windows-10.md) | HandedOffSuccess | [Details](#ca3045512770a197623ad73735c755699880c94a365)
+ [virtualization\hyper-v-on-windows\quick-start\enable-hyper-v.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/35daf96cbbf758dc304469f79b8da36fe03cb865/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v.md) | HandedOffSuccess | [Details](#10ebeb40c75ac4764c8b548a4221af16f43d5de0121)
 
 ## Item Details
-##### <a name='ca3045512770a197623ad73735c755699880c94a365'></a> Source: [virtualization\windowscontainers\quick-start\quick-start-windows-10.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/5c3c2ebc1e8118996f9cef0e49dc699ba5ae160c/virtualization/windowscontainers/quick-start/quick-start-windows-10.md)
+##### <a name='10ebeb40c75ac4764c8b548a4221af16f43d5de0121'></a> Source: [virtualization\hyper-v-on-windows\quick-start\enable-hyper-v.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/35daf96cbbf758dc304469f79b8da36fe03cb865/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v.md)
 * Status: HandedOffSuccess
 * Target File: 
-* Handoff File: [quick-start-windows-10.a292cb64dd3dd6e10f23632c8ce9edbe9faf6738.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/22db93534a4e889f77a9f01443d27bbb2a571176/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/quick-start-windows-10.a292cb64dd3dd6e10f23632c8ce9edbe9faf6738.zh-tw.xlf)
-* Handoff Datetime: 2017-03-15 19:28:34
+* Handoff File: [enable-hyper-v.0da13d8a447b5ecf77ca9319671182fae670898e.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/6a27145defbc1091fa6534d0aef41bb8c2620e18/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/enable-hyper-v.0da13d8a447b5ecf77ca9319671182fae670898e.zh-tw.xlf)
+* Handoff Datetime: 2017-03-21 18:30:17
 * Handoff Reason: Include
 * Handoff Name: 
 * Archive File: 
@@ -21,10 +21,10 @@
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
 * Handback Name: 
-* Current Target File: [virtualization\windowscontainers\quick-start\quick-start-windows-10.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/5b7022a9f7c04887f46b62028a5634d1a10e4e6a/virtualization/windowscontainers/quick-start/quick-start-windows-10.md)
-* Current Handback File: [quick-start-windows-10.a292cb64dd3dd6e10f23632c8ce9edbe9faf6738.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/de9afe5b1f155dfcfbe263495e1f038950647fbb/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/quick-start-windows-10.a292cb64dd3dd6e10f23632c8ce9edbe9faf6738.zh-tw.xlf)
+* Current Target File: [virtualization\hyper-v-on-windows\quick-start\enable-hyper-v.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/5b7022a9f7c04887f46b62028a5634d1a10e4e6a/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v.md)
+* Current Handback File: [enable-hyper-v.0da13d8a447b5ecf77ca9319671182fae670898e.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/de9afe5b1f155dfcfbe263495e1f038950647fbb/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/enable-hyper-v.0da13d8a447b5ecf77ca9319671182fae670898e.zh-tw.xlf)
 * Current Handback Datetime: 2017-01-24 13:19:37
-* Bilingual File: [quick-start-windows-10.a292cb64dd3dd6e10f23632c8ce9edbe9faf6738.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/de9afe5b1f155dfcfbe263495e1f038950647fbb/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/quick-start-windows-10.a292cb64dd3dd6e10f23632c8ce9edbe9faf6738.zh-tw.xlf)
+* Bilingual File: [enable-hyper-v.0da13d8a447b5ecf77ca9319671182fae670898e.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/de9afe5b1f155dfcfbe263495e1f038950647fbb/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/enable-hyper-v.0da13d8a447b5ecf77ca9319671182fae670898e.zh-tw.xlf)
 * Bilingual Datetime: 2017-01-24 13:21:56
 * [Back to Top](#report-top)
 
