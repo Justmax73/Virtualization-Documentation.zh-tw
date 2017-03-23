@@ -1,33 +1,11 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 1
+ Total Files | 0
 
 ## File List
- Source File | Status | Details 
- ----------- | ------ | ------- 
- [virtualization\hyper-v-on-windows\quick-start\enable-hyper-v.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/35daf96cbbf758dc304469f79b8da36fe03cb865/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v.md) | HandedOffSuccess | [Details](#10ebeb40c75ac4764c8b548a4221af16f43d5de0121)
 
 ## Item Details
-##### <a name='10ebeb40c75ac4764c8b548a4221af16f43d5de0121'></a> Source: [virtualization\hyper-v-on-windows\quick-start\enable-hyper-v.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/35daf96cbbf758dc304469f79b8da36fe03cb865/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v.md)
-* Status: HandedOffSuccess
-* Target File: 
-* Handoff File: [enable-hyper-v.0da13d8a447b5ecf77ca9319671182fae670898e.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/6a27145defbc1091fa6534d0aef41bb8c2620e18/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/enable-hyper-v.0da13d8a447b5ecf77ca9319671182fae670898e.zh-tw.xlf)
-* Handoff Datetime: 2017-03-21 18:30:17
-* Handoff Reason: Include
-* Handoff Name: 
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
-* Handback File: 
-* Handback Datetime: 0001-01-01 00:00:00
-* Handback Name: 
-* Current Target File: [virtualization\hyper-v-on-windows\quick-start\enable-hyper-v.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/5b7022a9f7c04887f46b62028a5634d1a10e4e6a/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v.md)
-* Current Handback File: [enable-hyper-v.0da13d8a447b5ecf77ca9319671182fae670898e.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/de9afe5b1f155dfcfbe263495e1f038950647fbb/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/enable-hyper-v.0da13d8a447b5ecf77ca9319671182fae670898e.zh-tw.xlf)
-* Current Handback Datetime: 2017-01-24 13:19:37
-* Bilingual File: [enable-hyper-v.0da13d8a447b5ecf77ca9319671182fae670898e.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/de9afe5b1f155dfcfbe263495e1f038950647fbb/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/enable-hyper-v.0da13d8a447b5ecf77ca9319671182fae670898e.zh-tw.xlf)
-* Bilingual Datetime: 2017-01-24 13:21:56
-* [Back to Top](#report-top)
-
 
 ## Error Details
 
