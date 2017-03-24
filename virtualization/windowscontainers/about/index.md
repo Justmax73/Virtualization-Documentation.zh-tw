@@ -9,8 +9,9 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8e273856-3620-4e58-9d1a-d1e06550448
 translationtype: Human Translation
-ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
-ms.openlocfilehash: f4e1102cc7338739e396dadba17150e41716ed93
+ms.sourcegitcommit: 59621ca2db190d5c13034752a08c291e3dc19daa
+ms.openlocfilehash: d68be61b1d462b70986df5cfd6df052b388cec1d
+ms.lasthandoff: 02/08/2017
 
 ---
 
@@ -18,17 +19,15 @@ ms.openlocfilehash: f4e1102cc7338739e396dadba17150e41716ed93
 
 **這是初版內容，後續可能會變更。** 
 
-應用程式促進了雲端和行動時代的創新。 隨之開發的容器和生態系統，將支援軟體開發人員建立新一代的應用程式體驗。
+## 什麼是容器
 
-觀看簡短的概觀：[Windows-based containers: Modern app development with enterprise-grade control](https://youtu.be/Ryx3o0rD5lY) (Windows 容器：具備企業級控制能力的現代化應用程式開發)。
-
-## 什麼是容器？
+觀看簡短的概觀：[Windows 容器：具備企業級控制能力的現代化應用程式開發](https://youtu.be/Ryx3o0rD5lY) (英文)。
 
 它們是獨立且由資源控制的可攜式作業環境。
 
-基本上，容器是可讓應用程式執行而不會影響系統的其餘部分，且不會讓系統影響應用程式的隔離位置。 容器是虛擬化下一步的發展。
+基本而言，容器是一處隔離的地方，使應用程式可在其中執行，而不會觸及其他容器或主機的資源 (記憶體、磁碟、網路等)。
 
-當您在容器內時，您會感覺像是在全新安裝的實體電腦或虛擬機器內。 同時，若是 [Docker](https://www.docker.com/)，Windows Server 容器可以用和其他任何容器一樣的方式進行管理。
+容器的外觀及行為如同新安裝的實體電腦或虛擬機器。 Windows Server 容器可使用 [Docker](https://www.docker.com/) 管理，如同任何其他容器。
 
 ## Windows 容器類型
 
@@ -86,10 +85,5 @@ src="https://channel9.msdn.com/Blogs/containers/Containers-101-with-Microsoft-an
 ## 試用 Windows Server 容器
 
 [容器快速啟動簡介](../quick_start/quick_start.md)
-
-
-
-
-<!--HONumber=Oct16_HO4-->
 
 

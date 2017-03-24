@@ -1,7 +1,7 @@
 ---
 title: "製作您自己的整合服務"
 description: "Windows 10 整合服務。"
-keywords: windows 10, hyper-v
+keywords: Windows 10, Hyper-V, HVSocket, AF_HYPERV
 author: scooley
 ms.date: 05/02/2016
 ms.topic: article
@@ -9,22 +9,21 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 1ef8f18c-3d76-4c06-87e4-11d8d4e31aea
 translationtype: Human Translation
-ms.sourcegitcommit: 54eff4bb74ac9f4dc870d6046654bf918eac9bb5
-ms.openlocfilehash: 9e4be610f02e12f48fb88464eb8075b97996d5b2
+ms.sourcegitcommit: b6b63318ed71931c2b49039e57685414f869a945
+ms.openlocfilehash: 19e8cf269b0bef127fb06d2c99391107cd8683b1
+ms.lasthandoff: 02/16/2017
 
 ---
 
 # 製作您自己的整合服務
 
-從 Windows 10 開始，任何人都可以製作與隨附 Hyper-V 整合服務相似的服務，其會使用 Hyper-V 主機和執行於其中之虛擬機器之間的新通訊端型通訊通道。  使用 Hyper-V 通訊端時，服務將可在網路堆疊外獨立執行，且所有資料將會存留在相同的實體記憶體上。
+從 Windows 10 年度更新版開始，任何人都可以讓在 Hyper-V 主機之間通訊，並使用虛擬電腦的應用程式使用 Hyper-V 通訊端 -- 此通訊端為使用新位址家族，且具備以虛擬電腦為目標之特殊端點的 Windows 通訊端。  所有透過 Hyper-V 通訊端的通訊，都不使用網路功能，且所有的資料會留在相同的實體記憶體上。   使用 Hyper-V 通訊端的應用程式，類似於 Hyper-V 的整合服務。
 
-本文將逐步說明如何建立在 Hyper-V 通訊端上建置的簡易應用程式，和如何開始加以使用。
-
-舉例來說，[PowerShell Direct](../user-guide/powershell-direct.md) 就是使用 Hyper-V 通訊端進行通訊的應用程式 (在此案例中為隨附 Windows 服務)。
+本文件會逐步介紹如何用 Hyper-V 通訊端為基礎來建立簡單的程式。
 
 **支援的主機 OS**
-* Windows 10 組建 14290 及更新版本
-* Windows Server Technical Preview 4 及更新版本
+* Windows 10 予以支援
+* Windows Server 2016
 * 未來版本 (Server 2016 +)
 
 **支援的客體 OS**
@@ -36,33 +35,18 @@ ms.openlocfilehash: 9e4be610f02e12f48fb88464eb8075b97996d5b2
 **功能和限制**  
 * 支援核心模式或使用者模式動作  
 * 僅限資料流      
-* 沒有區塊記憶體 (並非備份/視訊的最佳選擇)   
+* 沒有區塊記憶體 (並非備份/視訊的最佳選擇) 
 
 --------------
 
 ## 開始使用
-現在，Hyper-V 通訊端已可在原生程式碼 (C/C++) 中使用。  
 
-若要撰寫簡單的應用程式，您將需要：
-* C 編譯器。  如果您沒有，請查看 [Visual Studio Community](https://aka.ms/vs)
-* 執行 Hyper-V 與虛擬機器的電腦。  
-  * 主機和客體 (VM) OS 必須是 Windows 10、Windows Server Technical Preview 3 或更新版本。
-* 安裝於 Hyper-V 主機的 [Windows 10 SDK](http://aka.ms/flightingSDK)
+需求：
+* C/C++ 編譯器。  如果您沒有的話，請查看 [Visual Studio 社群](https://aka.ms/vs)
+* [Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk) -- 已預先安裝於 Visual Studio 2015 內，並包含 Update 3 及以上版本。
+* 搭配至少一個虛擬電腦來執行其中一個上述主機作業系統的電腦。 -- 這是用以測試您的應用程式。
 
-**Windows SDK 詳細資料**
-
-通往 Windows SDK 的連結：
-* [供測試人員預覽的 Windows 10 SDK](http://aka.ms/flightingSDK)
-* [Windows 10 SDK](https://dev.windows.com/en-us/downloads/windows-10-sdk)
-
-適用於 Hyper-V 通訊端的 API 已在 Windows 10 組建 14290 中提供使用；這是正式發行前小眾測試下載，其符合最新測試人員速成正式發行前小眾測試組建。  
-若您遇到異常行為，請在 [TechNet 論壇](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home "TechNet Forums")中告訴我們。  請在您的貼文中加入以下內容：
-* 未預期的行為 
-* 主機、客體及 SDK 的 OS 與組建編號。  
-  
-  您可以在 SDK 安裝程式標題看到 SDK 組建編號︰  
-  ![](./media/flightingSDK.png)
-
+> **注意︰**Hyper-V 通訊端的 API 會在稍後於 Windows 10 中公開可用。  使用 HVSocket 的應用程式將在任何 Widnows 10 主機和客體上執行，但僅限使用 Windows SDK 組建 14290 之後的版本進行開發。  
 
 ## 註冊新的應用程式
 若要使用 Hyper-V 通訊端，必須在 Hyper-V 主機的登錄中註冊應用程式。
@@ -76,18 +60,18 @@ ms.openlocfilehash: 9e4be610f02e12f48fb88464eb8075b97996d5b2
 ``` PowerShell
 $friendlyName = "HV Socket Demo"
 
-# Create a new random GUID and add it to the services list then add the name as a value
-
+# Create a new random GUID.  Add it to the services list
 $service = New-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\GuestCommunicationServices" -Name ((New-Guid).Guid)
 
+# Set a friendly name 
 $service.SetValue("ElementName", $friendlyName)
 
 # Copy GUID to clipboard for later use
 $service.PSChildName | clip.exe
 ```
 
-** 登錄位置和資訊 **  
 
+**登錄位置和資訊：**  
 ``` 
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\GuestCommunicationServices\
 ```  
@@ -105,12 +89,12 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\G
 ```
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\GuestCommunicationServices\
     999E53D4-3D5C-4C3E-8779-BED06EC056E1\
-        ElementName REG_SZ  VM Session Service
+        ElementName    REG_SZ    VM Session Service
     YourGUID\
-        ElementName REG_SZ  Your Service Friendly Name
+        ElementName    REG_SZ    Your Service Friendly Name
 ```
 
-> **提示：**若要在 PowerShell 中產生 GUID 並將其複製到剪貼簿，請執行：  
+> **提示：**若要在 PowerShell 中產生 GUID，並將其複製到剪貼簿，請執行：  
 ``` PowerShell
 (New-Guid).Guid | clip.exe
 ```
@@ -191,11 +175,11 @@ AF_HYPERV 端點並不依賴 IP 或主機名稱，而是高度依賴兩個 GUID�
 | HV_GUID_BROADCAST | FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF | |  
 | HV_GUID_CHILDREN | 90db8b89-0d35-4f79-8ce9-49ea0ac8b7cd | 子項的萬用字元位址。 接聽程式應繫結至此 VmId，才可接受來自其子項的連線。 |
 | HV_GUID_LOOPBACK | e0e16197-dd56-4a10-9195-5ee7a155a838 | 回送位址。 使用此 VmId，可連接到與連接器相同的分割區。 |
-| HV_GUID_PARENT | a42e7cda-d03f-480c-9cc2-a4de20abb878 | 父項位址。 使用此 VmId，可連接到連接器的父項分割區。* |
+| HV_GUID_PARENT | a42e7cda-d03f-480c-9cc2-a4de20abb878 | 父項位址。 使用此 VmId，可連接到連接器的父分割。* |
 
 
-***HV_GUID_PARENT**  
-虛擬機器的父項是其主機。  容器的父項是容器的主機。  
+\* `HV_GUID_PARENT`  
+虛擬機器的父系是其主機。  容器的父系是容器的主機。  
 從執行於虛擬機器中的容器連接，將會連接到主控容器的 VM。  
 在此 VmId 上接聽，可接受下列來源的連線：  
 (在容器內)：容器主機。  
@@ -211,10 +195,7 @@ Send()
 Listen()  
 Accept()  
 
+## 實用的連結
 [完整 WinSock API](https://msdn.microsoft.com/en-us/library/windows/desktop/ms741394.aspx)
 
-
-
-<!--HONumber=Jan17_HO2-->
-
-
+[Hyper-V 整合服務參考](../reference/integration-services.md)

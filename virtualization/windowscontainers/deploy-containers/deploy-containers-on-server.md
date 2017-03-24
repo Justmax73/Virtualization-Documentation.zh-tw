@@ -9,8 +9,9 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ba4eb594-0cdb-4148-81ac-a83b4bc337bc
 translationtype: Human Translation
-ms.sourcegitcommit: 54eff4bb74ac9f4dc870d6046654bf918eac9bb5
-ms.openlocfilehash: 6e113b5ddc74b5a4e6ee23b06ef635a7ba0d4693
+ms.sourcegitcommit: c08793b0f9cc7e6f34696dd2e843ef6e6deea2a4
+ms.openlocfilehash: 12c7c713468618a9fedc82ec5a1c488f57edcfd7
+ms.lasthandoff: 02/08/2017
 
 ---
 
@@ -22,17 +23,17 @@ ms.openlocfilehash: 6e113b5ddc74b5a4e6ee23b06ef635a7ba0d4693
 
 需要先安裝 Docker，才能搭配使用 Windows 容器。 Docker 是由 Docker 引擎及 Docker 用戶端所組成。 
 
-我們將使用 [OneGet 提供者 PowerShell 模組](https://github.com/oneget/oneget)安裝 Docker。 提供者會啟用您電腦上的 [容器] 功能並安裝 Docker，這會需要重新開機。 
+我們將使用 [OneGet 提供者 PowerShell 模組](https://github.com/OneGet/MicrosoftDockerProvider)安裝 Docker。 提供者會啟用您電腦上的 \[容器\] 功能並安裝 Docker，這會需要重新開機。 
 
 開啟提高權限的 PowerShell 工作階段，並執行下列命令。
 
-首先安裝 OneGet PowerShell 模組。
+安裝 OneGet PowerShell 模組。
 
 ```none
 Install-Module -Name DockerMsftProvider -Repository PSGallery -Force
 ```
 
-接著使用 OneGet 安裝最新版的 Docker。
+使用 OneGet 安裝最新版的 Docker。
 
 ```none
 Install-Package -Name docker -ProviderName DockerMsftProvider
@@ -46,7 +47,7 @@ Restart-Computer -Force
 
 ## 安裝基礎容器映像
 
-使用 Windows 容器之前，必須先安裝基礎映像。 目前已經有以 Windows Server Core 或 Nano Server 做為基礎作業系統的基礎映像。 如需 Docker 容器映像的詳細資訊，請參閱 [docker.com 上建置自己的映像](https://docs.docker.com/engine/tutorials/dockerimages/)。
+使用 Windows 容器之前，必須先安裝基礎映像。 目前已經有以 Windows Server Core 或 Nano Server 作為容器作業系統的基礎映像。 如需 Docker 容器映像的詳細資訊，請參閱 [docker.com 上建置自己的映像](https://docs.docker.com/engine/tutorials/dockerimages/)。
 
 若要安裝 Windows Server Core 基礎映像，請執行下列步驟：
 
@@ -91,9 +92,4 @@ Get-VMNetworkAdapter -VMName $vm | Set-VMNetworkAdapter -MacAddressSpoofing On
 ```none
 Install-WindowsFeature hyper-v
 ```
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

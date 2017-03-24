@@ -9,8 +9,9 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
 translationtype: Human Translation
-ms.sourcegitcommit: 54eff4bb74ac9f4dc870d6046654bf918eac9bb5
-ms.openlocfilehash: 8aba9f2ef619b79e7459d7fd55bd27cf107621b3
+ms.sourcegitcommit: 996d3b1a8f7c8325ac66d331e1d62208c0cf6b53
+ms.openlocfilehash: 091a3570291624a3be40e3aabb9f99a482cb6470
+ms.lasthandoff: 02/27/2017
 
 ---
 
@@ -60,13 +61,13 @@ Restart-Computer -Force
 下載 Docker 引擎與用戶端的 zip 封存。
 
 ```none
-Invoke-WebRequest "https://test.docker.com/builds/Windows/x86_64/docker-1.13.0-rc4.zip" -OutFile "$env:TEMP\docker-1.13.0-rc4.zip" -UseBasicParsing
+Invoke-WebRequest "https://get.docker.com/builds/Windows/x86_64/docker-17.03.0-ce.zip" -OutFile "$env:TEMP\docker.zip" -UseBasicParsing
 ```
 
 將該 zip 封存展開到 Program Files; 該封存內容已在 docker 目錄中。
 
 ```none
-Expand-Archive -Path "$env:TEMP\docker-1.13.0-rc4.zip" -DestinationPath $env:ProgramFiles
+Expand-Archive -Path "$env:TEMP\docker.zip" -DestinationPath $env:ProgramFiles
 ```
 
 將 Docker 目錄加入至系統路徑。
@@ -167,9 +168,4 @@ docker run --rm helloworld powershell c:\helloworld.ps1
 ## 後續步驟
 
 [Windows Server 上的 Windows 容器](./quick-start-windows-server.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -9,15 +9,16 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: cfbb2542-fead-48e7-8318-4da92a7b5b6f
 translationtype: Human Translation
-ms.sourcegitcommit: b721971f1ba0ab5369dc8b0917f57dfe187a618c
-ms.openlocfilehash: 81f84901bdbd9764db8d73b8e01527f49beeb774
+ms.sourcegitcommit: ff1ef85258a31a5c5a2a065b65019e39cab93125
+ms.openlocfilehash: b6c25285c3cee3a863bef40c34a1cf13b66b42fb
+ms.lasthandoff: 02/22/2017
 
 ---
 
 # 社群影片與部落格
 此頁面包含由部落格成員或容器社群所建立之影片與部落格的連結。  您可以將您發現到的絕佳資源，或您自己所建立的資源提交到 PR 加入此清單之中。
 
-## 快速入門
+## 開始使用
 [Run Linux and Windows Containers on Windows 10](https://stefanscherer.github.io/run-linux-and-windows-containers-on-windows-10/) (在 Windows 10 上執行 Linux 與 Windows 容器) - Stefan Scherer
 
 [Build and run your first Docker Windows Server container](https://blog.docker.com/2016/09/build-your-first-docker-windows-server-container/) (建置並執行您的第一個 Docker Windows Server 容器) -Michael Friis
@@ -38,15 +39,14 @@ ms.openlocfilehash: 81f84901bdbd9764db8d73b8e01527f49beeb774
 
 [Containerize Windows workloads with Image2Docker](https://blog.docker.com/2016/10/containerize-windows-workloads-image2docker/) (使用 Image2Docker 製作 Windows 工作載容器) - Mano Marks
 
-[Use Docker Compose and Service Discovery on Windows to scale-out your multi-service container application](https://blogs.technet.microsoft.com/virtualization/2016/10/18/use-docker-compose-and-service-discovery-on-windows-to-scale-out-your-multi-service-container-application/) (在 Windows 上使用 Docker Compose 與 Service Discovery 相應放大您的服務容器應用程式) - Kallie Bracken 與 Jason Messer
+[在 Windows 上使用 Docker Compose 與「服務探索」相應放大您的多服務容器應用程式](https://blogs.technet.microsoft.com/virtualization/2016/10/18/use-docker-compose-and-service-discovery-on-windows-to-scale-out-your-multi-service-container-application/) (英文) - Kallie Bracken 與 Jason Messer
 
-[Running Neo4j in Windows Containers](http://glennsarti.github.io/blog/neo4j-nano-containers) (在 Windows 容器內執行 Neo4j) - Glenn Sarti
+[使用 Docker 之 Windows 容器中的 PowerShell 預期狀態設定](http://dille.name/blog/2016/06/17/powershell-desired-state-configuration-psdsc-in-windows-containers-using-docker/) (英文) - Nicholas Dille
+
+[在 Windows 容器內執行 Neo4j](http://glennsarti.github.io/blog/neo4j-nano-containers) (英文) - Glenn Sarti
 
 ## 設定及管理
-[How to protect a Windows 2016 Docker engine with TLS](https://stefanscherer.github.io/protecting-a-windows-2016-docker-engine-with-tls/) (如何使用 TLS 保護 Windows 2016 Docker 引擎) - Stefan Scherer
+[如何使用 TLS 保護 Windows 2016 Docker 引擎](https://stefanscherer.github.io/protecting-a-windows-2016-docker-engine-with-tls/) (英文) - Stefan Scherer
 
-
-
-<!--HONumber=Dec16_HO3-->
-
+[Windows #容器層級效能](http://dille.name/blog/2017/01/13/windows-container-performance-of-layers/) - Nicholas Dille
 

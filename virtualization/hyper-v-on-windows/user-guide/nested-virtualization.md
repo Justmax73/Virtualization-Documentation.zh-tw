@@ -9,8 +9,9 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 68c65445-ce13-40c9-b516-57ded76c1b15
 translationtype: Human Translation
-ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
-ms.openlocfilehash: b0903a3e00b92bc60e26282dde072b66030ada09
+ms.sourcegitcommit: e714d4dc22c0049d3365d4a4f3c11d072f46a161
+ms.openlocfilehash: 7d16fcf22187ae3ace25fe1bedbc02f3c6b63eb8
+ms.lasthandoff: 02/14/2017
 
 ---
 
@@ -34,7 +35,7 @@ ms.openlocfilehash: b0903a3e00b92bc60e26282dde072b66030ada09
 Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $true
 ```
 3. 啟動虛擬機器。
-4. 一如在實體主機中，在虛擬機器上安裝 HYPER-V。 如需如何安裝 Hyper-V 的詳細資訊，請參閱 [安裝 Hyper-V]( https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/quick_start/walkthrough_install)。
+4. 一如在實體主機中，在虛擬機器上安裝 HYPER-V。 如需如何安裝 Hyper-V 的詳細資訊，請參閱 [安裝 Hyper-V](../quick-start/enable-hyper-v.md)。
 
 ## 停用巢狀虛擬化
 您可以使用下列 PowerShell 命令，停用停止使用之虛擬主機的巢狀虛擬化︰
@@ -74,11 +75,6 @@ get-netadapter "Ethernet" | New-NetIPAddress -IPAddress 192.168.100.2 -DefaultGa
 Netsh interface ip add dnsserver “Ethernet” address=<my DNS server>
 ```
 
-## 第三方虛擬化 App
+## 第三方虛擬化應用程式
 HYPER-V 虛擬機器不支援 HYPER-V 以外的虛擬化應用程式，而且可能會失敗。 這包括所有需要硬體虛擬化延伸模組的軟體。
-
-
-
-<!--HONumber=Oct16_HO4-->
-
 

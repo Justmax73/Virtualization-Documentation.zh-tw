@@ -21,7 +21,9 @@
 ## [Windows 上的 Dockerfiles](docker/manage_windows_dockerfile.md)
 ## [最佳化 Dockerfiles](docker/optimize_windows_dockerfile.md)
 ## [容器的網路功能](management/container_networking.md)
+## [開始使用群集模式](manage-containers/swarm-mode.md)
 ## [透過 PowerShell 管理 Docker](https://github.com/Microsoft/Docker-PowerShell)
+## [Windows Docker 主機的遠端管理](management/manage_remotehost.md)
 
 # 範例容器
 ## [應用程式架構](samples.md#Application-Frameworks)
@@ -39,8 +41,3 @@
 
 
 # [容器 OS 映像授權條款](Images_EULA.md)
-
-
-<!--HONumber=Nov16_HO3-->
-
-

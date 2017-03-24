@@ -9,8 +9,9 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: aee64ad0-752f-4075-a115-2d6b983b4f49
 translationtype: Human Translation
-ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
-ms.openlocfilehash: a92ba96f26ae2881d2c6013e8b8dcf7bafe69a47
+ms.sourcegitcommit: a193002059a4f1fd0e81689deae02846da01736f
+ms.openlocfilehash: 495bd9228e93a1981a646f13e2e583a741eec217
+ms.lasthandoff: 03/03/2017
 
 ---
 
@@ -25,6 +26,7 @@ Hyper-V Hypervisor 功能規格概要 (TLFS) 描述其他作業系統元件看�
 #### 下載
 版本 | 文件
 --- | ---
+Windows Server 2016 | [Hypervisor Top Level Functional Specification v5.0.pdf](https://github.com/Microsoft/Virtualization-Documentation/raw/master/tlfs/Hypervisor%20Top%20Level%20Functional%20Specification%20v5.0.pdf)
 Windows Server 2012 R2 (Revision B) | [Hypervisor Top Level Functional Specification v4.0b.pdf](https://github.com/Microsoft/Virtualization-Documentation/raw/master/tlfs/Hypervisor%20Top%20Level%20Functional%20Specification%20v4.0b.pdf)
 Windows Server 2012 R2 | [Hypervisor Top Level Functional Specification v4.0.pdf](https://github.com/Microsoft/Virtualization-Documentation/raw/master/tlfs/Hypervisor%20Top%20Level%20Functional%20Specification%20v4.0.pdf)
 Windows Server 2012 | [Hypervisor Top Level Functional Specification v3.0.pdf](https://github.com/Microsoft/Virtualization-Documentation/raw/master/tlfs/Hypervisor%20Top%20Level%20Functional%20Specification%20v3.0.pdf)
@@ -37,8 +39,3 @@ Windows 作業系統需要一組有限的 hypervisor 介面，以在客體虛擬
 #### 下載
 
 [Requirements for Implementing the Microsoft Hypervisor Interface.pdf](https://github.com/Microsoft/Virtualization-Documentation/raw/master/tlfs/Requirements%20for%20Implementing%20the%20Microsoft%20Hypervisor%20Interface.pdf)
-
-
-<!--HONumber=Oct16_HO4-->
-
-

@@ -9,8 +9,9 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
 translationtype: Human Translation
-ms.sourcegitcommit: 54eff4bb74ac9f4dc870d6046654bf918eac9bb5
-ms.openlocfilehash: 31a55ead81e05f7dee1d1f4f8a2101114d1ca017
+ms.sourcegitcommit: 76e041aac426604280208f616f7994181112215a
+ms.openlocfilehash: 766a99a74738fa41ef77410c70aefa7e664f014e
+ms.lasthandoff: 03/01/2017
 
 ---
 
@@ -27,7 +28,7 @@ ms.openlocfilehash: 31a55ead81e05f7dee1d1f4f8a2101114d1ca017
 > Windows 容器功能需要重大更新才能運作。 請先安裝所有更新，再循序完成本教學課程。
 
 若要在 Azure 部屬，可使用此[範本](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-server-container-tools/containers-azure-template)簡化流程。<br/>
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2FVirtualization-Documentation%2Fmaster%2Fwindows-server-container-tools%2Fcontainers-azure-template%2Fazuredeploy.json" target="_blank">
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2FVirtualization-Documentation%2Flive%2Fwindows-server-container-tools%2Fcontainers-azure-template%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
@@ -38,18 +39,18 @@ ms.openlocfilehash: 31a55ead81e05f7dee1d1f4f8a2101114d1ca017
 
 開啟提高權限的 PowerShell 工作階段，並執行下列命令。
 
-首先安裝 OneGet PowerShell 模組。
+首先，從 PowerShell 資源庫中安裝 Docker-Microsoft PackageManagement 提供者。
 
 ```none
 Install-Module -Name DockerMsftProvider -Repository PSGallery -Force
 ```
 
-接著使用 OneGet 安裝最新版的 Docker。
+接著，您使用 PackageManagement PowerShell 模組安裝最新版 Docker。
 ```none
 Install-Package -Name docker -ProviderName DockerMsftProvider
 ```
 
-當 PowerShell 詢問是否要信任封裝來源 'DockerDefault' 時，輸入 A 以繼續安裝。 安裝完成時，請重新啟動電腦。
+當 PowerShell 詢問是否要信任封裝來源 'DockerDefault' 時，輸入 `A` 以繼續安裝。 安裝完成時，請重新啟動電腦。
 
 ```none
 Restart-Computer -Force
@@ -148,9 +149,4 @@ OS: Microsoft Windows 10.0.14393
 [Windows Server 上的容器映像](./quick-start-images.md)
 
 [Windows 10 上的 Windows 容器](./quick-start-windows-10.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

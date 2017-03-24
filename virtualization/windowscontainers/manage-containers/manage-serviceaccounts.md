@@ -9,8 +9,9 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
 translationtype: Human Translation
-ms.sourcegitcommit: 804008c172b80a4f354a92cd4d12a4e23e1d4328
-ms.openlocfilehash: 00a43f8d4d27327c61e318f3a915047106ad2aca
+ms.sourcegitcommit: 1a327806514f1e1b5d2d234b0aa4ce300e26456f
+ms.openlocfilehash: 0e692f7521e4a15e3e56d4b98f7ca15fe94ee167
+ms.lasthandoff: 01/26/2017
 
 ---
 
@@ -38,7 +39,6 @@ ms.openlocfilehash: 00a43f8d4d27327c61e318f3a915047106ad2aca
 4. 允許在其他服務存取 gMSA，例如資料庫或檔案共用
 
 當服務啟動時，網域加入主機會自動從 Active Directory 取得 gMSA 祕密，然後使用該帳戶執行服務。 因為該服務以 gMSA 身分執行，所以可以存取 gMSA 獲得允許的任何資源。
-
 
 Windows 容器遵循類似的程序：
 
@@ -84,8 +84,5 @@ EXEC sp_addrolemember 'db_datareader', 'WebApplication1'
 EXEC sp_addrolemember 'db_datawriter', 'WebApplication1'
 ```
 
-
-
-<!--HONumber=Nov16_HO1-->
-
+若要查看其運作情形，請觀看 Microsoft Ignite 2016「邁向容器化 - 將工作負載轉換為容器」一節中[錄製的示範](https://youtu.be/cZHPz80I-3s?t=2672) (英文)。
 

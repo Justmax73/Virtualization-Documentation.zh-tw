@@ -9,8 +9,9 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 752dc760-a33c-41bb-902c-3bb2ecd9ac86
 translationtype: Human Translation
-ms.sourcegitcommit: 2cf6d04c4a8de0148a2f981d21bec72cff23f6e8
-ms.openlocfilehash: c87e964aac32183eddf000d84d96ffa1122075f7
+ms.sourcegitcommit: 359e29de50a51e0d3db263c46861ae6814f277d2
+ms.openlocfilehash: 8b2f4103ad0048a99e9befeb47d370a9b5cd092f
+ms.lasthandoff: 03/01/2017
 
 ---
 
@@ -28,8 +29,8 @@ ms.openlocfilehash: c87e964aac32183eddf000d84d96ffa1122075f7
 * CPU 對 VM 監視模式延伸模組的支援 (Intel CPU 上的 VT-c)。
 * 至少 4 GB 記憶體。
 
-Hyper-V 角色「無法」****安裝於 Windows 10 家用版。  
-請開啟 [設定]**** > [更新與安全性]**** > [啟用]****，將 Windows 10 家用版升級為 Windows 10 專業版。
+Hyper-V 角色**無法**安裝於 Windows 10 家用版。  
+請開啟 **\[設定\]** > **\[更新與安全性\]** > **\[啟用\]**，將 Windows 10 家用版升級為 Windows 10 專業版。
 
 如需詳細資訊及疑難排解資訊，請參閱 [Windows 10 Hyper-V 系統需求](../reference/hyper-v-requirements.md)。
 
@@ -67,11 +68,11 @@ Hyper-V 是 Windows 內建的選用功能，Hyper-V 並沒有可供單獨下載�
 
 ### 手動啟用 Hyper-V 角色
 
-1. 以滑鼠右鍵按一下 Windows 鍵，然後選取 [程式和功能]。
+1. 以滑鼠右鍵按一下 Windows 鍵，然後選取 \[程式和功能\]。
 
-2. 選取 **[開啟或關閉 Windows 功能]**。
+2. 選取 **\[開啟或關閉 Windows 功能\]**。
 
-3. 選取 **[Hyper-V]**，然後按一下 **[確定]**。  
+3. 選取 **\[Hyper-V\]**，然後按一下 **\[確定\]**。  
 
 ![](media/enable_role_upd.png)
 
@@ -82,9 +83,4 @@ Hyper-V 是 Windows 內建的選用功能，Hyper-V 並沒有可供單獨下載�
 
 ## 後續步驟 - 設定網路
 [連線到網際網路](connect-to-network.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 
