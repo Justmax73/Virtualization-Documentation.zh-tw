@@ -1,11 +1,33 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 0
+ Total Files | 1
 
 ## File List
+ Source File | Status | Details 
+ ----------- | ------ | ------- 
+ [virtualization\windowscontainers\manage-docker\manage-windows-dockerfile.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/e8d6b78103e8b0b086d4b6a1be40a1f8dcd8c225/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile.md) | HandedOffSuccess | [Details](#8c5e89cd3afcb109fd3eda2da7bcd1b2c7f48b88311)
 
 ## Item Details
+##### <a name='8c5e89cd3afcb109fd3eda2da7bcd1b2c7f48b88311'></a> Source: [virtualization\windowscontainers\manage-docker\manage-windows-dockerfile.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/e8d6b78103e8b0b086d4b6a1be40a1f8dcd8c225/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile.md)
+* Status: HandedOffSuccess
+* Target File: 
+* Handoff File: [manage-windows-dockerfile.bd79ed9ab98dacd3b4733e251a6df5587f4bb110.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/e9cecfff503bcf4b7b29e7d8afa92fad73f594a6/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/manage-windows-dockerfile.bd79ed9ab98dacd3b4733e251a6df5587f4bb110.zh-tw.xlf)
+* Handoff Datetime: 2017-04-03 23:19:26
+* Handoff Reason: Include
+* Handoff Name: 
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: 
+* Handback Datetime: 0001-01-01 00:00:00
+* Handback Name: 
+* Current Target File: [virtualization\windowscontainers\manage-docker\manage-windows-dockerfile.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/5b7022a9f7c04887f46b62028a5634d1a10e4e6a/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile.md)
+* Current Handback File: [manage-windows-dockerfile.bd79ed9ab98dacd3b4733e251a6df5587f4bb110.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/de9afe5b1f155dfcfbe263495e1f038950647fbb/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/manage-windows-dockerfile.bd79ed9ab98dacd3b4733e251a6df5587f4bb110.zh-tw.xlf)
+* Current Handback Datetime: 2017-01-24 13:19:37
+* Bilingual File: [manage-windows-dockerfile.bd79ed9ab98dacd3b4733e251a6df5587f4bb110.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/de9afe5b1f155dfcfbe263495e1f038950647fbb/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/manage-windows-dockerfile.bd79ed9ab98dacd3b4733e251a6df5587f4bb110.zh-tw.xlf)
+* Bilingual Datetime: 2017-01-24 13:21:56
+* [Back to Top](#report-top)
+
 
 ## Error Details
 
