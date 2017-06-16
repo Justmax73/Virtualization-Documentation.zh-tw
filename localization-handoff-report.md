@@ -1,33 +1,11 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 1
+ Total Files | 0
 
 ## File List
- Source File | Status | Details 
- ----------- | ------ | ------- 
- [virtualization\windowscontainers\quick-start\quick-start-windows-10.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/4873323cb5a0fafa180ad4b9b501551e3cb5aa6d/virtualization/windowscontainers/quick-start/quick-start-windows-10.md) | HandedOffSuccess | [Details](#66bb1ba56fde13d76392ddb4a1f8e6855201e7a3387)
 
 ## Item Details
-##### <a name='66bb1ba56fde13d76392ddb4a1f8e6855201e7a3387'></a> Source: [virtualization\windowscontainers\quick-start\quick-start-windows-10.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/4873323cb5a0fafa180ad4b9b501551e3cb5aa6d/virtualization/windowscontainers/quick-start/quick-start-windows-10.md)
-* Status: HandedOffSuccess
-* Target File: 
-* Handoff File: [quick-start-windows-10.a292cb64dd3dd6e10f23632c8ce9edbe9faf6738.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/44a0a3a2e3e17b382b7ed9df44c3eb385dc1f4b3/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/quick-start-windows-10.a292cb64dd3dd6e10f23632c8ce9edbe9faf6738.zh-tw.xlf)
-* Handoff Datetime: 2017-06-14 18:29:41
-* Handoff Reason: Include
-* Handoff Name: 
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
-* Handback File: 
-* Handback Datetime: 0001-01-01 00:00:00
-* Handback Name: 
-* Current Target File: [virtualization\windowscontainers\quick-start\quick-start-windows-10.md](https://github.com/Microsoft/Virtualization-Documentation-Private.zh-tw/blob/4052b01faa977ba2be8549e338efd7fd5dcdff5e/virtualization/windowscontainers/quick-start/quick-start-windows-10.md)
-* Current Handback File: [quick-start-windows-10.a292cb64dd3dd6e10f23632c8ce9edbe9faf6738.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/bdf75413293010161bea2b51f24ab78fb2664af3/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/quick-start-windows-10.a292cb64dd3dd6e10f23632c8ce9edbe9faf6738.zh-tw.xlf)
-* Current Handback Datetime: 2017-03-24 13:50:26
-* Bilingual File: [quick-start-windows-10.a292cb64dd3dd6e10f23632c8ce9edbe9faf6738.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/bdf75413293010161bea2b51f24ab78fb2664af3/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/quick-start-windows-10.a292cb64dd3dd6e10f23632c8ce9edbe9faf6738.zh-tw.xlf)
-* Bilingual Datetime: 2017-03-24 13:53:54
-* [Back to Top](#report-top)
-
 
 ## Error Details
 
