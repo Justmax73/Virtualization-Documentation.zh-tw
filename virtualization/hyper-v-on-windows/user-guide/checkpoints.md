@@ -8,13 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: d9c398c4-ee72-45c6-9ce8-4f06569dae6c
-translationtype: Human Translation
-ms.sourcegitcommit: 8f08c85921b9d41f10f3b8cff5e4bafe945bd4af
-ms.openlocfilehash: 4e887dc8c284dd189dc59a71aa9d22d6c8a231ea
-
+ms.openlocfilehash: 79110dac9c2a04c2104bf563166a34d9229b7bf9
+ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.translationtype: HT
+ms.contentlocale: zh-TW
 ---
-
-# 使用檢查點將虛擬機器還原為先前的狀態
+# <a name="using-checkpoints-to-revert-virtual-machines-to-a-previous-state"></a>使用檢查點將虛擬機器還原為先前的狀態
 
 虛擬化的好處之一是能夠輕易地儲存虛擬機器的狀態。 在 Hyper-V 中，透過使用虛擬機器檢查點即可做到這一點。 您可能會想在進行軟體設定變更、套用軟體更新或安裝新軟體之前，建立虛擬機器檢查點。 如果系統變更造成問題，可以將虛擬機器還原到採取檢查點時的狀態。
 
@@ -29,13 +28,13 @@ Windows 10 Hyper-V 有兩種類型的檢查點：
 > **注意：**Hyper-V PowerShell 模組中有數個別名，讓檢查點和快照可以交換使用。  
   本文件使用檢查點，不過請注意，使用字詞快照時您可能會看到類似的命令。
 
-## 變更檢查點類型
+## <a name="changing-the-checkpoint-type"></a>變更檢查點類型
 
 **使用 Hyper-V 管理員**
 
-1. 開啟 [Hyper-V 管理員]。
-2. 在虛擬機器上按一下滑鼠右鍵，並選取 **[設定]**。
-3. 在 [管理] 下選取 **[檢查點]**。
+1. 開啟 \[Hyper-V 管理員\]。
+2. 在虛擬機器上按一下滑鼠右鍵，並選取 **\[設定\]**。
+3. 在 \[管理\] 下選取 **\[檢查點\]**。
 4. 選取所需的檢查點類型。
 
 <br />
@@ -60,16 +59,16 @@ Set-VM -Name <vmname> -CheckpointType Production
 Set-VM -Name <vmname> -CheckpointType ProductionOnly
 ```
 
-## 建立檢查點
+## <a name="creating-checkpoints"></a>建立檢查點
 
 建立虛擬機器設定之類型的檢查點。 如需如何變更此類型的指示，請參閱本文件稍早的[設定檢查點類型](checkpoints.md#changing-the-checkpoint-type)一節。
 
 **使用 Hyper-V 管理員**
 
 建立檢查點：  
-1. 在 [Hyper-V 管理員] 中，選取虛擬機器。
-2. 以滑鼠右鍵按一下虛擬機器的名稱，然後按一下 **[檢查點]**。
-3. 此程序完成後，檢查點會出現在 **[Hyper-V 管理員]** 中的 **[檢查點]** 下。
+1. 在 \[Hyper-V 管理員\] 中，選取虛擬機器。
+2. 以滑鼠右鍵按一下虛擬機器的名稱，然後按一下 **\[檢查點\]**。
+3. 此程序完成後，檢查點會出現在 **\[Hyper-V 管理員\]** 中的 **\[檢查點\]** 下。
 
 **使用 PowerShell**
 
@@ -85,20 +84,20 @@ Checkpoint-VM -Name <VMName>
 Get-VMCheckpoint -VMName <VMName>
 ```
 
-## 套用檢查點
+## <a name="applying-checkpoints"></a>套用檢查點
 
 如果您要將虛擬機器還原至先前的時間點，您可以套用現有的檢查點。
 
 **使用 Hyper-V 管理員**
 
-1.  在 **[Hyper-V 管理員]** 中的 **[虛擬機器]** 下，選取虛擬機器。
-2.  在 [檢查點] 區段中，以滑鼠右鍵按一下您要使用的檢查點，然後按一下 **[套用]**。
-3.  此時會出現一個對話方塊，內含下列選項：  
-  * **[建立檢查點並套用]**：在虛擬機器套用先前的檢查點之前，先建立新的檢查點。 
-  * **[套用]**：套用您所選擇的檢查點。 您無法復原此動作。
-  * **[取消]**：關閉對話方塊，而不進行任何動作。
+1.    在 **\[Hyper-V 管理員\]** 中的 **\[虛擬機器\]** 下，選取虛擬機器。
+2.    在 \[檢查點\] 區段中，以滑鼠右鍵按一下您要使用的檢查點，然後按一下 **\[套用\]**。
+3.    此時會出現一個對話方塊，內含下列選項：  
+  * **\[建立檢查點並套用\]**：在虛擬機器套用先前的檢查點之前，先建立新的檢查點。 
+  * **\[套用\]**：套用您所選擇的檢查點。 您無法復原此動作。
+  * **\[取消\]**：關閉對話方塊，而不進行任何動作。
   
-  選取 [套用] 選項來建立並套用檢查點。
+  選取 \[套用\] 選項來建立並套用檢查點。
 
 **使用 PowerShell**
 
@@ -113,7 +112,7 @@ Get-VMCheckpoint -VMName <VMName>
     Restore-VMCheckpoint -Name <checkpoint name> -VMName <VMName> -Confirm:$false
     ```
 
-## 重新命名檢查點
+## <a name="renaming-checkpoints"></a>重新命名檢查點
 
 特定點會建立許多檢查點。  指定可識別的名稱較容易記住建立檢查點時系統狀態的相關詳細資料。
 
@@ -127,10 +126,10 @@ virtual_machine_name (MM/DD/YYY -hh:mm:ss AM\PM)
 
 **使用 Hyper-V 管理員**
 
-1.  在 **[Hyper-V 管理員]** 中，選取虛擬機器。
-2.  以滑鼠右鍵按一下檢查點，然後選取 **[重新命名]**。
-3.  輸入檢查點的新名稱。 此名稱必須少於 100 個字元，且欄位不可空白。
-4.  完成後請按一下 **ENTER**。
+1.    在 **\[Hyper-V 管理員\]** 中，選取虛擬機器。
+2.    以滑鼠右鍵按一下檢查點，然後選取 **\[重新命名\]**。
+3.    輸入檢查點的新名稱。 此名稱必須少於 100 個字元，且欄位不可空白。
+4.    完成後請按一下 **ENTER**。
 
 **使用 PowerShell**
 
@@ -138,7 +137,7 @@ virtual_machine_name (MM/DD/YYY -hh:mm:ss AM\PM)
 Rename-VMCheckpoint -VMName <virtual machine name> -Name <checkpoint name> -NewName <new checkpoint name>
 ```
 
-## 刪除檢查點
+## <a name="deleting-checkpoints"></a>刪除檢查點
 
 刪除檢查點有助於在 Hyper-V 主機上挪出空間。
 
@@ -150,16 +149,16 @@ Rename-VMCheckpoint -VMName <virtual machine name> -Name <checkpoint name> -NewN
 
 若要完全刪除檢查點： 
 
-1.  在 **[Hyper-V 管理員]** 中，選取虛擬機器。
-2.  在 **[檢查點]** 區段中，以滑鼠右鍵按一下您要刪除的檢查點，然後按一下 [刪除]。 您也可以刪除某個檢查點和所有後續的檢查點。 若要這樣做，請以滑鼠右鍵按一下您要刪除的最早檢查點，然後按一下 **[刪除檢查點樹狀子目錄]**。
-3.  系統可能會要求您確認是否要刪除檢查點。 確認其為正確的檢查點後，按一下 **[刪除]**。 
+1.    在 **\[Hyper-V 管理員\]** 中，選取虛擬機器。
+2.    在 **\[檢查點\]** 區段中，以滑鼠右鍵按一下您要刪除的檢查點，然後按一下 \[刪除\]。 您也可以刪除某個檢查點和所有後續的檢查點。 若要這樣做，請以滑鼠右鍵按一下您要刪除的最早檢查點，然後按一下 **\[刪除檢查點樹狀子目錄\]**。
+3.    系統可能會要求您確認是否要刪除檢查點。 確認其為正確的檢查點後，按一下 **\[刪除\]**。 
  
 **使用 PowerShell**
 ```powershell
 Remove-VMCheckpoint -VMName <virtual machine name> -Name <checkpoint name>
 ```
 
-## 匯出檢查點
+## <a name="exporting-checkpoints"></a>匯出檢查點
 
 匯出會將檢查點包裝成虛擬機器，讓檢查點可以移至新位置。 匯入之後，檢查點會還原為虛擬機器。  匯出的檢查點可用於備份。
 
@@ -168,22 +167,22 @@ Remove-VMCheckpoint -VMName <virtual machine name> -Name <checkpoint name>
 Export-VMCheckpoint -VMName <virtual machine name> -Name <checkpoint name> -Path <path for export>
 ```
 
-## 啟用或停用檢查點
+## <a name="enable-or-disable-checkpoints"></a>啟用或停用檢查點
 
-1.  在 **[Hyper-V 管理員]** 中，以滑鼠右鍵按一下虛擬機器的名稱，然後按一下 **[設定]**。
-2.  在 **[管理]** 區段中，選取 **[檢查點]**。
-3.  若要讓此虛擬機器取消檢查點，請確定已選取 [啟用檢查點] - 這是預設行為。  
-若要停用檢查點，請取消選取 **[啟用檢查點]** 核取方塊。
-4.  按一下 **[套用]** 以套用變更。 完成之後，請按一下 **[確定]** 以關閉對話方塊。
+1.    在 **\[Hyper-V 管理員\]** 中，以滑鼠右鍵按一下虛擬機器的名稱，然後按一下 **\[設定\]**。
+2.    在 **\[管理\]** 區段中，選取 **\[檢查點\]**。
+3.    若要讓此虛擬機器取消檢查點，請確定已選取 \[啟用檢查點\] - 這是預設行為。  
+若要停用檢查點，請取消選取 **\[啟用檢查點\]** 核取方塊。
+4.    按一下 **\[套用\]** 以套用變更。 完成之後，請按一下 **\[確定\]** 以關閉對話方塊。
 
-## 設定檢查點位置
+## <a name="configure-checkpoint-location"></a>設定檢查點位置
 
 如果虛擬機器沒有檢查點，您可以變更檢查點設定和儲存狀態檔案的存放位置。
 
-1.  在 **[Hyper-V 管理員]** 中，以滑鼠右鍵按一下虛擬機器的名稱，然後按一下 **[設定]**。    
-2.  在 **[管理]** 區段中，選取 **[檢查點]** 或 **[檢查點檔案位置]**。  
-4.  在 **[檢查點檔案位置]** 中，輸入您要用來儲存檔案的資料夾路徑。  
-5.  按一下 **[套用]** 以套用變更。 完成之後，請按一下 **[確定]** 以關閉對話方塊。
+1.    在 **\[Hyper-V 管理員\]** 中，以滑鼠右鍵按一下虛擬機器的名稱，然後按一下 **\[設定\]**。    
+2.    在 **\[管理\]** 區段中，選取 **\[檢查點\]** 或 **\[檢查點檔案位置\]**。    
+4.    在 **\[檢查點檔案位置\]** 中，輸入您要用來儲存檔案的資料夾路徑。    
+5.    按一下 **\[套用\]** 以套用變更。 完成之後，請按一下 **\[確定\]** 以關閉對話方塊。
 
 儲存檢查點設定檔的預設位置是：`%systemroot%\ProgramData\Microsoft\Windows\Hyper-V\Snapshots`。
 
@@ -193,14 +192,14 @@ Export-VMCheckpoint -VMName <virtual machine name> -Name <checkpoint name> -Path
 This folder will contain the .VMRS file with the runtime and saved state data and a .VMCX configuration file, which uses the checkpoint GUID as the file name.
 -->
 
-## 檢查點示範
+## <a name="checkpoint-demo"></a>檢查點示範
 
 這個練習逐步解說如何建立和套用標準檢查點與生產檢查點。  在此範例中，您將對虛擬機器做簡單的變更，並觀察不同的行為。 
 
-### 標準檢查點
+### <a name="standard-checkpoint"></a>標準檢查點
 
 1. 登入您的虛擬機器，並在桌面上建立文字檔。
-2. 以 [記事本] 開啟此檔案，並輸入文字「這是標準檢查點」。 **不要儲存檔案或關閉記事本**。  
+2. 以 \[記事本\] 開啟此檔案，並輸入文字「這是標準檢查點」。 **不要儲存檔案或關閉記事本**。  
 3. 將檢查點變更為標準 -- [這裡](checkpoints.md#changing-the-checkpoint-type)提供指示。
 4. 建立新的檢查點。
 
@@ -212,15 +211,15 @@ This folder will contain the .VMRS file with the runtime and saved state data an
 現在，有了檢查點，請修改虛擬機器，然後套用檢查點將虛擬機器還原為儲存時的狀態。 
 
 1. 如果文字檔案仍開著，請關閉，並從虛擬機器桌面上刪除它。
-2. 開啟 [Hyper-V 管理員]，以滑鼠右鍵按一下標準檢查點，然後選取 [套用]。
-3. 選取 [套用檢查點] 通知視窗中的 [套用]。
+2. 開啟 \[Hyper-V 管理員\]，以滑鼠右鍵按一下標準檢查點，然後選取 \[套用\]。
+3. 選取 \[套用檢查點\] 通知視窗中的 \[套用\]。
 
 <br />
 ![](media/apply_standard_upd.png) 
 
-套用檢查點後，會發現不只是文字檔案出現了，而且系統處於檢查點建立時完全相同的狀態。 在此範例中，[記事本] 會開啟，而且載入文字檔案。
+套用檢查點後，會發現不只是文字檔案出現了，而且系統處於檢查點建立時完全相同的狀態。 在此範例中，\[記事本\] 會開啟，而且載入文字檔案。
 
-### 生產檢查點
+### <a name="production-checkpoint"></a>生產檢查點
 
 現在，來試試生產檢查點。 此處理序幾乎與使用標準檢查點完全相同，不過結果會稍微不同。 開始之前，請確定您備妥虛擬機器，且已將檢查點類型變更為生產檢查點。
 
@@ -228,8 +227,8 @@ This folder will contain the .VMRS file with the runtime and saved state data an
 
 1. 登入虛擬機器，並在桌面上建立新的文字檔。 如果您是按照本練習的步驟一路做下來，可以使用現有的文字檔。
 2. 在文字檔中輸入「這是生產檢查點」， 儲存文字檔案，但**不要關閉記事本**。
-3. 開啟 [Hyper-V 管理員] > 以滑鼠右鍵按一下虛擬機器 > 選取 **[檢查點]**。
-4. 按一下 [已建立生產檢查點] 視窗中的 **[確定]**。
+3. 開啟 \[Hyper-V 管理員\] > 以滑鼠右鍵按一下虛擬機器 > 選取 **\[檢查點\]**。
+4. 按一下 \[已建立生產檢查點\] 視窗中的 **\[確定\]**。
 
 <br />
 ![](media/production_Checkpoin_upd.png) 
@@ -239,16 +238,10 @@ This folder will contain the .VMRS file with the runtime and saved state data an
 現在，有了檢查點，請修改系統，然後套用檢查點將虛擬機器還原為儲存時的狀態。 
 
 1. 如果文字檔案仍開著，請關閉，並從虛擬機器桌面上刪除它。
-2. 開啟 [Hyper-V 管理員]，以滑鼠右鍵按一下生產檢查點，然後選取 **[套用]**。
-3. 選取 [套用檢查點] 通知視窗中的 **[套用]**。
+2. 開啟 \[Hyper-V 管理員\]，以滑鼠右鍵按一下生產檢查點，然後選取 **\[套用\]**。
+3. 選取 \[套用檢查點\] 通知視窗中的 **\[套用\]**。
 
 一旦套用生產檢查點，會發現虛擬機器處於關閉狀態。
 
 1. 啟動並登入虛擬機器。
-2. 會看到文字檔案已還原。 但不同於標準檢查點，[記事本] 並未開啟。   
-
-
-
-<!--HONumber=Nov16_HO1-->
-
-
+2. 會看到文字檔案已還原。 但不同於標準檢查點，\[記事本\] 並未開啟。   

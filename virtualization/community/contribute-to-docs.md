@@ -8,17 +8,16 @@ ms.topic: article
 ms.prod: virtualization
 ms.service: virtualization
 ms.assetid: 731ed95a-ce13-4c6e-a450-49563bdc498c
-translationtype: Human Translation
-ms.sourcegitcommit: 54eff4bb74ac9f4dc870d6046654bf918eac9bb5
-ms.openlocfilehash: d4fd2dbaf362ac3ad52667743177a203174b397d
-
+ms.openlocfilehash: b5fe1a2e4c59007fbbb679c9050e28a5e076b08f
+ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.translationtype: HT
+ms.contentlocale: zh-TW
 ---
-
-# 參與文件編輯
+# <a name="contribute-to-the-docs"></a>參與文件編輯
 
 > **注意：**若要參與編輯，您必須有 [GitHub](https://www.github.com) 帳戶。
 
-## 編輯現有的文件
+## <a name="edit-an-existing-doc"></a>編輯現有的文件
 
 1. 尋找您想要編輯的文件。  
 
@@ -31,7 +30,7 @@ ms.openlocfilehash: d4fd2dbaf362ac3ad52667743177a203174b397d
   
   ![](media/GitHubView.png)
   
-3. 選取 [編輯] 圖示，開始在瀏覽器中編輯。
+3. 選取 \[編輯\] 圖示，開始在瀏覽器中編輯。
   
   ![](media/GitHubEdit.png)
 
@@ -59,12 +58,12 @@ ms.openlocfilehash: d4fd2dbaf362ac3ad52667743177a203174b397d
 
 7. 建立[提取要求](contribute-to-docs.md#pull-requests)  
 
-## 提取要求
+## <a name="pull-requests"></a>提取要求
 
 大部分的變更將透過提取要求來認可。  提取要求是由多位檢閱者檢閱變更集、對目前內容進行變更和提出意見的一種方法。
 
 
-## 分支存放庫，並在本機編輯
+## <a name="fork-the-repo-and-edit-locally"></a>分支存放庫，並在本機編輯
 
 針對長期文件工作，請本機複製存放庫，並在您的電腦上使用。
 
@@ -85,7 +84,7 @@ ms.openlocfilehash: d4fd2dbaf362ac3ad52667743177a203174b397d
   * 適用於 Git 之 VSCode 的一些實用功能逐步解說
   * 進行第一次認可。
 
-### 設定 Git
+### <a name="set-up-git"></a>設定 Git
 
 1. 從[這裡](https://git-for-windows.github.io/)安裝 Git (在 Windows 上)
 
@@ -154,7 +153,7 @@ ms.openlocfilehash: d4fd2dbaf362ac3ad52667743177a203174b397d
   cd Virtualization-Documentation
   ```
 
-5. [選用] 設定 Posh-Git
+5. \[選用\] 設定 Posh-Git
 
   Posh-Git 是一種由社群建立的 PowerShell 模組，其可讓您更輕鬆地在 PowerShell 中使用 Git。  它在 PowerShell 中加入 Git 的 TAB 鍵自動完成，也可讓您的提示顯示實用的分支和檔案狀態相關資訊。  如需詳細資訊，請參閱[這裡](https://github.com/dahlbyk/posh-git)。  您可以在系統管理員 PowerShell 主控台中執行下列命令，以安裝 Posh-Git。
 
@@ -179,7 +178,7 @@ ms.openlocfilehash: d4fd2dbaf362ac3ad52667743177a203174b397d
   }
   ```
 
-### 驗證和隱藏認證
+### <a name="validate-and-stash-credentials"></a>驗證和隱藏認證
 
   若要驗證存放庫是否正確設定，請嘗試提取新的內容。
 
@@ -188,17 +187,11 @@ ms.openlocfilehash: d4fd2dbaf362ac3ad52667743177a203174b397d
   ```
 
 
-### 設定 Markdown 編輯環境
+### <a name="set-up-markdown-editing-environment"></a>設定 Markdown 編輯環境
 
 1. 下載 VSCode
 
 6. 進行測試認可。  如果您的認證可正確地隱藏，則應該一切運作正常。
 
-
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

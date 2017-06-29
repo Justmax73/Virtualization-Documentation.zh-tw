@@ -8,13 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 75fed138-9239-4da9-bce4-4f2e2ad469a1
-translationtype: Human Translation
-ms.sourcegitcommit: 54eff4bb74ac9f4dc870d6046654bf918eac9bb5
-ms.openlocfilehash: 9dcac129e7c95fa416437061c426fee850db11b4
-
+ms.openlocfilehash: 0df4ef6a5116edd5b47283180ba6ba1d745cd06b
+ms.sourcegitcommit: e8d6b78103e8b0b086d4b6a1be40a1f8dcd8c225
+ms.translationtype: HT
+ms.contentlocale: zh-TW
 ---
-
-# Windows 上的 Dockerfile
+# <a name="dockerfile-on-windows"></a>Windows 上的 Dockerfile
 
 Docker 引擎會包含自動建立容器映像的工具。 雖然可以使用 `docker commit` 命令手動建立容器映像，然而採用自動化映像建立程序提供許多優點，包括：
 
@@ -33,9 +32,9 @@ Docker 引擎會包含自動建立容器映像的工具。 雖然可以使用 `d
 
 如需 Dockerfile 的完整概觀，請參閱 [Dockerfile reference at docker.com]( https://docs.docker.com/engine/reference/builder/) (docker.com 上的 Dockerfile 參考)。
 
-## Dockerfile 簡介
+## <a name="dockerfile-introduction"></a>Dockerfile 簡介
 
-### 基本語法
+### <a name="basic-syntax"></a>基本語法
 
 Dockerfile 在最基本的形式中可以極度簡易。 下列範例會建立新的映像，其中包括 IIS 和 ‘hello world’ 站台。 這個範例包含會說明每個步驟的註解 (以 `#` 表示)。 這篇文章的後續章節將會更詳細地介紹 Dockerfile 語法規則和 Dockerfile 指令。
 
@@ -60,13 +59,13 @@ RUN echo "Hello World - Dockerfile" > c:\inetpub\wwwroot\index.html
 CMD [ "cmd" ]
 ```
 
-如需適用於 Windows 的 Dockerfiles 其他範例，請參閱 [Dockerfile for Windows Repository (適用於 Windows 存放庫的 Dockerfile)] (https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples)。
+如需適用於 Windows 的 Dockerfiles 其他範例，請參閱 \[Dockerfile for Windows Repository (適用於 Windows 存放庫的 Dockerfile)\] (https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples)。
 
-## 指示
+## <a name="instructions"></a>指示
 
-Dockerfile 指令為 Docker 引擎提供建立容器映像所需的步驟。 這些指令會依序逐一執行。 以下是一些基本 Dockerfile 指令的詳細資料。 如需 Dockerfile 指令的完整清單，請參閱 [Dockerfile Reference on Docker.com (Docker.com 上的 Dockerfile 參考)] (https://docs.docker.com/engine/reference/builder/)。
+Dockerfile 指令為 Docker 引擎提供建立容器映像所需的步驟。 這些指令會依序逐一執行。 以下是一些基本 Dockerfile 指令的詳細資料。 如需 Dockerfile 指令的完整清單，請參閱 \[Dockerfile Reference on Docker.com (Docker.com 上的 Dockerfile 參考)\] (https://docs.docker.com/engine/reference/builder/)。
 
-### FROM
+### <a name="from"></a>FROM
 
 `FROM` 指令會設定新映像建立程序期間所使用的容器映像。 比方說，在使用指令 `FROM microsoft/windowsservercore` 時，所產生的映像衍生自 (而且會相依於) Windows Server Core 基本 OS 映像。 如果指定的映像不存在於正在執行 Docker 建置流程的系統上，Docker 引擎會嘗試從公用或私用的映像登錄下載映像。
 
@@ -86,7 +85,7 @@ FROM microsoft/windowsservercore
 
 如需 FROM 指令的詳細資訊，請參閱 [FROM Reference on Docker.com]( https://docs.docker.com/engine/reference/builder/#from) (Docker.com 上的 FROM 參考)。
 
-### RUN
+### <a name="run"></a>RUN
 
 `RUN` 指令指定要執行並擷取至新容器映像的命令。 這些命令可以包含安裝軟體、建立檔案和目錄，以及建立環境設定等項目。
 
@@ -123,7 +122,7 @@ IMAGE               CREATED             CREATED BY                    SIZE      
 b3452b13e472        2 minutes ago       powershell New-Item c:/test   30.76 MB
 ```
 
-作為對比，下列範例會執行相同的作業，但會使用殼層表單。
+做為對比，下列範例會執行相同的作業，但會使用殼層表單。
 
 ```none
 FROM microsoft/windowsservercore
@@ -160,12 +159,12 @@ RUN dism.exe /online /enable-feature /all /featurename:iis-webserver /NoRestart
 此範例會安裝 Visual Studio 可轉散發套件。 注意：`Start-Process` 及 `-Wait` 參數的用途在於執行安裝程式。 這可確保安裝確實完成之後，才會繼續執行 Docerkfile 中的下一個步驟。
 
 ```none
-RUN Start-Process c:\vcredist_x86.exe -ArgumentList '/quiet' -Wait
+RUN powershell.exe -Command Start-Process c:\vcredist_x86.exe -ArgumentList '/quiet' -Wait
 ```
 
 如需 RUN 指令的詳細資訊，請參閱 [RUN Reference on Docker.com]( https://docs.docker.com/engine/reference/builder/#run) (Docker.com 上的 RUN 參考)。
 
-### 複製
+### <a name="copy"></a>複製
 
 `COPY` 指令會將檔案和目錄複製到容器的檔案系統。 檔案和目錄必須位在相對於 Dockerfile 的路徑。
 
@@ -212,7 +211,7 @@ COPY config* c:/temp/
 
 如需 `COPY` 指令的詳細資訊，請參閱 [Docker.com 上的 COPY 參考]( https://docs.docker.com/engine/reference/builder/#copy)。
 
-### 新增
+### <a name="add"></a>新增
 
 ADD 指令與 COPY 指令非常類似，但是前者包含其他功能。 除了將檔案從主機複製到容器映像，`ADD` 指令也可以從具有 URL 規格的遠端位置複製檔案。
 
@@ -266,7 +265,7 @@ ADD https://www.python.org/ftp/python/3.5.1/python-3.5.1.exe /temp/python-3.5.1.
 
 如需 `ADD` 指令的詳細資訊，請參閱 [ADD Reference on Docker.com]( https://docs.docker.com/engine/reference/builder/#add) (Docker.com 上的 ADD 參考)。
 
-### WORKDIR
+### <a name="workdir"></a>WORKDIR
 
 `WORKDIR` 指令會為其他 Dockerfile 指令設定工作目錄，例如 `RUN`、`CMD`，也會為執行中的容器映像執行個體設定工作目錄。
 
@@ -294,7 +293,7 @@ WORKDIR c:\\Apache24\\bin
 
 如需 `WORKDIR` 指令的詳細資訊，請參閱 [WORKDIR Reference on Docker.com]( https://docs.docker.com/engine/reference/builder/#workdir) (Docker.com 上的 WORKDIR 參考)。
 
-### CMD
+### <a name="cmd"></a>CMD
 
 `CMD` 指令會設定部署容器映像執行個體時要執行的預設命令。 例如，如果容器會裝載 NGINX 網頁伺服器，則 `CMD` 可能包含啟動網頁伺服器的指令，如 `nginx.exe`。 如果 Dockerfile 中指定了多個 `CMD` 指令，則只會評估最後的指令。
 
@@ -333,7 +332,7 @@ CMD c:\Apache24\bin\httpd.exe -w
 
 如需 `CMD` 指令的詳細資訊，請參閱 [CMD Reference on Docker.com](https://docs.docker.com/engine/reference/builder/#cmd) (Docker.com 上的 CMD 參考)。
 
-## 逸出字元
+## <a name="escape-character"></a>逸出字元
 
 在許多情況下，Dockerfile 指示必須跨多行列出，而這全都仰賴逸出字元。 預設的 Dockerfile 逸出字元為反斜線 `\`。 因為反斜線也是 Windows 的檔案路徑分隔符號，所以可能會造成問題。 若要變更預設的逸出字元，可以使用剖析器指示詞。 如需剖析器指示詞的詳細資訊，請參閱 [Docker.com 上的剖析器指示詞](https://docs.docker.com/engine/reference/builder/#parser-directives)。
 
@@ -367,9 +366,9 @@ RUN powershell.exe -Command `
 
 如需逸出的剖析器指示詞的詳細資訊，請參閱 [Docker.com 上的逸出剖析器指示詞](https://docs.docker.com/engine/reference/builder/#escape)。
 
-## Dockerfile 中的 PowerShell
+## <a name="powershell-in-dockerfile"></a>Dockerfile 中的 PowerShell
 
-### PowerShell 命令
+### <a name="powershell-commands"></a>PowerShell 命令
 
 可以使用 `RUN` 作業在 Dockerfile 中執行 PowerShell 命令。
 
@@ -379,7 +378,7 @@ FROM microsoft/windowsservercore
 RUN powershell -command Expand-Archive -Path c:\apache.zip -DestinationPath c:\
 ```
 
-### REST 呼叫
+### <a name="rest-calls"></a>REST 呼叫
 
 從 Web 服務收集資訊或檔案時，PowerShell 和 `Invoke-WebRequest` 命令可能會有幫助。 比方說，如果建置包含 Python 的映像，就可以使用下列的範例。 請考慮將 `$ProgressPreference` 設定成 `SilentlyContinue` 以促使更快速的下載。
 
@@ -410,7 +409,7 @@ RUN powershell.exe -Command \
 
 > 目前 Nano Server 不支援 Invoke-WebRequest
 
-### PowerShell 指令碼
+### <a name="powershell-scripts"></a>PowerShell 指令碼
 
 在某些情況下，在映像建立程序期間將指令碼複製到使用的容器，然後從容器中執行可能會有幫助。 請注意 - 這會限制任何映像層快取，並降低 Dockerfile 的可讀性。
 
@@ -422,7 +421,7 @@ ADD script.ps1 /windows/temp/script.ps1
 RUN powershell.exe -executionpolicy bypass c:\windows\temp\script.ps1
 ```
 
-## Docker 建置
+## <a name="docker-build"></a>Docker 建置
 
 一旦建立了 Dockerfile 並儲存到磁碟後，就可以執行 `docker build` 建立新的映像。 `docker build` 命令會使用幾個選擇性參數和通往 Dockerfile 的路徑。 如需 Docker 組建的完整文件，包括所有版本選項的清單，請參閱 [Docker.com 上的組建參考](https://docs.docker.com/engine/reference/commandline/build/#build)。
 
@@ -476,14 +475,8 @@ iis                 latest              e2aafdfbe392        About a minute ago  
 windowsservercore   latest              6801d964fda5        4 months ago         0 B
 ```
 
-## 進一步閱讀與參考
+## <a name="further-reading--references"></a>進一步閱讀與參考
 
-[將 Dockerfiles 和適用於 Windows 的 Docker 建置最佳化] (optimize-windows-dockerfile.md)
+\[將 Dockerfiles 和適用於 Windows 的 Docker 建置最佳化\] (optimize-windows-dockerfile.md)
 
 [Dockerfile Reference on Docker.com (Docker.com 上的 Dockerfile 參考)](https://docs.docker.com/engine/reference/builder/)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

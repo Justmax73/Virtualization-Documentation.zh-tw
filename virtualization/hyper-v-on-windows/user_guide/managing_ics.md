@@ -9,13 +9,12 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 9cafd6cb-dbbe-4b91-b26c-dee1c18fd8c2
 redirect_url: https://technet.microsoft.com/windows-server-docs/compute/hyper-v/manage/manage-Hyper-V-integration-services
-translationtype: Human Translation
-ms.sourcegitcommit: 687a3b35c1ee41b9620b1ae296255d681c672646
-ms.openlocfilehash: c27a51e9a12de9cec2720eadf6e09b8a582bae77
-
+ms.openlocfilehash: 83bcc4c2f47e2a3921be257f45a3a0e22dcba89a
+ms.sourcegitcommit: fd6c5ec419aae425af7ce6c6a44d59c98f62502a
+ms.translationtype: HT
+ms.contentlocale: zh-TW
 ---
-
-# 管理 Hyper-V 整合服務
+# <a name="managing-hyper-v-integration-services"></a>管理 Hyper-V 整合服務
 
 整合服務通常稱為「整合元件」，是可讓虛擬機器與 Hyper-V 主機通訊的服務。 其中許多服務很便利 (例如客體檔案複製)，另外有些服務則是虛擬機器功能是否能正常運作的關鍵 (時間同步化)。
 
@@ -23,20 +22,17 @@ ms.openlocfilehash: c27a51e9a12de9cec2720eadf6e09b8a582bae77
 
 如需每一項整合服務的詳細資訊，請參閱[整合服務](../reference/integration-services.md)。
 
-## 使用 Hyper-V 管理員啟用或停用整合服務
+## <a name="enable-or-disable-integration-services-using-hyper-v-manager"></a>使用 Hyper-V 管理員啟用或停用整合服務
 
 1. 選取虛擬機器並開啟設定。
-  ![](./media/HyperVManager-OpenVMSettings.png)
   
-2. 在虛擬機器的 [設定] 視窗中，移至 [管理] 下的 [整合服務] 索引標籤。
-  
-  ![](./media/HyperVManager-IntegrationServices.png)
+2. 在虛擬機器的 \[設定\] 視窗中，移至 \[管理\] 下的 \[整合服務\] 索引標籤。
   
   這裡您會看到此 Hyper-V 主機上所有可用的整合服務。  值得注意的是，客體作業系統不一定會支援所有列出的整合服務。 若要判斷客體作業系統的版本資訊，請登入客體作業系統，然後從命令提示字元執行下列命令。
 
 REG QUERY "HKLM\Software\Microsoft\Virtual Machine\Auto" /v IntegrationServicesVersion
 
-## 使用 PowerShell 啟用或停用整合服務
+## <a name="enable-or-disable-integration-services-using-powershell"></a>使用 PowerShell 啟用或停用整合服務
 
 整合服務也可透過在 PowerShell 中執行 [`Enable-VMIntegrationService`](https://technet.microsoft.com/en-us/library/hh848500.aspx) 及 [`Disable-VMIntegrationService`](https://technet.microsoft.com/en-us/library/hh848488.aspx) 加以啟用及停用。
 
@@ -77,13 +73,13 @@ REG QUERY "HKLM\Software\Microsoft\Virtual Machine\Auto" /v IntegrationServicesV
 在主機和客體系統上，整合服務皆設計為必須啟用才能運作。  Windows 客體作業系統預設會啟用所有的整合服務，而您可以將其停用。  做法請參閱下一節。
 
 
-## 從客體作業系統 (Windows) 管理整合服務
+## <a name="manage-integration-services-from-guest-os-windows"></a>從客體作業系統 (Windows) 管理整合服務
 
 > **附註：**停用整合服務可能會嚴重影響主機管理虛擬機器的能力。  整合服務在主機與客體系統上皆必須啟用才能運作。
 
 整合服務在 Windows 中會顯示為服務。 若要啟用或停用整合服務，從虛擬機器內開啟 Windows 服務管理員。
 
-![](media/HVServices.png) 
+![](../user-guide/media/HVServices.png) 
 
 尋找名稱中包含 Hyper-V 的服務。 以滑鼠右鍵按一下您想要啟用或停用的服務，並啟用或停止服務。
 
@@ -114,7 +110,7 @@ Running  vmicvss            Hyper-V Volume Shadow Copy Requestor
 
 根據預設，客體作業系統會啟用所有整合服務。
 
-## 從客體作業系統 (Linux) 管理整合服務
+## <a name="manage-integration-services-from-guest-os-linux"></a>從客體作業系統 (Linux) 管理整合服務
 
 Linux 整合服務通常是透過 Linux 核心提供。
 
@@ -195,7 +191,7 @@ sudo hv_kvp_daemon
 現在，若您再一次執行 `ps -ef | hv`，您會發現 `hv_kvp_daemon` 處理序有了一個新的處理序識別碼。
 
 
-## 整合服務維護
+## <a name="integration-service-maintenance"></a>整合服務維護
 
 只要您的虛擬機器可以從 Windows Update 接收重要更新，Windows 10 即會依預設執行整合服務的維護。  
 
@@ -271,9 +267,3 @@ sudo hv_kvp_daemon
 | Linux 客體 | 封裝管理員 | Linux 整合元件內建在 distro 中，但有可能是可用的選擇性更新。 ** |
 
  > ** 如需 Linux 客體的詳細資訊，請參閱[這裡](https://technet.microsoft.com/en-us/library/dn531030.aspx)。 
-
-
-
-<!--HONumber=Jan17_HO2-->
-
-

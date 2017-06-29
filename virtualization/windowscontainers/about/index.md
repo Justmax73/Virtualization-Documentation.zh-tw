@@ -8,37 +8,35 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8e273856-3620-4e58-9d1a-d1e06550448
-translationtype: Human Translation
-ms.sourcegitcommit: 59621ca2db190d5c13034752a08c291e3dc19daa
-ms.openlocfilehash: d68be61b1d462b70986df5cfd6df052b388cec1d
-ms.lasthandoff: 02/08/2017
-
+ms.openlocfilehash: 1699bec6515608c722c28babd26719b27baa53c6
+ms.sourcegitcommit: b13a29758013a21215ee6e21e7e7ed7f58b62485
+ms.translationtype: HT
+ms.contentlocale: zh-TW
 ---
-
-# Windows 容器
+# <a name="windows-containers"></a>Windows 容器
 
 **這是初版內容，後續可能會變更。** 
 
-## 什麼是容器
+## <a name="what-are-containers"></a>什麼是容器
 
 觀看簡短的概觀：[Windows 容器：具備企業級控制能力的現代化應用程式開發](https://youtu.be/Ryx3o0rD5lY) (英文)。
 
-它們是獨立且由資源控制的可攜式作業環境。
+容器是隔離、由資源控制的可攜式作業環境。
 
 基本而言，容器是一處隔離的地方，使應用程式可在其中執行，而不會觸及其他容器或主機的資源 (記憶體、磁碟、網路等)。
 
 容器的外觀及行為如同新安裝的實體電腦或虛擬機器。 Windows Server 容器可使用 [Docker](https://www.docker.com/) 管理，如同任何其他容器。
 
-## Windows 容器類型
+## <a name="windows-container-types"></a>Windows 容器類型
 
 Windows 容器包含兩種不同的容器類型，或執行階段。
 
-**Windows Server 容器** – 透過程序和命名空間隔離技術，提供應用程式隔離功能。 Windows Server 容器可與容器主機和所有執行於主機上的容器共用核心。
+**Windows Server 容器** – 透過處理序和命名空間隔離技術，提供應用程式隔離功能。 Windows Server 容器可與容器主機和主機上執行的所有容器共用核心。  這些容器沒有提供惡意防護界限，不應用來隔離未受信任的程式碼。
 
-**Hyper-V 容器** – 藉由在高度最佳化的虛擬機器中執行每個容器，擴充 Windows Server 容器所提供的隔離能力。 在此設定中，容器主機的核心不會與 Hyper-V 容器共用。
+**Hyper-V 隔離** – 藉由在高度最佳化的虛擬機器中執行每個容器，擴充 Windows Server 容器所提供的隔離能力。 在此設定中，容器主機的核心不會與相同主機上的其他容器共用。  這些容器的設計是要以虛擬機器的相同安全保證來管控惡意多組織用戶共享。
 
 
-## 容器的基礎
+## <a name="container-fundamentals"></a>容器的基礎
 
 當您開始使用容器時，您會發現容器和虛擬機器之間有許多相似之處。 容器可像實體或虛擬電腦系統一樣執行作業系統、具有檔案系統，並且可透過網路來存取。 即便如此，容器的基本技術和概念還是與虛擬機器非常不同。  
 
@@ -58,7 +56,7 @@ Mark Russinovich 的[這篇部落格文章](http://azure.microsoft.com/blog/2015
 
 <center>![](media/containerfund.png)</center>
 
-## 開發人員的容器
+## <a name="containers-for-developers"></a>開發人員的容器
 
 從開發人員的桌面，到測試機器，乃至於一組實際執行機器，皆可建立 Docker 映像，進而快速地在任何環境以相同方式部署。 在此發展下，封裝在 Docker 容器中的應用程式建立起大規模且持續增長的生態系統；所使用的是 DockerHub，這是 Docker 所維護的公用容器化應用程式登錄，目前在公用社群儲存機制中發行了超過 180000 個應用程式。  
 
@@ -70,20 +68,19 @@ Mark Russinovich 的[這篇部落格文章](http://azure.microsoft.com/blog/2015
 
 容器可協助開發人員更快速地建置及提供更高品質的應用程式。
 
-## IT 專業人員的容器 ##
+## <a name="containers-for-it-professionals"></a>IT 專業人員的容器 ##
 
 IT 專業人員可以使用容器為其開發、品管及生產小組提供標準化的環境。 他們再也不必擔心複雜的安裝和設定步驟。 藉由使用容器，系統管理員將可抽離 OS 安裝和基礎結構的差異。
 
 容器可協助系統管理員建立更容易更新和維護的基礎結構。
 
-## 影片概觀
+## <a name="video-overview"></a>影片概觀
 
 <iframe 
 src="https://channel9.msdn.com/Blogs/containers/Containers-101-with-Microsoft-and-Docker/player" width="800" height="450" allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
 
 
-## 試用 Windows Server 容器
+## <a name="try-windows-server-containers"></a>試用 Windows Server 容器
 
 [容器快速啟動簡介](../quick_start/quick_start.md)
-
 

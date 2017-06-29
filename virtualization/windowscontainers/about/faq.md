@@ -8,15 +8,14 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 25de368c-5a10-40a4-b4aa-ac8c9a9ca022
-translationtype: Human Translation
-ms.sourcegitcommit: 2ab9a4b09a2db72e5e2be71ced5d5400761a5ad8
-ms.openlocfilehash: b084bf179d9360e4a72e8e88b4fec80eafb2906c
-
+ms.openlocfilehash: c4afd536fda9d741adc00eaeb5595f05833cef11
+ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.translationtype: HT
+ms.contentlocale: zh-TW
 ---
+# <a name="frequently-asked-questions"></a>常見問題集
 
-# 常見問題集
-
-## 關於 Windows 容器
+## <a name="about-windows-containers"></a>關於 Windows 容器
 
 **什麼是 Windows Server 容器？**
 
@@ -54,7 +53,7 @@ Drawbridge 是以往許多可協助我們深入了解容器的研究專案之一
 Windows Server 容器和 Hyper-V 容器都需要 Windows Server 2016。 這些技術不適用於舊版的 Windows。
 
 
-## Windows 容器管理
+## <a name="windows-container-management"></a>Windows 容器管理
 
 **Hyper-V 容器也可在 Docker 生態系統中使用嗎？**
 
@@ -62,7 +61,7 @@ Windows Server 容器和 Hyper-V 容器都需要 Windows Server 2016。 這些�
 Docker 平台也可大幅簡化並提升跨容器選項的使用體驗。 使用 Windows Server 容器開發的應用程式可直接部署為 hyper-V 容器，而不需要變更。
 
 
-## Microsoft 的開放生態系統
+## <a name="microsofts-open-ecosystem"></a>Microsoft 的開放生態系統
 
 **Microsoft 是否參與開放容器計劃 (Open Container Initiative, OCI)?**
 
@@ -76,9 +75,3 @@ Docker 平台也可大幅簡化並提升跨容器選項的使用體驗。 使用
 Docker 有兩個重點，即專案的開放原始碼群組和 Docker 這家公司。 我們認為這項合作可達到此一雙重效益。 Docker 的成功有部分來自於藉由 Docker 容器技術建立起來的活躍生態系統。 Microsoft 會對 Docker Project 有所貢獻，進而支援 Windows Server 容器和 Hyper-V 容器。  
 
 如需詳細資訊，請參閱 [New Windows Server containers and Azure support for Docker](http://azure.microsoft.com/blog/2014/10/15/new-windows-server-containers-and-azure-support-for-docker/?WT.mc_id=Blog_ServerCloud_Announce_TTD) (新的 Windows Server 容器與 Docker 的 Azure 支援) 部落格文章。
-
-
-
-<!--HONumber=Nov16_HO1-->
-
-

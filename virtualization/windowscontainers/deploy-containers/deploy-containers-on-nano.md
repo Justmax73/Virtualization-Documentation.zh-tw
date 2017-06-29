@@ -8,25 +8,24 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: b82acdf9-042d-4b5c-8b67-1a8013fa1435
-translationtype: Human Translation
-ms.sourcegitcommit: 54eff4bb74ac9f4dc870d6046654bf918eac9bb5
-ms.openlocfilehash: b9a02184a98f392d5ee323dc3e939d137ce7e4e6
-
+ms.openlocfilehash: 247cf1703b429fbd7ef41553d2f46c1e99785477
+ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.translationtype: HT
+ms.contentlocale: zh-TW
 ---
-
-# 容器主機部署 - Nano Server
+# <a name="container-host-deployment---nano-server"></a>容器主機部署 - Nano Server
 
 本文將逐步部署內含 Windows 容器功能的基本 Nano Server。 此為進階主題，使用者應大致了解 Windows 和 Windows 容器。 如需 Windows 容器的簡介，請參閱 [Windows 容器快速入門](../quick-start/index.md)。
 
-## 準備 Nano Server
+## <a name="prepare-nano-server"></a>準備 Nano Server
 
 下一節將詳細說明最基本的 Nano Server 設定部署。 如需 Nano Server 部署和設定選項的詳盡說明，請參閱 Getting Started with Nano Server (https://technet.microsoft.com/en-us/library/mt126167.aspx) (開始使用 Nano Server)。
 
-### 建立 Nano Server VM
+### <a name="create-nano-server-vm"></a>建立 Nano Server VM
 
 請先從[這個位置](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016)下載 Nano Server 評估 VHD。 透過這個 VHD 建立虛擬機器、啟動虛擬機器，並使用 Hyper-V 連線選項 (或依據所使用之虛擬化平台的對等項目) 連接到該虛擬機器。
 
-### 建立遠端 PowerShell 工作階段
+### <a name="create-remote-powershell-session"></a>建立遠端 PowerShell 工作階段
 
 由於 Nano Server 沒有互動式登入功能，因此所有管理作業都需使用 PowerShell 從遠端系統來完成。
 
@@ -44,7 +43,7 @@ Enter-PSSession -ComputerName 192.168.1.50 -Credential ~\Administrator
 
 完成這些步驟後，您即會進入 Nano Server 系統的遠端 PowerShell 工作階段。 除非另有說明，否則本文件其餘內容皆為透過遠端工作階段來執行。
 
-### 安裝 Windows Updates
+### <a name="install-windows-updates"></a>安裝 Windows Updates
 
 Windows 容器功能需要重大更新才能運作。 可以執行下列命令來安裝這些更新。
 
@@ -61,9 +60,9 @@ Restart-Computer
 
 備份好時，請重新建立遠端 PowerShell 連線。
 
-## 安裝 Docker
+## <a name="install-docker"></a>安裝 Docker
 
-需要先安裝 Docker，才能搭配使用 Windows 容器。 我們將使用 [OneGet 提供者 PowerShell 模組](https://github.com/oneget/oneget)安裝 Docker。 提供者會啟用您電腦上的 [容器] 功能並安裝 Docker，這會需要重新開機。 
+需要先安裝 Docker，才能搭配使用 Windows 容器。 我們將使用 [OneGet 提供者 PowerShell 模組](https://github.com/oneget/oneget)安裝 Docker。 提供者會啟用您電腦上的 \[容器\] 功能並安裝 Docker，這會需要重新開機。 
 
 在遠端 PowerShell 工作階段中執行下列命令。
 
@@ -85,9 +84,9 @@ Install-Package -Name docker -ProviderName DockerMsftProvider
 Restart-Computer -Force
 ```
 
-## 安裝基礎容器映像
+## <a name="install-base-container-images"></a>安裝基礎容器映像
 
-基礎 OS 映像可作為任何 Windows Server 或 Hyper-V 容器的基底。 目前已經有以 Windows Server Core 與 Nano Server 做為基礎作業系統的基礎映像，並能使用 `docker pull` 來安裝。 如需 Docker 容器映像的詳細資訊，請參閱 [docker.com 上建置自己的映像](https://docs.docker.com/engine/tutorials/dockerimages/)。
+基礎 OS 映像可做為任何 Windows Server 或 Hyper-V 容器的基底。 目前已經有以 Windows Server Core 與 Nano Server 做為基礎作業系統的基礎映像，並能使用 `docker pull` 來安裝。 如需 Docker 容器映像的詳細資訊，請參閱 [docker.com 上建置自己的映像](https://docs.docker.com/engine/tutorials/dockerimages/)。
 
 若要下載並安裝 Windows Nano Server 與 Nano Server 的基底映像，請執行下列命令。
 
@@ -95,7 +94,7 @@ Restart-Computer -Force
 docker pull microsoft/nanoserver
 ```
 
-若計劃要使用 Hyper-V 容器，並在您的 Nano Server 主機上安裝 Hyper-V hypervisor，也可以提取伺服器核心映像。 請注意，若是執行 Azure Gallery Server 2016 Nano，將不會安裝 Hyper-V。
+若計劃要使用 Hyper-V 容器，並在您的 Nano Server 主機上安裝 Hyper-V Hypervisor，也可以提取伺服器核心映像。 請注意，若是執行 Azure Gallery Server 2016 Nano，將不會安裝 Hyper-V。
 
 ```none
 docker pull microsoft/windowsservercore
@@ -103,13 +102,13 @@ docker pull microsoft/windowsservercore
 
 > 請參閱 Windows 容器 OS 映像授權條款，位於這裡：[授權條款](../images-eula.md)。
 
-## 管理 Nano Server 上的 Docker
+## <a name="manage-docker-on-nano-server"></a>管理 Nano Server 上的 Docker
 
 若要獲得最佳體驗，最佳做法是透過遠端系統管理 Nano Server 上的 Docker。 因為 PowerShell Remoting 目前無法將互動容器殼層的 TTY 終端輸出重新導向到初始用戶端的命令提示字元。 可以啟動中斷連接的容器，而且會使用 `docker run -dt` 在背景執行，但使用 `docker run -it` 的互動容器不會如預期般運作。 PowerShell ISE 也是因為類似的原因而有互動式輸出的問題。
 
 若要管理遠端 Docker 伺服器，必須完成下列項目。
 
-### 準備容器主機
+### <a name="prepare-container-host"></a>準備容器主機
 
 針對 Docker 連線在容器主機上建立防火牆規則。 如果是不安全的連線，為連接埠 `2375`；安全的連線則為連接埠 `2376`。
 
@@ -137,7 +136,7 @@ Add-Content 'c:\programdata\docker\config\daemon.json' '{ "hosts": ["tcp://0.0.0
 Restart-Service docker
 ```
 
-### 準備遠端用戶端
+### <a name="prepare-remote-client"></a>準備遠端用戶端
 
 在您要使用的遠端系統上，下載 Docker 用戶端。
 
@@ -179,7 +178,7 @@ $env:DOCKER_HOST = "tcp://<ipaddress of server>:2375"
 docker run -it microsoft/nanoserver cmd
 ```
 
-## Hyper-V 容器主機
+## <a name="hyper-v-container-host"></a>Hyper-V 容器主機
 
 若要部署 Hyper-V 容器，容器主機上需具備 Hyper-V 角色。 如需 Hyper-V 容器的詳細資訊，請參閱 [Hyper-V 容器](../manage-containers/hyperv-container.md)。
 
@@ -197,9 +196,3 @@ Install-NanoServerPackage Microsoft-NanoServer-Compute-Package
 ```none
 Restart-Computer
 ```
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

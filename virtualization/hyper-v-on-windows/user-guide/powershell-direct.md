@@ -8,23 +8,22 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: fb228e06-e284-45c0-b6e6-e7b0217c3a49
-translationtype: Human Translation
-ms.sourcegitcommit: 54eff4bb74ac9f4dc870d6046654bf918eac9bb5
-ms.openlocfilehash: 1eea533459b565ffceca23ca7454e9678abc52e9
-
+ms.openlocfilehash: 6e9a70e370f1c13a69dd617d4564be9d6c2f6017
+ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.translationtype: HT
+ms.contentlocale: zh-TW
 ---
-
-# 使用 PowerShell 進行虛擬機器自動化與管理
+# <a name="virtual-machine-automation-and-management-using-powershell"></a>使用 PowerShell 進行虛擬機器自動化與管理
  
 您可以使用 PowerShell Direct，透過 Hyper-V 主機，在 Windows 10 或 Windows Server Technical Preview 虛擬機器中執行任意 PowerShell (不論網路設定或遠端管理設定為何皆可)。
 
 **執行 PowerShell Direct 的方式：**  
-* 作為互動式工作階段 - [按一下這裡](#create-and-exit-an-interactive-powershell-session)使用 Enter-PSSession 建立並結束互動式 PowerShell 工作階段。
-* 作為單次使用工作階段來執行單一命令或指令碼 - [按一下這裡](#run-a-script-or-command-with-invoke-command)使用 Invoke-Command 執行指令碼或命令。
-* 作為持續工作階段 (組建 14280 和更新版本) - [按一下這裡](#copy-files-with-new-pssession-and-copy-item)使用 New-PSSSession 來建立持續工作階段。  
+* 做為互動式工作階段 - [按一下這裡](#create-and-exit-an-interactive-powershell-session)使用 Enter-PSSession 建立並結束互動式 PowerShell 工作階段。
+* 做為單次使用工作階段來執行單一命令或指令碼 - [按一下這裡](#run-a-script-or-command-with-invoke-command)使用 Invoke-Command 執行指令碼或命令。
+* 做為持續工作階段 (組建 14280 和更新版本) - [按一下這裡](#copy-files-with-new-pssession-and-copy-item)使用 New-PSSSession 來建立持續工作階段。  
 繼續使用 Copy-Item 來複製檔案至虛擬機器或從中複製檔案，然後使用 Remove-PSSession 中斷連線。
 
-## 需求
+## <a name="requirements"></a>需求
 **作業系統需求：**
 * 主機：執行 Hyper-V 的 Windows 10、Windows Server Technical Preview 2 或更新版本。
 * 客體/虛擬機器：Windows 10、Windows Server Technical Preview 2 或更新版本。
@@ -39,7 +38,7 @@ ms.openlocfilehash: 1eea533459b565ffceca23ca7454e9678abc52e9
 
 -------------
 
-## 建立並結束互動式 PowerShell 工作階段
+## <a name="create-and-exit-an-interactive-powershell-session"></a>建立並結束互動式 PowerShell 工作階段
 
 在虛擬機器上執行 PowerShell 命令的最簡單方式，是啟動互動式工作階段。
 
@@ -60,7 +59,7 @@ ms.openlocfilehash: 1eea533459b565ffceca23ca7454e9678abc52e9
 
 3. 在虛擬機器上執行命令。
   
-  您應該會看到 VMName 作為 PowerShell 提示字元的首碼，如下所示︰
+  您應該會看到 VMName 做為 PowerShell 提示字元的首碼，如下所示︰
   
   ``` 
   [VMName]: PS C:\ >
@@ -80,7 +79,7 @@ ms.openlocfilehash: 1eea533459b565ffceca23ca7454e9678abc52e9
 
 -------------
 
-## 執行指令碼或 Invoke-Command 命令
+## <a name="run-a-script-or-command-with-invoke-command"></a>執行指令碼或 Invoke-Command 命令
 
 PowerShell Direct 與 Invoke-Command 最適合您需要在虛擬機器上執行一個命令或一個指令碼，但超過該時間點便不需要繼續與虛擬機器互動的情況。
 
@@ -119,7 +118,7 @@ PowerShell Direct 與 Invoke-Command 最適合您需要在虛擬機器上執行�
 
 -------------
 
-## 使用 New-PSSession 和 Copy-Item 複製檔案
+## <a name="copy-files-with-new-pssession-and-copy-item"></a>使用 New-PSSession 和 Copy-Item 複製檔案
 
 > **注意︰**PowerShell Direct 只在 Windows 組建 14280 和更新版本中支援持續性工作階段
 
@@ -167,11 +166,11 @@ PowerShell Direct 與 Invoke-Command 最適合您需要在虛擬機器上執行�
   
 -------------
 
-## 疑難排解
+## <a name="troubleshooting"></a>疑難排解
 
 PowerShell Direct 有一小組常見的錯誤訊息。  以下是最常見的訊息、部分原因，以及用來診斷問題的工具。
 
-### -VMName 或 -VMID 參數不存在
+### <a name="-vmname-or--vmid-parameters-dont-exist"></a>-VMName 或 -VMID 參數不存在
 **問題：**  
 `Enter-PSSession`、`Invoke-Command` 或 `New-PSSession` 沒有 `-VMName` 或 `-VMId` 參數。
 
@@ -193,7 +192,7 @@ $PSVersionTable.PSVersion
 ```
 
 
-### 錯誤：遠端工作階段可能已經結束
+### <a name="error-a-remote-session-might-have-ended"></a>錯誤：遠端工作階段可能已經結束
 > **注意：**  
 針對主機組建 10240 和 12400 之間的 Enter-PSSession，以下所有錯誤都報告為「遠端工作階段可能已經結束」。
 
@@ -227,7 +226,7 @@ New-PSSession : An error has occurred which Windows PowerShell cannot handle. A 
 Restart-Service -Name vmicvmsession
 ```
 
-### 錯誤：無法解析參數集
+### <a name="error-parameter-set-cannot-be-resolved"></a>錯誤：無法解析參數集
 **錯誤訊息：**  
 ``` 
 Enter-PSSession : Parameter set cannot be resolved using the specified named parameters.
@@ -241,7 +240,7 @@ Enter-PSSession : Parameter set cannot be resolved using the specified named par
 利用 `-Credential` 參數或在出現提示時手動輸入認證，即可將系統管理員認證傳遞到虛擬機器。
 
 
-### 錯誤︰認證無效。
+### <a name="error-the-credential-is-invalid"></a>錯誤︰認證無效。
 
 **錯誤訊息：**  
 ```
@@ -254,7 +253,7 @@ Enter-PSSession : The credential is invalid.
   * 在客體 (作業系統未啟動之前) 中沒有使用者帳戶
   * 如果以系統管理員身分進行連接：系統管理員尚未設定為使用中的使用者。  請按一下[這裡](https://technet.microsoft.com/en-us/library/hh825104.aspx)進一步了解。
   
-### 錯誤︰輸入的 VMName 參數未解析為任何虛擬機器。
+### <a name="error-the-input-vmname-parameter-does-not-resolve-to-any-virtual-machine"></a>錯誤︰輸入的 VMName 參數未解析為任何虛擬機器。
 
 **錯誤訊息：**  
 ```
@@ -270,14 +269,8 @@ Enter-PSSession : The input VMName parameter does not resolve to any virtual mac
 
 -------------
 
-## 範例和使用者指南
+## <a name="samples-and-user-guides"></a>範例和使用者指南
 
 PowerShell Direct 支援 JEA (Just Enough Administration)。  請參閱本使用者指南來試試。
 
 檢視 [GitHub](https://github.com/Microsoft/Virtualization-Documentation/search?l=powershell&q=-VMName+OR+-VMGuid&type=Code&utf8=%E2%9C%93) 上的範例。
-
-
-
-<!--HONumber=Jan17_HO2-->
-
-

@@ -8,19 +8,18 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 5c6f6350-f8d6-4426-b53d-9fb09c2bf267
-translationtype: Human Translation
-ms.sourcegitcommit: b2950dca4b29e97eb951379645c118468a1fb403
-ms.openlocfilehash: eac2026cff552315a4cb256b595f1bd3317ee11c
-
+ms.openlocfilehash: adfeec41a3b97b620487b00679a973f97d334572
+ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.translationtype: HT
+ms.contentlocale: zh-TW
 ---
-
-# Windows 容器範例
+# <a name="windows-container-samples"></a>Windows 容器範例
 
 此為 Windows 小組及社群成員所提交的範例集合。  提供的這些範例沒有任何擔保或保證。  請不吝提供其他範例，或改善目前的集合。
 
-# Categories
+# <a name="categories"></a>Categories
 
-## 應用程式架構
+## <a name="application-frameworks"></a>應用程式架構
 [aspnet](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/aspnet)
 
 [iis](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/iis) 
@@ -39,7 +38,7 @@ ms.openlocfilehash: eac2026cff552315a4cb256b595f1bd3317ee11c
 
 [nginx](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/nginx)
 
-## 程式設計語言
+## <a name="programing-languages"></a>程式設計語言
 [dotnet35](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/dotnet35)
 
 [golang](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/golang)
@@ -57,7 +56,7 @@ ms.openlocfilehash: eac2026cff552315a4cb256b595f1bd3317ee11c
 [server-jre-8u51-windows-x64](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/server-jre-8u51-windows-x64)
 
 
-## 資料庫
+## <a name="databases"></a>資料庫
 [mongodb](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/mongodb)
 
 [mysql](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/mysql)
@@ -69,18 +68,12 @@ ms.openlocfilehash: eac2026cff552315a4cb256b595f1bd3317ee11c
 [sqlserver-express](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/sqlserver-express)
 
 
-## 基礎結構和 CI 工具
+## <a name="infrastructure-and-ci-tools"></a>基礎結構和 CI 工具
 [PowerShellDSC_iis-10.0](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/PowerShellDSC_iis-10.0)
 
 
-## 輕鬆一下
+## <a name="just-for-fun"></a>輕鬆一下
 [MineCraft](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/MineCraft) 
 
 
-## 其他
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-
+## <a name="other"></a>其他

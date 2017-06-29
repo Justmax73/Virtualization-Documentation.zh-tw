@@ -8,13 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 0cc1b621-1a92-4512-8716-956d7a8fe495
-translationtype: Human Translation
-ms.sourcegitcommit: ac6ee9737fb779debc02eb11bb44fcdb7a8e28d4
-ms.openlocfilehash: f837ef05dec3bd610409389cbf1bfbf9804d9d49
-ms.lasthandoff: 02/14/2017
-
+ms.openlocfilehash: 75d19646dd41a4f73dfb9cdd09808b61fba8e4ab
+ms.sourcegitcommit: 1c7e94089646f3db31e033f0909a10ce5077d05e
+ms.translationtype: HT
+ms.contentlocale: zh-TW
 ---
-# Windows Docker 主機的遠端管理
+# <a name="remote-management-of-a-windows-docker-host"></a>Windows Docker 主機的遠端管理
 
 即使在缺乏 `docker-machine` 的情況下，您仍然可在 Windows Server 2016 VM 上建立遠端存取 Docker 主機。
 
@@ -23,7 +22,10 @@ ms.lasthandoff: 02/14/2017
 * 使用 [dockertls](https://hub.docker.com/r/stefanscherer/dockertls-windows/) 建立伺服器上的憑證。 如果您要使用 IP 位址建立憑證，建議您使用靜態 IP，以避免 IP 位址變更時需重新建立憑證。
 
 * 重新啟動 Docker 服務 `Restart-Service Docker`
-* 建立允許輸入流量的 NSG 規則，以便使用連接埠 Docker 的 TLS 連接埠 2375 和 2376。 請注意，對於安全連線只需允許 2376。 入口網站應該會顯示如下的 NSG 設定︰![NGSs](images/nsg.png)
+* 建立允許輸入流量的 NSG 規則，以便使用連接埠 Docker 的 TLS 連接埠 2375 和 2376。 請注意，對於安全連線只需允許 2376。  
+  入口網站應該會顯示如下的 NSG 設定︰  
+  ![NGS](media/nsg.png)  
+  
 * 允許透過 Windows 防火牆的輸入連線。 
 ```
 New-NetFirewallRule -DisplayName 'Docker SSL Inbound' -Profile @('Domain', 'Public', 'Private') -Direction Inbound -Action Allow -Protocol TCP -LocalPort 2376
@@ -37,8 +39,8 @@ ker\client\key.pem ps
 ```
 
 
-## 疑難排解
-### 嘗試不使用 TLS 進行連線來判斷您的 NSG 防火牆設定是否正確
+## <a name="troubleshooting"></a>疑難排解
+### <a name="try-connecting-without-tls-to-determine-your-nsg-firewall-settings-are-correct"></a>嘗試不使用 TLS 進行連線來判斷您的 NSG 防火牆設定是否正確
 連線錯誤通常會顯示為如下錯誤︰
 ```
 error during connect: Get https://wsdockerhost.southcentralus.cloudapp.azure.com:2376/v1.25/version: dial tcp 13.85.27.177:2376: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
@@ -57,17 +59,16 @@ error during connect: Get https://wsdockerhost.southcentralus.cloudapp.azure.com
 docker -H tcp://wsdockerhost.southcentralus.cloudapp.azure.com:2376 --tlsverify=0 version
 ```
 
-### 憑證問題
+### <a name="cert-problems"></a>憑證問題
 使用非針對 IP 位址或 DNS 名稱所建立的憑證存取 Docker 主機，將導致發生錯誤︰
 ```
 error during connect: Get https://w.x.y.c.z:2376/v1.25/containers/json: x509: certificate is valid for 127.0.0.1, a.b.c.d, not w.x.y.z
 ```
 請確保 w.x.y.z 是主機公用 IP 的 DNS 名稱，且任一 DNS 名稱符合憑證的[通用名稱](https://www.ssl.com/faqs/common-name/)，而該名稱為 `SERVER_NAME` 環境變數或提供給 dockertls 之 `IP_ADDRESSES` 變數中的其中一個 IP 位址
 
-### crypto/x509 警告
+### <a name="cryptox509-warning"></a>crypto/x509 警告
 您可能會收到警告 
 ```
 level=warning msg="Unable to use system certificate pool: crypto/x509: system root pool is not available on Windows"
 ```
 此為善意警告。
-

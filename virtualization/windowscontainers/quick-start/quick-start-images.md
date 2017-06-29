@@ -8,13 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 479e05b1-2642-47c7-9db4-d2a23592d29f
-translationtype: Human Translation
-ms.sourcegitcommit: 5d746be15856aad683bf684d2eef573d732ab457
-ms.openlocfilehash: 6add396bea629d5438cde5892458f6c8405bf644
-
+ms.openlocfilehash: 355daae1b673f0b05f08d0706664967a825de6f7
+ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.translationtype: HT
+ms.contentlocale: zh-TW
 ---
-
-# Windows Server 上的容器映像
+# <a name="container-images-on-windows-server"></a>Windows Server 上的容器映像
 
 在先前的 Windows Server 快速入門中，已從預先建立的 .NET Core 範例建立 Windows 容器。 這項練習詳列手動建立自訂容器映像的方法，使用 Dockerfile 自動建立容器映像，並將容器映像儲存在 Docker Hub 公開登錄中。
 
@@ -26,7 +25,7 @@ ms.openlocfilehash: 6add396bea629d5438cde5892458f6c8405bf644
 - 設定此系統的 Windows 容器功能和 Docker。 如需這些步驟的逐步解說，請參閱 [Windows Server 上的 Windows 容器](./quick-start-windows-server.md)。
 - Docker 識別碼，這會用以將容器映像推送至 Docker Hub。 如果您沒有 Docker 識別碼，請在 [Docker Cloud](https://cloud.docker.com/) 註冊一個。
 
-## 1.容器映像 - 手動
+## <a name="1-container-image---manual"></a>1.容器映像 - 手動
 
 如欲得到最佳的體驗，請從 Windows 命令殼層 (cmd.exe) 逐步進行本練習。
 
@@ -99,7 +98,7 @@ windowsservercore   latest              dbfee88ee9fd        8 weeks ago         
 
 現在可以部署此映像。 產生的容器將包含所有擷取的修改。
 
-## 2.容器映像 - Dockerfile
+## <a name="2-container-image---dockerfile"></a>2.容器映像 - Dockerfile
 
 透過最後一項練習，容器已手動建立、修改，然後擷取至新的容器映像中。 Docker 包含使用 Dockerfile 將此程序自動化的方法。 此練習最後將有幾乎相同的結果，但這一次程序將會自動進行。 這項練習需要 Docker 識別碼。 如果您沒有 Docker 識別碼，請在 [Docker Cloud]( https://cloud.docker.com/) 註冊一個。
 
@@ -115,7 +114,7 @@ powershell new-item c:\build\Dockerfile -Force
 notepad c:\build\Dockerfile
 ```
 
-將下列文字複製到 Dockerfile 中，並儲存檔案。 這些命令會指示 Docker 建立新的映像，並且使用 `microsoft/iis` 作為基礎。 Dockerfile 接著會執行 `RUN` 指示中指定的命令，在此情況下，index.html 檔案會更新為新內容。 
+將下列文字複製到 Dockerfile 中，並儲存檔案。 這些命令會指示 Docker 建立新的映像，並且使用 `microsoft/iis` 做為基礎。 Dockerfile 接著會執行 `RUN` 指示中指定的命令，在此情況下，index.html 檔案會更新為新內容。 
 
 如需 Dockerfile 的詳細資訊，請參閱 [Windows 上的 Dockerfile](../manage-docker/manage-windows-dockerfile.md)。
 
@@ -169,7 +168,7 @@ c1dc6c1387b9   iis-dockerfile   "ping -t localhost"   About a minute ago   Up Ab
 docker rm -f <container name>
 ```
 
-## 3.Docker Push
+## <a name="3-docker-push"></a>3.Docker Push
 
 Docker 容器映像可儲存於容器登錄中。 映像一旦儲存於登錄中，即可擷取以供日後在多種不同容器主機中使用。 Docker 提供公開登錄，以在 [Docker Hub](https://hub.docker.com/) 儲存容器映像。
 
@@ -216,12 +215,6 @@ microsoft/iis             latest              e4525dda8206        3 hours ago   
 docker pull <user>/iis-dockerfile
 ```
 
-## 後續步驟
+## <a name="next-steps"></a>後續步驟
 
 [Windows 10 上的 Windows 容器](./quick-start-windows-10.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

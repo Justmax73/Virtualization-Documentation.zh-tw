@@ -8,13 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 88e6e080-cf8f-41d8-a301-035959dc5ce0
-translationtype: Human Translation
-ms.sourcegitcommit: fe1e5d1f35e088581d44c43108c843347111eaef
-ms.openlocfilehash: 622c8f638a815e19a54aa75b6b5ea0688d966ae3
-
+ms.openlocfilehash: af819955c06b2db405f230cf3b7fee4c13e7c87c
+ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.translationtype: HT
+ms.contentlocale: zh-TW
 ---
-
-# Windows 容器基礎映像歷程記錄
+# <a name="windows-container-base-image-history"></a>Windows 容器基礎映像歷程記錄
 
 每一個 Windows 容器都是採用 Microsoft 提供的基本 OS 所建置。 如果您不確定容器是以哪個 Windows 版本建置，可以執行 `docker inspect <tag>` 並依照下表比對第一列或前兩列。
 
@@ -75,10 +74,4 @@ ms.openlocfilehash: 622c8f638a815e19a54aa75b6b5ea0688d966ae3
         sha256:dd33c5d8d8b3c230886132c328a7801547f13de1dac9a629e2739164a285b3ab</td>
     </tr>
 </table>
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

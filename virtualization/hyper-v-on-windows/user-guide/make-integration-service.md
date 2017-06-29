@@ -3,34 +3,29 @@ title: "製作您自己的整合服務"
 description: "Windows 10 整合服務。"
 keywords: Windows 10, Hyper-V, HVSocket, AF_HYPERV
 author: scooley
-ms.date: 05/02/2016
+ms.date: 04/07/2017
 ms.topic: article
 ms.prod: windows-10-hyperv
-ms.service: windows-10-hyperv
 ms.assetid: 1ef8f18c-3d76-4c06-87e4-11d8d4e31aea
-translationtype: Human Translation
-ms.sourcegitcommit: b6b63318ed71931c2b49039e57685414f869a945
-ms.openlocfilehash: 19e8cf269b0bef127fb06d2c99391107cd8683b1
-ms.lasthandoff: 02/16/2017
-
+ms.openlocfilehash: d50648efcaac40d6a60430b44c070717adf31b4d
+ms.sourcegitcommit: d5f30aa1bdfb34dd9e1909d73b5bd9f4153d6b46
+ms.translationtype: HT
+ms.contentlocale: zh-TW
 ---
-
-# 製作您自己的整合服務
+# <a name="make-your-own-integration-services"></a>製作您自己的整合服務
 
 從 Windows 10 年度更新版開始，任何人都可以讓在 Hyper-V 主機之間通訊，並使用虛擬電腦的應用程式使用 Hyper-V 通訊端 -- 此通訊端為使用新位址家族，且具備以虛擬電腦為目標之特殊端點的 Windows 通訊端。  所有透過 Hyper-V 通訊端的通訊，都不使用網路功能，且所有的資料會留在相同的實體記憶體上。   使用 Hyper-V 通訊端的應用程式，類似於 Hyper-V 的整合服務。
 
 本文件會逐步介紹如何用 Hyper-V 通訊端為基礎來建立簡單的程式。
 
 **支援的主機 OS**
-* Windows 10 予以支援
-* Windows Server 2016
-* 未來版本 (Server 2016 +)
+* Windows 10 和更新版本
+* Windows Server 2016 和更新版本
 
 **支援的客體 OS**
-* Windows 10
-* Windows Server Technical Preview 4 及更新版本
-* 未來版本 (Server 2016 +)
-* 使用 Linux 整合服務的 Linux 客體 (請參閱 [Supported Linux and FreeBSD virtual machines for Hyper-V on Windows](https://technet.microsoft.com/library/dn531030(ws.12).aspx) (Windows 上 Hyper-V 支援的 Linux 及 FreeBSD 虛擬機器)
+* Windows 10 和更新版本
+* Windows Server 2016 和更新版本
+* 使用 Linux 整合服務的 Linux 客體 (請參閱 [Windows 上 Hyper-V 支援的 Linux 及 FreeBSD 虛擬機器](https://technet.microsoft.com/library/dn531030.aspx)，英文內容)
 
 **功能和限制**  
 * 支援核心模式或使用者模式動作  
@@ -39,7 +34,7 @@ ms.lasthandoff: 02/16/2017
 
 --------------
 
-## 開始使用
+## <a name="getting-started"></a>開始使用
 
 需求：
 * C/C++ 編譯器。  如果您沒有的話，請查看 [Visual Studio 社群](https://aka.ms/vs)
@@ -48,7 +43,7 @@ ms.lasthandoff: 02/16/2017
 
 > **注意︰**Hyper-V 通訊端的 API 會在稍後於 Windows 10 中公開可用。  使用 HVSocket 的應用程式將在任何 Widnows 10 主機和客體上執行，但僅限使用 Windows SDK 組建 14290 之後的版本進行開發。  
 
-## 註冊新的應用程式
+## <a name="register-a-new-application"></a>註冊新的應用程式
 若要使用 Hyper-V 通訊端，必須在 Hyper-V 主機的登錄中註冊應用程式。
 
 在登錄中註冊服務後，您將獲得：
@@ -83,7 +78,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\G
 
 若要註冊您自己的服務，請使用您自己的 GUID 和好記名稱建立新的登錄機碼。
 
-好記名稱將會與您的新應用程式相關聯。  它會出現在效能計數器中，以及其他不適用 GUID 之處。
+易記名稱將會與您的新應用程式相關聯。  它會出現在效能計數器中，以及其他不適用 GUID 之處。
 
 登錄項目將如下所示：
 ```
@@ -99,7 +94,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\G
 (New-Guid).Guid | clip.exe
 ```
 
-## 建立 Hyper-V 通訊端
+## <a name="create-a-hyper-v-socket"></a>建立 Hyper-V 通訊端
 
 在大部分的基本案例中，定義通訊端都需要位址家族、連線類型和通訊協定。
 
@@ -127,7 +122,7 @@ SOCKET sock = socket(AF_HYPERV, SOCK_STREAM, HV_PROTOCOL_RAW);
 ```
 
 
-## 繫結至 Hyper-V 通訊端
+## <a name="bind-to-a-hyper-v-socket"></a>繫結至 Hyper-V 通訊端
 
 繫結可建立通訊端與連線資訊的關聯。
 
@@ -143,7 +138,7 @@ int bind(
 
 有別於標準網際網路通訊協定位址家族 (`AF_INET`) 的通訊端位址 (sockaddr)，其由主機電腦的 IP 位址和該主機的連接埠號碼所組成，`AF_HYPERV` 的通訊端位址則使用虛擬機器的識別碼和上面定義的應用程式識別碼來建立連線。 
 
-由於 Hyper-V 通訊端並未依賴網路堆疊、TCP/IP、DNS 等項目，通訊端的端點必須為可全然明確描述連線的非 IP、非主機名稱格式。
+由於 Hyper-V 通訊端並未依賴網路堆疊、TCP/IP、DNS 等項目，因此通訊端的端點需要仍可明確說明連線的非 IP (而不是主機名稱) 格式。
 
 以下是 Hyper-V 通訊端的通訊端位址定義：
 
@@ -166,7 +161,7 @@ AF_HYPERV 端點並不依賴 IP 或主機名稱，而是高度依賴兩個 GUID�
 
 此外還有一組在連線到非特定虛擬機器時可使用的 VMID 萬用字元。
  
-### VMID 萬用字元
+### <a name="vmid-wildcards"></a>VMID 萬用字元
 
 | 名稱 | GUID | 描述 |
 |:-----|:-----|:-----|
@@ -179,14 +174,14 @@ AF_HYPERV 端點並不依賴 IP 或主機名稱，而是高度依賴兩個 GUID�
 
 
 \* `HV_GUID_PARENT`  
-虛擬機器的父系是其主機。  容器的父系是容器的主機。  
+虛擬機器的父系是其主機。  容器的父項是容器的主機。  
 從執行於虛擬機器中的容器連接，將會連接到主控容器的 VM。  
 在此 VmId 上接聽，可接受下列來源的連線：  
 (在容器內)：容器主機。  
 (在 VM 內：容器主機/無容器)：VM 主機。  
 (不在 VM 內：容器主機/無容器)：不支援。
 
-## 支援的通訊端命令
+## <a name="supported-socket-commands"></a>支援的通訊端命令
 
 Socket()  
 Bind()  
@@ -195,7 +190,7 @@ Send()
 Listen()  
 Accept()  
 
-## 實用的連結
+## <a name="useful-links"></a>實用的連結
 [完整 WinSock API](https://msdn.microsoft.com/en-us/library/windows/desktop/ms741394.aspx)
 
 [Hyper-V 整合服務參考](../reference/integration-services.md)

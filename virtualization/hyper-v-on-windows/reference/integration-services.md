@@ -8,27 +8,22 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 18930864-476a-40db-aa21-b03dfb4fda98
-translationtype: Human Translation
-ms.sourcegitcommit: 06782d73418afaa15d036c5cff09b3167cd3f1b6
-ms.openlocfilehash: 647c47998334600dc4f143d2471c0104e5d4e9a9
-
+ms.openlocfilehash: 2e2289bbb7801824c13e5ba4cb17d51beb26fbfa
+ms.sourcegitcommit: b55d4d31a5706e2f65f4c4a029c2f55a76711253
+ms.translationtype: HT
+ms.contentlocale: zh-TW
 ---
-
-# Hyper-V 整合服務
+# <a name="hyper-v-integration-services"></a>Hyper-V 整合服務
 
 整合服務通常稱為「整合元件」，是可讓虛擬機器與 Hyper-V 主機通訊的服務。 這當中有許多便利的服務，亦有些服務是虛擬機器功能是否能正常運作的關鍵。
 
-本文提供 Windows 適用之每一項整合服務的參考資料。  如需特定整合服務或其歷程記錄的任何相關資訊，也可以將這篇文章作為起點。
+本文提供 Windows 適用之每一項整合服務的參考資料。  如需特定整合服務或其歷程記錄的任何相關資訊，也可以將這篇文章做為起點。
 
 **使用者指南：**  
-* [從 Hyper-V 主機啟用/停用整合服務](../user-guide/managing-integration-services.md#enable-or-disable-integration-services-using-powershell)
-* 從虛擬機器內啟用/停用整合服務。
-  * [Windows](../user-guide/managing-integration-services.md#manage-integration-services-from-guest-os-windows)
-  * [Linux](../user-guide/managing-integration-services.md#manage-integration-services-from-guest-os-linux)
-* [整合服務更新與維護](../user-guide/managing-integration-services.md#integration-service-maintenance)
+* [管理整合服務](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/manage/manage-Hyper-V-integration-services)
 
 
-## 快速參考
+## <a name="quick-reference"></a>快速參考
 
 | Name | Windows 服務名稱 | Linux 精靈名稱 |  說明 | 停用時對 VM 的影響 |
 |:---------|:---------|:---------|:---------|:---------|
@@ -41,7 +36,7 @@ ms.openlocfilehash: 647c47998334600dc4f143d2471c0104e5d4e9a9
 | [Hyper-V PowerShell Direct 服務](#hyper-v-powershell-direct-service) | vmicvmsession | 無法使用 | 提供一種方法，以使用 PowerShell 管理虛擬機器而不需網路連線。 | 低 |  
 
 
-## Hyper-V 活動訊號服務
+## <a name="hyper-v-heartbeat-service"></a>Hyper-V 活動訊號服務
 
 **Windows 服務名稱：**vmicheartbeat  
 **Linux 精靈名稱：**hv_utils  
@@ -53,7 +48,7 @@ ms.openlocfilehash: 647c47998334600dc4f143d2471c0104e5d4e9a9
 
 當 Hyper-V 回報虛擬機器狀態為「正在執行中」時 (請參閱下面的範例)，表示 Hyper-V 已針對虛擬機器設定資源；而非表示作業系統已安裝或正常運作。  這時候，活動訊號就非常實用。  活動訊號服務可讓 Hyper-V 知道虛擬機器內的作業系統是否已開機。  
 
-### 使用 PowerShell 檢查活動訊號
+### <a name="check-heartbeat-with-powershell"></a>使用 PowerShell 檢查活動訊號
 
 以系統管理員身分執行 [GET-VM](https://technet.microsoft.com/en-us/library/hh848479.aspx)，以查看虛擬機器的活動訊號︰
 ``` PowerShell
@@ -71,7 +66,7 @@ DemoVM  Running  Operating normally
 
 
 
-## Hyper-V 客體關機服務
+## <a name="hyper-v-guest-shutdown-service"></a>Hyper-V 客體關機服務
 
 **Windows 服務名稱：**vmicshutdown  
 **Linux 精靈名稱：**hv_utils  
@@ -80,7 +75,7 @@ DemoVM  Running  Operating normally
 **影響︰****強烈影響：**停用時，主機即無法觸發虛擬機器內的溫和關機程序。  所有的關機都會採用硬性關機，這可能會導致資料遺失或資料損毀。  
 
 
-## Hyper-V 時間同步化服務
+## <a name="hyper-v-time-synchronization-service"></a>Hyper-V 時間同步化服務
 
 **Windows 服務名稱：**vmictimesync  
 **Linux 精靈名稱：**hv_utils  
@@ -89,7 +84,7 @@ DemoVM  Running  Operating normally
 **影響︰****強烈影響：**停用時，虛擬機器的時鐘會不規律地漂移。  
 
 
-## Hyper-V 資料交換服務 (KVP)
+## <a name="hyper-v-data-exchange-service-kvp"></a>Hyper-V 資料交換服務 (KVP)
 
 **Windows 服務名稱：**vmickvpexchange  
 **Linux 精靈名稱：**hv_kvp_daemon  
@@ -108,7 +103,7 @@ DemoVM  Running  Operating normally
 * [Using key-value pairs to share information between the host and guest on Hyper-V](https://technet.microsoft.com/en-us/library/dn798287.aspx) (使用機碼值組在 Hyper-V 的主機與客體之間共用資訊)。  
 
 
-## Hyper-V 磁碟區陰影複製要求者
+## <a name="hyper-v-volume-shadow-copy-requestor"></a>Hyper-V 磁碟區陰影複製要求者
 
 **Windows 服務名稱：**vmicvss  
 **Linux 精靈名稱：**hv_vss_daemon  
@@ -121,7 +116,7 @@ DemoVM  Running  Operating normally
 如需磁碟區陰影複製的詳細資訊，請參閱[這裡](https://msdn.microsoft.com/en-us/library/dd405549.aspx)。
 
 
-## Hyper-V 客體服務介面
+## <a name="hyper-v-guest-service-interface"></a>Hyper-V 客體服務介面
 
 **Windows 服務名稱：**vmicguestinterface  
 **Linux 精靈名稱：**hv_fcopy_daemon  
@@ -133,7 +128,7 @@ DemoVM  Running  Operating normally
 預設為停用。  請參閱[使用 Copy-Item 的 PowerShell Direct](../user-guide/powershell-direct.md#copy-files-with-new-pssession-and-copy-item)。 
 
 
-## Hyper-V PowerShell Direct 服務
+## <a name="hyper-v-powershell-direct-service"></a>Hyper-V PowerShell Direct 服務
 
 **Windows 服務名稱：**vmicvmsession  
 **Linux 精靈名稱：**無  
@@ -152,9 +147,3 @@ PowerShell Direct 目前仍在開發中，因此只能在 Windows 10 和 Windows
 **使用者指南：**  
 * [在虛擬機器中執行指令碼](../user-guide/powershell-direct.md#run-a-script-or-command-with-invoke-command)
 * [在虛擬機器之間複製檔案](../user-guide/powershell-direct.md#copy-files-with-new-pssession-and-copy-item)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

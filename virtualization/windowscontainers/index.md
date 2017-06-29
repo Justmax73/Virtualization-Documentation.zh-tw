@@ -8,15 +8,14 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 74c9d604-0915-4d89-bc69-0263b76bc66b
-translationtype: Human Translation
-ms.sourcegitcommit: 54eff4bb74ac9f4dc870d6046654bf918eac9bb5
-ms.openlocfilehash: 9b630e372b575ef1721c0d0926ec2caec3e5ec34
-
+ms.openlocfilehash: ac6e99800fcabef31464a81799fc9e329438b0ae
+ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.translationtype: HT
+ms.contentlocale: zh-TW
 ---
+# <a name="windows-containers-documentation"></a>Windows 容器文件
 
-# Windows 容器文件
-
-Windows 容器可提供作業系統層級的虛擬化，讓多個隔離的應用程式在單一系統上執行。 與功能一起隨附的容器執行階段有兩種類型，每一種皆具有不同程度的應用程式隔離。 Windows Server 容器透過命名空間和處理序隔離來完成隔離。 Hyper-V 容器將每個容器封裝在輕量虛擬機器中。 此文件集提供快速入門指南、部署指南和管理作業的技術詳細資料。
+Windows 容器可提供作業系統層級的虛擬化，讓多個隔離的應用程式在單一系統上執行。 此功能包括兩種不同類型的容器執行階段，能提供不同程度的應用程式隔離。 Windows Server 容器會針對命名空間和處理序來實施隔離， 而 Hyper-V 容器則是將各容器封裝於輕量的虛擬機器中。 此文件集提供快速入門指南、部署指南和管理作業的技術詳細資料。
 
 <table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:90%" cellpadding="25" cellspacing="5">
 <tr>
@@ -63,7 +62,7 @@ Windows 10 快速入門<br /><br />
 
 <tr>
 <td ><center>![](media/video.png)</center></td>
-<td>**觀賞**<br /><br />
+<td>**觀看**<br /><br />
 對於 Windows 容器小組的示範與訪談感到興趣嗎？<br /><br />
 <ul>
 <li>[容器頻道](https://channel9.msdn.com/Blogs/containers)</li>
@@ -84,9 +83,3 @@ Windows 10 快速入門<br /><br />
 </td>
 </tr>
 </table>
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

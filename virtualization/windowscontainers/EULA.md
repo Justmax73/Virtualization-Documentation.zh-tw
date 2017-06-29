@@ -1,4 +1,4 @@
-# Windows Server EULA
+# <a name="windows-server-eula"></a>Windows Server EULA
 
 下列軟體的虛擬硬碟映像 MICROSOFT 授權條款：  
 Microsoft WINDOWS SERVER 
@@ -21,9 +21,9 @@ Microsoft WINDOWS SERVER
   * 安裝。  
   　貴用戶可以在執行任何虛擬化軟體的裝置上 (該裝置能夠執行虛擬硬碟 (VHD) 格式，包括 Microsoft Virtual Server) 安裝並使用「軟體」。 
   * 受限制的使用權限。  
-  虛擬硬碟映像中的軟體僅供　貴用戶作為內部示範或進行評估所使用。 　貴用戶不得在實際作業環境中使用此軟體。 
+  虛擬硬碟映像中的軟體僅供　貴用戶做為內部示範或進行評估所使用。 　貴用戶不得在實際作業環境中使用此軟體。 
   * 不可分離。  
-  虛擬硬碟映像中的 Microsoft 軟體視為單一的軟體進行授權。 此軟體可能包含支援作業系統新功能的工具和元件。 除了作為作業系統的一部分散發的新功能以外，　貴用戶不可依任何用途分離、使用，或轉散發這些工具或元件。 例如，Service Fabric 這項軟體元件僅限作業系統中的網路控制卡功能使用。
+  虛擬硬碟映像中的 Microsoft 軟體視為單一的軟體進行授權。 此軟體可能包含支援作業系統新功能的工具和元件。 除了做為作業系統的一部分散發的新功能以外，　貴用戶不可依任何用途分離、使用，或轉散發這些工具或元件。 例如，Service Fabric 這項軟體元件僅限作業系統中的網路控制卡功能使用。
   * 協力廠商程式。  
   此軟體可能包含依專屬條款授權給　貴用戶的第三方軟體程式。 軟體可能也包含由 Microsoft (而非第三方) 依據 Microsoft 授權條款授權予　貴用戶之第三方開放原始碼程式。 第三方開放原始碼程式適用之聲明 (若有) 僅供　貴用戶參考。
   
@@ -52,12 +52,12 @@ Microsoft WINDOWS SERVER
   
 9. **H.264/AVC 和 MPEG-4 視覺標準及 VC-1 與 MPEG-2 視訊標準：**「軟體」可能包含 H.264/AVC、VC-1 和 MPEG-4 PART 2 以及 MPEG-2 視覺壓縮技術。 MPEG LA, L.L.C. 要求通知使用者此注意事項：
 
-  此產品是依 AVC、VC-1、MPEG-4 PART 2 VISUAL，以及 MPEG-2 視訊專利權組合授權供消費者個人且非商業使用 (i) 進行符合上述標準 (「視訊標準」) 的視訊編碼和/或 (ii) 針對由消費者依個人且非商業活動所編碼和/或從獲得提供此視訊授權的視訊提供者取得的 AVC、VC-1、MPEG-4 PART 2 和 MPEG-2 視訊進行解碼。 不可將授權授與或隱含作為其他用途。 其他資訊可於 MPEG LA, L.L.C 取得，請參閱 WWW.MPEGLA.COM。
+  此產品是依 AVC、VC-1、MPEG-4 PART 2 VISUAL，以及 MPEG-2 視訊專利權組合授權供消費者個人且非商業使用 (i) 進行符合上述標準 (「視訊標準」) 的視訊編碼和/或 (ii) 針對由消費者依個人且非商業活動所編碼和/或從獲得提供此視訊授權的視訊提供者取得的 AVC、VC-1、MPEG-4 PART 2 和 MPEG-2 視訊進行解碼。 不可將授權授與或隱含做為其他用途。 其他資訊可於 MPEG LA, L.L.C 取得，請參閱 WWW.MPEGLA.COM。
   
-10. **ADOBE FLASH PLAYER：**「軟體」可能包含 Adobe Flash Player 的其中一種版本。 　貴用戶同意對於 Adobe Flash Player 的使用適用於 go.microsoft.com/fwlink/?LinkID=248532 上的 Adobe Systems Incorporated 授權條款。 Adobe 和 Flash 為註冊商標或 Adobe Systems Incorporated 在美國及 (或) 其他國家/地區的商標。
+10.    **ADOBE FLASH PLAYER：**「軟體」可能包含 Adobe Flash Player 的其中一種版本。 　貴用戶同意對於 Adobe Flash Player 的使用適用於 go.microsoft.com/fwlink/?LinkID=248532 上的 Adobe Systems Incorporated 授權條款。 Adobe 和 Flash 為註冊商標或 Adobe Systems Incorporated 在美國及 (或) 其他國家/地區的商標。
   
-11. **授權範圍。**
-  軟體係授權使用，而非出售賣斷。 這份合約僅提供　貴用戶使用「軟體」的部份權利。 Microsoft 保留所有其他權利。 除非有其他適用法規賦予　貴用戶超出本合約限制的其他權利，否則　貴用戶僅得在本合約明示許可之範圍內使用軟體。 在此情況下，　貴用戶必須遵守「軟體」的所有技術限制，並以其所規定的方式使用「軟體」。 貴用戶不得
+11.    **授權範圍。**
+  軟體係授權使用，而非出售賣斷。 這份合約僅提供　貴用戶使用「軟體」的部份權利。 Microsoft 保留所有其他權利。 除非相關法律賦予　貴用戶超出本合約限制的其他權利，否則　貴用戶僅得在本合約明示許可的範圍內使用軟體。 因此，　貴用戶必須遵守只允許以特定方式使用「軟體」的科技保護措施。 　貴用戶不得
   * 未經 Microsoft 事先書面核准，將「軟體」之任何基準測試結果 (除 Microsoft.NET Framework 以外，請參閱上方個別條款) 透露予任何第三方；
   * 迴避「軟體」中所包含的科技保護措施；
   * 對「軟體」進行還原工程、解編或反向組譯，但適行法律明文許可者不在此限；
@@ -67,26 +67,26 @@ Microsoft WINDOWS SERVER
   * 將軟體或本合約移轉給任何第三者；或
   * 利用該軟體提供商業軟體主機服務。
   
-12. **出口限制。**
-  「軟體」受到美國出口法規之限制。 貴用戶必須遵守適用於該軟體之一切本國及國際出口法規。 這些法規包括目的地、使用者及最終用途的限制。 如需其他資訊，請參閱 www.microsoft.com/exporting。
+12.    **出口限制。**
+  此軟體受到美國出口法規之限制。 　貴用戶必須遵守適用於軟體的一切本國及國際出口法令規定。 這些法規包括目的地、使用者及最終用途的限制。 如需其他資訊，請參閱 www.microsoft.com/exporting。
   
-13. **支援服務。**
-  此軟體僅以「現狀」提供，Microsoft 不提供任何支援服務。
+13.    **支援服務。**
+  本軟體係依「現況」提供，因此 Microsoft 未必提供支援服務。
   
-14. **整份合約。**
+14.    **整份合約。**
   關於軟體和支援服務之全部合約是由本合約，以及　貴用戶所使用的增補、更新、網際網路服務和支援服務之條款所構成。
   
-15. **準據法。**  
+15.    **準據法。**  
   a.  美國。 若　貴用戶在美國境內取得「軟體」，本合約之解釋或任何違反本合約所衍生的訴訟，無論是否有法規衝突產生，均應以美國華盛頓州之法律做為準據法。 其他所有主張則以　貴用戶居住所在地的法律為依據，包括所在州的消費者保護法，不公平競爭法及侵權行為在內。  
   b。  美國境外。 若　貴用戶在美國以外的國家/地區取得「軟體」，則本合約應以　貴用戶所居住之國家/地區的法律為準據法。
   
-16. **法律效力。**
-  本合約僅敘述某些特定的法律權利。 在　貴用戶的國家/地區的法律規定下，貴用戶可能享有其他的權利。 此外，　貴用戶取得軟體的單位可能也會提供相關的權利。 若　貴用戶之國家/地區的法律不允許變更權利，則本合約將依據貴用戶之國家/地區的法律不予變更。
+16.    **法律效力。**
+  本合約說明特定法律權利。 　貴用戶所在之國家/地區法律可能會提供　貴用戶其他權利。 此外，　貴用戶取得軟體的單位可能也會提供相關的權利。 若　貴用戶之國家/地區的法律不允許變更權利，則本合約將依據貴用戶之國家/地區的法律不予變更。
   
-17. **瑕疵擔保免責聲明。 軟體依「如同現狀」授權。 貴用戶須自行承擔使用風險。 Microsoft 不提供明示擔保、保證或條件。 　貴用戶所在地區的法律可能會提供額外的消費者權利，這是本合約無法改變的。 在　貴用戶所屬之當地法律許可下，Microsoft 可排除適售性、適合某特定用途或未侵權之默示擔保責任。
+17.    **瑕疵擔保免責聲明。 軟體依「如同現狀」授權。 貴用戶須自行承擔使用風險。 Microsoft 不提供明示擔保、保證或條件。 　貴用戶所在地區的法律可能會提供額外的消費者權利，這是本合約無法改變的。 在　貴用戶所屬之當地法律許可下，Microsoft 可排除適售性、適合某特定用途或未侵權之默示擔保責任。
 適用於澳大利亞 - 依據澳大利亞消費者法的規定，澳大利亞的消費者得享有法定擔保，而且不得有任何條款試圖影響這些權利。**
 
-18. **救濟權與損害賠償責任之限制與排除。 貴用戶僅得就直接損害，要求 Microsoft 及其供應商負擔損害賠償責任，且其金額不得超過 5.00 美元。 貴用戶無法就其他的損害，包括衍生性損害、利潤損失、特殊損害、間接損害或附隨性損害要求賠償。**  
+18.    **救濟權與損害賠償責任之限制與排除。 貴用戶僅得就直接損害，要求 Microsoft 及其供應商負擔損害賠償責任，且其金額不得超過 5.00 美元。 貴用戶無法就其他的損害，包括衍生性損害、利潤損失、特殊損害、間接損害或附隨性損害要求賠償。**  
 
   這項限制適用於
   * 與軟體、服務、第三人網站上的內容 (包括程式碼) 或第三人程式相關的任何事項；和
@@ -109,8 +109,3 @@ Cette limitation concerne :
 Elle s’applique également, même si Microsoft connaissait ou devrait connaître l’éventualité d’un tel dommage.  Si votre pays n’autorise pas l’exclusion ou la limitation de responsabilité pour les dommages indirects, accessoires ou de quelque nature que ce soit, il se peut que la limitation ou l’exclusion ci-dessus ne s’appliquera pas à votre égard.
 
 **EFFET JURIDIQUE.**  Le présent contrat décrit certains droits juridiques. Vous pourriez avoir d’autres droits prévus par les lois de votre pays.  Le présent contrat ne modifie pas les droits que vous confèrent les lois de votre pays si celles ci ne le permettent pas.
-
-
-<!--HONumber=Jun16_HO4-->
-
-

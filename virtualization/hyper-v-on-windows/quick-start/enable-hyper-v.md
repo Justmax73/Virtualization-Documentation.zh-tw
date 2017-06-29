@@ -1,28 +1,25 @@
 ---
-title: "在 Windows 10 上安裝 Hyper-V"
+title: "在 Windows 10 上啟用 Hyper-V"
 description: "在 Windows 10 上安裝 Hyper-V"
 keywords: windows 10, hyper-v
 author: scooley
 ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
-ms.service: windows-10-hyperv
 ms.assetid: 752dc760-a33c-41bb-902c-3bb2ecd9ac86
-translationtype: Human Translation
-ms.sourcegitcommit: 359e29de50a51e0d3db263c46861ae6814f277d2
-ms.openlocfilehash: 8b2f4103ad0048a99e9befeb47d370a9b5cd092f
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: fd660b0869e853e4e9050dea345694b0f048df0a
+ms.sourcegitcommit: 646bad3f5331abea515b4bb3f6c8566d1b77e275
+ms.translationtype: HT
+ms.contentlocale: zh-TW
 ---
+# <a name="install-hyper-v-on-windows-10"></a>在 Windows 10 上安裝 Hyper-V
 
-# 在 Windows 10 上安裝 Hyper-V
-
-在 Windows 10 上啟用 Hyper-V 以便建立虛擬機器。  
-啟用 Hyper-V 的方法有很多種，包括使用 Windows 10 控制台、PowerShell (我個人最偏好)，或是使用部署映像服務與管理工具 (DISM)。 本文件會逐步解說每一種選項。
+在 Windows 10 上啟用 Hyper-V，以建立虛擬機器。  
+啟用 Hyper-V 的方法有很多種，包括使用 Windows 10 控制台、PowerShell (我最愛的方式)，或是使用部署映像服務與管理工具 (DISM)。 本文件會逐步解說每一種選項。
 
 > **注意︰**Hyper-V 是 Windows 內建的選用功能，Hyper-V 並沒有可供單獨下載或安裝的元件。 
 
-## 檢查需求
+## <a name="check-requirements"></a>檢查需求
 
 * Windows 10 企業版、專業版或教育版
 * 使用第二層位址轉譯 (SLAT) 的 64 位元處理器。
@@ -35,23 +32,23 @@ Hyper-V 角色**無法**安裝於 Windows 10 家用版。
 如需詳細資訊及疑難排解資訊，請參閱 [Windows 10 Hyper-V 系統需求](../reference/hyper-v-requirements.md)。
 
 
-## 安裝 Hyper-V 
+## <a name="install-hyper-v"></a>安裝 Hyper-V 
 Hyper-V 是 Windows 內建的選用功能，Hyper-V 並沒有可供單獨下載或安裝的元件。  有幾種方式可啟用內建的 Hyper-V 角色。
 
-### 使用 PowerShell 啟用 Hyper-V
+### <a name="enable-hyper-v-using-powershell"></a>使用 PowerShell 啟用 Hyper-V
 
 1. 以系統管理員身分開啟 PowerShell 主控台。
 
 2. 執行下列命令：
   ```powershell
-  Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+  Enable-WindowsOptionalFeature -Online -FeatureName:Microsoft-Hyper-V -All
   ```  
 
   如果找不到此命令，請確定您是以系統管理員身分執行 PowerShell。  
 
 安裝完成時，您需要將電腦重新開機。  
 
-### 使用 CMD 和 DISM 啟用 Hyper-V
+### <a name="enable-hyper-v-with-cmd-and-dism"></a>使用 CMD 和 DISM 啟用 Hyper-V
 
 部署映像服務與管理工具 (DISM) 可協助您設定 Windows 和 Windows 映像。  DISM 有許多方面的應用，其中一項即是可於作業系統正在執行時啟用 Windows 功能。  
 
@@ -66,7 +63,7 @@ Hyper-V 是 Windows 內建的選用功能，Hyper-V 並沒有可供單獨下載�
 
 如需 DISM 的詳細資訊，請參閱 [DISM - 部署映像服務與管理技術參考](https://technet.microsoft.com/en-us/library/hh824821.aspx)。
 
-### 手動啟用 Hyper-V 角色
+### <a name="manually-enable-the-hyper-v-role"></a>手動啟用 Hyper-V 角色
 
 1. 以滑鼠右鍵按一下 Windows 鍵，然後選取 \[程式和功能\]。
 
@@ -76,11 +73,10 @@ Hyper-V 是 Windows 內建的選用功能，Hyper-V 並沒有可供單獨下載�
 
 ![](media/enable_role_upd.png)
 
-安裝完成時，系統會提示您將電腦重新開機。
+安裝完成後，系統會提示您重新啟動電腦。
 
 ![](media/restart_upd.png)
 
 
-## 後續步驟 - 設定網路
-[連線到網際網路](connect-to-network.md)
-
+## <a name="make-virtual-machines"></a>建立虛擬機器
+[建立您的第一部虛擬機器](quick-create-virtual-machine.md)

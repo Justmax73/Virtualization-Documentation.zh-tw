@@ -8,17 +8,16 @@ ms.topic: article
 ms.prod: windows-contianers
 ms.service: windows-containers
 ms.assetid: 4878f5d2-014f-4f3c-9933-97f03348a147
-translationtype: Human Translation
-ms.sourcegitcommit: 54eff4bb74ac9f4dc870d6046654bf918eac9bb5
-ms.openlocfilehash: d91f53908610ca245b6c8b4c017baed7f044667e
-
+ms.openlocfilehash: 577618112339e274b3d25908afc5428bd1c36173
+ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.translationtype: HT
+ms.contentlocale: zh-TW
 ---
-
-# Windows 容器快速入門
+# <a name="windows-containers-quick-start"></a>Windows 容器快速入門
 
 Windows 容器快速入門會介紹產品和容器術語、逐步說明簡單的容器部署範例，也提供更進階主題的參考。 如果您不熟悉容器或 Windows 容器，逐步檢視本快速入門中的每個步驟將提供您實際操作技術的體驗。
 
-## 1.什麼是容器？
+## <a name="1-what-are-containers"></a>1.什麼是容器？
 
 它們是獨立且由資源控制的可攜式作業環境。
 
@@ -26,7 +25,7 @@ Windows 容器快速入門會介紹產品和容器術語、逐步說明簡單的
 
 當您在容器內時，您會感覺像是在全新安裝的實體電腦或虛擬機器內。 同時，若是 [Docker](https://www.docker.com/)，Windows 容器可以用和其他任何容器一樣的方式進行管理。
 
-## 2.Windows 容器類型
+## <a name="2-windows-container-types"></a>2.Windows 容器類型
 
 Windows 容器包含兩種不同的容器類型，或執行階段。
 
@@ -34,7 +33,7 @@ Windows 容器包含兩種不同的容器類型，或執行階段。
 
 **Hyper-V 容器** – 藉由在高度最佳化的虛擬機器中執行每個容器，擴充 Windows Server 容器所提供的隔離能力。 在此設定中，容器主機的核心不會與其他 Hyper-V 容器共用。
 
-## 3.容器的基礎
+## <a name="3-container-fundamentals"></a>3.容器的基礎
 
 當您開始使用容器時，您會發現容器和虛擬機器之間有許多相似之處。 容器可像實體或虛擬電腦系統一樣執行作業系統、具有檔案系統，並且可透過網路來存取。 即便如此，容器的基本技術和概念還是與虛擬機器非常不同。 在您開始建立及使用 Windows 容器時，下列主要概念將有所幫助。 
 
@@ -48,15 +47,9 @@ Windows 容器包含兩種不同的容器類型，或執行階段。
 
 **Dockerfile** - Dockerfile 用來自動建立容器映像。
 
-## 後續步驟：
+## <a name="next-step"></a>後續步驟：
 
 [Windows Server 容器快速入門](quick-start-windows-server.md)  
 
 [Windows 10 容器快速入門](quick-start-windows-10.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
