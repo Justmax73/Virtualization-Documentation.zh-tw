@@ -1,28 +1,11 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 1
+ Total Files | 0
 
 ## File List
- Source File | Status | Details 
- ----------- | ------ | ------- 
- [virtualization\hyper-v-on-windows\reference\server-only-features.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/8e0d16839048cfc31253f0eb028ce17d30dbe88b/virtualization/hyper-v-on-windows/reference/server-only-features.md) | HandedOffSuccess | [Details](#dba7da05a372018e2b5c2bac8f887b53dfb6cf91210)
 
 ## Item Details
-##### <a name='dba7da05a372018e2b5c2bac8f887b53dfb6cf91210'></a> Source: [virtualization\hyper-v-on-windows\reference\server-only-features.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/8e0d16839048cfc31253f0eb028ce17d30dbe88b/virtualization/hyper-v-on-windows/reference/server-only-features.md)
-* Status: HandedOffSuccess
-* Target File: 
-* Handoff File: [server-only-features.a8bd44a56d823e6fabe6cd72aea9c7c7d69bab13.zh-tw.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/23da150ae5fb0edf26f128d752484f2125c93a7f/ol-handoff/Microsoft/Virtualization-Documentation-Private.zh-tw/live/server-only-features.a8bd44a56d823e6fabe6cd72aea9c7c7d69bab13.zh-tw.xlf)
-* Handoff Datetime: 2017-06-28 19:34:29
-* Handoff Reason: Include
-* Handoff Name: 
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
-* Handback File: 
-* Handback Datetime: 0001-01-01 00:00:00
-* Handback Name: 
-* [Back to Top](#report-top)
-
 
 ## Error Details
 
