@@ -8,12 +8,13 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 426c87cc-fa50-4b8d-934e-0b653d7dea7d
-ms.openlocfilehash: 8df30a00eaa2c98feeb4c80c302937c9dfc6d758
-ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.openlocfilehash: ea91ea0ffca5479cb0593ef9961625f7b7ab1f42
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: zh-TW
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="try-pre-release-features-for-hyper-v"></a>嘗試 Hyper-V 的發行前版本功能
+# 嘗試 Hyper-V 的發行前版本功能
 
 > 這是初版內容，後續可能會變更。  
   由於 Microsoft 不支援發行前版本的虛擬機器，因此這類虛擬機器主要用於開發或測試環境。
@@ -28,7 +29,7 @@ ms.contentlocale: zh-TW
 * 發行前版本的虛擬機器組建之間沒有一致的定義。 如果您更新主機作業系統，現有的發行前版本虛擬機器可能會與主機不相容。 這類虛擬機器可能無法啟動，或一開始看似可以運作，但稍後就發生重大的相容性問題。
 * 如果您將發行前版本的虛擬機器匯入不同組建的主機時，會產生無法預測的結果。 您可以將發行前版本的虛擬機器移至另一部主機。 但這種情況下，應該只有在兩部主機都執行相同的組建時才能運作。
 
-## <a name="create-a-pre-release-virtual-machine"></a>建立發行前版本的虛擬機器
+## 建立發行前版本的虛擬機器
 
 您可以在執行 Windows Server 2016 Technical Preview 的 Hyper-V 主機上建立發行前版本的虛擬機器。
 
@@ -45,6 +46,6 @@ New-VM -Name <VM Name> -Prerelease
 
  這些文件包含的範例適用於執行 Windows 10 或 Windows Server 2016 Technical Preview 的 Hyper-V 主機。 但目前，您僅可使用 -Prerelease 旗標在執行 Windows Server 2016 Technical Preview 的 Hyper-V 主機上建立發行前版本的虛擬機器。
 
-## <a name="see-also"></a>請參閱
+## 請參閱
 -  [Virtualization Blog](https://blogs.technet.microsoft.com/virtualization/) (虛擬化部落格) - 深入了解可用的發行前版本功能，以及如何試用。
 - [Supported virtual machine configuration versions](https://technet.microsoft.com/library/mt695898.aspx#BKMK_SupportedConfigVersions) (支援的虛擬機器設定版本) - 深入了解如何檢查虛擬機器設定版本，以及 Microsoft 支援哪些版本。

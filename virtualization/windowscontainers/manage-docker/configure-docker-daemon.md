@@ -8,24 +8,25 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
-ms.openlocfilehash: 9aa9e4a0415a89762438a8e8a85a901ca5360c6f
-ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.openlocfilehash: f266404f12e47c8605436af44e636c54ec6ef8e5
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: zh-TW
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="docker-engine-on-windows"></a>Windows 上的 Docker 引擎
+# Windows 上的 Docker 引擎
 
 Docker 引擎和代理程式並未隨附於 Windows，且需要個別安裝及設定。 此外，Docker 引擎可接受許多自訂設定。 部分範例包括設定精靈接受連入要求的方式、預設網路功能選項，以及偵錯/記錄設定。 在 Windows 中，這些設定可以在設定檔中指定，或使用 Windows 服務控制管理員指定。 本文詳細說明如何安裝及設定 Docker 引擎，且提供常用設定的範例。
 
 
-## <a name="install-docker"></a>安裝 Docker
+## 安裝 Docker
 需要有 Docker 才能使用 Windows 容器。 Docker 是由 Docker 引擎(dockerd.exe) 及 Docker 用戶端 (docker.exe) 所組成。 您可以在快速入門指南中找到安裝所有項目最簡單的方法。 指南會協助您設定好所有項目，以及執行您的第一個容器。 
 
 * [Windows Server 2016 上的 Windows 容器](../quick-start/quick-start-windows-server.md)
 * [Windows 10 上的 Windows 容器](../quick-start/quick-start-windows-10.md)
 
 
-### <a name="manual-installation"></a>手動安裝
+### 手動安裝
 如果您要改用開發中的 Docker 引擎及用戶端版本，可以使用後續步驟。 這會安裝 Docker 引擎及用戶端。 如果您是開發人員而要測試新功能或使用 Windows 測試人員組建，可能就需要使用開發中的 Docker 版本。 否則，請依照上述＜安裝 Docker＞一節所示步驟取得最新發行版本。
 
 > 如果您已安裝 Docker for Windows，請務必先將其移除，再遵循以下手動安裝步驟。 
@@ -36,7 +37,7 @@ Docker 引擎和代理程式並未隨附於 Windows，且需要個別安裝及�
 
 ```powershell
 $version = (Invoke-WebRequest -UseBasicParsing https://raw.githubusercontent.com/docker/docker/master/VERSION).Content.Trim()
-Invoke-WebRequest "https://master.dockerproject.org/windows/amd64/docker-$($version).zip" -OutFile "$env:TEMP\docker.zip" -UseBasicParsing
+Invoke-WebRequest "https://master.dockerproject.org/windows/x86_64/docker-$($version).zip" -OutFile "$env:TEMP\docker.zip" -UseBasicParsing
 ```
 
 將該 zip 封存展開到 Program Files。
@@ -70,9 +71,9 @@ Start-Service Docker
 
 必須先安裝容器映像，才能使用 Docker。 如需詳細資訊，請參閱[使用映像快速入門指南](../quick-start/quick-start-images.md)。
 
-## <a name="configure-docker-with-configuration-file"></a>使用設定檔設定 Docker
+## 使用設定檔設定 Docker
 
-建議使用設定檔在 Windows 上設定 Docker 引擎。 設定檔位於 'c:\ProgramData\docker\config\daemon.json'。 若尚未有此檔案，請加以建立。
+建議使用設定檔在 Windows 上設定 Docker 引擎。 設定檔位於 'C:\ProgramData\Docker\config\daemon.json'。 若尚未有此檔案，請加以建立。
 
 請注意，並非所有可用的 Docker 設定選項都適用於 Windows 上的 Docker。 下列所示範例為適用的選項。 如需 Docker 引擎設定的完整文件，請參閱 [Docker 精靈的組態檔](https://docs.docker.com/engine/reference/commandline/dockerd/#/windows-configuration-file)。
 
@@ -138,7 +139,7 @@ Start-Service Docker
 }
 ```
 
-## <a name="configure-docker-on-the-docker-service"></a>在 Docker 服務設定 Docker
+## 在 Docker 服務設定 Docker
 
 也可以透過使用 `sc config` 修改 Docker 服務來設定 Docker 引擎。 若使用此方法，會直接在 Docker 服務上設定 Docker 引擎旗標。 在命令提示字元 (cmd.exe 而非 PowerShell) 執行下列命令︰
 
@@ -149,11 +150,11 @@ sc config docker binpath= "\"C:\Program Files\docker\dockerd.exe\" --run-service
 
 注意︰若您的 daemon.json 檔案已包含 `"hosts": ["tcp://0.0.0.0:2375"]` 項目，就不需要執行此命令。
 
-## <a name="common-configuration"></a>一般設定
+## 一般設定
 
 下列設定檔範例會顯示 Docker 的一般設定。 這些可以合併成單一設定檔。
 
-### <a name="default-network-creation"></a>建立預設網路 
+### 建立預設網路 
 
 若要設定 Docker 引擎而不建立預設 NAT 網路，請使用下列項目。 如需詳細資訊，請參閱 [Manage Docker Networks](../manage-containers/container-networking.md) (管理 Docker 網路)。
 
@@ -163,7 +164,7 @@ sc config docker binpath= "\"C:\Program Files\docker\dockerd.exe\" --run-service
 }
 ```
 
-### <a name="set-docker-security-group"></a>設定 Docker 安全性群組
+### 設定 Docker 安全性群組
 
 當登入 Docker 主機並在本機執行 Docker 命令時，會透過具名管道執行這些命令。 依預設，只有系統管理員群組的成員可以透過具名管道存取 Docker 引擎。 若要指定具有此存取權的安全性群組，請使用 `group` 旗標。
 
@@ -173,7 +174,7 @@ sc config docker binpath= "\"C:\Program Files\docker\dockerd.exe\" --run-service
 }
 ```
 
-## <a name="proxy-configuration"></a>Proxy 組態
+## Proxy 組態
 
 若要設定 `docker search` 與 `docker pull` 的 Proxy 資訊,，請以名稱 `HTTP_PROXY` 或 `HTTPS_PROXY` 建立 Windows 環境變數，並設定 Proxy 資訊的值。 此作業可透過類似下列所示的 PowerShell 命令完成︰
 

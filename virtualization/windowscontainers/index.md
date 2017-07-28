@@ -8,12 +8,13 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 74c9d604-0915-4d89-bc69-0263b76bc66b
-ms.openlocfilehash: ac6e99800fcabef31464a81799fc9e329438b0ae
-ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.openlocfilehash: 9b630e372b575ef1721c0d0926ec2caec3e5ec34
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: zh-TW
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="windows-containers-documentation"></a>Windows 容器文件
+# Windows 容器文件
 
 Windows 容器可提供作業系統層級的虛擬化，讓多個隔離的應用程式在單一系統上執行。 此功能包括兩種不同類型的容器執行階段，能提供不同程度的應用程式隔離。 Windows Server 容器會針對命名空間和處理序來實施隔離， 而 Hyper-V 容器則是將各容器封裝於輕量的虛擬機器中。 此文件集提供快速入門指南、部署指南和管理作業的技術詳細資料。
 

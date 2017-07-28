@@ -9,12 +9,13 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 9cafd6cb-dbbe-4b91-b26c-dee1c18fd8c2
 redirect_url: https://technet.microsoft.com/windows-server-docs/compute/hyper-v/manage/manage-Hyper-V-integration-services
-ms.openlocfilehash: 83bcc4c2f47e2a3921be257f45a3a0e22dcba89a
-ms.sourcegitcommit: fd6c5ec419aae425af7ce6c6a44d59c98f62502a
+ms.openlocfilehash: 374ce6f8c4aede7190916675698551eb667458f9
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: zh-TW
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="managing-hyper-v-integration-services"></a>管理 Hyper-V 整合服務
+# 管理 Hyper-V 整合服務
 
 整合服務通常稱為「整合元件」，是可讓虛擬機器與 Hyper-V 主機通訊的服務。 其中許多服務很便利 (例如客體檔案複製)，另外有些服務則是虛擬機器功能是否能正常運作的關鍵 (時間同步化)。
 
@@ -22,7 +23,7 @@ ms.contentlocale: zh-TW
 
 如需每一項整合服務的詳細資訊，請參閱[整合服務](../reference/integration-services.md)。
 
-## <a name="enable-or-disable-integration-services-using-hyper-v-manager"></a>使用 Hyper-V 管理員啟用或停用整合服務
+## 使用 Hyper-V 管理員啟用或停用整合服務
 
 1. 選取虛擬機器並開啟設定。
   
@@ -32,7 +33,7 @@ ms.contentlocale: zh-TW
 
 REG QUERY "HKLM\Software\Microsoft\Virtual Machine\Auto" /v IntegrationServicesVersion
 
-## <a name="enable-or-disable-integration-services-using-powershell"></a>使用 PowerShell 啟用或停用整合服務
+## 使用 PowerShell 啟用或停用整合服務
 
 整合服務也可透過在 PowerShell 中執行 [`Enable-VMIntegrationService`](https://technet.microsoft.com/en-us/library/hh848500.aspx) 及 [`Disable-VMIntegrationService`](https://technet.microsoft.com/en-us/library/hh848488.aspx) 加以啟用及停用。
 
@@ -73,7 +74,7 @@ REG QUERY "HKLM\Software\Microsoft\Virtual Machine\Auto" /v IntegrationServicesV
 在主機和客體系統上，整合服務皆設計為必須啟用才能運作。  Windows 客體作業系統預設會啟用所有的整合服務，而您可以將其停用。  做法請參閱下一節。
 
 
-## <a name="manage-integration-services-from-guest-os-windows"></a>從客體作業系統 (Windows) 管理整合服務
+## 從客體作業系統 (Windows) 管理整合服務
 
 > **附註：**停用整合服務可能會嚴重影響主機管理虛擬機器的能力。  整合服務在主機與客體系統上皆必須啟用才能運作。
 
@@ -110,7 +111,7 @@ Running  vmicvss            Hyper-V Volume Shadow Copy Requestor
 
 根據預設，客體作業系統會啟用所有整合服務。
 
-## <a name="manage-integration-services-from-guest-os-linux"></a>從客體作業系統 (Linux) 管理整合服務
+## 從客體作業系統 (Linux) 管理整合服務
 
 Linux 整合服務通常是透過 Linux 核心提供。
 
@@ -191,7 +192,7 @@ sudo hv_kvp_daemon
 現在，若您再一次執行 `ps -ef | hv`，您會發現 `hv_kvp_daemon` 處理序有了一個新的處理序識別碼。
 
 
-## <a name="integration-service-maintenance"></a>整合服務維護
+## 整合服務維護
 
 只要您的虛擬機器可以從 Windows Update 接收重要更新，Windows 10 即會依預設執行整合服務的維護。  
 
@@ -242,10 +243,10 @@ sudo hv_kvp_daemon
 | Windows Server 2003 R2 (SP 2) | 整合服務光碟 | 您可在[這裡](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4)取得相關指示。 |
 | Windows Server 2003 (SP 2) | 整合服務光碟 | 您可在[這裡](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4)取得相關指示。 |
 | - | | |
-| Linux 客體 | 封裝管理員 | Linux 整合元件內建在 distro 中，但有可能是可用的選擇性更新。 ** |
+| Linux 客體 | 封裝管理員 | Linux 整合元件內建在 distro 中，但可能會有選擇性更新可用。 ** |
 
 
-**在 Windows 8 主機上執行虛擬機器：**
+**在 Windows 8 主機上執行的虛擬機器：**
 
 | 客體作業系統 | 更新機制 | 附註 |
 |:---------|:---------|:---------|
@@ -264,6 +265,6 @@ sudo hv_kvp_daemon
 | Windows Server 2003 R2 (SP 2) | 整合服務光碟 | 您可在[這裡](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4)取得相關指示。 |
 | Windows Server 2003 (SP 2) | 整合服務光碟 | 您可在[這裡](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4)取得相關指示。 |
 | - | | |
-| Linux 客體 | 封裝管理員 | Linux 整合元件內建在 distro 中，但有可能是可用的選擇性更新。 ** |
+| Linux 客體 | 封裝管理員 | Linux 整合元件內建在 distro 中，但可能會有選擇性更新可用。 ** |
 
  > ** 如需 Linux 客體的詳細資訊，請參閱[這裡](https://technet.microsoft.com/en-us/library/dn531030.aspx)。 

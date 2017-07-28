@@ -8,16 +8,17 @@ ms.topic: about-article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 29fbe13a-228a-4eaa-9d4d-90ae60da5965
-ms.openlocfilehash: a06a92bce8f985e463a4b33a09a71d21e264a036
-ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.openlocfilehash: 27808eddb624bdfc61d971d46be609a49c051664
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: zh-TW
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="building-a-container-ecosystem"></a>建置容器生態系統
+# 建置容器生態系統
 
 為了解建置容器生態系統的重要性，我們要先討論 Docker。
 
-## <a name="dockers-appeal"></a>Docker 的吸引力
+## Docker 的吸引力
 
 容器的概念 (命名空間隔離和資源控管) 行之已久，可回溯到 BSD Jails、Solaris Zones 和基本 UNIX chroot (變更根) 機制。   Docker 做的是提供常用的工具集、封裝模型和部署機制。  如此，Docker 得以大幅簡化應用程式的容器化和散發。  然後，這些應用程式就可以在任何 Linux 主機上的任何位置執行，這也是我們在 Windows 上提供的功能。
 
@@ -30,7 +31,7 @@ Docker 為開發提供了絕佳基礎。
 現在我們要談談應用程式的生態系統，以及如何根據 Docker 的概念建立適合您的需求的開發和部署工作流程。
 
 
-## <a name="components-in-a-container-ecosystem"></a>容器生態系統中的元件
+## 容器生態系統中的元件
 
 Windows 容器是大型容器生態系統的要件。 我們正著力於此產業，以期能讓開發人員選擇各種層級的解決方案組合。
 

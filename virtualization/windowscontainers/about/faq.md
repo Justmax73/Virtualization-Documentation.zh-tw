@@ -8,14 +8,15 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 25de368c-5a10-40a4-b4aa-ac8c9a9ca022
-ms.openlocfilehash: c4afd536fda9d741adc00eaeb5595f05833cef11
-ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.openlocfilehash: b084bf179d9360e4a72e8e88b4fec80eafb2906c
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: zh-TW
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="frequently-asked-questions"></a>常見問題集
+# 常見問題集
 
-## <a name="about-windows-containers"></a>關於 Windows 容器
+## 關於 Windows 容器
 
 **什麼是 Windows Server 容器？**
 
@@ -53,7 +54,7 @@ Drawbridge 是以往許多可協助我們深入了解容器的研究專案之一
 Windows Server 容器和 Hyper-V 容器都需要 Windows Server 2016。 這些技術不適用於舊版的 Windows。
 
 
-## <a name="windows-container-management"></a>Windows 容器管理
+## Windows 容器管理
 
 **Hyper-V 容器也可在 Docker 生態系統中使用嗎？**
 
@@ -61,7 +62,7 @@ Windows Server 容器和 Hyper-V 容器都需要 Windows Server 2016。 這些�
 Docker 平台也可大幅簡化並提升跨容器選項的使用體驗。 使用 Windows Server 容器開發的應用程式可直接部署為 hyper-V 容器，而不需要變更。
 
 
-## <a name="microsofts-open-ecosystem"></a>Microsoft 的開放生態系統
+## Microsoft 的開放生態系統
 
 **Microsoft 是否參與開放容器計劃 (Open Container Initiative, OCI)?**
 

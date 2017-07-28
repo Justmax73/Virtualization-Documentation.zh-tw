@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: b13a3594-d168-448b-b0a1-7d77153759a8
 ms.openlocfilehash: e2d6faabe77346199a5d292fcfd92cdfd63909b8
-ms.sourcegitcommit: a424c11258e47f224e14c4349b852b9e37b7604f
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="move-from-hyper-v-wmi-v1-to-wmi-v2"></a>從 Hyper-V WMI v1 移至 WMI v2
+# 從 Hyper-V WMI v1 移至 WMI v2
 
 Windows Management Instrumentation (WMI) 是 Hyper-V 管理員和 Hyper-V 的 PowerShell Cmdlet 的基礎管理介面。  雖然大部分的人都會使用我們的 PowerShell Cmdlet 或 Hyper-V 管理員，但有時候開發人員會直接需要 WMI。  
 
@@ -23,7 +23,7 @@ Windows Management Instrumentation (WMI) 是 Hyper-V 管理員和 Hyper-V 的 Po
 
 本文件包含將用於舊 WMI 命名空間的程式碼轉換成新程式碼的資源參考資料。  一開始，本文可當作 API 資訊和範例程式碼/指令碼的存放庫，協助將使用 Hyper-V WMI API 的任何程式或指令碼從 v1 命名空間移植至 v2 命名空間。
 
-## <a name="msdn-samples"></a>MSDN 範例
+## MSDN 範例
 
 [Hyper-V 虛擬機器移轉範例](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-virtual-machine-aef356ee)  
 [Hyper-V 虛擬光纖通道範例](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-virtual-Fiber-35d27dcd)  
@@ -38,7 +38,7 @@ Windows Management Instrumentation (WMI) 是 Hyper-V 管理員和 Hyper-V 的 Po
 [Hyper-V 資源集區管理範例](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-resource-pool-df906d95)  
 [Hyper-V 復原快照範例](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-recovery-snapshot-ea72320c)  
 
-## <a name="samples-from-blogs"></a>擷取自部落格的範例
+## 擷取自部落格的範例
 
 [使用 Hyper-V WMI V2 命名空間新增網路介面卡至 VM](http://blogs.msdn.com/b/taylorb/archive/2013/07/15/adding-a-network-adapter-to-a-vm-using-the-hyper-v-wmi-v2-namespace.aspx)  
 [使用 Hyper-V WMI V2 命名空間將 VM 網路介面卡連接至交換器](http://blogs.msdn.com/b/taylorb/archive/2013/07/15/connecting-a-vm-network-adapter-to-a-switch-using-the-hyper-v-wmi-v2-namespace.aspx)  

@@ -8,18 +8,19 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb2848ca-683e-4361-a750-0d1d14ec8031
-ms.openlocfilehash: 8b0cd6046f8b556f9dd5082c5ddf80af83814c1c
-ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.openlocfilehash: 2077f7cf0428e08ce915470ac4cc3b0ccc9c6369
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: zh-TW
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="optimize-windows-dockerfiles"></a>將 Windows Dockerfiles 最佳化
+# 將 Windows Dockerfiles 最佳化
 
 有數種方法可用來將 Docker 建置流程及產生的 Docker 映像最佳化。 本文件詳述 Docker 建置流程的運作方式，並示範幾種可用來將映像建立與 Windows 容器最佳化的策略。
 
-## <a name="docker-build"></a>Docker 建置
+## Docker 建置
 
-### <a name="image-layers"></a>映像層
+### 映像層
 
 在檢查 Docker 建置最佳化之前，請務必了解 Docker 建置的運作方式。 Docker 建置流程期間使用了 Dockerfile，且每個可採取動作的指令都依序在其自身的暫存容器中執行。 結果就為每個可採取動作的指令產生了新的映像層。 
 
@@ -50,13 +51,13 @@ f0e017e5b088        21 seconds ago       cmd /S /C echo "Hello World - Dockerfil
 
 可以將 Dockerfiles 寫入以將映像層最小化、將建置效能最佳化，同時將外觀方面的項目 (例如可讀性) 最佳化。 最後，有許多方式可以完成相同的映像建置工作。 了解 Dockerfile 的格式會如何影響建置時間和產生出的映像，將有助提升自動化體驗。 
 
-## <a name="optimize-image-size"></a>將映像大小最佳化
+## 將映像大小最佳化
 
 在建置 Docker 容器映像時，映像大小可能會是重要的因素。 容器映像在登錄和主機之間移動、進行匯出和匯入，而且最終會耗用空間。 可以在 Docker 建置流程期間使用幾種策略，將映像大小降到最低。 本節將詳細說明部分專屬於 Windows 容器的策略。 
 
 如需有關 Dockerfile 最佳做法的詳細資訊，請參閱 [Best practices for writing Dockerfiles on Docker.com]( https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/) (Docker.com 上寫入 Dockerfiles 的最佳做法)。
 
-### <a name="group-related-actions"></a>群組相關的動作
+### 群組相關的動作
 
 因為每個 `RUN` 指令會在容器映像中建立新的層，將動作分組至一個 `RUN` 指令可以減少層的數目。 雖然將層最小化可能不會對映像大小造成太大的影響，但將相關聯的動作分組卻會有明顯影響，您會在後續的範例看到相關示範。
 
@@ -104,7 +105,7 @@ IMAGE               CREATED             CREATED BY                              
 69e44f37c748        54 seconds ago      cmd /S /C powershell.exe -Command   $ErrorAct   216.3 MB                
 ```
 
-### <a name="remove-excess-files"></a>移除多餘的檔案
+### 移除多餘的檔案
 
 若為使用之後就不需要的檔案 (例如安裝程式)，便可移除該檔案以減少映像的大小。 這需與將檔案複製到映像層的步驟同時進行。 如此可避免將檔案保存至較低層級的映像層中。
 
@@ -120,9 +121,9 @@ RUN powershell.exe -Command \
   Remove-Item c:\python-3.5.1.exe -Force
 ```
 
-## <a name="optimize-build-speed"></a>將建置速度最佳化
+## 將建置速度最佳化
 
-### <a name="multiple-lines"></a>多行
+### 多行
 
 在將 Docker 建置速度最佳化時，將作業分隔成多個獨立的指令可能比較有利。 分成多個 `RUN` 作業會提升快取的效率。 由於獨立層是為各個 `RUN` 指令所建立，因此若已在不同的 Docker 建置作業中執行相同的步驟，便會重複使用此快取作業 (映像層)。 結果會減少該 Docker 建置執行階段。
 
@@ -197,7 +198,7 @@ d43abb81204a        7 days ago          cmd /S /C powershell -Command  Sleep 2 ;
 6801d964fda5        5 months ago
 ```
 
-### <a name="ordering-instructions"></a>指令順序
+### 指令順序
 
 Dockerfile 是從上到下進行處理，每個指令會和快取層進行比較。 當指令沒有快取層時，此指令和所有後續的指令會在新容器映像層中進行處理。 有鑑於此，指令的放置順序非常重要。 在 Dockerfile 上層放置會保持固定的指令。 在 Dockerfile 下層放置可能會有所改變的指令。 這樣做可以降低取消現有快取的可能性。
 
@@ -248,9 +249,9 @@ c92cc95632fb        28 seconds ago      cmd /S /C mkdir test-4   5.644 MB
 6801d964fda5        5 months ago                                 0 B
 ```
 
-## <a name="cosmetic-optimization"></a>外觀最佳化
+## 外觀最佳化
 
-### <a name="instruction-case"></a>指令案例
+### 指令案例
 
 Dockerfile 指令不區分大小寫，不過依慣例會使用大寫。 如此可區別指令呼叫和指令作業，有助於改善可讀性。 下列的兩個範例會示範這個概念。 
 
@@ -273,7 +274,7 @@ RUN echo "Hello World - Dockerfile" > c:\inetpub\wwwroot\index.html
 CMD [ "cmd" ]
 ```
 
-### <a name="line-wrapping"></a>自動換行
+### 自動換行
 
 冗長且複雜的作業可以使用反斜線 `\` 字元分隔成多行。 下列 Dockerfile 會安裝 Visual Studio 可轉散發套件、移除安裝程式檔案，然後建立設定檔。 這三項作業都是在單行中指定。
 
@@ -294,7 +295,7 @@ RUN powershell -Command \
     New-Item c:\config.ini
 ```
 
-## <a name="further-reading--references"></a>進一步閱讀與參考
+## 進一步閱讀與參考
 
 \[Windows 上的 Dockerfile\] (manage-windows-dockerfile.md)
 

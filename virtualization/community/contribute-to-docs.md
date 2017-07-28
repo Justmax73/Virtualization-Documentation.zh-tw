@@ -8,16 +8,17 @@ ms.topic: article
 ms.prod: virtualization
 ms.service: virtualization
 ms.assetid: 731ed95a-ce13-4c6e-a450-49563bdc498c
-ms.openlocfilehash: b5fe1a2e4c59007fbbb679c9050e28a5e076b08f
-ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.openlocfilehash: d4fd2dbaf362ac3ad52667743177a203174b397d
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: zh-TW
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="contribute-to-the-docs"></a>參與文件編輯
+# 參與文件編輯
 
 > **注意：**若要參與編輯，您必須有 [GitHub](https://www.github.com) 帳戶。
 
-## <a name="edit-an-existing-doc"></a>編輯現有的文件
+## 編輯現有的文件
 
 1. 尋找您想要編輯的文件。  
 
@@ -58,12 +59,12 @@ ms.contentlocale: zh-TW
 
 7. 建立[提取要求](contribute-to-docs.md#pull-requests)  
 
-## <a name="pull-requests"></a>提取要求
+## 提取要求
 
 大部分的變更將透過提取要求來認可。  提取要求是由多位檢閱者檢閱變更集、對目前內容進行變更和提出意見的一種方法。
 
 
-## <a name="fork-the-repo-and-edit-locally"></a>分支存放庫，並在本機編輯
+## 分支存放庫，並在本機編輯
 
 針對長期文件工作，請本機複製存放庫，並在您的電腦上使用。
 
@@ -84,7 +85,7 @@ ms.contentlocale: zh-TW
   * 適用於 Git 之 VSCode 的一些實用功能逐步解說
   * 進行第一次認可。
 
-### <a name="set-up-git"></a>設定 Git
+### 設定 Git
 
 1. 從[這裡](https://git-for-windows.github.io/)安裝 Git (在 Windows 上)
 
@@ -178,7 +179,7 @@ ms.contentlocale: zh-TW
   }
   ```
 
-### <a name="validate-and-stash-credentials"></a>驗證和隱藏認證
+### 驗證和隱藏認證
 
   若要驗證存放庫是否正確設定，請嘗試提取新的內容。
 
@@ -187,7 +188,7 @@ ms.contentlocale: zh-TW
   ```
 
 
-### <a name="set-up-markdown-editing-environment"></a>設定 Markdown 編輯環境
+### 設定 Markdown 編輯環境
 
 1. 下載 VSCode
 

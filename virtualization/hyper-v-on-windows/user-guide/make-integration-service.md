@@ -7,12 +7,13 @@ ms.date: 04/07/2017
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: 1ef8f18c-3d76-4c06-87e4-11d8d4e31aea
-ms.openlocfilehash: d50648efcaac40d6a60430b44c070717adf31b4d
-ms.sourcegitcommit: d5f30aa1bdfb34dd9e1909d73b5bd9f4153d6b46
+ms.openlocfilehash: 971593b762b51bd24f43c40d4697fdd3cef82400
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: zh-TW
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="make-your-own-integration-services"></a>製作您自己的整合服務
+# 製作您自己的整合服務
 
 從 Windows 10 年度更新版開始，任何人都可以讓在 Hyper-V 主機之間通訊，並使用虛擬電腦的應用程式使用 Hyper-V 通訊端 -- 此通訊端為使用新位址家族，且具備以虛擬電腦為目標之特殊端點的 Windows 通訊端。  所有透過 Hyper-V 通訊端的通訊，都不使用網路功能，且所有的資料會留在相同的實體記憶體上。   使用 Hyper-V 通訊端的應用程式，類似於 Hyper-V 的整合服務。
 
@@ -34,7 +35,7 @@ ms.contentlocale: zh-TW
 
 --------------
 
-## <a name="getting-started"></a>開始使用
+## 開始使用
 
 需求：
 * C/C++ 編譯器。  如果您沒有的話，請查看 [Visual Studio 社群](https://aka.ms/vs)
@@ -43,7 +44,7 @@ ms.contentlocale: zh-TW
 
 > **注意︰**Hyper-V 通訊端的 API 會在稍後於 Windows 10 中公開可用。  使用 HVSocket 的應用程式將在任何 Widnows 10 主機和客體上執行，但僅限使用 Windows SDK 組建 14290 之後的版本進行開發。  
 
-## <a name="register-a-new-application"></a>註冊新的應用程式
+## 註冊新的應用程式
 若要使用 Hyper-V 通訊端，必須在 Hyper-V 主機的登錄中註冊應用程式。
 
 在登錄中註冊服務後，您將獲得：
@@ -84,9 +85,9 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\G
 ```
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\GuestCommunicationServices\
     999E53D4-3D5C-4C3E-8779-BED06EC056E1\
-        ElementName    REG_SZ    VM Session Service
+        ElementName REG_SZ  VM Session Service
     YourGUID\
-        ElementName    REG_SZ    Your Service Friendly Name
+        ElementName REG_SZ  Your Service Friendly Name
 ```
 
 > **提示：**若要在 PowerShell 中產生 GUID，並將其複製到剪貼簿，請執行：  
@@ -94,7 +95,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\G
 (New-Guid).Guid | clip.exe
 ```
 
-## <a name="create-a-hyper-v-socket"></a>建立 Hyper-V 通訊端
+## 建立 Hyper-V 通訊端
 
 在大部分的基本案例中，定義通訊端都需要位址家族、連線類型和通訊協定。
 
@@ -122,7 +123,7 @@ SOCKET sock = socket(AF_HYPERV, SOCK_STREAM, HV_PROTOCOL_RAW);
 ```
 
 
-## <a name="bind-to-a-hyper-v-socket"></a>繫結至 Hyper-V 通訊端
+## 繫結至 Hyper-V 通訊端
 
 繫結可建立通訊端與連線資訊的關聯。
 
@@ -161,7 +162,7 @@ AF_HYPERV 端點並不依賴 IP 或主機名稱，而是高度依賴兩個 GUID�
 
 此外還有一組在連線到非特定虛擬機器時可使用的 VMID 萬用字元。
  
-### <a name="vmid-wildcards"></a>VMID 萬用字元
+### VMID 萬用字元
 
 | 名稱 | GUID | 描述 |
 |:-----|:-----|:-----|
@@ -181,7 +182,7 @@ AF_HYPERV 端點並不依賴 IP 或主機名稱，而是高度依賴兩個 GUID�
 (在 VM 內：容器主機/無容器)：VM 主機。  
 (不在 VM 內：容器主機/無容器)：不支援。
 
-## <a name="supported-socket-commands"></a>支援的通訊端命令
+## 支援的通訊端命令
 
 Socket()  
 Bind()  
@@ -190,7 +191,7 @@ Send()
 Listen()  
 Accept()  
 
-## <a name="useful-links"></a>實用的連結
+## 實用的連結
 [完整 WinSock API](https://msdn.microsoft.com/en-us/library/windows/desktop/ms741394.aspx)
 
 [Hyper-V 整合服務參考](../reference/integration-services.md)

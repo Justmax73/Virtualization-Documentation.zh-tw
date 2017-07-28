@@ -8,12 +8,13 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 05269ce0-a54f-4ad8-af75-2ecf5142b866
-ms.openlocfilehash: bfb63ab6ad09832becdadd863506a6639e46a3c8
-ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.openlocfilehash: a070164812b7dca39070d5f78411a017457f8573
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: zh-TW
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="hyper-v-on-windows-10"></a>Windows 10 上的 Hyper-V 
+# Windows 10 上的 Hyper-V 
 
 許多版本的 Windows 10 包含 Hyper-V 虛擬化技術。 Hyper-V 可讓您在實體主機上執行虛擬化的電腦系統。 您可以使用與管理這些虛擬化的系統，有如它們是實體電腦系統，但存在於虛擬化及隔離的環境。 名為 Hypervisor 的特殊軟體會管理虛擬系統和實體硬體資源之間的存取。 虛擬化可以讓電腦系統的部署更快速、可以快速將系統還原至先前已知的良好狀態，提供在實體主機之間移轉系統的能力。
 
@@ -28,7 +29,7 @@ ms.contentlocale: zh-TW
             <ul>
                 <li class="unordered">[Hyper-V 簡介](./about/index.md)<br /><br /></li>
                 <li class="unordered">[支援的客體作業系統](about\supported-guest-os.md)<br /><br /></li>
-            </ul>    
+            </ul>   
         </td>
     </tr>
     <tr valign="top">
@@ -52,7 +53,7 @@ ms.contentlocale: zh-TW
             <ul>
                 <li class="unordered">[Hyper-V 論壇](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home?forum=winserverhyperv)<br /><br /></li>
                 <li class="unordered">[Hyper-V 與 Windows 容器的社群資源](/virtualization/community/index.md)<br /><br /></li>
-            </ul>    
+            </ul>   
         </td>
     </tr>
 </table>

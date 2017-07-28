@@ -1,5 +1,5 @@
 ---
-title: "Windows 容器基礎映像歷程記錄"
+title: "Windows 容器基本映像歷程記錄"
 description: "已發行的 Windows 容器映像的清單，附 SHA256 層雜湊"
 keywords: "docker, 容器, 雜湊"
 author: patricklang
@@ -8,12 +8,13 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 88e6e080-cf8f-41d8-a301-035959dc5ce0
-ms.openlocfilehash: af819955c06b2db405f230cf3b7fee4c13e7c87c
-ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.openlocfilehash: 622c8f638a815e19a54aa75b6b5ea0688d966ae3
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: zh-TW
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="windows-container-base-image-history"></a>Windows 容器基礎映像歷程記錄
+# Windows 容器基本映像歷程記錄
 
 每一個 Windows 容器都是採用 Microsoft 提供的基本 OS 所建置。 如果您不確定容器是以哪個 Windows 版本建置，可以執行 `docker inspect <tag>` 並依照下表比對第一列或前兩列。
 

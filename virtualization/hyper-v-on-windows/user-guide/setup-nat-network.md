@@ -8,12 +8,13 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 1f8a691c-ca75-42da-8ad8-a35611ad70ec
-ms.openlocfilehash: ca951a356fbf11ed784b78f9742fd43da005e58c
-ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.openlocfilehash: a9d9f1b8cb0c76e57def1a92d993970ed40dbe7a
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: zh-TW
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="set-up-a-nat-network"></a>設定 NAT 網路
+# 設定 NAT 網路
 
 Windows 10 Hyper-V 可促成虛擬網路的原生網路位址轉譯 (NAT)。
 
@@ -26,9 +27,9 @@ Windows 10 Hyper-V 可促成虛擬網路的原生網路位址轉譯 (NAT)。
 * Windows 10 年度更新版或以上版本
 * 已啟用 Hyper-V (指示在[這裡](../quick-start/enable-hyper-v.md))
 
-> **注意︰**目前，您每個主機建立一個 NAT 網路。 如需 Windows NAT (WinNAT) 實作、功能及限制的其他詳細資料，請參閱 [WinNAT 功能與限制部落格](https://blogs.technet.microsoft.com/virtualization/2016/05/25/windows-nat-winnat-capabilities-and-limitations/)
+> **注意︰**目前，每個主機只能建立一個 NAT 網路。 如需 Windows NAT (WinNAT) 實作、功能及限制的其他詳細資料，請參閱 [WinNAT 功能與限制部落格](https://blogs.technet.microsoft.com/virtualization/2016/05/25/windows-nat-winnat-capabilities-and-limitations/)
 
-## <a name="nat-overview"></a>NAT 概觀
+## NAT 概觀
 NAT 讓虛擬機器透過內部的 Hyper-V 虛擬交換器，使用主機電腦的 IP 位址和連接埠存取網路資源。
 
 網路位址轉譯 (NAT) 是設計來節省 IP 位址的網路模式，它會將外部 IP 位址和連接埠對應至較大集合的內部 IP 位址。  基本上，NAT 使用流程表將來自外部 (主機) IP 位址和連接埠號碼的流量，路由傳送到已與網路上的端點 (虛擬機器、電腦、容器等) 建立關聯的正確內部 IP 位址。
@@ -38,7 +39,7 @@ NAT 讓虛擬機器透過內部的 Hyper-V 虛擬交換器，使用主機電腦�
 由於所有這些理由，NAT 網路是非常普遍的容器技術 (請參閱[容器的網路功能](https://msdn.microsoft.com/en-us/virtualization/windowscontainers/management/container_networking))。
 
 
-## <a name="create-a-nat-virtual-network"></a>建立 NAT 虛擬網路
+## 建立 NAT 虛擬網路
 讓我們逐步解說如何設定新的 NAT 網路。
 
 1.  以系統管理員身分開啟 PowerShell 主控台。  
@@ -119,18 +120,18 @@ NAT 讓虛擬機器透過內部的 Hyper-V 虛擬交換器，使用主機電腦�
 
 恭喜！  您現在有了虛擬 NAT 網路了！  若要新增虛擬機器至 NAT 網路，請遵循[這些指示](#connect-a-virtual-machine)。
 
-## <a name="connect-a-virtual-machine"></a>連接虛擬機器
+## 連接虛擬機器
 
 若要將虛擬機器連接到新的 NAT 網路，請使用 \[VM 設定\] 功能表將您在 [NAT 網路設定](#create-a-nat-virtual-network)一節的第一個步驟中建立的內部交換器，連接到您的虛擬機器。
 
 因為 WinNAT 本身不會將 IP 位址配置和指派到端點 (例如 VM)，所以您必須從 VM 內手動執行此操作，也就是在 NAT 內部首碼的範圍內設定 IP 位址、設定預設閘道 IP 位址，以及設定 DNS 伺服器資訊。 唯一要注意的是端點連結到容器的時機。 在本例中，主機網路服務 (HNS) 會配置並使用主機運算服務 (HCS) 直接將 IP 位址、閘道 IP 和 DNS 資訊指派給容器。
 
 
-## <a name="configuration-example-attaching-vms-and-containers-to-a-nat-network"></a>設定範例︰將 VM 和容器連結到 NAT 網路
+## 設定範例︰將 VM 和容器連結到 NAT 網路
 
 _如果要將多個 VM 和容器連結到單一 NAT，您必須確定 NAT 內部子網路首碼夠大，足以納入不同應用程式或服務 (例如 Docker for Windows 和 Windows Containers – HNS) 所指派的 IP 範圍。 這需要應用程式層級的 IP 指派和網路設定，或是必須由管理員手動設定，並保證不會在相同的主機上重複使用現有的 IP 指派。_
 
-### <a name="docker-for-windows-linux-vm-and-windows-containers"></a>Docker for Windows (Linux VM) 和 Windows Containers
+### Docker for Windows (Linux VM) 和 Windows Containers
 下方的解決方案會讓 Docker for Windows (執行 Linux 容器的 Linux VM) 和 Windows Containers 使用不同的內部 vSwitch，共用同一個 WinNAT 執行個體。 Linux 和 Windows 容器間的連線都會正常運作。
 
 使用者已透過名為 “VMNAT” 的內部 vSwitch 將 VM 連線到 NAT 網路，現在想要安裝具有 docker 引擎的 Windows Container 功能
@@ -162,7 +163,7 @@ Docker/HNS 會將 IP 指派給來自 <container prefix> 的 Windows 容器；管
 
 最後，您應該要有兩個內部 VM 交換器，而且兩者共用一個 NetNat。
 
-## <a name="multiple-applications-using-the-same-nat"></a>多個應用程式使用相同的 NAT
+## 多個應用程式使用相同的 NAT
 
 某些情況下需要多個應用程式或服務使用相同的 NAT。 在此情況下，必須遵循下列工作流程，以便多個應用程式/服務可以使用較大的 NAT 內部子網路首碼
 
@@ -193,9 +194,9 @@ Docker/HNS 會將 IP 指派給來自 <container prefix> 的 Windows 容器；管
 最後，您應該有兩個內部 vSwitch – 一個名為 DockerNAT，另一個名為 nat。 您只能只會有一個透過執行 Get-NetNat 確認的 NAT 網路 (10.0.0.0/17)。 Windows 主機網路服務 (HNS) 會從 10.0.76.0/24 子網路指派 Windows 容器的 IP 位址。 根據現有的 MobyLinux.ps1 指令碼，將會從 10.0.75.0/24 子網路指派 Docker 4 Windows 的 IP 位址。
 
 
-## <a name="troubleshooting"></a>疑難排解
+## 疑難排解
 
-### <a name="multiple-nat-networks-are-not-supported"></a>不支援多個 NAT 網路  
+### 不支援多個 NAT 網路  
 本指南假設主機上沒有其他 NAT。 不過，應用程式或服務將會需要使用 NAT，而且可能會在安裝程序中建立。 由於 Windows (WinNAT) 只支援一個內部 NAT 子網路首碼，嘗試建立多個 NAT 會讓系統進入不明的狀態。
 
 若要看看這是否是問題，請確定您只有一個 NAT：
@@ -238,8 +239,8 @@ PS>    }
 PS> }
 PS> remove-netnat -Confirm:$false
 PS> Get-ContainerNetwork | Remove-ContainerNetwork
-PS>    Get-VmSwitch -Name nat | Remove-VmSwitch (_failure is expected_)
-PS>    Stop-Service docker
+PS> Get-VmSwitch -Name nat | Remove-VmSwitch (_failure is expected_)
+PS> Stop-Service docker
 PS> Set-Service docker -StartupType Disabled
 Reboot Host
 PS> Get-NetNat | Remove-NetNat
@@ -249,5 +250,5 @@ PS> Start-Service docker
 
 請參閱[使用相同 NAT 的多個應用程式設定指南](#multiple-applications-using-the-same-nat)，視需要重建 NAT 環境。 
 
-## <a name="references"></a>參考
+## 參考
 深入了解 [NAT 網路](https://en.wikipedia.org/wiki/Network_address_translation)

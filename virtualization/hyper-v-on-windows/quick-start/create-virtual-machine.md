@@ -7,16 +7,17 @@ ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: 66723f33-b12c-49d1-82cf-71ba9d6087e9
-ms.openlocfilehash: 200ec68011628262950362620ae5b438f1b6b86c
-ms.sourcegitcommit: c8e6bf83ee873fe19b522ba9e416ecf5d29f4c95
+ms.openlocfilehash: fc6228253c2ad5fe8a01db283f578abbfbee716c
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: zh-TW
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="create-virtual-machine-with-hyper-v-on-windows-10"></a>在 Windows 10 上使用 Hyper-V 建立虛擬機器
+# 在 Windows 10 上使用 Hyper-V 建立虛擬機器
 
 了解如何建立虛擬機器，並且在新的虛擬機器上安裝作業系統。  您需要所要執行之作業系統的 .iso 檔案。 如有需要，可從 [TechNet Evaluation Center](http://www.microsoft.com/en-us/evalcenter/) 取得評估版的 Windows 10。
 
-## <a name="create-a-virtual-machine-with-hyper-v-manager"></a>使用 Hyper-V 管理員建立虛擬機器
+## 使用 Hyper-V 管理員建立虛擬機器
 
 1. 若要開啟 Hyper-V 管理員，您可以按 Windows 鍵，然後輸入「Hyper-V 管理員」，或是在應用程式中尋找 **\[Hyper-V 管理員\]**。
 
@@ -61,7 +62,7 @@ ms.contentlocale: zh-TW
   
 10. 檢閱虛擬機器詳細資料，然後按一下 **\[完成\]**，完成虛擬機器的建立。
 
-## <a name="create-a-virtual-machine-with-powershell"></a>使用 PowerShell 建立虛擬機器
+## 使用 PowerShell 建立虛擬機器
 
 1. 以系統管理員身分開啟 PowerShell ISE。
 
@@ -87,7 +88,7 @@ ms.contentlocale: zh-TW
   Set-VMFirmware -VMName $VMName -FirstBootDevice $DVDDrive
   ```
   
-## <a name="complete-the-operating-system-deployment"></a>完成作業系統部署
+## 完成作業系統部署
 
 若要完成虛擬機器的建置，您必須啟動虛擬機器，然後逐步完成作業系統安裝。
 

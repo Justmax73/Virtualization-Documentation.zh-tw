@@ -8,12 +8,13 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 4a0e907d-0d07-42f8-8203-2593391071da
-ms.openlocfilehash: bcbc2e4e76c48a3d9a1a9720b09ef366a396bf30
-ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.openlocfilehash: 71d91e12ae843bf96e1b4001915ffb55bb352ffd
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: zh-TW
+ms.lasthandoff: 07/21/2017
 ---
-### <a name="powershell-for-docker"></a>適用於 Docker 的 PowerShell
+### 適用於 Docker 的 PowerShell
 
 不論是您，或是來自論壇、Twitter、GitHub 的使用者，都提過這個問題 (甚至也有人親自提問過)：為何不能透過 PowerShell 查看 Docker 容器？ 
 

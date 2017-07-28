@@ -9,10 +9,17 @@
 ## [步驟 1 - 概念](quick_start/quick_start.md)
 ## [步驟 2 - 第一個容器](quick_start/quick_start_windows_10.md)
 
+# Windows 測試人員快速入門
+## [步驟 1 - 使用測試人員映像](quick-start/Using-Insider-Container-Images.md)
+## [步驟 2 - 建置並執行應用程式](quick-start/Nano-RS3-.NET-Core-and-PS.md)
+## [步驟 3 - 已知問題](quick-start/Insider-Known-Issues.md)
+
 # 部署 Windows 容器
 ## [系統需求](deployment/system_requirements.md)
+## [Hyper-V 隔離](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/hyperv-container)
 ## [容器主機 - Windows Server](deployment/deployment.md)
 ## [容器主機 - Nano Server](deployment/deployment_nano.md)
+## [Hyper-V 隔離](manage-containers/hyperv-container.md)
 ## [防毒程式最佳化](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
 ## [Active Directory 服務帳戶](management/manage_serviceaccounts.md)
 
