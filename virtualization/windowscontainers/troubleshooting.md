@@ -1,54 +1,54 @@
 ---
-title: "Windows 容器疑難排解"
-description: "適用於 Windows 容器和 Docker 的疑難排解秘訣、自動化指令碼，以及記錄檔資訊"
-keywords: "docker, 容器, 疑難排解, 記錄檔"
+title: Troubleshooting Windows Containers
+description: Troubleshooting tips, automated scripts, and log information for Windows containers and Docker
+keywords: docker, containers, troubleshooting, logs
 author: PatrickLang
 ms.date: 12/19/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ebd79cd3-5fdd-458d-8dc8-fc96408958b5
-ms.openlocfilehash: 5230080386081bda8b54656d15f33b4986cfa6e3
-ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
+ms.openlocfilehash: 2f0d0d9f7e7cfc97427deeab9b42c0e684028c28
+ms.sourcegitcommit: 1cbc3a15428d7912596fdb3489f4529aaa9af3dd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/04/2017
 ---
-# 疑難排解
+# Troubleshooting
 
-您有設定電腦或執行容器方面的問題嗎？ 我們建立了一份 PowerShell 指令碼，可讓您用於檢查常見的問題。 請嘗試先使用這份指令碼進行檢查，然後將結果提供給我們。
+Having trouble setting up your machine or running a container? We created a PowerShell script to check for common problems. Please give it a try first to see what it finds and share your results.
 
 ```PowerShell
 Invoke-WebRequest https://aka.ms/Debug-ContainerHost.ps1 -UseBasicParsing | Invoke-Expression
 ```
-指令碼的[讀我檔案](https://github.com/Microsoft/Virtualization-Documentation/blob/live/windows-server-container-tools/Debug-ContainerHost/README.md)中列有一份清單，包括了此指令碼所執行的各項測試及其常用解決方法。
+A list of all of the tests it runs along with common solutions is in the [Readme file](https://github.com/Microsoft/Virtualization-Documentation/blob/live/windows-server-container-tools/Debug-ContainerHost/README.md) for the script.
 
-若執行這份指令碼無法找出問題的根源，請將您的指令碼輸出張貼到[容器論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)。 論壇社群中的各方高手 (包括 Windows 測試人員及開發人員) 是為您提供協助的最佳人選。
+If that doesn't help find the source of the problem, please go ahead and post the output from your script on the [Container Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers). This is the best place to get help from the community including Windows Insiders and developers.
 
 
-## 尋找記錄檔
-有多項服務可以用於管理 Windows 容器。 接下來的幾節將會指出各項服務記錄檔的位置。
+## Finding Logs
+There are multiple services that are used to manage Windows Containers. The next sections shows where to get logs for each service.
 
-### Docker 引擎
-Docker 引擎會將事件記錄至 Windows 應用程式事件記錄檔，而不是記錄至檔案。 您可以使用 Windows PowerShell，輕鬆讀取、排序和篩選這些記錄檔
+### Docker Engine
+The Docker Engine logs to the Windows 'Application' event log, rather than to a file. These logs can easily be read, sorted, and filtered using Windows PowerShell
 
-比方說，這會顯示 Docker 引擎前 5 分鐘的記錄檔，並從最舊的開始排序。
+For example, this will show the Docker Engine logs from the last 5 minutes starting with the oldest.
 
 ```
 Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-5) | Sort-Object Time 
 ```
 
-您也可以輕鬆透過管道將記錄檔傳送至 CSV 檔案，以供其他工具或試算表讀取。
+This could also easily be piped into a CSV file to be read by another tool or spreadsheet.
 
 ```
 Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-30)  | Sort-Object Time | Export-CSV ~/last30minutes.CSV
 ```
 
-#### 啟用偵錯記錄
-您也可以對 Docker 引擎啟用偵錯層級記錄。 當標準記錄檔的詳細資料不足時，這可能會很有幫助。
+#### Enabling Debug logging
+You can also enable debug-level logging on the Docker Engine. This may be helpful for troubleshooting if the regular logs don't have enough detail.
 
-首先，請開啟提升權限的命令提示字元，然後執行 `sc.exe qc docker`，以取得 Docker 服務目前的命令列。
-範例：
+First, open an elevated Command Prompt, then run `sc.exe qc docker` get the current command line for the Docker service.
+Example:
 ```none
 C:\> sc.exe qc docker
 [SC] QueryServiceConfig SUCCESS
@@ -65,67 +65,67 @@ SERVICE_NAME: docker
         SERVICE_START_NAME : LocalSystem
 ```
 
-取得目前的 `BINARY_PATH_NAME` 之後，請修改如下︰
-- 在結尾新增 -D
-- 使用 \ 逸出每一個 "
-- 使用 " 括住整個命令
+Take the current `BINARY_PATH_NAME`, and modify it:
+- Add a -D to the end
+- Escape each " with \
+- Enclose the whole command in "
 
-接著在執行後接新字串的 `sc.exe config docker binpath= `。 例如： 
+Then run `sc.exe config docker binpath= ` followed by the new string. For example: 
 ```none
 sc.exe config docker binpath= "\"C:\Program Files\Docker\dockerd.exe\" --run-service -D"
 ```
 
 
-立即重新啟動 Docker 服務
+Now, restart the Docker service
 ```none
 sc.exe stop docker
 sc.exe start docker
 ```
 
-這會記錄更多資訊到應用程式事件記錄檔中。因此，當您完成疑難排解之後，建議最好將 `-D` 選項移除。 使用上述相同的步驟，但移除 `-D`，然後重新啟動服務，以停用偵錯記錄。
+This will log much more into the Application event log, so it's best to remove the `-D` option once you are done troubleshooting. Use the same steps above without `-D` and restart the service to disable the debug logging.
 
-上述做法的替代方法是從提高權限的 PowerShell 提示，以偵錯模式執行 Docker 精靈，將輸出直接擷取至檔案中。
+An alternate to the above is to run the docker daemon in debug mode from an elevated PowerShell prompt, capturing output directly into a file.
 ```PowerShell
 sc.exe stop docker
 <path\to\>dockerd.exe -D > daemon.log 2>&1
 ```
 
-#### 取得堆疊傾印和精靈資料。
+#### Obtaining stack dump and daemon data.
 
-一般而言，這些資料只有在 Microsoft 支援服務或 Docker 開發人員明確要求時才有用。 其可用來協助診斷 Docker 似乎已當掉的情形。 
+Generally, these are only useful if explicitly requested by Microsoft support, or docker developers. They can be used to assist diagnosing a situation where docker appears to have hung. 
 
-下載 [docker-signal.exe](https://github.com/jhowardmsft/docker-signal)。
+Download [docker-signal.exe](https://github.com/jhowardmsft/docker-signal).
 
-使用方式：
+Usage:
 ```PowerShell
 Get-Process dockerd
 # Note the process ID in the `Id` column
 docker-signal -pid=<id>
 ```
 
-輸出檔案將會位在 Docker 執行所在的資料根目錄中。 預設目錄為 `C:\ProgramData\Docker`。 若要確認實際目錄，可以執行 `docker info -f "{{.DockerRootDir}}"`。
+The output files will be located in the data-root directory docker is running in. The default directory is `C:\ProgramData\Docker`. The actual directory can be confirmed by running `docker info -f "{{.DockerRootDir}}"`.
 
-檔案將會是 `goroutine-stacks-<timestamp>.log` 和 `daemon-data-<timestamp>.log`。
+The files will be `goroutine-stacks-<timestamp>.log` and `daemon-data-<timestamp>.log`.
 
-請注意，`daemon-data*.log` 可能包含個人資料，通常應該只能與受信任的支援人員共用。 `goroutine-stacks*.log` 沒有包含個人資訊。
+Note that `daemon-data*.log` may contain personal information and should generally only be shared with trusted support people. `goroutine-stacks*.log` does not contain personal information.
 
 
-### Host Container Service
-Docker 引擎需要 Windows 專用的 Host Container Service。 此服務有自己的記錄檔︰ 
+### 主機運算服務
+Docker 引擎需要 Windows 專用的主機運算服務。 It has separate logs: 
 - Microsoft-Windows-Hyper-V-Compute-Admin
 - Microsoft-Windows-Hyper-V-Compute-Operational
 
-這些記錄檔會顯示在事件檢視器中，也可以使用 PowerShell 進行查詢。
+They are visible in Event Viewer, and may also be queried with PowerShell.
 
-例如：
+For example:
 ```PowerShell
 Get-WinEvent -LogName Microsoft-Windows-Hyper-V-Compute-Admin
 Get-WinEvent -LogName Microsoft-Windows-Hyper-V-Compute-Operational 
 ```
 
-#### 擷取 HCS 分析/偵錯記錄
+#### Capturing HCS analytic/debug logs
 
-若要為「Hyper-V 運算」啟用分析/偵錯記錄，並將其儲存至 `hcslog.evtx`。
+To enable analytic/debug logs for Hyper-V Compute and save them to `hcslog.evtx`.
 
 ```PowerShell
 # Enable the analytic logs
@@ -140,11 +140,11 @@ wevtutil.exe epl Microsoft-Windows-Hyper-V-Compute-Analytic <hcslog.evtx>
 wevtutil.exe sl Microsoft-Windows-Hyper-V-Compute-Analytic /e:false /q:true
 ```
 
-#### 擷取 HCS 詳細追蹤資料
+#### Capturing HCS verbose tracing
 
-一般而言，這些資料只有在 Microsoft 支援服務要求時才有用。 
+Generally, these are only useful if requested by Microsoft support. 
 
-下載 [HcsTraceProfile.wprp](https://gist.github.com/jhowardmsft/71b37956df0b4248087c3849b97d8a71)
+Download [HcsTraceProfile.wprp](https://gist.github.com/jhowardmsft/71b37956df0b4248087c3849b97d8a71)
 
 ```PowerShell
 # Enable tracing
@@ -156,4 +156,4 @@ wpr.exe -start HcsTraceProfile.wprp!HcsArgon -filemode
 wpr.exe -stop HcsTrace.etl "some description"
 ```
 
-提供 `HcsTrace.etl` 給支援連絡人。
+Provide `HcsTrace.etl` to your support contact.

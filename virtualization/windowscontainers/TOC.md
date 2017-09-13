@@ -1,50 +1,47 @@
 # [關於 Windows 容器](about/index.md)
 
-# Windows Server 快速入門
-## [步驟 1 - 概念](quick_start/quick_start.md)
-## [步驟 2 - 第一個容器](quick_start/quick_start_windows_server.md)
-## [步驟 3 - 容器映像](quick_start/quick_start_images.md)
-
 # Windows 10 快速入門
-## [步驟 1 - 概念](quick_start/quick_start.md)
-## [步驟 2 - 第一個容器](quick_start/quick_start_windows_10.md)
+## [執行您的第一個容器](quick-start/quick-start-windows-10.md)
+## [建置範例應用程式](quick-start/building-sample-app.md)
+
+# Windows Server 快速入門
+## [執行您的第一個容器](quick-start/quick-start-windows-server.md)
+## [自動化容器組建](quick-start/quick-start-images.md)
 
 # Windows 測試人員快速入門
-## [步驟 1 - 使用測試人員映像](quick-start/Using-Insider-Container-Images.md)
-## [步驟 2 - 建置並執行應用程式](quick-start/Nano-RS3-.NET-Core-and-PS.md)
-## [步驟 3 - 已知問題](quick-start/Insider-Known-Issues.md)
+## [Step 1 - Using the Insider images](quick-start/Using-Insider-Container-Images.md)
+## [Step 2 - Build and Run an Application](quick-start/Nano-RS3-.NET-Core-and-PS.md)
+## [Step 3 - Known Issues](quick-start/Insider-Known-Issues.md)
 
-# 部署 Windows 容器
-## [系統需求](deployment/system_requirements.md)
-## [Hyper-V 隔離](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/hyperv-container)
-## [容器主機 - Windows Server](deployment/deployment.md)
-## [容器主機 - Nano Server](deployment/deployment_nano.md)
+# Deploy Windows Container
+## [系統需求](deploy-containers/system-requirements.md)
+## [部署](deploy-containers/deploy-containers-on-server.md)
 ## [Hyper-V 隔離](manage-containers/hyperv-container.md)
+## [Active Directory 服務帳戶](manage-containers/manage-serviceaccounts.md)
 ## [防毒程式最佳化](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
-## [Active Directory 服務帳戶](management/manage_serviceaccounts.md)
 
 # 在 Windows 上管理 Docker
-## [Windows 上的 Docker 引擎](docker/configure_docker_daemon.md)
-## [Windows 上的 Dockerfiles](docker/manage_windows_dockerfile.md)
-## [最佳化 Dockerfiles](docker/optimize_windows_dockerfile.md)
-## [容器的網路功能](management/container_networking.md)
-## [開始使用群集模式](manage-containers/swarm-mode.md)
-## [透過 PowerShell 管理 Docker](https://github.com/Microsoft/Docker-PowerShell)
-## [Windows Docker 主機的遠端管理](management/manage_remotehost.md)
+## [Docker Engine on Windows](docker/configure_docker_daemon.md)
+## [Dockerfiles on Windows](docker/manage_windows_dockerfile.md)
+## [Optimize Dockerfiles](docker/optimize_windows_dockerfile.md)
+## [Container Networking](management/container_networking.md)
+## [Getting Started with Swarm Mode](manage-containers/swarm-mode.md)
+## [Manage Docker with PowerShell](https://github.com/Microsoft/Docker-PowerShell)
+## [Remote Management of a Windows Docker Host](management/manage_remotehost.md)
 
-# 範例容器
-## [應用程式架構](samples.md#Application-Frameworks)
-## [程式設計語言](samples.md#Programing-Languages)
-## [資料庫](samples.md#Databases)
-## [基礎結構和 CI 工具](samples.md#Infrastructure-and-CI-Tools)
-## [輕鬆一下](samples.md#Just-for-Fun)
-## [其他](samples.md#Other)
-
-
-# 社群與支援
-## [容器論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)
-## [社群影片與部落格](communitylinks.md)
-## [疑難排解](troubleshooting.md)
+# Container Samples
+## [Application Frameworks](samples.md#Application-Frameworks)
+## [Programing Languages](samples.md#Programing-Languages)
+## [Databases](samples.md#Databases)
+## [Infrastructure and CI Tools](samples.md#Infrastructure-and-CI-Tools)
+## [Just for Fun](samples.md#Just-for-Fun)
+## [Other](samples.md#Other)
 
 
-# [容器 OS 映像授權條款](Images_EULA.md)
+# Community and Support
+## [Container Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)
+## [Community Videos and Blogs](communitylinks.md)
+## [Troubleshooting](troubleshooting.md)
+
+
+# [Container OS Image EULA](Images_EULA.md)
