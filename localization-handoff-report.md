@@ -6,14 +6,14 @@
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\windowscontainers\deployment\deployment_nano.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/2a8e48e9984dbf71ae4811ea7fdecfe3e8966893/virtualization/windowscontainers/deployment/deployment_nano.md) | HandedOffSuccess | [Details](#695b99e631803aa9d5315ba149cda9a68f5a76bf295)
+ [virtualization\windowscontainers\index.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/5bb93cf92236779f66bfdee996669f7b0bc5287c/virtualization/windowscontainers/index.md) | HandedOffSuccess | [Details](#7693be8567f6fbd0ebd8ffa72142dc1c5bbef096304)
 
 ## Item Details
-##### <a name='695b99e631803aa9d5315ba149cda9a68f5a76bf295'></a> Source: [virtualization\windowscontainers\deployment\deployment_nano.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/2a8e48e9984dbf71ae4811ea7fdecfe3e8966893/virtualization/windowscontainers/deployment/deployment_nano.md)
+##### <a name='7693be8567f6fbd0ebd8ffa72142dc1c5bbef096304'></a> Source: [virtualization\windowscontainers\index.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/5bb93cf92236779f66bfdee996669f7b0bc5287c/virtualization/windowscontainers/index.md)
 * Status: HandedOffSuccess
 * Target File: 
-* Handoff File: [deployment_nano.b4ad903b48200665d4d0c8e4d0956bddc0d52f79.zh-tw.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/166d0e1102759771dae951074d4db2a667f27c42/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.zh-tw/live/deployment_nano.b4ad903b48200665d4d0c8e4d0956bddc0d52f79.zh-tw.xlf)
-* Handoff Datetime: 2017-10-18 17:35:44
+* Handoff File: [index.54df784a655ef654249a5e240db1281432a1f37b.zh-tw.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/994d187120797caf0a2c7331b60ac80a748ab7ed/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.zh-tw/live/index.54df784a655ef654249a5e240db1281432a1f37b.zh-tw.xlf)
+* Handoff Datetime: 2017-10-18 19:36:08
 * Handoff Reason: Include
 * Handoff Name: 
 * Archive File: 
@@ -21,10 +21,10 @@
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
 * Handback Name: 
-* Current Target File: [virtualization\windowscontainers\deployment\deployment_nano.md](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.zh-tw/blob/5b7022a9f7c04887f46b62028a5634d1a10e4e6a/virtualization/windowscontainers/deployment/deployment_nano.md)
-* Current Handback File: [deployment_nano.b4ad903b48200665d4d0c8e4d0956bddc0d52f79.zh-tw.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/de9afe5b1f155dfcfbe263495e1f038950647fbb/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/deployment_nano.b4ad903b48200665d4d0c8e4d0956bddc0d52f79.zh-tw.xlf)
+* Current Target File: [virtualization\windowscontainers\index.md](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.zh-tw/blob/5b7022a9f7c04887f46b62028a5634d1a10e4e6a/virtualization/windowscontainers/index.md)
+* Current Handback File: [index.54df784a655ef654249a5e240db1281432a1f37b.zh-tw.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/de9afe5b1f155dfcfbe263495e1f038950647fbb/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/index.54df784a655ef654249a5e240db1281432a1f37b.zh-tw.xlf)
 * Current Handback Datetime: 2017-01-24 13:19:37
-* Bilingual File: [deployment_nano.b4ad903b48200665d4d0c8e4d0956bddc0d52f79.zh-tw.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/de9afe5b1f155dfcfbe263495e1f038950647fbb/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/deployment_nano.b4ad903b48200665d4d0c8e4d0956bddc0d52f79.zh-tw.xlf)
+* Bilingual File: [index.54df784a655ef654249a5e240db1281432a1f37b.zh-tw.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/de9afe5b1f155dfcfbe263495e1f038950647fbb/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/index.54df784a655ef654249a5e240db1281432a1f37b.zh-tw.xlf)
 * Bilingual Datetime: 2017-01-24 13:21:56
 * [Back to Top](#report-top)
 
