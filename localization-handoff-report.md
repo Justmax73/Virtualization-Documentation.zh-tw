@@ -1,19 +1,20 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 1
+ Total Files | 2
 
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\windowscontainers\about\index.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/88276fb1a25a544530cf2f79594465fb53777a66/virtualization/windowscontainers/about/index.md) | HandedOffSuccess | [Details](#b2bab687d65b05882939468b20cb35b1318c2085258)
+ [virtualization\hyper-v-on-windows\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/af8bd16aad6bb189a5eef72af6134f6cfdce10cd/virtualization/hyper-v-on-windows/TOC.md) | HandedOffSuccess | [Details](#d836d9d0bd7cc6ce714b1b586e49915a8ce7e616212)
+ [virtualization\hyper-v-on-windows\user-guide\enhanced-session-mode.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/af8bd16aad6bb189a5eef72af6134f6cfdce10cd/virtualization/hyper-v-on-windows/user-guide/enhanced-session-mode.md) | HandedOffSuccess | [Details](#f713534ccab2a8422934936fe1f6e0286f887586215)
 
 ## Item Details
-##### <a name='b2bab687d65b05882939468b20cb35b1318c2085258'></a> Source: [virtualization\windowscontainers\about\index.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/88276fb1a25a544530cf2f79594465fb53777a66/virtualization/windowscontainers/about/index.md)
+##### <a name='d836d9d0bd7cc6ce714b1b586e49915a8ce7e616212'></a> Source: [virtualization\hyper-v-on-windows\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/af8bd16aad6bb189a5eef72af6134f6cfdce10cd/virtualization/hyper-v-on-windows/TOC.md)
 * Status: HandedOffSuccess
 * Target File: 
-* Handoff File: [index.01108708edf157e95b96d0e38c23011bed66c123.zh-tw.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/ac5b04f1f044bc7eff208c361fd4b3f6c1e0498b/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.zh-tw/live/index.01108708edf157e95b96d0e38c23011bed66c123.zh-tw.xlf)
-* Handoff Datetime: 2017-10-23 18:36:44
+* Handoff File: [TOC.31a2913ccfd49bd5aec82fa8274f4b81c18f1fd7.zh-tw.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/37ce336955e722e61ca1be3bc0658953dba9a39f/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.zh-tw/live/TOC.31a2913ccfd49bd5aec82fa8274f4b81c18f1fd7.zh-tw.xlf)
+* Handoff Datetime: 2017-10-26 20:36:07
 * Handoff Reason: Include
 * Handoff Name: 
 * Archive File: 
@@ -21,11 +22,25 @@
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
 * Handback Name: 
-* Current Target File: [virtualization\windowscontainers\about\index.md](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.zh-tw/blob/4052b01faa977ba2be8549e338efd7fd5dcdff5e/virtualization/windowscontainers/about/index.md)
-* Current Handback File: [index.01108708edf157e95b96d0e38c23011bed66c123.zh-tw.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/bdf75413293010161bea2b51f24ab78fb2664af3/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/index.01108708edf157e95b96d0e38c23011bed66c123.zh-tw.xlf)
-* Current Handback Datetime: 2017-03-24 13:50:26
-* Bilingual File: [index.01108708edf157e95b96d0e38c23011bed66c123.zh-tw.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/bdf75413293010161bea2b51f24ab78fb2664af3/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/index.01108708edf157e95b96d0e38c23011bed66c123.zh-tw.xlf)
-* Bilingual Datetime: 2017-03-24 13:53:54
+* Current Target File: [virtualization\hyper-v-on-windows\TOC.md](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.zh-tw/blob/5b7022a9f7c04887f46b62028a5634d1a10e4e6a/virtualization/hyper-v-on-windows/TOC.md)
+* Current Handback File: [TOC.31a2913ccfd49bd5aec82fa8274f4b81c18f1fd7.zh-tw.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/de9afe5b1f155dfcfbe263495e1f038950647fbb/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/TOC.31a2913ccfd49bd5aec82fa8274f4b81c18f1fd7.zh-tw.xlf)
+* Current Handback Datetime: 2017-01-24 13:19:37
+* Bilingual File: [TOC.31a2913ccfd49bd5aec82fa8274f4b81c18f1fd7.zh-tw.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/de9afe5b1f155dfcfbe263495e1f038950647fbb/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/TOC.31a2913ccfd49bd5aec82fa8274f4b81c18f1fd7.zh-tw.xlf)
+* Bilingual Datetime: 2017-01-24 13:21:56
+* [Back to Top](#report-top)
+
+##### <a name='f713534ccab2a8422934936fe1f6e0286f887586215'></a> Source: [virtualization\hyper-v-on-windows\user-guide\enhanced-session-mode.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/af8bd16aad6bb189a5eef72af6134f6cfdce10cd/virtualization/hyper-v-on-windows/user-guide/enhanced-session-mode.md)
+* Status: HandedOffSuccess
+* Target File: 
+* Handoff File: [enhanced-session-mode.a5a194c0db3af8a2b6a015055a9586d1fff7339e.zh-tw.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/37ce336955e722e61ca1be3bc0658953dba9a39f/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.zh-tw/live/enhanced-session-mode.a5a194c0db3af8a2b6a015055a9586d1fff7339e.zh-tw.xlf)
+* Handoff Datetime: 2017-10-26 20:36:07
+* Handoff Reason: Include
+* Handoff Name: 
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: 
+* Handback Datetime: 0001-01-01 00:00:00
+* Handback Name: 
 * [Back to Top](#report-top)
 
 
