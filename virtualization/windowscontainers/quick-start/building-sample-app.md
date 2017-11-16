@@ -7,13 +7,13 @@ ms.date: 07/25/2017
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.openlocfilehash: 2ba3e6409fc60022a55d21c187bfcaefd962908b
-ms.sourcegitcommit: 4f5b9f70804bf6282af8bef603cc343c524c3102
+ms.openlocfilehash: b9f20e6b3f071b9c71a387fce9640b244e9a95b5
+ms.sourcegitcommit: fa9ec91b14c612df03c5b7bb094eb1fabf421715
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 10/11/2017
 ---
-# 建置範例應用程式
+# <a name="build-a-sample-app"></a>建置範例應用程式
 
 本練習將逐步引導您取用範例 ASP.net 應用程式並進行轉換，以便在容器中執行。 如果您需要了解如何在 Windows 10 中啟動並執行容器，請瀏覽 [Windows 10 快速入門](./quick-start-windows-10.md)。
 
@@ -21,7 +21,7 @@ ms.lasthandoff: 08/04/2017
 
 如果您的電腦尚未安裝 Git 原始檔控制，可以在這裡下載：[Git](https://git-scm.com/download)
 
-## 開始使用
+## <a name="getting-started"></a>開始使用
 
 此範例專案是使用 [VSCode](https://code.visualstudio.com/) 所設定。 我們也將使用 PowerShell。 現在，我們先從 GitHub 取得示範程式碼。 您可以複製 Git 存放庫，也可以直接從 [SampleASPContainerApp](https://github.com/cwilhit/SampleASPContainerApp) 下載專案。
 
@@ -36,7 +36,7 @@ git clone https://github.com/cwilhit/SampleASPContainerApp.git
 New-Item C:/Your/Proj/Location/Dockerfile -type file
 ```
 
-## 撰寫我們的 Dockerfile
+## <a name="writing-our-dockerfile"></a>撰寫我們的 Dockerfile
 
 現在，我們來開啟在專案根資料夾中建立的 Dockerfile (可使用您喜歡的任何文字編輯器) 並加入一些邏輯。 然後，我們將逐行解說每一行的作用。
 
@@ -94,7 +94,7 @@ ENTRYPOINT ["dotnet", "MvcMovie.dll"]
 
 現在，我們已經順利執行所謂的_多階段組建_。 我們使用了暫存容器來建置映像，然後將已發佈的 dll 移動到另一個容器中，以便將最終結果的磁碟使用量減到最低。 我們希望這個容器將執行所需的相依性保持在絕對最低限度；如果我們繼續使用第一個映像，它就會與其他不重要的層級 (用於建置 ASP.NET 應用程式) 封裝在一起，因而增加映像的大小。
 
-## 執行應用程式
+## <a name="running-the-app"></a>執行應用程式
 
 現在 Dockerfile 已撰寫完畢，剩下的步驟就是告知 Docker 建置應用程式，然後執行容器。 我們要指定發佈的目標連接埠，然後為容器提供一個標記 "myapp"。 在 PowerShell 中，執行下列命令：
 
@@ -103,10 +103,10 @@ docker build -t myasp .
 docker run -d -p 5000:80 --name myapp myasp
 ```
 
-若要查看執行中的應用程式，我們需要瀏覽執行所在的位址。 讓我們執行此命令以取得 IP 位址。
+若要查看執行中的應用程式，我們需要瀏覽它執行所在的位址。 讓我們執行此命令以取得 IP 位址。
 
 ```Powershell
- docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" myapp
+ docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" myasp
 ```
 
 執行此命令將會產生執行中容器的 IP 位址。 此輸出可能看起來會像以下的範例：
@@ -121,7 +121,7 @@ docker run -d -p 5000:80 --name myapp myasp
 
 按一下導覽列中的 "MvcMovie" 就會將您帶到可輸入、編輯和刪除影片項目的網頁。
 
-## 後續步驟
+## <a name="next-steps"></a>後續步驟
 
 我們已經成功地取用 ASP.NET Web 應用程式、使用 Docker 加以設定並建置，而且成功地將它部署到執行中的容器中。 但是，您還可以繼續執行其他步驟！ 您可以將這個 Web 應用程式細分為其他多個元件：執行 Web API 的容器、執行前端的容器，以及執行 SQL Server 的容器。
 

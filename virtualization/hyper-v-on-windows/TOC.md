@@ -3,6 +3,7 @@
 # [建立虛擬機器](quick-start/quick-create-virtual-machine.md)
 # 使用 Hyper-V 管理虛擬機器
 ## [Hyper-V 和 PowerShell](quick-start/try-hyper-v-powershell.md)
+## [與虛擬機器共用裝置](user-guide/enhanced-session-mode.md)
 ## [使用檢查點](user-guide/checkpoints.md)
 ## [使用 PowerShell Direct 連線](user-guide/powershell-direct.md)
 ## [建立發行前版本的 VM](user-guide/create-pre-release-vm.md) 

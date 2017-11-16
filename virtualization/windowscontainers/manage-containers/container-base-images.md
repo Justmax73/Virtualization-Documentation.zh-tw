@@ -8,13 +8,13 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 88e6e080-cf8f-41d8-a301-035959dc5ce0
-ms.openlocfilehash: 622c8f638a815e19a54aa75b6b5ea0688d966ae3
-ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
+ms.openlocfilehash: 1c506016175a8be2608e10063a788d55aa792ce4
+ms.sourcegitcommit: 8ce23ca36f3dbae96a09f73d8c2f235943f8cd47
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 10/17/2017
 ---
-# Windows 容器基本映像歷程記錄
+# <a name="windows-container-base-image-history"></a>Windows 容器基本映像歷程記錄
 
 每一個 Windows 容器都是採用 Microsoft 提供的基本 OS 所建置。 如果您不確定容器是以哪個 Windows 版本建置，可以執行 `docker inspect <tag>` 並依照下表比對第一列或前兩列。
 
@@ -30,10 +30,18 @@ ms.lasthandoff: 07/21/2017
     ]
 }
 ```
-這是由 Microsoft 於映像中提供的兩個層。
+
+這是由 Microsoft 於映像中提供的兩個層。 第一層固定不變並且代表原始的 Windows Server 版本，第二層則會根據包含的最新累積更新而變更。
 
 如果您想了解每個版本做了哪些變更，請至 [Windows 10 和 Windows Server 2016 更新記錄](https://support.microsoft.com/en-us/help/12387/windows-10-update-history)中查閱各版本的知識庫。
 
+
+## <a name="tools-to-simplify-this-process"></a>簡化此程序的工具
+
+Stefan Scherer 已建立一個工具，可用來讀取映像資訊清單及判斷版本，而不需下載整個容器。 如需詳細資訊，請參閱這個[部落格](https://stefanscherer.github.io/winspector/)和 [GitHub](https://github.com/StefanScherer/winspector) 存放庫。
+
+
+## <a name="image-versions"></a>映像版本
 
 <table>
     <tr>
