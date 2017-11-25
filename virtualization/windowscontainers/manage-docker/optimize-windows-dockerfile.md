@@ -1,32 +1,32 @@
 ---
-title: Optimize Windows Dockerfiles
-description: Optimize Dockerfiles for Windows containers.
-keywords: docker, containers
+title: "將 Windows Dockerfiles 最佳化"
+description: "將 Windows 容器的 Dockerfiles 最佳化。"
+keywords: "docker, 容器"
 author: PatrickLang
 ms.date: 05/26/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb2848ca-683e-4361-a750-0d1d14ec8031
-ms.openlocfilehash: b0e916520b3cbcf4fdd0e02bc8a4fd7042fd2b8b
-ms.sourcegitcommit: 48470217e479c49528d4d855c9aeeb89b68d6513
+ms.openlocfilehash: 59a1a3b9fa43238defbd5155dc7b264109df4625
+ms.sourcegitcommit: 456485f36ed2d412cd708aed671d5a917b934bbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 11/08/2017
 ---
-# Optimize Windows Dockerfiles
+# <a name="optimize-windows-dockerfiles"></a>將 Windows Dockerfiles 最佳化
 
-Several methods can be used to optimize both the Docker build process, and the resulting Docker images. This document details how the Docker build process operates, and demonstrates several tactics that can be used for optimal image create with Windows Containers.
+有數種方法可用來將 Docker 建置流程及產生的 Docker 映像最佳化。 本文件詳述 Docker 建置流程的運作方式，並示範幾種可用來將映像建立與 Windows 容器最佳化的策略。
 
-## Docker Build
+## <a name="docker-build"></a>Docker 建置
 
-### Image Layers
+### <a name="image-layers"></a>映像層
 
-Before examining Docker build optimization, it is important to understand how Docker build works. During the Docker build process, a Dockerfile is consumed, and each actionable instruction is run, one-by-one, in its own temporary container. The result is a new image layer for each actionable instruction. 
+在檢查 Docker 建置最佳化之前，請務必了解 Docker 建置的運作方式。 Docker 建置流程期間使用了 Dockerfile，且每個可採取動作的指令都依序在其自身的暫存容器中執行。 結果就為每個可採取動作的指令產生了新的映像層。 
 
-Take a look at the following Dockerfile. In this example, the `windowsservercore` base OS image is being used, IIS installed, and then a simple website created.
+看看下列 Dockerfile。 在此範例中，使用 `windowsservercore` 基本 OS 映像並安裝了 IIS，然後建立了一個簡單的網站。
 
-```none
+```
 # Sample Dockerfile
 
 FROM windowsservercore
@@ -35,9 +35,9 @@ RUN echo "Hello World - Dockerfile" > c:\inetpub\wwwroot\index.html
 CMD [ "cmd" ]
 ```
 
-From this Dockerfile, one might expect the resulting image to consist of two layers, one for the container OS image, and a second that includes IIS and the website, this however is not the case. The new image is constructed of many layers, each one dependent on the previous. To visualize this, the `docker history` command can be run against the new image. Doing so shows that the image consists of four layers, the base, and then three additional layers, one for each instruction in the Dockerfile.
+從這個 Dockerfile 中，您可能會以為產生出的映像包含兩個層，一個用於容器 OS 映像，而另一個包含 IIS 和網站，但情況並非如此。 新的映像由多個層建構而成，每一個層相依於先前的層。 若要將此視覺化，可以對新的映像執行 `docker history` 命令。 如此會顯示映像包含四個層，即基底和其他三個圖層，各個皆用於 Docerkfile 中的其中一項指令。
 
-```none
+```
 docker history iis
 
 IMAGE               CREATED              CREATED BY                                      SIZE                COMMENT
@@ -47,25 +47,25 @@ f0e017e5b088        21 seconds ago       cmd /S /C echo "Hello World - Dockerfil
 6801d964fda5        4 months ago                                                         0 B
 ```
 
-Each of these layers can be mapped to an instruction from the Dockerfile. The bottom layer (`6801d964fda5` in this example) represents the base OS image. One layer up, the IIS installation can be seen. The next layer includes the new website, and so on.
+其中每個層都可以對應至 Dockerfile 的一項指令。 底層 (此範例中為 `6801d964fda5`) 代表基本 OS 映像。 向上一層可以看到 IIS 安裝。 再上一層則包含新的網站，以此類推。
 
-Dockerfiles can be written to minimize image layers, optimize build performance, and also optimize cosmetic things such as readability. Ultimately, there are many ways to complete the same image build task. Understanding how the format of a Dockerfile effects build time, and the resulting image, improves the automation experience. 
+可以將 Dockerfiles 寫入以將映像層最小化、將建置效能最佳化，同時將外觀方面的項目 (例如可讀性) 最佳化。 最後，有許多方式可以完成相同的映像建置工作。 了解 Dockerfile 的格式會如何影響建置時間和產生出的映像，將有助提升自動化體驗。 
 
-## Optimize Image Size
+## <a name="optimize-image-size"></a>將映像大小最佳化
 
-When building Docker container images, image size may be an important factor. Container images are moved between registries and host, exported and imported, and ultimately consume space. Several tactics can be used during the Docker build process to minimize image size. This section details some of these tactics specific to Windows Containers. 
+在建置 Docker 容器映像時，映像大小可能會是重要的因素。 容器映像在登錄和主機之間移動、進行匯出和匯入，而且最終會耗用空間。 可以在 Docker 建置流程期間使用幾種策略，將映像大小降到最低。 本節將詳細說明部分專屬於 Windows 容器的策略。 
 
-For additional information on Dockerfile best practices, see [Best practices for writing Dockerfiles on Docker.com]( https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/).
+如需有關 Dockerfile 最佳做法的詳細資訊，請參閱 [Best practices for writing Dockerfiles on Docker.com]( https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/) (Docker.com 上寫入 Dockerfiles 的最佳做法)。
 
-### Group related actions
+### <a name="group-related-actions"></a>群組相關的動作
 
-Because each `RUN` instruction creates a new layer in the container image, grouping actions into one `RUN` instruction can reduce the number of layers. While minimizing layers may not effect image size much, grouping related actions can, which will be seen in subsequent examples.
+因為每個 `RUN` 指令會在容器映像中建立新的層，將動作分組至一個 `RUN` 指令可以減少層的數目。 雖然將層最小化可能不會對映像大小造成太大的影響，但將相關聯的動作分組卻會有明顯影響，您會在後續的範例看到相關示範。
 
-The following two examples demonstrate the same operation, which results in container images of identical capability, however the two Dockerfiles constructed differently. The resulting images are also compared.  
+下列兩個範例將示範相同的作業，這會使容器映像具有相同功能，不過這兩個 Dockerfiles 則是以不同的方式建構。 同時也會對生產出的映像進行比較。  
 
-This first example downloads Python for Windows, installs it and cleans up by removing the downloaded setup file. Each of these actions are run in their own `RUN` instruction.
+第一個範例會下載並安裝 Python for Windows，然後移除下載的安裝檔加以清空。 每個動作都會依自己的 `RUN` 指令執行。
 
-```none
+```
 FROM windowsservercore
 
 RUN powershell.exe -Command Invoke-WebRequest "https://www.python.org/ftp/python/3.5.1/python-3.5.1.exe" -OutFile c:\python-3.5.1.exe
@@ -73,9 +73,9 @@ RUN powershell.exe -Command Start-Process c:\python-3.5.1.exe -ArgumentList '/qu
 RUN powershell.exe -Command Remove-Item c:\python-3.5.1.exe -Force
 ```
 
-The resulting image consists of three additional layers, one for each `RUN` instruction.
+產生出的映像包含三個額外的層，每個 `RUN` 指令皆有一個層。
 
-```none
+```
 docker history doc-example-1
 
 IMAGE               CREATED             CREATED BY                                      SIZE                COMMENT
@@ -84,9 +84,9 @@ a395ca26777f        15 seconds ago      cmd /S /C powershell.exe -Command Remove
 957147160e8d        3 minutes ago       cmd /S /C powershell.exe -Command Invoke-WebR   125.7 MB
 ```
 
-To compare, here is the same operation, however all steps run with the same `RUN` instruction. Note that each step in the `RUN` instruction is on a new line of the Dockerfile, the '\' character is being used to line wrap. 
+做為比較，以下是相同的作業，但所有步驟都執行相同的 `RUN` 指令。 請注意，`RUN` 指令中的每個步驟都是在 Dockerfile 新的一行，'\' 字元則用於自動換行。 
 
-```none
+```
 FROM windowsservercore
 
 RUN powershell.exe -Command \
@@ -96,22 +96,22 @@ RUN powershell.exe -Command \
   Remove-Item c:\python-3.5.1.exe -Force
 ```
 
-The resulting image here consists of one additional layer for the `RUN` instruction.
+這裡產生出的映像包含用於 `RUN` 指令的額外一層。
 
-```none
+```
 docker history doc-example-2
 
 IMAGE               CREATED             CREATED BY                                      SIZE                COMMENT
 69e44f37c748        54 seconds ago      cmd /S /C powershell.exe -Command   $ErrorAct   216.3 MB                
 ```
 
-### Remove excess files
+### <a name="remove-excess-files"></a>移除多餘的檔案
 
-If a file, such as an installer, is not required after it has been used, remove the file to reduce image size. This needs to occur in the same step in which the file was copied into the image layer. Doing so prevents the file from persisting in a lower level image layer.
+若為使用之後就不需要的檔案 (例如安裝程式)，便可移除該檔案以減少映像的大小。 這需與將檔案複製到映像層的步驟同時進行。 如此可避免將檔案保存至較低層級的映像層中。
 
-In this example, the Python package is downloaded, executed, and then the executable removed. This is all completed in one `RUN` operation and results in a single image layer.
+此範例下載並執行了 Python 封裝，並在執行完成後將可執行檔移除。 這全在一項 `RUN` 作業期間完成，並產生出單一映像層。
 
-```none
+```
 FROM windowsservercore
 
 RUN powershell.exe -Command \
@@ -121,15 +121,15 @@ RUN powershell.exe -Command \
   Remove-Item c:\python-3.5.1.exe -Force
 ```
 
-## Optimize Build Speed
+## <a name="optimize-build-speed"></a>將建置速度最佳化
 
-### Multiple Lines
+### <a name="multiple-lines"></a>多行
 
-When optimizing for Docker build speed, it may be advantageous to separate operations into multiple individual instructions. Having multiple `RUN` operations increase caching effectiveness. Because individual layers are created for each `RUN` instruction, if an identical step has already been run in a different Docker Build operation, this cached operation (image layer) is re-used. The result is that Docker Build runtime is decreased.
+在將 Docker 建置速度最佳化時，將作業分隔成多個獨立的指令可能比較有利。 分成多個 `RUN` 作業會提升快取的效率。 由於獨立層是為各個 `RUN` 指令所建立，因此若已在不同的 Docker 建置作業中執行相同的步驟，便會重複使用此快取作業 (映像層)。 結果會減少該 Docker 建置執行階段。
 
-In the following example, both Apache and the Visual Studio Redistribute packages are downloaded, installed, and then the un-needed files cleaned up. This is all done with one `RUN` instruction. If any of these actions are updated, all actions will re-run.
+在下列範例中，會下載並安裝 Apache 和 Visual Studio 轉散發套件，然後再清除不需要的檔案。 全都只需使用一個 `RUN` 指令完成。 如果其中任何一項動作進行更新，則會重新執行所有動作。
 
-```none
+```
 FROM windowsservercore
 
 RUN powershell -Command \
@@ -153,9 +153,9 @@ RUN powershell -Command \
   Remove-Item c:\php.zip
 ```
 
-The resulting image consists of two layers, one for the base OS image, and the second that contains all operations from the single `RUN` instruction.
+產生出的映像包含兩個層，一個用於基本 OS 映像，而第二個則包含單一 `RUN` 指令的所有作業。
 
-```none
+```
 docker history doc-sample-1
 
 IMAGE               CREATED             CREATED BY                                      SIZE                COMMENT
@@ -163,9 +163,9 @@ IMAGE               CREATED             CREATED BY                              
 6801d964fda5        5 months ago                                                        0 B
 ```
 
-To contrast, here are the same actions broken down into three `RUN` instructions. In this case, each `RUN` instruction is cached in a container image layer, and only those that have changed, need to be re-run on subsequent Dockerfile builds.
+做為對比，以下將相同的動作分成三個 `RUN` 指令。 在此情況下，每個 `RUN` 指令會在容器映像層中快取，而只有做出變更的指令需要在後續 Dockerfile 組建上重新執行。
 
-```none
+```
 FROM windowsservercore
 
 RUN powershell -Command \
@@ -187,9 +187,9 @@ RUN powershell -Command \
     Remove-Item c:\php.zip -Force
 ```
 
-The resulting image consists of four layers, one for the base OS image, and then one for each `RUN` instruction. Because each `RUN` instruction has been run in its own layer, any subsequent runs of this Dockerfile or identical set of instructions in a different Dockerfile, will use cached image layer, thus reducing build time. Instruction ordering is important when working with image cache, for more details, see the next section of this document.
+產生出的映像包含四個層，一個用於基本 OS 映像，然後其他層分別供給各個 `RUN` 指令使用。 因為各個 `RUN` 指令皆在自己的層中執行，所以此 Dockerfile 的任何後續執行或不同 Dockerfile 中相同一組指示，將會使用快取映像層，從而降低建置時間。 搭配映像快取使用時，指令順序非常重要，如需詳細資料，請參閱本文件的下一章節。
 
-```none
+```
 docker history doc-sample-2
 
 IMAGE               CREATED             CREATED BY                                      SIZE                COMMENT
@@ -199,13 +199,13 @@ d43abb81204a        7 days ago          cmd /S /C powershell -Command  Sleep 2 ;
 6801d964fda5        5 months ago
 ```
 
-### Ordering Instructions
+### <a name="ordering-instructions"></a>指令順序
 
-A Dockerfile is processed from top to the bottom, each Instruction compared against cached layers. When an instruction is found without a cached layer, this instruction and all subsequent instructions are processed in new container image layers. Because of this, the order in which instructions are placed is important. Place instructions that will remain constant towards the top of the Dockerfile. Place instructions that may change towards the bottom of the Dockerfile. Doing so reduces the likelihood of negating existing cache.
+Dockerfile 是從上到下進行處理，每個指令會和快取層進行比較。 當指令沒有快取層時，此指令和所有後續的指令會在新容器映像層中進行處理。 有鑑於此，指令的放置順序非常重要。 在 Dockerfile 上層放置會保持固定的指令。 在 Dockerfile 下層放置可能會有所改變的指令。 這樣做可以降低取消現有快取的可能性。
 
-The intention of this example is to demonstrated how Dockerfile instruction ordering can effect caching effectiveness. In this simple Dockerfile, four numbered folders are created.  
+此範例的目的是示範 Dockerfile 指令順序如何影響快取的效率。 在這個簡易的 Dockerfile 中，會建立四個編號的資料夾。  
 
-```none
+```
 FROM windowsservercore
 
 RUN mkdir test-1
@@ -213,9 +213,9 @@ RUN mkdir test-2
 RUN mkdir test-3
 RUN mkdir test-4
 ```
-The resulting image has five layers, one for the base OS image, and one for each of the `RUN` instructions.
+產生出的映像具有五個層，一個用於基本 OS 映像，然後其他層分別供給各個 `RUN` 指令使用。
 
-```none
+```
 docker history doc-sample-1
 
 IMAGE               CREATED              CREATED BY               SIZE                COMMENT
@@ -226,9 +226,9 @@ afba1a3def0a        38 seconds ago       cmd /S /C mkdir test-4   42.46 MB
 6801d964fda5        5 months ago                                  0 B    
 ```
 
-The docker file has now been slightly modified. Notice that the third `RUN` instruction has changed. When Docker build is run against this Dockerfile, the first three instructions, which are identical to those in the last example, use the cached image layers. However, because the changed `RUN` instruction has not been cached, a new layer is created for itself and all subsequent instructions.
+Docker 檔案現在已經過些微修改。 請注意，第三個 `RUN` 指令已變更。 當 Docker 建置針對此 Dockerfile 執行時，前三項指令 (和上個範例中的指令完全相同) 會使用快取映像層。 不過，因為變更的 `RUN` 指令尚未經快取，因此建立了新的層供其本身與所有後續指令使用。
 
-```none
+```
 FROM windowsservercore
 
 RUN mkdir test-1
@@ -237,9 +237,9 @@ RUN mkdir test-5
 RUN mkdir test-4
 ```
 
-Comparing Image ID’s of the new image, to that in the last example, you will see that the first three layers (bottom to the top) are shared, however the fourth and fifth are unique.
+將新映像的映像識別碼和上個範例中的映像相比較，您會發現前三個層 (從下至上) 為共用，而第四和第五個層則為唯一。
 
-```none
+```
 docker history doc-sample-2
 
 IMAGE               CREATED             CREATED BY               SIZE                COMMENT
@@ -250,14 +250,14 @@ c92cc95632fb        28 seconds ago      cmd /S /C mkdir test-4   5.644 MB
 6801d964fda5        5 months ago                                 0 B
 ```
 
-## Cosmetic Optimization
+## <a name="cosmetic-optimization"></a>外觀最佳化
 
-### Instruction Case
+### <a name="instruction-case"></a>指令案例
 
-Dockerfile instructions are not case sensitive, however convention is to use upper case. This improves readability by differentiating between Instruction call, and instruction operation. The below two examples demonstrate this concept. 
+Dockerfile 指令不區分大小寫，不過依慣例會使用大寫。 如此可區別指令呼叫和指令作業，有助於改善可讀性。 下列的兩個範例會示範這個概念。 
 
-Lower case:
-```none
+小寫字母：
+```
 # Sample Dockerfile
 
 from windowsservercore
@@ -265,8 +265,8 @@ run dism /online /enable-feature /all /featurename:iis-webserver /NoRestart
 run echo "Hello World - Dockerfile" > c:\inetpub\wwwroot\index.html
 cmd [ "cmd" ]
 ```
-Upper case: 
-```none
+大寫字母： 
+```
 # Sample Dockerfile
 
 FROM windowsservercore
@@ -275,18 +275,18 @@ RUN echo "Hello World - Dockerfile" > c:\inetpub\wwwroot\index.html
 CMD [ "cmd" ]
 ```
 
-### Line Wrapping
+### <a name="line-wrapping"></a>自動換行
 
-Long and complex operations can be separated onto multiple line using the backslash `\` character. The following Dockerfile installs the Visual Studio Redistributable package, removes the installer files, and then creates a configuration file. These three operations are all specified on one line.
+冗長且複雜的作業可以使用反斜線 `\` 字元分隔成多行。 下列 Dockerfile 會安裝 Visual Studio 可轉散發套件、移除安裝程式檔案，然後建立設定檔。 這三項作業都是在單行中指定。
 
-```none
+```
 FROM windowsservercore
 
 RUN powershell -Command c:\vcredist_x86.exe /quiet ; Remove-Item c:\vcredist_x86.exe -Force ; New-Item c:\config.ini
 ```
-The command can be re-written so that each operation from the one `RUN` instruction is specified on its own line. 
+命令可以改寫成由個別的 `RUN` 指令在其本身的行中指定各項作業。 
 
-```none
+```
 FROM windowsservercore
 
 RUN powershell -Command \
@@ -296,8 +296,8 @@ RUN powershell -Command \
     New-Item c:\config.ini
 ```
 
-## Further Reading & References
+## <a name="further-reading--references"></a>進一步閱讀與參考
 
-[Dockerfile on Windows] (manage-windows-dockerfile.md)
+\[Windows 上的 Dockerfile\] (manage-windows-dockerfile.md)
 
-[Best practices for writing Dockerfiles on Docker.com](https://docs.docker.com/engine/reference/builder/)
+[Best practices for writing Dockerfiles on Docker.com (Docker.com 上撰寫 Dockerfiles 的最佳做法)](https://docs.docker.com/engine/reference/builder/)

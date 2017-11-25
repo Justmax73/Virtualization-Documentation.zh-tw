@@ -8,27 +8,27 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
-ms.openlocfilehash: 0e692f7521e4a15e3e56d4b98f7ca15fe94ee167
-ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
+ms.openlocfilehash: 86d0b2f3ae86f99680e03e2bb8ad2712c6c70c16
+ms.sourcegitcommit: 456485f36ed2d412cd708aed671d5a917b934bbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 11/08/2017
 ---
-# 適用於 Windows 容器的 Active Directory 服務帳戶
+# <a name="active-directory-service-accounts-for-windows-containers"></a>適用於 Windows 容器的 Active Directory 服務帳戶
 
 使用者及其他服務可能必須對您的應用程式與服務建立經過驗證的連線，以便您讓資料保持安全，並防止未獲授權的使用。 Windows Active Directory (AD) 網域本身即同時支援密碼與憑證驗證。 當您在 Windows 網域加入主機上建置應用程式或服務時，如果其以本機系統或網路服務身分執行，即預設使用主機的識別。 否則，您可以改為設定其他 AD 帳戶進行驗證。
 
 雖然 Windows 容器無法加入網域，但也可以利用 Active Directory 網域識別，方式與裝置加入領域時雷同。 透過 Windows Server 2012 R2 網域控制站，我們引進了新的網域帳戶，名為群組受管理的服務帳戶 (gMSA)，其用意是供服務共用。 藉由使用群組受管理的服務帳戶 (gMSA)，就可以將 Windows 容器本身及其裝載的服務設定為使用特定 gMSA 做為網域識別。 任何以本機系統或網路服務身分執行的服務都會使用 Windows 容器的識別，就如同現在使用網域加入主機的識別一般。 容器映像中沒有儲存任何可能被部份公開的密碼或憑證私密金鑰，容器也不需要經過重建以變更儲存的密碼或憑證，就能重新部署至部署、測試及生產環境。 
 
 
-# 詞彙和參考
+# <a name="glossary--references"></a>詞彙和參考
 - [Active Directory](http://social.technet.microsoft.com/wiki/contents/articles/1026.active-directory-services-overview.aspx) 是用於在 Windows 探索、搜尋及複寫使用者、電腦與服務帳戶資訊的服務。 
   - [Active Directory Domain Services](https://technet.microsoft.com/en-us/library/dd448614.aspx) 提供用以驗證電腦與使用者的 Windows Active Directory 網域。 
   - 當裝置成為 Active Directory 網域成員時，即_加入網域_。 網域加入是一種裝置狀態，不僅為裝置提供網域電腦識別，也凸顯了不同的網域加入服務。
   - [群組受管理的服務帳戶](https://technet.microsoft.com/en-us/library/jj128431(v=ws.11).aspx)通常縮寫為 gMSA，是一種 Active Directory 帳戶，讓使用者不需要共用密碼即可輕鬆使用 Active Directory 保護服務。 多部機器或容器可以視需要共用同一個 gMSA，以驗證服務之間的連線。
 - _CredentialSpec_ PowerShell 模組 - 此模組的用途是將群組受管理的服務帳戶設定為搭配容器使用。 指令碼模組及範例步驟於 [windows-server-container-tools](https://github.com/Microsoft/Virtualization-Documentation/tree/live/windows-server-container-tools) 提供，請參閱 ServiceAccount
 
-# 運作方式
+# <a name="how-it-works"></a>運作方式
 
 現在，群組受管理的服務帳戶通常用來保護一部電腦與一項服務之間的連線。 使用帳戶的一般步驟如下：
 
@@ -52,15 +52,15 @@ Windows 容器遵循類似的程序：
 ![圖表 - 服務帳戶](media/serviceaccount_diagram.png)
 
 
-# 範例使用
+# <a name="example-uses"></a>範例使用
 
 
-## SQL 連接字串
+## <a name="sql-connection-strings"></a>SQL 連接字串
 當服務以本機系統或網路服務身分在容器中執行時，服務可以使用 Windows 整合式驗證連線至 Microsoft SQL Server。
 
 範例：
 
-```none
+```
 Server=sql.contoso.com;Database=MusicStore;Integrated Security=True;MultipleActiveResultSets=True;Connect Timeout=30
 ```
 

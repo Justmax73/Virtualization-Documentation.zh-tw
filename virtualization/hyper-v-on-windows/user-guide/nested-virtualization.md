@@ -1,6 +1,6 @@
 ---
-title: Nested Virtualization
-description: Nested Virtualization
+title: "巢狀虛擬化"
+description: "巢狀虛擬化"
 keywords: windows 10, hyper-v
 author: theodthompson
 ms.date: 06/20/2016
@@ -8,71 +8,71 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 68c65445-ce13-40c9-b516-57ded76c1b15
-ms.openlocfilehash: fb790611ea994c68f3e3a3b0404a297c595f0646
-ms.sourcegitcommit: 6eddc44b18109df52a02c01ce2661db621882e7d
+ms.openlocfilehash: 6f3cc3edb42a063abed33c7783e4a8bf13324cda
+ms.sourcegitcommit: 456485f36ed2d412cd708aed671d5a917b934bbe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 11/08/2017
 ---
-# Run Hyper-V in a Virtual Machine with Nested Virtualization
+# <a name="run-hyper-v-in-a-virtual-machine-with-nested-virtualization"></a>在巢狀虛擬化的虛擬機器中執行 Hyper-V
 
-Nested virtualization is a feature that allows you to run Hyper-V inside of a Hyper-V virtual machine. In other words, with nested virtualization, a Hyper-V host itself can be virtualized. Some use cases for nested virtualization would be to run a Hyper-V Container in a virtualized container host, set-up a Hyper-V lab in a virtualized environment, or to test multi-machine scenarios without the need for individual hardware. This document will detail software and hardware prerequisites, configuration steps, and limitations. 
+巢狀虛擬化功能可讓在 Hyper-V 虛擬機器中執行 Hyper-V。 換言之，使用巢狀虛擬化，Hyper-V 主機本身也能虛擬化。 舉例來說，巢狀虛擬化可讓您在虛擬化的容器主機中執行 Hyper-V 容器；在虛擬化環境中設定 HYPER-V 實驗室；或無須配備個別的硬體，就能測試多部機器。 本文將詳細說明軟體與硬體的必要條件、設定步驟及限制。 
 
-## Prerequisites
+## <a name="prerequisites"></a>必要條件
 
-- A Hyper-V host running Windows Server 2016 or Windows 10 Anniversary Update.
-- A Hyper-V VM running Windows Server 2016 or Windows 10 Anniversary Update.
-- A Hyper-V VM with configuration version 8.0 or greater.
-- An Intel processor with VT-x and EPT technology.
+- 執行 Windows Server 2016 或 Windows 10 年度更新版的 HYPER-V 主機。
+- 執行 Windows Server 2016 或 Windows 10 年度更新版的 HYPER-V VM。
+- 設定了 8.0 版或更新版本的 HYPER-V VM。
+- 搭載 Intel VT-x 與 EPT 技術的 Intel 處理器。
 
-## Configure Nested Virtualization
+## <a name="configure-nested-virtualization"></a>設定巢狀虛擬化
 
-1. Create a virtual machine. See the prerequisites above for the required OS and VM versions.
-2. While the virtual machine is in the OFF state, run the following command on the physical Hyper-V host. This enables nested virtualization for the virtual machine.
+1. 建立虛擬機器。 如需了解所需的 OS 及 VM 版本，請參閱上列必要條件。
+2. 當虛擬機器為「關閉」狀態時，請對實體 HYPER-V 主機執行下列命令。 這可巢狀虛擬化虛擬機器。
 
-```none
+```
 Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $true
 ```
-3. Start the virtual machine.
-4. Install Hyper-V within the virtual machine, just like you would for a physical server. For more information on installing Hyper-V see, [Install Hyper-V](../quick-start/enable-hyper-v.md).
+3. 啟動虛擬機器。
+4. 一如在實體主機中，在虛擬機器上安裝 HYPER-V。 如需如何安裝 Hyper-V 的詳細資訊，請參閱 [安裝 Hyper-V](../quick-start/enable-hyper-v.md)。
 
-## Disable Nested Virtualization
-You can disable nested virtualization for a stopped virtual machine using the following PowerShell command:
-```none
+## <a name="disable-nested-virtualization"></a>停用巢狀虛擬化
+您可以使用下列 PowerShell 命令，停用停止使用之虛擬主機的巢狀虛擬化︰
+```
 Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $false
 ```
 
-## Dynamic Memory and Runtime Memory Resize
-When Hyper-V is running inside a virtual machine, the virtual machine must be turned off to adjust its memory. This means that even if dynamic memory is enabled, the amount of memory will not fluctuate. For virtual machines without dynamic memory enabled, any attempt to adjust the amount of memory while it's on will fail. 
+## <a name="dynamic-memory-and-runtime-memory-resize"></a>調整動態記憶體與執行階段記憶體的大小
+當 HYPER-V 在虛擬機器內執行時，必須先關閉虛擬機器，才能調整其記憶體。 意即，即使啟用了動態記憶體，記憶體量也不會變動。 虛擬機器如有啟用動態記憶體，任何在虛擬機器開啟時調整記憶體量的嘗試都會失敗。 
 
-Note that simply enabling nested virtualization will have no effect on dynamic memory or runtime memory resize. The incompatibility only occurs while Hyper-V is running in the VM.
+請注意，單純啟用巢狀虛擬化，對調整動態記憶體或執行階段記憶體的大小沒有影響。 僅當 HYPER-V 在 VM 中執行時，才會發生不相容的問題。
 
-## Networking Options
-There are two options for networking with nested virtual machines: MAC address spoofing and NAT mode.
+## <a name="networking-options"></a>網路連線選項
+您有兩個選項可與巢狀虛擬機器連線，一是改變 MAC 位址，一是使用 NAT 模式。
 
-### MAC Address Spoofing
-In order for network packets to be routed through two virtual switches, MAC address spoofing must be enabled on the first level of virtual switch. This is completed with the following PowerShell command.
+### <a name="mac-address-spoofing"></a>改變 MAC 位址
+為使網路封包能由兩部虛擬交換器進行路由，必須在虛擬交換器的第一層啟用改變 MAC 位址。 若要啟用此設定，請使用下列 PowerShell 命令。
 
-```none
+```
 Get-VMNetworkAdapter -VMName <VMName> | Set-VMNetworkAdapter -MacAddressSpoofing On
 ```
-### Network Address Translation
-The second option relies on network address translation (NAT). This approach is best suited for cases where MAC address spoofing is not possible, like in a public cloud environment.
+### <a name="network-address-translation"></a>網路位址轉譯
+第二個選項仰賴網路位址轉譯 (NAT)。 當無法改變 MAC 位址 (例如公用雲端環境) 時，就很適合使用此方法。
 
-First, a virtual NAT switch must be created in the host virtual machine (the "middle" VM). Note that the IP addresses are just an example, and will vary across environments:
-```none
+首先必須在主機虛擬機器 (即「中間」VM) 中建立虛擬 NAT 交換器。 請注意，此處的 IP 位址僅為範例，其會隨不同環境而異︰
+```
 New-VMSwitch -Name VmNAT -SwitchType Internal
 New-NetNat –Name LocalNAT –InternalIPInterfaceAddressPrefix “192.168.100.0/24”
 ```
-Next, assign an IP address to the net adapter:
-```none
+接著將 IP 位址指派給網路介面卡︰
+```
 Get-NetAdapter "vEthernet (VmNat)" | New-NetIPAddress -IPAddress 192.168.100.1 -AddressFamily IPv4 -PrefixLength 24
 ```
-Each nested virtual machine must have an IP address and gateway assigned to it. Note that the gateway IP must point to the NAT adapter from the previous step. You may also want to assign a DNS server:
-```none
+每部巢狀虛擬機器都必須指派以 IP 位址與閘道。 請注意，閘道 IP 必須指向上一個步驟中的 NAT 配接器。 您也可以指派 DNS 伺服器︰
+```
 Get-NetAdapter "Ethernet" | New-NetIPAddress -IPAddress 192.168.100.2 -DefaultGateway 192.168.100.1 -AddressFamily IPv4 -PrefixLength 24
 Netsh interface ip add dnsserver “Ethernet” address=<my DNS server>
 ```
 
-## 3rd Party Virtualization Apps
-Virtualization applications other than Hyper-V are not supported in Hyper-V virtual machines, and are likely to fail. This includes any software that requires hardware virtualization extensions.
+## <a name="3rd-party-virtualization-apps"></a>第三方虛擬化 App
+HYPER-V 虛擬機器不支援 HYPER-V 以外的虛擬化應用程式，而且可能會失敗。 這包括所有需要硬體虛擬化延伸模組的軟體。
