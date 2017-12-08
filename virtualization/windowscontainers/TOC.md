@@ -30,6 +30,7 @@
 ## [開始使用群集模式](manage-containers/swarm-mode.md)
 ## [透過 PowerShell 管理 Docker](https://github.com/Microsoft/Docker-PowerShell)
 ## [Windows Docker 主機的遠端管理](management/manage_remotehost.md)
+## [資源控制項](manage-containers/resource-controls.md)
 
 # 範例容器
 ## [應用程式架構](samples.md#Application-Frameworks)

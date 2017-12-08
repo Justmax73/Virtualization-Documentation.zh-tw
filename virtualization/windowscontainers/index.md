@@ -8,11 +8,11 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 74c9d604-0915-4d89-bc69-0263b76bc66b
-ms.openlocfilehash: 7693be8567f6fbd0ebd8ffa72142dc1c5bbef096
-ms.sourcegitcommit: 5bb93cf92236779f66bfdee996669f7b0bc5287c
+ms.openlocfilehash: 176ad668f4daa7d84afc5928e76dce0c127e1095
+ms.sourcegitcommit: f8dc88d253c9e1a6a47b148d2c122a326a800633
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="windows-containers-documentation"></a>Windows 容器文件
 
@@ -73,7 +73,8 @@ Windows 容器可提供作業系統層級的虛擬化，讓多個隔離的應用
 <ul>
 <li>[容器論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)<br /><br /></li>
 <li>[社群影片與部落格](communitylinks.md)<br /><br /></li>
-<li>[容器資源](https://msdn.microsoft.com/virtualization/community/community_overview)<br /><br /></li>
+<li>[範例容器](https://docs.microsoft.com/en-us/virtualization/windowscontainers/samples)<br /><br /></li>
+<li>[UserVoice](https://windowsserver.uservoice.com/forums/304624-containers)<br /><br /></li>
 </ul>
 </td>
 </tr>

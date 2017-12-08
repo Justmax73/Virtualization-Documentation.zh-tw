@@ -7,11 +7,11 @@ ms.date: 09/26/2016
 ms.topic: deployment-article
 ms.prod: windows-containers
 ms.assetid: 3c3d4c69-503d-40e8-973b-ecc4e1f523ed
-ms.openlocfilehash: f4ee9346db77e29f9d3366634b8b6ad07d0fec08
-ms.sourcegitcommit: 380dd8e78780995b96def2e2ec6e22e3387e82e0
+ms.openlocfilehash: 6ae690ff6592198bc16cbaf60489d3ed5aceeeb0
+ms.sourcegitcommit: 64f5f8d838f72ea8e0e66a72eeb4ab78d982b715
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="windows-container-requirements"></a>Windows 容器需求
 
@@ -51,7 +51,7 @@ Windows 容器隨附兩個容器基本映像：Windows Server Core 與 Nano Serv
 <td><center>Server Core / Nano Server</center></td>
 </tr>
 <tr valign="top">
-<td><center>Nano Server</center></td>
+<td><center>Nano Server*</center></td>
 <td><center> Nano Server</center></td>
 <td><center>Server Core / Nano Server</center></td>
 </tr>
@@ -62,6 +62,23 @@ Windows 容器隨附兩個容器基本映像：Windows Server Core 與 Nano Serv
 </tr>
 </tbody>
 </table>
+* 從 Windows Server 版本 1709 開始，Nano Server 無法再當做容器主機使用。
+
+### <a name="memory-requirments"></a>記憶體需求
+可供容器使用的記憶體限制可透過[資源控制項](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/resource-controls)或多載容器主機來進行設定。  啟動容器及執行基本命令 (ipconfig、dir 等等) 所需的記憶體數量下限列於底下。  請注意，這些值並未考量容器之間的資源共用或是在容器內執行之應用程式的需求。
+
+#### <a name="windows-server-2016"></a>Windows Server 2016
+| 基本映像  | Windows Server 容器 | Hyper-V 隔離    |
+| ----------- | ------------------------ | -------------------- |
+| Nano Server | 40 MB                     | 130 MB + 1 GB 分頁檔 |
+| Server Core | 50 MB                     | 325 MB + 1 GB 分頁檔 |
+
+#### <a name="windows-server-version-1709"></a>Windows Server 版本 1709
+| 基本映像  | Windows Server 容器 | Hyper-V 隔離    |
+| ----------- | ------------------------ | -------------------- |
+| Nano Server | 30 MB                     | 110 MB + 1 GB 分頁檔 |
+| Server Core | 45 MB                     | 360 MB + 1 GB 分頁檔 |
+
 
 ### <a name="nano-server-vs-windows-server-core"></a>Nano Server 與 Windows Server Core
 
@@ -81,7 +98,7 @@ Windows Server 容器和基礎主機共用單一核心，因此容器的基本�
 若要檢查已安裝的 Windows 主機版本為何，您可以查詢 HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion。  若要檢查基本映像使用的版本為何，您可以檢閱 Docker 中樞的標籤，或是映像描述中提供的映像雜湊表。  [Windows 10 更新歷程記錄](https://support.microsoft.com/en-us/help/12387/windows-10-update-history)頁面上列出每個組建與修訂發行的時間。
 
 在此範例中，14393 是主要組建編號，而 321 為修訂編號。
-```none
+```
 Windows PowerShell
 Copyright (C) 2016 Microsoft Corporation. All rights reserved.
 
