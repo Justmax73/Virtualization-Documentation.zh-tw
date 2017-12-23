@@ -8,11 +8,11 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 1f8a691c-ca75-42da-8ad8-a35611ad70ec
-ms.openlocfilehash: dd11b3a78307d4c39a3c383120a04e91c8d0f70f
-ms.sourcegitcommit: 456485f36ed2d412cd708aed671d5a917b934bbe
+ms.openlocfilehash: 6f5872a4f16bcce504af3e6e81ef3e820013d121
+ms.sourcegitcommit: ad5f6344230c7c4977adf3769fb7b01a5eca7bb9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="set-up-a-nat-network"></a>設定 NAT 網路
 
@@ -69,7 +69,7 @@ NAT 讓虛擬機器透過內部的 Hyper-V 虛擬交換器，使用主機電腦�
 
     內部交換器會有類似 `vEthernet (SwitchName)` 的名稱，和介面描述 `Hyper-V Virtual Ethernet Adapter`。 記下其 `ifIndex` 以用於下一個步驟。
 
-4. 使用 [New-NetIPAddress](https://technet.microsoft.com/en-us/library/hh826150.aspx) 設定 NAT 閘道。  
+4. 使用 [New-NetIPAddress](https://docs.microsoft.com/powershell/module/nettcpip/New-NetIPAddress) 設定 NAT 閘道。  
 
   下面是一般的命令︰
   ``` PowerShell
@@ -97,7 +97,7 @@ NAT 讓虛擬機器透過內部的 Hyper-V 虛擬交換器，使用主機電腦�
   New-NetIPAddress -IPAddress 192.168.0.1 -PrefixLength 24 -InterfaceIndex 24
   ```
 
-5. 使用 [New-NetNat](https://technet.microsoft.com/en-us/library/dn283361(v=wps.630).aspx) 設定 NAT 網路。  
+5. 使用 [New-NetNat](https://docs.microsoft.com/powershell/module/netnat/New-NetNat) 設定 NAT 網路。  
 
   下面是一般的命令︰
 
