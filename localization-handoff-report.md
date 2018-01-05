@@ -6,14 +6,14 @@
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\hyper-v-on-windows\meltdown-mitigation-configuration-for-hyper-v-vms.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/aedf52ef695c834827d22d38ad9eb15fe96a3657/virtualization/hyper-v-on-windows/meltdown-mitigation-configuration-for-hyper-v-vms.md) | HandedOffSuccess | [Details](#b1eba366f63fe636601d359a6a11f0740508c0ee126)
+ [virtualization\hyper-v-on-windows\CVE-2017-5715-and-hyper-v-vms.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/78ab53f487f6642ad757e8ae7381b0ffa5111c0d/virtualization/hyper-v-on-windows/CVE-2017-5715-and-hyper-v-vms.md) | HandedOffSuccess | [Details](#3819614f3b4446a483814de8f9d3fe052064fdaf116)
 
 ## Item Details
-##### <a name='b1eba366f63fe636601d359a6a11f0740508c0ee126'></a> Source: [virtualization\hyper-v-on-windows\meltdown-mitigation-configuration-for-hyper-v-vms.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/aedf52ef695c834827d22d38ad9eb15fe96a3657/virtualization/hyper-v-on-windows/meltdown-mitigation-configuration-for-hyper-v-vms.md)
+##### <a name='3819614f3b4446a483814de8f9d3fe052064fdaf116'></a> Source: [virtualization\hyper-v-on-windows\CVE-2017-5715-and-hyper-v-vms.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/78ab53f487f6642ad757e8ae7381b0ffa5111c0d/virtualization/hyper-v-on-windows/CVE-2017-5715-and-hyper-v-vms.md)
 * Status: HandedOffSuccess
 * Target File: 
-* Handoff File: [meltdown-mitigation-configuration-for-hyper-v-vms.70bf79ae08d2c1223615a427872b618e165e602d.zh-tw.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/0fdbfece0440a794e19094538f6e48101d8b5c18/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.zh-tw/live/meltdown-mitigation-configuration-for-hyper-v-vms.70bf79ae08d2c1223615a427872b618e165e602d.zh-tw.xlf)
-* Handoff Datetime: 2018-01-05 03:05:41
+* Handoff File: [CVE-2017-5715-and-hyper-v-vms.26f9ffce97eab599de9ec9ad1a7b1ac4e7a273bf.zh-tw.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/9d090d67820399fa37b69e4409ab526c4bc8636c/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.zh-tw/live/CVE-2017-5715-and-hyper-v-vms.26f9ffce97eab599de9ec9ad1a7b1ac4e7a273bf.zh-tw.xlf)
+* Handoff Datetime: 2018-01-05 20:07:43
 * Handoff Reason: Include
 * Handoff Name: 
 * Archive File: 
