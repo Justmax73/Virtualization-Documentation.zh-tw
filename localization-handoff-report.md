@@ -6,14 +6,14 @@
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\windowscontainers\deploy-containers\system-requirements.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/59541f11d481d8df341597bd73ce7fac14f442ee/virtualization/windowscontainers/deploy-containers/system-requirements.md) | HandedOffSuccess | [Details](#54f60d3ef286521488bd4d3ab6d18d9b36806615331)
+ [virtualization\windowscontainers\management\manage_remotehost.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/451f291e0df3fc26637cce0fbf1855c56cc6e0d4/virtualization/windowscontainers/management/manage_remotehost.md) | HandedOffSuccess | [Details](#b975c593bd5c736ec3e7e1e21b76b2f6a2c8f8a4367)
 
 ## Item Details
-##### <a name='54f60d3ef286521488bd4d3ab6d18d9b36806615331'></a> Source: [virtualization\windowscontainers\deploy-containers\system-requirements.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/59541f11d481d8df341597bd73ce7fac14f442ee/virtualization/windowscontainers/deploy-containers/system-requirements.md)
+##### <a name='b975c593bd5c736ec3e7e1e21b76b2f6a2c8f8a4367'></a> Source: [virtualization\windowscontainers\management\manage_remotehost.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/451f291e0df3fc26637cce0fbf1855c56cc6e0d4/virtualization/windowscontainers/management/manage_remotehost.md)
 * Status: HandedOffSuccess
 * Target File: 
-* Handoff File: [system-requirements.7dbcfcd7846f5274542c2b3889e0b8cfd203b0b7.zh-tw.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/f4adbc28a990d158319cc0170f39f897ed872a27/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.zh-tw/live/system-requirements.7dbcfcd7846f5274542c2b3889e0b8cfd203b0b7.zh-tw.xlf)
-* Handoff Datetime: 2018-01-05 22:07:07
+* Handoff File: [manage_remotehost.3c5d9a53df27ee4618f3cd087b9e3ce0d6e647fe.zh-tw.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/89fc88780d20d3786467a4ac6fdfbae4807c5b45/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.zh-tw/live/manage_remotehost.3c5d9a53df27ee4618f3cd087b9e3ce0d6e647fe.zh-tw.xlf)
+* Handoff Datetime: 2018-01-06 01:07:41
 * Handoff Reason: Include
 * Handoff Name: 
 * Archive File: 
@@ -21,11 +21,11 @@
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
 * Handback Name: 
-* Current Target File: [virtualization\windowscontainers\deployment\system_requirements.md](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.zh-tw/blob/987b9ef247e0d4ab3113ba9e6c81801ca4d0e9df/virtualization/windowscontainers/deployment/system_requirements.md)
-* Current Handback File: [system_requirements.579a5475e3bd1d3d3fd9d5b53488ab4ae55a4423.zh-tw.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/9dd6d949691a9d66cf4f36c0393dcf5514ca5e7e/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/system_requirements.579a5475e3bd1d3d3fd9d5b53488ab4ae55a4423.zh-tw.xlf)
-* Current Handback Datetime: 2016-11-02 14:12:43
-* Bilingual File: [system_requirements.579a5475e3bd1d3d3fd9d5b53488ab4ae55a4423.zh-tw.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/9dd6d949691a9d66cf4f36c0393dcf5514ca5e7e/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/system_requirements.579a5475e3bd1d3d3fd9d5b53488ab4ae55a4423.zh-tw.xlf)
-* Bilingual Datetime: 2016-11-02 14:14:27
+* Current Target File: [virtualization\windowscontainers\management\manage_remotehost.md](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.zh-tw/blob/4052b01faa977ba2be8549e338efd7fd5dcdff5e/virtualization/windowscontainers/management/manage_remotehost.md)
+* Current Handback File: [manage_remotehost.3c5d9a53df27ee4618f3cd087b9e3ce0d6e647fe.zh-tw.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/bdf75413293010161bea2b51f24ab78fb2664af3/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/manage_remotehost.3c5d9a53df27ee4618f3cd087b9e3ce0d6e647fe.zh-tw.xlf)
+* Current Handback Datetime: 2017-03-24 13:50:26
+* Bilingual File: [manage_remotehost.3c5d9a53df27ee4618f3cd087b9e3ce0d6e647fe.zh-tw.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/bdf75413293010161bea2b51f24ab78fb2664af3/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/manage_remotehost.3c5d9a53df27ee4618f3cd087b9e3ce0d6e647fe.zh-tw.xlf)
+* Bilingual Datetime: 2017-03-24 13:53:54
 * [Back to Top](#report-top)
 
 
