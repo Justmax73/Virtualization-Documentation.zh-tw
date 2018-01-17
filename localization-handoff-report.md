@@ -1,19 +1,22 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 1
+ Total Files | 4
 
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\windowscontainers\manage-containers\manage-serviceaccounts.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/6beac5753c9f65bb6352df8c829c2e62e24bd2e2/virtualization/windowscontainers/manage-containers/manage-serviceaccounts.md) | HandedOffSuccess | [Details](#df9ca8a4bcd6bf959e221593ea69d5ed624cdae1343)
+ [virtualization\windowscontainers\kubernetes\common-problems.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/b0e21468f880a902df63ea6bc589dfcff1530d6e/virtualization/windowscontainers/kubernetes/common-problems.md) | HandedOffSuccess | [Details](#4fb7ac312b08c63564beb0f40889ff6a050c7166334)
+ [virtualization\windowscontainers\kubernetes\compiling-kubernetes-binaries.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/b0e21468f880a902df63ea6bc589dfcff1530d6e/virtualization/windowscontainers/kubernetes/compiling-kubernetes-binaries.md) | HandedOffSuccess | [Details](#c9b0146202d7e9e5d857ca88faa43282bd504dfa335)
+ [virtualization\windowscontainers\kubernetes\creating-a-linux-master.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/b0e21468f880a902df63ea6bc589dfcff1530d6e/virtualization/windowscontainers/kubernetes/creating-a-linux-master.md) | HandedOffSuccess | [Details](#d5251b1a2dc06bef396820e324fb240eed04acc8337)
+ [virtualization\windowscontainers\kubernetes\getting-started-kubernetes-windows.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/b0e21468f880a902df63ea6bc589dfcff1530d6e/virtualization/windowscontainers/kubernetes/getting-started-kubernetes-windows.md) | HandedOffSuccess | [Details](#f1b832f8a21c034582e157342acf7826fb7b6ea3338)
 
 ## Item Details
-##### <a name='df9ca8a4bcd6bf959e221593ea69d5ed624cdae1343'></a> Source: [virtualization\windowscontainers\manage-containers\manage-serviceaccounts.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/6beac5753c9f65bb6352df8c829c2e62e24bd2e2/virtualization/windowscontainers/manage-containers/manage-serviceaccounts.md)
+##### <a name='4fb7ac312b08c63564beb0f40889ff6a050c7166334'></a> Source: [virtualization\windowscontainers\kubernetes\common-problems.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/b0e21468f880a902df63ea6bc589dfcff1530d6e/virtualization/windowscontainers/kubernetes/common-problems.md)
 * Status: HandedOffSuccess
 * Target File: 
-* Handoff File: [manage-serviceaccounts.5fcb2b4d167ce751e9a350a047d30c781c75d75a.zh-tw.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/0a0417897018ba3ecbb5bcdbc3d60f9b4ab997eb/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.zh-tw/live/manage-serviceaccounts.5fcb2b4d167ce751e9a350a047d30c781c75d75a.zh-tw.xlf)
-* Handoff Datetime: 2018-01-17 01:17:20
+* Handoff File: [common-problems.9b17894d13d6587b589ea9b226a43c68b2fdc531.zh-tw.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/ae04a885481d4bc3fd99283e1872bbddfe7b140b/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.zh-tw/live/common-problems.9b17894d13d6587b589ea9b226a43c68b2fdc531.zh-tw.xlf)
+* Handoff Datetime: 2018-01-17 20:18:13
 * Handoff Reason: Include
 * Handoff Name: 
 * Archive File: 
@@ -21,11 +24,48 @@
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
 * Handback Name: 
-* Current Target File: [virtualization\windowscontainers\manage-containers\manage-serviceaccounts.md](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.zh-tw/blob/4052b01faa977ba2be8549e338efd7fd5dcdff5e/virtualization/windowscontainers/manage-containers/manage-serviceaccounts.md)
-* Current Handback File: [manage-serviceaccounts.5fcb2b4d167ce751e9a350a047d30c781c75d75a.zh-tw.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/bdf75413293010161bea2b51f24ab78fb2664af3/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/manage-serviceaccounts.5fcb2b4d167ce751e9a350a047d30c781c75d75a.zh-tw.xlf)
-* Current Handback Datetime: 2017-03-24 13:50:26
-* Bilingual File: [manage-serviceaccounts.5fcb2b4d167ce751e9a350a047d30c781c75d75a.zh-tw.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/bdf75413293010161bea2b51f24ab78fb2664af3/ol-handback/Microsoft/Virtualization-Documentation-Private.zh-tw/live/manage-serviceaccounts.5fcb2b4d167ce751e9a350a047d30c781c75d75a.zh-tw.xlf)
-* Bilingual Datetime: 2017-03-24 13:53:54
+* [Back to Top](#report-top)
+
+##### <a name='c9b0146202d7e9e5d857ca88faa43282bd504dfa335'></a> Source: [virtualization\windowscontainers\kubernetes\compiling-kubernetes-binaries.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/b0e21468f880a902df63ea6bc589dfcff1530d6e/virtualization/windowscontainers/kubernetes/compiling-kubernetes-binaries.md)
+* Status: HandedOffSuccess
+* Target File: 
+* Handoff File: [compiling-kubernetes-binaries.b5108870c61b15c6174a811cb493701187cc4d1d.zh-tw.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/ae04a885481d4bc3fd99283e1872bbddfe7b140b/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.zh-tw/live/compiling-kubernetes-binaries.b5108870c61b15c6174a811cb493701187cc4d1d.zh-tw.xlf)
+* Handoff Datetime: 2018-01-17 20:18:13
+* Handoff Reason: Include
+* Handoff Name: 
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: 
+* Handback Datetime: 0001-01-01 00:00:00
+* Handback Name: 
+* [Back to Top](#report-top)
+
+##### <a name='d5251b1a2dc06bef396820e324fb240eed04acc8337'></a> Source: [virtualization\windowscontainers\kubernetes\creating-a-linux-master.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/b0e21468f880a902df63ea6bc589dfcff1530d6e/virtualization/windowscontainers/kubernetes/creating-a-linux-master.md)
+* Status: HandedOffSuccess
+* Target File: 
+* Handoff File: [creating-a-linux-master.e466a4116345fb573545fe56b701a66c5759d70c.zh-tw.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/ae04a885481d4bc3fd99283e1872bbddfe7b140b/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.zh-tw/live/creating-a-linux-master.e466a4116345fb573545fe56b701a66c5759d70c.zh-tw.xlf)
+* Handoff Datetime: 2018-01-17 20:18:13
+* Handoff Reason: Include
+* Handoff Name: 
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: 
+* Handback Datetime: 0001-01-01 00:00:00
+* Handback Name: 
+* [Back to Top](#report-top)
+
+##### <a name='f1b832f8a21c034582e157342acf7826fb7b6ea3338'></a> Source: [virtualization\windowscontainers\kubernetes\getting-started-kubernetes-windows.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/b0e21468f880a902df63ea6bc589dfcff1530d6e/virtualization/windowscontainers/kubernetes/getting-started-kubernetes-windows.md)
+* Status: HandedOffSuccess
+* Target File: 
+* Handoff File: [getting-started-kubernetes-windows.e642abab5eaaff4bddcc8a4f36abd3f7a6675efc.zh-tw.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/ae04a885481d4bc3fd99283e1872bbddfe7b140b/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.zh-tw/live/getting-started-kubernetes-windows.e642abab5eaaff4bddcc8a4f36abd3f7a6675efc.zh-tw.xlf)
+* Handoff Datetime: 2018-01-17 20:18:13
+* Handoff Reason: Include
+* Handoff Name: 
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: 
+* Handback Datetime: 0001-01-01 00:00:00
+* Handback Name: 
 * [Back to Top](#report-top)
 
 
