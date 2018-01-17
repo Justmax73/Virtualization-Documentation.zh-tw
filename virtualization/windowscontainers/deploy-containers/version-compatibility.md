@@ -3,11 +3,11 @@ title: "Windows 容器版本相容性"
 description: "Windows 要如何跨多個版本執行組建及執行容器"
 keywords: "中繼資料, 容器, 版本"
 author: patricklang
-ms.openlocfilehash: ed9d88e1e861651426e560a4531fd4added2134a
-ms.sourcegitcommit: 456485f36ed2d412cd708aed671d5a917b934bbe
+ms.openlocfilehash: e3e9d0ba52f7dddfa2f40a9d243467ab474b459e
+ms.sourcegitcommit: 7b58ed1779d8475abe5b9e8e69f764972882063d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="windows-container-version-compatibility"></a>Windows 容器版本相容性
 
@@ -19,23 +19,29 @@ Windows Server 2016 和 Windows 10 年度更新版 (兩者皆為版本 14393) �
 
 <table>
     <tr>
-    <th>容器 OS 版本</th>
-    <th span='2'>主機 OS 版本</th>
+    <th style="background-color:#BBDEFB">容器 OS 版本</th>
+    <th span='4' style="background-color:#DCEDC8">主機 OS 版本</th>
     </tr>
     <tr>
         <td/>
-        <td><b>Windows Server 2016 / Windows 10 1609、1703</b><br/>組建：14393.*</td>
-        <td><b>Windows Server (版本 1709) / Windows 10 Fall Creators Update</b><br/>組建：16299.*</td>
+        <td style="background-color:#F1F8E9"><b>WindowsServer 2016</b><br/>組建：14393.*</td>
+        <td style="background-color:#F1F8E9"><b>Windows 10 1609、1703</b><br/>組建：14393.*、15063.*</td>
+        <td style="background-color:#F1F8E9"><b>Windows Server 版本 1709</b><br/>組建：16299.*</td>
+        <td style="background-color:#F1F8E9"><b>Windows 10 Fall Creators Update</b><br/>組建：16299.*</td>
     </tr>
     <tr>
-        <td><b>Windows Server 2016 / Windows 10 1609、1703</b><br/>組建：14393.*</td>
-        <td>支援。 `process` 或 `hyperv` 隔離</td>
-        <td>支援。 `hyperv` 隔離</td>
+        <td style="background-color:#E3F2FD"><b>WindowsServer 2016</b><br/>組建：14393.*</td>
+        <td>支援<br/> `process` 或 `hyperv` 隔離</td>
+        <td>支援<br/> 僅限 `hyperv` 隔離</td>
+        <td>支援<br/> 僅限 `hyperv` 隔離</td>
+        <td>支援<br/> 僅限 `hyperv` 隔離</td>
     </tr>
     <tr>
-        <td><b>Windows Server (版本 1709) / Windows 10 Fall Creators Update</b><br/>組建：16299.*</td>
+        <td style="background-color:#E3F2FD"><b>Windows Server 版本 1709</b><br/>組建：16299.*</td>
         <td>不支援</td>
-        <td>支援。 `process` 或 `hyperv` 隔離</td>
+        <td>不支援</td>
+        <td>支援<br/> `process` 或 `hyperv` 隔離</td>
+        <td>支援<br/> 僅限 `hyperv` 隔離</td>
     </tr>
 </table>               
 

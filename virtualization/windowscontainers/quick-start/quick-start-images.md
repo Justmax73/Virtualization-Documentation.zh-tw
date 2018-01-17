@@ -8,15 +8,15 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 479e05b1-2642-47c7-9db4-d2a23592d29f
-ms.openlocfilehash: 58bd491ccae7cd9d91088d9f180367623320345e
-ms.sourcegitcommit: 456485f36ed2d412cd708aed671d5a917b934bbe
+ms.openlocfilehash: 4858aee631f99d5b431806fc8fc774df847979c5
+ms.sourcegitcommit: 31d19664d9d8785dba69e368a2d2cc1fc9ddc7cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="automating-builds-and-saving-images"></a>自動化組建和儲存映像
 
-在先前的 Windows Server 快速入門中，已從預先建立的 .NET Core 範例建立 Windows 容器。 這項練習詳列手動建立自訂容器映像的方法，使用 Dockerfile 自動建立容器映像，並將容器映像儲存在 Docker Hub 公開登錄中。
+在先前的 Windows Server 快速入門中，已從預先建立的 .NET Core 範例建立 Windows 容器。 這項練習詳列使用 Dockerfile 自動建立容器映像，並將容器映像儲存在 Docker Hub 公開登錄中。
 
 本快速入門專屬於 Windows Server 2016 上的 Windows Server 容器，並使用 Windows Server Core 容器基本映像。 在此頁面左側的目錄中，可以找到其他的快速入門文件。
 
@@ -26,82 +26,9 @@ ms.lasthandoff: 11/08/2017
 - 設定此系統的 Windows 容器功能和 Docker。 如需這些步驟的逐步解說，請參閱 [Windows Server 上的 Windows 容器](./quick-start-windows-server.md)。
 - Docker 識別碼，這會用以將容器映像推送至 Docker Hub。 如果您沒有 Docker 識別碼，請在 [Docker Cloud](https://cloud.docker.com/) 註冊一個。
 
-## <a name="1-container-image---manual"></a>1.容器映像 - 手動
+## <a name="1-container-image---dockerfile"></a>1. 容器映像 - Dockerfile
 
-如欲得到最佳的體驗，請從 Windows 命令殼層 (cmd.exe) 逐步進行本練習。
-
-手動建立容器映像的第一個步驟是部署容器。 針對此範例，請從預先建立的 IIS 映像部署 IIS 容器。 部署容器後，您將會在來自該容器的殼層工作階段中工作。 互動式工作階段會以 `-it` 旗標起始。 如需 Docker Run 命令的深入詳細資訊，請參閱 [Docker.com 上的 Docker Run Reference](https://docs.docker.com/engine/reference/run/)。 
-
-> 由於 Windows Server Core 基本映像大小的緣故，這個步驟可能需要一些時間。
-
-```
-docker run -d --name myIIS -p 80:80 microsoft/iis
-```
-
-此時，容器將在背景執行。 容器隨附的預設命令 `ServiceMonitor.exe` 會監視 IIS 進度，且將於 IIS 停止時自動停止容器。 若要深入了解此映像的建立過程，請參閱 GitHub 上的 [Microsoft/docker-iis](https://github.com/Microsoft/iis-docker)。
-
-接下來，在容器內啟動互動式 cmd。 這將讓您可在執行中的容器內執行命令，而無須停止 IIS 或 ServiceMonitor。
-
-```
-docker exec -i myIIS cmd 
-```
-
-接下來，您可以對執行中的容器進行變更。 執行下列命令以移除 IIS 啟動顯示畫面。
-
-```
-del C:\inetpub\wwwroot\iisstart.htm
-```
-
-並且執行下列命令，將預設 IIS 網站取代為新的靜態網站。
-
-```
-echo "Hello World From a Windows Server Container" > C:\inetpub\wwwroot\index.html
-```
-
-從不同的系統中，瀏覽至容器主機的 IP 位址。 現在您應會看見 ‘Hello World’ 應用程式。
-
-**注意︰** 如果您正在使用 Azure，必須有允許流量通過連接埠 80 的網路安全性群組規則。 如需詳細資訊，請參閱[建立現有 NSG 中的規則](https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-create-nsg-arm-pportal/#create-rules-in-an-existing-nsg)。
-
-![](media/hello.png)
-
-回到容器中，結束互動式容器工作階段。
-
-```
-exit
-```
-
-修改過的容器現在可以擷取至新的容器映像。 若要這樣做，您必須使用容器名稱。 使用 `docker ps -a` 命令即可找到。
-
-```
-docker ps -a
-
-CONTAINER ID     IMAGE                             COMMAND   CREATED             STATUS   PORTS   NAMES
-489b0b447949     microsoft/iis   "cmd"     About an hour ago   Exited           pedantic_lichterman
-```
-
-若要建立新容器映像，請使用 `docker commit` 命令。 Docker commit 的形式為 “docker commit 容器名稱 新映像名稱”。 請注意，請將此範例中的容器名稱取代為實際的容器名稱。
-
-```
-docker commit pedantic_lichterman modified-iis
-```
-
-若要確認已建立新映像，請使用 `docker images` 命令。  
-
-```
-docker images
-
-REPOSITORY          TAG                 IMAGE ID            CREATED              SIZE
-modified-iis        latest              3e4fdb6ed3bc        About a minute ago   10.17 GB
-microsoft/iis       windowsservercore   c26f4ceb81db        2 weeks ago          9.48 GB
-windowsservercore   10.0.14300.1000     dbfee88ee9fd        8 weeks ago          9.344 GB
-windowsservercore   latest              dbfee88ee9fd        8 weeks ago          9.344 GB
-```
-
-現在可以部署此映像。 產生的容器將包含所有擷取的修改。
-
-## <a name="2-container-image---dockerfile"></a>2.容器映像 - Dockerfile
-
-透過最後一項練習，容器已手動建立、修改，然後擷取至新的容器映像中。 Docker 包含使用 Dockerfile 將此程序自動化的方法。 此練習最後將有幾乎相同的結果，但這一次程序將會自動進行。 這項練習需要 Docker 識別碼。 如果您沒有 Docker 識別碼，請在 [Docker Cloud]( https://cloud.docker.com/) 註冊一個。
+雖然容器可以手動建立、修改，然後擷取至到新的容器映像中，但是 Docker 包含使用 Dockerfile 將此程序自動化的方法。 這項練習需要 Docker 識別碼。 如果您沒有 Docker 識別碼，請在 [Docker Cloud]( https://cloud.docker.com/) 註冊一個。
 
 在容器主機上建立目錄 `c:\build`，然後在此目錄中建立名為 `Dockerfile` 的檔案。 請注意 – 檔案不應該具有副檔名。
 
@@ -169,7 +96,7 @@ c1dc6c1387b9   iis-dockerfile   "ping -t localhost"   About a minute ago   Up Ab
 docker rm -f <container name>
 ```
 
-## <a name="3-docker-push"></a>3.Docker Push
+## <a name="2-docker-push"></a>2. Docker Push
 
 Docker 容器映像可儲存於容器登錄中。 映像一旦儲存於登錄中，即可擷取以供日後在多種不同容器主機中使用。 Docker 提供公開登錄，以在 [Docker Hub](https://hub.docker.com/) 儲存容器映像。
 

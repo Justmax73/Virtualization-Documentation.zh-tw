@@ -8,11 +8,11 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb2848ca-683e-4361-a750-0d1d14ec8031
-ms.openlocfilehash: 59a1a3b9fa43238defbd5155dc7b264109df4625
-ms.sourcegitcommit: 456485f36ed2d412cd708aed671d5a917b934bbe
+ms.openlocfilehash: 608a08c2e7e1afbb4e2eb2583384f042baa78b1f
+ms.sourcegitcommit: c625804f3df8dc7b7aae9a4077f4b3222177ed85
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="optimize-windows-dockerfiles"></a>將 Windows Dockerfiles 最佳化
 
@@ -84,7 +84,7 @@ a395ca26777f        15 seconds ago      cmd /S /C powershell.exe -Command Remove
 957147160e8d        3 minutes ago       cmd /S /C powershell.exe -Command Invoke-WebR   125.7 MB
 ```
 
-做為比較，以下是相同的作業，但所有步驟都執行相同的 `RUN` 指令。 請注意，`RUN` 指令中的每個步驟都是在 Dockerfile 新的一行，'\' 字元則用於自動換行。 
+做為比較，以下是相同的作業，但所有步驟都執行相同的 `RUN` 指令。 請注意，`RUN` 指令中的每個步驟都是在 Dockerfile 新的一行，'\\' 字元則用於自動換行。 
 
 ```
 FROM windowsservercore

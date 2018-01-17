@@ -7,11 +7,11 @@ ms.date: 09/26/2016
 ms.topic: deployment-article
 ms.prod: windows-containers
 ms.assetid: 3c3d4c69-503d-40e8-973b-ecc4e1f523ed
-ms.openlocfilehash: 6ae690ff6592198bc16cbaf60489d3ed5aceeeb0
-ms.sourcegitcommit: 64f5f8d838f72ea8e0e66a72eeb4ab78d982b715
+ms.openlocfilehash: ecc11468bbd5aad2638da3c4f733e4d5068f0056
+ms.sourcegitcommit: 77a6195318732fa16e7d5be727bdb88f52f6db46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="windows-container-requirements"></a>Windows 容器需求
 
@@ -93,11 +93,30 @@ Windows 容器隨附兩個容器基本映像：Windows Server Core 與 Nano Serv
 
 ## <a name="matching-container-host-version-with-container-image-versions"></a>使容器主機版本與容器映像版本相符
 ### <a name="windows-server-containers"></a>Windows Server 容器
-Windows Server 容器和基礎主機共用單一核心，因此容器的基本映像必須與主機相符。  如果版本不同，容器仍可啟動，但無法保證可使用完整功能。 因此不支援不相符的版本。  Windows 作業系統有 4 個層級的版本設定：主要、次要、組建和修訂，例如 10.0.14393.0。 只有在發行新的 OS 版本時，組建編號才會變更。 修訂編號會隨著套用 Windows 更新時進行更新。 組建編號不同時，Windows Server 容器便無法啟動，例如 10.0.14300.1030 (Technical Preview 5) 和 10.0.14393 (Windows Server 2016 RTM)。 如果組建編號相符但修訂編號不同，仍可啟動，例如 10.0.14393 (Windows Server 2016 RTM) 和 10.0.14393.206 (Windows Server 2016 GA)。 雖然技術上仍可啟動，但該設定可能無法在所有情況下正常運作，因此無法用於生產環境支援。 
+Windows Server 容器和基礎主機共用單一核心，因此容器的基本映像必須與主機相符。  如果版本不同，容器仍可啟動，但無法保證可使用完整功能。 Windows 作業系統有 4 個層級的版本設定：主要、次要、組建和修訂，例如 10.0.14393.103。 只有在發行新的 OS 版本，例如版本 1709、1803、Fall Creators Update 等，組建編號才會變更 (亦即 14393) 變更。修訂編號 (亦即 103) 會隨著套用 Windows 更新時進行更新。
+#### <a name="build-number-new-release-of-windows"></a>組建編號 (新的 Windows 版本)
+容器主機和容器映像之間的組建編號不同時，Windows Server 容器便無法啟動 - 例如 10.0.14393.* (Windows Server 2016) 和 10.0.16299.* (Windows Server 版本 1709)。  
+#### <a name="revision-number-patching"></a>修訂編號 (修補)
+容器主機和容器映像之間的修訂編號不同時，Windows Server 容器的啟動_不會_被封鎖 - 例如 10.0.14393.1914 (已套用 KB4051033 的 Windows Server 2016) 和 10.0.14393.1944 (已套用 KB4053579 的 Windows Server 2016)。  
+針對 Windows Server 2016 主機/映像 – 容器映像的修訂必須符合主機，才能加入至支援的組態中。  從 Windows Server 版本 1709 開始，這不再適用，而且主機和容器映像不需要有相符修訂。  一如往常，建議將系統保持在最新的修補程式和更新。
+#### <a name="practical-application"></a>實際應用
+範例 1：容器主機執行已套用 KB4041691 的 Windows Server 2016。  部署至此主機的任何 Windows Server 容器都必須以 10.0.14393.1770 容器基本映像為基礎。  如果 KB4053579 已套用至主機，容器映像必須同時更新，才能繼續受到支援。
+範例 2：容器主機執行已套用 KB4043961 的 Windows Server 版本 1709。  部署至此主機的任何 Windows Server 容器都必須以 Windows Server 版本 1709 (10.0.16299) 容器基本映像為基礎，但不需要符合主機 KB。  如果 KB4054517 已套用至主機，容器映像不需要更新，不過為了完整解決任何安全性問題，最好還是更新。
+#### <a name="querying-version"></a>查詢版本
+方法 1：版本 1709 中導入，cmd 提示字元和 ver 命令現在會傳回修訂詳細資料。
+```
+Microsoft Windows [Version 10.0.16299.125]
+(c) 2017 Microsoft Corporation. All rights reserved.
 
-若要檢查已安裝的 Windows 主機版本為何，您可以查詢 HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion。  若要檢查基本映像使用的版本為何，您可以檢閱 Docker 中樞的標籤，或是映像描述中提供的映像雜湊表。  [Windows 10 更新歷程記錄](https://support.microsoft.com/en-us/help/12387/windows-10-update-history)頁面上列出每個組建與修訂發行的時間。
+C:\>ver
 
-在此範例中，14393 是主要組建編號，而 321 為修訂編號。
+Microsoft Windows [Version 10.0.16299.125] 
+```
+方法 2：查詢下列登錄機碼：HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion 例如：
+```
+C:\>reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion" /v BuildLabEx
+```
+或
 ```
 Windows PowerShell
 Copyright (C) 2016 Microsoft Corporation. All rights reserved.
@@ -106,12 +125,15 @@ PS C:\Users\Administrator> (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows N
 14393.321.amd64fre.rs1_release_inmarket.161004-2338
 ```
 
+若要檢查基本映像使用的版本為何，您可以檢閱 Docker 中樞的標籤，或是映像描述中提供的映像雜湊表。  [Windows 10 更新歷程記錄](https://support.microsoft.com/en-us/help/12387/windows-10-update-history)頁面上列出每個組建與修訂發行的時間。
+
 ### <a name="hyper-v-isolation-for-containers"></a>容器的 Hyper-V 隔離
 Windows 容器可以在使用或不使用 Hyper-V 隔離的情況下執行。  Hyper-V 隔離會使用最佳化的 VM，在容器周圍建立安全的界限。  每個 Hyper-V 隔離的容器都具有自身的 Windows 核心執行個體，不像標準 Windows 容器會和其他容器與主機共用核心。  因此，您可以在容器主機和映像中使用不同的 OS 版本 (請參閱下面的相容性對照表)。  
 
 若要使用 Hyper-V 隔離來執行容器，只要將 "--isolation=hyperv" 標記新增至您的 docker run 命令即可。
 
 ### <a name="compatibility-matrix"></a>相容性對照表
-2016 GA (10.0.14393.206) 之後的 Windows Server 組建都可以在受支援的設定中，不受修訂編號的限制執行 Windows Server Core 或 Nano Server 的 Windows Server 2016 GA 映像。    
+2016 GA (10.0.14393.206) 之後的 Windows Server 組建都可以在受支援的設定中，不受修訂編號的限制執行 Windows Server Core 或 Nano Server 的 Windows Server 2016 GA 映像。
+Windows Server 版本 1709 主機也可以執行 Windows Server 2016 容器，但是反之則不支援。
 
 請務必了解，為了使用 Windows 更新所提供的完整功能、可靠性和安全性保證，您應該在所有系統上皆維持最新的版本。  

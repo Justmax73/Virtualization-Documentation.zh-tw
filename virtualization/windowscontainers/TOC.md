@@ -26,13 +26,21 @@
 ## [Windows 上的 Docker 引擎](docker/configure_docker_daemon.md)
 ## [Windows 上的 Dockerfiles](manage-docker/manage-windows-dockerfile.md)
 ## [最佳化 Dockerfiles](manage-docker/optimize-windows-dockerfile.md)
-## [容器的網路功能](manage-containers/container-networking.md)
+## [容器網路功能](manage-containers/container-networking.md)
+## [容器儲存體](manage-containers/container-storage.md)
 ## [開始使用群集模式](manage-containers/swarm-mode.md)
 ## [透過 PowerShell 管理 Docker](https://github.com/Microsoft/Docker-PowerShell)
 ## [Windows Docker 主機的遠端管理](management/manage_remotehost.md)
 ## [資源控制項](manage-containers/resource-controls.md)
 
-# 範例容器
+# Windows 上的 Kubernetes 
+## [開始使用](kubernetes/getting-started-kubernetes-windows.md)
+## [建立 Linux 主要節點](kubernetes/creating-a-linux-master.md)
+## [設定網路拓撲](kubernetes/configuring-host-gateway-mode.md)
+## [編譯 Kubernetes 二進位檔](kubernetes/compiling-kubernetes-binaries.md)
+## [疑難排解](kubernetes/common-problems.md)
+
+# 容器範例
 ## [應用程式架構](samples.md#Application-Frameworks)
 ## [程式設計語言](samples.md#Programing-Languages)
 ## [資料庫](samples.md#Databases)
