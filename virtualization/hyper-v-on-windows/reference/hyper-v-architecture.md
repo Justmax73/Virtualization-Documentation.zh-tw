@@ -14,18 +14,6 @@ Hyper-V 是以 Hypervisor 為基礎的虛擬化技術，適用於特定 x64 版 
 
 ![](./media/hv_architecture.png)
 
-## <a name="support-for-third-party-virtualization-stacks"></a>對協力廠商虛擬化堆疊的支援
-
-此外，Hyper-V 有延伸的使用者模式 API，可供協力廠商虛擬化堆疊和應用程式在 Hypervisor 層級建立和管理磁碟分割區、設定磁碟分割區的記憶體對應，以及建立虛擬處理器和控制其執行。
-
-> 例如：用戶端 (例如 QEMU) 可以在 Hypervisor 上執行，同時維持其管理、設定、客體/主機通訊協定和客體支援的驅動程式。 這一切都是在 Hyper-V 受管理磁碟分割區旁邊一起執行，沒有重疊。
-
-下圖提供協力廠商架構的高階概觀。
-
-![](./media/hv_platform_architecture_simplified.png)
-> 如需詳細資訊，請參閱：[Windows Hypervisor 平台 API](./hypervisor-platform.md)
-**注意：這些 API 尚未公開可用，將會包含在未來的 Windows 版本。**
-
 ## <a name="glossary"></a>詞彙
 * **APIC** – 進階可程式化插斷控制器 (Advanced Programmable Interrupt Controller) – 此裝置可允許為其插斷輸出指派優先順序層級。
 * **子磁碟分割 (Child Partition)** – 裝載客體作業系統的磁碟分割 - 子磁碟分割對實體記憶體和裝置的所有存取權，都是透過虛擬機器匯流排 (VMBus) 或 Hypervisor 來提供。

@@ -8,11 +8,11 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ebd79cd3-5fdd-458d-8dc8-fc96408958b5
-ms.openlocfilehash: 44693b413dd8043fbec68835eafe6754615fa449
-ms.sourcegitcommit: 456485f36ed2d412cd708aed671d5a917b934bbe
+ms.openlocfilehash: 4d4b8a533aa5517c5850967f0b92c97da5190296
+ms.sourcegitcommit: 4042339cfd8a4440a5aba2b6f28968a52ab066fa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="troubleshooting"></a>疑難排解
 
@@ -29,7 +29,7 @@ Invoke-WebRequest https://aka.ms/Debug-ContainerHost.ps1 -UseBasicParsing | Invo
 ## <a name="finding-logs"></a>尋找記錄檔
 有多項服務可以用於管理 Windows 容器。 接下來的幾節將會指出各項服務記錄檔的位置。
 
-### <a name="docker-engine"></a>Docker 引擎
+# <a name="docker-engine"></a>Docker 引擎
 Docker 引擎會將事件記錄至 Windows 應用程式事件記錄檔，而不是記錄至檔案。 您可以使用 Windows PowerShell，輕鬆讀取、排序和篩選這些記錄檔
 
 比方說，這會顯示 Docker 引擎前 5 分鐘的記錄檔，並從最舊的開始排序。
@@ -44,7 +44,7 @@ Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-5
 Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-30)  | Sort-Object Time | Export-CSV ~/last30minutes.CSV
 ```
 
-#### <a name="enabling-debug-logging"></a>啟用偵錯記錄
+## <a name="enabling-debug-logging"></a>啟用偵錯記錄
 您也可以對 Docker 引擎啟用偵錯層級記錄。 當標準記錄檔的詳細資料不足時，這可能會很有幫助。
 
 首先，請開啟提升權限的命令提示字元，然後執行 `sc.exe qc docker`，以取得 Docker 服務目前的命令列。
@@ -90,7 +90,7 @@ sc.exe stop docker
 <path\to\>dockerd.exe -D > daemon.log 2>&1
 ```
 
-#### <a name="obtaining-stack-dump-and-daemon-data"></a>取得堆疊傾印和精靈資料。
+## <a name="obtaining-stack-dump-and-daemon-data"></a>取得堆疊傾印和精靈資料。
 
 一般而言，這些資料只有在 Microsoft 支援服務或 Docker 開發人員明確要求時才有用。 其可用來協助診斷 Docker 似乎已當掉的情形。 
 
@@ -110,7 +110,7 @@ docker-signal -pid=<id>
 請注意，`daemon-data*.log` 可能包含個人資料，通常應該只能與受信任的支援人員共用。 `goroutine-stacks*.log` 沒有包含個人資訊。
 
 
-### <a name="host-compute-service"></a>主機運算服務
+# <a name="host-compute-service"></a>主機運算服務
 Docker 引擎需要 Windows 專用的主機運算服務。 此服務有自己的記錄檔︰ 
 - Microsoft-Windows-Hyper-V-Compute-Admin
 - Microsoft-Windows-Hyper-V-Compute-Operational
@@ -123,7 +123,7 @@ Get-WinEvent -LogName Microsoft-Windows-Hyper-V-Compute-Admin
 Get-WinEvent -LogName Microsoft-Windows-Hyper-V-Compute-Operational 
 ```
 
-#### <a name="capturing-hcs-analyticdebug-logs"></a>擷取 HCS 分析/偵錯記錄
+## <a name="capturing-hcs-analyticdebug-logs"></a>擷取 HCS 分析/偵錯記錄
 
 若要為「Hyper-V 運算」啟用分析/偵錯記錄，並將其儲存至 `hcslog.evtx`。
 
@@ -140,7 +140,7 @@ wevtutil.exe epl Microsoft-Windows-Hyper-V-Compute-Analytic <hcslog.evtx>
 wevtutil.exe sl Microsoft-Windows-Hyper-V-Compute-Analytic /e:false /q:true
 ```
 
-#### <a name="capturing-hcs-verbose-tracing"></a>擷取 HCS 詳細追蹤資料
+## <a name="capturing-hcs-verbose-tracing"></a>擷取 HCS 詳細追蹤資料
 
 一般而言，這些資料只有在 Microsoft 支援服務要求時才有用。 
 

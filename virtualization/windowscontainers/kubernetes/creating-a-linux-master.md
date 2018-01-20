@@ -7,11 +7,11 @@ ms.topic: get-started-article
 ms.prod: containers
 description: "從頭開始建立 Kubernetes 叢集主機。"
 keywords: "kubernetes, 1.9, 主機, linux"
-ms.openlocfilehash: 8fa8b0a6b97d9909d0b1e670b37a0a541901a08d
-ms.sourcegitcommit: ad5f6344230c7c4977adf3769fb7b01a5eca7bb9
+ms.openlocfilehash: d5251b1a2dc06bef396820e324fb240eed04acc8
+ms.sourcegitcommit: b0e21468f880a902df63ea6bc589dfcff1530d6e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="kubernetes-master--from-scratch"></a>從頭建立 Kubernetes 主機 #
 此頁面從開始到結束逐步解說 Kubernetes 主機的手動部署。
@@ -49,10 +49,10 @@ mv * ~/kube/
 > [!Note]  
 > 若要包含修補程式或使用 Bleeding-Edge Kubernetes 程式碼，而不下載預先建置的二進位檔，請參閱[此頁面](./compiling-kubernetes-binaries.md)。
 
-從 [Kubernetes Mainline](https://github.com/kubernetes/kubernetes/releases/tag/v1.9.0-beta.1) 下載並安裝官方 Linux 二進位檔案，並進行安裝，如下所示：
+從 [Kubernetes Mainline](https://github.com/kubernetes/kubernetes/releases/tag/v1.9.1) 下載並安裝官方 Linux 二進位檔案，並進行安裝，如下所示：
 
 ```bash
-wget -O kubernetes.tar.gz https://github.com/kubernetes/kubernetes/releases/download/v1.9.0-beta.1/kubernetes.tar.gz
+wget -O kubernetes.tar.gz https://github.com/kubernetes/kubernetes/releases/download/v1.9.1/kubernetes.tar.gz
 tar -vxzf kubernetes.tar.gz 
 cd kubernetes/cluster 
 # follow the prompts from this command, the defaults are generally fine:

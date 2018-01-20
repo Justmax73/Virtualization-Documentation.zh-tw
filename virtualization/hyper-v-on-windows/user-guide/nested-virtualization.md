@@ -8,11 +8,11 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 68c65445-ce13-40c9-b516-57ded76c1b15
-ms.openlocfilehash: d5b8e888b62495c98c0691dc0d62deecf7c1eb6e
-ms.sourcegitcommit: 6eefb890f090a6464119630bfbdc2794e6c3a3df
+ms.openlocfilehash: 82c8ba6b09b6d1bfde7217eeaf16cfb7967d4f62
+ms.sourcegitcommit: 59541f11d481d8df341597bd73ce7fac14f442ee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="run-hyper-v-in-a-virtual-machine-with-nested-virtualization"></a>在巢狀虛擬化的虛擬機器中執行 Hyper-V
 
@@ -98,6 +98,8 @@ Netsh interface ip add dnsserver “Ethernet” address=<my DNS server>
 ![](./media/HVNoNesting.png)
 
 另一方面，下圖顯示已啟用巢狀虛擬化的 Hyper-V。 在此情況下，Hyper-V 會向其虛擬機器公開硬體虛擬化延伸模組。 啟用巢狀後，客體虛擬機器可以安裝自己的 Hypervisor，並執行它自己的客體 VM。
+
+![](./media/HVNesting.png)
 
 ## <a name="3rd-party-virtualization-apps"></a>協力廠商虛擬化應用程式
 

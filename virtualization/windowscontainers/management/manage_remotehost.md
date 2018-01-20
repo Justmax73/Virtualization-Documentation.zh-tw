@@ -8,13 +8,13 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 0cc1b621-1a92-4512-8716-956d7a8fe495
-ms.openlocfilehash: 1ab2a9b823c5c903bd08b476f5caef65ec6e3207
-ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
+ms.openlocfilehash: b975c593bd5c736ec3e7e1e21b76b2f6a2c8f8a4
+ms.sourcegitcommit: 50d31ccdc097f17b8b99cd95da0671de182795cf
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 01/06/2018
 ---
-# Windows Docker 主機的遠端管理
+# <a name="remote-management-of-a-windows-docker-host"></a>Windows Docker 主機的遠端管理
 
 即使在缺乏 `docker-machine` 的情況下，您仍然可在 Windows Server 2016 VM 上建立遠端存取 Docker 主機。
 
@@ -40,8 +40,8 @@ ker\client\key.pem ps
 ```
 
 
-## 疑難排解
-### 嘗試不使用 TLS 進行連線來判斷您的 NSG 防火牆設定是否正確
+## <a name="troubleshooting"></a>疑難排解
+### <a name="try-connecting-without-tls-to-determine-your-nsg-firewall-settings-are-correct"></a>嘗試不使用 TLS 進行連線來判斷您的 NSG 防火牆設定是否正確
 連線錯誤通常會顯示為如下錯誤︰
 ```
 error during connect: Get https://wsdockerhost.southcentralus.cloudapp.azure.com:2376/v1.25/version: dial tcp 13.85.27.177:2376: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
@@ -60,14 +60,14 @@ error during connect: Get https://wsdockerhost.southcentralus.cloudapp.azure.com
 docker -H tcp://wsdockerhost.southcentralus.cloudapp.azure.com:2376 --tlsverify=0 version
 ```
 
-### 憑證問題
+### <a name="cert-problems"></a>憑證問題
 使用非針對 IP 位址或 DNS 名稱所建立的憑證存取 Docker 主機，將導致發生錯誤︰
 ```
 error during connect: Get https://w.x.y.c.z:2376/v1.25/containers/json: x509: certificate is valid for 127.0.0.1, a.b.c.d, not w.x.y.z
 ```
 請確保 w.x.y.z 是主機公用 IP 的 DNS 名稱，且任一 DNS 名稱符合憑證的[通用名稱](https://www.ssl.com/faqs/common-name/)，而該名稱為 `SERVER_NAME` 環境變數或提供給 dockertls 之 `IP_ADDRESSES` 變數中的其中一個 IP 位址
 
-### crypto/x509 警告
+### <a name="cryptox509-warning"></a>crypto/x509 警告
 您可能會收到警告 
 ```
 level=warning msg="Unable to use system certificate pool: crypto/x509: system root pool is not available on Windows"
