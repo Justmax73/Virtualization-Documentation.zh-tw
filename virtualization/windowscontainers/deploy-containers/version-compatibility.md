@@ -3,11 +3,11 @@ title: "Windows 容器版本相容性"
 description: "Windows 要如何跨多個版本執行組建及執行容器"
 keywords: "中繼資料, 容器, 版本"
 author: patricklang
-ms.openlocfilehash: e3e9d0ba52f7dddfa2f40a9d243467ab474b459e
-ms.sourcegitcommit: 7b58ed1779d8475abe5b9e8e69f764972882063d
+ms.openlocfilehash: 5c82c715bca6260e776946d538b942b74b7f1bc1
+ms.sourcegitcommit: 7fc79235cbee052e07366b8a6aa7e035a5e3434f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="windows-container-version-compatibility"></a>Windows 容器版本相容性
 
@@ -45,6 +45,46 @@ Windows Server 2016 和 Windows 10 年度更新版 (兩者皆為版本 14393) �
     </tr>
 </table>               
 
+## <a name="matching-container-host-version-with-container-image-versions"></a>使容器主機版本與容器映像版本相符
+### <a name="windows-server-containers"></a>Windows Server 容器
+Windows Server 容器和基礎主機共用單一核心，因此容器的基本映像必須與主機相符。  如果版本不同，容器仍可啟動，但無法保證可使用完整功能。 Windows 作業系統有 4 個層級的版本設定：主要、次要、組建和修訂，例如 10.0.14393.103。 只有在發行新的 OS 版本，例如版本 1709、1803、Fall Creators Update 等，組建編號才會變更 (亦即 14393) 變更。修訂編號 (亦即 103) 會隨著套用 Windows 更新時進行更新。
+#### <a name="build-number-new-release-of-windows"></a>組建編號 (新的 Windows 版本)
+容器主機和容器映像之間的組建編號不同時，Windows Server 容器便無法啟動 - 例如 10.0.14393.* (Windows Server 2016) 和 10.0.16299.* (Windows Server 版本 1709)。  
+#### <a name="revision-number-patching"></a>修訂編號 (修補)
+容器主機和容器映像之間的修訂編號不同時，Windows Server 容器的啟動_不會_被封鎖 - 例如 10.0.14393.1914 (已套用 KB4051033 的 Windows Server 2016) 和 10.0.14393.1944 (已套用 KB4053579 的 Windows Server 2016)。  
+針對 Windows Server 2016 主機/映像 – 容器映像的修訂必須符合主機，才能加入至支援的組態中。  從 Windows Server 版本 1709 開始，這不再適用，而且主機和容器映像不需要有相符修訂。  一如往常，建議將系統保持在最新的修補程式和更新。
+#### <a name="practical-application"></a>實際應用
+範例 1：容器主機執行已套用 KB4041691 的 Windows Server 2016。  部署至此主機的任何 Windows Server 容器都必須以 10.0.14393.1770 容器基本映像為基礎。  如果 KB4053579 已套用至主機，容器映像必須同時更新，才能繼續受到支援。
+範例 2：容器主機執行已套用 KB4043961 的 Windows Server 版本 1709。  部署至此主機的任何 Windows Server 容器都必須以 Windows Server 版本 1709 (10.0.16299) 容器基本映像為基礎，但不需要符合主機 KB。  如果 KB4054517 已套用至主機，容器映像不需要更新，不過為了完整解決任何安全性問題，最好還是更新。
+#### <a name="querying-version"></a>查詢版本
+方法 1：版本 1709 中導入，cmd 提示字元和 `ver` 命令現在會傳回修訂詳細資料。
+```
+Microsoft Windows [Version 10.0.16299.125]
+(c) 2017 Microsoft Corporation. All rights reserved.
+
+C:\>ver
+
+Microsoft Windows [Version 10.0.16299.125] 
+```
+方法 2：查詢下列登錄機碼：HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion 例如：
+```
+C:\>reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion" /v BuildLabEx
+```
+或
+```
+Windows PowerShell
+Copyright (C) 2016 Microsoft Corporation. All rights reserved.
+
+PS C:\Users\Administrator> (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\').BuildLabEx
+14393.321.amd64fre.rs1_release_inmarket.161004-2338
+```
+
+若要檢查基本映像使用的版本為何，您可以檢閱 Docker 中樞的標籤，或是映像描述中提供的映像雜湊表。  [Windows 10 更新歷程記錄](https://support.microsoft.com/en-us/help/12387/windows-10-update-history)頁面上列出每個組建與修訂發行的時間。
+
+### <a name="hyper-v-isolation-for-containers"></a>容器的 Hyper-V 隔離
+Windows 容器可以在使用或不使用 Hyper-V 隔離的情況下執行。  Hyper-V 隔離會使用最佳化的 VM，在容器周圍建立安全的界限。  每個 Hyper-V 隔離的容器都具有自身的 Windows 核心執行個體，不像標準 Windows 容器會和其他容器與主機共用核心。  因此，您可以在容器主機和映像中使用不同的 OS 版本 (請參閱下面的相容性對照表)。  
+
+若要使用 Hyper-V 隔離來執行容器，只要將 `--isolation=hyperv` 標記新增至您的 docker run 命令即可。
 
 ## <a name="errors-from-mismatched-versions"></a>不相符版本的錯誤
 

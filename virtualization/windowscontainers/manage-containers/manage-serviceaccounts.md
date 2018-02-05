@@ -8,11 +8,11 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
-ms.openlocfilehash: 86d0b2f3ae86f99680e03e2bb8ad2712c6c70c16
-ms.sourcegitcommit: 456485f36ed2d412cd708aed671d5a917b934bbe
+ms.openlocfilehash: df9ca8a4bcd6bf959e221593ea69d5ed624cdae1
+ms.sourcegitcommit: 6beac5753c9f65bb6352df8c829c2e62e24bd2e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="active-directory-service-accounts-for-windows-containers"></a>適用於 Windows 容器的 Active Directory 服務帳戶
 
@@ -46,6 +46,9 @@ Windows 容器遵循類似的程序：
 3. 允許在其他服務存取 gMSA，例如資料庫或檔案共用
 4. 從 [windows-server-container-tools](https://github.com/Microsoft/Virtualization-Documentation/tree/live/windows-server-container-tools)使用 CredentialSpec PowerShell 模組，以儲存使用 gMSA 所需設定
 5. 使用額外選項啟動容器 `--security-opt "credentialspec=..."`
+
+[!NOTE]
+就像[這裡](https://docs.microsoft.com/en-us/windows/device-security/security-policy-settings/network-access-allow-anonymous-sidname-translation)所說的，您可能需要在容器主機上允許匿名 SID/名稱轉譯，若非如此，您可能會收到帳戶無法轉譯為 SID 的錯誤。
 
 當容器啟動時，以本機系統或網路服務身分執行的已安裝服務就會顯示為以 gMSA 身分執行。 這類似帳戶在網域加入主機上運作的方式，不同之處在於使用了 gMSA，而非電腦帳戶。 
 
