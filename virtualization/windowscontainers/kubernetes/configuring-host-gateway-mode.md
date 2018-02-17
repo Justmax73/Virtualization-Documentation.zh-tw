@@ -6,7 +6,7 @@ Kubernetes 網路功能的其中一個可用選項是*主機閘道模式*，這�
 針對這點，我們會使用 `iptables`。 將 `$CLUSTER_PREFIX` 變數取代 (或設定) 為所有 Pod 都將使用的簡寫式子網路：
 
 ```bash
-$CLUSTER_PREFIX="192.168"
+CLUSTER_PREFIX="192.168"
 sudo iptables -t nat -F
 sudo iptables -t nat -A POSTROUTING ! -d $CLUSTER_PREFIX.0.0/16 \
               -m addrtype ! --dst-type LOCAL -j MASQUERADE
@@ -22,7 +22,7 @@ sudo route add -net $CLUSTER_PREFIX.0.0 netmask 255.255.0.0 dev eth0
 最後，我們需要在**每個節點**新增下一個躍點閘道。 例如，如果第一個節點是 `192.168.1.0/16` 上的 Windows 節點，則：
 
 ```bash
-sudo route add -net $CLUSTER.1.0 netmask 255.255.255.0 gw $CLUSTER.1.2 dev eth0
+sudo route add -net $CLUSTER_PREFIX.1.0 netmask 255.255.255.0 gw $CLUSTER_PREFIX.1.2 dev eth0
 ```
 
 *針對*叢集中的每個節點，*在*叢集中的每個節點，必須新增類似路由。
@@ -35,7 +35,6 @@ sudo route add -net $CLUSTER.1.0 netmask 255.255.255.0 gw $CLUSTER.1.2 dev eth0
 
 ## <a name="configuring-static-routes--windows"></a>設定靜態路由 | Windows ##
 針對這點，我們會使用 `New-NetRoute`。 [這個存放庫](https://github.com/Microsoft/SDN/blob/master/Kubernetes/windows/AddRoutes.ps1)中有可用的自動指令碼 `AddRoutes.ps1`。 您必須知道 *Linux 主機*的 IP 位址，以及 Windows 節點*外部*介面卡的預設閘道 (而非 Pod 閘道)。 然後：
-
 
 ```powershell
 $url = "https://raw.githubusercontent.com/Microsoft/SDN/master/Kubernetes/windows/AddRoutes.ps1"
