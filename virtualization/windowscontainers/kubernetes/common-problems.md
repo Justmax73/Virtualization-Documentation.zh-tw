@@ -7,11 +7,11 @@ ms.topic: troubleshooting
 ms.prod: containers
 description: "部署 Kubernetes 和加入 Windows 節點時常見問題的解決方案。"
 keywords: "kubernetes, 1.9, linux, 編譯"
-ms.openlocfilehash: 4fb7ac312b08c63564beb0f40889ff6a050c7166
-ms.sourcegitcommit: b0e21468f880a902df63ea6bc589dfcff1530d6e
+ms.openlocfilehash: b6be43f1afabdf8ef9c2ddc6f46ed5ac43a9e7a5
+ms.sourcegitcommit: 2e8f1fd06d46562e56c9e6d70e50745b8b234372
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="troubleshooting-kubernetes"></a>疑難排解 Kubernetes #
 此頁面逐步解說 Kubernetes 設定、網路及部署的數個常見問題。
@@ -50,6 +50,7 @@ chmod +x [script name]
 ## <a name="common-networking-errors"></a>常見的網路錯誤 ##
 網路上或主機上可能有其他限制，防止節點之間特定類型的通訊。 請確定：
 
+  - 您已正確設定網路拓撲
   - 允許來自 Pod 的流量
   - 允許 HTTP 流量，如果您要部署 Web 服務
   - 未捨棄 ICMP 封包
@@ -80,10 +81,10 @@ chmod +x [script name]
 
 
 ### <a name="no-network-adapter-is-found-when-starting-kubelet"></a>啟動 Kubelet 時找不到網路介面卡 ###
-Windows 網路堆疊需要虛擬介面卡，才能讓 Kubernetes 網路功能運作。 如果下列命令未傳回任何結果 (在 Admin Shell 中)，表示虛擬網路建立作業 (讓 Kubelet 運作所需的必要條件) 失敗：
+Windows 網路堆疊需要虛擬介面卡，才能讓 Kubernetes 網路功能運作。 如果下列命令未傳回任何結果 (在 Admin Shell 中)，表示虛擬網路建立作業 &mdash; 讓 Kubelet 運作所需的必要條件 &mdash; 失敗：
 
 ```powershell
-Get-HnsNetwork | ? Name -Like "l2bridge"
+Get-HnsNetwork | ? Name -ieq "l2bridge"
 Get-NetAdapter | ? Name -Like "vEthernet (Ethernet*"
 ```
 

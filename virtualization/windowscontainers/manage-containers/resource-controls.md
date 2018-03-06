@@ -8,11 +8,11 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8ccd4192-4a58-42a5-8f74-2574d10de98e
-ms.openlocfilehash: d3eb7e2b751468953a152e8c723551fb3e1d12dd
-ms.sourcegitcommit: a072513214b0dabb9dba20ce43ea52aaf7806c5f
+ms.openlocfilehash: 413e28aabccdf894ebc249d8eae59e75e4b42345
+ms.sourcegitcommit: 1bd3d86bfbad8351cb19bdc84129dd5aec976c0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/01/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="implementing-resource-controls-for-windows-containers"></a>實作 Windows 容器適用的資源控制項
 可以針對各個容器和各項資源實作多個資源控制項。  根據預設，容器的執行受限於一般 Windows 資源管理，此管理方式通常是以公平共用為根據，但是經由這些控制項的設定，開發人員或管理員就可以限制或影響資源使用量。  可以控制的資源包含︰CPU/處理器、記憶體/RAM、磁碟/儲存空間和網路功能/輸送量。
@@ -28,6 +28,7 @@ Windows 容器會使用[工作物件]( https://msdn.microsoft.com/en-us/library/
 | HCS 介面 | [MemoryMaximumInMB]( https://github.com/Microsoft/hcsshim/blob/b144c605002d4086146ca1c15c79e56bfaadc2a7/interface.go#L67) |
 | 共用的核心 | [JOB_OBJECT_LIMIT_JOB_MEMORY](https://msdn.microsoft.com/en-us/library/windows/desktop/ms684147(v=vs.85).aspx) |
 | Hyper-V 隔離 | 虛擬機器記憶體 |
+| _關於 Windows Server 2016 Hyper-V 隔離的注意事項：使用記憶體上限時，您會看到容器最初配置記憶體的上限數量，然後開始將它傳回至容器主機。  在較新版本 (1709 或更新版本)，這已最佳化。_ |
 | ||
 | *CPU (計數)* ||
 | Docker 介面 | [--cpus](https://docs.docker.com/engine/admin/resource_constraints/#cpu) |
@@ -61,7 +62,7 @@ Windows 容器會使用[工作物件]( https://msdn.microsoft.com/en-us/library/
 
 ## <a name="additional-notes-or-details"></a>其他註解或詳細資料
 ### <a name="memory"></a>記憶體
-Windows 容器會執行每個容器中的某個系統處理序，通常這些容器都會提供每個容器功能，例如使用者管理、網路等等， 這些處理序所需的大多數記憶體會在容器之間共用，因此記憶體容量必須夠高才能完成這些處理序。  [系統需求](https://docs.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/system-requirements#memory-requirments)文件中有提供每個基本映像類型適用的表格，而且有含/不含 Hyper-V 隔離。
+Windows 容器會執行每個容器中的某個系統處理序，通常這些容器都會提供每個容器功能，例如使用者管理、網路等等， 這些處理序所需的大多數記憶體會在容器之間共用，因此記憶體上限必須夠高才能完成這些處理序。  [系統需求](https://docs.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/system-requirements#memory-requirments)文件中有提供每個基本映像類型適用的表格，而且有含/不含 Hyper-V 隔離。
 
 ### <a name="cpu-shares-without-hyper-v-isolation"></a>CPU 共用 (不含 Hyper-V 隔離)
 當使用 CPU 共用時，基礎實作 (不使用 Hyper-V 隔離時) 會設定 [JOBOBJECT_CPU_RATE_CONTROL_INFORMATION](https://msdn.microsoft.com/en-us/library/windows/desktop/hh448384(v=vs.85).aspx)，尤其會將控制項旗標設定為 JOB_OBJECT_CPU_RATE_CONTROL_WEIGHT_BASED 並提供適當的權重。  工作物件的有效權重範圍為 1 – 9，預設值為 5，其精確度低於主機運算服務值 1 – 10000。  舉例來說，7500 共用權重會產生 7 的權重，或 2500 共用權重會產生 2 的值。

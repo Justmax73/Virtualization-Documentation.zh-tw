@@ -8,15 +8,15 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 25de368c-5a10-40a4-b4aa-ac8c9a9ca022
-ms.openlocfilehash: b084bf179d9360e4a72e8e88b4fec80eafb2906c
-ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
+ms.openlocfilehash: 37c8cadc4e2725e8220834d41907240c1a273e09
+ms.sourcegitcommit: f542e8c95b5bb31b05b7c88f598f00f76779b519
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 02/01/2018
 ---
-# 常見問題集
+# <a name="frequently-asked-questions"></a>常見問題集
 
-## 關於 Windows 容器
+## <a name="about-windows-containers"></a>關於 Windows 容器
 
 **什麼是 Windows Server 容器？**
 
@@ -54,7 +54,7 @@ Drawbridge 是以往許多可協助我們深入了解容器的研究專案之一
 Windows Server 容器和 Hyper-V 容器都需要 Windows Server 2016。 這些技術不適用於舊版的 Windows。
 
 
-## Windows 容器管理
+## <a name="windows-container-management"></a>Windows 容器管理
 
 **Hyper-V 容器也可在 Docker 生態系統中使用嗎？**
 
@@ -62,15 +62,14 @@ Windows Server 容器和 Hyper-V 容器都需要 Windows Server 2016。 這些�
 Docker 平台也可大幅簡化並提升跨容器選項的使用體驗。 使用 Windows Server 容器開發的應用程式可直接部署為 hyper-V 容器，而不需要變更。
 
 
-## Microsoft 的開放生態系統
+## <a name="microsofts-open-ecosystem"></a>Microsoft 的開放生態系統
 
 **Microsoft 是否參與開放容器計劃 (Open Container Initiative, OCI)?**
 
 為了確保封裝格式的通用性，Docker 最近發起開放容器計劃 (OCI)，以期能讓容器封裝維持開放和基金會領導的形式，而 Microsoft 也是發起成員之一。
 
-**Microsoft 真的和 Docker 合作了嗎？**
+**與 Docker 建立合作關係有何優勢？**
 
-可以。  
 我們與 Docker 的合作關係，讓開發人員能夠以相同的 Docker 工具組建立、管理和部署 Windows Server 和 Linux 容器。 以 Windows Server 為目標的開發人員，將不再需要在使用眾多 Windows Server 技術與建置容器化應用程式之間選擇。  
 
 Docker 有兩個重點，即專案的開放原始碼群組和 Docker 這家公司。 我們認為這項合作可達到此一雙重效益。 Docker 的成功有部分來自於藉由 Docker 容器技術建立起來的活躍生態系統。 Microsoft 會對 Docker Project 有所貢獻，進而支援 Windows Server 容器和 Hyper-V 容器。  

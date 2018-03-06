@@ -7,11 +7,11 @@ ms.topic: get-started-article
 ms.prod: containers
 description: "從頭開始建立 Kubernetes 叢集主機。"
 keywords: "kubernetes, 1.9, 主機, linux"
-ms.openlocfilehash: d5251b1a2dc06bef396820e324fb240eed04acc8
-ms.sourcegitcommit: b0e21468f880a902df63ea6bc589dfcff1530d6e
+ms.openlocfilehash: 3ea338f7af3dd921731fce0ec5a8b2cf8c4fef0c
+ms.sourcegitcommit: f542e8c95b5bb31b05b7c88f598f00f76779b519
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="kubernetes-master--from-scratch"></a>從頭建立 Kubernetes 主機 #
 此頁面從開始到結束逐步解說 Kubernetes 主機的手動部署。
@@ -27,9 +27,17 @@ ms.lasthandoff: 01/17/2018
 首先，安裝所有的必要條件：
 
 ```bash
-sudo apt-get install curl git build-essential docker.io conntrack
+sudo apt-get install curl git build-essential docker.io conntrack python2.7
 ```
 
+如果您位於 Proxy 伺服器後方，必須為目前工作階段定義環境變數：
+```bash
+HTTP_PROXY=http://proxy.example.com:80/
+HTTPS_PROXY=http://proxy.example.com:443/
+http_proxy=http://proxy.example.com:80/
+https_proxy=http://proxy.example.com:443/
+```
+或如果您想要讓此設定具有永久性，請將變數新增至 /etc/environment (登出然後再次登入，才能套用變更)。
 
 [這個存放庫](https://github.com/Microsoft/SDN/tree/master/Kubernetes/linux)上的指令碼集合，有助於設定程序。 將這些指令碼簽出至 `~/kube/`；在未來步驟中，這整個目錄將裝載至許多 Docker 容器，因此請將其結構保持和本指南中所述的相同。
 
@@ -102,6 +110,7 @@ $ MASTER_IP=10.123.45.67   # example! replace
 
 ```bash
 cd ~/kube/certs
+chmod u+x generate-certs.sh
 ./generate-certs.sh $MASTER_IP
 ```
 
@@ -133,6 +142,7 @@ cd ~/kube/manifest
 設定 Kubernetes 以使用產生的憑證。 這將會在 `~/.kube/config` 建立組態：
 
 ```bash
+cd ~/kube
 ./configure-kubectl.sh $MASTER_IP
 ```
 

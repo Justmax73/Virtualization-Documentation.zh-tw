@@ -7,11 +7,11 @@ ms.date: 09/26/2016
 ms.topic: deployment-article
 ms.prod: windows-containers
 ms.assetid: 3c3d4c69-503d-40e8-973b-ecc4e1f523ed
-ms.openlocfilehash: 88d094202c49cf725e9d608a0810e7d9f8a1e271
-ms.sourcegitcommit: 7fc79235cbee052e07366b8a6aa7e035a5e3434f
+ms.openlocfilehash: ff9b24ccc802b228b649c2330333cbe008350aec
+ms.sourcegitcommit: ea6edc5bac5705a19d48ffdf1ba676c940c2eb67
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="windows-container-requirements"></a>Windows 容器需求
 
@@ -67,7 +67,7 @@ Windows 容器隨附兩個容器基本映像：Windows Server Core 與 Nano Serv
 > <span id="warn-1">從 Windows Server 版本 1709 開始，Nano Server 無法再當做容器主機使用。</span>
 
 
-### <a name="memory-requirments"></a>記憶體需求
+### <a name="memory-requirements"></a>記憶體需求
 可供容器使用的記憶體限制可透過[資源控制項](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/resource-controls)或多載容器主機來進行設定。  啟動容器及執行基本命令 (ipconfig、dir 等等) 所需的記憶體數量下限列於底下。  __請注意，這些值並未考量容器之間的資源共用或是在容器內執行之應用程式的需求。  例如，有 512MB 可用記憶體的主機可以在 Hyper-V 隔離下執行多個 Server Core 容器，因為這些容器會共用資源。__
 
 #### <a name="windows-server-2016"></a>Windows Server 2016

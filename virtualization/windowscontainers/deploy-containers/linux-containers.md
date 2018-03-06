@@ -25,12 +25,12 @@
 
 所有應用程式都需要磁碟區對應，此對應具有[繫結裝載](#Bind-mounts)底下所涵蓋的一些限制。 它們將無法正確啟動或執行。
 
-- Mysql
-- Postgress
-- Wordpress
+- MySQL
+- PostgreSQL
+- WordPress
 - Jenkins
-- Mariadb
-- Rabbitmq
+- MariaDB
+- RabbitMQ
 
 
 ### <a name="bind-mounts"></a>繫結裝載

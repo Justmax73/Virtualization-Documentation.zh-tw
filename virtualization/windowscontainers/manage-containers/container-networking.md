@@ -8,11 +8,11 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: 394aa58c3421e512d005f59d5bd30667f1c26f16
-ms.sourcegitcommit: 6eefb890f090a6464119630bfbdc2794e6c3a3df
+ms.openlocfilehash: 70e662e73693d9fef9d36635289ec9affb8d0331
+ms.sourcegitcommit: f542e8c95b5bb31b05b7c88f598f00f76779b519
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="windows-container-networking"></a>Windows 容器的網路功能
 > ***請參考 [Docker 容器的網路功能](https://docs.docker.com/engine/userguide/networking/)，以了解一般 Docker 網路功能的命令、選項和語法。*** 除了本文件所述的任何例外情形，所有 Docker 網路功能命令在 Windows 上使用的語法皆與 Linux 相同。 但請注意，Windows 與 Linux 的網路堆疊並不同，因此您會發現 Windows 不支援某些 Linux 網路命令 (例如 ifconfig)。

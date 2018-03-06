@@ -1,3 +1,4 @@
+
 # <a name="using-insider-container-images"></a>使用測試人員容器映像
 
 本練習將逐步引導您在 Windows Insider Preview 計畫中最新的 Windows Server 測試人員組建上部署及使用 Windows 容器功能。 在本練習中，您將會安裝容器角色並部署基本 OS 映像預覽版本。 如果您需要熟悉一下容器，可以在[關於容器](../about/index.md)中找到這項資訊。
@@ -11,22 +12,25 @@
 
 >您必須使用 Windows Server Insider Preview 計畫中的 Windows Server 組建或 Windows Insider Preview 計畫中的 Windows 10 組建，才能使用以下所述的基本映像。 如果您沒有使用上述其中一種組建，使用這些基本映像就會導致您無法啟動容器。
 
-## <a name="install-docker"></a>安裝 Docker
-需要先安裝 Docker，才能搭配使用 Windows 容器。 Docker 是由 Docker 引擎及 Docker 用戶端所組成。 為了獲得使用容器最佳化 Nano Server 映像的最佳體驗，您也需要支援多階段組建的 Docker 版本。
+## <a name="install-docker-enterprise-edition-ee"></a>安裝 Docker Enterprise Edition (EE)
+需要有 Docker EE 才能使用 Windows 容器。 Docker EE 是由 Docker 引擎及 Docker 用戶端所組成。 
 
-我們將使用 OneGet 提供者 PowerShell 模組安裝 Docker。 此提供者會啟用您電腦上的容器功能並安裝 Docker，這會需要重新開機。 請注意，目前有許多管道針對不同情況的用途提供不同的 Docker 版本。 在本練習中，我們將使用來自穩定 (Stable) 管道的最新 Docker 社群版本。 如果您想要測試最新的 Docker 開發中版本，還有邊緣 (Edge) 管道可用。
+我們將使用 OneGet 提供者 PowerShell 模組來安裝 Docker EE。 此提供者會啟用您電腦上的容器功能並安裝 Docker EE，這會需要重新開機。 開啟提高權限的 PowerShell 工作階段，並執行下列命令。
 
-開啟提高權限的 PowerShell 工作階段，並執行下列命令。
-
->注意：在測試人員組建中安裝 Docker 所需要的提供者通常有別於目前所使用的提供者。 請注意下列差異。
-
-安裝 OneGet PowerShell 模組。
-```powershell
-Install-Module -Name DockerMsftProviderInsider -Repository PSGallery -Force
+>注意：安裝 Docker EE 與 Windows Server 測試人員組建，需要的 OneGet 提供者不同於非測試人員組建所用的 OneGet 提供者。 如果 Docker EE 和 DockerMsftProvider OneGet 提供者已經安裝，必須將它們移除才能繼續。
+```powershell 
+Stop-Service docker
+Uninstall-Package docker
+Uninstall-Module DockerMsftProvider
 ```
-使用 OneGet 安裝最新版的 Docker。
+
+安裝 OneGet PowerShell 模組以用於 Windows 測試人員組建。
 ```powershell
-Install-Package -Name docker -ProviderName DockerMsftProviderInsider
+Install-Module -Name DockerProvider -Repository PSGallery -Force
+```
+使用 OneGet 安裝最新版的 Docker EE 預覽版。
+```powershell
+Install-Package -Name docker -ProviderName DockerProvider -RequiredVersion Preview
 ```
 安裝完成時，請重新啟動電腦。
 ```
