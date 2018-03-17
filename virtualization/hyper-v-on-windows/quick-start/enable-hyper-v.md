@@ -7,11 +7,11 @@ ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: 752dc760-a33c-41bb-902c-3bb2ecd9ac86
-ms.openlocfilehash: 85f6b30544fc433c9d768c2167024d097a9cef25
-ms.sourcegitcommit: a3c9101a05d730d4173720d224bd8df8e9a56739
+ms.openlocfilehash: 034792fb65d890588f1c7edc89a075deab12628d
+ms.sourcegitcommit: b7f37f3d385042ca8455b3e7d1fa887ac26989de
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="install-hyper-v-on-windows-10"></a>在 Windows 10 上安裝 Hyper-V
 
@@ -42,7 +42,7 @@ Hyper-V 是 Windows 內建的選用功能，Hyper-V 並沒有可供單獨下載�
 
 2. 執行下列命令：
   ```powershell
-  Enable-WindowsOptionalFeature -Online -FeatureName:Microsoft-Hyper-V -All
+  Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
   ```  
 
   如果找不到此命令，請確定您是以系統管理員身分執行 PowerShell。  
