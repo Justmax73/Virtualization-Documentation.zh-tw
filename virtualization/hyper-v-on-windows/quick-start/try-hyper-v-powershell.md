@@ -8,17 +8,17 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 6d1ae036-0841-4ba5-b7e0-733aad31e9a7
-ms.openlocfilehash: 520ef410eddad61c40d31655e6bf7ede7846d4b2
-ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
+ms.openlocfilehash: bd0175fe209e3311a38af29ccd0f473a2bd32dd8
+ms.sourcegitcommit: 6e3c3b2ff125f949c03a342c3709a6e57c5f736c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 03/17/2018
 ---
-# 使用 Hyper-V 與 Windows PowerShell
+# <a name="working-with-hyper-v-and-windows-powershell"></a>使用 Hyper-V 與 Windows PowerShell
 
 您已經逐步進行部署 Hyper-V、建立虛擬機器、管理這些虛擬機器的基本作業，現在，讓我們來探索如何使用 PowerShell 將這許多活動自動化。
 
-### 傳回 Hyper-V 命令清單
+### <a name="return-a-list-of-hyper-v-commands"></a>傳回 Hyper-V 命令清單
 
 1.  按一下 Windows 開始按鈕，輸入 **PowerShell**。
 2.  執行下列命令，以顯示搜尋到的 Hyper-V PowerShell 模組可用 PowerShell 命令清單。
@@ -40,7 +40,7 @@ Get-Help Get-VM
  ![](media\get_help.png)
 
 
-### 傳回虛擬機器清單
+### <a name="return-a-list-of-virtual-machines"></a>傳回虛擬機器清單
 
 使用 `Get-VM` 命令傳回虛擬機器的清單。
 
@@ -64,7 +64,7 @@ Get-VM
  Get-VM | where {$_.State -eq 'Off'}
  ```
 
-### 啟動和關閉虛擬機器
+### <a name="start-and-shut-down-virtual-machines"></a>啟動和關閉虛擬機器
 
 1. 若要啟動特定虛擬機器，請用虛擬機器的名稱執行下列命令：
 
@@ -83,14 +83,14 @@ Get-VM
  Get-VM | where {$_.State -eq 'Running'} | Stop-VM
  ```
 
-### 建立 VM 檢查點
+### <a name="create-a-vm-checkpoint"></a>建立 VM 檢查點
 
 若要使用 PowerShell 建立檢查點，請使用 `Get-VM` 命令選取虛擬機器，然後使用管道將結果傳送給 `Checkpoint-VM` 命令。 最後使用 `-SnapshotName` 為檢查點命名。 完整的命令看起來像這樣：
 
  ```powershell
  Get-VM -Name <VM Name> | Checkpoint-VM -SnapshotName <name for snapshot>
  ```
-### 建立新的虛擬機器
+### <a name="create-a-new-virtual-machine"></a>建立新的虛擬機器
 
 下列範例示範如何在 PowerShell 整合式指令碼環境 (ISE) 中建立新的虛擬機器。 這是一個簡單的範例，可以再擴大包，含其他 PowerShell 功能和更進階的 VM 部署。
 
@@ -111,10 +111,10 @@ Get-VM
      SwitchName = (Get-VMSwitch).Name[0]
  }
 
- New-VM @VM
+ New-VM $VM
   ```
 
-## 結語與參考資料
+## <a name="wrap-up-and-references"></a>結語與參考資料
 
 本文件示範了一些簡單的步驟，來介紹 Hyper-V PowerShell 模組以及一些範例案例。 如需 Hyper-V PowerShell 模組的詳細資訊，請參閱 [Windows PowerShell 參考中的 Hyper-V Cmdlet](https://technet.microsoft.com/%5Clibrary/Hh848559.aspx) 。  
  
