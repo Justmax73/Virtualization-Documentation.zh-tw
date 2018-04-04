@@ -1,31 +1,31 @@
 ---
-title: "建立虛擬網路"
-description: "建立虛擬交換器"
-keywords: "windows 10, hyper-v, 網路功能"
+title: 建立虛擬網路
+description: 建立虛擬交換器
+keywords: windows 10, hyper-v, 網路功能
 author: scooley
 ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 532195c6-564b-4954-97c2-5a5795368c09
-ms.openlocfilehash: 67513f6ee7d990f4d9086dfd63fb719374377b1f
-ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
+ms.openlocfilehash: b6935daf40eef3dd09acb647b512c0423cbe82d3
+ms.sourcegitcommit: b7f37f3d385042ca8455b3e7d1fa887ac26989de
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 03/16/2018
 ---
-# 建立虛擬網路
+# <a name="create-a-virtual-network"></a>建立虛擬網路
 
 您的虛擬機器需要有虛擬網路才能與您的電腦共用網路。  建立虛擬網路是選擇性的步驟。如果您的虛擬機器不需要連線到網際網路或任何網路，請直接跳至[建立 Windows 虛擬機器](create-virtual-machine.md)。
 
 
-## 將虛擬機器連線到網際網路
+## <a name="connect-virtual-machines-to-the-internet"></a>將虛擬機器連線到網際網路
 
 Hyper-V 的虛擬交換器類型有三種：外部、內部及私人。 建立外部交換器即可將您電腦的網路與執行於其中的虛擬機器共用。
 
 這個練習逐步解說如何建立外部虛擬交換器。 完成之後，您的 Hyper-V 主機便會有一部虛擬交換器，可透過電腦的網路連線將虛擬機器連線到網際網路。 
 
-### 使用 Hyper-V 管理員建立虛擬交換器
+### <a name="create-a-virtual-switch-with-hyper-v-manager"></a>使用 Hyper-V 管理員建立虛擬交換器
 
 1. 開啟 \[Hyper-V 管理員\]。  執行此作業的快速方法是按下 Windows 鍵然後輸入「Hyper-V 管理員」。  
 如果搜尋後找不到 \[Hyper-V 管理員\]，即表示並未啟用 Hyper-V 或 Hyper-V 管理工具。  請依照指示[啟用 Hyper-V](enable-hyper-v.md)。
@@ -55,7 +55,7 @@ Hyper-V 的虛擬交換器類型有三種：外部、內部及私人。 建立�
 11. 選取 **\[確定\]**，關閉 \[虛擬交換器管理員\] 視窗。
 
 
-### 使用 PowerShell 建立虛擬交換器
+### <a name="create-a-virtual-switch-with-powershell"></a>使用 PowerShell 建立虛擬交換器
 
 使用下列步驟可以 PowerShell 建立外部連線類型的虛擬交換器。 
 
@@ -82,9 +82,9 @@ Hyper-V 的虛擬交換器類型有三種：外部、內部及私人。 建立�
     New-VMSwitch -Name "External VM Switch" -AllowManagementOS $True -NetAdapterName $net.Name
     ```
 
-## 膝上型電腦的虛擬網路功能
+## <a name="virtual-networking-on-a-laptop"></a>膝上型電腦的虛擬網路功能
 
-### NAT 網路功能
+### <a name="nat-networking"></a>NAT 網路功能
 網路位址轉譯 (NAT) 透過 Hyper-V 內部虛擬交換器將主機電腦的 IP 位址與連接埠結合，讓虛擬機器存取電腦的網路。
 
 若干實用的屬性如下︰
@@ -94,9 +94,9 @@ Hyper-V 的虛擬交換器類型有三種：外部、內部及私人。 建立�
 
 若要設定 NAT 網路並將其連線至虛擬機器，請遵循 [NAT 網路功能使用者指南](../user-guide/setup-nat-network.md)。
 
-### 兩種方式切換
+### <a name="the-two-switch-approach"></a>兩種方式切換
 如果您由膝上型電腦執行 Windows 10 Hyper-V 且經常切換使用無線網路與有線網路，則可建立一部虛擬交換器以同時用於乙太網路卡和無線網路卡。 有此設定時，您可以根據膝上型電腦連線到網路的方式，在這些交換器之間變更您的虛擬機器。 虛擬機器不會自動在有線和無線之間切換。
 
 
-## 後續步驟 - 建立虛擬機器
+## <a name="next-step---create-a-virtual-machine"></a>後續步驟 - 建立虛擬機器
 [建立 Windows 虛擬機器](create-virtual-machine.md)

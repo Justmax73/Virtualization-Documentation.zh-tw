@@ -1,18 +1,18 @@
 ---
-title: "關於 Windows 容器"
-description: "深入了解 Windows 容器。"
-keywords: "docker, 容器"
+title: 關於 Windows 容器
+description: 深入了解 Windows 容器。
+keywords: docker, 容器
 author: taylorb-microsoft
 ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8e273856-3620-4e58-9d1a-d1e06550448
-ms.openlocfilehash: 37782c4d2491b9b1963a326204e30a6f484b5ec9
-ms.sourcegitcommit: 6eefb890f090a6464119630bfbdc2794e6c3a3df
+ms.openlocfilehash: 6dbc14ae192f40872a2d62253d1a0cf5658f4c04
+ms.sourcegitcommit: 7fdb0c5069605471bee351c4445a82e31c2930bd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="windows-containers"></a>Windows 容器
 
@@ -91,6 +91,26 @@ Windows 容器包含兩種不同的容器類型，或執行階段。
 IT 專業人員可以使用容器為其開發、品管及生產小組提供標準化的環境。 他們再也不必擔心複雜的安裝和設定步驟。 藉由使用容器，系統管理員將可抽離 OS 安裝和基礎結構的差異。
 
 容器可協助系統管理員建立更容易更新和維護的基礎結構。
+
+## <a name="container-orchestrators"></a>容器協調器
+因為容器的容積較小並且是應用程式導向，所以它們很適合用於靈活傳遞的環境和微服務型架構。 不過，當您使用容器和微服務時，您可以輕鬆地在您的環境中擁有數百或數千個元件。  您或許可以手動管理幾十個虛擬機器或實體伺服器，但您卻無法不使用自動化的方式來管理生產規模的容器環境。  自動化及管理大量容器的工作以及其互動的方式稱為協調流程。 
+
+協調流程的標準定義包含下列工作：
+
+- 排程：指定容器映像和資源要求、尋找適合的電腦來執行容器。
+親和性/反親和性：指定一組容器應該在彼此附近執行 (為了效能) 或相隔夠遠來執行 (為了可用性)。
+- 健康情況監視：監看容器的失敗事件，並自動重新安排容器排程。
+- 容錯移轉：追蹤每部電腦上執行的項目，並將失敗電腦上的容器重新安排到運作正常的節點。
+- 規模調整：以手動或自動方式新增或移除容器執行個體以符合需求。
+- 網路功能：提供覆疊網路來協調容器跨多個主機電腦進行通訊。
+- 服務探索：讓容器即使在主機電腦間移動並變更 IP 位址也能夠自動找到彼此。
+- 協調應用程式升級：管理容器升級以避免應用程式服務中斷，並在發生錯誤時能夠復原。
+
+Azure 提供兩種容器協調器：Azure Container Service (AKS) 和 Service Fabric。
+
+[Azure Container Service (AKS)](/azure/aks/) 可讓您輕鬆建立、設定及管理虛擬機器叢集，這些虛擬機器都已預先設定好，可用於執行容器化應用程式。 這可讓您使用您現有的技術，或運用大量不斷增長的社群專業知識，以在 Microsoft Azure 上部署及管理容器型應用程式。 藉由使用 AKS，您可以利用 Azure 企業級的功能，同時仍能透過 Kubernetes 和 Docker 映像格式來維持應用程式的可攜性。
+
+[Azure Service Fabric](/azure/service-fabric/) 是一種分散式系統平台，可讓您輕鬆封裝、部署及管理可調整且可靠的微服務和容器。 Service Fabric 可解決開發及管理雲端原生應用程式時的重要問題。 開發人員和系統管理員可以避免複雜的基礎結構問題，將重心放在實作具有任務關鍵性而需求嚴苛並且是可調整、可靠及可管理的工作負載。 Service Fabric 代表新一代的平台，適用於建置及管理這些在容器中執行的企業級、第 1 層、雲端規模的應用程式。
 
 ## <a name="video-overview"></a>影片概觀
 
