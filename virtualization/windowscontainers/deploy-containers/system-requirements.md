@@ -1,17 +1,17 @@
 ---
-title: "Windows 容器需求"
-description: "Windows 容器需求。"
-keywords: "中繼資料, 容器"
+title: Windows 容器需求
+description: Windows 容器需求。
+keywords: 中繼資料, 容器
 author: enderb-ms
 ms.date: 09/26/2016
 ms.topic: deployment-article
 ms.prod: windows-containers
 ms.assetid: 3c3d4c69-503d-40e8-973b-ecc4e1f523ed
-ms.openlocfilehash: ff9b24ccc802b228b649c2330333cbe008350aec
-ms.sourcegitcommit: ea6edc5bac5705a19d48ffdf1ba676c940c2eb67
+ms.openlocfilehash: e1fe969c70aa61b62eb9212b7faa23d37d17b565
+ms.sourcegitcommit: 8b331cb67dfe609fcbfc3de06edbf51fe8562c6c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/20/2018
 ---
 # <a name="windows-container-requirements"></a>Windows 容器需求
 
@@ -91,6 +91,7 @@ Windows 容器隨附兩個容器基本映像：Windows Server Core 與 Nano Serv
 - 不包含 .NET Core (不過您可以使用 [.NET Core Nano Server 映像](https://hub.docker.com/r/microsoft/dotnet/))
 - 已移除 PowerShell
 - 已移除 WMI
+- 從 Windows Server 版本 1709 開始，應用程式會在使用者內容下執行，所以需要系統管理員權限的命令將會失敗。 您可以透過 --user 旗標指定容器系統管理員帳戶 (亦即 docker run --user ContainerAdministrator)，不過我們預計在未來完全移除 NanoServer 的系統管理員帳戶。
 
 這些是最大的差異，但並非完整的清單。 還有其他未包含的元件並未註明。 請記住，您隨時都可以視需要在 Nano Server 之上新增層級。 如需範例，請參閱 [.NET Core Nano Server Dockerfile](https://github.com/dotnet/dotnet-docker/blob/master/2.0/sdk/nanoserver/amd64/Dockerfile)。
 

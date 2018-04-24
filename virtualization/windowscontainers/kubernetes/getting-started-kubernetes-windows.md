@@ -8,11 +8,11 @@ ms.prod: containers
 description: 將 Windows 節點加入 v1.9 beta Kubernetes 叢集。
 keywords: kubernetes, 1.9, windows, 開始使用
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: 124895e93cbaee50c66b6b5a7cc2c71c144dad67
-ms.sourcegitcommit: 6e3c3b2ff125f949c03a342c3709a6e57c5f736c
+ms.openlocfilehash: 6309ca8c0fd50e1b8e926776bef6dfe82bb815f0
+ms.sourcegitcommit: ee86ee093b884c79039a8ff417822c6e3517b92d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="kubernetes-on-windows"></a>Windows 上的 Kubernetes #
 
@@ -24,6 +24,9 @@ ms.lasthandoff: 03/17/2018
 
 
 此頁面是開始將全新 Windows 節點加入現有 Linux 型叢集的指南。 若要完全從頭開始，請參考[此頁面](./creating-a-linux-master.md) &mdash; 可供部署 Kubernetes 叢集的許多資源之一 &mdash; 以從頭設定主機，就像我們當初一樣。
+
+> [!TIP] 
+> 如果您想要在 Azure 上部署叢集，開放原始碼 ACS 引擎工具可用來輕鬆完成此操作。 [這裡提供逐步解說](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md)。
 
 <a name="definitions"></a>在本指南中，所參考一些字詞的定義如下：
 
@@ -189,12 +192,24 @@ watch kubectl get pods -o wide
 
 如果一切順利，您可以：
 
-  - 在 Windows 端的 `docker ps` 命令下看到四個容器。
+  - 在 Windows 節點的 `docker ps` 命令下看到 4 個容器
+  - 從 Linux 主機的 `kubectl get pods` 命令下看到 2 個 Pod
   - `curl` 於 Linux 主機連接埠 80 的 *Pod* IP，取得網頁伺服器回應。這示範跨越網路適當的節點對 Pod 通訊。
-  - `curl` 於連接埠 4444 的*節點* IP，取得網頁伺服器回應。這示範適當的主機對容器連接埠對應。
   - 透過 `docker exec`，*在 Pod 之間* Ping (包括在多個主機上，如果您有多個 Windows 節點)。這示範適當的 Pod 對 Pod 通訊
   - `curl` 虛擬*服務 IP* (在 `kubectl get services` 底下看到)，來自 Linux 主機和個別的 Pod。
   - `curl` *服務名稱*與 Kubernetes [預設 DNS 尾碼](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#services)，這示範 DNS 功能。
 
-> [!WARNING]  
-> Windows 節點無法存取服務 IP。 這是[已知的平台限制](./common-problems.md#my-windows-node-cannot-access-my-services-using-the-service-ip)，將在未來維修。
+> [!Warning]  
+> Windows 節點無法存取服務 IP。 這是[已知的平台限制](./common-problems.md#my-windows-node-cannot-access-my-services-using-the-service-ip)，將會在 Windows Server 的下一個更新中改善。
+
+
+### <a name="port-mapping"></a>連接埠對應 ### 
+此外，也可以透過其各自節點存取 Pod 裝載的服務，方法是對應節點上的連接埠。 [這裡有另一個範例 YAML](https://github.com/Microsoft/SDN/blob/master/Kubernetes/PortMapping.yaml)，其中節點上的連接埠 4444 對應至 Pod 上的連接埠 80，以示範這項功能。 若要部署它，請依照先前相同的步驟操作：
+
+```bash
+wget https://raw.githubusercontent.com/Microsoft/SDN/master/Kubernetes/PortMapping.yaml -O win-webserver-port-mapped.yaml
+kubectl apply -f win-webserver-port-mapped.yaml
+watch kubectl get pods -o wide
+```
+
+現在應該可以在連接埠 4444 的*節點* IP 上執行 `curl`，並接收網頁伺服器回應。 請注意，這會將規模調整限制在每個節點單一 Pod，因為它必須強制執行一對一的對應。
