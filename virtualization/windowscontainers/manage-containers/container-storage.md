@@ -3,12 +3,12 @@ title: Windows Server 容器儲存體
 description: Windows Server 容器如何使用主機和其他儲存體類型
 keywords: 容器, 磁碟區, 儲存體, 裝載, 繫結裝載
 author: patricklang
-ms.openlocfilehash: ba30c436ddd61ec71b2c98d1a8cb24f97863d872
-ms.sourcegitcommit: 6c8c70c8231943dda3c5af38e5530ea3dd91fc82
+ms.openlocfilehash: 9dde3b2d7be10a8d3d393f8426976dfc5bdacfab
+ms.sourcegitcommit: 9653a3f7451011426f8af934431bb14dbcb30a62
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "1934532"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "2082899"
 ---
 # <a name="overview"></a>概觀
 
@@ -22,7 +22,7 @@ ms.locfileid: "1934532"
 
 ### <a name="where-layers-are-stored-and-how-to-change-it"></a>分層儲存的位置，以及如何變更
 
-在預設安裝中，分層儲存在 `C:\ProgramData\docker` 中並分散至 "image" 和 "windowsfilter" 目錄中。 您可以使用 `docker-root` 組態來變更分層儲存的位置，如 [Windows 上的 Docker 引擎](../manage-docker/configure_docker_daemon.md)文件所示範。
+在預設安裝中，分層儲存在 `C:\ProgramData\docker` 中並分散至 "image" 和 "windowsfilter" 目錄中。 您可以使用 `docker-root` 組態來變更分層儲存的位置，如 [Windows 上的 Docker 引擎](../manage-docker/configure-docker-daemon.md)文件所示範。
 
 > [!NOTE]
 > 分層儲存體僅支援 NTFS， 不支援 ReFS。
