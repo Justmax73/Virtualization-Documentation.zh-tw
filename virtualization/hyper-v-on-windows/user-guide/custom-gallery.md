@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: d9238389-7028-4015-8140-27253b156f37
-ms.openlocfilehash: 3a8af73c1cf7b2eb640be0dcaf77601ed5e96ce5
-ms.sourcegitcommit: 7c3af076eb8bad98e1c3de0af63dacd842efcfa3
+ms.openlocfilehash: 2235201a56a238cbd5a75b0a6cae64cdb26108a2
+ms.sourcegitcommit: edc153ffef01094c2324a0da2f9a301b31015a58
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "1844269"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "1928375"
 ---
 # <a name="create-a-custom-virtual-machine-gallery"></a>建立自訂虛擬機器資源庫
 
@@ -135,6 +135,6 @@ ms.locfileid: "1844269"
 
 ## <a name="resources"></a>資源
 
-Github [連結](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/live/hyperv-tools/vmgallery)提供幾個資源庫指令碼和協助程式。
+GitHub [連結](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/live/hyperv-tools/vmgallery)提供幾個資源庫指令碼和協助程式。
 
 請[到此處](https://go.microsoft.com/fwlink/?linkid=851584)查看範例資源庫項目。  這是定義隨附資源庫的 JSON 檔案。
