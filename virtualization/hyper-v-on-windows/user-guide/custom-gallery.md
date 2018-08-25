@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: d9238389-7028-4015-8140-27253b156f37
-ms.openlocfilehash: 2235201a56a238cbd5a75b0a6cae64cdb26108a2
-ms.sourcegitcommit: edc153ffef01094c2324a0da2f9a301b31015a58
-ms.translationtype: HT
+ms.openlocfilehash: c7a6462b331f469148eb4cf5a0a2740c9929fa29
+ms.sourcegitcommit: 2b5d806fc978e60fb71ce33ef491d4cfd6fc4456
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "1928375"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "2596066"
 ---
 # <a name="create-a-custom-virtual-machine-gallery"></a>建立自訂虛擬機器資源庫
 
@@ -102,6 +102,12 @@ ms.locfileid: "1928375"
 * thumbnail
 
 以及，當然，您的虛擬機器 (.iso 或.vhdx)。
+
+若要產生雜湊，您可以使用下列 powershell 命令：
+
+  ``` PowerShell
+  Get-FileHash -Path .\TMLogo.jpg -Algorithm SHA256
+  ```
 
 下列 JSON 範本具有入門項目和資源庫的結構描述。  如果您在 VSCode 中編輯，它會自動提供 IntelliSense。
 
