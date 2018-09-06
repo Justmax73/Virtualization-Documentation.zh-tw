@@ -3,12 +3,12 @@ title: Windows Server 容器儲存體
 description: Windows Server 容器如何使用主機和其他儲存體類型
 keywords: 容器, 磁碟區, 儲存體, 裝載, 繫結裝載
 author: patricklang
-ms.openlocfilehash: 9dde3b2d7be10a8d3d393f8426976dfc5bdacfab
-ms.sourcegitcommit: 9653a3f7451011426f8af934431bb14dbcb30a62
-ms.translationtype: HT
+ms.openlocfilehash: 7d22a149da21a3367b82f2920c189ae9a4b1c173
+ms.sourcegitcommit: 2c22506a7fdbbbe5ab4138281fc9256a98b51efd
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "2082899"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "3386043"
 ---
 # <a name="overview"></a>概觀
 
@@ -101,13 +101,18 @@ Docker 有如何[使用磁碟區](https://docs.docker.com/engine/admin/volumes/v
 
 ##### <a name="configuration-steps"></a>設定步驟
 
-1. 在容器主機上，全域對應遠端 SMB 共用：$creds = Get-Credential New-SmbGlobalMapping -RemotePath \\contosofileserver\share1 -Credential $creds -LocalPath G: 此命令將使用認證，向遠端 SMB 伺服器驗證。 然後，將遠端共用路徑對應至 G: 磁碟機代號 (可以是任何其他可用的磁碟機代號)。 在此容器主機上建立的容器，現在可以將其讓資料磁碟區對應至 G: 磁碟機上的路徑。
+1. 容器主機上，全域對應遠端 SMB 共用：
+    ```
+    $creds = Get-Credential
+    New-SmbGlobalMapping -RemotePath \\contosofileserver\share1 -Credential $creds -LocalPath G:
+    ```
+    此命令將會使用認證，向遠端 SMB 伺服器進行驗證。 然後，將遠端共用路徑對應至 G: 磁碟機代號 (可以是任何其他可用的磁碟機代號)。 在此容器主機上建立的容器，現在可以將其讓資料磁碟區對應至 G: 磁碟機上的路徑。
 
-> 注意：對容器使用 SMB 全域對應時，容器主機上的所有使用者都可以存取遠端共用。 容器主機上執行的任何應用程式也都可以存取對應的遠端共用。
+    > 注意：對容器使用 SMB 全域對應時，容器主機上的所有使用者都可以存取遠端共用。 容器主機上執行的任何應用程式也都可以存取對應的遠端共用。
 
 2. 建立容器並將其資料磁碟區對應至全域裝載的 SMB 共用  docker run -it --name demo -v g:\ContainerData:G:\AppData1 microsoft/windowsservercore:1709 cmd.exe
 
-在容器內，G:\AppData1 就會對應至遠端共用的 "ContainerData" 目錄。 容器內的應用程式可使用全域對應遠端共用上儲存的任何資料。 以相同的命令，多個容器可以取得此共用資料的讀取/寫入權。
+    在容器內，G:\AppData1 就會對應至遠端共用的 "ContainerData" 目錄。 容器內的應用程式可使用全域對應遠端共用上儲存的任何資料。 以相同的命令，多個容器可以取得此共用資料的讀取/寫入權。
 
 這項 SMB 全域對應支援是 SMB 用戶端功能，可在包含以下的任何相容 SMB 伺服器上運作：
 
