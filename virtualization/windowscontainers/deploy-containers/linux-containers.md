@@ -2,7 +2,7 @@
 
 這項功能會使用 [Hyper-V 隔離](../manage-containers/hyperv-container.md)來執行 Linux 核心，使其具備足夠的作業系統來支援容器。 建置此功能的 Windows 和 Hyper-V 變更開始於 _Windows 10 Fall Creators Update_ 和 _Windows Server (版本 1709)_，但是將此功能整合在一起也需要使用 Docker 技術建置所在的開放原始碼 [Moby project](https://www.github.com/moby/moby) 及 Linux 核心。 
 
-[!VIDEO https://sec.ch9.ms/ch9/1e5a/08ff93f2-987e-4f8d-8036-2570dcac1e5a/LinuxContainer.mp4]
+[Linux 容器影片](https://sec.ch9.ms/ch9/1e5a/08ff93f2-987e-4f8d-8036-2570dcac1e5a/LinuxContainer.mp4)
 
 若要試用看看，您需要：
 
