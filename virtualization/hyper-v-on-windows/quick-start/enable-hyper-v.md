@@ -7,12 +7,12 @@ ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: 752dc760-a33c-41bb-902c-3bb2ecd9ac86
-ms.openlocfilehash: 39499afc93b3329810db30cd32544a41ad138583
-ms.sourcegitcommit: 64c8d5d6f068d385b94db4637259bb3852666efe
-ms.translationtype: HT
+ms.openlocfilehash: dd4021c653d98a3bd7a338d9f502a572830f344d
+ms.sourcegitcommit: 5e5644bff6dba70e384db6c80787b3bbe7adb93c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "1797654"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "4303924"
 ---
 # <a name="install-hyper-v-on-windows-10"></a>在 Windows 10 上安裝 Hyper-V
 
@@ -23,14 +23,14 @@ ms.locfileid: "1797654"
 
 ## <a name="check-requirements"></a>檢查需求
 
-* Windows 10 企業版、專業版或教育版
+* Windows 10 企業版、 專業版或教育版
 * 使用第二層位址轉譯 (SLAT) 的 64 位元處理器。
 * CPU 對 VM 監視模式延伸模組的支援 (Intel CPU 上的 VT-c)。
 * 至少 4 GB 記憶體。
 
 Hyper-V 角色**無法**安裝於 Windows 10 家用版。
 
-請開啟 **\[設定\]** > **\[更新與安全性\]** > **\[啟用\]**，將 Windows 10 家用版升級為 Windows 10 專業版。
+將 Windows 10 家用版升級為 Windows 10 專業版藉由開啟**設定** > **更新與安全性** > **啟用**。
 
 如需詳細資訊及疑難排解資訊，請參閱 [Windows 10 Hyper-V 系統需求](../reference/hyper-v-requirements.md)。
 
