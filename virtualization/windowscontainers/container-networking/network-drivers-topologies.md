@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: bb3681a83991b3d4e24348b686146616d4a88c4f
-ms.sourcegitcommit: db508decd9bf6c0dce9952e1a86bf80f00d025eb
+ms.openlocfilehash: 4f21efba8dd1079302b56e98d954b3ba574779e9
+ms.sourcegitcommit: 2779f01978b37ec4f8d895febe7037272fb2c703
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "2315661"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "4492804"
 ---
 # <a name="windows-container-network-drivers"></a>Windows 容器網路驅動程式  
 
@@ -23,19 +23,19 @@ ms.locfileid: "2315661"
   > 如果您有安裝 Windows 10 Creators Update，現在支援多個 NAT 網路！
 
 - **transparent** – 如果容器連接到以 'transparent' 驅動程式建立的網路，其將會透過*外部* Hyper-V 交換器直接連接到實體網路。 實體網路的 IP 可以透過外部 DHCP 伺服器，以靜態 (需要使用者指定的 ``--subnet`` 選項) 或動態方式指派。 
-  > 請注意： 到期至下方需求，透過透明的網路連線容器主機不支援 Azure Vm。
+  > 注意︰ 由於到下列需求，透過透明網路連線容器主機上不支援 Azure Vm。
   
-  > 需要： 此模式使用時的虛擬化案例中 （容器主機是 VM） _MAC 位址詐騙為必要_。
+  > 需要： 當此模式用於虛擬化案例 （容器主機是 VM） _MAC 位址詐騙是必要_。
 
 - **overlay** - 當 Docker 引擎以[群集模式](../manage-containers/swarm-mode.md)執行時，連接到重疊網路的容器可以與連接到相同網路的其他容器跨多個容器主機進行通訊。 建立在群集叢集上的每個重疊網路，在建立時即具有其本身的 IP 子網路 (由私人 IP 首碼定義)。 overlay 網路驅動程式會使用 VXLAN 封裝。 **使用適當的網路控制台 (Flannel 或 OVN) 可以搭配 Kubernetes。**
-  > 需要： 請確定您的環境滿足建立覆疊網路這些*所需*[的必要條件](https://docs.docker.com/network/overlay/#operations-for-all-overlay-networks)。
+  > 需要： 請確定您的環境滿足這些*所需*的[必要條件](https://docs.docker.com/network/overlay/#operations-for-all-overlay-networks)的建立覆疊網路。
 
-  > 需要： 需要與[KB4015217](https://support.microsoft.com/en-us/help/4015217/windows-10-update-kb4015217)、 Windows 10 建立者 Update 或更新版本的 Windows Server 2016。
+  > 需要： 需要 Windows Server 2016 [KB4015217](https://support.microsoft.com/en-us/help/4015217/windows-10-update-kb4015217)、 Windows 10 Creators Update 或更新版本。
 
 - **l2bridge** - 連接到以 'l2bridge' 驅動程式建立之網路的容器，會位於與容器主機相同的 IP 子網路中，並透過*外部* Hyper-V 交換器連接到實體網路。 必須以靜態方式從與容器主機相同的首碼指派 IP 位址。 因為在輸入和輸出時都有第 2 層位址轉譯 (MAC 重寫) 作業的關係，主機上的所有容器端點都會有跟主機相同的 MAC 位址。
-  > 需要： 此模式使用時的虛擬化案例中 （容器主機是 VM） _MAC 位址詐騙為必要_。
+  > 需要： 當此模式用於虛擬化案例 （容器主機是 VM） _MAC 位址詐騙是必要_。
   
-  > 需要： 需要 Windows Server 2016、 Windows 10 建立者 Update 或更新版本。
+  > 需要： 需要 Windows Server 2016、 Windows 10 Creators Update 或更新版本。
 
 - **l2tunnel** - 與 l2bridge 類似，_此驅動程式應該僅限用於 Microsoft Cloud 堆疊_。 來自容器的封包會傳送至套用 SDN 原則的虛擬化主機。
 
@@ -60,7 +60,7 @@ ms.locfileid: "2315661"
 
 | 網路模式/驅動程式 | IPAM |
 | -------------------------|:----:|
-| NAT | 動態 IP 配置並由主機網路服務 (HNS) 從內部 NAT 子網路首碼指派 |
+| NAT | 動態 IP 配置並從內部 NAT 子網路首碼指派由主機網路服務 (HNS) |
 | 透明 | 靜態或動態 (使用外部 DHCP 伺服器) IP 配置並從容器主機網路首碼中的 IP 位址指派 |
 | 重疊 | 來自 Docker 引擎群集模式受管理首碼的動態 IP 配置並透過 HNS 指派 |
 | L2Bridge | 靜態 IP 配置並從容器主機網路首碼 中的 IP 位址指派 (也可透過 HNS 外掛程式指派) |
