@@ -12,15 +12,6 @@
 ## [步驟 1 - 使用測試人員映像](quick-start/Using-Insider-Container-Images.md)
 ## [步驟 2 - 建置並執行應用程式](quick-start/Nano-RS3-.NET-Core-and-PS.md)
 ## [步驟 3 - 已知問題](quick-start/Insider-Known-Issues.md)
-## [Linux 容器預覽](deploy-containers/linux-containers.md)
-
-# 部署 Windows 容器
-## [系統需求](deploy-containers/system-requirements.md)
-## [版本相容性](deploy-containers/version-compatibility.md)
-## [部署](deploy-containers/deploy-containers-on-server.md)
-## [Hyper-V 隔離](manage-containers/hyperv-container.md)
-## [Active Directory 服務帳戶](manage-containers/manage-serviceaccounts.md)
-## [防毒程式最佳化](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
 
 # 在 Windows 上管理 Docker
 ## [Windows 上的 Docker 引擎](manage-docker/configure-docker-daemon.md)
@@ -28,7 +19,6 @@
 ## [最佳化 Dockerfiles](manage-docker/optimize-windows-dockerfile.md)
 ## [容器儲存體](manage-containers/container-storage.md)
 ## [開始使用群集模式](manage-containers/swarm-mode.md)
-## [透過 PowerShell 管理 Docker](https://github.com/Microsoft/Docker-PowerShell)
 ## [Windows Docker 主機的遠端管理](management/manage_remotehost.md)
 ## [資源控制項](manage-containers/resource-controls.md)
 
@@ -39,11 +29,14 @@
 ## [進階網路選項](container-networking/advanced.md)
 
 # Windows 上的 Kubernetes 
-## [開始使用](kubernetes/getting-started-kubernetes-windows.md)
-## [建立 Linux 主要節點](kubernetes/creating-a-linux-master.md)
-## [設定網路拓撲](kubernetes/configuring-host-gateway-mode.md)
-## [編譯 Kubernetes 二進位檔](kubernetes/compiling-kubernetes-binaries.md)
+## [1-概觀](kubernetes/getting-started-kubernetes-windows.md)
+## [2-建立 Kubernetes 主機](kubernetes/creating-a-linux-master.md)
+## [3-選擇網路解決方案](kubernetes/network-topologies.md)
+## [4-加入 Windows 工作者](kubernetes/joining-windows-workers.md)
+## [5-加入 Linux 工作者](kubernetes/joining-linux-workers.md)
+## [6-部署 Kubernetes 資源](kubernetes/deploying-resources.md)
 ## [疑難排解](kubernetes/common-problems.md)
+## [編譯 Kubernetes 二進位檔](kubernetes/compiling-kubernetes-binaries.md)
 
 # Service Fabric 快速入門
 ## [部署您的第一個容器](/azure/service-fabric/service-fabric-quickstart-containers)
@@ -63,5 +56,12 @@
 ## [社群影片與部落格](communitylinks.md)
 ## [疑難排解](troubleshooting.md)
 
+# 參考資料
+## [系統需求](deploy-containers/system-requirements.md)
+## [版本相容性](deploy-containers/version-compatibility.md)
+## [Hyper-V 隔離](manage-containers/hyperv-container.md)
+## [Windows 上的 Linux 容器](deploy-containers/linux-containers.md)
+## [Active Directory 服務帳戶](manage-containers/manage-serviceaccounts.md)
+## [防毒程式最佳化](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
 
 # [容器 OS 映像授權條款](Images_EULA.md)

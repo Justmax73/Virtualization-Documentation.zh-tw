@@ -2,18 +2,18 @@
 title: 在 Windows Server 上部署 Windows 容器
 description: 在 Windows Server 上部署 Windows 容器
 keywords: docker, 容器
-author: enderb-ms
+author: taylorb-microsoft
 ms.date: 09/26/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ba4eb594-0cdb-4148-81ac-a83b4bc337bc
-ms.openlocfilehash: 701112cac9c3f6d647fe5fb70309350fd0d07161
-ms.sourcegitcommit: d69ed13d505e96f514f456cdae0f93dab4fd3746
+ms.openlocfilehash: 0d982996a1aabd434df04551f30725a21b31d500
+ms.sourcegitcommit: 4412583b77f3bb4b2ff834c7d3f1bdabac7aafee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "4340846"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "6948007"
 ---
 # <a name="container-host-deployment---windows-server"></a>容器主機部署 - Windows Server
 
@@ -58,7 +58,7 @@ Restart-Computer -Force
 Install-Package -Name docker -ProviderName DockerMsftProvider -Force -RequiredVersion 18.03
 ```
 
-安裝特定的 Docker EE 版本可能需要先前已安裝的 DockerMsftProvider 模組的更新。 若要更新：
+安裝特定的 Docker EE 版本可能需要先前已安裝 DockerMsftProvider 模組的更新。 若要更新：
 
 ```PowerShell
 Update-Module DockerMsftProvider
@@ -66,7 +66,7 @@ Update-Module DockerMsftProvider
 
 ## <a name="update-docker"></a>更新 Docker
 
-如果您需要從較舊版本的通道的 Docker EE 引擎更新到較新的通道，使用這兩者`-Update`和`-RequiredVersion`旗標：
+如果您需要從較舊版本的通道的 Docker EE 引擎更新到更新版本的通道，使用這兩者`-Update`和`-RequiredVersion`旗標：
 
 ```PowerShell
 Install-Package -Name docker -ProviderName DockerMsftProvider -Update -Force -RequiredVersion 18.03
@@ -76,7 +76,7 @@ Install-Package -Name docker -ProviderName DockerMsftProvider -Update -Force -Re
 
 使用 Windows 容器之前，必須先安裝基本映像。 目前已經有以 Windows Server Core 或 Nano Server 做為容器作業系統的基本映像。 如需 Docker 容器映像的詳細資訊，請參閱 [docker.com 上建置自己的映像](https://docs.docker.com/engine/tutorials/dockerimages/)。
 
-Windows Server 2019 版本中，Microsoft 為來源的容器映像已移轉到新的登錄，稱為 Microsoft 容器登錄。 在 Microsoft 發行的容器映像應該繼續可透過 Docker Hub 探索到。 新容器映像發佈與 Windows Server 2019 搭配及更新版本中，您應該看從 MCR 提取它們。 針對舊版 Windows Server 2019 之前發佈的容器映像，您應該繼續提取它們從 Docker 的登錄。
+Windows Server 2019 版本中，Microsoft 為來源的容器映像會移至新的登錄稱為 Microsoft 容器登錄。 可透過 Docker Hub 探索到應該繼續在 Microsoft 發行的容器映像。 新容器映像發佈與 Windows Server 2019 搭配及更新版本中，您應該看從 MCR 提取它們。 針對舊版 Windows Server 2019 之前發佈的容器映像，您應該繼續提取它們從 Docker 的登錄。
 
 ### <a name="windows-server-2019-and-newer"></a>Windows Server 2019 和更新版本
 

@@ -8,27 +8,27 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
-ms.openlocfilehash: ab8a8b6543d58e71b3ac673c8a9e811698dbb578
-ms.sourcegitcommit: ec186664e76d413d3bf75f2056d5acb556f4205d
-ms.translationtype: HT
+ms.openlocfilehash: 3b592620f4667450c2454f8760b7f3c844c7e2ab
+ms.sourcegitcommit: 4412583b77f3bb4b2ff834c7d3f1bdabac7aafee
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "1875909"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "6948047"
 ---
 # <a name="docker-engine-on-windows"></a>Windows 上的 Docker 引擎
 
-Docker 引擎和代理程式並未隨附於 Windows，且需要個別安裝及設定。 此外，Docker 引擎可接受許多自訂設定。 部分範例包括設定精靈接受連入要求的方式、預設網路功能選項，以及偵錯/記錄設定。 在 Windows 中，這些設定可以在設定檔中指定，或使用 Windows 服務控制管理員指定。 本文詳細說明如何安裝及設定 Docker 引擎，且提供常用設定的範例。
+Docker 引擎及用戶端並未隨附於 Windows，需要進行個別安裝及設定。 此外，Docker 引擎可接受許多自訂設定。 部分範例包括設定精靈接受連入要求的方式、預設網路功能選項，以及偵錯/記錄設定。 在 Windows 中，這些設定可以在設定檔中指定，或使用 Windows 服務控制管理員指定。 本文詳細說明如何安裝及設定 Docker 引擎，且也會提供一些常用設定的範例。
 
 
 ## <a name="install-docker"></a>安裝 Docker
-需要有 Docker 才能使用 Windows 容器。 Docker 是由 Docker 引擎(dockerd.exe) 及 Docker 用戶端 (docker.exe) 所組成。 您可以在快速入門指南中找到安裝所有項目最簡單的方法。 指南會協助您設定好所有項目，以及執行您的第一個容器。 
+需要有 Docker 才能使用 Windows 容器。 Docker 是由 Docker 引擎(dockerd.exe) 及 Docker 用戶端 (docker.exe) 所組成。 您可以在快速入門指南中找到安裝所有項目最簡單的方法。 它們可協助您取得所有項目設定和執行您的第一個容器。 
 
 * [Windows Server 2016 上的 Windows 容器](../quick-start/quick-start-windows-server.md)
 * [Windows 10 上的 Windows 容器](../quick-start/quick-start-windows-10.md)
 
 如需使用指令碼進行安裝，請參閱[使用指令碼安裝 Docker EE](https://docs.docker.com/install/windows/docker-ee/#use-a-script-to-install-docker-ee)。
 
-必須先安裝容器映像，才能使用 Docker。 如需詳細資訊，請參閱[使用映像快速入門指南](../quick-start/quick-start-images.md)。
+才能使用 Docker 容器映像需要安裝。 如需詳細資訊，請參閱[使用映像快速入門指南](../quick-start/quick-start-images.md)。
 
 ## <a name="configure-docker-with-configuration-file"></a>使用設定檔設定 Docker
 
@@ -81,7 +81,7 @@ Docker 引擎和代理程式並未隨附於 Windows，且需要個別安裝及�
 此範例同樣會設定 Docker 精靈將映像和容器保留在的替代路徑中。 若未指定，則預設路徑為 c:\programdata\docker。
 
 ```
-{    
+{    
     "data-root": "d:\\docker"
 }
 ```

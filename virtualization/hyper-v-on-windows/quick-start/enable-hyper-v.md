@@ -7,12 +7,12 @@ ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: 752dc760-a33c-41bb-902c-3bb2ecd9ac86
-ms.openlocfilehash: dd4021c653d98a3bd7a338d9f502a572830f344d
-ms.sourcegitcommit: 5e5644bff6dba70e384db6c80787b3bbe7adb93c
+ms.openlocfilehash: cd576f72c9947cd6f79cc362709c1a4ceab9b47e
+ms.sourcegitcommit: 4412583b77f3bb4b2ff834c7d3f1bdabac7aafee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "4303924"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "6947957"
 ---
 # <a name="install-hyper-v-on-windows-10"></a>在 Windows 10 上安裝 Hyper-V
 
@@ -25,7 +25,7 @@ ms.locfileid: "4303924"
 
 * Windows 10 企業版、 專業版或教育版
 * 使用第二層位址轉譯 (SLAT) 的 64 位元處理器。
-* CPU 對 VM 監視模式延伸模組的支援 (Intel CPU 上的 VT-c)。
+* CPU 對 VM 監視模式延伸模組 (VT-Intel Cpu 上的 c) 的支援。
 * 至少 4 GB 記憶體。
 
 Hyper-V 角色**無法**安裝於 Windows 10 家用版。
@@ -70,9 +70,11 @@ Hyper-V 角色**無法**安裝於 Windows 10 家用版。
 
 1. 以滑鼠右鍵按一下 Windows 鍵，然後選取 \[應用程式與功能\]。
 
-2. 選取 **\[開啟或關閉 Windows 功能\]**。
+2. 選取 [**程式和功能**在相關的設定下，右側。 
 
-3. 選取 **\[Hyper-V\]**，然後按一下 **\[確定\]**。
+3. 選取 **\[開啟或關閉 Windows 功能\]**。
+
+4. 選取 **\[Hyper-V\]**，然後按一下 **\[確定\]**。
 
 ![Windows 程式和功能對話方塊](media/enable_role_upd.png)
 

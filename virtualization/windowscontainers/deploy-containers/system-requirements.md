@@ -2,17 +2,17 @@
 title: Windows 容器需求
 description: Windows 容器需求。
 keywords: 中繼資料, 容器
-author: enderb-ms
+author: taylorb-microsoft
 ms.date: 09/26/2016
 ms.topic: deployment-article
 ms.prod: windows-containers
 ms.assetid: 3c3d4c69-503d-40e8-973b-ecc4e1f523ed
-ms.openlocfilehash: 8ff9373bd943c360079679a7e41256c24aa21aa8
-ms.sourcegitcommit: d69ed13d505e96f514f456cdae0f93dab4fd3746
+ms.openlocfilehash: e736199221f06c572f89e8dafac55ce114bf7481
+ms.sourcegitcommit: 4412583b77f3bb4b2ff834c7d3f1bdabac7aafee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "4340866"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "6948017"
 ---
 # <a name="windows-container-requirements"></a>Windows 容器需求
 
@@ -20,7 +20,7 @@ ms.locfileid: "4340866"
 
 ## <a name="os-requirements"></a>作業系統需求
 
-- Windows 容器功能，才可在 Windows Server 2016 上使用 (Core 和含桌面體驗)，Windows 10 專業版和企業版 (Anniversary Edition) 及更新版本。
+- Windows 容器功能只是可在 Windows Server 2016 上使用 (Core 和含桌面體驗)，Windows 10 專業版和企業版 (Anniversary Edition) 及更新版本。
 - 必須安裝 Hyper-V 角色，才能執行 Hyper-V 容器
 - Windows Server 容器主機必須將 Windows 安裝至 c:\。 如果只會部署 Hyper-V 容器，則沒有這項限制。
 

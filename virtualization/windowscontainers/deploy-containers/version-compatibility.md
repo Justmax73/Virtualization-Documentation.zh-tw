@@ -2,13 +2,13 @@
 title: Windows 容器版本相容性
 description: Windows 要如何跨多個版本執行組建及執行容器
 keywords: 中繼資料, 容器, 版本
-author: patricklang
-ms.openlocfilehash: 8657c03ad71685b0f01532894781c44d76e1b0bc
-ms.sourcegitcommit: d69ed13d505e96f514f456cdae0f93dab4fd3746
+author: taylorb-microsoft
+ms.openlocfilehash: c744da429ed8116363437d3117ae1432d7a94f8d
+ms.sourcegitcommit: 4412583b77f3bb4b2ff834c7d3f1bdabac7aafee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "4340876"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "6948077"
 ---
 # <a name="windows-container-version-compatibility"></a>Windows 容器版本相容性
 
