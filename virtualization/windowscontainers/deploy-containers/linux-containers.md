@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: edfd11c8-ee99-42d8-9878-efc126fe1826
-ms.openlocfilehash: 477c6079d6e90a206386d1810bdb1449e087a4be
-ms.sourcegitcommit: 4412583b77f3bb4b2ff834c7d3f1bdabac7aafee
+ms.openlocfilehash: 7db0135e5d5079d3b8cce815d051ecd6a7cb896b
+ms.sourcegitcommit: 614e3ca3e6f4373b999a501a2829adbaa61de4c4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "6948087"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "7277532"
 ---
 # <a name="linux-containers-on-windows"></a>Windows 上的 Linux 容器
 
@@ -49,7 +49,7 @@ Docker 已經過能夠在 Windows 上執行 Linux 容器桌面，因為它首次
 
 若要嘗試 LCOW，請依照 Linux 容器中的指示，[這個 get 入門指南](../quick-start/quick-start-windows-10.md)
 
-使用 HYPER-V 隔離的 Linux 容器最佳化的 Linux VM 具備足夠的作業系統來執行容器中執行每個 Linux 容器 (LCOW)。  相較於其他 Moby VM 的方法，每個 LCOW 有它自己的核心而且它自己的 VM 沙箱。  他們正在也受 Windows 上的 Docker 直接。
+使用 HYPER-V 隔離的 Linux 容器最佳化的 Linux VM 具備足夠的作業系統來執行容器中執行每個 Linux 容器 (LCOW)。  相較於其他 Moby VM 的方法，每個 LCOW 都有它自己的核心和其本身的 VM 沙箱。  他們正在也受 Windows 上的 Docker 直接。
 
 ![使用 HYPER-V 隔離 (LCOW) 的 Linux 容器](media/lcow-approach.png)
 
@@ -123,6 +123,6 @@ LCOW 已是開發中。  [GitHub](https://github.com/moby/moby/issues/33850)上�
 
 ## <a name="other-options-we-considered"></a>我們考慮其他選項
 
-當我們已看著在 Windows 上執行 Linux 容器的方式時，我們會被視為 WSL。  最後，我們選擇虛擬化型的方法，這樣一來在 Windows 上的 Linux 容器與 Linux 上的 Linux 容器一致。  使用 HYPER-V 也可以讓 LCOW 更安全。  我們可能會重新評估在未來，但現在，LCOW 仍將繼續使用 HYPER-V。
+當我們已看著在 Windows 上執行 Linux 容器的方式時，我們會被視為 WSL。 最後，我們選擇的虛擬化型的方法，這樣一來在 Windows 上的 Linux 容器與 Linux 上的 Linux 容器一致。 使用 HYPER-V 也可以讓 LCOW 更安全。 我們可能會重新評估在未來，但現在，LCOW 仍將繼續使用 HYPER-V。
 
-如果您的想法，請傳送意見反應透過 github 或 UserVoice。  尤其是，我們非常感謝您想要查看特定體驗相關意見反應。
+如果您的想法，請傳送意見反應透過 GitHub 或 UserVoice。  尤其是，我們非常感謝您想要查看特定體驗相關意見反應。
