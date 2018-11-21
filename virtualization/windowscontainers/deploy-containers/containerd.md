@@ -1,5 +1,5 @@
 ---
-title: 建置容器堆疊
+title: Windows 容器平台
 description: 深入了解新容器建置組塊可以使用 Windows 中。
 keywords: LCOW linux 容器，docker、 容器、 containerd、 cri、 runhcs，runc
 author: scooley
@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: a0e62b32-0c4c-4dd4-9956-8056e9abd9e5
-ms.openlocfilehash: 970de62c9a0011fa09d6741b2665479efd394313
-ms.sourcegitcommit: 166aa2430ea47d7774392e65a9875501f86dd5ed
+ms.openlocfilehash: 5811ea0761567c3a7db036358b24d1a3e7c51baf
+ms.sourcegitcommit: fdaf666973fca37d8c428e0247454dd47c01f1c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2018
-ms.locfileid: "7460574"
+ms.locfileid: "7460597"
 ---
 # <a name="container-platform-tools-on-windows"></a>在 Windows 上的容器平台工具
 
@@ -106,7 +106,9 @@ Runhcs 中可用的容器命令包括：
 
 ## <a name="containerdcri"></a>containerd/cri
 
-> !注意： CRI 支援僅適用於 Server 2019 Windows 10 1809年及更新版本。
+> [!IMPORTANT]
+> CRI 支援僅適用於 Server 2019 Windows 10 1809年及更新版本。  我們也仍然主動開發 containerd 適用於 Windows。
+> 開發人員/測試只。
 
 [CRI](https://github.com/kubernetes/kubernetes/blob/master/pkg/kubelet/apis/cri/runtime/v1alpha2/api.proto) （容器執行階段介面） 而 OCI 規格定義單一容器，描述中共用的沙箱 workload(s) 為容器環境稱為 pod。  Pod 可以包含一或多個容器工作負載。  Pod 讓容器協調器，像是 Kubernetes 和服務網狀架構網格處理分組應該是含有一些共用的資源，例如記憶體和 vNETs 在相同主機的工作負載。
 
