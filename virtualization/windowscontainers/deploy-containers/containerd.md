@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: a0e62b32-0c4c-4dd4-9956-8056e9abd9e5
-ms.openlocfilehash: 8a68bf9e5e78add65aedb51fff8521ee258e353e
-ms.sourcegitcommit: 9a61fc06c25d17ddb61124a21a3ca821828b833d
+ms.openlocfilehash: 970de62c9a0011fa09d6741b2665479efd394313
+ms.sourcegitcommit: 166aa2430ea47d7774392e65a9875501f86dd5ed
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/20/2018
-ms.locfileid: "7460493"
+ms.locfileid: "7460574"
 ---
 # <a name="container-platform-tools-on-windows"></a>在 Windows 上的容器平台工具
 
@@ -46,12 +46,15 @@ Windows 容器平台正在展開 ！  Docker 是旅程的容器，第一個部�
 
 ## <a name="runhcs"></a>runhcs
 
-RunHCS 是 runc 的分支。  Runc，例如 runhcs 是命令列用戶端來執行根據開放容器計劃 (OCI) 格式的已封裝的應用程式且符合的開放容器計劃規格的實作。  
+`runhcs` 是的分支`runc`。  像`runc`，`runhcs`來執行應用程式封裝根據開放容器計劃 (OCI) 格式是命令列用戶端，而是開放容器計劃規格的規範的實作。
 
 功能性 runc 和 runhcs 之間的差異包括：
 
-* 在 Windows 上執行 runhcs
-* runhcs 可以執行 Windows 和 Linux [HYPER-V 容器](../manage-containers/hyperv-container.md)除了 Windows 處理程序容器。
+* `runhcs` 在 Windows 上執行。  它會建立和管理容器[HCS](containerd.md#hcs)與通訊。
+* `runhcs` 可以執行各種不同的容器類型。
+
+  * Windows 和[HYPER-V 容器](../manage-containers/hyperv-container.md)的 Linux
+  * Windows 處理容器 （容器映像必須符合容器主機）
 
 **使用方式：**
 
@@ -89,6 +92,18 @@ Runhcs 中可用的容器命令包括：
 
 可以被視為多容器的唯一命令是**清單**。  它會列出執行中 （或暫停） 啟動的指定根 runhcs 的容器。
 
+### <a name="hcs"></a>HCS
+
+我們有 GitHub 上的兩個包裝函式可用 HCS 介面。 因為 HCS C API，包裝函式讓您輕鬆呼叫 HCS 從較高的層級語言。  
+
+* [hcsshim](https://github.com/microsoft/hcsshim) -HCSShim 以移至撰寫，它是 runhcs 的基礎。
+抓取 AppVeyor 的最新版本或建置它。
+* [dotnet computevirtualization](https://github.com/microsoft/dotnet-computevirtualization) dotnet computevirtualization 是 C# 的包裝函式 HCS。
+
+如果您想要使用 HCS （直接或透過包裝函式），或您想要讓鏽/Haskell/InsertYourLanguage 包裝函式來 HCS，請保持註解。
+
+如 HCS 深入查看，請觀看[John Stark DockerCon 簡報](https://www.youtube.com/watch?v=85nCF5S8Qok)。
+
 ## <a name="containerdcri"></a>containerd/cri
 
 > !注意： CRI 支援僅適用於 Server 2019 Windows 10 1809年及更新版本。
@@ -103,26 +118,3 @@ CRI 規格的連結：
 ![Containerd 為基礎的容器環境](media/containerd-platform.png)
 
 雖然 runHCS 和 containerd 可以管理 Server 2016 或更新版本的任何 Windows 系統上，支援 Pod （容器既有的群組） 需要 Windows 容器工具重大變更。  CRI 支援是在 Windows Server 2019/Windows 10 1809年可用和更新版本。
-
-## <a name="hcs"></a>HCS
-
-我們有 GitHub 上的兩個包裝函式可用 HCS 介面。 因為 HCS C API，包裝函式讓您輕鬆呼叫 HCS 從較高的層級語言。  
-
-### <a name="hcsshim"></a>HCSShim
-
-HCSShim 以移至撰寫，它是 runhcs 的基礎。
-抓取 AppVeyor 的最新版本或建置它。
-
-查看它在[GitHub](https://github.com/microsoft/hcsshim)中。
-
-### <a name="dotnet-computevirtualization"></a>dotnet computevirtualization
-
-> !請注意，這是參考實作-開發人員/測試只會使用它。
-
-dotnet computevirtualization 是 C# 的包裝函式 HCS。
-
-快來一探[github](https://github.com/microsoft/dotnet-computevirtualization)。
-
-如果您想要使用 HCS （直接或透過包裝函式），或您想要讓鏽/Haskell/InsertYourLanguage 包裝函式來 HCS，請保持註解。
-
-如 HCS 深入查看，請觀看[John Stark DockerCon 簡報](https://www.youtube.com/watch?v=85nCF5S8Qok)。
