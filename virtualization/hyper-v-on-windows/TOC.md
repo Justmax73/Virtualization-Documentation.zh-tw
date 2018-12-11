@@ -16,6 +16,7 @@
 ## [建立虛擬交換器](quick-start/connect-to-network.md)
 ## [建置整合服務](user-guide/make-integration-service.md)
 ## [移植 Hyper-V WMI](user-guide/refactor-wmiv1-to-wmiv2.md)
+## [在 Azure 虛擬網路中的巢狀虛擬機器](user-guide/nested-virtualization-azure-virtual-network.md) 
 
 # 參考
 ## [Hyper-V 需求](reference/hyper-v-requirements.md)
