@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
-ms.openlocfilehash: 27317dbf5ba5386a3bd555c53c781aac2fc110a7
-ms.sourcegitcommit: edc153ffef01094c2324a0da2f9a301b31015a58
-ms.translationtype: HT
+ms.openlocfilehash: d92d14fd10e07e159ff2023b4dd6ade8b11ca2e5
+ms.sourcegitcommit: 4090d158dd3573ea90799de5b014c131a206b000
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "1912665"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "6121588"
 ---
 # <a name="active-directory-service-accounts-for-windows-containers"></a>適用於 Windows 容器的 Active Directory 服務帳戶
 
@@ -48,8 +48,8 @@ Windows 容器遵循類似的程序：
 4. 從 [windows-server-container-tools](https://github.com/Microsoft/Virtualization-Documentation/tree/live/windows-server-container-tools)使用 CredentialSpec PowerShell 模組，以儲存使用 gMSA 所需設定
 5. 使用額外選項啟動容器 `--security-opt "credentialspec=..."`
 
-[!NOTE]
-就像[這裡](https://docs.microsoft.com/en-us/windows/device-security/security-policy-settings/network-access-allow-anonymous-sidname-translation)所說的，您可能需要在容器主機上允許匿名 SID/名稱轉譯，若非如此，您可能會收到帳戶無法轉譯為 SID 的錯誤。
+> [!NOTE]
+> 就像[這裡](https://docs.microsoft.com/en-us/windows/device-security/security-policy-settings/network-access-allow-anonymous-sidname-translation)所說的，您可能需要在容器主機上允許匿名 SID/名稱轉譯，若非如此，您可能會收到帳戶無法轉譯為 SID 的錯誤。
 
 但是，在探索允許匿名 SID/名稱轉譯需要之前，務必先採取下列動作：
 
