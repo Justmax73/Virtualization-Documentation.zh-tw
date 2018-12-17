@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8e273856-3620-4e58-9d1a-d1e06550448
-ms.openlocfilehash: 5dcc2af869ba0433b1d755f6d70f5dae6e18cdc5
-ms.sourcegitcommit: 4090d158dd3573ea90799de5b014c131a206b000
+ms.openlocfilehash: ade690dbfed2fd154ee94955f3104c47dae40045
+ms.sourcegitcommit: 8ab1fccfc680911493c769157a6cfe7cbcf17bde
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "6121608"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "8972062"
 ---
 # <a name="windows-containers"></a>Windows 容器
 
@@ -21,11 +21,11 @@ ms.locfileid: "6121608"
 
 容器是一種將應用程式封裝在隔離箱內的方式。 對於容器中的應用程式而言，它不了解存在箱外的任何其他應用程式或處理序。 此應用程式順利執行所仰賴的一切也都存放在這個容器內部。  不論這個隔離箱移動到哪裡，都永遠能滿足該應用程式的執行條件，因為它執行所需的一切都封裝在一起。
 
-假設有一間廚房。 我們裝入所有設備和家具、鍋碗瓢盆、清潔劑和抹布。 這就是我們的容器。
+假設有一間廚房。 我們裝入所有設備和家具、鍋碗瓢盆、清潔劑和抹布。 這是我們的容器。
 
 <center style="margin: 25px">![](media/box1.png)</center>
 
-現在，我們可以將這個容器放入想要的任何主機公寓中，而且它都會是相同的廚房。 我們只需要接通水電，就可以開始烹飪了 (因為我們擁有所需的所有設備)！
+現在，我們可以將這個容器放入想要的任何主機公寓中，而且它都會是相同的廚房。 我們就可以水電與它連線，並接著我們開始烹飪了 （因為我們擁有我們需要的所有設備） ！。
 
 <center style="margin: 25px">![](media/apartment.png)</center>
 
