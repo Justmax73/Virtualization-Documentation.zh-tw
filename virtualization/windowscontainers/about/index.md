@@ -8,14 +8,14 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8e273856-3620-4e58-9d1a-d1e06550448
-ms.openlocfilehash: ade690dbfed2fd154ee94955f3104c47dae40045
-ms.sourcegitcommit: 8ab1fccfc680911493c769157a6cfe7cbcf17bde
+ms.openlocfilehash: 16cf281193ced00ea1b0e2d96291de7f44822284
+ms.sourcegitcommit: 95cec99aa8e817d3e3cb2163bd62a32d9e8f7181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "8972062"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "8973608"
 ---
-# <a name="windows-containers"></a>Windows 容器
+# <a name="containers-on-windows"></a>在 Windows 上的容器
 
 ## <a name="what-are-containers"></a>什麼是容器
 
@@ -31,7 +31,9 @@ ms.locfileid: "8972062"
 
 容器與這個廚房十分相似。 可能會有不同種類的房間，也可能會有許多相同種類的房間。 重點在於，容器與它們所需的一切封裝在一起。
 
-觀看簡短的概觀：[Windows 容器：具備企業級控制能力的現代化應用程式開發](https://youtu.be/Ryx3o0rD5lY) (英文)。
+觀看簡短的概觀下方：
+<iframe width="800" height="450" src="https://www.youtube.com/embed/Ryx3o0rD5lY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 ## <a name="container-fundamentals"></a>容器的基礎
 

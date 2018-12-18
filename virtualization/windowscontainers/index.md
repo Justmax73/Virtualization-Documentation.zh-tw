@@ -1,21 +1,21 @@
 ---
-title: Windows 容器文件
-description: Windows 容器文件
-keywords: docker, 容器
+title: Windows 文件上的容器
+description: 在 Windows 上執行容器的文件
+keywords: Docker, 容器
 author: cwilhit
 ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 74c9d604-0915-4d89-bc69-0263b76bc66b
-ms.openlocfilehash: 2b887d8ae92d5134014ea71235237cc446a7816f
-ms.sourcegitcommit: 4412583b77f3bb4b2ff834c7d3f1bdabac7aafee
+ms.openlocfilehash: 84e3f318069961853248bcc30abadcd68642649c
+ms.sourcegitcommit: 95cec99aa8e817d3e3cb2163bd62a32d9e8f7181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "6947947"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "8973618"
 ---
-# <a name="windows-containers-documentation"></a>Windows 容器文件
+# <a name="containers-on-windows-documentation"></a>Windows 文件上的容器
 
 Windows 容器可提供作業系統層級的虛擬化，讓多個隔離的應用程式在單一系統上執行。 此文件集提供快速入門指南、部署指南和管理作業的技術詳細資料。
 
@@ -34,7 +34,7 @@ Windows 容器可提供作業系統層級的虛擬化，讓多個隔離的應用
 <tr>
 <td ><center>![](media/1.png)</center></td>
 <td>**部署**<br /><br />
-了解如何在 Windows Server 2016 上部署 Windows 容器<br /><br />
+了解如何以 Windows Server 2019 上部署 Windows 容器<br /><br />
 <ul>
 <li>[系統需求](deploy-containers/system-requirements.md)<br /><br /></li>
 <li>[部署容器主機](deploy-containers/deploy-containers-on-server.md)<br /><br /></li>

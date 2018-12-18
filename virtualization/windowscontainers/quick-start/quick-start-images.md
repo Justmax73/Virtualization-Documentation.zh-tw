@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 479e05b1-2642-47c7-9db4-d2a23592d29f
-ms.openlocfilehash: 104c8f659e2b9709c24eb0230d9f32d6dca32c71
-ms.sourcegitcommit: 4412583b77f3bb4b2ff834c7d3f1bdabac7aafee
+ms.openlocfilehash: 5da18c7c1e2fc6882d5879070e91d36d0c0a475a
+ms.sourcegitcommit: 95cec99aa8e817d3e3cb2163bd62a32d9e8f7181
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "6948037"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "8973658"
 ---
 # <a name="automating-builds-and-saving-images"></a>自動化組建和儲存映像
 
@@ -21,46 +21,48 @@ ms.locfileid: "6948037"
 
 本快速入門專屬於 Windows Server 2016 上的 Windows Server 容器，並使用 Windows Server Core 容器基本映像。 在此頁面左側的目錄中，可以找到其他的快速入門文件。
 
-**必要條件：**
+## <a name="prerequisites"></a>必要條件
+
+請確定您符合下列需求：
 
 - 執行 Windows Server 2016 的電腦系統 (實體或虛擬)。
 - 設定此系統的 Windows 容器功能和 Docker。 如需這些步驟的逐步解說，請參閱 [Windows Server 上的 Windows 容器](./quick-start-windows-server.md)。
 - Docker 識別碼，這會用以將容器映像推送至 Docker Hub。 如果您沒有 Docker 識別碼，請在 [Docker Cloud](https://cloud.docker.com/) 註冊一個。
 
-## <a name="1-container-image---dockerfile"></a>1. 容器映像 - Dockerfile
+## <a name="container-image---dockerfile"></a>容器映像-Dockerfile
 
 雖然容器可以手動建立、修改，然後擷取至到新的容器映像中，但是 Docker 包含使用 Dockerfile 將此程序自動化的方法。 這項練習需要 Docker 識別碼。 如果您沒有 Docker 識別碼，請在 [Docker Cloud]( https://cloud.docker.com/) 註冊一個。
 
 在容器主機上建立目錄 `c:\build`，然後在此目錄中建立名為 `Dockerfile` 的檔案。 請注意 – 檔案不應該具有副檔名。
 
-```
+```console
 powershell new-item c:\build\Dockerfile -Force
 ```
 
 在記事本中開啟 Dockerfile。
 
-```
+```console
 notepad c:\build\Dockerfile
 ```
 
-將下列文字複製到 Dockerfile 中，並儲存檔案。 這些命令會指示 Docker 建立新的映像，並且使用 `microsoft/iis` 做為基礎。 Dockerfile 接著會執行 `RUN` 指示中指定的命令，在此情況下，index.html 檔案會更新為新內容。 
+將下列文字複製到 Dockerfile 中，並儲存檔案。 這些命令會指示 Docker 建立新的映像，並且使用 `microsoft/iis` 做為基礎。 Dockerfile 接著會執行 `RUN` 指示中指定的命令，在此情況下，index.html 檔案會更新為新內容。
 
 如需 Dockerfile 的詳細資訊，請參閱 [Windows 上的 Dockerfile](../manage-docker/manage-windows-dockerfile.md)。
 
-```
+```dockerfile
 FROM microsoft/iis
 RUN echo "Hello World - Dockerfile" > c:\inetpub\wwwroot\index.html
 ```
 
 `docker build` 命令將會啟動映像建置程序。 `-t` 參數會指示建置程序將新映像命名為 `iis-dockerfile`。 **以 Docker 帳戶的使用者名稱取代 'user'**。 如果您沒有 Docker 的帳戶，請在 [Docker Cloud](https://cloud.docker.com/) 註冊一個。
 
-```
+```console
 docker build -t <user>/iis-dockerfile c:\Build
 ```
 
 完成之後，您可以使用 `docker images` 命令來驗證映像是否已建立。
 
-```
+```console
 docker images
 
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
@@ -72,7 +74,7 @@ windowsservercore   latest              dbfee88ee9fd        8 weeks ago         
 
 現在請使用下列命令部署容器，並再次以 Docker 識別碼取代使用者。
 
-```
+```console
 docker run -d -p 80:80 <user>/iis-dockerfile ping -t localhost
 ```
 
@@ -84,25 +86,26 @@ docker run -d -p 80:80 <user>/iis-dockerfile ping -t localhost
 
 取得容器名稱。
 
-```
+```console
 docker ps
 
 CONTAINER ID   IMAGE            COMMAND               CREATED              STATUS              PORTS                NAMES
 c1dc6c1387b9   iis-dockerfile   "ping -t localhost"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp   cranky_brown
 ```
+
 停止容器。
 
-```
+```console
 docker stop <container name>
 ```
 
 移除容器。
 
-```
+```console
 docker rm -f <container name>
 ```
 
-## <a name="2-docker-push"></a>2. Docker Push
+## <a name="docker-push"></a>3.docker Push
 
 Docker 容器映像可儲存於容器登錄中。 映像一旦儲存於登錄中，即可擷取以供日後在多種不同容器主機中使用。 Docker 提供公開登錄，以在 [Docker Hub](https://hub.docker.com/) 儲存容器映像。
 
@@ -110,7 +113,7 @@ Docker 容器映像可儲存於容器登錄中。 映像一旦儲存於登錄中
 
 首先，使用 `docker login command` 登入您的 Docker 帳戶。
 
-```
+```console
 docker login
 
 Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
@@ -123,19 +126,19 @@ Login Succeeded
 
 登入後，即可將容器映像推送至 Docker Hub。 若要這樣做，請使用 `docker push` 命令。 **以您的 Docker 識別碼取代 'user’**。 
 
-```
+```console
 docker push <user>/iis-dockerfile
 ```
 
 現在可以使用 `docker pull`，將容器映像從 Docker Hub 下載至任何 Windows 容器主機。 在本教學課程中，我們會刪除現有映像，然後從 Docker Hub 加以提取。 
 
-```
+```console
 docker rmi <user>/iis-dockerfile
 ```
 
 執行 `docker images` 會顯示映像已經移除。
 
-```
+```console
 docker images
 
 REPOSITORY                TAG                 IMAGE ID            CREATED             SIZE
@@ -153,4 +156,5 @@ docker pull <user>/iis-dockerfile
 
 如果您想要了解如何封裝範例 ASP.NET 應用程式，請瀏覽以下連結的 Windows 10 教學課程。
 
-[Windows 10 上的 Windows 容器](./quick-start-windows-10.md)
+> [!div class="nextstepaction"]
+> [Windows 10 上的容器](./quick-start-windows-10.md)
