@@ -7,12 +7,12 @@ ms.date: 09/26/2016
 ms.topic: deployment-article
 ms.prod: windows-containers
 ms.assetid: 3c3d4c69-503d-40e8-973b-ecc4e1f523ed
-ms.openlocfilehash: e736199221f06c572f89e8dafac55ce114bf7481
-ms.sourcegitcommit: 4412583b77f3bb4b2ff834c7d3f1bdabac7aafee
+ms.openlocfilehash: 478305ff2298a0392935f9857febc445c1199b83
+ms.sourcegitcommit: 5300274fd7b88c6cf5e37b2f4c02779efaa3a613
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "6948017"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "8996042"
 ---
 # <a name="windows-container-requirements"></a>Windows 容器需求
 
@@ -35,7 +35,7 @@ ms.locfileid: "6948017"
 
 ## <a name="supported-base-images"></a>支援的基本映像
 
-Windows 容器隨附兩個容器基本映像：Windows Server Core 與 Nano Server。 並非所有的設定都支援這兩種作業系統映像。 此表詳加說明所支援的設定。
+Windows 容器隨附四個容器基本映像： Windows Server Core、 Nano Server、 Windows 與 IoT 核心版。 並非所有的設定都支援這兩種作業系統映像。 此表詳加說明所支援的設定。
 
 <table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:75%" cellpadding="5" cellspacing="5">
 <thead>
@@ -48,18 +48,23 @@ Windows 容器隨附兩個容器基本映像：Windows Server Core 與 Nano Serv
 <tbody>
 <tr valign="top">
 <td><center>Windows Server 2016 / 2019 （Standard 或 Datacenter）</center></td>
-<td><center>Server Core / Nano Server</center></td>
-<td><center>Server Core / Nano Server</center></td>
+<td><center>Server Core，Nano Server Windows</center></td>
+<td><center>Server Core，Nano Server Windows</center></td>
 </tr>
 <tr valign="top">
 <td><center>Nano Server<a href="#warn-1">*</a></center></td>
 <td><center> Nano Server</center></td>
-<td><center>Server Core / Nano Server</center></td>
+<td><center>Server Core，Nano Server Windows</center></td>
 </tr>
 <tr valign="top">
 <td><center>Windows 10 專業版 / 企業版</center></td>
 <td><center>無法使用</center></td>
-<td><center>Server Core / Nano Server</center></td>
+<td><center>Server Core，Nano Server Windows</center></td>
+</tr>
+<tr valign="top">
+<td><center>IoT 核心版</center></td>
+<td><center>IoT 核心版</center></td>
+<td><center>無法使用</center></td>
 </tr>
 </tbody>
 </table>
@@ -84,9 +89,16 @@ Windows 容器隨附兩個容器基本映像：Windows Server Core 與 Nano Serv
 | Server Core | 45 MB                     | 360 MB + 1 GB 分頁檔 |
 
 
-### <a name="nano-server-vs-windows-server-core"></a>Nano Server 與 Windows Server Core
+### <a name="base-image-differences"></a>基本映像的差異
 
-該選擇 Windows Server Core 還是 Nano Server 呢？ 雖然您可以隨意使用任何一種來建置，不過如果您認為應用程式需要與 .NET Framework 完全相容，那就應該使用 [Windows Server Core](https://hub.docker.com/r/microsoft/windowsservercore/)。 反之，如果您的應用程式是針對雲端打造而且使用 .NET Core，那就應該使用 [Nano Server](https://hub.docker.com/r/microsoft/nanoserver/)。 這是因為 Nano Server 的設計宗旨是要盡可能減少磁碟使用量，因此移除了許多非必要的程式庫。 在您考慮是否要以 Nano Server 做為建置基礎時，最好將下列各點列入考量：
+其中一個會選擇右基本映像建置時？ 雖然您可以使用建置任何您想要的結果，這些是為每個影像的一般指導方針：
+
+- [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore)： 如果您的應用程式需要完整.NET framework，這會是最佳的映像，才能使用。
+- [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver):，只需要.NET Core 應用程式，針對 Nano Server 會提供更獎勵的影像。
+- [Windows](https://hub.docker.com/_/microsoft-windowsfamily-windows)： 您可能會發現您的應用程式取決於元件或.dll 遺失在 Server Core 或 Nano Server 映像，例如 GDI 程式庫。 此映像需負擔 Windows 完整的相依性組。
+- [IoT 核心版](https://hub.docker.com/_/microsoft-windows-iotcore)： 這個影像是[IoT 應用程式](https://developer.microsoft.com/en-us/windows/iot)的特殊用途。 IoT 核心版主機為目標時，您應該使用這個容器映像。
+
+對於大部分的使用者，Windows Server Core 或 Nano Server 會使用的最適當影像。 以下是幾件事，因為您思考需要在 Nano Server 之上建置，請牢記：
 
 - 已移除服務堆疊
 - 不包含 .NET Core (不過您可以使用 [.NET Core Nano Server 映像](https://hub.docker.com/r/microsoft/dotnet/))
