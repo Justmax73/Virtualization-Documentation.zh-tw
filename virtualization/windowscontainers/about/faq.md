@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 25de368c-5a10-40a4-b4aa-ac8c9a9ca022
-ms.openlocfilehash: 42e1a0bf58ada40a8f135861646d5c9429e0d5db
-ms.sourcegitcommit: a5f8f99bf8f512a9058b72f1f617f77ecf488c71
+ms.openlocfilehash: 36ef6df0b9736d88fec627e4cb56df023f1a7708
+ms.sourcegitcommit: 4336d7617c30d26a987ad3450b048e17404c365d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "8974010"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "9001007"
 ---
 # <a name="frequently-asked-questions"></a>常見問題集
 
@@ -68,4 +68,5 @@ Windows 容器基本映像包含其散發授權受限制的成品。 當您建�
 
 為了確保封裝格式的通用性，Docker 最近發起開放容器計劃 (OCI)，以期能讓容器封裝維持開放和基金會領導的形式，而 Microsoft 也是發起成員之一。
 
-> ![提示]必須為常見問題集的新增的建議？ 我們鼓勵您新的意見反應問題下方或開啟您建議針對這些文件 PR ！
+> [!TIP]
+> 必須為常見問題集的新增的建議？ 我們鼓勵您新的意見反應問題下方或開啟您建議針對這些文件 PR ！

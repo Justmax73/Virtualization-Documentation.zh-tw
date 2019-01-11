@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 42154683-163b-47a1-add4-c7e7317f1c04
-ms.openlocfilehash: e1a5b80773128af0ba0095d5201e4fa123a1741c
-ms.sourcegitcommit: 99da24a8c075e0096eabd09a29007a65e3ea35b7
+ms.openlocfilehash: caaf4186f43c69dfbc35d04dd8909876ed082906
+ms.sourcegitcommit: 4336d7617c30d26a987ad3450b048e17404c365d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/04/2018
-ms.locfileid: "6022176"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "9000997"
 ---
 # <a name="hyper-v-containers"></a>Hyper-V 容器
 
@@ -32,7 +32,7 @@ Windows 容器技術包含兩種不同的容器，Windows Server 容器 （處�
 管理 HYPER-V 容器與 Docker 是管理 Windows Server 容器幾乎完全相同。 使用 Docker 建立 HYPER-V 容器，請使用`--isolation`參數來設定`--isolation=hyperv`。
 
 ``` cmd
-docker run -it --isolation=hyperv microsoft/nanoserver cmd
+docker run -it --isolation=hyperv mcr.microsoft.com/windows/nanoserver:1809 cmd
 ```
 
 ### <a name="isolation-explanation"></a>隔離說明
@@ -42,7 +42,7 @@ docker run -it --isolation=hyperv microsoft/nanoserver cmd
 這裡部署了 Windows Server 容器，並將主控長時間執行的偵測處理序。
 
 ``` cmd
-docker run -d microsoft/windowsservercore ping localhost -t
+docker run -d mcr.microsoft.com/windows/servercore:1809 ping localhost -t
 ```
 
 使用 `docker top` 命令時，會如同容器內所示傳回偵測處理序。 在此範例中處理序的識別碼為 3964。
@@ -66,7 +66,7 @@ Handles  NPM(K)    PM(K)      WS(K) VM(M)   CPU(s)     Id  SI ProcessName
 做為對比，此範例同時會啟動具有偵測處理序的 Hyper-V 容器。 
 
 ```
-docker run -d --isolation=hyperv microsoft/nanoserver ping -t localhost
+docker run -d --isolation=hyperv mcr.microsoft.com/windows/nanoserver:1809 ping -t localhost
 ```
 
 同樣地，`docker top` 可用來從容器傳回執行中處理序。
