@@ -3,12 +3,12 @@ title: 在 Windows 上的容器中的裝置
 description: 支援何種裝置存在的 Windows 上的容器
 keywords: docker，容器，裝置硬體
 author: cwilhit
-ms.openlocfilehash: b300c9a4262c30da3f6fdf2c4aeedab76b167417
-ms.sourcegitcommit: 4336d7617c30d26a987ad3450b048e17404c365d
+ms.openlocfilehash: f70388bf3724af7cb92f20e2053aa4ddb1f953a3
+ms.sourcegitcommit: 5cbaef0806db21d7bbcc99964837f10f4207a51f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/11/2019
-ms.locfileid: "9001038"
+ms.locfileid: "9001750"
 ---
 # <a name="devices-in-containers-on-windows"></a>在 Windows 上的容器中的裝置
 
@@ -43,7 +43,7 @@ docker run --isolation=process --device="class/{interface class GUID}" --device=
 
 ## <a name="what-devices-are-supported"></a>什麼裝置支援
 
-下列的裝置 （和其裝置介面 clas Guid） 是現今支援：
+下列的裝置 （和其裝置介面類別 Guid） 現今支援：
   
 <table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:75%" cellpadding="5" cellspacing="5">
 <thead>
