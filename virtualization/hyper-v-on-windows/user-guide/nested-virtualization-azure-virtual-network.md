@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 1ecb85a6-d938-4c30-a29b-d18bd007ba08
-ms.openlocfilehash: abe6f0da68ff90af0b2b5e675f70f106d42ca81c
-ms.sourcegitcommit: 8db42caaace760b7eeb1367b631b38e7904a9f26
+ms.openlocfilehash: c39a2e5639d013a0aba15150117b7ab18ea32f97
+ms.sourcegitcommit: 1aef193cf56dd0870139b5b8f901a8d9808ebdcd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "8962306"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "9001654"
 ---
 # <a name="configure-nested-vms-to-communicate-with-resources-in-an-azure-virtual-network"></a>設定 Azure 的虛擬網路中的資源與通訊的巢狀虛擬機器
 
@@ -50,7 +50,7 @@ ms.locfileid: "8962306"
   * 我們希望這會對應到現有的子網路的原因是為了處理回透過 ExpressRoute BGP 廣告。 如果我們只是組成以使用 HYPER-V 主機的 IP 範圍，則我們會建立一系列的靜態路由，讓用戶端有內部部署與巢狀虛擬機器進行通訊。 這表示這不硬碟需求，因為您可能構成 IP 範圍的巢狀虛擬機器，然後建立直接存取該範圍的 HYPER-V 主機的用戶端所需的所有路由。
 * 我們將會建立內部交換器 HYPER-V 內，然後我們將會指派新建立的介面的 IP 位址，我們將保留 dhcp 範圍內。 此 IP 位址會成為我們巢狀虛擬機器的預設閘道，且可用於內部交換器和主機連接到我們 VNet 的 NIC 之間的路線。
 * 我們將會在主機上，這會將我們的主機，變成路由器安裝路由及遠端存取的角色。  這是必要允許外部主機的資源和我們的巢狀虛擬機器之間的通訊。
-* 我們將會告訴其他資源如何存取這些巢狀虛擬機器。 這樣會使用我們建立使用者定義路由表包含的 IP 範圍中的巢狀虛擬機器的靜態路由。 這個靜態路由會指向 HYPER-V 的 IP 位址。
+* 我們會告訴其他資源如何存取這些巢狀虛擬機器。 這樣會使用我們建立使用者定義路由表包含的 IP 範圍中的巢狀虛擬機器的靜態路由。 這個靜態路由會指向 HYPER-V 的 IP 位址。
 * 您則會放置這個 UDR 閘道子網路上，因此來自內部部署的用戶端知道如何到達我們巢狀虛擬機器。
 * 您也會將此 UDR 放在需要能連線到巢狀虛擬機器的 Azure 內的任何其他子網路上。
 * 針對多個 HYPER-V 主機，您會建立其他 「 浮動 」 的子網路，並將額外的靜態路由新增到 UDR。
@@ -82,8 +82,11 @@ ms.locfileid: "8962306"
 
 * 開啟 \ [伺服器管理員並選取 「 工具 」，然後選取 「 路由及遠端存取 」。
 * 路由及遠端存取管理面板的右邊上您會看到與您的伺服器名稱旁邊的圖示，以滑鼠右鍵按一下這並選取 「 設定和啟用路由及遠端存取 」。
-* 在精靈選取 「 下一步 」、 檢查 」 兩個私人網路之間的安全連線 」，放射狀的按鈕，然後選取 「 下一步 」。
-* 選取放射狀按鈕"No"詢問您是否要使用指定撥號連線，然後選取 [下一頁]，然後選取 [」 完成 」 時。
+* 在精靈選取 [下一步 」、 「 自訂組態 」，檢查有放射狀按鈕，然後選取 「 下一步 」。
+* 檢查 「 NAT 」 和 「 LAN 路由 」，然後選取 「 下一步 」，並再 「 完成 」。 如果它會要求您啟動服務，則這樣做。
+* 現在瀏覽至 「 IPv4 」 節點，然後展開它，以便 「 NAT 」 節點會立即提供。
+* 以滑鼠右鍵按一下 「 NAT 」、 選取 「...新介面 」，您應該以三個選項會出現。 
+* 兩個選項僅適用於 HYPER-V 虛擬交換器，您應該會看到一個選項，為"Ethernet"，選取此選項。 簡言之，選取的介面，直接連接至您的 Azure VNet。
 
 ## <a name="creating-a-route-table-within-azure"></a>建立 Azure 內的路由表
 

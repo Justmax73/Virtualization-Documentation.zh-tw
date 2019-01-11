@@ -8,12 +8,12 @@ ms.prod: containers
 description: 您可以將 Windows 節點加入 v1.12 Kubernetes 叢集。
 keywords: kubernetes，1.12，windows，開始使用
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: 8051270cac6178bad9adf9a8ef9e2324932f7d01
-ms.sourcegitcommit: 8e9252856869135196fd054e3cb417562f851b51
+ms.openlocfilehash: 764d440837118801226c0bf37f92ffb0d7bdb9e5
+ms.sourcegitcommit: 1aef193cf56dd0870139b5b8f901a8d9808ebdcd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "6179015"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "9001614"
 ---
 # <a name="joining-windows-server-nodes-to-a-cluster"></a>將 Windows Server 節點加入叢集 #
 一旦您有[設定 Kubernetes 主機的節點](./creating-a-linux-master.md)，並[選取您想要的網路的解決方案](./network-topologies.md)，您準備好要加入 Windows Server 來形成叢集的節點。 這需要一些[準備 Windows 節點上的](#preparing-a-windows-node)，才能將加入。
@@ -61,14 +61,14 @@ Start-Service docker
  提取映像您特定的 Windows 版本。 例如，如果您正在執行 Windows Server 2019:
 
  ```powershell
-docker pull microsoft/nanoserver:1803
+docker pull mcr.microsoft.com/windows/nanoserver:1809
  ```
 
 #### <a name="tag-the-image"></a>標記的影像 ####
 您將使用本指南稍後的 Dockerfiles 尋找`:latest`標記的影像。 標記 nanoserver 映像，您只是提取，如下所示：
 
 ```powershell
-docker tag microsoft/nanoserver:1803 microsoft/nanoserver:latest
+docker tag mcr.microsoft.com/windows/nanoserver:1809 microsoft/nanoserver:latest
 ```
 
 #### <a name="run-the-container"></a>執行容器 ####
@@ -176,6 +176,7 @@ rm -recurse -force master,master.zip
 
 ```powershell
 cd c:\k
+chcp 65001
 .\start.ps1 -ManagementIP <Windows Node IP> -ClusterCIDR <Cluster CIDR> -ServiceCIDR <Service CIDR> -KubeDnsServiceIP <Kube-dns Service IP> 
 ```
 
