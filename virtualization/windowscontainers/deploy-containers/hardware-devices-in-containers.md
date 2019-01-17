@@ -3,12 +3,12 @@ title: 在 Windows 上的容器中的裝置
 description: 支援何種裝置存在的 Windows 上的容器
 keywords: docker，容器，裝置硬體
 author: cwilhit
-ms.openlocfilehash: f70388bf3724af7cb92f20e2053aa4ddb1f953a3
-ms.sourcegitcommit: 5cbaef0806db21d7bbcc99964837f10f4207a51f
+ms.openlocfilehash: 6397a5050ee0c7cb4b62dc935af4975d9ab6b3db
+ms.sourcegitcommit: 1b6a244c3604e48c42c851e580e3b59e2384c91a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "9001750"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "9014515"
 ---
 # <a name="devices-in-containers-on-windows"></a>在 Windows 上的容器中的裝置
 
@@ -17,9 +17,9 @@ ms.locfileid: "9001750"
 ## <a name="requirements"></a>需求
 
 - 您必須執行 Windows Server 2019 或更新版本或 Windows 10 專業版/企業版與年 10 月 2018年更新
-- 您必須執行 Docker 版本 18.09 或更新版本。
 - 您的容器映像版本必須是 1809年或更新版本。
 - 您的容器都必須是在處理序隔離模式中執行的 Windows 容器。
+- 雖然 Windows 裝置功能存在於 Docker 精靈中，它不尚未存在於 Docker 用戶端 （請參閱此[提取要求](https://github.com/docker/cli/pull/1606)來追蹤）。 在 interrim，您必須從 moby 來源的 [[建置您自己的 docker 可執行檔](https://github.com/moby/moby/blob/master/docs/contributing/software-req-win.md)做為因應措施。 如果您不知道如何執行此動作，我們建議您等候直到合併上方連結 PR 嘗試這項功能。
 
 ## <a name="run-a-container-with-a-device"></a>執行容器與裝置
 
