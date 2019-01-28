@@ -7,18 +7,18 @@ ms.date: 04/07/2018
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: f1e75efa-8745-4389-b8dc-91ca931fe5ae
-ms.openlocfilehash: 3bb873a35d905e9eefada151184d6115bb18d2e7
-ms.sourcegitcommit: 9653a3f7451011426f8af934431bb14dbcb30a62
-ms.translationtype: HT
+ms.openlocfilehash: 5975f43859368334cab31b6d0eb37f084e9c03ca
+ms.sourcegitcommit: 51da93c4548c5df7a9f01e54d46d81b338c874cf
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "2082869"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "9031172"
 ---
 # <a name="create-a-virtual-machine-with-hyper-v"></a>使用 Hyper-V 建立虛擬機器
 
 建立虛擬機器，並安裝其作業系統。
 
-我們已建置用來建立虛擬機器的新工具，因此過去三個版本的指示已大幅變更。
+我們已建置新的工具，建立虛擬機器，因此過去三個版本的指示已大幅變更。
 
 請選擇您的作業系統以獲得正確的指示集：
 
