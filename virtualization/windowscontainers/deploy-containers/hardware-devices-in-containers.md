@@ -3,27 +3,29 @@ title: 在 Windows 上的容器中的裝置
 description: 支援何種裝置存在的 Windows 上的容器
 keywords: docker，容器，裝置硬體
 author: cwilhit
-ms.openlocfilehash: 6397a5050ee0c7cb4b62dc935af4975d9ab6b3db
-ms.sourcegitcommit: 1b6a244c3604e48c42c851e580e3b59e2384c91a
+ms.openlocfilehash: da9785b051826efa4bb2c64542a7c75a12ddd2b4
+ms.sourcegitcommit: 4490d384ade48699e7f56dc265185dac75bf9d77
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "9014515"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "9058988"
 ---
+**這是目前預覽材質。 請參閱第 4 個項目中的 '需求' 區段下方，如需詳細資訊。**
+
 # <a name="devices-in-containers-on-windows"></a>在 Windows 上的容器中的裝置
 
-根據預設，Windows 容器會提供給主機裝置： 就像是 Linux 容器的最少的存取權。 有特定工作負載所在有幫助： 或甚至命令式-才能存取，以及與主機硬體裝置通訊。 本指南涵蓋在容器中支援哪些裝置，以及如何開始使用。
+根據預設，Windows 容器會提供給主機裝置： 就像是 Linux 容器的最少的存取權。 有特定的工作負載很有幫助： 或甚至命令式-才能存取，以及與主機硬體裝置通訊。 本指南涵蓋在容器中支援哪些裝置，以及如何開始使用。
 
 ## <a name="requirements"></a>需求
 
 - 您必須執行 Windows Server 2019 或更新版本或 Windows 10 專業版/企業版與年 10 月 2018年更新
 - 您的容器映像版本必須是 1809年或更新版本。
-- 您的容器都必須是在處理序隔離模式中執行的 Windows 容器。
-- 雖然 Windows 裝置功能存在於 Docker 精靈中，它不尚未存在於 Docker 用戶端 （請參閱此[提取要求](https://github.com/docker/cli/pull/1606)來追蹤）。 在 interrim，您必須從 moby 來源的 [[建置您自己的 docker 可執行檔](https://github.com/moby/moby/blob/master/docs/contributing/software-req-win.md)做為因應措施。 如果您不知道如何執行此動作，我們建議您等候直到合併上方連結 PR 嘗試這項功能。
+- 您的容器都必須是在獨立處理序模式中執行的 Windows 容器。
+- 雖然 Windows 裝置功能存在於 Docker 精靈，它不尚未存在於 Docker 用戶端 （請參閱此[提取要求](https://github.com/docker/cli/pull/1606)來追蹤）。 您必須等到未來版本的 Docker for Windows / 以充分利用這項功能的 Docker EE 與此程式碼。 狀態變更時，將會更新本文件。
 
 ## <a name="run-a-container-with-a-device"></a>執行容器與裝置
 
-若要啟動容器與裝置，使用下列命令：
+若要與裝置啟動容器，使用下列命令：
 
 ```shell
 docker run --isolation=process --device="class/{interface class GUID}" mcr.microsoft.com/windows/servercore:1809
@@ -31,7 +33,7 @@ docker run --isolation=process --device="class/{interface class GUID}" mcr.micro
 
 您必須取代`{interface class guid}`使用適當的[裝置介面類別 GUID](https://docs.microsoft.com/en-us/windows-hardware/drivers/install/overview-of-device-interface-classes)，可以找到下方的區段中。
 
-若要啟動容器搭配多個裝置，使用下列命令和字串一起多個`--device`引數：
+若要開始搭配多個裝置的容器，使用下列命令和字串一起多個`--device`引數：
 
 ```shell
 docker run --isolation=process --device="class/{interface class GUID}" --device="class/{interface class GUID}" mcr.microsoft.com/windows/servercore:1809
@@ -73,9 +75,9 @@ docker run --isolation=process --device="class/{interface class GUID}" --device=
 </table>
 
 > [!TIP]
-> 上面所列的裝置是現今支援在 Windows 容器中的_僅限_裝置。 嘗試傳遞任何其他類別 Guid，將會導致未無法啟動容器。
+> 上面所列的裝置是現今支援在 Windows 容器中的_僅_裝置。 嘗試傳遞任何其他類別的 Guid，將會導致無法啟動容器。
 
-## <a name="hyper-v-container-device-support"></a>HYPER-V 容器的裝置支援
+## <a name="hyper-v-container-device-support"></a>HYPER-V 容器裝置支援
 
 指派裝置和裝置共用不支援 HYPER-V 隔離容器現今。
 
