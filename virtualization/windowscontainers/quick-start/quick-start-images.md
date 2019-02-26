@@ -8,24 +8,24 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 479e05b1-2642-47c7-9db4-d2a23592d29f
-ms.openlocfilehash: 0350e62deef06402991f505dd263db7fd506cba1
-ms.sourcegitcommit: 1aef193cf56dd0870139b5b8f901a8d9808ebdcd
+ms.openlocfilehash: a28b9ced2c9669b65bfa02bd02c1061226dcea7e
+ms.sourcegitcommit: f172d14ef1ebfb5a9df1b3529e0722d9103e0eba
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "9001584"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "9112915"
 ---
 # <a name="automating-builds-and-saving-images"></a>自動化組建和儲存映像
 
-在先前的 Windows Server 快速入門中，已從預先建立的 .NET Core 範例建立 Windows 容器。 這項練習詳列使用 Dockerfile 自動建立容器映像，並將容器映像儲存在 Docker Hub 公開登錄中。
+在先前的 Windows Server 快速入門中，已從預先建立的 .NET Core 範例建立 Windows 容器。 這個練習示範如何根據 Dockerfile 建置您自己的容器映像，並將容器映像儲存在 Docker Hub 公開登錄中。
 
-本快速入門專屬於 Windows Server 2016 上的 Windows Server 容器，並使用 Windows Server Core 容器基本映像。 在此頁面左側的目錄中，可以找到其他的快速入門文件。
+本快速入門是針對 Windows Server 2019 或 Windows Server 2016 上的 Windows Server 容器，並將會使用 Windows Server Core 容器基本映像。 在此頁面左側的目錄中，可以找到其他的快速入門文件。
 
 ## <a name="prerequisites"></a>必要條件
 
 請確定您符合下列需求：
 
-- 執行 Windows Server 2016 的電腦系統 (實體或虛擬)。
+- 一部電腦系統 （實體或虛擬） 正在執行的 Windows Server 2019 或 Windows Server 2016。
 - 設定此系統的 Windows 容器功能和 Docker。 如需這些步驟的逐步解說，請參閱 [Windows Server 上的 Windows 容器](./quick-start-windows-server.md)。
 - Docker 識別碼，這會用以將容器映像推送至 Docker Hub。 如果您沒有 Docker 識別碼，請在 [Docker Cloud](https://cloud.docker.com/) 註冊一個。
 
@@ -130,7 +130,7 @@ Login Succeeded
 docker push <user>/iis-dockerfile
 ```
 
-當 Docker 推入最多 Docker Hub 每個層，docker 會跳過層已經存在於在 Docker Hub 中，或其他登錄 （外部層）。  例如，最新版的 Windows Server Core 裝載於 Microsoft 容器登錄中或從私人公司的登錄，層級，會略過，然後不推入至 Docker Hub。
+當 Docker 推入最多 Docker Hub 每個層，docker 會跳過層已經存在於在 Docker Hub 中，或其他登錄 （外部層） 中。  例如，最新版的 Windows Server Core 會裝載於 Microsoft 容器登錄中或從私人公司的登錄，層級，會略過，然後不推入至 Docker Hub。
 
 現在可以使用 `docker pull`，將容器映像從 Docker Hub 下載至任何 Windows 容器主機。 在本教學課程中，我們會刪除現有映像，然後從 Docker Hub 加以提取。 
 

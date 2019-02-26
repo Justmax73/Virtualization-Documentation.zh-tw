@@ -8,16 +8,16 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
-ms.openlocfilehash: e27148873299543a89eaf92801b40732dd27b402
-ms.sourcegitcommit: 95cec99aa8e817d3e3cb2163bd62a32d9e8f7181
+ms.openlocfilehash: 44e415af08881d18ebb2d82f5f79098f7fb034f8
+ms.sourcegitcommit: f172d14ef1ebfb5a9df1b3529e0722d9103e0eba
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "8973668"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "9112925"
 ---
 # <a name="windows-containers-on-windows-server"></a>Windows Server 上的 Windows 容器
 
-此練習會逐步引導基本部署及使用 Windows 容器功能在 Windows Server 2019 上。
+這項練習會逐步引導基本部署及使用 Windows 容器功能在 Windows Server 2019 和 Windows Server 2016 上。
 
 本快速入門中，您將會完成：
 
@@ -27,12 +27,12 @@ ms.locfileid: "8973668"
 
 如果您需要熟悉一下容器，可以在[關於容器](../about/index.md)中找到這項資訊。
 
-本快速入門是針對 Windows Server 2019 的 Windows Server 容器。 在此頁面左側的目錄中，可以找到其他的快速入門文件及 Windows 10 中的容器。
+本快速入門是針對 Windows Server 2019 和 Windows Server 2016 上的 Windows Server 容器。 在此頁面左側的目錄中，可以找到其他的快速入門文件及 Windows 10 中的容器。
 
 ## <a name="prerequisites"></a>必要條件
 
 請確定您符合下列需求：
-- 執行 Windows Server 2019 的電腦系統 （實體或虛擬）。 如果您使用 Windows Server 2019 Insider Preview，請更新[Window Server 2019 評估版](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019 )。
+- 一部電腦系統 （實體或虛擬） 在執行 Windows Server 2019 中。 如果您使用 Windows Server 2019 Insider Preview，請更新[Window Server 2019 評估版](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019 )。
 
 > Windows 容器功能需要重大更新才能運作。 請先安裝所有更新，再循序完成本教學課程。
 
@@ -46,7 +46,7 @@ ms.locfileid: "8973668"
 
 ## <a name="install-docker"></a>安裝 Docker
 
-若要安裝 Docker，我們將使用[OneGet 提供者 PowerShell 模組](https://github.com/oneget/oneget)的運作方式與提供者在這種情況下執行安裝- [MicrosoftDockerProvider](https://github.com/OneGet/MicrosoftDockerProvider)。 提供者可在您的電腦上啟用容器功能。 您同時會安裝 Docker，並需要重新開機。 需要先安裝 Docker，才能搭配使用 Windows 容器。 Docker 是由 Docker 引擎及 Docker 用戶端所組成。
+若要安裝 Docker，我們將使用[OneGet 提供者 PowerShell 模組](https://github.com/oneget/oneget)的運作方式與提供者，在此案例中執行安裝- [MicrosoftDockerProvider](https://github.com/OneGet/MicrosoftDockerProvider)。 提供者可在您的電腦上啟用容器功能。 您同時會安裝 Docker，並需要重新開機。 需要先安裝 Docker，才能搭配使用 Windows 容器。 Docker 是由 Docker 引擎及 Docker 用戶端所組成。
 
 開啟提高權限的 PowerShell 工作階段，並執行下列命令。
 
@@ -105,10 +105,18 @@ sconfig
 
 在這項練習中，您將從 Docker Hub 登錄下載預先建立的 .NET 範例映像，並部署執行 .Net Hello World 應用程式的簡單容器。  
 
-使用 `docker run` 部署 .Net 容器。 這也會下載容器映像，並可能花費幾分鐘的時間。
+使用 `docker run` 部署 .Net 容器。 這也會下載容器映像，並可能花費幾分鐘的時間。 根據您主機版本的 Windows Server 中，執行下列命令下方。
+
+#### <a name="windows-server-2019"></a>Windows Server 2019
 
 ```console
 docker run microsoft/dotnet-samples:dotnetapp-nanoserver-1809
+```
+
+#### <a name="windows-server-2016"></a>WindowsServer 2016
+
+```console
+docker run microsoft/dotnet-samples:dotnetapp-nanoserver-sac2016
 ```
 
 容器隨即啟動並列印 hello world 訊息，然後結束。
@@ -164,4 +172,4 @@ OS: Microsoft Windows 10.0.17763
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [了解如何將自動化容器組建和儲存影像](./quick-start-images.md)
+> [了解如何將自動化容器組建及儲存影像](./quick-start-images.md)
