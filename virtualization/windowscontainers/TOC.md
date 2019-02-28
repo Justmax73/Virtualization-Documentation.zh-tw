@@ -2,7 +2,7 @@
 ## [關於](about/index.md)
 ## [常見問題](about/faq.md)
 
-# 快速啟動
+# 快速入門
 ## Windows 10 快速入門
 ### [執行您的第一個 WCOW 容器](quick-start/quick-start-windows-10.md)
 ### [執行您的第一個 LCOW 容器](quick-start/quick-start-windows-10-linux.md)
@@ -38,6 +38,7 @@
 ### [加入 Linux 工作者](kubernetes/joining-linux-workers.md)
 ### [部署 Kubernetes 資源](kubernetes/deploying-resources.md)
 ### [疑難排解](kubernetes/common-problems.md)
+### [Kubernetes 上的 Windows 服務](kubernetes/kube-windows-services.md)
 ### [編譯 Kubernetes 二進位檔](kubernetes/compiling-kubernetes-binaries.md)
 ## 在 Windows 上的 Service Fabric
 ### [部署您的第一個容器](/azure/service-fabric/service-fabric-quickstart-containers)
