@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.prod: containers
 description: 部署 Kubernetes 和加入 Windows 節點時常見問題的解決方案。
 keywords: kubernetes，1.12，linux，編譯
-ms.openlocfilehash: dfc7ab5aab9a04ef39916fb9e9b9886cad2f46a6
-ms.sourcegitcommit: 41318edba7459a9f9eeb182bf8519aac0996a7f1
+ms.openlocfilehash: 30bb0c064c96ff4bd0b6e1c078221b2d9170d4e7
+ms.sourcegitcommit: 817a629f762a4a5d4bcff58302f2bc2408bf8be1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "9120436"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "9149918"
 ---
 # <a name="troubleshooting-kubernetes"></a>疑難排解 Kubernetes #
 此頁面逐步解說 Kubernetes 設定、網路及部署的數個常見問題。
@@ -62,6 +62,9 @@ Kubernetes 網路功能需求的其中一個 （請參閱[Kubernetes 模型](htt
                     "10.127.130.0/24" # Management (host) subnet
                 ]
 ```
+
+### <a name="my-windows-node-cannot-access-a-nodeport-service"></a>我的 Windows 節點無法存取 NodePort 服務 ###
+本機 NodePort 存取從其本身的節點將會失敗。 這是已知限制。 NodePort 存取將會從其他節點或外部的用戶端工作。
 
 ### <a name="after-some-time-vnics-and-hns-endpoints-of-containers-are-being-deleted"></a>在一些時間之後, Vnic 和容器既有的 HNS 端點遭到刪除 ###
 此問題可能因為當`hostname-override`參數不會傳遞至[kube proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/)。 若要解決它，使用者必須將主機名稱傳遞至 kube proxy，如下所示：

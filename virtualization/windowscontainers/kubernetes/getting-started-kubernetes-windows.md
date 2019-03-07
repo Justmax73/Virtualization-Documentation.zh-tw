@@ -8,12 +8,12 @@ ms.prod: containers
 description: 您可以將 Windows 節點加入 v1.13 Kubernetes 叢集。
 keywords: kubernetes，1.13，windows，開始使用
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: f9348debf427c47f9326368ff02914603de06a1b
-ms.sourcegitcommit: 41318edba7459a9f9eeb182bf8519aac0996a7f1
+ms.openlocfilehash: 2edc940d4132870a6f7d6714bb50faef201136ba
+ms.sourcegitcommit: 817a629f762a4a5d4bcff58302f2bc2408bf8be1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "9120456"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "9149908"
 ---
 # <a name="kubernetes-on-windows"></a>Windows 上的 Kubernetes #
 此頁面做為概略說明適用於 Windows 節點加入至 Linux 型叢集搭配 Kubernetes Windows 上開始使用。 Windows Server[版本 1809年](https://docs.microsoft.com/en-us/windows-server/get-started/whats-new-in-windows-server-1809#container-networking-with-kubernetes)上的 Kubernetes 1.13 版本，使用者可以利用[最新的功能](https://kubernetes.io/docs/getting-started-guides/windows/#supported-features)在 Kubernetes 中 Windows 搶鮮版上：
@@ -45,17 +45,6 @@ ms.locfileid: "9120456"
 > 沒有其他的 Docker 網路 (NAT) 取得建立根據預設，當您安裝 Docker。 我們將指派 Ip 從叢集子網路改為在進行 Windows 上的 Kubernetes 不需要它。
 
 
-### <a name="disable-anti-spoofing-protection-required-for-l2bridge"></a>停用 （需要 l2bridge） 的反詐騙保護 ###
-如果您想要使用 l2bridge 網路功能 (亦即[flannel 主機閘道](./network-topologies.md#flannel-in-host-gateway-mode))，您應該確定 Windows 容器主機 Vm （客體） 啟用改變 MAC 位址。 為了達成此目的，您應該執行下列命令以系統管理員身分裝載 Vm （hyper-v 所提供的範例） 在電腦上：
-
-```powershell
-Get-VMNetworkAdapter -VMName "<name>" | Set-VMNetworkAdapter -MacAddressSpoofing On
-```
-> [!TIP]
-> 如果您使用 VMware 為基礎的產品以符合您的虛擬化需求，請看起來到啟用 MAC 詐騙需求[混雜模式](https://kb.vmware.com/s/article/1004099)。
-
->[!TIP]
-> 如果您正在部署 Azure 或 IaaS 虛擬機器上的 Kubernetes 從其他雲端提供者自行，我們建議[覆疊網路功能](./network-topologies.md#flannel-in-vxlan-mode)改為。
 
 ## <a name="what-you-will-accomplish"></a>您將會完成 ##
 
