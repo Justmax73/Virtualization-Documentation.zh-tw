@@ -3,17 +3,17 @@ title: 適用於 Windows 容器的群組受管理的服務帳戶
 description: 適用於 Windows 容器的群組受管理的服務帳戶
 keywords: docker，容器，active directory gmsa
 author: rpsqrd
-ms.date: 03/21/2019
+ms.date: 03/22/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
-ms.openlocfilehash: 5f80d245984b0cf5c4503971a74cc8bbcca0c19c
-ms.sourcegitcommit: f53b8b3dc695cdf22106095b15698542140ae088
+ms.openlocfilehash: 17c4089c98a74ea5937bac5d0eb4d4f1749aecf7
+ms.sourcegitcommit: b8afbfb63c33a491d7bad44d8d5962e6a60cb566
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/22/2019
-ms.locfileid: "9257405"
+ms.locfileid: "9257444"
 ---
 # <a name="group-managed-service-accounts-for-windows-containers"></a>適用於 Windows 容器的群組受管理的服務帳戶
 
@@ -288,14 +288,14 @@ Cached Tickets: (2)
 [...]
 ```
 
-若要開啟 PowerShell 或另一個主控台應用程式為 gMSA 帳戶，您可以詢問要在系統帳戶，而不是一般 ContainerAdministrator （或針對 NanoServer Containeradministrator） 帳戶下執行的容器：
+若要開啟 PowerShell 或另一個主控台應用程式為 gMSA 帳戶，您可以詢問網路服務帳戶，而不是一般 ContainerAdministrator （或針對 NanoServer Containeradministrator） 帳戶下執行容器：
 
 ```powershell
 # NOTE: you can only run as SYSTEM on Windows Server 1709 and later
-docker run --security-opt "credentialspec=file://contoso_webapp01.json" --hostname webapp01 --user "NT AUTHORITY\SYSTEM" -it mcr.microsoft.com/windows/servercore:ltsc2019 powershell
+docker run --security-opt "credentialspec=file://contoso_webapp01.json" --hostname webapp01 --user "NT AUTHORITY\NETWORK SERVICE" -it mcr.microsoft.com/windows/servercore:ltsc2019 powershell
 ```
 
-當您執行做為系統時，您可以嘗試連線到 SYSVOL 網域控制站上以 gmsa 身分測試網路驗證：
+當您執行做為網路服務時，您可以嘗試連線到 SYSVOL 網域控制站上以 gmsa 身分測試網路驗證：
 
 ```
 # This command should succeed if you're successfully running as the gMSA
