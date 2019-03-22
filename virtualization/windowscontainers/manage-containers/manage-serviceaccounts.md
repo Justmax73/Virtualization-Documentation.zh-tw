@@ -1,83 +1,363 @@
 ---
-title: 適用於 Windows 容器的 Active Directory 服務帳戶
-description: 適用於 Windows 容器的 Active Directory 服務帳戶
-keywords: docker, 容器, active directory
-author: PatrickLang
-ms.date: 11/04/2016
+title: 適用於 Windows 容器的群組受管理的服務帳戶
+description: 適用於 Windows 容器的群組受管理的服務帳戶
+keywords: docker，容器，active directory gmsa
+author: rpsqrd
+ms.date: 03/21/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
-ms.openlocfilehash: d92d14fd10e07e159ff2023b4dd6ade8b11ca2e5
-ms.sourcegitcommit: 4090d158dd3573ea90799de5b014c131a206b000
+ms.openlocfilehash: 5f80d245984b0cf5c4503971a74cc8bbcca0c19c
+ms.sourcegitcommit: f53b8b3dc695cdf22106095b15698542140ae088
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "6121588"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "9257405"
 ---
-# <a name="active-directory-service-accounts-for-windows-containers"></a>適用於 Windows 容器的 Active Directory 服務帳戶
+# <a name="group-managed-service-accounts-for-windows-containers"></a>適用於 Windows 容器的群組受管理的服務帳戶
 
-使用者及其他服務可能必須對您的應用程式與服務建立經過驗證的連線，以便您讓資料保持安全，並防止未獲授權的使用。 Windows Active Directory (AD) 網域本身即同時支援密碼與憑證驗證。 當您在 Windows 網域加入主機上建置應用程式或服務時，如果其以本機系統或網路服務身分執行，即預設使用主機的識別。 否則，您可以改為設定其他 AD 帳戶進行驗證。
+在 Windows 為基礎的網路，很常使用 Active Directory (AD)，以促進驗證及授權之間的使用者、 電腦及其他網路資源。 企業應用程式開發人員通常設計是 AD 整合，以充分利用整合式 Windows 驗證，這可讓您自動而明確的方式登入的使用者和其他服務的輕鬆的加入網域的伺服器上執行其應用程式其身分識別與應用程式。
 
-雖然 Windows 容器無法加入網域，但也可以利用 Active Directory 網域識別，方式與裝置加入領域時雷同。 透過 Windows Server 2012 網域控制站，我們引進了新的帳戶，名為群組受管理的服務帳戶 (gMSA)，其用意是供服務共用。 藉由使用群組受管理的服務帳戶 (gMSA)，就可以將 Windows 容器本身及其裝載的服務設定為使用特定 gMSA 做為網域識別。 任何以本機系統或網路服務身分執行的服務都會使用 Windows 容器的識別，就如同現在使用網域加入主機的識別一般。 容器映像中沒有儲存任何可能被部份公開的密碼或憑證私密金鑰，容器也不需要經過重建以變更儲存的密碼或憑證，就能重新部署至部署、測試及生產環境。 
+雖然 Windows 容器無法加入網域，他們還是可以使用 Active Directory 網域識別，以支援各種不同的驗證案例。
+為了達成此目的，您可以設定使用[群組受管理的服務帳戶](https://docs.microsoft.com/en-us/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)(gMSA)-來執行 Windows 容器的設計目的是讓多部電腦，而不需要共用身分識別的 Windows Server 2012 中引進的服務帳戶的一種特殊類型了解其密碼。
+當您使用群組 gMSA 執行容器時，容器主機從 Active Directory 網域控制站擷取 gMSA 密碼，並讓它成為的容器執行個體。
+每當其電腦帳戶 （系統） 需要存取網路資源，容器將會使用 gMSA 認證。
+
+這篇文章說明如何開始使用 Windows 容器使用 Active Directory 群組受管理服務帳戶。
+
+## <a name="prerequisites"></a>必要條件
+
+若要執行 Windows 容器與群組受管理服務帳戶，您將需要下列項目：
+
+**Active Directory 網域與執行 Windows Server 2012 或更新版本的至少一個網域控制站。**
+沒有樹系或網域功能層級需求，以使用 Gmsa，但 gMSA 密碼僅能透過執行 Windows Server 2012 網域控制站分散式或更新版本。
+如需詳細資訊，請參閱[Active Directory 需求 Gmsa](https://docs.microsoft.com/en-us/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts#BKMK_gMSA_Req)。
 
 
-# <a name="glossary--references"></a>詞彙和參考
-- [Active Directory](http://social.technet.microsoft.com/wiki/contents/articles/1026.active-directory-services-overview.aspx) 是用於在 Windows 探索、搜尋及複寫使用者、電腦與服務帳戶資訊的服務。 
-  - [Active Directory Domain Services](https://technet.microsoft.com/en-us/library/dd448614.aspx) 提供用以驗證電腦與使用者的 Windows Active Directory 網域。 
-  - 當裝置成為 Active Directory 網域成員時，即_加入網域_。 網域加入是一種裝置狀態，不僅為裝置提供網域電腦識別，也凸顯了不同的網域加入服務。
-  - [群組受管理的服務帳戶](https://technet.microsoft.com/en-us/library/jj128431(v=ws.11).aspx)通常縮寫為 gMSA，是一種 Active Directory 帳戶，讓使用者不需要共用密碼即可輕鬆使用 Active Directory 保護服務。 多部機器或容器可以視需要共用同一個 gMSA，以驗證服務之間的連線。
-- _CredentialSpec_ PowerShell 模組 - 此模組的用途是將群組受管理的服務帳戶設定為搭配容器使用。 指令碼模組及範例步驟於 [windows-server-container-tools](https://github.com/Microsoft/Virtualization-Documentation/tree/live/windows-server-container-tools) 提供，請參閱 ServiceAccount
 
-# <a name="how-it-works"></a>運作方式
+**若要建立 gMSA 帳戶的權限。**
+若要建立 gMSA 帳戶，您將需要網域系統管理員或使用帳戶已*建立 \ [Msds-syncserverurl\ GroupManagedServiceAccount 物件*權限的委派。
 
-現在，群組受管理的服務帳戶通常用來保護一部電腦與一項服務之間的連線。 使用帳戶的一般步驟如下：
 
-1. 建立群組 gMSA
-2. 將服務設定為以 gMSA 身分執行
-3. 對執行服務的網域加入主機授與 Active Directory 中的 gMSA 祕密存取權
-4. 允許在其他服務存取 gMSA，例如資料庫或檔案共用
 
-當服務啟動時，網域加入主機會自動從 Active Directory 取得 gMSA 祕密，然後使用該帳戶執行服務。 因為該服務以 gMSA 身分執行，所以可以存取 gMSA 獲得允許的任何資源。
+**若要下載 CredentialSpec PowerShell 模組，網際網路存取。**
+如果您正在中斷連線的環境中，您可以與網際網路的電腦上的[儲存模組](https://docs.microsoft.com/en-us/powershell/module/powershellget/save-module?view=powershell-5.1)存取，並將它複製到您的開發電腦或容器主機。
 
-Windows 容器遵循類似的程序：
+## <a name="one-time-preparation-of-active-directory"></a>一次性的 Active Directory 的準備工作
 
-1. 建立群組 gMSA。 根據預設，網域系統管理員或帳戶操作員必須執行此動作。 否則可以將建立及管理 gMSA 的權限委派給管理使用這些帳戶之服務的管理員。 您的網域中需要至少一個 Windows Server 2012 或更新版本的網域控制站，但不一定要使用特定的網域功能等級。 請參閱 [gMSA 使用者入門](https://technet.microsoft.com/en-us/library/jj128431(v=ws.11).aspx)
-2. 授與 gMSA 網域加入容器主機的存取權
-3. 允許在其他服務存取 gMSA，例如資料庫或檔案共用
-4. 從 [windows-server-container-tools](https://github.com/Microsoft/Virtualization-Documentation/tree/live/windows-server-container-tools)使用 CredentialSpec PowerShell 模組，以儲存使用 gMSA 所需設定
-5. 使用額外選項啟動容器 `--security-opt "credentialspec=..."`
+如果您不在您的網域中已經建立群組 gMSA，您可能需要來產生金鑰發佈服務根金鑰。
+KDS 負責建立、 旋轉和釋放 gMSA 密碼已獲授權的主機。
+當容器主機需要使用 gMSA 來執行容器時，它將會連絡 KDS 來擷取目前的密碼。
 
-> [!NOTE]
-> 就像[這裡](https://docs.microsoft.com/en-us/windows/device-security/security-policy-settings/network-access-allow-anonymous-sidname-translation)所說的，您可能需要在容器主機上允許匿名 SID/名稱轉譯，若非如此，您可能會收到帳戶無法轉譯為 SID 的錯誤。
+要檢查是否 KDS 根金鑰已經建立，已安裝的 AD PowerShell 工具，以*網域系統管理員*在網域控制站或網域成員執行下列 PowerShell 命令：
 
-但是，在探索允許匿名 SID/名稱轉譯需要之前，務必先採取下列動作：
-
-1. gMSA 帳戶的名稱必須符合服務的名稱 (例如： "myapp")。
-2. 包含 -h 引數，以指定容器在啟動時應該使用的主機名稱。 
+```powershell
+Get-KdsRootKey
 ```
-docker run --security-opt "credentialspec=file://myapp.json" -d -p 80:80 -h myapp.mydomain.local <imagename>
+
+如果命令傳回一個金鑰識別碼，您準備好所有設定，以及可以往前跳過[建立群組受管理服務帳戶](#create-a-group-managed-service-account)的區段。
+否則，繼續建立 KDS 根金鑰。
+
+在生產環境或具有多個網域控制站的測試環境中，在 PowerShell 中執行下列命令來建立 KDS 根金鑰*網域系統管理員*的身分。
+雖然命令所示的索引鍵立即將會生效，您將需要等待 10 小時之前 KDS 根金鑰複寫和可供所有網域控制站上使用。
+
+```powershell
+# For production environments
+Add-KdsRootKey -EffectiveImmediately
 ```
-3. 建立 gMSA 帳戶時使用的服務主體名稱 (SPN)，必須符合容器執行時使用的 -h 引數。 如果在建立 gMSA 帳戶時未加入 SPN，可以之後將其加入帳戶的屬性。
 
-當容器啟動時，以本機系統或網路服務身分執行的已安裝服務就會顯示為以 gMSA 身分執行。 這類似帳戶在網域加入主機上運作的方式，不同之處在於使用了 gMSA，而非電腦帳戶。 
+如果您只會在您的網域中有一個網域控制站，您可以藉由設定才會生效前 10 個小時的索引鍵來加速程序。
+請勿在生產環境中使用這項技術。
 
-![圖表 - 服務帳戶](media/serviceaccount_diagram.png)
+```powershell
+# For single-DC test environments ONLY
+Add-KdsRootKey -EffectiveTime (Get-Date).AddHours(-10)
+```
+
+## <a name="create-a-group-managed-service-account"></a>建立群組受管理服務帳戶
+
+將會使用整合式 Windows 驗證每個容器都必須至少一個 gMSA。
+使用主要了 gMSA，每當*系統*或*網路服務*身分執行的應用程式存取網路上的資源。
+GMSA 名稱也會在網路上，無論指派給容器的主機名稱的容器的名稱。
+容器也與其他 Gmsa，設定，以防您想要在容器中執行的服務或應用程式，做為不同的身分識別，從容器的電腦帳戶。
+
+當您建立群組 gMSA 時，您要建立在許多不同的電腦上可以同時使用的共用身分識別。
+GMSA 密碼存取受保護 Active Directory 存取控制清單。
+我們建議建立安全性群組，為每個 gMSA 帳戶並新增為安全性群組的相關容器主機来限制存取權的密碼。
+
+最後，由於容器不會自動註冊任何服務主體名稱 (SPN)，您將需要手動建立至少要有 「 主機 」 SPN gMSA 帳戶。
+一般而言，主機或 http SPN 已登錄為 gMSA 帳戶，使用相同的名稱，但您可能需要使用不同的服務名稱，如果用戶端存取容器化應用程式負載平衡器或此地址不同於 gMSA 名稱的 DNS 名稱後方。
+例如，如果 gMSA 帳戶是*WebApp01* ，但您的使用者存取網站在*mysite.contoso.com*您應該登錄`http/mysite.contoso.com`SPN gMSA 帳戶上的。
+某些應用程式可能需要額外的 Spn 其獨特的通訊協定--SQL Server 執行個體，需要 「 MSSQLSvc/主機名稱 」 SPN。
+
+下表列出所需的屬性建立群組 gMSA 時。
+
+gMSA 屬性 | 所需的值 | 範例
+--------------|----------------|--------
+姓名 | 任何有效的帳戶名稱。 | `WebApp01`
+只能用 | 網域名稱附加到帳戶名稱。 | `WebApp01.contoso.com`
+ServicePrincipalNames | 至少設定主機 SPN，在必要時新增其他通訊協定。 | `'host/WebApp01', 'host/WebApp01.contoso.com'`
+PrincipalsAllowedToRetrieveManagedPassword | 包含您的容器主機的安全性群組。 | `WebApp01Hosts`
+
+一旦您知道您要呼叫您 gMSA，執行下列命令在 PowerShell 中建立安全性群組，然後 gMSA。
+
+> [!TIP]
+> 您將需要使用的帳戶所屬的**網域系統管理員**安全性群組或已委派執行下列命令**建立 \ [Msds-syncserverurl\ GroupManagedServiceAccount 物件**的權限。
+> [新增 ADServiceAccount](https://docs.microsoft.com/en-us/powershell/module/addsadministration/new-adserviceaccount?view=win10-ps) cmdlet 是 AD PowerShell 工具，從[遠端伺服器管理工具](https://aka.ms/rsat)的一部分。
+
+```powershell
+# Replace 'WebApp01' and 'contoso.com' with your own gMSA and domain names, respectively
+
+# To install the AD module on Windows Server, run Install-WindowsFeature RSAT-AD-PowerShell
+# To install the AD module on Windows 10 version 1809 or later, run Install-WindowsCapability -Online 'Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0'
+# To install the AD module on older versions of Windows 10, see https://aka.ms/rsat
+
+# Create the security group
+New-ADGroup -Name "WebApp01 Authorized Hosts" -SamAccountName "WebApp01Hosts" -Scope DomainLocal
+
+# Create the gMSA
+New-ADServiceAccount -Name "WebApp01" -DnsHostName "WebApp01.contoso.com" -ServicePrincipalNames "host/WebApp01", "host/WebApp01.contoso.com" -PrincipalsAllowedToRetrieveManagedPassword "WebApp01Hosts"
+
+# Add your container hosts to the security group
+Add-ADGroupMember -Identity "WebApp01Hosts" -Members "ContainerHost01", "ContainerHost02", "ContainerHost03"
+```
+
+建議您建立個別的 gMSA 帳戶，您的開發人員、 測試及生產環境。
+
+## <a name="prepare-your-container-host"></a>準備您的容器主機
+
+每個容器主機將執行 Windows 容器與群組 gMSA 必須是網域加入，可以存取擷取 gMSA 密碼。
+
+1.  將電腦加入到您的 Active Directory 網域。
+2.  請確定您的主機屬於控制存取 gMSA 密碼的安全性群組。
+3.  重新啟動電腦，因此它會取得新的群組成員資格。
+4.  設定[Docker 桌面適用於 Windows 10](https://docs.docker.com/docker-for-windows/install/)或[Docker Windows Server](https://docs.docker.com/install/windows/docker-ee/)。
+5.  （建議選項）確認主機可以藉由執行[測試 ADServiceAccount](https://docs.microsoft.com/en-us/powershell/module/activedirectory/test-adserviceaccount)使用 gMSA 帳戶。 如果命令傳回**False**，請參閱診斷步驟的[疑難排解](#troubleshooting)一節。
+
+    ```powershell
+    # To install the AD module on Windows Server, run Install-WindowsFeature RSAT-AD-PowerShell
+    # To install the AD module on Windows 10 version 1809 or later, run Install-WindowsCapability -Online 'Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0'
+    # To install the AD module on older versions of Windows 10, see https://aka.ms/rsat
+
+    Test-ADServiceAccount WebApp01
+    ```
+
+## <a name="create-a-credential-spec"></a>建立認證規格
+
+認證規格的檔案是包含您想要使用容器為 gMSA 帳戶的相關中繼資料的 JSON 文件。
+藉由維持身分識別設定分開的容器映像，您可以輕鬆地變更 gMSA 容器所使用由只需交換 credential 規格檔案--沒有任何必要的程式碼變更。
+
+在加入網域的容器主機上使用[CredentialSpec PowerShell 模組](https://aka.ms/credspec)建立認證規格檔案。
+一旦您已經建立檔案，您可以將它複製到其他容器主機或您的容器協調器。
+認證規格檔案不包含任何機密資料，例如 gMSA 密碼，因為容器主機擷取 gMSA 代表容器。
+
+Docker 預期 Docker 資料目錄中尋找**CredentialSpecs**目錄下的認證規格檔案。
+在預設安裝中，您會發現在此資料夾`C:\ProgramData\Docker\CredentialSpecs`。
+
+執行下列步驟來建立您的容器主機上的認證規格檔案：
+1.  安裝 RSAT AD PowerShell 工具
+    -   適用於 Windows Server 中，執行 `Install-WindowsFeature RSAT-AD-PowerShell`
+    -   適用於 Windows 10，版本 1809年或更新版本，請執行 `Install-WindowsCapability -Online 'Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0'`
+    -   適用於較舊的 Windows 10 版本，請參閱https://aka.ms/rsat
+2.  安裝最新版的[CredentialSpec PowerShell 模組](https://aka.ms/credspec)：
+
+    ```powershell
+    Install-Module CredentialSpec
+    ```
+
+    如果您不需要網際網路存取您的容器主機上，執行`Save-Module CredentialSpec`連線到網際網路的電腦上，並複製到的模組資料夾`C:\Program Files\WindowsPowerShell\Modules`中的其他位置或`$env:PSModulePath`在容器主機上。
+
+3.  建立新的認證規格的檔案：
+
+    ```powershell
+    New-CredentialSpec -AccountName WebApp01
+    ```
+
+    根據預設，此 cmdlet 會建立使用提供的 gMSA 名稱的電腦帳戶當做容器是認證規格。
+    檔案將會儲存使用 gMSA 網域和帳戶名稱，用於檔案名稱的 Docker CredentialSpecs 目錄中。
+
+    您可以建立包含額外 gMSA 帳戶，如果您正在為次要 gMSA，在容器中執行的服務或處理序 credential 規格。
+    若要這樣做，請使用`-AdditionalAccounts`參數：
+
+    ```powershell
+    New-CredentialSpec -AccountName WebApp01 -AdditionalAccounts LogAgentSvc, OtherSvc
+    ```
+
+    如需支援的參數完整清單，請執行`Get-Help New-CredentialSpec`。
+
+4.  您也可以顯示所有認證規格和其使用下列命令的完整路徑的清單：
+
+    ```powershell
+    Get-CredentialSpec
+    ```
+
+## <a name="configuring-your-application-to-use-the-gmsa"></a>設定您的應用程式使用 gMSA
+
+在典型的設定中，容器只會獲得一個 gMSA 帳戶可用每當容器電腦帳戶嘗試驗證網路資源。
+這表示您的應用程式將會需要以**本機系統**或**網路服務**身分執行，如果它需要使用 gMSA 身分識別。
+
+### <a name="run-an-iis-app-pool-as-network-service"></a>以網路服務身分執行 IIS 應用程式集區
+
+如果您裝載您的容器中的 IIS 網站，您需要利用 gmsa 身分執行所有會設定您的應用程式集區身分識別為**網路服務**。
+您可以在您 Dockerfile 中執行，藉由新增下列命令：
+
+```dockerfile
+RUN (Get-IISAppPool DefaultAppPool).ProcessModel.IdentityType = "NetworkService"
+```
+
+如果您先前使用靜態的使用者認證，為您的 IIS 應用程式集區，請考慮 gMSA，做為用來取代那些認證。
+您可以變更開發人員、 測試及生產環境之間 gMSA，而不需要變更的容器映像目前的身分識別將會自動選取 IIS。
+
+### <a name="run-a-windows-service-as-network-service"></a>以網路服務身分執行的 Windows 服務
+
+如果您的容器化應用程式是執行為 Windows 服務，您可以設定為**網路服務**，您的 Dockerfile 中執行的服務：
+
+```dockerfile
+RUN cmd /c 'sc.exe config "YourServiceName" obj= "NT AUTHORITY\NETWORK SERVICE" password= ""'
+```
+
+### <a name="run-arbitrary-console-apps-as-network-service"></a>以網路服務身分執行任意主控台應用程式
+
+對於不會裝載於 IIS 或服務管理員的一般主控台應用程式，通常是最簡單的方式，讓應用程式會自動繼承 gMSA 內容，以**網路服務**身分執行容器。
+此功能已自 Windows Server 版本 1709年開始提供。
+
+將下列程式碼行新增至您讓它以網路服務身分執行預設的 Dockerfile:
+
+```dockerfile
+USER "NT AUTHORITY\NETWORK SERVICE"
+```
+
+您也可以連線至容器做為網路服務以一次性為基礎的`docker exec`。
+這是特別有用，如果您正在進行執行中的容器中的連線問題疑難排解時容器通常不會執行做為網路服務。
+
+```powershell
+# Opens an interactive PowerShell console in the container (id = 85d) as the Network Service account
+docker exec -it --user "NT AUTHORITY\NETWORK SERVICE" 85d powershell
+```
+
+## <a name="run-a-container-with-a-gmsa"></a>使用群組 gMSA 執行容器
+
+若要使用 gMSA 執行容器，提供認證規格檔案，以`--security-opt`參數的[docker 執行](https://docs.docker.com/engine/reference/run)：
+
+```powershell
+# For Windows Server 2016, change the image name to mcr.microsoft.com/windows/servercore:ltsc2016
+docker run --security-opt "credentialspec=file://contoso_webapp01.json" --hostname webapp01 -it mcr.microsoft.com/windows/servercore:ltsc2019 powershell
+```
+
+Windows Server 2016 上，1709年及 1803、 容器*必須符合*gMSA 的主機名稱簡短名稱。
+在上述範例中，gMSA SAM 帳戶名稱會是 「 webapp01 」，因此容器主機名稱設定為相同。
+在 Windows Server 2019 和更新版本的主機名稱欄位不是必要的但在容器仍然來識別本身 gMSA 名稱，而不是主機名稱，即使您明確地提供一種不同。
+
+若要檢查 gMSA 正常運作，請在容器中執行下列命令：
+
+```
+# Replace contoso.com with your own domain
+PS C:\> nltest /sc_verify:contoso.com
+
+Flags: b0 HAS_IP  HAS_TIMESERV
+Trusted DC Name \\dc01.contoso.com
+Trusted DC Connection Status Status = 0 0x0 NERR_Success
+Trust Verification Status = 0 0x0 NERR_Success
+The command completed successfully
+```
+
+如果不是*NERR_Success*的*受信任 DC 連線狀態*和*信任的驗證狀態*，請查看如何偵錯問題的秘訣[疑難排解](#troubleshooting)」 一節。
+
+您可以執行下列命令，並檢查的用戶端名稱，以確認從容器中的 gMSA 身分識別：
+
+```
+PS C:\> klist get krbtgt
+
+Current LogonId is 0:0xaa79ef8
+A ticket to krbtgt has been retrieved successfully.
+
+Cached Tickets: (2)
+
+#0>     Client: webapp01$ @ CONTOSO.COM
+        Server: krbtgt/webapp01 @ CONTOSO.COM
+        KerbTicket Encryption Type: AES-256-CTS-HMAC-SHA1-96
+        Ticket Flags 0x40a10000 -> forwardable renewable pre_authent name_canonicalize
+        Start Time: 3/21/2019 4:17:53 (local)
+        End Time:   3/21/2019 14:17:53 (local)
+        Renew Time: 3/28/2019 4:17:42 (local)
+        Session Key Type: AES-256-CTS-HMAC-SHA1-96
+        Cache Flags: 0
+        Kdc Called: dc01.contoso.com
+
+[...]
+```
+
+若要開啟 PowerShell 或另一個主控台應用程式為 gMSA 帳戶，您可以詢問要在系統帳戶，而不是一般 ContainerAdministrator （或針對 NanoServer Containeradministrator） 帳戶下執行的容器：
+
+```powershell
+# NOTE: you can only run as SYSTEM on Windows Server 1709 and later
+docker run --security-opt "credentialspec=file://contoso_webapp01.json" --hostname webapp01 --user "NT AUTHORITY\SYSTEM" -it mcr.microsoft.com/windows/servercore:ltsc2019 powershell
+```
+
+當您執行做為系統時，您可以嘗試連線到 SYSVOL 網域控制站上以 gmsa 身分測試網路驗證：
+
+```
+# This command should succeed if you're successfully running as the gMSA
+PS C:\> dir \\contoso.com\SYSVOL
 
 
-# <a name="example-uses"></a>範例使用
+    Directory: \\contoso.com\sysvol
 
 
-## <a name="sql-connection-strings"></a>SQL 連接字串
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d----l        2/27/2019   8:09 PM                contoso.com
+```
+
+## <a name="orchestrating-containers-with-gmsa"></a>使用 gMSA 的來協調容器
+
+在生產環境中，您通常會使用容器協調器部署和管理您的應用程式和服務。
+每個 orchestrator 有它自己的管理架構，並會負責接受 credential 規格，以提供給 Windows 容器平台。
+
+當您正在協調容器與 Gmsa 時，請檢查：
+> [!div class="checklist"]
+> * 可使用 Gmsa 執行容器排程的所有容器主機都已加入網域
+> * 容器主機都有存取權擷取所有 Gmsa 容器所使用的密碼
+> * 建立並上傳到 orchestrator 或複製到每個容器主機，取決於 orchestrator 來處理它們的慣用方式 credential 規格檔案。
+> * 容器網路允許與 Active Directory 網域控制站，以擷取 gMSA 票證通訊的容器
+
+### <a name="using-gmsa-with-service-fabric"></a>使用 Service Fabric 使用 gMSA
+
+Service Fabric 支援執行 Windows 容器與群組 gMSA，當您在您的應用程式資訊清單中指定的認證規格的位置。
+您將需要建立認證規格檔案並放置在每個主機上的 Docker 資料目錄**CredentialSpecs**子目錄中，如此 Service Fabric 可以找到它。
+`Get-CredentialSpec` Cmdlet，一部分的[CredentialSpec PowerShell 模組](https://aka.ms/credspec)，可以用來確認您的認證規格是否正確的位置。
+
+請參閱[快速入門： Service Fabric 來部署 Windows 容器](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-quickstart-containers)並[設定適用於 Service Fabric 上執行的 Windows 容器的 gMSA](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-setup-gmsa-for-windows-containers)如需有關如何設定您的應用程式。
+
+### <a name="using-gmsa-with-docker-swarm"></a>搭配 Docker Swarm 使用 gMSA
+
+若要使用 gMSA 與受 Docker 群集的容器，使用[docker 服務建立](https://docs.docker.com/engine/reference/commandline/service_create/)命令與`--credential-spec`參數：
+
+```powershell
+docker service create --credential-spec "file://contoso_webapp01.json" --hostname "WebApp01" <image name>
+```
+
+如需有關與 Docker 服務搭配使用的認證規格[Docker 群集的範例](https://docs.docker.com/engine/reference/commandline/service_create/#provide-credential-specs-for-managed-service-accounts-windows-only)，請參閱。
+
+### <a name="using-gmsa-with-kubernetes"></a>使用 gMSA 搭配 Kubernetes
+
+支援排程在 Kubernetes 中的 Gmsa 與 Windows 容器處於截至 Kubernetes 1.14 alpha 支援。
+檢查[Windows 群組受管理服務帳戶的容器身分識別網頁](https://github.com/kubernetes/enhancements/blob/master/keps/sig-windows/20181221-windows-group-managed-service-accounts-for-container-identity.md)有關此功能的最新的資訊及如何測試它在您的 Kubernetes 散發的詳細資訊。
+
+## <a name="example-uses"></a>範例使用
+
+### <a name="sql-connection-strings"></a>SQL 連接字串
 當服務以本機系統或網路服務身分在容器中執行時，服務可以使用 Windows 整合式驗證連線至 Microsoft SQL Server。
 
-範例：
+以下是使用容器身分識別驗證至 SQL Server 的連接字串的範例：
 
 ```
 Server=sql.contoso.com;Database=MusicStore;Integrated Security=True;MultipleActiveResultSets=True;Connect Timeout=30
 ```
 
-在 Microsoft SQL Server 上，建立使用網域及 gMSA 名稱的登入，後面加上 $。 登入一經建立，即可新增至資料庫的使用者並獲得適當存取權限。
+在 Microsoft SQL Server 上，建立使用網域及 gMSA 名稱的登入，後面加上 $。
+登入一經建立，即可新增至資料庫的使用者並獲得適當存取權限。
 
 範例： 
 
@@ -97,3 +377,130 @@ EXEC sp_addrolemember 'db_datawriter', 'WebApplication1'
 ```
 
 若要查看其運作情形，請觀看 Microsoft Ignite 2016「邁向容器化 - 將工作負載轉換為容器」一節中[錄製的示範](https://youtu.be/cZHPz80I-3s?t=2672) (英文)。
+
+## <a name="troubleshooting"></a>疑難排解
+
+### <a name="known-issues"></a>已知問題
+
+**容器主機名稱必須符合 WS2016 1709 及 1803年的 gMSA 名稱。**
+
+如果您正在執行 Windows Server 2016，1709 或 1803 起，您的容器的主機名稱必須符合您 gMSA SAM 帳戶名稱。
+當主機名稱不相符的 gMSA 名稱時，輸入 NTLM 驗證要求與名稱/SID 轉譯 （使用許多程式庫，像是 ASP.NET 成員資格角色提供者） 將會失敗。
+Kerberos 會繼續正常運作，即使不符合主機名稱。
+
+其中容器會現在一律使用其 gMSA 名稱的受指派的主機名稱無論在網路的 Windows Server 2019 中，已修正這項限制。
+
+**WS2016 1709 及 1803年上會與多個容器中同時使用 gMSA 導致間歇性的錯誤。**
+
+為先前的限制，需要使用相同的主機名稱的所有容器，結果在第二個問題會影響在 Windows Server 2019 之前的 Windows 和 Windows 10 版本 1809年的版本。
+當多個容器都被指派相同的身分識別和主機名稱時，當兩個容器與同時交談相同的網域控制站，可能會發生競爭情形。
+當另一個容器交談相同的網域控制站時，它將會取消通訊的任何先前的容器，使用相同的身分識別。
+這可能會導致間歇性的驗證失敗，有時可觀察到為信任失敗當您執行`nltest /sc_verify:contoso.com`容器內。
+
+我們會變更允許多個容器，同時使用同一個 gMSA 來分隔容器身分識別電腦名稱，從 Windows Server 2019 中的行為。
+
+**您無法使用 Gmsa 與版本 1703年、 1709年及 1803年在 Windows 上的 HYPER-V 隔離容器。**
+
+容器初始化將會停止回應或當您嘗試使用 HYPER-V 隔離的容器，在 Windows 10 和 Windows Server 版本 1703年、 1709年及 1803年上使用 gMSA 失敗。
+
+在 Windows Server 2019 和 Windows 10 版本 1809年中已修正此 bug。 您也可以使用 Gmsa 執行 HYPER-V 隔離容器，Windows Server 2016 和 Windows 10，版本 1607年上。
+
+### <a name="general-troubleshooting-guidance"></a>疑難排解的一般指導方針
+
+如果您遇到錯誤以 gmsa 身分執行容器時，下列步驟可協助您找出根本原因。
+
+**請確定主應用程式可以使用 gMSA**
+
+1.  確認主機網域加入，而且可以觸達的網域控制站。
+2.  安裝 RSAT 的 AD PowerShell 工具，並執行[測試 ADServiceAccount](https://docs.microsoft.com/en-us/powershell/module/activedirectory/test-adserviceaccount)以查看電腦是否要擷取 gMSA 的存取權。 如果 cmdlet 沒有傳回**False**，表示電腦沒有存取 gMSA 密碼。
+
+    ```powershell
+    # To install the AD module on Windows Server, run Install-WindowsFeature RSAT-AD-PowerShell
+    # To install the AD module on Windows 10 version 1809 or later, run Install-WindowsCapability -Online 'Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0'
+    # To install the AD module on older versions of Windows 10, see https://aka.ms/rsat
+
+    Test-ADServiceAccount WebApp01
+    ```
+3.  如果測試 ADServiceAccount 傳回**False**，請確認主機屬於有存取權擷取 gMSA 密碼的安全性群組。
+
+    ```powershell
+    # Get the current computer's group membership
+    Get-ADComputer $env:computername | Get-ADPrincipalGroupMembership | Select-Object DistinguishedName
+
+    # Get the groups allowed to retrieve the gMSA password
+    # Change "WebApp01" for your own gMSA name
+    (Get-ADServiceAccount WebApp01 -Properties PrincipalsAllowedToRetrieveManagedPassword).PrincipalsAllowedToRetrieveManagedPassword
+    ```
+
+4.  如果您的主機所屬的授權來擷取 gMSA 密碼的安全性群組，但仍失敗測試 ADServiceAccount，您可能需要重新啟動您的電腦，以取得新的票證反映其目前的群組成員資格。
+
+**檢查 Credential 規格的檔案**
+
+1.  執行`Get-CredentialSpec`從[CredentialSpec PowerShell 模組](https://aka.ms/credspec)來找出所有認證的電腦上的規格。 必須在 Docker 根目錄的 「 CredentialSpecs 」 目錄中儲存的認證規格。 您可以找到 Docker 根目錄執行`docker info -f "{{.DockerRootDir}}"`。
+2.  開啟 CredentialSpec 檔案，並確定已正確地填寫以下列欄位：
+    -   **Sid**： 您 gMSA 帳戶 SID
+    -   **MachineAccountName**: gMSA SAM 帳戶名稱 （不使用完整網域名稱或貨幣符號包含）
+    -   **DnsTreeName**： 您的 AD 樹系的 FQDN
+    -   **DnsName**: gMSA 所屬的網域的 FQDN
+    -   **NetBiosName**: gMSA 所屬的網域的 NETBIOS 名稱
+    -   **GroupManagedServiceAccounts/名稱**： gMSA SAM 帳戶名稱 （不使用完整網域名稱或貨幣符號包含）
+    -   **GroupManagedServiceAccounts/範圍**： 的網域為 FQDN，另一個用於 NETBIOS 一個項目
+
+    請參閱完整 credential 規格的完整範例如下：
+
+    ```json
+    {
+    "CmsPlugins":[
+        "ActiveDirectory"
+    ],
+    "DomainJoinConfig":{
+        "Sid":"S-1-5-21-702590844-1001920913-2680819671",
+        "MachineAccountName":"webapp01",
+        "Guid":"56d9b66c-d746-4f87-bd26-26760cfdca2e",
+        "DnsTreeName":"contoso.com",
+        "DnsName":"contoso.com",
+        "NetBiosName":"CONTOSO"
+    },
+    "ActiveDirectoryConfig":{
+        "GroupManagedServiceAccounts":[
+        {
+            "Name":"webapp01",
+            "Scope":"contoso.com"
+        },
+        {
+            "Name":"webapp01",
+            "Scope":"CONTOSO"
+        }
+        ]
+    }
+    }
+    ```
+
+3.  確認 credential 規格檔案的路徑是正確的協調流程解決方案。 如果您使用 Docker，務必包含容器執行命令`--security-opt="credentialspec=file://NAME.json"`，其中 「 NAME.json 」 已取代為名稱輸出由**Get CredentialSpec**。 名稱是一般檔案名稱，相對於在 Docker 根目錄 CredentialSpecs 資料夾。
+
+**核取容器**
+
+1.  如果您正在執行的版本在 Windows Server 2019 之前的 Windows 或 Windows 10 版本 1809，您的容器主機名稱必須符合 gMSA 名稱。 確保`--hostname`參數必須符合 gMSA 簡短名稱 (沒有網域元件，例如 「 webapp01 「 不 」 webapp01.contoso.com 」)。
+
+2.  檢查容器網路功能設定，以確認容器可以立即解析並存取 gMSA 網域的網域控制站。 在容器中的設定錯誤的 DNS 伺服器是常見的問題癥結的身分識別問題。
+
+3.  檢查是否容器具備有效的連線到網域容器中執行下列命令 (使用`docker exec`或對等項目):
+
+    ```powershell
+    nltest /sc_verify:contoso.com
+    ```
+
+    GMSA，且網路連線可讓容器與交談，網域信任驗證應該要傳回 NERR_SUCCESS。
+    如果失敗，請確認在主機和容器的網路設定--兩者都必須能夠與網域控制站通訊。
+
+4.  請確定您的應用程式是[設定為使用 gMSA](#configuring-your-application-to-use-the-gmsa)。 當您使用群組 gMSA--它討論其他網路資源時的系統帳戶而是使用 gmsa 身分在容器內的使用者帳戶不會變更。 因此，您的應用程式必須以網路服務或本機系統，若要利用 gMSA 身分識別身分執行。
+
+    > [!TIP]
+    > 如果您執行`whoami`或使用另一種工具，嘗試並找出您目前的使用者內容，在容器中，您將會永遠不會看到 gMSA 名稱本身。
+    > 這是因為您一律記錄到容器以本機使用者： 網域識別。
+    > 每當它溝通，此環境網路資源，也就是為什麼您的 app 必須為以網路服務或本機系統執行的電腦帳戶會使用 gMSA。
+
+5.  最後，如果您的容器似乎已正確設定，但使用者或其他服務是無法自動驗證您的容器化應用程式，檢查您的 gMSA 帳戶 Spn。 用戶端會在到達您的應用程式的名稱來尋找 gMSA 帳戶。 這可能表示，您將需要其他`host`Spn 適用於您 gMSA，如果，例如，用戶端連線到您的應用程式透過負載平衡器或其他 DNS 名稱。
+
+## <a name="additional-resources"></a>其他資源
+-   [群組受管理的服務帳戶的概觀](https://docs.microsoft.com/en-us/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)

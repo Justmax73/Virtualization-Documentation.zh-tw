@@ -57,7 +57,7 @@
 ## [Hyper-V 隔離](manage-containers/hyperv-container.md)
 ## [在容器中的硬體裝置](deploy-containers/hardware-devices-in-containers.md)
 ## [容器平台工具](deploy-containers/containerd.md)
-## [Active Directory 服務帳戶](manage-containers/manage-serviceaccounts.md)
+## [群組受管理的服務帳戶](manage-containers/manage-serviceaccounts.md)
 ## [防毒程式最佳化](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
 ## [Windows 上的 Linux 容器](deploy-containers/linux-containers.md)
 
