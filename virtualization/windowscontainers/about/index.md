@@ -1,20 +1,15 @@
 ---
 title: 關於 Windows 容器
 description: 深入了解 Windows 容器。
-keywords: docker, 容器
+keywords: 'docker, 容器'
 author: taylorb-microsoft
 ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8e273856-3620-4e58-9d1a-d1e06550448
-ms.openlocfilehash: 16cf281193ced00ea1b0e2d96291de7f44822284
-ms.sourcegitcommit: 95cec99aa8e817d3e3cb2163bd62a32d9e8f7181
-ms.translationtype: MT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "8973608"
 ---
+
 # <a name="containers-on-windows"></a>在 Windows 上的容器
 
 ## <a name="what-are-containers"></a>什麼是容器
@@ -23,11 +18,11 @@ ms.locfileid: "8973608"
 
 假設有一間廚房。 我們裝入所有設備和家具、鍋碗瓢盆、清潔劑和抹布。 這是我們的容器。
 
-<center style="margin: 25px">![](media/box1.png)</center>
+![廚房類比](media/box1.png)
 
 現在，我們可以將這個容器放入想要的任何主機公寓中，而且它都會是相同的廚房。 我們就可以水電與它連線，並接著我們開始烹飪了 （因為我們擁有我們需要的所有設備） ！。
 
-<center style="margin: 25px">![](media/apartment.png)</center>
+![Apartment 類比](media/apartment.png)
 
 容器與這個廚房十分相似。 可能會有不同種類的房間，也可能會有許多相同種類的房間。 重點在於，容器與它們所需的一切封裝在一起。
 
@@ -37,7 +32,7 @@ ms.locfileid: "8973608"
 
 ## <a name="container-fundamentals"></a>容器的基礎
 
-容器是一種隔離、由資源控制的可攜式執行階段環境，而且這種環境會在主機電腦或虛擬機器上執行。 在容器中執行的應用程式或處理序會與所有必要的相依性和組態檔封裝在一起，使其產生出容器外部沒有其他執行中的處理序這種錯覺。
+容器是一種隔離、由資源控制的可攜式執行階段環境，而且這種環境會在主機電腦或虛擬機器上執行。 應用程式或執行於容器中的程序會與所有必要的相依性和組態檔案; 封裝它提供有執行其容器外部沒有其他處理程序的動畫效果。
 
 容器的主機會為容器佈建一組資源，而且容器只會使用這些資源。 知容器，以外什麼它具有沒有其他資源存在，因此容器無法接觸可能已經佈建給鄰近容器的資源。
 
@@ -53,7 +48,7 @@ ms.locfileid: "8973608"
 
 **容器存放庫：** 每當容器映像建立時，容器映像和其相依性即會儲存在本機存放庫中。 這些映像可在容器主機上重複使用多次。 容器映像也可以儲存在公用或私人登錄中 (例如 DockerHub)，以便在許多不同的容器主機之間使用。
 
-<center>![](media/containerfund.png)</center>
+![容器的基礎](media/containerfund.png)
 
 對於熟悉虛擬機器的人而言，可能會覺得容器極為相似。 容器可像實體或虛擬電腦系統一樣執行作業系統、具有檔案系統，並且可透過網路來存取。 即便如此，容器的基本技術和概念還是與虛擬機器非常不同。
 
@@ -73,7 +68,7 @@ Windows 容器包含兩種不同的容器類型，或執行階段。
 
 當您閱讀容器的相關資訊時，一定會看到 Docker。 Docker 是用以封裝和傳遞容器映像的器具。 這個自動化處理序會產生映像 (實際上就是範本)，而且這些映像能以容器的形式在內部部署、雲端或個人電腦等任何環境中執行。
 
-<center>![](media/docker.png)</center>
+![使用 Docker 容器](media/docker.png)
 
 如同任何其他容器，Windows Server 容器可使用 [Docker](https://www.docker.com) 管理。
 
@@ -101,7 +96,7 @@ IT 專業人員可以使用容器為其開發、品管及生產小組提供標�
 協調流程的標準定義包含下列工作：
 
 - 排程：指定容器映像和資源要求、尋找適合的電腦來執行容器。
-親和性/反親和性：指定一組容器應該在彼此附近執行 (為了效能) 或相隔夠遠來執行 (為了可用性)。
+- 親和性/反親和性：指定一組容器應該在彼此附近執行 (為了效能) 或相隔夠遠來執行 (為了可用性)。
 - 健康情況監視：監看容器的失敗事件，並自動重新安排容器排程。
 - 容錯移轉：追蹤每部電腦上執行的項目，並將失敗電腦上的容器重新安排到運作正常的節點。
 - 規模調整：以手動或自動方式新增或移除容器執行個體以符合需求。
