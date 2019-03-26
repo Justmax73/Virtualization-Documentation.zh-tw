@@ -3,17 +3,17 @@ title: 適用於 Windows 容器的群組受管理的服務帳戶
 description: 適用於 Windows 容器的群組受管理的服務帳戶
 keywords: docker，容器，active directory gmsa
 author: rpsqrd
-ms.date: 03/22/2019
+ms.date: 03/25/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
-ms.openlocfilehash: 17c4089c98a74ea5937bac5d0eb4d4f1749aecf7
-ms.sourcegitcommit: b8afbfb63c33a491d7bad44d8d5962e6a60cb566
+ms.openlocfilehash: 20daa81a571fde23b91e24e9713e37d225870ec0
+ms.sourcegitcommit: 1dec99a5b295e8a08022ae3dec128c7c7818ad15
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "9257444"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "9262351"
 ---
 # <a name="group-managed-service-accounts-for-windows-containers"></a>適用於 Windows 容器的群組受管理的服務帳戶
 
@@ -342,8 +342,8 @@ docker service create --credential-spec "file://contoso_webapp01.json" --hostnam
 
 ### <a name="using-gmsa-with-kubernetes"></a>使用 gMSA 搭配 Kubernetes
 
-支援排程在 Kubernetes 中的 Gmsa 與 Windows 容器處於截至 Kubernetes 1.14 alpha 支援。
-檢查[Windows 群組受管理服務帳戶的容器身分識別網頁](https://github.com/kubernetes/enhancements/blob/master/keps/sig-windows/20181221-windows-group-managed-service-accounts-for-container-identity.md)有關此功能的最新的資訊及如何測試它在您的 Kubernetes 散發的詳細資訊。
+做為 Kubernetes 1.14 alpha 功能已排程在 Kubernetes 中的 Gmsa 與 Windows 容器的支援。
+有關此功能的最新的資訊及如何測試它在您的 Kubernetes 散發的詳細資訊，請參閱[設定 gMSA 的 Windows pod 和容器](https://kubernetes.io/docs/tasks/configure-pod-container/configure-gmsa)。
 
 ## <a name="example-uses"></a>範例使用
 
