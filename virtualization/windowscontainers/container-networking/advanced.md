@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: 017ff7868d10ed58f749c0ef8824dd32586afb2c
-ms.sourcegitcommit: ec186664e76d413d3bf75f2056d5acb556f4205d
-ms.translationtype: HT
+ms.openlocfilehash: cf5173a98032820e1ad72e99e9b6e874dedbed83
+ms.sourcegitcommit: 1715411ac2768159cd9c9f14484a1cad5e7f2a5f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "1876039"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "9263515"
 ---
 # <a name="advanced-network-options-in-windows"></a>Windows 中的進階網路選項
 支援多種網路驅動程式選項，以利用 Windows 特定的功能和特性。 
@@ -92,13 +92,13 @@ docker: Error response from daemon: container e15d99c06e312302f4d23747f2dfda4b11
 我們正在進行平台改造，以自動偵測/避免此問題。 目前可以使用下列因應措施來確保主機啟用 IPv6：
 
 ```
-C:\> reg delete HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters  /v DisabledComponents  /f
+C:\> reg delete HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters  /v DisabledComponents  /f
 ```
 
 
 #### <a name="linux-containers-on-windows"></a>Windows 上的 Linux 容器
 
-**新增：** 我們正致力於_在不使用 Moby Linux VM_的情形下，讓 Linux 及 Windows 容器可以並列方式執行。 如需詳細資訊，請參閱[關於 Windows 上的 Linux 容器 (LCOW) 的這篇部落格文章](https://blog.docker.com/2017/11/docker-for-windows-17-11/)。
+**新增：** 我們正致力於_在不使用 Moby Linux VM_的情形下，讓 Linux 及 Windows 容器可以並列方式執行。 如需詳細資訊，請參閱[關於 Windows 上的 Linux 容器 (LCOW) 的這篇部落格文章](https://blog.docker.com/2017/11/docker-for-windows-17-11/)。 以下是如何[開始使用](https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-10-linux)。
 > 注意：LCOW 即將取代掉 Moby Linux VM，將會使用預設 HNS「nat」內部 vSwitch。
 
 #### <a name="moby-linux-vms-use-dockernat-switch-with-docker-for-windows-a-product-of-docker-cehttpswwwdockercomcommunity-edition"></a>Moby Linux VM 使用 DockerNAT 交換器來搭配 Docker for Windows ([Docker CE](https://www.docker.com/community-edition) 的產品)

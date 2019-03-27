@@ -1,5 +1,5 @@
 ---
-title: Windows 容器的網路功能
+title: Windows 容器網路功能
 description: 簡單介紹 Windows 容器網路的架構。
 keywords: Docker, 容器
 author: jmesser81
@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: 0d43176a07b0ba23f6a893c1b3dcfa1ffddc423d
-ms.sourcegitcommit: db508decd9bf6c0dce9952e1a86bf80f00d025eb
+ms.openlocfilehash: 6cf35208cfcec313cfdd17e6ecef9c72050b85ad
+ms.sourcegitcommit: 1715411ac2768159cd9c9f14484a1cad5e7f2a5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "2315651"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "9263475"
 ---
 # <a name="windows-container-networking"></a>Windows 容器的網路功能
 > ***免責聲明：請參考 [Docker 容器的網路功能](https://docs.docker.com/engine/userguide/networking/)，以了解一般 Docker 網路功能的命令、選項和語法。*** 除了[以下](#unsupported-features-and-network-options)所述的任何例外情形，所有 Docker 網路功能命令在 Windows 上使用的語法皆與 Linux 相同。 但請注意，Windows 與 Linux 的網路堆疊並不同，因此您會發現 Windows 不支援某些 Linux 網路命令 (例如 ifconfig)。
@@ -68,11 +68,12 @@ Docker 引擎第一次執行時，會建立預設 NAT 網路 'nat'，它會使�
 
 
  ## <a name="unsupported-features-and-network-options"></a>不支援的功能和網路選項
- 下列網路為選項目前**** 支援的 Windows 上：
-   * 加密透過 IPsec 容器通訊。
-   * HTTP proxy 支援的容器。  可追蹤這初步 PR[此處](https://github.com/Microsoft/hcsshim/pull/163)。
-   * 將端點附加至執行 HYPER-V 容器 （熱-新增]）。
-   * 在網路上的虛擬化 Azure 基礎結構透過透明網路驅動程式。
+ 下列網路選項所目前**不**支援在 Windows 上：
+   * Windows 容器連接到 l2bridge、 NAT 及覆疊網路不支援透過 IPv6 堆疊通訊。
+   * 加密 IPsec 透過的容器通訊。
+   * 適用於容器的 HTTP proxy 支援。
+   * 附加至執行中的 HYPER-V 容器的端點 （熱新增）。
+   * 在網路上的虛擬化 Azure 基礎結構，透過透明網路驅動程式。
 
  | 命令        | 不支援的選項   |
  | ---------------|:--------------------:|

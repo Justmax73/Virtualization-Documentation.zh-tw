@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.prod: containers
 description: 部署 Kubernetes 和加入 Windows 節點時常見問題的解決方案。
 keywords: kubernetes，1.12，linux，編譯
-ms.openlocfilehash: 30bb0c064c96ff4bd0b6e1c078221b2d9170d4e7
-ms.sourcegitcommit: 817a629f762a4a5d4bcff58302f2bc2408bf8be1
+ms.openlocfilehash: 1c5a5ec90b828a4f2430508f02cb9b9afb1c4d53
+ms.sourcegitcommit: 1715411ac2768159cd9c9f14484a1cad5e7f2a5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "9149918"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "9263505"
 ---
 # <a name="troubleshooting-kubernetes"></a>疑難排解 Kubernetes #
 此頁面逐步解說 Kubernetes 設定、網路及部署的數個常見問題。
@@ -44,17 +44,38 @@ nssm set <Service Name> AppStderr C:\k\mysvc.log
 
 ## <a name="common-networking-errors"></a>常見的網路錯誤 ##
 
-### <a name="my-windows-pods-do-not-have-network-connectivity"></a>我的 Windows pod 沒有網路連線 ###
-如果您使用任何虛擬機器，請確定所有的 VM 網路介面卡上已啟用 MAC 詐騙。 [反詐騙保護](./getting-started-kubernetes-windows.md#disable-anti-spoofing-protection)，如需詳細資訊，請參閱。
+### <a name="i-am-seeing-errors-such-as-hnscall-failed-in-win32-the-wrong-diskette-is-in-the-drive"></a>我在這類看到錯誤 「 hnsCall 在 Win32 中失敗： 錯誤磁碟是磁碟機中。 」 ###
+製作 HNS 物件或安裝新的 Windows Update 會造成不需要向下舊的 HNS 物件撕裂變更 HNS 的自訂修改時，會發生這個錯誤。 它會指出更新前先前已建立一個 HNS 物件是與目前安裝的 HNS 版本不相容。
+
+在 Windows Server 2019 （以及下方），使用者可以刪除 HNS 物件刪除 HNS.data 檔案 
+```
+Stop-Service HNS
+rm C:\ProgramData\Microsoft\Windows\HNS\HNS.data
+Start-Service HNS
+```
+
+使用者應該能夠直接刪除任何不相容的 HNS 端點或網路：
+```
+hnsdiag list endpoints
+hnsdiag delete endpoints <id>
+hnsdiag list networks 
+hnsdiag delete networks <id>
+Restart-Service HNS
+```
+
+Windows Server 上的使用者，版本 1903年可以移至下列登錄位置並刪除任何 Nic 從開始的網路名稱 (例如`vxlan0`或`cbr0`):
+```
+\\Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\vmsmp\parameters\NicList
+```
 
 
 ### <a name="my-windows-pods-cannot-ping-external-resources"></a>我的 Windows pod 無法 ping 外部資源 ###
-Windows pod 沒有現今程式設計 ICMP 通訊協定的輸出規則。 但是，TCP/UDP 則支援。 當嘗試連線至外部叢集資源的示範，請取代`ping <IP>`使用對應的`curl <IP>`命令。
+Windows pod 沒有現今程式設計 ICMP 通訊協定的輸出規則。 但是，TCP/UDP 則支援。 當嘗試示範連線至叢集以外的資源，請取代`ping <IP>`使用對應的`curl <IP>`命令。
 
 如果您仍然會遇到問題，很可能是您的網路設定中[cni.conf](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/l2bridge/cni/config/cni.conf)是值得一些額外的注意。 您可以隨時編輯此靜態的檔案，設定將會套用到新建立的任何 Kubernetes 資源。
 
 為什麼？
-Kubernetes 網路功能需求的其中一個 （請參閱[Kubernetes 模型](https://kubernetes.io/docs/concepts/cluster-administration/networking/)） 是適用於叢集通訊內部 NAT 的情況下發生。 若要接受此需求，我們有[ExceptionList](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/l2bridge/cni/config/cni.conf#L20)所有通訊其中我們不希望發生輸出 NAT。 不過，這也表示您需要將排除您嘗試從 ExceptionList 查詢的外部 IP。 然後只來自您的 Windows pod 的流量會 SNAT'ed 正確地從外界接收回應。 在這個問題，您在 ExceptionList`cni.conf`應該看起來如下：
+Kubernetes 網路功能需求的其中一個 （請參閱[Kubernetes 模型](https://kubernetes.io/docs/concepts/cluster-administration/networking/)） 是在內部 NAT 的情況下發生的叢集通訊。 若要接受此需求，我們有適用於所有通訊[ExceptionList](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/l2bridge/cni/config/cni.conf#L20)其中我們不希望發生輸出 NAT。 不過，這也表示您需要將排除您嘗試從 ExceptionList 查詢的外部 IP。 然後只來自您的 Windows pod 的流量會 SNAT'ed 正確地從外界接收回應。 在這個問題，您在 ExceptionList`cni.conf`應該看起來如下：
 ```
                 "ExceptionList": [
                     "10.244.0.0/16",  # Cluster subnet
@@ -66,7 +87,7 @@ Kubernetes 網路功能需求的其中一個 （請參閱[Kubernetes 模型](htt
 ### <a name="my-windows-node-cannot-access-a-nodeport-service"></a>我的 Windows 節點無法存取 NodePort 服務 ###
 本機 NodePort 存取從其本身的節點將會失敗。 這是已知限制。 NodePort 存取將會從其他節點或外部的用戶端工作。
 
-### <a name="after-some-time-vnics-and-hns-endpoints-of-containers-are-being-deleted"></a>在一些時間之後, Vnic 和容器既有的 HNS 端點遭到刪除 ###
+### <a name="after-some-time-vnics-and-hns-endpoints-of-containers-are-being-deleted"></a>一些時間之後, vnic 與和容器既有的 HNS 端點會被刪除 ###
 此問題可能因為當`hostname-override`參數不會傳遞至[kube proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/)。 若要解決它，使用者必須將主機名稱傳遞至 kube proxy，如下所示：
 ```
 C:\k\kube-proxy.exe --hostname-override=$(hostname)
@@ -87,6 +108,20 @@ PS C:> C:\flannel\flanneld.exe --kubeconfig-file=c:\k\config --iface=<Windows_Wo
 ```
 
 也是目前可解決此問題，檢閱下方[PR](https://github.com/coreos/flannel/pull/1042) 。
+
+
+### <a name="on-flannel-host-gw-my-windows-pods-do-not-have-network-connectivity"></a>Flannel (主機 gw)，在我的 Windows pod 沒有網路連線 ###
+如果您想要使用 l2bridge 網路功能 (亦即[flannel 主機閘道](./network-topologies.md#flannel-in-host-gateway-mode))，您應該確定 Windows 容器主機 Vm （客體） 啟用改變 MAC 位址。 為了達成此目的，您應該執行下列命令以系統管理員身分裝載 Vm （hyper-v 所提供的範例） 在電腦上：
+
+```powershell
+Get-VMNetworkAdapter -VMName "<name>" | Set-VMNetworkAdapter -MacAddressSpoofing On
+```
+
+> [!TIP]
+> 如果您使用 VMware 為基礎的產品以符合您的虛擬化需求，請看起來到啟用 MAC 詐騙需求[混雜模式](https://kb.vmware.com/s/article/1004099)。
+
+>[!TIP]
+> 如果您正在部署 Azure 或 IaaS 虛擬機器上的 Kubernetes 從其他雲端提供者自行，您也可以使用[覆疊網路功能](./network-topologies.md#flannel-in-vxlan-mode)改為。
 
 ### <a name="my-windows-pods-cannot-launch-because-of-missing-runflannelsubnetenv"></a>我的 Windows pod 無法啟動因為缺少 /run/flannel/subnet.env ###
 這表示 Flannel 無法正確啟動。 您可以嘗試重新啟動 flanneld.exe 或您可以將檔案複製手動從`/run/flannel/subnet.env`若要建立 Kubernetes 主機上`C:\run\flannel\subnet.env`Windows 背景工作節點上和修改`FLANNEL_SUBNET`列以不同的數字。 例如，如果節點的子網路 10.244.4.1/24 想要：
@@ -121,10 +156,10 @@ Get-HnsNetwork | ? Name -ieq "cbr0"
 Get-NetAdapter | ? Name -Like "vEthernet (Ethernet*"
 ```
 
-通常是值得修改 start.ps1 指令碼，在其中主機網路介面卡不是"Ethernet"的情況下的[預設](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/l2bridge/start.ps1#L6)參數。 否則，請參閱的輸出`start-kubelet.ps1`指令碼，以查看虛擬網路建立期間是否有錯誤。 
+通常是值得修改 start.ps1 指令碼，在其中的主機網路介面卡不是"Ethernet"的情況下的[預設](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/l2bridge/start.ps1#L6)參數。 否則，請參閱的輸出`start-kubelet.ps1`指令碼，以查看虛擬網路建立期間是否有錯誤。 
 
 ### <a name="pods-stop-resolving-dns-queries-successfully-after-some-time-alive"></a>Pod 在持續運作一段時間後順利停止解析 DNS 查詢 ###
-快取問題的 Windows Server 網路堆疊中已知的 DNS，版本 1803年或下方，有時可能會造成 DNS 要求失敗。 若要解決此問題，您可以設定為零使用下列登錄機碼的最大 TTL 快取值：
+已知的 DNS 快取中的 Windows Server 網路堆疊的問題，版本 1803年或下方，有時可能會造成 DNS 要求失敗。 若要解決此問題，您可以設定為零使用下列登錄機碼的最大 TTL 快取值：
 
 ```Dockerfile
 FROM microsoft/windowsservercore:<your-build>
@@ -148,7 +183,7 @@ New-ItemPropery -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Paramete
 
 
 ### <a name="when-deploying-docker-containers-keep-restarting"></a>進行部署時，請 Docker 容器不斷重新啟動 ###
-確認 Pause 影像與您的作業系統版本相容。 [指示](./deploying-resources.md)假設作業系統與容器版本 1803年。 如果您的 Windows 是較新的版本 (例如測試人員組建)，就必須相應調整該映像。 如需了解映像，請參閱 Microsoft 的 [Docker 儲存機制](https://hub.docker.com/u/microsoft/)。 什麼都別管，Pause 映像 Dockerfile 和範例服務反正都預期此映像會標記為 `:latest`。
+確認 Pause 影像與您的作業系統版本相容。 [指示](./deploying-resources.md)假設作業系統與容器是版本 1803年。 如果您的 Windows 是較新的版本 (例如測試人員組建)，就必須相應調整該映像。 如需了解映像，請參閱 Microsoft 的 [Docker 儲存機制](https://hub.docker.com/u/microsoft/)。 什麼都別管，Pause 映像 Dockerfile 和範例服務反正都預期此映像會標記為 `:latest`。
 
 
 ## <a name="common-kubernetes-master-errors"></a>常見的 Kubernetes 主機錯誤 ##
@@ -169,4 +204,4 @@ New-ItemPropery -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Paramete
 * `$HOME/.kube/config`
 *  `/etc/kubernetes/admin.conf`
 
- 否則，請參考 API 伺服器的資訊清單檔，以檢查裝載點。
+ 否則，請參閱 API 伺服器的資訊清單檔案，以檢查裝載點。
