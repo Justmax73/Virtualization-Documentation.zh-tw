@@ -3,19 +3,19 @@ title: 在 Windows 容器中列印多工緩衝處理器
 description: 說明在 Windows 容器中列印多工緩衝處理器服務目前的工作行為
 keywords: docker，容器、 印表機，多工緩衝處理器
 author: cwilhit
-ms.openlocfilehash: 45176e651ee2ef9b6daea9919004601734084083
-ms.sourcegitcommit: 04c372c87c832f73a1aa120b0ff6c2c2b9c8c1b1
+ms.openlocfilehash: 48130bc6a826a45dfa49d0a3b4600d227f34704e
+ms.sourcegitcommit: 3c81b0efd1ac2c4c93d58f16edae1044c9a5ad55
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "9257977"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "9284572"
 ---
 # <a name="print-spooler-in-windows-containers"></a>在 Windows 容器中列印多工緩衝處理器
 
-列印服務的相依性的應用程式可以是容器化成功與 Windows 容器。 在主應用程式安裝印表機驅動程式的相依性的應用程式無法被容器化;因為它會有洩漏風險到主機上的容器狀態，是不受支援，從容器內的驅動程式安裝。 有特殊需求，必須符合才能成功啟用印表機服務的功能。 本指南說明如何以正確設定您的部署。
+列印服務的相依性的應用程式可以是容器化成功與 Windows 容器。 有特殊需求，必須符合才能成功啟用印表機服務的功能。 本指南說明如何以正確設定您的部署。
 
 > [!IMPORTANT]
-> 表單; 而取得的存取權列印服務成功在容器中運作、 有限的功能某些列印相關的動作可能無法運作。 請如果是這種情況，開啟下列的意見反應。
+> 表單; 而取得的存取權列印服務成功在容器中運作、 有限的功能某些列印相關的動作可能無法運作。 例如，有安裝印表機驅動程式至在主機上的相依性的應用程式無法被容器化因為**容器內的驅動程式安裝來自不受支援**。 請如果您發現您想要支援在容器中不支援列印功能，開啟下列的意見反應。
 
 ## <a name="setup"></a>設定
 

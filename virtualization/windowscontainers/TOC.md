@@ -56,6 +56,7 @@
 ## [版本相容性](deploy-containers/version-compatibility.md)
 ## [Hyper-V 隔離](manage-containers/hyperv-container.md)
 ## [印表機服務](deploy-containers/print-spooler.md)
+## [GPU 加速](deploy-containers/gpu-acceleration.md)
 ## [在容器中的硬體裝置](deploy-containers/hardware-devices-in-containers.md)
 ## [容器平台工具](deploy-containers/containerd.md)
 ## [群組受管理的服務帳戶](manage-containers/manage-serviceaccounts.md)
