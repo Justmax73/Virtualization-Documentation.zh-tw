@@ -3,12 +3,12 @@ title: 在 Windows 容器中的 GPU 加速
 description: GPU 加速的程度存在於 Windows 容器
 keywords: docker，容器，裝置硬體
 author: cwilhit
-ms.openlocfilehash: 518ce8fd8373060b5ebb1147a2d25e3d24517861
-ms.sourcegitcommit: 3c81b0efd1ac2c4c93d58f16edae1044c9a5ad55
+ms.openlocfilehash: fbee74e1d40838922ae938afd8fda5715a6abaf7
+ms.sourcegitcommit: af1d0d6c0642ee44bd34db7a9a58fe6c65f73a33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "9284606"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "9285942"
 ---
 # <a name="gpu-acceleration-in-windows-containers"></a>在 Windows 容器中的 GPU 加速
 
@@ -17,7 +17,7 @@ ms.locfileid: "9284606"
 Gpu 已為許多常見的工作負載，從傳統的轉譯與機器學習訓練和推斷來模擬的常見工具。 Windows 容器支援 DirectX 和為基礎所建置它的所有架構的 GPU 加速。
 
 > [!IMPORTANT]
-> 此功能需要需要的支援的 Docker 版本`--device`適用於 Windows 容器的命令列選項。 正式 Docker 支援已排程即將推出的 Docker EE 引擎 19.03 版本。 之前，適用於 Docker 的[上游來源](https://master.dockerproject.org/)會包含所需的位元。
+> 此功能需要的支援的 Docker 版本`--device`適用於 Windows 容器的命令列選項。 正式 Docker 支援已排程即將推出的 Docker EE 引擎 19.03 版本。 之前，適用於 Docker 的[上游來源](https://master.dockerproject.org/)會包含所需的位元。
 
 ## <a name="requirements"></a>需求
 
