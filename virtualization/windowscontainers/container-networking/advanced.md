@@ -8,21 +8,22 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: cf5173a98032820e1ad72e99e9b6e874dedbed83
-ms.sourcegitcommit: 1715411ac2768159cd9c9f14484a1cad5e7f2a5f
+ms.openlocfilehash: 001f1abaeefaf34e12b0f7e3323bf32140080d05
+ms.sourcegitcommit: a5ff22c205149dac4fc05325ef3232089826f1ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "9263515"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "9380002"
 ---
 # <a name="advanced-network-options-in-windows"></a>Windows 中的進階網路選項
+
 支援多種網路驅動程式選項，以利用 Windows 特定的功能和特性。 
 
 ## <a name="switch-embedded-teaming-with-docker-networks"></a>搭配 Docker 網路的 Switch Embedded Teaming (交換器內嵌小組)
 
-> 適用於所有網路驅動程式 
+> 適用於所有網路驅動程式
 
-建立容器主機網路來供 Docker 使用時，您可以利用 [Switch Embedded Teaming (交換器內嵌小組)](https://technet.microsoft.com/en-us/windows-server-docs/networking/technologies/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming#a-namebkmksswitchembeddedaswitch-embedded-teaming-set)，以 `-o com.docker.network.windowsshim.interface` 選項來指定多個網路介面卡 (以逗號分隔)。 
+建立容器主機網路來供 Docker 使用時，您可以利用 [Switch Embedded Teaming (交換器內嵌小組)](https://technet.microsoft.com/en-us/windows-server-docs/networking/technologies/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming#a-namebkmksswitchembeddedaswitch-embedded-teaming-set)，以 `-o com.docker.network.windowsshim.interface` 選項來指定多個網路介面卡 (以逗號分隔)。
 
 ```
 C:\> docker network create -d transparent -o com.docker.network.windowsshim.interface="Ethernet 2", "Ethernet 3" TeamedNet
@@ -30,7 +31,7 @@ C:\> docker network create -d transparent -o com.docker.network.windowsshim.inte
 
 ## <a name="set-the-vlan-id-for-a-network"></a>為網路設定 VLAN 識別碼
 
-> 適用於 transparent 和 l2bridge 網路驅動程式 
+> 適用於 transparent 和 l2bridge 網路驅動程式
 
 若要為網路設定 VLAN 識別碼，請在 `docker network create` 命令中使用 `-o com.docker.network.windowsshim.vlanid=<VLAN ID>` 選項。 例如，您可以使用下列命令來建立 VLAN 識別碼為 11 的透明網路：
 

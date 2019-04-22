@@ -3,12 +3,12 @@ title: 在 Windows 容器中的 GPU 加速
 description: GPU 加速的程度存在於 Windows 容器
 keywords: docker，容器，裝置硬體
 author: cwilhit
-ms.openlocfilehash: fbee74e1d40838922ae938afd8fda5715a6abaf7
-ms.sourcegitcommit: af1d0d6c0642ee44bd34db7a9a58fe6c65f73a33
+ms.openlocfilehash: 281241e07e4bc184e73c4e74a117b44253a775be
+ms.sourcegitcommit: a5ff22c205149dac4fc05325ef3232089826f1ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "9285942"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "9380052"
 ---
 # <a name="gpu-acceleration-in-windows-containers"></a>在 Windows 容器中的 GPU 加速
 
@@ -22,6 +22,7 @@ Gpu 已為許多常見的工作負載，從傳統的轉譯與機器學習訓練�
 ## <a name="requirements"></a>需求
 
 此功能才能運作，您的環境必須符合下列需求：
+
 - 容器主機必須執行 Windows Server 2019 或 Windows 10 版本 1809年或更新版本。
 - 容器基本映像必須是[mcr.microsoft.com/windows:1809](https://hub.docker.com/_/microsoft-windowsfamily-windows)或更新版本。 目前不支援 Windows Server Core 與 Nano Server 容器映像。
 - 19.03 或更新版本，容器主機必須執行 Docker 引擎。

@@ -1,15 +1,20 @@
 ---
 title: 關於 Windows 容器
 description: 深入了解 Windows 容器。
-keywords: 'docker, 容器'
+keywords: docker, 容器
 author: taylorb-microsoft
 ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8e273856-3620-4e58-9d1a-d1e06550448
+ms.openlocfilehash: 6473c323c675fc59360dd982a14895a93743098a
+ms.sourcegitcommit: a5ff22c205149dac4fc05325ef3232089826f1ef
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "9380042"
 ---
-
 # <a name="containers-on-windows"></a>在 Windows 上的容器
 
 ## <a name="what-are-containers"></a>什麼是容器
@@ -29,16 +34,15 @@ ms.assetid: 8e273856-3620-4e58-9d1a-d1e06550448
 觀看簡短的概觀下方：
 <iframe width="800" height="450" src="https://www.youtube.com/embed/Ryx3o0rD5lY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-
 ## <a name="container-fundamentals"></a>容器的基礎
 
 容器是一種隔離、由資源控制的可攜式執行階段環境，而且這種環境會在主機電腦或虛擬機器上執行。 應用程式或執行於容器中的程序會與所有必要的相依性和組態檔案; 封裝它提供有執行其容器外部沒有其他處理程序的動畫效果。
 
 容器的主機會為容器佈建一組資源，而且容器只會使用這些資源。 知容器，以外什麼它具有沒有其他資源存在，因此容器無法接觸可能已經佈建給鄰近容器的資源。
 
-在您開始建立及使用 Windows 容器時，下列主要概念將有所幫助。
+下列的重要概念將會很有幫助進行開始建立和使用 Windows 容器。
 
-**容器主機：** 設定了 Windows 容器功能的實體或虛擬電腦系統。 容器主機將會執行一或多個 Windows 容器。
+**容器主機：** 實體或虛擬電腦系統設定了 Windows 容器功能。 容器主機將會執行一或多個 Windows 容器。
 
 **容器映像：** 對容器檔案系統或登錄進行修改時 (例如進行軟體安裝時)，會在沙箱中加以擷取。 在許多情況下您都可能會想擷取此狀態，以建立繼承這些變更的新容器。 這就是映像 – 在容器停止後，您可以捨棄該沙箱，或將它轉換成新的容器映像。 例如，我們假設您已從 Windows Server Core OS 映像部署容器。 然後，您將 MySQL 安裝到此容器中。 從這個容器建立新的映像，效果會等同於可部署的容器版本。 此映像只會包含所做的變更 (MySQL)，不過其運作會像是在容器 OS 映像之上的層級。
 
@@ -56,7 +60,7 @@ Microsoft Azure 專家 Mark Russinovich 寫過[一篇絕佳的部落格文章](h
 
 ## <a name="windows-container-types"></a>Windows 容器類型
 
-Windows 容器包含兩種不同的容器類型，或執行階段。
+Windows 容器包含兩個不同的容器類型或執行階段。
 
 **Windows Server 容器** – 透過處理序和命名空間隔離技術，提供應用程式隔離功能。 Windows Server 容器可與容器主機和主機上執行的所有容器共用核心。 這些容器沒有提供惡意防護界限，不應用來隔離未受信任的程式碼。 由於共用核心空間，因此這些容器需要相同的核心版本和組態。
 
@@ -70,9 +74,9 @@ Windows 容器包含兩種不同的容器類型，或執行階段。
 
 ![使用 Docker 容器](media/docker.png)
 
-如同任何其他容器，Windows Server 容器可使用 [Docker](https://www.docker.com) 管理。
+如同任何其他容器，則可以使用[Docker](https://www.docker.com)來管理 Windows Server 容器。
 
-## <a name="containers-for-developers"></a>開發人員的容器 ##
+## <a name="containers-for-developers"></a>適用於開發人員的容器
 
 從開發人員的桌面，到測試機器，乃至於一組實際執行機器，皆可建立 Docker 映像，進而快速地在任何環境以相同方式部署。 在此發展下，封裝在 Docker 容器中的應用程式建立起大規模且持續增長的生態系統；所使用的是 DockerHub，這是 Docker 所維護的公用容器化應用程式登錄，目前在公用社群儲存機制中發行了超過 180,000 個應用程式。
 
@@ -84,13 +88,14 @@ Windows 容器包含兩種不同的容器類型，或執行階段。
 
 容器可協助開發人員更快速地建置及提供更高品質的應用程式。
 
-## <a name="containers-for-it-professionals"></a>IT 專業人員的容器 ##
+## <a name="containers-for-it-professionals"></a>IT 專業人員的容器
 
 IT 專業人員可以使用容器為其開發、品管及生產小組提供標準化的環境。 他們再也不必擔心複雜的安裝和設定步驟。 藉由使用容器，系統管理員將可抽離 OS 安裝和基礎結構的差異。
 
 容器可協助系統管理員建立更容易更新和維護的基礎結構。
 
 ## <a name="container-orchestrators"></a>容器協調器
+
 因為容器的容積較小並且是應用程式導向，所以它們很適合用於靈活傳遞的環境和微服務型架構。 不過，當您使用容器和微服務時，您可以輕鬆地在您的環境中擁有數百或數千個元件。  您或許可以手動管理幾十個虛擬機器或實體伺服器，但您卻無法不使用自動化的方式來管理生產規模的容器環境。  自動化及管理大量容器的工作以及其互動的方式稱為協調流程。 
 
 協調流程的標準定義包含下列工作：

@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
-ms.openlocfilehash: dc500a7b6c0f8f078820407e6ed80ca5868bf4f3
-ms.sourcegitcommit: 95cec99aa8e817d3e3cb2163bd62a32d9e8f7181
+ms.openlocfilehash: 07f5929505226a50a161b4ae7df5669c2ad89d83
+ms.sourcegitcommit: a5ff22c205149dac4fc05325ef3232089826f1ef
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "8973648"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "9380422"
 ---
 # <a name="windows-containers-on-windows-10"></a>Windows 10 上的 Windows 容器
 
@@ -28,7 +28,7 @@ ms.locfileid: "8973648"
 1. 安裝 Docker for Windows
 2. 執行簡單的 Windows 容器
 
-此快速入門專用於 Windows 10。 在此頁面左側的目錄中，可以找到其他的快速入門文件。
+此快速入門專用於 Windows 10。 在此頁面左側的目錄中，就可以找到其他的快速入門文件。
 
 ## <a name="prerequisites"></a>必要條件
 請確定您符合下列需求：
@@ -38,11 +38,11 @@ ms.locfileid: "8973648"
 ***HYPER-V 隔離：*** Windows Server 容器需要 Windows 10 上的 HYPER-V 隔離，才能為開發人員的相同核心版本和設定將用在生產環境中提供，更多關於 HYPER-V 隔離上可找到[關於 Windows 容器](../about/index.md)頁面。
 
 > [!NOTE]
-> 在 Windows 10 月更新 2018年版本中，我們不會再不允許使用者從開發人員/測試用途 Windows 10 企業版或專業版上執行 Windows 容器中處理序隔離模式。 若要深入了解[常見問題集](../about/faq.md)，請參閱。
+> 在 Windows 10 月更新 2018年版本中，我們不會再不允許使用者從在處理序隔離模式中執行 Windows 容器在 Windows 10 企業版或專業版上的開發人員/測試用途。 請參閱以了解更多[常見問題集](../about/faq.md)。
 
 ## <a name="install-docker-for-windows"></a>安裝 Docker for Windows
 
-下載[Docker for Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows) ，並執行安裝程式 （您將需要登入。 建立帳戶如果您沒有一個已經）。 如需[詳細的安裝指示](https://docs.docker.com/docker-for-windows/install)，請參閱 Docker 文件。
+下載[Docker for Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows) ，並執行安裝程式 （您將需要登入。 建立帳戶如果沒有已經）。 如需[詳細的安裝指示](https://docs.docker.com/docker-for-windows/install)，請參閱 Docker 文件。
 
 ## <a name="switch-to-windows-containers"></a>切換到 Windows 容器
 
@@ -122,7 +122,7 @@ docker images
 docker run --rm helloworld cmd.exe /s /c type Hello.txt
 ```
 
-結果的`docker run`命令是從 'HelloWorld' 映像建立 HYPER-V 容器，cmd 的執行個體在容器中已啟動並執行我們的檔案 （輸出傳送到殼層），然後停止並移除容器的讀取。
+結果`docker run`命令是從 'HelloWorld' 映像建立 HYPER-V 隔離下執行容器，cmd 的執行個體已啟動容器中，且執行我們的檔案 （輸出傳送到殼層），然後在容器的讀取停止並移除。
 
 ## <a name="next-steps"></a>後續步驟
 
