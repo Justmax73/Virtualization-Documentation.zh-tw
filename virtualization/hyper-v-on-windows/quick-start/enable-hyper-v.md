@@ -8,11 +8,11 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: 752dc760-a33c-41bb-902c-3bb2ecd9ac86
 ms.openlocfilehash: 53152d0237a7f81858a5cb2f0fd8aabd439c4613
-ms.sourcegitcommit: 914e0dd1168daf1d2b0f22bd011035016cc08baf
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "9099356"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9578269"
 ---
 # <a name="install-hyper-v-on-windows-10"></a>在 Windows 10 上安裝 Hyper-V
 
@@ -25,7 +25,7 @@ ms.locfileid: "9099356"
 
 * Windows 10 企業版、 專業版或教育版
 * 使用第二層位址轉譯 (SLAT) 的 64 位元處理器。
-* CPU 對 VM 監視模式延伸模組 (VT-Intel Cpu 上的 c) 的支援。
+* CPU 對 VM 監視模式延伸模組 （Intel Cpu 上） 的支援。
 * 至少 4 GB 記憶體。
 
 Hyper-V 角色**無法**安裝於 Windows 10 家用版。

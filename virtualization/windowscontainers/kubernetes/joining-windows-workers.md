@@ -9,14 +9,14 @@ description: 您可以將 Windows 節點加入 v1.13 Kubernetes 叢集。
 keywords: kubernetes，1.13，windows，開始使用
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
 ms.openlocfilehash: ed0f13bd429e88f05469f91c3fc691bf0188b0a2
-ms.sourcegitcommit: 41318edba7459a9f9eeb182bf8519aac0996a7f1
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "9120566"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9578239"
 ---
 # <a name="joining-windows-server-nodes-to-a-cluster"></a>將 Windows Server 節點加入叢集 #
-一旦您有[設定 Kubernetes 主機的節點](./creating-a-linux-master.md)，並[選取您想要的網路的解決方案](./network-topologies.md)，您準備好加入 Windows Server 來形成叢集的節點。 這需要一些[準備 Windows 節點上的](#preparing-a-windows-node)，才能將加入。
+一旦您有[設定 Kubernetes 主機的節點](./creating-a-linux-master.md)，並[選取您想要的網路的解決方案](./network-topologies.md)，您準備好要加入 Windows Server 來形成叢集的節點。 這需要一些[準備 Windows 節點上的](#preparing-a-windows-node)，才能將加入。
 
 ## <a name="preparing-a-windows-node"></a>準備 Windows 節點 ##
 > [!NOTE]  
@@ -49,16 +49,16 @@ Start-Service docker
 
 ### <a name="create-the-pause-infrastructure-image"></a>建立"pause"（基礎結構） 映像 ###
 > [!Important]
-> 請務必小心衝突的容器映像;不需要預期的標記可能會造成`docker pull`的不相容的容器影像，造成[部署問題](./common-problems.md#when-deploying-docker-containers-keep-restarting)例如無限期`ContainerCreating`狀態。
+> 請務必小心衝突的容器映像;不需要預期的標記可能會造成`docker pull`的不相容的容器映像，造成[部署問題](./common-problems.md#when-deploying-docker-containers-keep-restarting)例如無限期`ContainerCreating`狀態。
 
 現在 `docker` 已安裝，您需要準備 "pause" 映像，供 Kubernetes 用來準備基礎架構 Pod。 有三個步驟： 
   1. [提取映像](#pull-the-image)
-  2. 為 microsoft 的[標記它](#tag-the-image)/ nanoserver:latest
+  2. [它標記](#tag-the-image)為 microsoft / nanoserver:latest
   3. 並[執行它](#run-the-container)
 
 
 #### <a name="pull-the-image"></a>提取映像 ####     
- 提取映像的特定的 Windows 版本。 例如，如果您正在執行 Windows Server 2019:
+ 提取映像個您特定的 Windows 版本。 例如，如果您正在執行 Windows Server 2019:
 
  ```powershell
 docker pull mcr.microsoft.com/windows/nanoserver:1809
@@ -78,7 +78,7 @@ docker tag mcr.microsoft.com/windows/nanoserver:1809 microsoft/nanoserver:latest
 docker run microsoft/nanoserver:latest
 ```
 
-您應該會看到起來會像這樣：
+您應該會看到類似這樣：
 
 ![文字](./media/docker-run-sample.png)
 
@@ -87,25 +87,25 @@ docker run microsoft/nanoserver:latest
 
 
 #### <a name="prepare-kubernetes-for-windows-directory"></a>準備 Windows 的 Kubernetes 目錄 ####
-建立 「 Windows Kubernetes 」 目錄來儲存 Kubernetes 二進位檔，以及任何部署指令碼和組態檔。
+建立 「 Windows Kubernetes 」 目錄來儲存 Kubernetes 二進位檔，以及任何的部署指令碼和組態檔。
 
 ```powershell
 mkdir c:\k
 ```
 
 #### <a name="copy-kubernetes-certificate"></a>複製 Kubernetes 的憑證 #### 
-複製的 Kubernetes 的憑證檔案 (`$HOME/.kube/config`)[從主機](./creating-a-linux-master.md#collect-cluster-information)到此新`C:\k`目錄。
+複製的 Kubernetes 的憑證檔案 (`$HOME/.kube/config`)[從主機](./creating-a-linux-master.md#collect-cluster-information)到這個新`C:\k`目錄。
 
 > [!tip]
 > 您可以使用工具例如[xcopy](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/xcopy)或[WinSCP](https://winscp.net/eng/download.php)節點之間傳輸設定檔。
 
 #### <a name="download-kubernetes-binaries"></a>下載 Kubernetes 二進位檔 ####
-若要能夠執行 Kubernetes，您必須下載`kubectl`， `kubelet`，以及`kube-proxy`二進位檔。 您可以下載這些中的連結從`CHANGELOG.md`檔案的[最新發行版本](https://github.com/kubernetes/kubernetes/releases/)。
+若要能夠執行 Kubernetes 方式執行，您必須下載`kubectl`， `kubelet`，以及`kube-proxy`二進位檔。 您可以下載這些中的連結從`CHANGELOG.md`檔案的[最新發行版本](https://github.com/kubernetes/kubernetes/releases/)。
  - 例如，以下是[v1.13 節點的二進位檔](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.13.md#node-binaries)。
  - 使用解壓縮封存，並將放入二進位檔的工具，例如[展開封存](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6) `C:\k\`。
 
 #### <a name="optional-setup-kubectl-on-windows"></a>（選擇性）在 Windows 上的安裝程式 kubectl ####
-如果您想要控制 Windows 從叢集中，您可以使用`kubectl`命令。 首先，讓`kubectl`以外`C:\k\`目錄中，修改`PATH`環境變數：
+如果您想要控制從 Windows 叢集，您可以使用`kubectl`命令。 首先，讓`kubectl`以外`C:\k\`目錄中，修改`PATH`環境變數：
 
 ```powershell
 $env:Path += ";C:\k"
@@ -146,7 +146,7 @@ Unable to connect to the server: dial tcp [::1]:8080: connectex: No connection c
 如果您看到沒有任何錯誤的節點現已準備好加入叢集。
 
 ## <a name="joining-the-windows-node"></a>加入 Windows 節點 ##
-根據[您選擇的網路解決方案](./network-topologies.md)，您可以：
+根據[您所選擇的網路解決方案](./network-topologies.md)，您可以：
 1. [Windows Server 節點加入 Flannel （vxlan 或主機 gw） 叢集](#joining-a-flannel-cluster)
 2. [Windows Server 節點加入叢集上使用 ToR 交換器](#joining-a-tor-cluster)
 
@@ -160,15 +160,15 @@ Unable to connect to the server: dial tcp [::1]:8080: connectex: No connection c
 wget https://raw.githubusercontent.com/Microsoft/SDN/master/Kubernetes/flannel/start.ps1 -o c:\k\start.ps1
 ```
 
-假設您[準備好您的 Windows 節點](#preparing-a-windows-node)，以及您`c:\k`目錄看起來就像下面，您已經準備好要加入的節點。
+假設您[準備好您的 Windows 節點](#preparing-a-windows-node)，以及您`c:\k`目錄看起來就像下面，您就已經準備好加入節點。
 
 ![文字](./media/flannel-directory.png)
 
 #### <a name="join-node"></a>加入節點 #### 
-若要簡化程序加入 Windows 節點，您只需要執行單一 Windows 指令碼來啟動`kubelet`， `kube-proxy`， `flanneld`，並加入節點。
+若要簡化將 Windows 節點的程序，您只需要執行單一 Windows 指令碼來啟動`kubelet`， `kube-proxy`， `flanneld`，並加入節點。
 
 > [!Note]
-> [start.ps1](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/start.ps1)參考[install.ps1](https://github.com/Microsoft/SDN/blob/master/Kubernetes/windows/install.ps1)，例如下載其他檔案的`flanneld`可執行檔和[基礎架構 pod 的 Dockerfile](https://github.com/Microsoft/SDN/blob/master/Kubernetes/windows/Dockerfile) *並安裝您差別*。 用於覆疊網路模式，[防火牆](https://github.com/Microsoft/SDN/blob/master/Kubernetes/windows/helper.psm1#L111)將會開啟本機的 UDP 連接埠 4789。 可能有多個 powershell 視窗中的幾秒鐘的網路中斷而以及開啟/關閉時正在建立新的外部 vSwitch pod 網路第一次。
+> [start.ps1](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/start.ps1)參考[install.ps1](https://github.com/Microsoft/SDN/blob/master/Kubernetes/windows/install.ps1)，例如下載其他檔案的`flanneld`可執行檔和[基礎架構 pod 的 Dockerfile](https://github.com/Microsoft/SDN/blob/master/Kubernetes/windows/Dockerfile) *並安裝您差別*。 覆疊網路模式，如[防火牆](https://github.com/Microsoft/SDN/blob/master/Kubernetes/windows/helper.psm1#L111)將會開啟本機的 UDP 連接埠 4789。 可能有多個 powershell 視窗中的幾秒鐘的網路中斷而以及開啟/關閉時正在建立新的外部 vSwitch pod 網路第一次。
 
 ```powershell
 cd c:\k
@@ -247,7 +247,7 @@ Windows 主機的網路介面的名稱。 您可以使用`ipconfig`若要尋找�
 在執行這之後，您應該能夠：
   * 檢視已加入使用的 Windows 節點 `kubectl get nodes`
   * 請參閱 3 個 powershell 視窗中開啟，一個用於`kubelet`，一個適用於`flanneld`，和另一個用於 `kube-proxy`
-  * 請參閱主機代理程式處理程序，如`flanneld`， `kubelet`，以及`kube-proxy`的節點上執行
+  * 請參閱主機代理程式處理程序的`flanneld`， `kubelet`，以及`kube-proxy`的節點上執行
 
 如果成功，繼續進行[下一個步驟](#next-steps)。
 

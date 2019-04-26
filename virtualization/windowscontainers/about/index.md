@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8e273856-3620-4e58-9d1a-d1e06550448
-ms.openlocfilehash: 6473c323c675fc59360dd982a14895a93743098a
-ms.sourcegitcommit: a5ff22c205149dac4fc05325ef3232089826f1ef
+ms.openlocfilehash: e3d260bd65b6f81bc4ea9c305937f2784192d28a
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "9380042"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9576409"
 ---
 # <a name="containers-on-windows"></a>在 Windows 上的容器
 
@@ -50,7 +50,7 @@ ms.locfileid: "9380042"
 
 **容器 OS 映像：** 容器會從映像進行部署。 在可能構成容器的眾多映像層中，容器 OS 映像是第一層。 此映像提供作業系統環境。 容器 OS 映像不可變更。 也就是說，無法修改。
 
-**容器存放庫：** 每當容器映像建立時，容器映像和其相依性即會儲存在本機存放庫中。 這些映像可在容器主機上重複使用多次。 容器映像也可以儲存在公用或私人登錄中 (例如 DockerHub)，以便在許多不同的容器主機之間使用。
+**容器存放庫：** 每當容器映像建立時，容器映像和其相依性即會儲存在本機存放庫中。 這些映像可在容器主機上重複使用多次。 也可以將容器映像儲存在公用或私人登錄中，例如 Docker Hub，以便他們可以在多種不同容器主機之間使用。
 
 ![容器的基礎](media/containerfund.png)
 
@@ -109,9 +109,9 @@ IT 專業人員可以使用容器為其開發、品管及生產小組提供標�
 - 服務探索：讓容器即使在主機電腦間移動並變更 IP 位址也能夠自動找到彼此。
 - 協調應用程式升級：管理容器升級以避免應用程式服務中斷，並在發生錯誤時能夠復原。
 
-Azure 提供兩種容器協調器：Azure Container Service (AKS) 和 Service Fabric。
+Azure 提供兩種容器協調器： Azure Kubernetes Service (AKS) 和 Service Fabric。
 
-[Azure Container Service (AKS)](/azure/aks/) 可讓您輕鬆建立、設定及管理虛擬機器叢集，這些虛擬機器都已預先設定好，可用於執行容器化應用程式。 這可讓您使用您現有的技術，或運用大量不斷增長的社群專業知識，以在 Microsoft Azure 上部署及管理容器型應用程式。 藉由使用 AKS，您可以利用 Azure 企業級的功能，同時仍能透過 Kubernetes 和 Docker 映像格式來維持應用程式的可攜性。
+[Azure Kubernetes Service (AKS)](/azure/aks/)可讓您更容易建立、 設定及管理虛擬機器都已預先設定好執行容器化應用程式在叢集中。 這可讓您使用您現有的技術，或運用大量不斷增長的社群專業知識，以在 Microsoft Azure 上部署及管理容器型應用程式。 藉由使用 AKS，您可以利用 Azure 企業級的功能，同時仍能透過 Kubernetes 和 Docker 映像格式來維持應用程式的可攜性。
 
 [Azure Service Fabric](/azure/service-fabric/) 是一種分散式系統平台，可讓您輕鬆封裝、部署及管理可調整且可靠的微服務和容器。 Service Fabric 可解決開發及管理雲端原生應用程式時的重要問題。 開發人員和系統管理員可以避免複雜的基礎結構問題，將重心放在實作具有任務關鍵性而需求嚴苛並且是可調整、可靠及可管理的工作負載。 Service Fabric 代表新一代的平台，適用於建置及管理這些在容器中執行的企業級、第 1 層、雲端規模的應用程式。
 

@@ -8,11 +8,11 @@ ms.prod: containers
 description: 開始建立 Kubernetes 叢集主機。
 keywords: kubernetes，1.13]，主機 linux
 ms.openlocfilehash: 8a3fb073616d115ab84e6cc36f0fb6cedbcf1f7d
-ms.sourcegitcommit: 41318edba7459a9f9eeb182bf8519aac0996a7f1
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "9120426"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9578249"
 ---
 # <a name="creating-a-kubernetes-master"></a>建立 Kubernetes 主機 #
 > [!NOTE]
@@ -22,7 +22,7 @@ ms.locfileid: "9120426"
 > 最近更新的 Linux 電腦，才能最近更新;Kubernetes 母片資源像[kube dns](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/)、 [kube 排程器](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-scheduler/)和[kube apiserver](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/)有不已移植到 Windows 尚未。 
 
 > [!tip]
-> **Ubuntu 16.04**邁向量身訂做的 Linux 指示。 其他執行 Kubernetes 認證的 Linux 散發版本也應提供對等，您可以使用替代的命令。 它們會也與相互溝通成功 Windows。
+> **Ubuntu 16.04**邁向量身訂做的 Linux 指示。 其他執行 Kubernetes 認證的 Linux 散發版本應該也會提供您可以使用替代的對等命令。 它們會也與相互溝通成功 Windows。
 
 
 ## <a name="initialization-using-kubeadm"></a>使用 kubeadm 初始化 ##
@@ -41,7 +41,7 @@ apt-get update -y && apt-get upgrade -y
 ```
 
 ### <a name="install-docker"></a>安裝 Docker ###
-若要能夠使用容器，您會需要容器引擎，例如 Docker。 若要取得最新版本，您可以使用[下列指示](https://docs.docker.com/install/linux/docker-ce/ubuntu/)適用於 Docker 的安裝。 您可以確認該 docker 已正確安裝，執行`hello-world`容器：
+若要能夠使用容器，您需要容器引擎，例如 Docker。 若要取得最新版本，您可以使用[下列指示](https://docs.docker.com/install/linux/docker-ce/ubuntu/)適用於 Docker 安裝。 您可以確認該 docker 已正確安裝，執行`hello-world`容器：
 
 ```bash
 docker run hello-world
@@ -93,10 +93,10 @@ mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
-現在您可以使用 kubectl 編輯或檢視您的叢集有關的資訊。
+現在您可以使用 kubectl 編輯或檢視您的叢集的相關資訊。
 
 ### <a name="enable-mixed-os-scheduling"></a>啟用混合作業系統排程 ###
-根據預設，某些 Kubernetes 資源會寫入它們正在排程在所有節點上的這類的方式。 不過，在 multi-OS 環境中，我們不希望 Linux 資源會影響或雙排程到 Windows 節點，反之亦然。 基於這個原因，我們需要套用[節點選取器](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector)標籤。 
+根據預設，某些 Kubernetes 資源會寫入它們正在排程的所有節點上的這類的方式。 不過，在 multi-OS 環境中，我們不希望 Linux 資源會影響或雙排程到 Windows 節點，反之亦然。 基於這個原因，我們需要套用[節點選取器](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector)標籤。 
 
 在這方面，我們會將修補 linux kube proxy [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)到目標只 Linux。
 
@@ -137,7 +137,7 @@ kubectl get ds -n kube-system
     * 您也可以找到使用 `kubectl cluster-info dump | grep -i service-cluster-ip-range`
   4. Kube dns 服務 IP 
     * 範例： `10.96.0.10`
-    * 可以使用的 「 叢集 IP 」 欄位中找到 `kubectl get svc/kube-dns -n kube-system`
+    * 請參閱 「 叢集 IP 」 欄位使用 `kubectl get svc/kube-dns -n kube-system`
   5. Kubernetes`config`之後產生的檔案`kubeadm init`（[這裡](#initialize-master)）。 如果您依照指示，這可以在下列路徑中找到：
     * `/etc/kubernetes/admin.conf`
     * `$HOME/.kube/config`
@@ -145,14 +145,14 @@ kubectl get ds -n kube-system
 ## <a name="verifying-the-master"></a>驗證主機 ##
 幾分鐘之後，系統應該處於下列狀態：
 
-  - 在`kubectl get pods -n kube-system`，會有適用於[Kubernetes 主要元件](https://kubernetes.io/docs/concepts/overview/components/#master-components)中的 pod`Running`狀態。
-  - 呼叫`kubectl cluster-info`會顯示 Kubernetes 主機 API 伺服器除了 DNS 附加元件的相關資訊。
+  - 在`kubectl get pods -n kube-system`，會有適用於[Kubernetes 主機元件](https://kubernetes.io/docs/concepts/overview/components/#master-components)中的 pod`Running`狀態。
+  - 呼叫`kubectl cluster-info`會顯示 Kubernetes 主機 API 伺服器 DNS 附加元件的相關資訊。
   
 > [!tip]
-> Kubeadm 不會設定網路功能，因為 DNS pod 仍然可能會在`ContainerCreating`或`Pending`狀態。 也會切換至`Running`[選擇網路解決方案](./network-topologies.md)之後的狀態。
+> 因為 kubeadm 安裝網路功能不程式、 DNS pod 仍然可能會在`ContainerCreating`或`Pending`狀態。 也會切換至`Running`[選擇的網路解決方案](./network-topologies.md)之後的狀態。
 
 ## <a name="next-steps"></a>後續步驟 ## 
-在本節中，我們會討論如何使用 kubeadm Kubernetes 主機的設定。 現在您已經準備好進行步驟 3:
+在本節中，我們會討論如何設定使用 kubeadm Kubernetes 主機。 現在您已經準備好進行步驟 3:
 
 > [!div class="nextstepaction"]
 > [選擇網路解決方案](./network-topologies.md)

@@ -9,28 +9,28 @@ description: 在 Windows 和 Linux 上支援的網路拓撲。
 keywords: kubernetes，1.13，windows，開始使用
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
 ms.openlocfilehash: 9f96fcc80c533b74ab46d93beecc7ca8629ce395
-ms.sourcegitcommit: 41318edba7459a9f9eeb182bf8519aac0996a7f1
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "9120446"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9576129"
 ---
 # <a name="network-solutions"></a>網路解決方案 #
 
-一旦您已[安裝的 Kubernetes 主要節點](./creating-a-linux-master.md)您準備好挑選網路的解決方案。 有多種方法可以讓虛擬[叢集子網路](./getting-started-kubernetes-windows.md#cluster-subnet-def)路由節點上使用。 選擇其中一個下列選項適用於 Kubernetes Windows 上目前：
+一旦您已[安裝的 Kubernetes 主要節點](./creating-a-linux-master.md)您準備好挑選網路的解決方案。 有多個方式可以跨節點，讓虛擬[叢集子網路](./getting-started-kubernetes-windows.md#cluster-subnet-def)路由。 選擇其中一個下列選項適用於 Kubernetes Windows 上現今：
 
 1. 使用 CNI 外掛程式，例如[Flannel](#flannel-in-vxlan-mode)設定為您的覆疊網路。
-2. 您使用程式路由到例如[Flannel](#flannel-in-host-gateway-mode) CNI 外掛程式。
+2. 為您使用程式路由到例如[Flannel](#flannel-in-host-gateway-mode) CNI 外掛程式。
 3. 設定智慧[頂端 rack (ToR) 切換](#configuring-a-tor-switch)至路由子網路。
 
 > [!tip]  
-> 沒有第四個網路上運用開啟 vSwitch (OvS) 的 Windows 和開啟虛擬網路 (OVN) 的解決方案。 記載此超出範圍，這份文件，但您可以閱讀[這些指示](https://kubernetes.io/docs/getting-started-guides/windows/#for-3-open-vswitch-ovs-open-virtual-network-ovn-with-overlay)來設定它。
+> 沒有第四個網路上運用開啟 vSwitch (OvS) 的 Windows 和開啟虛擬網路 (OVN) 的解決方案。 記載此超出範圍這份文件，但您可以閱讀[這些指示](https://kubernetes.io/docs/getting-started-guides/windows/#for-3-open-vswitch-ovs-open-virtual-network-ovn-with-overlay)來設定它。
 
 ## <a name="flannel-in-vxlan-mode"></a>Flannel vxlan 模式
 
-Vxlan 模式在 flannel 可用來安裝程式會使用 VXLAN 通道路由節點之間的封包的可設定的虛擬覆疊網路。
+Vxlan 模式 flannel 可用來安裝程式會使用 VXLAN 通道路由節點之間的封包的可設定的虛擬覆疊網路。
 
-### <a name="prepare-kubernetes-master-for-flannel"></a>準備 Flannel Kubernetes 主機
+### <a name="prepare-kubernetes-master-for-flannel"></a>準備 flannel Kubernetes 主機
 在我們的叢集中[Kubernetes 主機](./creating-a-linux-master.md)建議一些次要的準備。 建議使用 Flannel 時讓 iptables 鏈結的橋接的 IPv4 流量。 這可以使用下列命令：
 
 ```bash
@@ -44,7 +44,7 @@ sudo sysctl net.bridge.bridge-nf-call-iptables=1
 wget https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 ```
 
-有兩個區段，您應該修改為啟用 vxlan 網路的後端：
+有兩個區段，您應該修改為啟用 vxlan 網路後端：
 
 1. 在`net-conf.json`一節您`kube-flannel.yml`，再次檢查：
  * 叢集子網路 (例如 「 10.244.0.0/16 」) 會設定為所需。
@@ -100,7 +100,7 @@ cni-conf.json: |
 kubectl apply -f kube-flannel.yml
 ```
 
-接下來，由於 Flannel pod Linux 型，套用到 Linux[節點選取器](https://github.com/Microsoft/SDN/tree/master/Kubernetes/flannel/l2bridge/manifests/node-selector-patch.yml)修補程式`kube-flannel-ds`DaemonSet 只目標 Linux （我們將會啟動 Flannel 」 flanneld 「 主機代理程式上的處理序 Windows 稍後加入時）：
+接下來，由於 Flannel pod Linux 型，套用 Linux[節點選取器](https://github.com/Microsoft/SDN/tree/master/Kubernetes/flannel/l2bridge/manifests/node-selector-patch.yml)修補程式來`kube-flannel-ds`DaemonSet 只目標 Linux （我們將會啟動 Flannel 」 flanneld 「 主機代理程式上的處理序 Windows 稍後加入時）：
 
 ```
 kubectl patch ds/kube-flannel-ds-amd64 --patch "$(cat node-selector-patch.yml)" -n=kube-system
@@ -132,11 +132,11 @@ kubectl get ds -n kube-system
 
 一旦成功，繼續[下一個步驟](#next-steps)。
 
-## <a name="flannel-in-host-gateway-mode"></a>Flannel 主機閘道模式
+## <a name="flannel-in-host-gateway-mode"></a>Flannel 在主機閘道模式
 
-[Flannel vxlan](#flannel-in-vxlan-mode)，一起 Flannel 網路功能的另一個選項是*主機閘道模式*(主機-gw)，這牽涉到每個節點，以使用目標節點的主機位址為下一個躍點的其他節點的 pod 子網路上的靜態路由的程式設計。
+與[Flannel vxlan](#flannel-in-vxlan-mode)，一起 Flannel 網路功能的另一個選項是*主機閘道模式*(主機-gw)，這牽涉到其他節點的 pod 子網路使用目標節點的主機位址為下一個躍點到每個節點上的靜態路徑的程式設計。
 
-### <a name="prepare-kubernetes-master-for-flannel"></a>準備 Flannel Kubernetes 主機
+### <a name="prepare-kubernetes-master-for-flannel"></a>準備 flannel Kubernetes 主機
 
 在我們的叢集中[Kubernetes 主機](./creating-a-linux-master.md)建議一些次要的準備。 建議使用 Flannel 時讓 iptables 鏈結的橋接的 IPv4 流量。 這可以使用下列命令：
 
@@ -155,10 +155,10 @@ wget https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-
 還有一個檔案，您需要變更，以便啟用主機 gw 跨兩個 Windows/Linux 的網路功能。
 
 在`net-conf.json`一節的您 kube flannel.yml，您可再次檢查：
-1. 網路後端所使用的類型設為`host-gw`而不是`vxlan`。
+1. 網路後端所使用的類型設定為`host-gw`而不是`vxlan`。
 2. 叢集子網路 (例如 「 10.244.0.0/16 」) 會設定為所需。
 
-套用 2 個步驟中之後, 您`net-conf.json`應該看起來如下：
+套用 2 個步驟之後, 您`net-conf.json`應該看起來如下：
 ```json
 net-conf.json: |
     {
@@ -211,7 +211,7 @@ kubectl get ds -n kube-system
 ## <a name="configuring-a-tor-switch"></a>設定 ToR 交換器 ##
 > [!NOTE]
 > 如果您選擇[Flannel 做為您的網路解決方案](#flannel-in-host-gateway-mode)，您可以略過本節。
-您實際節點以外，就會發生 ToR 開關的設定。 如需有關這的詳細資訊，請參閱[正式的 Kubernetes 文件](https://kubernetes.io/docs/getting-started-guides/windows/#upstream-l3-routing-topology)。
+您實際的節點以外，就會發生 ToR 開關的設定。 如需有關這的詳細資訊，請參閱[正式的 Kubernetes 文件](https://kubernetes.io/docs/getting-started-guides/windows/#upstream-l3-routing-topology)。
 
 
 ## <a name="next-steps"></a>後續步驟 ## 
