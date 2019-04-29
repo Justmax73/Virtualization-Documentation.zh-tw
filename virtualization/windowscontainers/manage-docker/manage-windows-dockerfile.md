@@ -9,11 +9,11 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 75fed138-9239-4da9-bce4-4f2e2ad469a1
 ms.openlocfilehash: a32d66251d8d9dddcd8abb1b64600459c903e317
-ms.sourcegitcommit: 2c22506a7fdbbbe5ab4138281fc9256a98b51efd
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "3386053"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9574799"
 ---
 # <a name="dockerfile-on-windows"></a>Windows 上的 Dockerfile
 
@@ -65,7 +65,7 @@ CMD [ "cmd" ]
 
 ## <a name="instructions"></a>指示
 
-Dockerfile 指令為 Docker 引擎提供建立容器映像所需的步驟。 這些指令會依序逐一執行。 以下是一些基本 Dockerfile 指令的詳細資料。 如需 Dockerfile 指令的完整清單，請參閱 [Docker.com 上的 Dockerfile Reference] (https://docs.docker.com/engine/reference/builder/)。
+Dockerfile 指令為 Docker 引擎提供建立容器映像所需的步驟。 這些指令會依序逐一執行。 以下是一些基本 Dockerfile 指令的詳細資料。 Dockerfile 指令的完整清單，請參閱 [Docker.com 上的 Dockerfile 參考] (https://docs.docker.com/engine/reference/builder/)。
 
 ### <a name="from"></a>FROM
 

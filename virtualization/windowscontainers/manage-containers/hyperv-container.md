@@ -8,26 +8,26 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 42154683-163b-47a1-add4-c7e7317f1c04
-ms.openlocfilehash: db0f8c45c1cdb6617e4c347251284509e2a7d3bc
-ms.sourcegitcommit: 914e0dd1168daf1d2b0f22bd011035016cc08baf
+ms.openlocfilehash: 2ff2d1204e1f973d49af5e1d4441e4eacd946101
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "9099336"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9576899"
 ---
 # <a name="hyper-v-isolation"></a>Hyper-V 隔離
 
 Windows 容器技術包含兩個不同的層級的隔離容器、 處理程序和 HYPER-V 隔離。 同時類型建立、 管理和運作方式都相同。 而且也會產生及使用相同的容器映像。 兩者的差異在於，在容器、主機作業系統及該主機上執行的所有其他容器之間建立的隔離層級。
 
-**處理序隔離**– 在主機，使用隔離執行個體可以同時執行多個容器提供透過命名空間、 資源控制以及處理序隔離技術。  容器與主機，以及彼此共用相同的核心。  這是大約相同的方式執行 Linux 容器。
+**處理序隔離**– 執行個體的主機，使用隔離可同時執行多個容器提供透過命名空間、 資源控制以及處理序隔離技術。  容器與主機，以及彼此共用相同的核心。  這是大約相同方式容器在 Linux 上執行。
 
-**HYPER-V 隔離**– 主機上可以同時執行多個容器執行個體，但每個容器執行特殊的虛擬機器。 這會提供核心層級的隔離，每個容器，以及在容器主機之間。
+**HYPER-V 隔離**– 主機上可以同時執行多個容器執行個體，但每個容器執行在特殊的虛擬機器。 這會提供核心層級的隔離，每個容器，以及在容器主機之間。
 
 ## <a name="hyper-v-isolation-examples"></a>HYPER-V 隔離範例
 
 ### <a name="create-container"></a>建立容器
 
-管理 HYPER-V 隔離容器與 Docker 的是，來管理 Windows Server 容器幾乎完全相同。 若要建立使用 HYPER-V 隔離的容器徹底 Docker，使用`--isolation`參數來設定`--isolation=hyperv`。
+管理 HYPER-V 隔離容器與 Docker 是管理 Windows Server 容器幾乎完全相同。 若要建立容器使用 HYPER-V 隔離完整 Docker，使用`--isolation`參數來設定`--isolation=hyperv`。
 
 ``` cmd
 docker run -it --isolation=hyperv mcr.microsoft.com/windows/nanoserver:1809 cmd
@@ -35,7 +35,7 @@ docker run -it --isolation=hyperv mcr.microsoft.com/windows/nanoserver:1809 cmd
 
 ### <a name="isolation-explanation"></a>隔離說明
 
-此範例示範隔離功能在 Windows Server 和 HYPER-V 容器之間的差異。 
+此範例示範隔離功能在 Windows Server 和 HYPER-V 隔離之間的差異。
 
 這裡的處理程序隔離的容器部署，並將主控長時間執行的偵測處理序。
 
@@ -61,7 +61,7 @@ Handles  NPM(K)    PM(K)      WS(K) VM(M)   CPU(s)     Id  SI ProcessName
      67       5      820       3836 ...71     0.03   3964   3 PING
 ```
 
-作為對比，此範例會啟動 HYPER-V 隔離的容器具有偵測處理序。 
+作為對比，此範例會啟動 HYPER-V 隔離的容器具有偵測處理序。
 
 ```
 docker run -d --isolation=hyperv mcr.microsoft.com/windows/nanoserver:1809 ping -t localhost

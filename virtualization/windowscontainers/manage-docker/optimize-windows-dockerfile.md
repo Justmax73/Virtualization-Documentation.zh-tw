@@ -8,16 +8,16 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb2848ca-683e-4361-a750-0d1d14ec8031
-ms.openlocfilehash: aad0c1f2fa7aea564b7348d662df46256a82abc4
-ms.sourcegitcommit: f376676c7864ae19fcb1649006ce6b60c6218634
+ms.openlocfilehash: 5d9e95d2263c9603712054376bfa9e7190feb1b0
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "8989447"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9576860"
 ---
 # <a name="optimize-windows-dockerfiles"></a>將 Windows Dockerfiles 最佳化
 
-有數種方法可用來將 Docker 建置流程及產生的 Docker 映像最佳化。 本文件詳述 Docker 建置流程的運作方式，並示範幾種可用來將映像建立與 Windows 容器最佳化的策略。
+有數種方法可用來將 Docker 建置流程及產生的 Docker 映像最佳化。 本文件詳述 Docker 建置流程運作方式，並示範幾種策略，可用來獲得最佳的映像建立與 Windows 容器。
 
 ## <a name="docker-build"></a>Docker 建置
 
@@ -54,9 +54,9 @@ f0e017e5b088        21 seconds ago       cmd /S /C echo "Hello World - Dockerfil
 
 ## <a name="optimize-image-size"></a>將映像大小最佳化
 
-在建置 Docker 容器映像時，映像大小可能會是重要的因素。 容器映像在登錄和主機之間移動、進行匯出和匯入，而且最終會耗用空間。 可以在 Docker 建置流程期間使用幾種策略，將映像大小降到最低。 本節將詳細說明部分專屬於 Windows 容器的策略。 
+在建置 Docker 容器映像時，映像大小可能會是重要的因素。 容器映像在登錄和主機之間移動、進行匯出和匯入，而且最終會耗用空間。 可以在 Docker 建置流程期間使用幾種策略，將映像大小降到最低。 本節詳細說明部分專屬於 Windows 容器。
 
-如需有關 Dockerfile 最佳做法的詳細資訊，請參閱 [Best practices for writing Dockerfiles on Docker.com]( https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/) (Docker.com 上寫入 Dockerfiles 的最佳做法)。
+如需有關 Dockerfile 最佳做法的詳細資訊，請參閱 [Best practices for writing Dockerfiles on Docker.com](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/) (Docker.com 上寫入 Dockerfiles 的最佳做法)。
 
 ### <a name="group-related-actions"></a>群組相關的動作
 

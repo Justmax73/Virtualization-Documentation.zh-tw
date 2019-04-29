@@ -1,7 +1,7 @@
 ---
-title: "社群資源"
-description: "社群資源"
-keywords: "windows 10, hyper-v, 容器, docker"
+title: 社群資源
+description: 社群資源
+keywords: windows 10, hyper-v, 容器, docker
 author: scooley
 ms.date: 05/02/2016
 ms.topic: article
@@ -9,16 +9,17 @@ ms.prod: virtualization
 ms.service: virtualization
 ms.assetid: 731ed95a-ce13-4c6e-a450-49563bdc498c
 ms.openlocfilehash: d4fd2dbaf362ac3ad52667743177a203174b397d
-ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
-ms.translationtype: HT
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9578593"
 ---
-# 參與文件編輯
+# <a name="contribute-to-the-docs"></a>參與文件編輯
 
-> **注意：**若要參與編輯，您必須有 [GitHub](https://www.github.com) 帳戶。
+> **注意：** 若要參與編輯，您必須有 [GitHub](https://www.github.com) 帳戶。
 
-## 編輯現有的文件
+## <a name="edit-an-existing-doc"></a>編輯現有的文件
 
 1. 尋找您想要編輯的文件。  
 
@@ -59,18 +60,18 @@ ms.lasthandoff: 07/21/2017
 
 7. 建立[提取要求](contribute-to-docs.md#pull-requests)  
 
-## 提取要求
+## <a name="pull-requests"></a>提取要求
 
 大部分的變更將透過提取要求來認可。  提取要求是由多位檢閱者檢閱變更集、對目前內容進行變更和提出意見的一種方法。
 
 
-## 分支存放庫，並在本機編輯
+## <a name="fork-the-repo-and-edit-locally"></a>分支存放庫，並在本機編輯
 
 針對長期文件工作，請本機複製存放庫，並在您的電腦上使用。
 
 下列指南說明如何模擬 Sarah Cooley 的設定。  有許多替代設定也同樣適用。
 
-> **注意：**其中所有文件工具皆適用於 Linux/OSX。  如果您想要其他指南，歡迎提出需求。
+> **注意：** 其中所有文件工具皆適用於 Linux/OSX。  如果您想要其他指南，歡迎提出需求。
 
 本內容分成三個區段：
 * [設定 Git](contribute-to-docs.md#set-up-git)
@@ -85,13 +86,13 @@ ms.lasthandoff: 07/21/2017
   * 適用於 Git 之 VSCode 的一些實用功能逐步解說
   * 進行第一次認可。
 
-### 設定 Git
+### <a name="set-up-git"></a>設定 Git
 
 1. 從[這裡](https://git-for-windows.github.io/)安裝 Git (在 Windows 上)
 
   您只需要在安裝中變更一個值：
 
-  **調整您的 PATH 環境：**從 Windows 命令提示字元使用 Git
+  **調整您的 PATH 環境：** 從 Windows 命令提示字元使用 Git
 
   ![](media/GitFromWinCMD.png)
 
@@ -179,7 +180,7 @@ ms.lasthandoff: 07/21/2017
   }
   ```
 
-### 驗證和隱藏認證
+### <a name="validate-and-stash-credentials"></a>驗證和隱藏認證
 
   若要驗證存放庫是否正確設定，請嘗試提取新的內容。
 
@@ -188,7 +189,7 @@ ms.lasthandoff: 07/21/2017
   ```
 
 
-### 設定 Markdown 編輯環境
+### <a name="set-up-markdown-editing-environment"></a>設定 Markdown 編輯環境
 
 1. 下載 VSCode
 

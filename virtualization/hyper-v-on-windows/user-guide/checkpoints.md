@@ -9,11 +9,11 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: d9c398c4-ee72-45c6-9ce8-4f06569dae6c
 ms.openlocfilehash: 7ed9c5e3c3067bd8ddfa8005f4d9307c76dce4cd
-ms.sourcegitcommit: 4412583b77f3bb4b2ff834c7d3f1bdabac7aafee
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "6948027"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9575399"
 ---
 # <a name="using-checkpoints-to-revert-virtual-machines-to-a-previous-state"></a>使用檢查點將虛擬機器還原為先前的狀態
 
@@ -116,7 +116,7 @@ Get-VMCheckpoint -VMName <VMName>
 
 ## <a name="renaming-checkpoints"></a>重新命名檢查點
 
-特定點會建立許多檢查點。  識別的名稱讓您更容易記住建立檢查點時系統狀態的相關的詳細資料。
+特定點會建立許多檢查點。  識別的名稱讓您更容易記住建立檢查點時的系統狀態的相關詳細資料。
 
 根據預設，檢查點的名稱會是虛擬機器的名稱加上建立檢查點的日期和時間。 這是標準格式： 
 

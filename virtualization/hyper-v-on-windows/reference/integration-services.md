@@ -9,11 +9,11 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 18930864-476a-40db-aa21-b03dfb4fda98
 ms.openlocfilehash: 84974f093cc80f8a216518bab051e13397e89b6e
-ms.sourcegitcommit: 4090d158dd3573ea90799de5b014c131a206b000
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "6121628"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9577429"
 ---
 # <a name="hyper-v-integration-services"></a>Hyper-V 整合服務
 
@@ -74,7 +74,7 @@ DemoVM  Running  Operating normally
 **Linux 精靈名稱：** hv_utils  
 **描述︰** 可讓 Hyper-V 主機要求虛擬機器關機。  主機一律可以強制關閉虛擬機器，但這就像直接按電源開關來關機一樣。  
 **已新增至：** Windows Server 2012、Windows 8  
-**影響︰****強烈影響：** 停用時，主機即無法觸發虛擬機器內的溫和關機程序。  所有的關機都會採用硬碟關機，這可能導致資料遺失或資料損毀。  
+**影響︰****強烈影響：** 停用時，主機即無法觸發虛擬機器內的溫和關機程序。  所有的關機都會採用硬碟關機，這可能會導致資料遺失或資料損毀。  
 
 
 ## <a name="hyper-v-time-synchronization-service"></a>Hyper-V 時間同步化服務

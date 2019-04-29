@@ -9,17 +9,17 @@ description: Linux 節點加入 v1.13 Kubernetes 叢集。
 keywords: kubernetes，1.13，windows，開始使用
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
 ms.openlocfilehash: c32cc300fd97eb53605e2f51e6a83e5889747561
-ms.sourcegitcommit: 41318edba7459a9f9eeb182bf8519aac0996a7f1
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "9120466"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9577929"
 ---
 # <a name="joining-linux-nodes-to-a-cluster"></a>將 Linux 節點加入叢集
 
-一旦您有[設定 Kubernetes 主機的節點](creating-a-linux-master.md)，並[選取您想要的網路的解決方案](network-topologies.md)，您準備好 Linux 節點加入叢集。 這需要一些[準備 Linux 節點上的](joining-linux-workers.md#preparing-a-linux-node)，才能將加入。
+一旦您有[設定 Kubernetes 主機的節點](creating-a-linux-master.md)，並[選取您想要的網路的解決方案](network-topologies.md)，您準備好將 Linux 節點加入叢集。 這需要一些[準備 Linux 節點上的](joining-linux-workers.md#preparing-a-linux-node)，才能將加入。
 > [!tip]
-> **Ubuntu 16.04**邁向量身訂做的 Linux 指示。 其他執行 Kubernetes 認證的 Linux 散發版本也應提供對等，您可以使用替代的命令。 它們會也與相互溝通成功 Windows。
+> **Ubuntu 16.04**邁向量身訂做的 Linux 指示。 其他執行 Kubernetes 認證的 Linux 散發版本應該也會提供您可以使用替代的對等命令。 它們會也與相互溝通成功 Windows。
 
 ## <a name="preparing-a-linux-node"></a>準備 Linux 節點
 
@@ -40,7 +40,7 @@ apt-get update && apt-get upgrade
 
 ## <a name="install-docker"></a>安裝 Docker
 
-若要能夠使用容器，您會需要容器引擎，例如 Docker。 若要取得最新版本，您可以使用[下列指示](https://docs.docker.com/install/linux/docker-ce/ubuntu/)適用於 Docker 的安裝。 您可以確認該 docker 已正確安裝，執行`hello-world`映像：
+若要能夠使用容器，您需要容器引擎，例如 Docker。 若要取得最新版本，您可以使用[下列指示](https://docs.docker.com/install/linux/docker-ce/ubuntu/)適用於 Docker 安裝。 您可以確認該 docker 已正確安裝，執行`hello-world`映像：
 
 ```bash
 docker run hello-world
@@ -72,7 +72,7 @@ swapoff -a
 
 ## <a name="flannel-only-enable-bridged-ipv4-traffic-to-iptables"></a>(僅 flannel)讓 iptables 橋接的 IPv4 流量
 
-如果您選擇 Flannel 做為您網路的解決方案，建議您啟用橋接 iptables 鏈結的 IPv4 流量。 您應該有[已經這樣做為主要](network-topologies.md#flannel-in-host-gateway-mode)，現在需要重複它打算加入 Linux 節點。 它也可以在完成使用下列命令：
+如果您選擇 Flannel 做為您網路的解決方案，建議您啟用橋接 iptables 鏈結的 IPv4 流量。 您應該有[已經完成這個的主要動作](network-topologies.md#flannel-in-host-gateway-mode)，現在需要重複它打算加入 Linux 節點。 它也可以在完成使用下列命令：
 
 ``` bash
 sudo sysctl net.bridge.bridge-nf-call-iptables=1
@@ -80,7 +80,7 @@ sudo sysctl net.bridge.bridge-nf-call-iptables=1
 
 ## <a name="copy-kubernetes-certificate"></a>複製 Kubernetes 的憑證
 
-**標準、 （非根） 的使用者身分**，執行下列步驟 3。
+**以一般，（非根） 的使用者**，請執行下列 3 個步驟。
 
 1. 建立 Kubernetes Linux 目錄：
 
@@ -93,7 +93,7 @@ mkdir -p $HOME/.kube
 > [!tip]
 > 您可以使用 scp 為基礎的工具，例如[WinSCP](https://winscp.net/eng/download.php)節點之間傳輸設定檔。
 
-3. 將檔案擁有權複製的組態檔的設定如下：
+3. 設定已複製的組態檔的檔案擁有權，如下所示：
 
 ``` bash
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
@@ -101,7 +101,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 ## <a name="joining-node"></a>將節點
 
-最後，若要加入叢集，執行`kubeadm join`[我們前面所向下](./creating-a-linux-master.md#initialize-master) **root 身分**命令：
+最後，若要加入叢集，執行`kubeadm join`[我們前面所向下](./creating-a-linux-master.md#initialize-master)**做為根**命令：
 
 ```bash
 kubeadm join <Master_IP>:6443 --token <some_token> --discovery-token-ca-cert-hash <some_hash>

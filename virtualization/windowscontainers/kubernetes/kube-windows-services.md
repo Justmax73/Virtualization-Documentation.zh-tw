@@ -1,23 +1,23 @@
 ---
-title: 為 Windows 服務執行 Kubernetes
+title: Windows 服務身分執行 Kubernetes
 author: daschott
 ms.author: daschott
 ms.date: 02/12/2019
 ms.topic: get-started-article
 ms.prod: containers
-description: 如何為 Windows 服務執行 Kubernetes 元件。
+description: Windows 服務身分執行 Kubernetes 元件的方式。
 keywords: kubernetes，1.13，windows，開始使用
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5c18
 ms.openlocfilehash: 6c68edda6e2017640b0a490c3c30f063c81698b3
-ms.sourcegitcommit: 41318edba7459a9f9eeb182bf8519aac0996a7f1
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "9120587"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9578639"
 ---
-# <a name="kubernetes-components-as-windows-services"></a>Kubernetes 元件做為 Windows 服務 
+# <a name="kubernetes-components-as-windows-services"></a>Kubernetes 元件為 Windows 服務 
 
-某些使用者可能會想要設定處理程序，例如 flanneld.exe、 kubelet.exe、 kube proxy.exe 或其他 Windows 服務身分執行。 這可以為帶來額外的容錯能力權益，例如自動重新啟動時未預期的處理程序或節點損毀的程序。
+某些使用者可能會想要設定處理程序，例如 flanneld.exe、 kubelet.exe、 kube proxy.exe 或其他 Windows 服務身分執行。 這可以為帶來額外的容錯能力權益，例如在未預期的處理程序或節點損毀時自動重新啟動的處理程序。
 
 
 ## <a name="prerequisites"></a>必要條件
@@ -25,7 +25,7 @@ ms.locfileid: "9120587"
 2. 您已經加入您的叢集節點並先前在您的節點上執行[install.ps1](https://github.com/Microsoft/SDN/tree/master/Kubernetes/flannel/install.ps1)或[start.ps1](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/start.ps1)指令碼
 
 ## <a name="registering-windows-services"></a>註冊 Windows 服務
-您可以執行[的範例指令碼](https://github.com/Microsoft/SDN/tree/master/Kubernetes/flannel/register-svc.ps1)，將會註冊名哪些使用 nssm.exe `kubelet`， `kube-proxy`，並`flanneld.exe`做為 Windows 服務，在背景中執行：
+您可以執行[的範例指令碼](https://github.com/Microsoft/SDN/tree/master/Kubernetes/flannel/register-svc.ps1)，將會在登錄哪些使用 nssm.exe `kubelet`， `kube-proxy`，並`flanneld.exe`做為 Windows 服務，在背景中執行：
 
 ```
 C:\k\register-svc.ps1 -NetworkMode <Network mode> -ManagementIP <Windows Node IP> -ClusterCIDR <Cluster subnet> -KubeDnsServiceIP <Kube-dns Service IP> -LogDir <Directory to place logs>

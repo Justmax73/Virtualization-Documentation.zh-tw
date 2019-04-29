@@ -7,31 +7,31 @@ ms.date: 09/26/2016
 ms.topic: deployment-article
 ms.prod: windows-containers
 ms.assetid: 3c3d4c69-503d-40e8-973b-ecc4e1f523ed
-ms.openlocfilehash: 478305ff2298a0392935f9857febc445c1199b83
-ms.sourcegitcommit: 5300274fd7b88c6cf5e37b2f4c02779efaa3a613
+ms.openlocfilehash: 942676be30760cbe1701d75f7d2fbca9539ce03b
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "8996042"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9577059"
 ---
 # <a name="windows-container-requirements"></a>Windows 容器需求
 
-本指南列出 Windows 容器主機的需求。
+本文列出適用於 Windows 容器主機的需求。
 
 ## <a name="os-requirements"></a>作業系統需求
 
-- Windows 容器功能只是可在 Windows Server 2016 上使用 (Core 和含桌面體驗)，Windows 10 專業版和企業版 (Anniversary Edition) 及更新版本。
-- 必須安裝 Hyper-V 角色，才能執行 Hyper-V 容器
-- Windows Server 容器主機必須將 Windows 安裝至 c:\。 如果只會部署 Hyper-V 容器，則沒有這項限制。
+- Windows 容器功能是僅適用於 Windows Server 2016 (Core 和含桌面體驗)，Windows 10 專業版和企業版 (Anniversary Edition) 及更新版本。
+- 必須安裝 HYPER-V 角色，才能執行 HYPER-V 隔離
+- Windows Server 容器主機必須將 Windows 安裝至 c:\。 如果只會部署 HYPER-V 隔離容器，這項限制不適用。
 
 ## <a name="virtualized-container-hosts"></a>虛擬化的容器主機
 
-如果 Windows 容器主機將會在 Hyper-V 虛擬機器上執行，而且也會主控 Hyper-V 容器，就必須啟用巢狀虛擬化。 巢狀的虛擬化的需求如下：
+如果 Windows 容器主機將會從 HYPER-V 虛擬機器，執行，而且也會主控 HYPER-V 隔離，必須先啟用巢狀虛擬化。 巢狀的虛擬化的需求如下：
 
 - 至少有 4 GB RAM 可供虛擬化的 HYPER-V 主機使用。
 - Windows Server 2019，Windows Server 版本 1803 起，Windows Server 版本 1709 開始，Windows Server 2016 或 Windows 10，在主機系統和 Windows Server （完整版、 核心版） 的虛擬機器中。
 - Intel VT-x 的處理器 (這項功能目前只適用於 Intel 處理器)。
-- 容器主機 VM 也將會需要至少 2 部虛擬處理器。
+- 容器主機 VM 也需要至少兩個虛擬處理器。
 
 ## <a name="supported-base-images"></a>支援的基本映像
 
@@ -42,7 +42,7 @@ Windows 容器隨附四個容器基本映像： Windows Server Core、 Nano Serv
 <tr valign="top">
 <th><center>主機作業系統</center></th>
 <th><center>Windows Server 容器</center></th>
-<th><center>Hyper-V 容器</center></th>
+<th><center>Hyper-V 隔離</center></th>
 </tr>
 </thead>
 <tbody>
@@ -69,42 +69,45 @@ Windows 容器隨附四個容器基本映像： Windows Server Core、 Nano Serv
 </tbody>
 </table>
 
-> [!Warning]  
-> <span id="warn-1">從 Windows Server 版本 1709 開始，Nano Server 無法再當做容器主機使用。</span>
-
+> [!WARNING]  
+> 從 Windows Server 版本 1709年開始，Nano Server 是無法再當做容器主機。
 
 ### <a name="memory-requirements"></a>記憶體需求
-可供容器使用的記憶體限制可透過[資源控制項](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/resource-controls)或多載容器主機來進行設定。  啟動容器及執行基本命令 (ipconfig、dir 等等) 所需的記憶體數量下限列於底下。  __請注意，這些值並未考量容器之間的資源共用或是在容器內執行之應用程式的需求。  例如，有 512MB 可用記憶體的主機可以在 Hyper-V 隔離下執行多個 Server Core 容器，因為這些容器會共用資源。__
+
+可供容器使用的記憶體限制可透過[資源控制項](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/resource-controls)或多載容器主機來進行設定。  以下列出的最小啟動容器及執行基本命令 （ipconfig、 dir 等等） 所需的記憶體數量。
+
+>[!NOTE]
+>這些值不考量容器或需求容器中執行之應用程式之間共用的資源。  例如，有 512MB 可用記憶體的主機可以在 Hyper-V 隔離下執行多個 Server Core 容器，因為這些容器會共用資源。
 
 #### <a name="windows-server-2016"></a>Windows Server 2016
+
 | 基本映像  | Windows Server 容器 | Hyper-V 隔離    |
 | ----------- | ------------------------ | -------------------- |
-| Nano Server | 40 MB                     | 130 MB + 1 GB 分頁檔 |
+| Nano 伺服器 | 40 MB                     | 130 MB + 1 GB 分頁檔 |
 | Server Core | 50 MB                     | 325 MB + 1 GB 分頁檔 |
 
 #### <a name="windows-server-version-1709"></a>Windows Server 版本 1709
+
 | 基本映像  | Windows Server 容器 | Hyper-V 隔離    |
 | ----------- | ------------------------ | -------------------- |
-| Nano Server | 30 MB                     | 110 MB + 1 GB 分頁檔 |
+| Nano 伺服器 | 30 MB                     | 110 MB + 1 GB 分頁檔 |
 | Server Core | 45 MB                     | 360 MB + 1 GB 分頁檔 |
-
 
 ### <a name="base-image-differences"></a>基本映像的差異
 
 其中一個會選擇右基本映像建置時？ 雖然您可以使用建置任何您想要的結果，這些是為每個影像的一般指導方針：
 
 - [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore)： 如果您的應用程式需要完整.NET framework，這會是最佳的映像，才能使用。
-- [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver):，只需要.NET Core 應用程式，針對 Nano Server 會提供更獎勵的影像。
-- [Windows](https://hub.docker.com/_/microsoft-windowsfamily-windows)： 您可能會發現您的應用程式取決於元件或.dll 遺失在 Server Core 或 Nano Server 映像，例如 GDI 程式庫。 此映像需負擔 Windows 完整的相依性組。
-- [IoT 核心版](https://hub.docker.com/_/microsoft-windows-iotcore)： 這個影像是[IoT 應用程式](https://developer.microsoft.com/en-us/windows/iot)的特殊用途。 IoT 核心版主機為目標時，您應該使用這個容器映像。
+- [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver)： 對於只需要.NET Core 應用程式，Nano Server 會提供更獎勵的影像。
+- [Windows](https://hub.docker.com/_/microsoft-windowsfamily-windows)： 您可能會發現您的應用程式取決於元件或 Server Core 中遺失的.dll 或 Nano Server 映像，例如 GDI 程式庫。 此映像需負擔 Windows 完整的相依性組。
+- [IoT 核心版](https://hub.docker.com/_/microsoft-windows-iotcore)： 這個影像是[IoT 應用程式](https://developer.microsoft.com/en-us/windows/iot)的特殊用途。 為目標的 IoT 核心版主機時，您應該使用此容器映像。
 
-對於大部分的使用者，Windows Server Core 或 Nano Server 會使用的最適當影像。 以下是幾件事，因為您思考需要在 Nano Server 之上建置，請牢記：
+對於大部分的使用者，Windows Server Core 或 Nano Server 會使用的最適當影像。 以下是幾件事，當您考慮需要在 Nano Server 之上建置牢記：
 
 - 已移除服務堆疊
 - 不包含 .NET Core (不過您可以使用 [.NET Core Nano Server 映像](https://hub.docker.com/r/microsoft/dotnet/))
 - 已移除 PowerShell
 - 已移除 WMI
-- 從 Windows Server 版本 1709 開始，應用程式會在使用者內容下執行，所以需要系統管理員權限的命令將會失敗。 您可以透過 --user 旗標指定容器系統管理員帳戶 (亦即 docker run --user ContainerAdministrator)，不過我們預計在未來完全移除 NanoServer 的系統管理員帳戶。
+- 從 Windows Server 版本 1709 開始，應用程式會在使用者內容下執行，所以需要系統管理員權限的命令將會失敗。 您可以指定容器系統管理員帳戶 （例如 docker run--user ContainerAdministrator)--user 旗標透過不過在我們預計在未來完全移除 NanoServer 的系統管理員帳戶。
 
 這些是最大的差異，但並非完整的清單。 還有其他未包含的元件並未註明。 請記住，您隨時都可以視需要在 Nano Server 之上新增層級。 如需範例，請參閱 [.NET Core Nano Server Dockerfile](https://github.com/dotnet/dotnet-docker/blob/master/2.1/sdk/nanoserver-1803/amd64/Dockerfile)。
-

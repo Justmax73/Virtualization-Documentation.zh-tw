@@ -8,23 +8,23 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
-ms.openlocfilehash: bbc405fc2a490cfe5082be112fde724707e24785
-ms.sourcegitcommit: 21d93e5febd9b1b47ae1aa59d08086e6ec1691e0
+ms.openlocfilehash: 24de3d332ae4634f7dca945c1df9182cc1310089
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "9121050"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9574739"
 ---
 # <a name="docker-engine-on-windows"></a>Windows 上的 Docker 引擎
 
-Docker 引擎及用戶端並未隨附於 Windows，並需要進行個別安裝及設定。 此外，Docker 引擎可接受許多自訂設定。 部分範例包括設定精靈接受連入要求的方式、預設網路功能選項，以及偵錯/記錄設定。 在 Windows 中，這些設定可以在設定檔中指定，或使用 Windows 服務控制管理員指定。 這份文件詳細說明如何安裝及設定 Docker 引擎，並提供一些常用設定的範例。
+Docker 引擎及用戶端並未隨附於 Windows，需要進行個別安裝及設定。 此外，Docker 引擎可接受許多自訂設定。 部分範例包括設定精靈接受連入要求的方式、預設網路功能選項，以及偵錯/記錄設定。 在 Windows 中，這些設定可以在設定檔中指定，或使用 Windows 服務控制管理員指定。 本文詳細說明如何安裝及設定 Docker 引擎，且也會提供一些常用設定的範例。
 
 
 ## <a name="install-docker"></a>安裝 Docker
-需要有 Docker 才能使用 Windows 容器。 Docker 是由 Docker 引擎(dockerd.exe) 及 Docker 用戶端 (docker.exe) 所組成。 您可以在快速入門指南中找到安裝所有項目最簡單的方法。 他們可協助您取得所有項目設定和執行您的第一個容器。 
+需要有 Docker 才能使用 Windows 容器。 Docker 是由 Docker 引擎(dockerd.exe) 及 Docker 用戶端 (docker.exe) 所組成。 您可以在快速入門指南中找到安裝所有項目最簡單的方法。 它們可協助您取得所有項目設定和執行您的第一個容器。 
 
-* [Windows Server 2019 上 Windows 容器](../quick-start/quick-start-windows-server.md)
-* [Windows 10 上的 Windows 容器](../quick-start/quick-start-windows-10.md)
+* [在 Windows Server 2019 的 Windows 容器](../quick-start/quick-start-windows-server.md)
+* [在 Windows 10 上的 Windows 容器](../quick-start/quick-start-windows-10.md)
 
 如需使用指令碼進行安裝，請參閱[使用指令碼安裝 Docker EE](https://docs.docker.com/install/windows/docker-ee/#use-a-script-to-install-docker-ee)。
 

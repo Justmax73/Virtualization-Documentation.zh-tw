@@ -4,11 +4,11 @@ description: 說明在 Windows 容器中列印多工緩衝處理器服務目前�
 keywords: docker，容器、 印表機，多工緩衝處理器
 author: cwilhit
 ms.openlocfilehash: 48130bc6a826a45dfa49d0a3b4600d227f34704e
-ms.sourcegitcommit: 3c81b0efd1ac2c4c93d58f16edae1044c9a5ad55
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "9284572"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9576659"
 ---
 # <a name="print-spooler-in-windows-containers"></a>在 Windows 容器中列印多工緩衝處理器
 

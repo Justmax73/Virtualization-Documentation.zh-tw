@@ -8,24 +8,24 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ba4eb594-0cdb-4148-81ac-a83b4bc337bc
-ms.openlocfilehash: 0d982996a1aabd434df04551f30725a21b31d500
-ms.sourcegitcommit: 4412583b77f3bb4b2ff834c7d3f1bdabac7aafee
+ms.openlocfilehash: 35f35b490ce5aa80068578d78a6427ace7352b73
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "6948007"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9574979"
 ---
-# <a name="container-host-deployment---windows-server"></a>容器主機部署 - Windows Server
+# <a name="container-host-deployment-windows-server"></a>容器主機部署： Windows Server
 
 部署 Windows 容器主機有不同的步驟，視作業系統和主機系統類型 (實體或虛擬) 而定。 這份文件詳細說明將 Windows 容器主機部署至實體或虛擬系統上的 Windows Server 2016 或 Windows Server Core 2016 的步驟。
 
 ## <a name="install-docker"></a>安裝 Docker
 
-需要先安裝 Docker，才能搭配使用 Windows 容器。 Docker 是由 Docker 引擎及 Docker 用戶端所組成。 
+需要先安裝 Docker，才能搭配使用 Windows 容器。 Docker 是由 Docker 引擎及 Docker 用戶端所組成。
 
-我們將使用 [OneGet 提供者 PowerShell 模組](https://github.com/OneGet/MicrosoftDockerProvider)安裝 Docker。 提供者會啟用您電腦上的 \[容器\] 功能並安裝 Docker，這會需要重新開機。 
+若要安裝 Docker，我們將使用[OneGet 提供者 PowerShell 模組](https://github.com/OneGet/MicrosoftDockerProvider)。 提供者會啟用您電腦上的容器功能，並安裝 Docker，將會需要重新開機。
 
-開啟提高權限的 PowerShell 工作階段，並執行下列命令。
+開啟提升權限的 PowerShell 工作階段並執行下列 cmdlet。
 
 安裝 OneGet PowerShell 模組。
 
@@ -76,7 +76,7 @@ Install-Package -Name docker -ProviderName DockerMsftProvider -Update -Force -Re
 
 使用 Windows 容器之前，必須先安裝基本映像。 目前已經有以 Windows Server Core 或 Nano Server 做為容器作業系統的基本映像。 如需 Docker 容器映像的詳細資訊，請參閱 [docker.com 上建置自己的映像](https://docs.docker.com/engine/tutorials/dockerimages/)。
 
-Windows Server 2019 版本中，Microsoft 為來源的容器映像會移至新的登錄稱為 Microsoft 容器登錄。 可透過 Docker Hub 探索到應該繼續在 Microsoft 發行的容器映像。 新容器映像發佈與 Windows Server 2019 搭配及更新版本中，您應該看從 MCR 提取它們。 針對舊版 Windows Server 2019 之前發佈的容器映像，您應該繼續提取它們從 Docker 的登錄。
+Windows Server 2019 版本中，Microsoft 為來源的容器映像要移轉至新的登錄，稱為 Microsoft 容器登錄。 可透過 Docker Hub 探索到應該繼續在 Microsoft 發行的容器映像。 新容器映像發佈使用 Windows Server 2019 及更新版本中，您應該看從 MCR 提取它們。 針對舊版 Windows Server 2019 之前發佈的容器映像，您應該繼續提取它們從 Docker 的登錄。
 
 ### <a name="windows-server-2019-and-newer"></a>Windows Server 2019 和更新版本
 
@@ -106,11 +106,11 @@ docker pull microsoft/windowsservercore
 docker pull microsoft/nanoserver
 ```
 
-> 請參閱 Windows 容器 OS 映像授權條款，位於這裡：[授權條款](../images-eula.md)。
+> 請閱讀 Windows 容器 OS 映像授權條款，這可以在這裡找到 – [EULA](../images-eula.md)。
 
-## <a name="hyper-v-container-host"></a>Hyper-V 容器主機
+## <a name="hyper-v-isolation-host"></a>HYPER-V 隔離主機
 
-若要執行 Hyper-V 容器，需具備 Hyper-V 角色。 如果 Windows 容器主機本身為 Hyper-V 虛擬機器，則必須先啟用巢狀虛擬化，才能安裝 Hyper-V 角色。 如需巢狀虛擬化的詳細資訊，請參閱[巢狀虛擬化]( https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/user_guide/nesting)。
+您必須有執行 HYPER-V 隔離的 HYPER-V 角色。 如果 Windows 容器主機本身為 Hyper-V 虛擬機器，則必須先啟用巢狀虛擬化，才能安裝 Hyper-V 角色。 如需巢狀虛擬化的詳細資訊，請參閱[巢狀虛擬化](https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/user_guide/nesting)。
 
 ### <a name="nested-virtualization"></a>巢狀虛擬化
 
@@ -132,7 +132,7 @@ Get-VMNetworkAdapter -VMName $vm | Set-VMNetworkAdapter -MacAddressSpoofing On
 
 ### <a name="enable-the-hyper-v-role"></a>啟用 Hyper-V 角色
 
-若要使用 PowerShell 啟用 Hyper-V 功能，請在提升權限的 PowerShell 工作階段中執行下列命令。
+若要啟用使用 PowerShell 的 HYPER-V 功能，請在提升權限的 PowerShell 工作階段中執行下列 cmdlet。
 
 ```PowerShell
 Install-WindowsFeature hyper-v

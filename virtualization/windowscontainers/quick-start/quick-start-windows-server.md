@@ -8,20 +8,20 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
-ms.openlocfilehash: b58bdd79da1c644281ebd9e79c16587d9fc156f4
-ms.sourcegitcommit: 21d93e5febd9b1b47ae1aa59d08086e6ec1691e0
+ms.openlocfilehash: fd2de24a4c8c03817978a53b340e2a77285c69ad
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "9121040"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9576709"
 ---
 # <a name="windows-containers-on-windows-server"></a>Windows Server 上的 Windows 容器
 
-這項練習會逐步引導基本部署及使用 Windows 容器功能在 Windows Server 2019 和 Windows Server 2016 上。
+此練習會逐步引導基本部署及使用 Windows 容器功能在 Windows Server 2019 和 Windows Server 2016 上。
 
 本快速入門中，您將會完成：
 
-1. 啟用 Windows server 容器功能
+1. 啟用 Windows Server 中的容器功能
 2. 安裝 Docker
 3. 執行簡單的 Windows 容器
 
@@ -32,9 +32,9 @@ ms.locfileid: "9121040"
 ## <a name="prerequisites"></a>必要條件
 
 請確定您符合下列需求：
-- 一部電腦系統 （實體或虛擬） 在執行 Windows Server 2019 中。 如果您使用 Windows Server 2019 Insider Preview，請更新[Window Server 2019 評估版](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019 )。
+- 一部電腦系統 （實體或虛擬） 執行 Windows Server 2019。 如果您使用 Windows Server 2019 Insider Preview，請更新[Window Server 2019 評估版](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019 )。
 
-> Windows 容器功能需要重大更新才能運作。 請先安裝所有更新，再循序完成本教學課程。
+> 為了讓函式的 Windows 容器功能需要重大更新。 請先安裝所有更新，再循序完成本教學課程。
 
 若要在 Azure 部屬，可使用此[範本](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-server-container-tools/containers-azure-template)簡化流程。
 
@@ -173,4 +173,4 @@ OS: Microsoft Windows 10.0.17763
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [了解如何將自動化容器組建及儲存影像](./quick-start-images.md)
+> [了解如何將自動化容器組建和儲存影像](./quick-start-images.md)

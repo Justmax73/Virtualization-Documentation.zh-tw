@@ -1,18 +1,23 @@
 ---
 title: Windows 文件上的容器
 description: 在 Windows 上執行容器的文件
-keywords: 'Docker, 容器'
+keywords: Docker, 容器
 author: cwilhit
 ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 74c9d604-0915-4d89-bc69-0263b76bc66b
+ms.openlocfilehash: cc869cfaf1c433fbfdc351e9120a0e43c02967ee
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9574839"
 ---
-
 # <a name="containers-on-windows-documentation"></a>Windows 文件上的容器
 
-Windows 容器可提供作業系統層級的虛擬化，讓多個隔離的應用程式在單一系統上執行。 此文件集提供快速入門指南、部署指南和管理作業的技術詳細資料。
+Windows 容器可提供作業系統層級的虛擬化，可讓多個隔離的應用程式在單一系統上執行。 此文件集提供快速入門指南、部署指南和管理作業的技術詳細資料。
 
 ## <a name="getting-started"></a>開始使用
 了解容器，然後切入使用方式。
@@ -35,7 +40,7 @@ Windows 容器可提供作業系統層級的虛擬化，讓多個隔離的應用
 * [容器的網路功能](container-networking/architecture.md)
 
 ## <a name="watch"></a>觀看
-對於 Windows 容器小組的示範與訪談感到興趣嗎？
+示範與 Windows 容器小組訪談感到興趣嗎？
 * [容器頻道](https://channel9.msdn.com/Blogs/containers)
 
 ## <a name="community"></a>社群

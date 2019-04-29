@@ -8,10 +8,11 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: 66723f33-b12c-49d1-82cf-71ba9d6087e9
 ms.openlocfilehash: 4ded2de1447db467359b028d19482a76e2c484fc
-ms.sourcegitcommit: 94e8ae4be1b0d3d13fca06e0775dd2aab895a12c
-ms.translationtype: HT
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9576379"
 ---
 # <a name="create-virtual-machine-with-hyper-v-on-windows-10"></a>在 Windows 10 上使用 Hyper-V 建立虛擬機器
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 04/26/2018
 1. 檢閱 \[在您開始前\] 的內容，然後按一下 **\[下一步\]**。
 
 1. 為虛擬機器命名。
-  > **注意︰**這是 Hyper-V 用於虛擬機器的名稱，而不是指定給要在虛擬機器內部署之客體作業系統的電腦名稱。
+  > **注意︰** 這是 Hyper-V 用於虛擬機器的名稱，而不是指定給要在虛擬機器內部署之客體作業系統的電腦名稱。
 
 1. 選擇要儲存虛擬機器檔案的位置，例如 **c:\virtualmachine**。 您也可以使用預設位置。 完成時按一下 **\[下一步\]**。
     
@@ -96,10 +97,10 @@ ms.lasthandoff: 04/26/2018
 
 2. 在 VMConnect 中，按一下綠色的 \[開始\] 按鈕。 這就相當於按下實體電腦上的電源按鈕。 系統可能會提示您「按任意鍵從 CD 或 DVD 光碟開機」。 請按照提示執行這項操作。
 
-  > **注意︰**您可能需要在 VMConnect 視窗內按一下，以確保您的按鍵輸入會傳送至虛擬機器。
+  > **注意︰** 您可能需要在 VMConnect 視窗內按一下，以確保您的按鍵輸入會傳送至虛擬機器。
 
 3. 虛擬機器會開機進入安裝程式，然後您可以逐步完成安裝，就像在實體電腦上的做法一樣。
 
   ![](media/OSDeploy_upd.png) 
 
-  > **注意︰**除非您執行大量授權版本的 Windows，否則在虛擬機器內執行的 Windows 需要個別授權。 虛擬機器的作業系統與主機作業系統無關。
+  > **注意︰** 除非您執行大量授權版本的 Windows，否則在虛擬機器內執行的 Windows 需要個別授權。 虛擬機器的作業系統與主機作業系統無關。

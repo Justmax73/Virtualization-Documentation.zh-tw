@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
-ms.openlocfilehash: 036e4f80eaa6e7ce2c151d7732e670c0492bc61f
-ms.sourcegitcommit: 95cec99aa8e817d3e3cb2163bd62a32d9e8f7181
+ms.openlocfilehash: f9b54dbc9fc7c79bdb9b9aa106d5811401c365f3
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "8973809"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9578629"
 ---
 # <a name="linux-containers-on-windows-10"></a>Windows 10 上的 Linux 容器
 
@@ -28,7 +28,7 @@ ms.locfileid: "8973809"
 1. 已安裝的 Docker for Windows
 2. 執行簡單的 Linux 容器上 Windows (LCOW) 所使用的 Linux 容器
 
-此快速入門專用於 Windows 10。 在此頁面左側的目錄中，可以找到其他的快速入門文件。
+此快速入門專用於 Windows 10。 在此頁面左側的目錄中，就可以找到其他的快速入門文件。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -40,11 +40,11 @@ ms.locfileid: "8973809"
 
 ## <a name="install-docker-for-windows"></a>安裝 Docker for Windows
 
-下載[Docker for Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows) ，並執行安裝程式 （您將需要登入。 建立帳戶如果您沒有一個已經）。 如需[詳細的安裝指示](https://docs.docker.com/docker-for-windows/install)，請參閱 Docker 文件。
+下載[Docker for Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows) ，並執行安裝程式 （您將需要登入。 建立帳戶如果沒有已經）。 如需[詳細的安裝指示](https://docs.docker.com/docker-for-windows/install)，請參閱 Docker 文件。
 
 > 如果您已經安裝 Docker，請確定您有 18.02 或更新版本，才能支援 LCOW 版本。 執行檢查`docker -v`或檢查*有關 Docker*。
 
-> 實驗性功能' 選項*Docker 設定 > 精靈*必須啟用，才能執行 LCOW 容器。
+> 若要執行 LCOW 容器，就必須啟用*Docker 設定 > 精靈*中的 「 實驗性功能' 選項。
 
 ## <a name="run-your-first-lcow-container"></a>執行您的第一個 LCOW 容器
 
@@ -54,7 +54,7 @@ ms.locfileid: "8973809"
 docker run --rm busybox echo hello_world
 ```
 
-請注意，這會傳回錯誤，Docker 會嘗試提取映像時。 這是因為 Dockers 需要的指示詞，透過`--platform`旗標，以確認映像和主機作業系統會適當地比。 因為 Windows 預設平台在 Windows 容器模式中的，新增`--platform linux`旗標，以提取並執行容器。
+請注意，這會傳回錯誤，Docker 嘗試提取映像時。 這是因為 Dockers 需要的指示詞，透過`--platform`旗標，以確認映像和主機作業系統會適當地比。 因為 Windows 預設平台在 Windows 容器模式中的，新增`--platform linux`旗標，以提取並執行容器。
 
 ```console
 docker run --rm --platform linux busybox echo hello_world
@@ -66,7 +66,7 @@ docker run --rm --platform linux busybox echo hello_world
 docker run --rm busybox echo hello_world
 ```
 
-執行`docker images`傳回已安裝的映像的清單。 在此情況下，Windows 與 Linux 映像。
+執行`docker images`傳回已安裝的映像的清單。 在此情況下，Windows 和 Linux 映像。
 
 ```console
 docker images
@@ -77,7 +77,7 @@ busybox                latest              59788edf1f3e        4 weeks ago      
 ```
 
 > [!TIP]
-> 獎勵︰ 在執行 LCOW 看到 Docker 的對應[部落格文章](https://blog.docker.com/2018/02/docker-for-windows-18-02-with-windows-10-fall-creators-update/)。
+> 獎勵︰ 在執行 LCOW 看到 Docker 的相對應的[部落格文章](https://blog.docker.com/2018/02/docker-for-windows-18-02-with-windows-10-fall-creators-update/)。
 
 ## <a name="next-steps"></a>後續步驟
 

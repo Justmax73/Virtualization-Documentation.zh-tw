@@ -8,11 +8,11 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.openlocfilehash: 970f039e97ce0628c7a7f78c417017fc95570f82
-ms.sourcegitcommit: 51da93c4548c5df7a9f01e54d46d81b338c874cf
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "9031162"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9576879"
 ---
 # <a name="build-a-sample-app"></a>建置範例應用程式
 
@@ -66,7 +66,7 @@ FROM microsoft/aspnetcore-build:1.1 AS build-env
 WORKDIR /app
 ```
 
-接下來，我們要將 .csproj 檔案複製到暫存容器的 '/app' 目錄中。 由於.csproj 檔案包含專案所需的套件參照的清單，我們可以這麼做。
+接下來，我們要將 .csproj 檔案複製到暫存容器的 '/app' 目錄中。 因為.csproj 檔案包含專案所需的套件參照的清單，我們可以這麼做。
 
 複製這個檔案之後，dotnet 將讀取其內容，然後開始擷取專案所需的所有相依性和工具。
 
