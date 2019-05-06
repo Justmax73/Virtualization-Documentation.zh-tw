@@ -40,7 +40,7 @@
 ### [疑難排解](kubernetes/common-problems.md)
 ### [Kubernetes 上的 Windows 服務](kubernetes/kube-windows-services.md)
 ### [編譯 Kubernetes 二進位檔](kubernetes/compiling-kubernetes-binaries.md)
-## 在 Windows 上的 Service Fabric
+## 在 Windows 上的服務網狀架構
 ### [部署您的第一個容器](/azure/service-fabric/service-fabric-quickstart-containers)
 ### [在 Windows 容器中部署 .NET 應用程式](/azure/service-fabric/service-fabric-host-app-in-a-container) 
 ## Docker 群集
@@ -63,6 +63,6 @@
 ## [防毒程式最佳化](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
 ## [Windows 上的 Linux 容器](deploy-containers/linux-containers.md)
 
-# [容器範例](samples.md)
+# [範例容器](samples.md)
 
 # [容器 OS 映像授權條款](Images_EULA.md)
