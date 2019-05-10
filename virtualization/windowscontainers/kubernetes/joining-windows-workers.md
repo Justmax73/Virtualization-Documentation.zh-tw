@@ -5,15 +5,15 @@ ms.author: daschott
 ms.date: 11/02/2018
 ms.topic: get-started-article
 ms.prod: containers
-description: 您可以將 Windows 節點加入 v1.13 Kubernetes 叢集。
-keywords: kubernetes，1.13，windows，開始使用
+description: 您可以將 Windows 節點加入 v1.14 Kubernetes 叢集。
+keywords: kubernetes，1.14，windows，開始使用
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: fec18baa58ae6aa7d637be575548a1823a551207
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: c1781a6ce48ebaa8433f5649a34ac79b852beae6
+ms.sourcegitcommit: aaf115a9de929319cc893c29ba39654a96cf07e1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9620986"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "9622963"
 ---
 # <a name="joining-windows-server-nodes-to-a-cluster"></a>將 Windows Server 節點加入叢集 #
 一旦您有[設定 Kubernetes 主機的節點](./creating-a-linux-master.md)，並[選取您想要的網路的解決方案](./network-topologies.md)，您準備好要加入 Windows Server 來形成叢集的節點。 這需要一些[準備 Windows 節點上的](#preparing-a-windows-node)，才能將加入。
@@ -101,8 +101,8 @@ mkdir c:\k
 
 #### <a name="download-kubernetes-binaries"></a>下載 Kubernetes 二進位檔 ####
 若要能夠執行 Kubernetes 方式執行，您必須下載`kubectl`， `kubelet`，以及`kube-proxy`二進位檔。 您可以下載這些中的連結從`CHANGELOG.md`檔案的[最新發行版本](https://github.com/kubernetes/kubernetes/releases/)。
- - 例如，以下是[v1.13 節點的二進位檔](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.13.md#node-binaries)。
- - 使用解壓縮封存，並將放入二進位檔的工具，例如[展開封存](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6) `C:\k\`。
+ - 例如，以下是[v1.14 節點的二進位檔](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.14.md#node-binaries)。
+ - 使用解壓縮封存，並將放入二進位檔的工具，例如[展開封存](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6) `C:\k\`。
 
 #### <a name="optional-setup-kubectl-on-windows"></a>（選擇性）在 Windows 上的安裝程式 kubectl ####
 如果您想要控制從 Windows 叢集，您可以使用`kubectl`命令。 首先，讓`kubectl`以外`C:\k\`目錄中，修改`PATH`環境變數：
@@ -186,7 +186,7 @@ IP 位址指派給 Windows 節點。 您可以使用`ipconfig`若要尋找這。
 網路模式`l2bridge`(flannel 主機 gw) 或`overlay`(flannel vxlan) 做為[網路解決方案](./network-topologies.md)選擇。
 
 > [!Important] 
-> `overlay` 網路功能模式 (flannel vxlan) 需要 Kubernetes v1.14 二進位檔案或更新版本。
+> `overlay` 網路功能模式 (flannel vxlan) 需要 Kubernetes v1.14 二進位檔 （或更新版本） 和[KB4489899](https://support.microsoft.com/help/4489899)。
 
 |  |  | 
 |---------|---------|

@@ -3,12 +3,12 @@ title: Windows 容器版本相容性
 description: Windows 要如何跨多個版本執行組建及執行容器
 keywords: 中繼資料, 容器, 版本
 author: taylorb-microsoft
-ms.openlocfilehash: 9e20a28f62ec4bb9456307acb7768e1123a57188
-ms.sourcegitcommit: 03e9203e9769997d8be3f66dc7935a3e5c0a83e1
+ms.openlocfilehash: 64b6b400e12060b86594b90474fdedd73dfef45e
+ms.sourcegitcommit: 561eaf94c0c0698d43228ebfcd316a7fcd835a59
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9621626"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "9622783"
 ---
 # <a name="windows-container-version-compatibility"></a>Windows 容器版本相容性
 
@@ -116,7 +116,7 @@ docker: Error response from daemon: container b81ed896222eb87906ccab1c3dd2fc4932
 
 有三種方式，您可以解決這個錯誤：
 
-- 重新建置容器基礎的正確版本的`microsoft/nanoserver`或 `microsoft/windowsservercore`
+- 重新建置容器基礎的正確版本的`mcr.microsoft.com/windows/nanoserver`或 `mcr.microsoft.com/windows/servercore`
 - 如果主機是較新的執行**docker run--隔離 = hyperv...**
 - 請嘗試在具有相同的 Windows 版本的不同主機上執行容器
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: 97e5c598613c806e9f26687951999438fba72a8c
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: 492e3b0ba3b1abe1109de3f6091f5b60831036df
+ms.sourcegitcommit: aaf115a9de929319cc893c29ba39654a96cf07e1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9620876"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "9622973"
 ---
 # <a name="advanced-network-options-in-windows"></a>Windows 中的進階網路選項
 
@@ -41,6 +41,22 @@ C:\> docker network create -d transparent -o com.docker.network.windowsshim.vlan
 當您為網路設定 VLAN 識別碼時，您是在為連結至該網路的任何容器端點設定 VLAN 隔離。
 
 > 請確保主機網路介面卡 (實體) 處於主幹模式，以讓 vSwitch 能夠處理所有標記的流量 (vNIC (容器端點) 連接埠在正確的 VLAN 上處於存取模式)。
+
+## <a name="specify-outboundnat-policy-for-a-network"></a>指定網路 OutboundNAT 原則
+
+> 適用於 l2bridge 網路
+
+一般而言，當您建立`l2bridge`容器網路使用`docker network create`，容器端點不需要套用，導致無法觸達外界容器的 HNS OutboundNAT 原則。 如果您正在建立網路，您可以使用`-o com.docker.network.windowsshim.enable_outboundnat=<true|false>`OutboundNAT HNS 將原則套用到外界讓容器存取的選項：
+
+```
+C:\> docker network create -d l2bridge -o com.docker.network.windowsshim.enable_outboundnat=true MyL2BridgeNetwork
+```
+
+如果有一組目的地 （例如容器至容器連線需要），我們不想在發生 NAT'ing，我們也需要指定 ExceptionList:
+
+```
+C:\> docker network create -d l2bridge -o com.docker.network.windowsshim.enable_outboundnat=true -o com.docker.network.windowsshim.outboundnat_exceptions=10.244.10.0/24
+```
 
 ## <a name="specify-the-name-of-a-network-to-the-hns-service"></a>將網路名稱指定給 HNS 服務
 

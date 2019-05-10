@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: a0e62b32-0c4c-4dd4-9956-8056e9abd9e5
-ms.openlocfilehash: f8bfd60af18731537c2ce02ca7abdb081f3c7369
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: 74e22702aa4be30055b3f4f48c7fac926d793095
+ms.sourcegitcommit: 03e9203e9769997d8be3f66dc7935a3e5c0a83e1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/08/2019
-ms.locfileid: "9620756"
+ms.locfileid: "9621606"
 ---
 # <a name="container-platform-tools-on-windows"></a>在 Windows 上的容器平台工具
 
@@ -117,7 +117,7 @@ containerd/cri 可讓 pod 的下列相容性矩陣：
 |:-------------------------------------------------------------------------|:-----------------------------------------------------------------------------|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
 | <ul><li>Windows Server 2019 1809</ul></li><ul><li>Windows 10 1809</ul></li> | Linux | `hyperv` | 是的支援，則為 true 多容器 pod。 |
 |  | Windows Server 2019 1809 | `process`* 或 `hyperv` | 是的支援在每個工作負載容器 OS 符合公用程式 VM 作業系統，則為 true 多容器 pod。 |
-|  | Windows Server 2016</br>Windows Server 1709</br>Windows Server 1803 | `hyperv` | 部分 — 支援 pod 可支援單一處理序隔離容器，每個公用程式 VM，如果容器 OS 符合公用程式 VM OS 的沙箱。 |
+|  | Windows Server 2016 中，</br>Windows Server 1709</br>Windows Server 1803 | `hyperv` | 部分 — 支援 pod 可支援單一處理序隔離容器，每個公用程式 VM，如果容器 OS 符合公用程式 VM OS 的沙箱。 |
 
 \*Windows 10 主機只支援 HYPER-V 隔離
 
