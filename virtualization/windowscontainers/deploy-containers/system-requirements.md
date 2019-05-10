@@ -7,12 +7,12 @@ ms.date: 09/26/2016
 ms.topic: deployment-article
 ms.prod: windows-containers
 ms.assetid: 3c3d4c69-503d-40e8-973b-ecc4e1f523ed
-ms.openlocfilehash: 942676be30760cbe1701d75f7d2fbca9539ce03b
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 19943e45df7847e83010ca31c01c6cb5b18d41cf
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9577059"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9621496"
 ---
 # <a name="windows-container-requirements"></a>Windows 容器需求
 
@@ -37,44 +37,19 @@ ms.locfileid: "9577059"
 
 Windows 容器隨附四個容器基本映像： Windows Server Core、 Nano Server、 Windows 與 IoT 核心版。 並非所有的設定都支援這兩種作業系統映像。 此表詳加說明所支援的設定。
 
-<table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:75%" cellpadding="5" cellspacing="5">
-<thead>
-<tr valign="top">
-<th><center>主機作業系統</center></th>
-<th><center>Windows Server 容器</center></th>
-<th><center>Hyper-V 隔離</center></th>
-</tr>
-</thead>
-<tbody>
-<tr valign="top">
-<td><center>Windows Server 2016 / 2019 （Standard 或 Datacenter）</center></td>
-<td><center>Server Core，Nano Server Windows</center></td>
-<td><center>Server Core，Nano Server Windows</center></td>
-</tr>
-<tr valign="top">
-<td><center>Nano Server<a href="#warn-1">*</a></center></td>
-<td><center> Nano Server</center></td>
-<td><center>Server Core，Nano Server Windows</center></td>
-</tr>
-<tr valign="top">
-<td><center>Windows 10 專業版 / 企業版</center></td>
-<td><center>無法使用</center></td>
-<td><center>Server Core，Nano Server Windows</center></td>
-</tr>
-<tr valign="top">
-<td><center>IoT 核心版</center></td>
-<td><center>IoT 核心版</center></td>
-<td><center>無法使用</center></td>
-</tr>
-</tbody>
-</table>
+|主機作業系統|Windows 容器|Hyper-V 隔離|
+|---------------------|-----------------|-----------------|
+|Windows Server 2016 或 Windows Server 2019 （Standard 或 Datacenter）|Server Core，Nano Server Windows|Server Core，Nano Server Windows|
+|Nano Server|Nano Server|Server Core，Nano Server Windows|
+|Windows 10 專業版或 Windows 10 企業版|無法使用|Server Core，Nano Server Windows|
+|IoT 核心版|IoT 核心版|無法使用|
 
 > [!WARNING]  
 > 從 Windows Server 版本 1709年開始，Nano Server 是無法再當做容器主機。
 
 ### <a name="memory-requirements"></a>記憶體需求
 
-可供容器使用的記憶體限制可透過[資源控制項](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/resource-controls)或多載容器主機來進行設定。  以下列出的最小啟動容器及執行基本命令 （ipconfig、 dir 等等） 所需的記憶體數量。
+可供容器使用的記憶體限制可透過[資源控制項](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/resource-controls)或多載容器主機來進行設定。  以下列出的最小啟動容器及執行基本命令 （ipconfig、 dir 等等） 所需的記憶體數量。
 
 >[!NOTE]
 >這些值不考量容器或需求容器中執行之應用程式之間共用的資源。  例如，有 512MB 可用記憶體的主機可以在 Hyper-V 隔離下執行多個 Server Core 容器，因為這些容器會共用資源。
@@ -100,7 +75,7 @@ Windows 容器隨附四個容器基本映像： Windows Server Core、 Nano Serv
 - [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore)： 如果您的應用程式需要完整.NET framework，這會是最佳的映像，才能使用。
 - [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver)： 對於只需要.NET Core 應用程式，Nano Server 會提供更獎勵的影像。
 - [Windows](https://hub.docker.com/_/microsoft-windowsfamily-windows)： 您可能會發現您的應用程式取決於元件或 Server Core 中遺失的.dll 或 Nano Server 映像，例如 GDI 程式庫。 此映像需負擔 Windows 完整的相依性組。
-- [IoT 核心版](https://hub.docker.com/_/microsoft-windows-iotcore)： 這個影像是[IoT 應用程式](https://developer.microsoft.com/en-us/windows/iot)的特殊用途。 為目標的 IoT 核心版主機時，您應該使用此容器映像。
+- [IoT 核心版](https://hub.docker.com/_/microsoft-windows-iotcore)： 這個影像是[IoT 應用程式](https://developer.microsoft.com/windows/iot)的特殊用途。 為目標的 IoT 核心版主機時，您應該使用此容器映像。
 
 對於大部分的使用者，Windows Server Core 或 Nano Server 會使用的最適當影像。 以下是幾件事，當您考慮需要在 Nano Server 之上建置牢記：
 

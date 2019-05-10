@@ -8,12 +8,12 @@ ms.prod: containers
 description: 部署 Kubernetes resoureces 混合作業系統 Kubernetes 叢集上。
 keywords: kubernetes，1.13，windows，開始使用
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: 7d2f1dd789a96a3ee4898ef196f872e574d6321f
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 380eeb536b9642210c49bc91edf680b695d54a90
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9574899"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9621036"
 ---
 # <a name="deploying-kubernetes-resources"></a>部署 Kubernetes 資源 #
 假設您有至少 1 個主機和 1 的背景工作所組成的 Kubernetes 叢集，您已經準備好部署 Kubernetes 資源。
@@ -31,7 +31,7 @@ kubectl get nodes
 
 如果一切看起來良好，您可以下載並執行下列服務：
 > [!Important] 
-> 之前`kubectl apply`，請確定為按兩下-check/修改`microsoft/windowsservercore`映像，[這是由您的節點可執行的容器映像](https://docs.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/version-compatibility#choosing-container-os-versions)範例檔案中 ！
+> 之前`kubectl apply`，請確定為按兩下-check/修改`microsoft/windowsservercore`映像，[這是由您的節點可執行的容器映像](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility#choosing-container-os-versions)範例檔案中 ！
 
 ```bash
 wget https://raw.githubusercontent.com/Microsoft/SDN/master/Kubernetes/flannel/l2bridge/manifests/simpleweb.yml -O win-webserver.yaml

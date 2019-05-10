@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ba4eb594-0cdb-4148-81ac-a83b4bc337bc
-ms.openlocfilehash: 35f35b490ce5aa80068578d78a6427ace7352b73
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: f4c6b37c6e33593be0237bd4059435a99c2bdd86
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9574979"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620826"
 ---
 # <a name="container-host-deployment-windows-server"></a>容器主機部署： Windows Server
 
@@ -110,7 +110,7 @@ docker pull microsoft/nanoserver
 
 ## <a name="hyper-v-isolation-host"></a>HYPER-V 隔離主機
 
-您必須有執行 HYPER-V 隔離的 HYPER-V 角色。 如果 Windows 容器主機本身為 Hyper-V 虛擬機器，則必須先啟用巢狀虛擬化，才能安裝 Hyper-V 角色。 如需巢狀虛擬化的詳細資訊，請參閱[巢狀虛擬化](https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/user_guide/nesting)。
+您必須有執行 HYPER-V 隔離的 HYPER-V 角色。 如果 Windows 容器主機本身為 Hyper-V 虛擬機器，則必須先啟用巢狀虛擬化，才能安裝 Hyper-V 角色。 如需巢狀虛擬化的詳細資訊，請參閱[巢狀虛擬化](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)。
 
 ### <a name="nested-virtualization"></a>巢狀虛擬化
 

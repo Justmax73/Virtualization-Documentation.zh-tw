@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 479e05b1-2642-47c7-9db4-d2a23592d29f
-ms.openlocfilehash: 41fa89dcaba38d43d39681240a1a108c9250ba78
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: db360bdd2b62667ab017549b3c179d11278abc19
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9575169"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620796"
 ---
 # <a name="automating-builds-and-saving-images"></a>自動化組建和儲存映像
 
@@ -31,7 +31,7 @@ ms.locfileid: "9575169"
 
 ## <a name="container-image---dockerfile"></a>容器映像-Dockerfile
 
-雖然容器可以手動建立、修改，然後擷取至到新的容器映像中，但是 Docker 包含使用 Dockerfile 將此程序自動化的方法。 這項練習需要 Docker 識別碼。 如果您沒有 Docker 識別碼，請在 [Docker Cloud]( https://cloud.docker.com/) 註冊一個。
+雖然容器可以手動建立、修改，然後擷取至到新的容器映像中，但是 Docker 包含使用 Dockerfile 將此程序自動化的方法。 這項練習需要 Docker 識別碼。 如果您沒有 Docker 識別碼，請在 [Docker Cloud](https://cloud.docker.com/) 註冊一個。
 
 在容器主機上建立目錄 `c:\build`，然後在此目錄中建立名為 `Dockerfile` 的檔案。 請注意 – 檔案不應該具有副檔名。
 

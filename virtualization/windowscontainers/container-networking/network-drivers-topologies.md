@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: e2b3c05a35896d51b1fbd1bf3f276791e4e08493
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 358b58da0fc51c03766198e4b25b8b043b2a5029
+ms.sourcegitcommit: aaf115a9de929319cc893c29ba39654a96cf07e1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9577119"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "9622903"
 ---
 # <a name="windows-container-network-drivers"></a>Windows 容器網路驅動程式  
 
@@ -34,17 +34,18 @@ ms.locfileid: "9577119"
 - **overlay** - 當 Docker 引擎以[群集模式](../manage-containers/swarm-mode.md)執行時，連接到重疊網路的容器可以與連接到相同網路的其他容器跨多個容器主機進行通訊。 建立在群集叢集上的每個重疊網路，在建立時即具有其本身的 IP 子網路 (由私人 IP 首碼定義)。 overlay 網路驅動程式會使用 VXLAN 封裝。 **使用適當的網路控制台 (Flannel 或 OVN) 可以搭配 Kubernetes。**
   > 需要： 請確定您的環境滿足這些所需的[必要條件](https://docs.docker.com/network/overlay/#operations-for-all-overlay-networks)的建立覆疊網路。
 
-  > 需要： 需要 Windows Server 2016 [KB4015217](https://support.microsoft.com/en-us/help/4015217/windows-10-update-kb4015217)、 Windows 10 Creators Update 或更新版本。
+  > 需要： 需要 Windows Server 2016 [KB4015217](https://support.microsoft.com/help/4015217/windows-10-update-kb4015217)、 Windows 10 Creators Update 或更新版本。
 
   >[!NOTE]
   >在 Windows Server 2019 執行 Docker EE 18.03 和更新，由 Docker 群集建立覆疊網路運用 VFP NAT 規則的輸出的連線。 這表示 thata 指定容器會收到 1 的 IP 位址。 這也表示，ICMP 型工具，例如`ping`或`Test-NetConnection`應該設定為使用他們的 TCP/UDP 選項中偵錯的情況。
 
 - **l2bridge** - 連接到以 'l2bridge' 驅動程式建立之網路的容器，會位於與容器主機相同的 IP 子網路中，並透過*外部* Hyper-V 交換器連接到實體網路。 必須以靜態方式從與容器主機相同的首碼指派 IP 位址。 因為在輸入和輸出時都有第 2 層位址轉譯 (MAC 重寫) 作業的關係，主機上的所有容器端點都會有跟主機相同的 MAC 位址。
-  > 需要： 當此模式用於虛擬化案例 （容器主機是 VM） _MAC 位址詐騙是必要_。
-  
   > 需要： 需要 Windows Server 2016、 Windows 10 Creators Update 或更新版本。
 
-- **l2tunnel** -與 l2bridge 類似，不過_此驅動程式應該只用於 Microsoft 雲端堆疊，例如 Azure_。 來自容器的封包會傳送至套用 SDN 原則的虛擬化主機。
+  > 需要： [OutboundNAT 原則](./advanced.md#specify-outboundnat-policy-for-a-network)外部連接能力。
+
+- **l2tunnel** - 與 l2bridge 類似，_此驅動程式應該僅限用於 Microsoft Cloud 堆疊_。 來自容器的封包會傳送至套用 SDN 原則的虛擬化主機。
+
 
 ## <a name="network-topologies-and-ipam"></a>網路拓撲和 IPAM
 

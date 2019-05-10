@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ebd79cd3-5fdd-458d-8dc8-fc96408958b5
-ms.openlocfilehash: 4fac4d6e091fdf25e9683adca438302ca3beebfb
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: dfa558f3b17362b6f9af429842282309430e1da3
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9576699"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620936"
 ---
 # <a name="troubleshooting"></a>疑難排解
 
@@ -24,7 +24,7 @@ Invoke-WebRequest https://aka.ms/Debug-ContainerHost.ps1 -UseBasicParsing | Invo
 ```
 指令碼的[讀我檔案](https://github.com/Microsoft/Virtualization-Documentation/blob/live/windows-server-container-tools/Debug-ContainerHost/README.md)中列有一份清單，包括了此指令碼所執行的各項測試及其常用解決方法。
 
-若執行這份指令碼無法找出問題的根源，請將您的指令碼輸出張貼到[容器論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)。 論壇社群中的各方高手 (包括 Windows 測試人員及開發人員) 是為您提供協助的最佳人選。
+若執行這份指令碼無法找出問題的根源，請將您的指令碼輸出張貼到[容器論壇](https://social.msdn.microsoft.com/Forums/home?forum=windowscontainers)。 論壇社群中的各方高手 (包括 Windows 測試人員及開發人員) 是為您提供協助的最佳人選。
 
 
 ## <a name="finding-logs"></a>尋找記錄檔

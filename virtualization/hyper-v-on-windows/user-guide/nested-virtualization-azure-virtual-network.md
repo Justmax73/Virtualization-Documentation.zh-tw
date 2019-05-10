@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 1ecb85a6-d938-4c30-a29b-d18bd007ba08
-ms.openlocfilehash: 18ab4d1d87c22f70fe09aae5222a7d125ac9c974
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 2771989b7745605fb3ce4f95e162ae8b03180b0f
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9578669"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9621576"
 ---
 # <a name="configure-nested-vms-to-communicate-with-resources-in-an-azure-virtual-network"></a>設定 Azure 的虛擬網路中的資源與通訊的巢狀虛擬機器
 
@@ -26,7 +26,7 @@ ms.locfileid: "9578669"
 
 請開始本指南中，： 之前
 
-1. 請閱讀[以下提供的指導方針](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/nested-virtualization)上巢狀虛擬化。
+1. 請閱讀[以下提供的指導方針](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization)上巢狀虛擬化。
 2. 閱讀本文整個之前的實作。
 
 ## <a name="high-level-overview-of-what-were-doing-and-why"></a>我們正在執行的高等級的概觀與原因
@@ -108,7 +108,7 @@ ms.locfileid: "9578669"
 1. 安裝 DHCP 角色： `Install-WindowsFeature DHCP -IncludeManagementTools`
 2. 建立 DHCP 領域： `Add-DhcpServerV4Scope -Name "Nested VMs" -StartRange 10.0.2.2 -EndRange 10.0.2.254 -SubnetMask 255.255.255.0`
 3. 設定 DNS 和預設閘道領域選項： `Set-DhcpServerV4OptionValue -DnsServer 168.63.129.16 -Router 10.0.2.1`
-    * 請務必輸入有效的 DNS 伺服器，如果您想要的名稱解析才能運作。 我在此情況下使用[Azure 的遞迴 DNS](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)。
+    * 請務必輸入有效的 DNS 伺服器，如果您想要的名稱解析才能運作。 我在此情況下使用[Azure 的遞迴 DNS](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)。
 
 ## <a name="installing-remote-access"></a>安裝遠端存取
 
@@ -145,7 +145,7 @@ ms.locfileid: "9578669"
 
 ## <a name="creating-a-route-table-within-azure"></a>建立 Azure 內的路由表
 
-請參閱[這篇文章](https://docs.microsoft.com/en-us/azure/virtual-network/tutorial-create-route-table-portal)，如需深入了解讀取上建立和管理 Azure 的路由。
+請參閱[這篇文章](https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-portal)，如需深入了解讀取上建立和管理 Azure 的路由。
 
 1. 瀏覽至https://portal.azure.com。
 2. 左上角中選取 [建立資源 \]。

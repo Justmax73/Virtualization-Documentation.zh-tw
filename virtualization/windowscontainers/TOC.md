@@ -47,7 +47,7 @@
 ### [開始使用群集模式](manage-containers/swarm-mode.md)
 
 # 社群與支援
-## [容器論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)
+## [容器論壇](https://social.msdn.microsoft.com/Forums/home?forum=windowscontainers)
 ## [社群影片與部落格](communitylinks.md)
 ## [疑難排解](troubleshooting.md)
 
@@ -60,7 +60,7 @@
 ## [在容器中的硬體裝置](deploy-containers/hardware-devices-in-containers.md)
 ## [容器平台工具](deploy-containers/containerd.md)
 ## [群組受管理的服務帳戶](manage-containers/manage-serviceaccounts.md)
-## [防毒程式最佳化](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
+## [防毒程式最佳化](https://docs.microsoft.com/windows-hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
 ## [Windows 上的 Linux 容器](deploy-containers/linux-containers.md)
 
 # [範例容器](samples.md)

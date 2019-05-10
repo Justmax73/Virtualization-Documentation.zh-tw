@@ -15,10 +15,10 @@ HYPER-V 會在所有版本在受支援 HYPER-V 的 Windows Server 上實作 VSS 
 ### <a name="wmi-export"></a>WMI 匯出
 開發人員可以匯出備份資料透過 HYPER-V WMI 介面 （如上述範例中使用）。  HYPER-V 會編譯到虛擬硬碟所做的變更，並將檔案複製到要求的位置。  這個方法使用簡單、 適用於所有案例和是遠端。  不過，虛擬硬碟產生通常會建立大量的資料，以透過網路傳輸。
 ### <a name="win32-apis"></a>Win32 Api
-開發人員可以使用 SetVirtualDiskInformation，GetVirtualDiskInformation 和虛擬硬碟 Win32 API 上 QueryChangesVirtualDisk Api 所記載在這裡設定：https://docs.microsoft.com/en-us/windows/desktop/api/_vhd/請注意，若要使用這些 Api，HYPER-V WMI 仍然必須用來建立參考相關聯的虛擬機器上的點。  這些 Win32 Api 然後允許有效率地存取備份虛擬機器的資料。  Win32 Api 有數個限制：
+開發人員可以使用 SetVirtualDiskInformation，GetVirtualDiskInformation 和虛擬硬碟 Win32 API 上 QueryChangesVirtualDisk Api 所記載在這裡設定：https://docs.microsoft.com/windows/desktop/api/_vhd/請注意，若要使用這些 Api，HYPER-V WMI 仍然必須用來建立參考相關聯的虛擬機器上的點。  這些 Win32 Api 然後允許有效率地存取備份虛擬機器的資料。  Win32 Api 有數個限制：
 *   它們在本機只能存取
 *   不要支援讀取的資料共用虛擬硬碟檔案
 *   它們會傳回資料位址，都會在相對於內部結構的虛擬硬碟
 
 ### <a name="remote-shared-virtual-disk-protocol"></a>遠端共用的虛擬磁碟通訊協定
-最後，如果開發人員需要來有效率地存取備份資料資訊從共用虛擬硬碟檔案 – 他們將需要使用遠端共用虛擬磁碟通訊協定。  此通訊協定都記載：https://msdn.microsoft.com/en-us/library/dn393384.aspx
+最後，如果開發人員需要來有效率地存取備份資料資訊從共用虛擬硬碟檔案 – 他們將需要使用遠端共用虛擬磁碟通訊協定。  此通訊協定會說明[以下](https://docs.microsoft.com/openspecs/windows_protocols/ms-rsvd/c865c326-47d6-4a91-a62d-0e8f26007d15)。

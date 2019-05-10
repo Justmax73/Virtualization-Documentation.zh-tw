@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
-ms.openlocfilehash: a2fc3b74a7be109caf078553e471d1c3743f217a
-ms.sourcegitcommit: c48dcfe43f73b96e0ebd661164b6dd164c775bfa
+ms.openlocfilehash: d4a59f351cad36219e8289f9d58b55250c99fc6e
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "9610308"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620896"
 ---
 # <a name="group-managed-service-accounts-for-windows-containers"></a>群組受管理服務帳戶適用於 Windows 容器
 
@@ -21,7 +21,7 @@ Windows 網路通常會使用 Active Directory (AD) 以促進驗證及授權的�
 
 雖然 Windows 容器無法加入網域，他們還是可以使用 Active Directory 網域識別，以支援各種不同的驗證案例。
 
-為了達成此目的，您可以設定使用[群組受管理的服務帳戶](https://docs.microsoft.com/en-us/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)(gMSA)，也就是一種特殊類型的 Windows Server 2012 導入設計可讓多部電腦共用身分識別而不需要的服務帳戶來執行 Windows 容器了解其密碼。
+為了達成此目的，您可以設定使用[群組受管理的服務帳戶](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)(gMSA)，也就是一種特殊類型的 Windows Server 2012 導入設計可讓多部電腦共用身分識別而不需要的服務帳戶來執行 Windows 容器了解其密碼。
 
 當您使用群組 gMSA 執行容器時，容器主機從 Active Directory 網域控制站擷取 gMSA 密碼，並讓它成為的容器執行個體。 每當其電腦帳戶 （系統） 需要存取網路資源，容器將會使用 gMSA 認證。
 
@@ -31,9 +31,9 @@ Windows 網路通常會使用 Active Directory (AD) 以促進驗證及授權的�
 
 若要執行 Windows 容器與群組受管理服務帳戶，您將需要下列項目：
 
-- Active Directory 網域與執行 Windows Server 2012 或更新版本的至少一個網域控制站。 沒有樹系或網域功能層級需求，以使用 Gmsa，但 gMSA 密碼僅能透過執行 Windows Server 2012 網域控制站分散式或更新版本。 如需詳細資訊，請參閱[Active Directory 需求 Gmsa](https://docs.microsoft.com/en-us/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts#BKMK_gMSA_Req)。
+- Active Directory 網域與執行 Windows Server 2012 或更新版本的至少一個網域控制站。 沒有樹系或網域功能層級需求，以使用 Gmsa，但 gMSA 密碼僅能透過執行 Windows Server 2012 網域控制站分散式或更新版本。 如需詳細資訊，請參閱[Active Directory 需求 Gmsa](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts#BKMK_gMSA_Req)。
 - 若要建立 gMSA 帳戶的權限。 若要建立 gMSA 帳戶，您將需要網域系統管理員或使用帳戶已*建立 \ [Msds-syncserverurl\ GroupManagedServiceAccount 物件*權限的委派。
-- 若要下載 CredentialSpec PowerShell 模組，網際網路存取。 如果您正在中斷連線的環境中，您可以與網際網路的電腦上的[儲存模組](https://docs.microsoft.com/en-us/powershell/module/powershellget/save-module?view=powershell-5.1)存取，並將它複製到您的開發電腦或容器主機。
+- 若要下載 CredentialSpec PowerShell 模組，網際網路存取。 如果您正在中斷連線的環境中，您可以與網際網路的電腦上的[儲存模組](https://docs.microsoft.com/powershell/module/powershellget/save-module?view=powershell-5.1)存取，並將它複製到您的開發電腦或容器主機。
 
 ## <a name="one-time-preparation-of-active-directory"></a>一次性的 Active Directory 的準備工作
 
@@ -93,7 +93,7 @@ Add-KdsRootKey -EffectiveTime (Get-Date).AddHours(-10)
 
 > [!TIP]
 > 您將需要使用的帳戶所屬的**網域系統管理員**安全性群組或已委派執行下列命令**建立 \ [Msds-syncserverurl\ GroupManagedServiceAccount 物件**的權限。
-> [新增 ADServiceAccount](https://docs.microsoft.com/en-us/powershell/module/addsadministration/new-adserviceaccount?view=win10-ps) cmdlet 是 AD PowerShell 工具，從[遠端伺服器管理工具](https://aka.ms/rsat)的一部分。
+> [新增 ADServiceAccount](https://docs.microsoft.com/powershell/module/addsadministration/new-adserviceaccount?view=win10-ps) cmdlet 是 AD PowerShell 工具，從[遠端伺服器管理工具](https://aka.ms/rsat)的一部分。
 
 ```powershell
 # Replace 'WebApp01' and 'contoso.com' with your own gMSA and domain names, respectively
@@ -122,7 +122,7 @@ Add-ADGroupMember -Identity "WebApp01Hosts" -Members "ContainerHost01", "Contain
 2. 請確定您的主機屬於控制存取 gMSA 密碼的安全性群組。
 3. 重新啟動電腦，因此它會取得新的群組成員資格。
 4. 設定[Docker 桌面適用於 Windows 10](https://docs.docker.com/docker-for-windows/install/)或[Docker Windows Server](https://docs.docker.com/install/windows/docker-ee/)。
-5. （建議選項）確認主機可以藉由執行[測試 ADServiceAccount](https://docs.microsoft.com/en-us/powershell/module/activedirectory/test-adserviceaccount)使用 gMSA 帳戶。 如果命令傳回**False**，請參閱診斷步驟的[疑難排解](#troubleshooting)一節。
+5. （建議選項）確認主機可以藉由執行[測試 ADServiceAccount](https://docs.microsoft.com/powershell/module/activedirectory/test-adserviceaccount)使用 gMSA 帳戶。 如果命令傳回**False**，請參閱診斷步驟的[疑難排解](#troubleshooting)一節。
 
     ```powershell
     # To install the AD module on Windows Server, run Install-WindowsFeature RSAT-AD-PowerShell
@@ -310,7 +310,7 @@ d----l        2/27/2019   8:09 PM                contoso.com
 
 Service Fabric 支援執行 Windows 容器與群組 gMSA，當您在您的應用程式資訊清單中指定的認證規格的位置。 您將需要建立認證規格檔案放置在每個主機上的 Docker 資料目錄**CredentialSpecs**子目錄中，如此 Service Fabric 可以找到它。 您可以執行**Get-CredentialSpec** cmdlet，一部分的[CredentialSpec PowerShell 模組](https://aka.ms/credspec)，以確認您的認證規格是否正確的位置。
 
-請參閱[快速入門： Service Fabric 來部署 Windows 容器](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-quickstart-containers)並[設定適用於 Service Fabric 上執行的 Windows 容器的 gMSA](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-setup-gmsa-for-windows-containers)如需有關如何設定您的應用程式。
+請參閱[快速入門： Service Fabric 來部署 Windows 容器](https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-containers)並[設定適用於 Service Fabric 上執行的 Windows 容器的 gMSA](https://docs.microsoft.com/azure/service-fabric/service-fabric-setup-gmsa-for-windows-containers)如需有關如何設定您的應用程式。
 
 ### <a name="how-to-use-gmsa-with-docker-swarm"></a>如何搭配 Docker Swarm 使用 gMSA
 
@@ -390,7 +390,7 @@ EXEC sp_addrolemember 'db_datawriter', 'WebApplication1'
 #### <a name="make-sure-the-host-can-use-the-gmsa"></a>請確定主應用程式可以使用 gMSA
 
 1. 確認主機網域加入，而且可以觸達的網域控制站。
-2. 安裝 RSAT 的 AD PowerShell 工具，並執行[測試 ADServiceAccount](https://docs.microsoft.com/en-us/powershell/module/activedirectory/test-adserviceaccount)以查看電腦是否要擷取 gMSA 的存取權。 如果 cmdlet 沒有傳回**False**，表示電腦沒有存取 gMSA 密碼。
+2. 安裝 RSAT 的 AD PowerShell 工具，並執行[測試 ADServiceAccount](https://docs.microsoft.com/powershell/module/activedirectory/test-adserviceaccount)以查看電腦是否要擷取 gMSA 的存取權。 如果 cmdlet 沒有傳回**False**，表示電腦沒有存取 gMSA 密碼。
 
     ```powershell
     # To install the AD module on Windows Server, run Install-WindowsFeature RSAT-AD-PowerShell
@@ -480,4 +480,4 @@ EXEC sp_addrolemember 'db_datawriter', 'WebApplication1'
 
 ## <a name="additional-resources"></a>其他資源
 
-- [群組受管理的服務帳戶的概觀](https://docs.microsoft.com/en-us/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)
+- [群組受管理的服務帳戶的概觀](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)

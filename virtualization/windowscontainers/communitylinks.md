@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: cfbb2542-fead-48e7-8318-4da92a7b5b6f
-ms.openlocfilehash: 24d90b83a1a20e8243297baa6466428b5fb30303
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 55b428894b22ded48ce9db8f24928924964ce96d
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9574999"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620886"
 ---
 # <a name="community-videos-and-blogs"></a>社群影片與部落格
 
@@ -45,7 +45,7 @@ ms.locfileid: "9574999"
 
 [Containerize Windows workloads with Image2Docker](https://blog.docker.com/2016/10/containerize-windows-workloads-image2docker/) (使用 Image2Docker 製作 Windows 工作載容器) - Mano Marks
 
-[在 Windows 上使用 Docker Compose 與「服務探索」相應放大您的多服務容器應用程式](https://blogs.technet.microsoft.com/virtualization/2016/10/18/use-docker-compose-and-service-discovery-on-windows-to-scale-out-your-multi-service-container-application/) (英文) - Kallie Bracken 與 Jason Messer
+[在 Windows 上使用 Docker Compose 與「服務探索」相應放大您的多服務容器應用程式](https://techcommunity.microsoft.com/t5/Containers/Use-Docker-Compose-and-Service-Discovery-on-Windows-to-scale-out/ba-p/382312) (英文) - Kallie Bracken 與 Jason Messer
 
 [在 Windows 容器 PowerShell 預期狀態設定使用 Docker](https://dille.name/blog/2016/06/17/powershell-desired-state-configuration-psdsc-in-windows-containers-using-docker/) -Nicholas Dille
 

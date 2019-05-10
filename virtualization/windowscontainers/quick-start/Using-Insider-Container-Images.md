@@ -70,7 +70,7 @@ docker pull mcr.microsoft.com/windows/servercore/insider
 ```
 
 > [!IMPORTANT]
-> 請閱讀 Windows 容器 OS 映像[授權條款](../EULA.md )」 及 「 Windows 測試人員計畫[使用規定](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver)。
+> 請閱讀 Windows 容器 OS 映像[授權條款](../EULA.md )」 及 「 Windows 測試人員計畫[使用規定](https://www.microsoft.com/software-download/windowsinsiderpreviewserver)。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -21,11 +21,11 @@
 # 參考
 ## [Hyper-V 需求](reference/hyper-v-requirements.md)
 ## [支援的客體作業系統](about/supported-guest-os.md)
-## [Hyper-V PowerShell](https://technet.microsoft.com/library/hh848559.aspx)
+## [Hyper-V PowerShell](https://docs.microsoft.com/powershell/module/hyper-v/index?view=win10-ps)
 ## [Hyper-V 整合服務](reference/integration-services.md)
 ## [Hyper-V 架構](reference/hyper-v-architecture.md)
 ## [Hypervisor 規格](reference/tlfs.md)
 ## [HYPER-V 備份方法](reference/HyperVBackupApproaches.md)
 
 # 社群與支援
-## [Hyper-V 論壇](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home?forum=winserverhyperv)
+## [Hyper-V 論壇](https://social.technet.microsoft.com/Forums/windowsserver/home?forum=winserverhyperv)

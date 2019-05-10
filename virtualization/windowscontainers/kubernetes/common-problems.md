@@ -6,13 +6,13 @@ ms.date: 11/02/2018
 ms.topic: troubleshooting
 ms.prod: containers
 description: 部署 Kubernetes 和加入 Windows 節點時常見問題的解決方案。
-keywords: kubernetes，1.12，linux，編譯
-ms.openlocfilehash: 1c5a5ec90b828a4f2430508f02cb9b9afb1c4d53
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+keywords: kubernetes，1.14，linux，編譯
+ms.openlocfilehash: fbb5b8474323a7d418de972bffbb9e005c94cb85
+ms.sourcegitcommit: aaf115a9de929319cc893c29ba39654a96cf07e1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9577079"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "9622993"
 ---
 # <a name="troubleshooting-kubernetes"></a>疑難排解 Kubernetes #
 此頁面逐步解說 Kubernetes 設定、網路及部署的數個常見問題。
@@ -124,13 +124,18 @@ Get-VMNetworkAdapter -VMName "<name>" | Set-VMNetworkAdapter -MacAddressSpoofing
 > 如果您正在部署 Azure 或 IaaS 虛擬機器上的 Kubernetes 從其他雲端提供者自行，您也可以使用[覆疊網路功能](./network-topologies.md#flannel-in-vxlan-mode)改為。
 
 ### <a name="my-windows-pods-cannot-launch-because-of-missing-runflannelsubnetenv"></a>我的 Windows pod 無法啟動因為缺少 /run/flannel/subnet.env ###
-這表示 Flannel 無法正確啟動。 您可以嘗試重新啟動 flanneld.exe 或您可以將檔案複製手動從`/run/flannel/subnet.env`若要建立 Kubernetes 主機上`C:\run\flannel\subnet.env`Windows 背景工作節點上和修改`FLANNEL_SUBNET`列以不同的數字。 例如，如果節點的子網路 10.244.4.1/24 想要：
+這表示 Flannel 無法正確啟動。 您可以嘗試重新啟動 flanneld.exe 或您可以將檔案複製手動從`/run/flannel/subnet.env`若要建立 Kubernetes 主機上`C:\run\flannel\subnet.env`Windows 背景工作節點上和修改`FLANNEL_SUBNET`已指派的子網路的資料列。 例如，如果節點的子網路 10.244.4.1/24 已指派：
 ```
 FLANNEL_NETWORK=10.244.0.0/16
 FLANNEL_SUBNET=10.244.4.1/24
 FLANNEL_MTU=1500
 FLANNEL_IPMASQ=true
 ```
+它是更安全，讓 flanneld.exe 為您產生此檔案。
+
+### <a name="pod-to-pod-connectivity-between-hosts-is-broken-on-my-kubernetes-cluster-running-on-vsphere"></a>在中斷 vSphere 上執行我 Kubernetes 叢集上的 pod 對 pod 主機之間的連線能力 
+VSphere 和 Flannel 都保留用於覆疊網路連接埠 4789 （預設 VXLAN 連接埠），因為可以結束被攔截的封包。 如果 vSphere 用於覆疊網路功能，您應該設定以釋出 4789 使用不同的連接埠。  
+
 
 ### <a name="my-endpointsips-are-leaking"></a>我的端點/Ip 流失 ###
 有 2 個目前已知的問題可能會造成遺漏的端點。 

@@ -3,12 +3,12 @@ title: Windows Server 容器儲存體
 description: Windows Server 容器如何使用主機和其他儲存體類型
 keywords: 容器, 磁碟區, 儲存體, 裝載, 繫結裝載
 author: patricklang
-ms.openlocfilehash: 7d22a149da21a3367b82f2920c189ae9a4b1c173
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 87b9c364bfdec2b445bb06caf0e9fd4d849119d4
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9574869"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620866"
 ---
 # <a name="overview"></a>概觀
 
@@ -53,7 +53,7 @@ Docker 組態檔
   ]
 ```
 > 請注意，此方法適用於 Docker 組建。
-如需修改 Docker 組態檔的詳細資訊，請參閱[設定 Docker](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-docker/configure-docker-daemon#configure-docker-with-configuration-file) 文件。
+如需修改 Docker 組態檔的詳細資訊，請參閱[設定 Docker](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon#configure-docker-with-configuration-file) 文件。
 
 
 ## <a name="persistent-volumes"></a>永續性磁碟區

@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 74c9d604-0915-4d89-bc69-0263b76bc66b
-ms.openlocfilehash: cc869cfaf1c433fbfdc351e9120a0e43c02967ee
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 9ee2a0adad762aa3cee53f3b44210976259b693f
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9574839"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620696"
 ---
 # <a name="containers-on-windows-documentation"></a>Windows 文件上的容器
 
@@ -30,7 +30,7 @@ Windows 容器可提供作業系統層級的虛擬化，可讓多個隔離的應
 
 * [系統需求](deploy-containers/system-requirements.md)
 * [部署容器主機](deploy-containers/deploy-containers-on-server.md)
-* [防毒程式最佳化](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
+* [防毒程式最佳化](https://docs.microsoft.com/windows-hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
 
 ## <a name="docker-on-windows"></a>Windows 上的 Docker
 了解如何在 Windows 上管理 Docker。
@@ -45,7 +45,7 @@ Windows 容器可提供作業系統層級的虛擬化，可讓多個隔離的應
 
 ## <a name="community"></a>社群
 與社群互動、試用範例及尋找其他資源。
-* [容器論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)
+* [容器論壇](https://social.msdn.microsoft.com/Forums/home?forum=windowscontainers)
 * [社群影片與部落格](communitylinks.md)
-* [範例容器](https://docs.microsoft.com/en-us/virtualization/windowscontainers/samples)
+* [範例容器](https://docs.microsoft.com/virtualization/windowscontainers/samples)
 * [UserVoice](https://windowsserver.uservoice.com/forums/304624-containers)

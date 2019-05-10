@@ -8,29 +8,29 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: fb228e06-e284-45c0-b6e6-e7b0217c3a49
-ms.openlocfilehash: 779dcf51d4903c9467cc52dbadb865beb9929bd2
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: ea6b71200d3115ba3d156b2c133e1be2fa495261
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9577319"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620916"
 ---
 # <a name="virtual-machine-automation-and-management-using-powershell"></a>使用 PowerShell 進行虛擬機器自動化與管理
- 
+
 您可以使用 PowerShell Direct，透過 Hyper-V 主機，在 Windows 10 或 Windows Server 2016 虛擬機器中執行任意 PowerShell (不論網路設定或遠端管理設定為何皆可)。
 
-**執行 PowerShell Direct 的方式：**  
-* 做為互動式工作階段 - [按一下這裡](#create-and-exit-an-interactive-powershell-session)使用 Enter-PSSession 建立並結束互動式 PowerShell 工作階段。
-* 做為單次使用工作階段來執行單一命令或指令碼 - [按一下這裡](#run-a-script-or-command-with-invoke-command)使用 Invoke-Command 執行指令碼或命令。
-* 做為持續工作階段 (組建 14280 和更新版本) - [按一下這裡](#copy-files-with-new-pssession-and-copy-item)使用 New-PSSSession 來建立持續工作階段。  
-繼續使用 Copy-Item 來複製檔案至虛擬機器或從中複製檔案，然後使用 Remove-PSSession 中斷連線。
+以下是一些您可以執行 PowerShell Direct 的方式：
+
+* [作為互動式工作階段使用 Enter-pssession cmdlet](#create-and-exit-an-interactive-powershell-session)
+* [為單一用途區段來執行單一命令或指令碼使用 Invoke-command cmdlet](#run-a-script-or-command-with-invoke-command)
+* [作為持續工作階段 （組建 14280 和更新版本） 使用 New-pssession，複製項目，並移除 PSSession cmdlet](#copy-files-with-new-pssession-and-copy-item)
 
 ## <a name="requirements"></a>需求
 **作業系統需求：**
 * 主機：執行 Hyper-V 的 Windows 10、Windows Server 2016 或更新版本。
 * 客體/虛擬機器：Windows 10、Windows Server 2016 或更新版本。
 
-如果您管理的是較舊的虛擬機器，請使用虛擬機器連線 (VMConnect)，或是[設定虛擬機器的虛擬網路](http://technet.microsoft.com/library/cc816585.aspx)。 
+如果您管理的是較舊的虛擬機器，請使用虛擬機器連線 (VMConnect)，或是[設定虛擬機器的虛擬網路](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc816585(v=ws.10))。 
 
 **設定需求：**    
 * 虛擬機器必須在本機主機上執行。
@@ -77,7 +77,7 @@ ms.locfileid: "9577319"
 
 > 注意︰如果您的工作階段不會連線，請參閱[疑難排解](#troubleshooting)以了解可能的原因。 
 
-若要深入了解這些 Cmdlet，請參閱 [Enter-PSSession](http://technet.microsoft.com/library/hh849707.aspx) 和 [Exit-PSSession](http://technet.microsoft.com/library/hh849743.aspx)。 
+若要深入了解這些 Cmdlet，請參閱 [Enter-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Core/Enter-PSSession?view=powershell-5.1) 和 [Exit-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Core/Exit-PSSession?view=powershell-5.1)。 
 
 -------------
 
@@ -116,7 +116,7 @@ PowerShell Direct 與 Invoke-Command 最適合您需要在虛擬機器上執行�
    
    指令碼會在虛擬機器上執行。  命令執行之後便會自動關閉連線。
 
-若要深入了解這個 Cmdlet，請參閱 [Invoke-Command](http://technet.microsoft.com/library/hh849719.aspx)。 
+若要深入了解這個 Cmdlet，請參閱 [Invoke-Command](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Core/Invoke-Command?view=powershell-5.1)。 
 
 -------------
 
@@ -126,7 +126,7 @@ PowerShell Direct 與 Invoke-Command 最適合您需要在虛擬機器上執行�
 
 撰寫跨一或多部遠端電腦來協調動作的指令碼時，持續性的 PowerShell 工作階段會非常有用。  一旦建立後，持續性工作階段便會存在於背景中，直到您決定將它們刪除為止。  這表示您可以不斷地使用 `Invoke-Command` 或 `Enter-PSSession` 來參考相同的工作階段，而不必傳遞認證。
 
-工作階段藉由相同的權杖來保存狀態。  因為持續性工作階段會持續存在，工作階段中建立的任何變數，或是傳遞至工作階段的任何變數，都將會在多個呼叫之間保留。 有數種工具可用來處理持續性工作階段。  在本例中，我們將使用 [New-PSSession](https://technet.microsoft.com/en-us/library/hh849717.aspx) 和 [Copy-Item](https://technet.microsoft.com/en-us/library/hh849793.aspx) 來將資料從主機移到虛擬機器，以及從虛擬機器移到主機。
+工作階段藉由相同的權杖來保存狀態。  因為持續性工作階段會持續存在，工作階段中建立的任何變數，或是傳遞至工作階段的任何變數，都將會在多個呼叫之間保留。 有數種工具可用來處理持續性工作階段。  在本例中，我們將使用 [New-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Core/New-PSSession?view=powershell-5.1) 和 [Copy-Item](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Management/Copy-Item?view=powershell-5.1) 來將資料從主機移到虛擬機器，以及從虛擬機器移到主機。
 
 **建立工作階段然後複製檔案︰**  
 
@@ -205,13 +205,13 @@ Enter-PSSession : An error has occurred which Windows PowerShell cannot handle. 
 
 **可能的原因：**
 * 虛擬機器存在，但未執行。
-* 客體 OS 不支援 PowerShell Direct (請參閱[需求](#Requirements))
+* 客體 OS 不支援 PowerShell Direct (請參閱[需求](#requirements))
 * 客體中還沒有 PowerShell
   * 作業系統尚未完成開機
   * 作業系統無法正確開機
   * 某些開機期間事件需要使用者輸入
 
-您可以使用 [Get-VM](http://technet.microsoft.com/library/hh848479.aspx) Cmdlet，查看在主機上執行的 VM。
+您可以使用 [Get-VM](https://docs.microsoft.com/powershell/module/hyper-v/get-vm?view=win10-ps) Cmdlet，查看在主機上執行的 VM。
 
 **錯誤訊息：**  
 ```
@@ -253,7 +253,7 @@ Enter-PSSession : The credential is invalid.
 * 無法驗證客體認證
   * 提供的認證不正確。
   * 在客體 (作業系統未啟動之前) 中沒有使用者帳戶
-  * 如果以系統管理員身分進行連接：系統管理員尚未設定為使用中的使用者。  請按一下[這裡](https://technet.microsoft.com/en-us/library/hh825104.aspx)進一步了解。
+  * 如果以系統管理員身分進行連接：系統管理員尚未設定為使用中的使用者。  請按一下[這裡](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh825104(v=win.10)>)進一步了解。
   
 ### <a name="error-the-input-vmname-parameter-does-not-resolve-to-any-virtual-machine"></a>錯誤︰輸入的 VMName 參數未解析為任何虛擬機器。
 
@@ -266,7 +266,7 @@ Enter-PSSession : The input VMName parameter does not resolve to any virtual mac
 * 您不是 Hyper-V 系統管理員。  
 * 虛擬機器不存在。
 
-您可以使用 [Get-VM](http://technet.microsoft.com/library/hh848479.aspx) Cmdlet 來確認您使用的認證是否具有 Hyper-V 系統管理員角色，並查看哪些 VM 在本機主機上執行及啟動。
+您可以使用 [Get-VM](https://docs.microsoft.com/powershell/module/hyper-v/get-vm?view=win10-ps) Cmdlet 來確認您使用的認證是否具有 Hyper-V 系統管理員角色，並查看哪些 VM 在本機主機上執行及啟動。
 
 
 -------------

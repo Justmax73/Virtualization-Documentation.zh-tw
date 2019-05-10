@@ -6,17 +6,17 @@ ms.date: 02/09/2018
 ms.topic: get-started-article
 ms.prod: containers
 description: 開始建立 Kubernetes 叢集主機。
-keywords: kubernetes，1.13]，主機 linux
-ms.openlocfilehash: 8a3fb073616d115ab84e6cc36f0fb6cedbcf1f7d
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+keywords: kubernetes，1.14，主機 linux
+ms.openlocfilehash: b1ec23b039ce6f5c42859452ecf3a8a5b35e006c
+ms.sourcegitcommit: aaf115a9de929319cc893c29ba39654a96cf07e1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9578249"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "9622953"
 ---
 # <a name="creating-a-kubernetes-master"></a>建立 Kubernetes 主機 #
 > [!NOTE]
-> 本指南已確認 Kubernetes v1.13 上。 適用的 Kubernetes 版本的版本，因為此區段可能會使不保存適用於所有未來的版本，則為 true 的假設。 初始化使用 kubeadm Kubernetes 主機的官方文件可以找到[以下](https://kubernetes.io/docs/setup/independent/install-kubeadm/)。 只需上面啟用[混合作業系統排程一節](#enable-mixed-os-scheduling)。
+> 本指南已確認 Kubernetes v1.14 上。 適用的 Kubernetes 版本的版本，因為此區段可能會使不保存適用於所有未來的版本，則為 true 的假設。 初始化使用 kubeadm Kubernetes 主機的官方文件可以找到[以下](https://kubernetes.io/docs/setup/independent/install-kubeadm/)。 只需上面啟用[混合作業系統排程一節](#enable-mixed-os-scheduling)。
 
 > [!NOTE]  
 > 最近更新的 Linux 電腦，才能最近更新;Kubernetes 母片資源像[kube dns](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/)、 [kube 排程器](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-scheduler/)和[kube apiserver](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/)有不已移植到 Windows 尚未。 

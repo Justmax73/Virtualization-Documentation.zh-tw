@@ -8,12 +8,12 @@ ms.prod: containers
 description: 您可以將 Windows 節點加入 v1.13 Kubernetes 叢集。
 keywords: kubernetes，1.13，windows，開始使用
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: ed0f13bd429e88f05469f91c3fc691bf0188b0a2
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: fec18baa58ae6aa7d637be575548a1823a551207
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9578239"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620986"
 ---
 # <a name="joining-windows-server-nodes-to-a-cluster"></a>將 Windows Server 節點加入叢集 #
 一旦您有[設定 Kubernetes 主機的節點](./creating-a-linux-master.md)，並[選取您想要的網路的解決方案](./network-topologies.md)，您準備好要加入 Windows Server 來形成叢集的節點。 這需要一些[準備 Windows 節點上的](#preparing-a-windows-node)，才能將加入。
@@ -83,7 +83,7 @@ docker run microsoft/nanoserver:latest
 ![文字](./media/docker-run-sample.png)
 
 > [!tip]
-> 如果您無法執行容器請請參閱：[符合容器主機版本與容器映像](https://docs.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/version-compatibility#matching-container-host-version-with-container-image-versions)
+> 如果您無法執行容器請請參閱：[符合容器主機版本與容器映像](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility#matching-container-host-version-with-container-image-versions)
 
 
 #### <a name="prepare-kubernetes-for-windows-directory"></a>準備 Windows 的 Kubernetes 目錄 ####
@@ -97,12 +97,12 @@ mkdir c:\k
 複製的 Kubernetes 的憑證檔案 (`$HOME/.kube/config`)[從主機](./creating-a-linux-master.md#collect-cluster-information)到這個新`C:\k`目錄。
 
 > [!tip]
-> 您可以使用工具例如[xcopy](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/xcopy)或[WinSCP](https://winscp.net/eng/download.php)節點之間傳輸設定檔。
+> 您可以使用工具例如[xcopy](https://docs.microsoft.com/windows-server/administration/windows-commands/xcopy)或[WinSCP](https://winscp.net/eng/download.php)節點之間傳輸設定檔。
 
 #### <a name="download-kubernetes-binaries"></a>下載 Kubernetes 二進位檔 ####
 若要能夠執行 Kubernetes 方式執行，您必須下載`kubectl`， `kubelet`，以及`kube-proxy`二進位檔。 您可以下載這些中的連結從`CHANGELOG.md`檔案的[最新發行版本](https://github.com/kubernetes/kubernetes/releases/)。
  - 例如，以下是[v1.13 節點的二進位檔](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.13.md#node-binaries)。
- - 使用解壓縮封存，並將放入二進位檔的工具，例如[展開封存](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6) `C:\k\`。
+ - 使用解壓縮封存，並將放入二進位檔的工具，例如[展開封存](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6) `C:\k\`。
 
 #### <a name="optional-setup-kubectl-on-windows"></a>（選擇性）在 Windows 上的安裝程式 kubectl ####
 如果您想要控制從 Windows 叢集，您可以使用`kubectl`命令。 首先，讓`kubectl`以外`C:\k\`目錄中，修改`PATH`環境變數：
@@ -213,7 +213,7 @@ IP 位址指派給 Windows 節點。 您可以使用`ipconfig`若要尋找這。
 
 
 # [<a name="kubednsserviceip"></a>KubeDnsServiceIP](#tab/KubeDnsServiceIP)
-[Kubernetes DNS 服務 IP](./getting-started-kubernetes-windows.md#kube-dns-def)。
+[Kubernetes DNS 服務 IP](./getting-started-kubernetes-windows.md#plan-ip-addressing-for-your-cluster)。
 
 |  |  | 
 |---------|---------|

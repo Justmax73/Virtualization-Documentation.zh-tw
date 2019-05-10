@@ -7,16 +7,16 @@ ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: 66723f33-b12c-49d1-82cf-71ba9d6087e9
-ms.openlocfilehash: 4ded2de1447db467359b028d19482a76e2c484fc
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 7882e89368bb88390c2efa93c3f2a8f04bb7a37a
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9576379"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620776"
 ---
 # <a name="create-virtual-machine-with-hyper-v-on-windows-10"></a>在 Windows 10 上使用 Hyper-V 建立虛擬機器
 
-了解如何建立虛擬機器，並且在新的虛擬機器上安裝作業系統。  您需要所要執行之作業系統的 .iso 檔案。 如有需要，可從 [TechNet Evaluation Center](http://www.microsoft.com/en-us/evalcenter/) 取得評估版的 Windows 10。
+了解如何建立虛擬機器，並且在新的虛擬機器上安裝作業系統。  您需要所要執行之作業系統的 .iso 檔案。 如有需要，可從 [TechNet Evaluation Center](http://www.microsoft.com/evalcenter/) 取得評估版的 Windows 10。
 
 ## <a name="create-a-virtual-machine-with-hyper-v-manager"></a>使用 Hyper-V 管理員建立虛擬機器
 
@@ -35,17 +35,17 @@ ms.locfileid: "9576379"
 
 1. 選取機器的世代，然後按一下 **\[下一步\]**。  
 
-  Windows Server 2012 R2 引進第 2 代虛擬機器，可提供簡化的虛擬硬體模型和一些額外的功能。 64 位元作業系統只能安裝在第 2 代虛擬機器上。 如需第 2 代虛擬機器的詳細資訊，請參閱[第 2 代虛擬機器概觀](https://technet.microsoft.com/en-us/library/dn282285.aspx)。
+  Windows Server 2012 R2 引進第 2 代虛擬機器，可提供簡化的虛擬硬體模型和一些額外的功能。 64 位元作業系統只能安裝在第 2 代虛擬機器上。 如需第 2 代虛擬機器的詳細資訊，請參閱[第 2 代虛擬機器概觀](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn282285(v=ws.11)>)。
   
-  > 如果新的虛擬機器設定為第 2 代，並將執行 Linux 散發套件，則必須停用安全開機。 如需安全開機的詳細資訊，請參閱 [Secure Boot](https://technet.microsoft.com/en-us/library/dn486875.aspx) (安全開機)。
+  > 如果新的虛擬機器設定為第 2 代，並將執行 Linux 散發套件，則必須停用安全開機。 如需安全開機的詳細資訊，請參閱 [Secure Boot](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/dn486875(v=ws.11)>) (安全開機)。
 
-1. 選取 **2048** MB 做為 **\[啟動記憶體\]** 的值，並維持選取 **\[Use Dynamic Memory\] (使用動態記憶體)**。 按一下 **\[下一步\]** 按鈕。
+2. 選取 **2048** MB 做為 **\[啟動記憶體\]** 的值，並維持選取 **\[Use Dynamic Memory\] (使用動態記憶體)**。 按一下 **\[下一步\]** 按鈕。
 
-  Hyper-V 主機與在主機上執行的虛擬機器之間會共用記憶體。 可以在單一主機上執行的虛擬機器數目，有一部分取決於可用的記憶體。 也可以將虛擬機器設定為使用動態記憶體。 若啟用，動態記憶體會從執行中的虛擬機器回收未使用的記憶體。 這可讓更多個虛擬機器在主機上執行。 如需動態記憶體的詳細資訊，請參閱 [Hyper-V 動態記憶體概觀](https://technet.microsoft.com/en-us/library/hh831766.aspx)。
+  Hyper-V 主機與在主機上執行的虛擬機器之間會共用記憶體。 可以在單一主機上執行的虛擬機器數目，有一部分取決於可用的記憶體。 也可以將虛擬機器設定為使用動態記憶體。 若啟用，動態記憶體會從執行中的虛擬機器回收未使用的記憶體。 這可讓更多個虛擬機器在主機上執行。 如需動態記憶體的詳細資訊，請參閱 [Hyper-V 動態記憶體概觀](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831766(v=ws.11))。
 
-1. 在 \[設定網路功能精靈\] 中，選取虛擬機器的虛擬交換器，然後按一下 **\[下一步\]**。 如需詳細資訊，請參閱[建立虛擬交換器](connect-to-network.md)。
+3. 在 \[設定網路功能精靈\] 中，選取虛擬機器的虛擬交換器，然後按一下 **\[下一步\]**。 如需詳細資訊，請參閱[建立虛擬交換器](connect-to-network.md)。
 
-1. 指定虛擬硬碟的名稱，選取位置或保留預設值，最後，指定大小。 一切就緒後，按一下 **\[下一步\]**。
+4. 指定虛擬硬碟的名稱，選取位置或保留預設值，最後，指定大小。 一切就緒後，按一下 **\[下一步\]**。
 
   虛擬硬碟提供給虛擬機器的儲存體，類似於實體硬碟。 需有虛擬硬碟，才能在虛擬機器上安裝作業系統。
   

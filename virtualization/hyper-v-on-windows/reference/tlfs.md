@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: aee64ad0-752f-4075-a115-2d6b983b4f49
-ms.openlocfilehash: 26eaca5a583f8b2e11ca1e05e2fa9a4366fd8837
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: afbbcf120961081191aaf9051866427c9ce1478e
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9577409"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9621276"
 ---
 # <a name="hypervisor-specifications"></a>Hypervisor 規格
 
@@ -21,7 +21,7 @@ ms.locfileid: "9577409"
 
 Hyper-V Hypervisor 功能規格概要 (TLFS) 描述其他作業系統元件看得見的 Hypervisor 外部行為。 此規格適用於客體作業系統開發人員。
   
-> 此規格受 Microsoft 開放規格承諾的規範。  閱讀下列內容可進一步了解 [Microsoft 開放規格承諾](https://msdn.microsoft.com/en-us/openspecifications)的詳細資料。  
+> 此規格受 Microsoft 開放規格承諾的規範。  閱讀下列內容可進一步了解 [Microsoft 開放規格承諾](https://docs.microsoft.com/openspecs/dev_center/ms-devcentlp/51a0d3ff-9f77-464c-b83f-2de08ed28134)的詳細資料。  
 
 #### <a name="download"></a>下載
 版本 | 文件

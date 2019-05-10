@@ -7,18 +7,18 @@ ms.date: 07/25/2017
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.openlocfilehash: 970f039e97ce0628c7a7f78c417017fc95570f82
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 9cfb5cb062259e906ce499423619ec7a5b814ac9
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9576879"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620836"
 ---
 # <a name="build-a-sample-app"></a>建置範例應用程式
 
 本練習將逐步引導您取用範例 ASP.net 應用程式並進行轉換，以便在容器中執行。 如果您需要了解如何在 Windows 10 中啟動並執行容器，請瀏覽 [Windows 10 快速入門](./quick-start-windows-10.md)。
 
-此快速入門專用於 Windows 10。 在此頁面左側的目錄中，可以找到其他的快速入門文件。 由於本教學課程的重點是容器，因此我們將省略撰寫程式碼的步驟，而將重點完全放在容器上。 如果您需要從頭開始建置的教學課程，可以在 [ASP.NET Core 文件](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app-xplat/)中找到。
+此快速入門專用於 Windows 10。 在此頁面左側的目錄中，可以找到其他的快速入門文件。 由於本教學課程的重點是容器，因此我們將省略撰寫程式碼的步驟，而將重點完全放在容器上。 如果您需要從頭開始建置的教學課程，可以在 [ASP.NET Core 文件](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app-xplat/)中找到。
 
 如果您的電腦尚未安裝 Git 原始檔控制，可以在這裡下載：[Git](https://git-scm.com/download)
 

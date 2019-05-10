@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
-ms.openlocfilehash: fd2de24a4c8c03817978a53b340e2a77285c69ad
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: df0470fd44c823fe14411d6d3d29188e980d1780
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9576709"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9621196"
 ---
 # <a name="windows-containers-on-windows-server"></a>Windows Server 上的 Windows 容器
 
@@ -32,7 +32,7 @@ ms.locfileid: "9576709"
 ## <a name="prerequisites"></a>必要條件
 
 請確定您符合下列需求：
-- 一部電腦系統 （實體或虛擬） 執行 Windows Server 2019。 如果您使用 Windows Server 2019 Insider Preview，請更新[Window Server 2019 評估版](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019 )。
+- 一部電腦系統 （實體或虛擬） 執行 Windows Server 2019。 如果您使用 Windows Server 2019 Insider Preview，請更新[Window Server 2019 評估版](https://www.microsoft.com/evalcenter/evaluate-windows-server-2019 )。
 
 > 為了讓函式的 Windows 容器功能需要重大更新。 請先安裝所有更新，再循序完成本教學課程。
 
@@ -168,7 +168,7 @@ Platform: .NET Core
 OS: Microsoft Windows 10.0.17763
 ```
 
-如需 Docker Run 命令的深入資訊，請參閱 [Docker.com 上的 Docker Run Reference]( https://docs.docker.com/engine/reference/run/)。
+如需 Docker Run 命令的深入資訊，請參閱 [Docker.com 上的 Docker Run Reference](https://docs.docker.com/engine/reference/run/)。
 
 ## <a name="next-steps"></a>後續步驟
 

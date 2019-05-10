@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 18930864-476a-40db-aa21-b03dfb4fda98
-ms.openlocfilehash: 84974f093cc80f8a216518bab051e13397e89b6e
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 762b82f3714651ffb488f682581680c9526404a8
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9577429"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9621206"
 ---
 # <a name="hyper-v-integration-services"></a>Hyper-V 整合服務
 
@@ -22,7 +22,7 @@ ms.locfileid: "9577429"
 本文提供 Windows 適用之每一項整合服務的參考資料。  如需特定整合服務或其歷程記錄的任何相關資訊，也可以將這篇文章做為起點。
 
 **使用者指南：**  
-* [管理整合服務](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/manage/manage-Hyper-V-integration-services)
+* [管理整合服務](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/Manage-Hyper-V-integration-services)
 
 
 ## <a name="quick-reference"></a>快速參考
@@ -52,7 +52,7 @@ ms.locfileid: "9577429"
 
 ### <a name="check-heartbeat-with-powershell"></a>使用 PowerShell 檢查活動訊號
 
-以系統管理員身分執行 [GET-VM](https://technet.microsoft.com/en-us/library/hh848479.aspx)，以查看虛擬機器的活動訊號︰
+以系統管理員身分執行 [GET-VM](https://docs.microsoft.com/powershell/module/hyper-v/get-vm?view=win10-ps)，以查看虛擬機器的活動訊號︰
 ``` PowerShell
 Get-VM -VMName $VMName | select Name, State, Status
 ```
@@ -102,7 +102,7 @@ DemoVM  Running  Operating normally
 
 
 **使用者指南：**  
-* [Using key-value pairs to share information between the host and guest on Hyper-V](https://technet.microsoft.com/en-us/library/dn798287.aspx) (使用機碼值組在 Hyper-V 的主機與客體之間共用資訊)。  
+* [Using key-value pairs to share information between the host and guest on Hyper-V](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn798287(v=ws.11)) (使用機碼值組在 Hyper-V 的主機與客體之間共用資訊)。  
 
 
 ## <a name="hyper-v-volume-shadow-copy-requestor"></a>Hyper-V 磁碟區陰影複製要求者
@@ -113,9 +113,9 @@ DemoVM  Running  Operating normally
 **已新增至：** Windows Server 2012、Windows 8  
 **影響︰** 停用時，即無法在執行虛擬機器時加以備份 (使用 VSS)。  
 
-磁碟區陰影複製服務 ([VSS](https://msdn.microsoft.com/en-us/library/aa384589.aspx)) 需搭配「磁碟區陰影複製要求者」整合服務才能發揮效益。  磁碟區陰影複製服務 (VSS) 可擷取並複製映像，以備份執行中的系統 (尤其是伺服器)，而不會過度降低所提供之服務的效能和穩定性。  這是由於此整合服務可透過協調虛擬機器和主機備份程序的工作負載，來實現上述目標。
+磁碟區陰影複製服務 ([VSS](https://docs.microsoft.com/windows/desktop/VSS/overview-of-processing-a-backup-under-vss)) 需搭配「磁碟區陰影複製要求者」整合服務才能發揮效益。  磁碟區陰影複製服務 (VSS) 可擷取並複製映像，以備份執行中的系統 (尤其是伺服器)，而不會過度降低所提供之服務的效能和穩定性。  這是由於此整合服務可透過協調虛擬機器和主機備份程序的工作負載，來實現上述目標。
 
-如需磁碟區陰影複製的詳細資訊，請參閱[這裡](https://msdn.microsoft.com/en-us/library/dd405549.aspx)。
+如需磁碟區陰影複製的詳細資訊，請參閱[這裡](https://docs.microsoft.com/previous-versions/windows/desktop/virtual/backing-up-and-restoring-virtual-machines)。
 
 
 ## <a name="hyper-v-guest-service-interface"></a>Hyper-V 客體服務介面
@@ -124,7 +124,7 @@ DemoVM  Running  Operating normally
 **Linux 精靈名稱：** hv_fcopy_daemon  
 **描述：** 提供介面以供 Hyper-V 主機在虛擬機器之間雙向複製檔案。  
 **已新增至：** Windows Server 2012 R2、Windows 8.1  
-**影響︰** 停用時，主機即無法使用 `Copy-VMFile` 在客體之間複製檔案。  如需詳細資訊，請參閱 [Copy-VMFile Cmdlet](https://technet.microsoft.com/library/dn464282.aspx)。  
+**影響︰** 停用時，主機即無法使用 `Copy-VMFile` 在客體之間複製檔案。  如需詳細資訊，請參閱 [Copy-VMFile Cmdlet](https://docs.microsoft.com/powershell/module/hyper-v/copy-vmfile?view=win10-ps)。  
 
 **注意：**  
 預設為停用。  請參閱[使用 Copy-Item 的 PowerShell Direct](../user-guide/powershell-direct.md#copy-files-with-new-pssession-and-copy-item)。 

@@ -19,4 +19,4 @@ Microsoft Corporation (或其在您居住地的關係企業) (下稱「我們」
 
 補充一經使用，即表示貴用戶接受這些條款。 若貴用戶不接受這些授權條款，請不要使用補充。
 
-此容器 OS 映像補充授權條款適用於 Windows 容器的一部分，您也會受基礎 Windows Server 主機軟體授權條款，其位於： https://www.microsoft.com/en-us/useterms。  
+此容器 OS 映像補充授權條款適用於 Windows 容器的一部分，您也會受基礎 Windows Server 主機軟體授權條款，其位於： https://www.microsoft.com/useterms。  

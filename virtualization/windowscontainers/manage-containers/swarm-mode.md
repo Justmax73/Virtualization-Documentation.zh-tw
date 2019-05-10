@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 5ceb9626-7c48-4d42-81f8-9c936595ad85
-ms.openlocfilehash: d3543d9e6f9e28278ab9f64fb1f4fa19d1507b08
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 5ab7f684bba9cfa73c59b58ce660d3d519be0b72
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9574789"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9621436"
 ---
 # <a name="getting-started-with-swarm-mode"></a>開始使用群集模式 
 
@@ -30,9 +30,9 @@ ms.locfileid: "9574789"
 
 ## <a name="swarm-mode-system-requirements"></a>群集模式系統需求
 
-至少一個實體或虛擬電腦系統 （若要使用群集的完整功能至少兩個節點建議選項） 執行**Windows 10 Creators Update**或**Windows Server 2016** *的最新的 updates\ * 所有*，安裝程式做為容器主機 （請參閱主題中， [Windows 10 上的 Windows 容器](https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-10)或[Windows Server 上的 Windows 容器](https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-server)的更詳細說明如何開始使用 Windows 10 上的 Docker 容器）。
+至少一個實體或虛擬電腦系統 （若要使用群集的完整功能至少兩個節點建議選項） 執行**Windows 10 Creators Update**或**Windows Server 2016** *的最新的 updates\ * 所有*，安裝程式做為容器主機 （請參閱主題中， [Windows 10 上的 Windows 容器](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10)或[Windows Server 上的 Windows 容器](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server)的更詳細說明如何開始使用 Windows 10 上的 Docker 容器）。
 
-\***注意**：Windows Server 2016 上的 Docker 群集需要 [KB4015217](https://support.microsoft.com/en-us/help/4015217/windows-10-update-kb4015217)
+\***注意**：Windows Server 2016 上的 Docker 群集需要 [KB4015217](https://support.microsoft.com/help/4015217/windows-10-update-kb4015217)
 
 **Docker 引擎 1.13.0 或更新版本**
 

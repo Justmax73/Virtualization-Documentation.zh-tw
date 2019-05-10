@@ -5,27 +5,27 @@ ms.author: gekudray
 ms.date: 02/09/2018
 ms.topic: get-started-article
 ms.prod: containers
-description: 您可以將 Windows 節點加入 v1.13 Kubernetes 叢集。
-keywords: kubernetes，1.13，windows，開始使用
+description: 您可以將 Windows 節點加入 v1.14 Kubernetes 叢集。
+keywords: kubernetes，1.14，windows，開始使用
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: 7c3a0111b3d19ae1b513a84665f870bba24ae33d
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: c380f5dc10430a94959718a5ce92f311603db733
+ms.sourcegitcommit: aaf115a9de929319cc893c29ba39654a96cf07e1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9576981"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "9622923"
 ---
 # <a name="kubernetes-on-windows"></a>Windows 上的 Kubernetes
 
-此頁面做為概略說明適用於開始使用 Windows 上的 Kubernetes 藉由將 Windows 節點加入 Linux 型叢集。 透過 Windows Server[版本 1809年](https://docs.microsoft.com/en-us/windows-server/get-started/whats-new-in-windows-server-1809#container-networking-with-kubernetes)上的 Kubernetes 1.14 發行，使用者可以利用下列功能在 Kubernetes 中在 Windows 上：
+此頁面做為概略說明適用於開始使用 Windows 上的 Kubernetes 藉由將 Windows 節點加入 Linux 型叢集。 透過 Windows Server[版本 1809年](https://docs.microsoft.com/windows-server/get-started/whats-new-in-windows-server-1809#container-networking-with-kubernetes)上的 Kubernetes 1.14 發行，使用者可以利用下列功能在 Kubernetes 中在 Windows 上：
 
 - **覆疊網路功能**： 使用 vxlan 模式中的 Flannel 設定虛擬覆疊網路
-    - 使用[KB4489899](https://support.microsoft.com/en-us/help/4489899)安裝或[Windows Server vNext Insider Preview](https://blogs.windows.com/windowsexperience/tag/windows-insider-program/)組建 18317 + 需要任一個 Windows Server 2019
+    - 使用[KB4489899](https://support.microsoft.com/help/4489899)安裝或[Windows Server vNext Insider Preview](https://blogs.windows.com/windowsexperience/tag/windows-insider-program/)組建 18317 + 需要任一個 Windows Server 2019
     - 需要 Kubernetes v1.14 （或更新版本） 搭配`WinOverlay`啟用功能閘道
     - 需要 Flannel v0.11.0 （或更新版本）
 - **簡化的網路管理**： 主機閘道模式中使用 Flannel 節點之間的路線自動管理。
-- **延展性改進**： 享受歸功於[Windows Server 容器的無裝置 vnic 與](https://blogs.technet.microsoft.com/networking/2018/04/27/network-start-up-and-performance-improvements-in-windows-10-spring-creators-update-and-windows-server-version-1803/)更快速且更可靠的容器啟動時間。
-- **HYPER-V 隔離 (alpha)**: 使用的增強式安全性的核心模式隔離協調[HYPER-V 隔離](https://kubernetes.io/docs/getting-started-guides/windows/#hyper-v-containers)。 如需詳細資訊， [Windows 容器類型](https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/#windows-container-types)。
+- **延展性改進**： 享受歸功於[Windows Server 容器的無裝置 vnic 與](https://techcommunity.microsoft.com/t5/Networking-Blog/Network-start-up-and-performance-improvements-in-Windows-10/ba-p/339716)更快速且更可靠的容器啟動時間。
+- **HYPER-V 隔離 (alpha)**: 使用的增強式安全性的核心模式隔離協調[HYPER-V 隔離](https://kubernetes.io/docs/getting-started-guides/windows/#hyper-v-containers)。 如需詳細資訊， [Windows 容器類型](https://docs.microsoft.com/virtualization/windowscontainers/about/#windows-container-types)。
     - 需要 Kubernetes v1.10 （或更新版本） 搭配`HyperVContainer`啟用功能閘道。
 - **儲存體外掛程式**： 適用於 Windows 容器使用 SMB 和 iSCSI 支援的[FlexVolume 儲存外掛程式](https://github.com/Microsoft/K8s-Storage-Plugins)。
 

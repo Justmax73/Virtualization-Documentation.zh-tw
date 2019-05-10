@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 1f8a691c-ca75-42da-8ad8-a35611ad70ec
-ms.openlocfilehash: 0c365b9351ee09c946e1711f3a3a5e82eb71c785
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: ea6fb4471cf337ff17bb1f936caea192bccaf404
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9577309"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9621155"
 ---
 # <a name="set-up-a-nat-network"></a>設定 NAT 網路
 
@@ -28,7 +28,7 @@ Windows 10 Hyper-V 可促成虛擬網路的原生網路位址轉譯 (NAT)。
 * Windows 10 年度更新版或以上版本
 * 已啟用 Hyper-V (指示在[這裡](../quick-start/enable-hyper-v.md))
 
-> **注意︰** 目前，每個主機只能建立一個 NAT 網路。 如需 Windows NAT (WinNAT) 實作、功能及限制的其他詳細資料，請參閱 [WinNAT 功能與限制部落格](https://blogs.technet.microsoft.com/virtualization/2016/05/25/windows-nat-winnat-capabilities-and-limitations/)
+> **注意︰** 目前，每個主機只能建立一個 NAT 網路。 如需 Windows NAT (WinNAT) 實作、功能及限制的其他詳細資料，請參閱 [WinNAT 功能與限制部落格](https://techcommunity.microsoft.com/t5/Virtualization/Windows-NAT-WinNAT-Capabilities-and-limitations/ba-p/382303)
 
 ## <a name="nat-overview"></a>NAT 概觀
 NAT 讓虛擬機器透過內部的 Hyper-V 虛擬交換器，使用主機電腦的 IP 位址和連接埠存取網路資源。
@@ -37,7 +37,7 @@ NAT 讓虛擬機器透過內部的 Hyper-V 虛擬交換器，使用主機電腦�
 
 此外，NAT 還可藉由將通訊連接埠與唯一外部連接埠對應，以讓多部虛擬機器裝載需要相同 (內部) 通訊連接埠的應用程式。
 
-由於所有這些理由，NAT 網路是非常普遍的容器技術 (請參閱[容器的網路功能](https://msdn.microsoft.com/en-us/virtualization/windowscontainers/management/container_networking))。
+由於所有這些理由，NAT 網路是非常普遍的容器技術 (請參閱[容器的網路功能](https://docs.microsoft.com/virtualization/windowscontainers/container-networking/architecture))。
 
 
 ## <a name="create-a-nat-virtual-network"></a>建立 NAT 虛擬網路

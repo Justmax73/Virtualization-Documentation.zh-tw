@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
-ms.openlocfilehash: 07f5929505226a50a161b4ae7df5669c2ad89d83
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: be6be81e995dce8ebd757c73793f474f4b0909bf
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9575519"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620736"
 ---
 # <a name="windows-containers-on-windows-10"></a>Windows 10 上的 Windows 容器
 
@@ -33,7 +33,7 @@ ms.locfileid: "9575519"
 ## <a name="prerequisites"></a>必要條件
 請確定您符合下列需求：
 - 執行 Windows 10 專業版或企業版使用年度更新版 （版本 1607年） 或更新版本的一個實體電腦系統。 
-- 請確定[HYPER-V](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/reference/hyper-v-requirements)已啟用。
+- 請確定[HYPER-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements)已啟用。
 
 ***HYPER-V 隔離：*** Windows Server 容器需要 Windows 10 上的 HYPER-V 隔離，才能為開發人員的相同核心版本和設定將用在生產環境中提供，更多關於 HYPER-V 隔離上可找到[關於 Windows 容器](../about/index.md)頁面。
 

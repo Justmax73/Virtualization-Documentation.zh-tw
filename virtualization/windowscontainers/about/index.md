@@ -1,15 +1,20 @@
 ---
 title: 關於 Windows 容器
 description: 深入了解 Windows 容器。
-keywords: 'docker, 容器'
+keywords: docker, 容器
 author: taylorb-microsoft
 ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8e273856-3620-4e58-9d1a-d1e06550448
+ms.openlocfilehash: bf503971ee8b4c0bbe6b9812b2f4965560ff466c
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620856"
 ---
-
 # <a name="containers-on-windows"></a>在 Windows 上的容器
 
 ## <a name="what-are-containers"></a>什麼是容器
@@ -51,7 +56,7 @@ ms.assetid: 8e273856-3620-4e58-9d1a-d1e06550448
 
 對於熟悉虛擬機器的人而言，可能會覺得容器極為相似。 容器可像實體或虛擬電腦系統一樣執行作業系統、具有檔案系統，並且可透過網路來存取。 即便如此，容器的基本技術和概念還是與虛擬機器非常不同。
 
-Microsoft Azure 專家 Mark Russinovich 寫過[一篇絕佳的部落格文章](https://azure.microsoft.com/en-us/blog/containers-docker-windows-and-trends/)就詳細說明了兩者的差異。
+Microsoft Azure 專家 Mark Russinovich 寫過[一篇絕佳的部落格文章](https://azure.microsoft.com/blog/containers-docker-windows-and-trends/)就詳細說明了兩者的差異。
 
 ## <a name="windows-container-types"></a>Windows 容器類型
 

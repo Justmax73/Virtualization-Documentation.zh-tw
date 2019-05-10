@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 426c87cc-fa50-4b8d-934e-0b653d7dea7d
-ms.openlocfilehash: ea91ea0ffca5479cb0593ef9961625f7b7ab1f42
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 8f1c1b96fe88f46a24b8ebb46d4f387c9717f6ba
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9577419"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620706"
 ---
 # <a name="try-pre-release-features-for-hyper-v"></a>嘗試 Hyper-V 的發行前版本功能
 
@@ -36,17 +36,17 @@ ms.locfileid: "9577419"
 
 1. 在 Windows 桌面上，按一下 \[開始\] 按鈕，然後輸入 **Windows PowerShell** 名稱的任何一部分。
 2. 以滑鼠右鍵按一下 **Windows PowerShell**，並選取 **\[以系統管理員身分執行\]**。
-3. 使用 [New-VM](https://technet.microsoft.com/library/hh848537.aspx) Cmdlet 來建立發行前版本虛擬機器的 -Prerelease 旗標。 例如，執行下列命令，其中 VM Name 是您想要建立的虛擬機器名稱。
+3. 使用 [New-VM](https://docs.microsoft.com/powershell/module/hyper-v/new-vm?view=win10-ps) Cmdlet 來建立發行前版本虛擬機器的 -Prerelease 旗標。 例如，執行下列命令，其中 VM Name 是您想要建立的虛擬機器名稱。
 
 ``` PowerShell
 New-VM -Name <VM Name> -Prerelease
 ```
 下列為可以使用 -Prerelease 旗標的其他範例：
- - 若要建立使用現有虛擬硬碟或新硬碟的虛擬機器，請參閱 [Create a virtual machine in Hyper-V on Windows Server 2016 Technical Preview](https://technet.microsoft.com/library/mt126140.aspx#BKMK_PowerShell) (在 Windows Server 2016 Technical Preview 的 Hyper-V 中建立虛擬機器) 的 PowerShell 範例。
- - 若要建立使用作業系統映像開機的新虛擬硬碟，請參閱[在 Windows 10 Hyper-V 中部署 Windows 虛擬機器](https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/quick_start/walkthrough_create_vm)的 PowerShell 範例。
+ - 若要建立使用現有虛擬硬碟或新硬碟的虛擬機器，請參閱 [Create a virtual machine in Hyper-V on Windows Server 2016 Technical Preview](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/Create-a-virtual-machine-in-Hyper-V#BKMK_PowerShell) (在 Windows Server 2016 Technical Preview 的 Hyper-V 中建立虛擬機器) 的 PowerShell 範例。
+ - 若要建立使用作業系統映像開機的新虛擬硬碟，請參閱[在 Windows 10 Hyper-V 中部署 Windows 虛擬機器](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/create-virtual-machine)的 PowerShell 範例。
 
  這些文件包含的範例適用於執行 Windows 10 或 Windows Server 2016 Technical Preview 的 Hyper-V 主機。 但目前，您僅可使用 -Prerelease 旗標在執行 Windows Server 2016 Technical Preview 的 Hyper-V 主機上建立發行前版本的虛擬機器。
 
 ## <a name="see-also"></a>請參閱
--  [Virtualization Blog](https://blogs.technet.microsoft.com/virtualization/) (虛擬化部落格) - 深入了解可用的發行前版本功能，以及如何試用。
-- [Supported virtual machine configuration versions](https://technet.microsoft.com/library/mt695898.aspx#BKMK_SupportedConfigVersions) (支援的虛擬機器設定版本) - 深入了解如何檢查虛擬機器設定版本，以及 Microsoft 支援哪些版本。
+-  [Virtualization Blog](https://techcommunity.microsoft.com/t5/Virtualization/bg-p/Virtualization) (虛擬化部落格) - 深入了解可用的發行前版本功能，以及如何試用。
+- [Supported virtual machine configuration versions](https://docs.microsoft.com/windows-server/virtualization/hyper-v/deploy/Upgrade-virtual-machine-version-in-Hyper-V-on-Windows-or-Windows-Server#BKMK_SupportedConfigVersions) (支援的虛擬機器設定版本) - 深入了解如何檢查虛擬機器設定版本，以及 Microsoft 支援哪些版本。

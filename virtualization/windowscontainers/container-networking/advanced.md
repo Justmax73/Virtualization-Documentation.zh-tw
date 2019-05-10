@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: 001f1abaeefaf34e12b0f7e3323bf32140080d05
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 97e5c598613c806e9f26687951999438fba72a8c
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9575079"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620876"
 ---
 # <a name="advanced-network-options-in-windows"></a>Windows 中的進階網路選項
 
@@ -23,7 +23,7 @@ ms.locfileid: "9575079"
 
 > 適用於所有網路驅動程式
 
-建立容器主機網路來供 Docker 使用時，您可以利用 [Switch Embedded Teaming (交換器內嵌小組)](https://technet.microsoft.com/en-us/windows-server-docs/networking/technologies/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming#a-namebkmksswitchembeddedaswitch-embedded-teaming-set)，以 `-o com.docker.network.windowsshim.interface` 選項來指定多個網路介面卡 (以逗號分隔)。
+建立容器主機網路來供 Docker 使用時，您可以利用 [Switch Embedded Teaming (交換器內嵌小組)](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming#a-namebkmksswitchembeddedaswitch-embedded-teaming-set)，以 `-o com.docker.network.windowsshim.interface` 選項來指定多個網路介面卡 (以逗號分隔)。
 
 ```
 C:\> docker network create -d transparent -o com.docker.network.windowsshim.interface="Ethernet 2", "Ethernet 3" TeamedNet
@@ -80,13 +80,13 @@ C:\> docker network create -d transparent -o com.docker.network.windowsshim.dnss
 
 ## <a name="vfp"></a>VFP
 
-如需詳細資訊，請參閱[這篇文章](https://www.microsoft.com/en-us/research/project/azure-virtual-filtering-platform/)。
+如需詳細資訊，請參閱[這篇文章](https://www.microsoft.com/research/project/azure-virtual-filtering-platform/)。
 
 ## <a name="tips--insights"></a>提示與深入解析
 以下是有用的提示與深入解析，靈感來自我們聽到社群對 Windows 容器網路的常見問題...
 
 #### <a name="hns-requires-that-ipv6-is-enabled-on-container-host-machines"></a>HNS 需要容器主機啟用 IPv6 
-HNS 是隸屬於 [KB4015217](https://support.microsoft.com/en-us/help/4015217/windows-10-update-kb4015217)，需要 Windows 容器主機啟用 IPv6。 如果您遇到像下面這種錯誤，很有可能是因為主機已停用 IPv6。
+HNS 是隸屬於 [KB4015217](https://support.microsoft.com/help/4015217/windows-10-update-kb4015217)，需要 Windows 容器主機啟用 IPv6。 如果您遇到像下面這種錯誤，很有可能是因為主機已停用 IPv6。
 ```
 docker: Error response from daemon: container e15d99c06e312302f4d23747f2dfda4b11b92d488e8c5b53ab5e4331fd80636d encountered an error during CreateContainer: failure in a Windows system call: Element not found.
 ```
@@ -99,7 +99,7 @@ C:\> reg delete HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Para
 
 #### <a name="linux-containers-on-windows"></a>Windows 上的 Linux 容器
 
-**新增：** 我們正致力於_在不使用 Moby Linux VM_的情形下，讓 Linux 及 Windows 容器可以並列方式執行。 如需詳細資訊，請參閱[關於 Windows 上的 Linux 容器 (LCOW) 的這篇部落格文章](https://blog.docker.com/2017/11/docker-for-windows-17-11/)。 以下是如何[開始使用](https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-10-linux)。
+**新增：** 我們正致力於_在不使用 Moby Linux VM_的情形下，讓 Linux 及 Windows 容器可以並列方式執行。 如需詳細資訊，請參閱[關於 Windows 上的 Linux 容器 (LCOW) 的這篇部落格文章](https://blog.docker.com/2017/11/docker-for-windows-17-11/)。 以下是如何[開始使用](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10-linux)。
 > 注意：LCOW 即將取代掉 Moby Linux VM，將會使用預設 HNS「nat」內部 vSwitch。
 
 #### <a name="moby-linux-vms-use-dockernat-switch-with-docker-for-windows-a-product-of-docker-cehttpswwwdockercomcommunity-edition"></a>Moby Linux VM 使用 DockerNAT 交換器來搭配 Docker for Windows ([Docker CE](https://www.docker.com/community-edition) 的產品)
@@ -163,7 +163,7 @@ C:\> docker run -it --network=MyTransparentNet --ip=10.123.174.105 windowsserver
 PS C:\> restart-service hns
 PS C:\> restart-service docker
 ```
-* 另一個選項是使用 '-o com.docker.network.windowsshim.interface' 選項將透明網路的外部 vSwitch 繫結至容器主機上尚未使用的特定網路介面卡 (亦即不是頻外建立的 vSwitch 所使用的網路介面卡)。 如需 '-o' 選項的詳細說明，請參閱本文件前面的[透明網路](https://msdn.microsoft.com/virtualization/windowscontainers/management/container_networking#transparent-network)一節。
+* 另一個選項是使用 '-o com.docker.network.windowsshim.interface' 選項將透明網路的外部 vSwitch 繫結至容器主機上尚未使用的特定網路介面卡 (亦即不是頻外建立的 vSwitch 所使用的網路介面卡)。 '-O ' 選項會進一步說明此文件的[建立多個透明網路，在單一容器主機上的](advanced.md#creating-multiple-transparent-networks-on-a-single-container-host)一節中。
 
 
 ## <a name="windows-server-2016-work-arounds"></a>Windows Server 2016 因應方式 

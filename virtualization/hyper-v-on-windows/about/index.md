@@ -7,12 +7,12 @@ ms.date: 06/25/2018
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: eb2b827c-4a6c-4327-9354-50d14fee7ed8
-ms.openlocfilehash: d71c5d2ae3c8ff78e36cc54686b10b1dc745e0c3
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 14e0f57ca0c952239847e493740048e14889e6d7
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9576349"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620716"
 ---
 # <a name="introduction-to-hyper-v-on-windows-10"></a>Windows 10 上的 Hyper-V 簡介
 
@@ -42,7 +42,7 @@ Hyper-V 專門提供硬體虛擬化。  這表示每個虛擬機器都是在虛�
 
 大部分電腦都能執行 Hyper-V，不過每個虛擬機器是完全不同的作業系統。  您通常可以在配備 4GB RAM 的電腦上，執行一或多個虛擬機器，但是您需要更多資源，才能執行額外的虛擬機器，或是安裝及執行耗用大量資源的軟體，例如遊戲、視訊編輯或工程設計軟體。
 
-如需 Hyper-V 系統需求以及如何驗證電腦上有執行 Hyper-V 的詳細資訊，請參閱 [Hyper-V 需求參考資料](..\reference\hyper-v-requirements.md)。
+如需 Hyper-V 系統需求以及如何驗證電腦上有執行 Hyper-V 的詳細資訊，請參閱 [Hyper-V 需求參考資料](../reference/hyper-v-requirements.md)。
 
 ## <a name="operating-systems-you-can-run-in-a-virtual-machine"></a>可在虛擬機器中執行的作業系統
 
@@ -50,7 +50,7 @@ Windows 上的 Hyper-V 可在虛擬機器中支援許多不同的作業系統，
 
 提醒您，您在 VM 中使用的任何作業系統，都必須是經過有效授權的。
 
-若要了解 Windows 上的 Hyper-V 中可支援哪些作業系統做為客體，請參閱[支援的 Windows 客體作業系統](supported-guest-os.md)和[支援的 Linux 客體作業系統](https://technet.microsoft.com/library/dn531030.aspx)。
+若要了解 Windows 上的 Hyper-V 中可支援哪些作業系統做為客體，請參閱[支援的 Windows 客體作業系統](supported-guest-os.md)和[支援的 Linux 客體作業系統](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows)。
 
 ## <a name="differences-between-hyper-v-on-windows-and-hyper-v-on-windows-server"></a>Windows 上的 Hyper-V 與 Windows Server 上的 Hyper-V 有何差異
 
@@ -79,4 +79,4 @@ Windows 上的 Hyper-V 有不同的記憶體管理模型。 在伺服器上管�
 
 ## <a name="next-step"></a>後續步驟
 
-[在 Windows 10 上安裝 Hyper-V](..\quick-start\enable-hyper-v.md)
+[在 Windows 10 上安裝 Hyper-V](../quick-start/enable-hyper-v.md)

@@ -7,12 +7,12 @@ ms.date: 04/07/2017
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: 1ef8f18c-3d76-4c06-87e4-11d8d4e31aea
-ms.openlocfilehash: 966ca3ff267e03e8c380391281c8dde723e4b1dd
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: f33f6deb977ff96da0b70a7e14bf4896af0307eb
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9575321"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620646"
 ---
 # <a name="make-your-own-integration-services"></a>製作您自己的整合服務
 
@@ -27,7 +27,7 @@ ms.locfileid: "9575321"
 **支援的客體 OS**
 * Windows 10 和更新版本
 * Windows Server 2016 和更新版本
-* 使用 Linux 整合服務的 Linux 客體 (請參閱 [Windows 上 Hyper-V 支援的 Linux 及 FreeBSD 虛擬機器](https://technet.microsoft.com/library/dn531030.aspx)，英文內容)
+* 使用 Linux 整合服務的 Linux 客體 (請參閱 [Windows 上 Hyper-V 支援的 Linux 及 FreeBSD 虛擬機器](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows)，英文內容)
 > **注意：** 支援的 Linux 客體必須對下列項目提供核心支援：
 > ```bash
 > CONFIG_VSOCKET=y
@@ -117,9 +117,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\G
 
 在大部分的基本案例中，定義通訊端都需要位址家族、連線類型和通訊協定。
 
-以下是簡單的[通訊端定義](
-https://msdn.microsoft.com/en-us/library/windows/desktop/ms740506(v=vs.85).aspx
-)
+以下是簡單的[通訊端定義](https://docs.microsoft.com/windows/desktop/api/winsock2/nf-winsock2-socket)
 
 ``` C
 // Windows
@@ -152,7 +150,7 @@ int sock = socket(AF_VSOCK, SOCK_STREAM, 0);
 
 繫結可建立通訊端與連線資訊的關聯。
 
-為了方便起見，功能定義複製如下，若想進一步了解繫結，請參閱[這裡](https://msdn.microsoft.com/en-us/library/windows/desktop/ms737550.aspx)。
+為了方便起見，功能定義複製如下，若想進一步了解繫結，請參閱[這裡](https://docs.microsoft.com/windows/desktop/api/winsock/nf-winsock-bind)。
 
 ``` C
 // Windows
@@ -202,7 +200,7 @@ AF_HYPERV 端點並不依賴 IP 或主機名稱，而是高度依賴兩個 GUID�
   ```PowerShell
   (Get-VM -Name $VMName).Id
   ```
-* 服務識別碼 – GUID，[如前所述](#RegisterANewApplication)，可供應用程式在 Hyper-V 主機登錄中進行註冊。
+* 服務識別碼 – GUID，[如前所述](#register-a-new-application)，可供應用程式在 Hyper-V 主機登錄中進行註冊。
 
 此外還有一組在連線到非特定虛擬機器時可使用的 VMID 萬用字元。
 
@@ -229,6 +227,6 @@ AF_HYPERV 端點並不依賴 IP 或主機名稱，而是高度依賴兩個 GUID�
 Socket() Bind() Connect() Send() Listen() Accept()
 
 ## <a name="useful-links"></a>實用的連結
-[完整 WinSock API](https://msdn.microsoft.com/en-us/library/windows/desktop/ms741394.aspx)
+[完整 WinSock API](https://docs.microsoft.com/windows/desktop/WinSock/winsock-functions)
 
 [Hyper-V 整合服務參考](../reference/integration-services.md)
