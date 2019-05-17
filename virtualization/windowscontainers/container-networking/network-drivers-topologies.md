@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: 358b58da0fc51c03766198e4b25b8b043b2a5029
-ms.sourcegitcommit: aaf115a9de929319cc893c29ba39654a96cf07e1
+ms.openlocfilehash: 40e877c8999574f21ecb9586c3f2bc012607177f
+ms.sourcegitcommit: 40b929dbc72aa308d8e46765ac61616a35b31791
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "9622903"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "9634387"
 ---
 # <a name="windows-container-network-drivers"></a>Windows 容器網路驅動程式  
 
@@ -22,8 +22,10 @@ ms.locfileid: "9622903"
 - **nat** – 如果容器連接到以 'nat' 驅動程式建立的網路，其將會連接到*內部* Hyper-V 交換器並從使用者指定的 (``--subnet``) IP 首碼收到 IP 位址。 支援從容器主機到容器端點的連接埠轉送/對應。
   
   >[!NOTE]
-  >如果您已安裝在 Windows 10 Creators Update，支援多個 NAT 網路。
+  > 在 Windows Server 2019 （或以上） 建立 NAT 網路不再會保存在重新開機之後。
 
+  > 如果您已安裝在 Windows 10 Creators Update （或以上） 支援多個 NAT 網路。
+  
 - **transparent** – 如果容器連接到以 'transparent' 驅動程式建立的網路，其將會透過*外部* Hyper-V 交換器直接連接到實體網路。 實體網路的 IP 可以透過外部 DHCP 伺服器，以靜態 (需要使用者指定的 ``--subnet`` 選項) 或動態方式指派。
   
   >[!NOTE]

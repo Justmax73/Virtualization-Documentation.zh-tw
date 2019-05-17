@@ -3,12 +3,12 @@ title: 在 Windows 上的容器中的裝置
 description: 支援何種裝置存在的 Windows 上的容器
 keywords: docker，容器，裝置硬體
 author: cwilhit
-ms.openlocfilehash: f32ba3de347bcf968088d2f3f20f22f82166d652
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: feff730ed21c439312cda65c7b5ccc1a6cf5ae86
+ms.sourcegitcommit: 2b456022ee666863ef53082580ac1d432de86939
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9621556"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "9657356"
 ---
 # <a name="devices-in-containers-on-windows"></a>在 Windows 上的容器中的裝置
 
@@ -75,7 +75,7 @@ docker run --isolation=process --device="class/{interface class GUID}" --device=
 </tr>
 <tr valign="top">
 <td><center>DirectX GPU 加速</center></td>
-<td><center>請參閱專用的文件</center></td>
+<td><center>請參閱<a href="https://docs.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/gpu-acceleration">GPU 加速</a>文件</center></td>
 </tr>
 </tbody>
 </table>
