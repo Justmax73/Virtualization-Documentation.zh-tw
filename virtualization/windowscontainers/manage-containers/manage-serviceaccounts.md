@@ -3,17 +3,17 @@ title: 群組受管理服務帳戶適用於 Windows 容器
 description: 群組受管理服務帳戶適用於 Windows 容器
 keywords: docker，容器，active directory gmsa
 author: rpsqrd
-ms.date: 05/03/2019
+ms.date: 05/23/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
-ms.openlocfilehash: d4a59f351cad36219e8289f9d58b55250c99fc6e
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: 8f184e58743bd41ab208b530976772c5fcffd189
+ms.sourcegitcommit: 8e7fba17c761bf8f80017ba7f9447f986a20a2a7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9620896"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "9677317"
 ---
 # <a name="group-managed-service-accounts-for-windows-containers"></a>群組受管理服務帳戶適用於 Windows 容器
 
@@ -456,6 +456,21 @@ EXEC sp_addrolemember 'db_datawriter', 'WebApplication1'
     ```
 
 3. 確認 credential 規格檔案的路徑是正確的協調流程解決方案。 如果您使用 Docker，務必包含容器執行命令`--security-opt="credentialspec=file://NAME.json"`，其中 「 NAME.json 」 已取代為名稱輸出由**Get CredentialSpec**。 名稱是一般檔案名稱，相對於在 Docker 根目錄 CredentialSpecs 資料夾。
+
+#### <a name="check-the-firewall-configuration"></a>檢查防火牆設定
+
+如果您在容器或主機網路上使用嚴格的防火牆原則，它可能會封鎖需要的連線到 Active Directory 網域控制站或 DNS 伺服器。
+
+| 通訊協定及連接埠 | 用途 |
+|-------------------|---------|
+| TCP 與 UDP 53 | DNS |
+| TCP 與 UDP 88 | Kerberos |
+| TCP 139 | NetLogon |
+| TCP 與 UDP 389 | LDAP |
+| TCP 636 | LDAP SSL |
+
+您可能需要允許存取其他連接埠，根據您的容器會傳送到網域控制站的流量的類型。
+如需使用 Active Directory 的連接埠的完整清單，請參閱[Active Directory 和 Active Directory 網域服務連接埠需求](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers)。
 
 #### <a name="check-the-container"></a>核取容器
 
