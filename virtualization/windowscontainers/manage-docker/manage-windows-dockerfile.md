@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 75fed138-9239-4da9-bce4-4f2e2ad469a1
-ms.openlocfilehash: 9ff6256ab9708533f72e9b3210f8a5fd32f4048a
-ms.sourcegitcommit: c48dcfe43f73b96e0ebd661164b6dd164c775bfa
+ms.openlocfilehash: c08fa4d0a89bddeddd0f0a918345c33a6e2ab893
+ms.sourcegitcommit: a7f9ab96be359afb37783bbff873713770b93758
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "9610268"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "9680988"
 ---
 # <a name="dockerfile-on-windows"></a>Windows 上的 Dockerfile
 
@@ -46,7 +46,7 @@ Dockerfile 在最基本的形式中可以極度簡易。 下列範例會建立�
 # Sample Dockerfile
 
 # Indicates that the windowsservercore image will be used as the base image.
-FROM microsoft/windowsservercore
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
 # Metadata indicating an image maintainer.
 LABEL maintainer="jshelton@contoso.com"
@@ -79,8 +79,9 @@ FROM <image>
 
 以下是從命令的範例：
 
-```dockerfile
-FROM microsoft/windowsservercore
+若要從 Microsoft 容器登錄 (MCR) 下載 ltsc2019 版本 windows server core:
+```
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 ```
 
 如需詳細資訊，請參閱的[FROM 參考](https://docs.docker.com/engine/reference/builder/#from)。
@@ -105,8 +106,8 @@ Exec 和 shell 形式之間的差異是如何在`RUN`指令的執行。 使用 E
 
 以下是 exec 形式的範例：
 
-```dockerfile
-FROM microsoft/windowsservercore
+```
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
 RUN ["powershell", "New-Item", "c:/test"]
 ```
@@ -122,8 +123,8 @@ b3452b13e472        2 minutes ago       powershell New-Item c:/test   30.76 MB
 
 作為對比，下列範例會執行相同的作業，在殼層表單中：
 
-```dockerfile
-FROM microsoft/windowsservercore
+```
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
 RUN powershell New-Item c:\test
 ```
@@ -335,8 +336,8 @@ CMD c:\Apache24\bin\httpd.exe -w
 
 下列範例顯示單一個 RUN 指示橫跨多行使用預設的逸出字元：
 
-```dockerfile
-FROM microsoft/windowsservercore
+```
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
 RUN powershell.exe -Command \
     $ErrorActionPreference = 'Stop'; \
@@ -353,7 +354,7 @@ RUN powershell.exe -Command \
 ```dockerfile
 # escape=`
 
-FROM microsoft/windowsservercore
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
 RUN powershell.exe -Command `
     $ErrorActionPreference = 'Stop'; `
@@ -370,8 +371,8 @@ RUN powershell.exe -Command `
 
 可使用 Dockerfile 中執行 PowerShell cmdlet`RUN`作業。
 
-```dockerfile
-FROM microsoft/windowsservercore
+```
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
 RUN powershell -command Expand-Archive -Path c:\apache.zip -DestinationPath c:\
 ```
@@ -380,8 +381,8 @@ RUN powershell -command Expand-Archive -Path c:\apache.zip -DestinationPath c:\
 
 PowerShell 的`Invoke-WebRequest`cmdlet 非常有用，從 web 服務收集資訊或檔案時。 例如，如果您要建置包含 Python 的影像，您可以設定`$ProgressPreference`到`SilentlyContinue`來達到更快速的下載項目，如下列範例所示。
 
-```dockerfile
-FROM microsoft/windowsservercore
+```
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
 RUN powershell.exe -Command \
   $ErrorActionPreference = 'Stop'; \
@@ -396,8 +397,8 @@ RUN powershell.exe -Command \
 
 您也可以選擇使用 .NET WebClient 程式庫，在映像建立程序期間使用 PowerShell 下載檔案。 這樣會增進下載效能。 下列範例會使用 WebClient 媒體櫃下載 Python 軟體。
 
-```dockerfile
-FROM microsoft/windowsservercore
+```
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
 RUN powershell.exe -Command \
   $ErrorActionPreference = 'Stop'; \
@@ -418,8 +419,8 @@ RUN powershell.exe -Command \
 
 此範例使用 `ADD` 指令，從組建電腦中將指令碼複製到容器中。 接著使用 RUN 指令來執行此指令碼。
 
-```dockerfile
-FROM microsoft/windowsservercore
+```
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 ADD script.ps1 /windows/temp/script.ps1
 RUN powershell.exe -executionpolicy bypass c:\windows\temp\script.ps1
 ```
@@ -446,7 +447,7 @@ docker build -t iis .
 C:\> docker build -t iis .
 
 Sending build context to Docker daemon 2.048 kB
-Step 1 : FROM micrsoft/windowsservercore
+Step 1 : FROM mcr.microsoft.com/windows/servercore:ltsc2019
  ---> 6801d964fda5
 
 Step 2 : RUN dism /online /enable-feature /all /featurename:iis-webserver /NoRestart

@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 1ecb85a6-d938-4c30-a29b-d18bd007ba08
-ms.openlocfilehash: 2771989b7745605fb3ce4f95e162ae8b03180b0f
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: 2f1c6a124ba4f2f9d199d3cc5bb38c9082f72b3d
+ms.sourcegitcommit: a7f9ab96be359afb37783bbff873713770b93758
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9621576"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "9681138"
 ---
 # <a name="configure-nested-vms-to-communicate-with-resources-in-an-azure-virtual-network"></a>設定 Azure 的虛擬網路中的資源與通訊的巢狀虛擬機器
 
@@ -120,7 +120,7 @@ ms.locfileid: "9621576"
 ## <a name="configuring-remote-access"></a>設定遠端存取
 
 1. 開啟伺服器管理員 \] 並選取 「 工具 」，然後選取 「 路由及遠端存取 」。
-2. 路由及遠端存取管理面板的右邊上您會看到與您的伺服器名稱旁邊的圖示，以滑鼠右鍵按一下這並選取 「 設定和啟用路由及遠端存取 」。
+2. 路由及遠端存取管理面板左側上您會看到與您的伺服器名稱旁邊的圖示，以滑鼠右鍵按一下這並選取 「 設定和啟用路由及遠端存取 」。
 3. 在精靈選取 [下一步 」、 「 自訂組態 」，檢查有放射狀按鈕，然後選取 「 下一步 」。
 4. 檢查 「 NAT 」 和 「 LAN 路由 」，然後選取 「 下一步 」，並再 」 完成 」。 如果它會要求您啟動服務，然後執行這項操作。
 5. 現在瀏覽至 「 IPv4 」 節點，然後展開位置，讓 「 NAT 」 節點會立即提供。

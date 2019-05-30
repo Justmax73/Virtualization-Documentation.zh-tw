@@ -3,12 +3,12 @@ title: Windows Server 容器儲存體
 description: Windows Server 容器如何使用主機和其他儲存體類型
 keywords: 容器, 磁碟區, 儲存體, 裝載, 繫結裝載
 author: patricklang
-ms.openlocfilehash: 87b9c364bfdec2b445bb06caf0e9fd4d849119d4
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: 20179f09260b6ae5de802c2372958356f8de3aee
+ms.sourcegitcommit: a7f9ab96be359afb37783bbff873713770b93758
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9620866"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "9680938"
 ---
 # <a name="overview"></a>概觀
 
@@ -135,3 +135,6 @@ Docker 有如何[使用磁碟區](https://docs.docker.com/engine/admin/volumes/v
 3. 在容器中將一些檔案寫入至 c:\data，然後停止容器
 4. `docker run -v unwound:c:\data microsoft/windowsservercore` - 啟動新容器
 5. 在新容器中執行 `dir c:\data` - 檔案仍在那裡
+
+> [!NOTE]
+> Windows Server 會將目標路徑名稱 （在容器的路徑） 轉換成小寫;右移 e `-v unwound:c:\MyData`，或`-v unwound:/app/MyData`中的 Linux 容器，會造成的容器內的目錄中`c:\mydata`，或`/app/mydata`中的 Linux 容器，正在對應 （和建立，如果不存在）。

@@ -7,12 +7,12 @@ ms.date: 09/26/2016
 ms.topic: deployment-article
 ms.prod: windows-containers
 ms.assetid: 3c3d4c69-503d-40e8-973b-ecc4e1f523ed
-ms.openlocfilehash: 19943e45df7847e83010ca31c01c6cb5b18d41cf
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: d3df0631a8a61db16ad207f49163a7304c5db717
+ms.sourcegitcommit: a7f9ab96be359afb37783bbff873713770b93758
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9621496"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "9681048"
 ---
 # <a name="windows-container-requirements"></a>Windows 容器需求
 
@@ -21,21 +21,72 @@ ms.locfileid: "9621496"
 ## <a name="os-requirements"></a>作業系統需求
 
 - Windows 容器功能是僅適用於 Windows Server 2016 (Core 和含桌面體驗)，Windows 10 專業版和企業版 (Anniversary Edition) 及更新版本。
+<<<<<<< HEAD
 - 必須安裝 HYPER-V 角色，才能執行 HYPER-V 隔離
 - Windows Server 容器主機必須將 Windows 安裝至 c:\。 如果只會部署 HYPER-V 隔離容器，這項限制不適用。
+=======
+- 必須安裝 HYPER-V 角色，才能執行中使用 HYPER-V 隔離的容器。
+- Windows Server 容器主機必須將 Windows 安裝至 c:\。 如果只會部署 Hyper-V 容器，則沒有這項限制。
+>>>>>>> 原點/主機
 
 ## <a name="virtualized-container-hosts"></a>虛擬化的容器主機
 
-如果 Windows 容器主機將會從 HYPER-V 虛擬機器，執行，而且也會主控 HYPER-V 隔離，必須先啟用巢狀虛擬化。 巢狀的虛擬化的需求如下：
+<<<<<<< HEAD 如果 Windows 容器主機將會執行從 HYPER-V 虛擬機器，而且也會主控 HYPER-V 隔離，巢狀虛擬化必須先啟用。 巢狀虛擬化具有下列需求: === 如果 Windows 容器主機將會從 HYPER-V 虛擬機器，執行，而且也會主控 HYPER-V 隔離的容器，必須先啟用巢狀虛擬化。 巢狀的虛擬化的需求如下：
+>>>>>>> 原點/主機
 
 - 至少有 4 GB RAM 可供虛擬化的 HYPER-V 主機使用。
 - Windows Server 2019，Windows Server 版本 1803 起，Windows Server 版本 1709 開始，Windows Server 2016 或 Windows 10，在主機系統和 Windows Server （完整版、 核心版） 的虛擬機器中。
 - Intel VT-x 的處理器 (這項功能目前只適用於 Intel 處理器)。
+<<<<<<< HEAD
 - 容器主機 VM 也需要至少兩個虛擬處理器。
 
 ## <a name="supported-base-images"></a>支援的基本映像
 
+<a name="windows-containers-are-offered-with-four-container-base-images-windows-server-core-nano-server-windows-and-iot-core-not-all-configurations-support-both-os-images-this-table-details-the-supported-configurations"></a>Windows 容器隨附四個容器基本映像： Windows Server Core、 Nano Server、 Windows 與 IoT 核心版。 並非所有的設定都支援這兩種作業系統映像。 此表詳加說明所支援的設定。
+=======
+- 容器主機 VM 也將會需要至少 2 部虛擬處理器。
+
+## <a name="supported-base-images"></a>支援的基本映像
+
 Windows 容器隨附四個容器基本映像： Windows Server Core、 Nano Server、 Windows 與 IoT 核心版。 並非所有的設定都支援這兩種作業系統映像。 此表詳加說明所支援的設定。
+
+<table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:75%" cellpadding="5" cellspacing="5">
+<thead>
+<tr valign="top">
+<th><center>主機作業系統</center></th>
+<th><center>Windows Server 容器</center></th>
+<th><center>Hyper-V 隔離</center></th>
+</tr>
+</thead>
+<tbody>
+<tr valign="top">
+<td><center>Windows Server 2016 / 2019 （Standard 或 Datacenter）</center></td>
+<td><center>Server Core，Nano Server Windows</center></td>
+<td><center>Server Core，Nano Server Windows</center></td>
+</tr>
+<tr valign="top">
+<td><center>Nano Server<a href="#warn-1">*</a></center></td>
+<td><center> Nano Server</center></td>
+<td><center>Server Core，Nano Server Windows</center></td>
+</tr>
+<tr valign="top">
+<td><center>Windows 10 專業版 / 企業版</center></td>
+<td><center>Windows<a href="#warn-2">**</a></center></td>
+<td><center>Server Core，Nano Server Windows</center></td>
+</tr>
+<tr valign="top">
+<td><center>IoT 核心版</center></td>
+<td><center>IoT 核心版</center></td>
+<td><center>無法使用</center></td>
+</tr>
+</tbody>
+</table>
+
+> [!Warning]  
+> <span id="warn-1">* 開始使用 Windows Server 版本 1709 Nano Server 是無法再當做容器主機。</span>
+
+> <span id="warn-2">* * 需要 Windows 10 年 10 月 2018 年更新和您直接要求的處理序隔離藉由使用`--isolation=process`旗標時執行您的容器，透過`docker run`。</span>
+>>>>>>> 原點/主機
 
 |主機作業系統|Windows 容器|Hyper-V 隔離|
 |---------------------|-----------------|-----------------|
