@@ -9,7 +9,7 @@ HYPER-V 會在所有版本在受支援 HYPER-V 的 Windows Server 上實作 VSS 
 
 若要了解這個架構更好 – 請參閱此簡報：https://channel9.msdn.com/Events/TechEd/Europe/2014/CDP-B318 
 
-還有有關如何使用這些 Api 可用以下的範例：https://msconfiggallery.cloudapp.net/packages/xHyper-VBackup
+還有有關如何使用這些 Api 可用以下的範例：https://www.powershellgallery.com/packages/xHyper-VBackup
 ## <a name="methods-for-reading-backups-from-wmi-based-backup"></a>從 WMI 基礎的備份讀取備份方法
 建立虛擬機器備份使用 HYPER-V WMI 時，有三種方法來從備份讀取的實際的資料。  每一個都有唯一的優點和缺點。
 ### <a name="wmi-export"></a>WMI 匯出

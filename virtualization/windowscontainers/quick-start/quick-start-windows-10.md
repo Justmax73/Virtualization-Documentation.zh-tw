@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
-ms.openlocfilehash: be6be81e995dce8ebd757c73793f474f4b0909bf
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: ae311ecccdfbfc30b1079330a8eb02c1ce3ac94b
+ms.sourcegitcommit: a7f9ab96be359afb37783bbff873713770b93758
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9620736"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "9680968"
 ---
 # <a name="windows-containers-on-windows-10"></a>Windows 10 上的 Windows 容器
 
@@ -25,7 +25,7 @@ ms.locfileid: "9620736"
 
 本快速入門中，您將會完成：
 
-1. 安裝 Docker for Windows
+1. 安裝 Docker 桌面
 2. 執行簡單的 Windows 容器
 
 此快速入門專用於 Windows 10。 在此頁面左側的目錄中，就可以找到其他的快速入門文件。
@@ -40,13 +40,13 @@ ms.locfileid: "9620736"
 > [!NOTE]
 > 在 Windows 10 月更新 2018年版本中，我們不會再不允許使用者從在處理序隔離模式中執行 Windows 容器在 Windows 10 企業版或專業版上的開發人員/測試用途。 請參閱以了解更多[常見問題集](../about/faq.md)。
 
-## <a name="install-docker-for-windows"></a>安裝 Docker for Windows
+## <a name="install-docker-desktop"></a>安裝 Docker 桌面
 
-下載[Docker for Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows) ，並執行安裝程式 （您將需要登入。 建立帳戶如果沒有已經）。 如需[詳細的安裝指示](https://docs.docker.com/docker-for-windows/install)，請參閱 Docker 文件。
+下載[Docker 桌面](https://store.docker.com/editions/community/docker-ce-desktop-windows)並執行安裝程式 （您將需要登入。 建立帳戶如果沒有已經）。 如需[詳細的安裝指示](https://docs.docker.com/docker-for-windows/install)，請參閱 Docker 文件。
 
 ## <a name="switch-to-windows-containers"></a>切換到 Windows 容器
 
-安裝完成後，Docker for Windows 預設會執行 Linux 容器。 切換到 Windows 容器，請使用 Docker 系統匣功能表，或是在 PowerShell 中執行下列命令提示中：
+安裝完成後，Docker 桌面預設執行 Linux 容器。 切換到 Windows 容器，請使用 Docker 系統匣功能表，或是在 PowerShell 中執行下列命令提示中：
 
 ```console
 & $Env:ProgramFiles\Docker\Docker\DockerCli.exe -SwitchDaemon .

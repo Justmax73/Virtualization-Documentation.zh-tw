@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8e273856-3620-4e58-9d1a-d1e06550448
-ms.openlocfilehash: 80514884b4c95657f63cf585ece6aa8c8b23cc44
-ms.sourcegitcommit: daf1d2b5879c382404fc4d59f1c35c88650e20f7
+ms.openlocfilehash: fc50938d87aa49c3c57bf3b1172e69a6125ed96a
+ms.sourcegitcommit: a7f9ab96be359afb37783bbff873713770b93758
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "9674723"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "9680948"
 ---
 # <a name="about-windows-containers"></a>關於 Windows 容器
 
@@ -25,17 +25,44 @@ ms.locfileid: "9674723"
 
 ![由兩個堆疊的黑色方塊的 apartment 建置。 這些方塊的四個為廚房範例中使用的相同黃色方塊，並且的隨機地方建置，而其餘部分有任一多色的生活房間或空白，並且反灰。](media/apartment.png)
 
-為什麼要停止那里嗎？ 您可以自訂您的建置任何您喜歡; 的方式使用許多種類的房間填滿、 填滿有相同的房間，或有兩個混合。
+<<<<<<< 為何 HEAD 那里停止？ 您可以自訂您的建置任何您喜歡; 的方式使用許多種類的房間填滿、 填滿有相同的房間，或有兩個混合。
+=======
+![](media/box1.png)
+>>>>>>> 原點/主機
 
 此房間像的容器是透過執行應用程式的方式，我們會在我們廚房 cook 作用。 容器會讓應用程式，且所有項目該應用程式需要執行它自己的隔離方塊。 如此一來，隔離的應用程式並不知道應用程式或其容器外存在的處理程序。 因為容器有所有項目來執行應用程式需求，容器可以移動任何地方，其主機佈建新的使用僅資源，而不會觸及其他容器的佈建的任何資源。
 
-下列影片會告訴您更多關於 Windows 容器可以做什麼，以及如何與 Docker 的 Microsoft 的合作關係可協助建立無障礙的開放原始碼容器開發環境：
+<<<<<<< HEAD 下列影片會告訴您更多關於 Windows 容器可以做什麼，以及如何與 Docker 的 Microsoft 的合作關係可協助建立無障礙的開放原始碼容器開發環境: ===
+![](media/apartment.png)
+>>>>>>> 原點/主機
 
 <iframe width="800" height="450" src="https://www.youtube.com/embed/Ryx3o0rD5lY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## <a name="container-fundamentals"></a>容器的基礎
 
-讓我們了解一些您會發現有用當您開始搭配使用 Windows 容器的條款：
+<<<<<<< HEAD 讓我們了解一些字詞您會發現有用當您開始搭配使用 Windows 容器: ===
+## <a name="container-fundamentals"></a>容器的基礎
+
+容器是一種隔離、由資源控制的可攜式執行階段環境，而且這種環境會在主機電腦或虛擬機器上執行。 在容器中執行的應用程式或處理序會與所有必要的相依性和組態檔封裝在一起，使其產生出容器外部沒有其他執行中的處理序這種錯覺。
+
+容器的主機會為容器佈建一組資源，而且容器只會使用這些資源。 知容器，以外什麼它具有沒有其他資源存在，因此容器無法接觸可能已經佈建給鄰近容器的資源。
+
+在您開始建立及使用 Windows 容器時，下列主要概念將有所幫助。
+
+**容器主機：** 設定了 Windows 容器功能的實體或虛擬電腦系統。 容器主機將會執行一或多個 Windows 容器。
+
+**容器映像：** 對容器檔案系統或登錄進行修改時 (例如進行軟體安裝時)，會在沙箱中加以擷取。 在許多情況下您都可能會想擷取此狀態，以建立繼承這些變更的新容器。 這就是映像 – 在容器停止後，您可以捨棄該沙箱，或將它轉換成新的容器映像。 例如，我們假設您已從 Windows Server Core OS 映像部署容器。 然後，您將 MySQL 安裝到此容器中。 從這個容器建立新的映像，效果會等同於可部署的容器版本。 此映像只會包含所做的變更 (MySQL)，不過其運作會像是在容器 OS 映像之上的層級。
+
+**沙箱：** 容器啟動後，所有的寫入動作，例如檔案系統修改、登錄修改或軟體安裝，都會擷取至此「沙箱」層中。
+
+**容器 OS 映像：** 容器會從映像進行部署。 在可能構成容器的眾多映像層中，容器 OS 映像是第一層。 此映像提供作業系統環境。 容器 OS 映像不可變更。 也就是說，無法修改。
+
+**容器存放庫：** 每當容器映像建立時，容器映像和其相依性即會儲存在本機存放庫中。 這些映像可在容器主機上重複使用多次。 容器映像也可以儲存在公用或私人登錄中 (例如 DockerHub)，以便在許多不同的容器主機之間使用。
+
+![](media/containerfund.png)
+
+對於熟悉虛擬機器的人而言，可能會覺得容器極為相似。 容器可像實體或虛擬電腦系統一樣執行作業系統、具有檔案系統，並且可透過網路來存取。 即便如此，容器的基本技術和概念還是與虛擬機器非常不同。
+>>>>>>> 原點/主機
 
 - 容器主機： 設定 Windows 容器功能的實體或虛擬電腦系統。 容器主機將會執行一或多個 Windows 容器。
 - 沙箱： 會擷取所有變更的層您對容器執行 （例如檔案系統修改、 登錄修改或軟體安裝） 時。
@@ -59,7 +86,11 @@ HYPER-V 隔離擴充 Windows Server 容器高度最佳化的虛擬機器中執�
 
 使用或不使用 HYPER-V 隔離在 Windows 上執行容器是執行階段決策。 您可以一開始建立使用 HYPER-V 隔離的容器，然後稍後在執行階段選擇改為執行 Windows Server 容器。
 
+<<<<<<< HEAD
 ## <a name="container-users"></a>容器的使用者
+=======
+![](media/docker.png)
+>>>>>>> 原點/主機
 
 ### <a name="containers-for-developers"></a>適用於開發人員的容器
 

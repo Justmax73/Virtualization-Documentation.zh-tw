@@ -7,16 +7,16 @@ ms.date: 04/07/2017
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: 1ef8f18c-3d76-4c06-87e4-11d8d4e31aea
-ms.openlocfilehash: f33f6deb977ff96da0b70a7e14bf4896af0307eb
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: b0bbca7bcb4c8c05c50ca68965637a6162a0ab85
+ms.sourcegitcommit: a7f9ab96be359afb37783bbff873713770b93758
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9620646"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "9680998"
 ---
 # <a name="make-your-own-integration-services"></a>製作您自己的整合服務
 
-從 Windows 10 年度更新版開始，任何人都可以讓在 Hyper-V 主機之間通訊，並使用虛擬電腦的應用程式使用 Hyper-V 通訊端 -- 此通訊端為使用新位址家族，且具備以虛擬電腦為目標之特殊端點的 Windows 通訊端。  所有透過 Hyper-V 通訊端的通訊，都不使用網路功能，且所有的資料會留在相同的實體記憶體上。   使用 Hyper-V 通訊端的應用程式，類似於 Hyper-V 的整合服務。
+從 Windows 10 年度更新版開始，任何人都可以讓在 Hyper-V 主機之間通訊，並使用虛擬電腦的應用程式使用 Hyper-V 通訊端 -- 此通訊端為使用新位址家族，且具備以虛擬電腦為目標之特殊端點的 Windows 通訊端。  所有透過 Hyper-V 通訊端的通訊，都不使用網路功能，且所有的資料會留在相同的實體記憶體上。 使用 Hyper-V 通訊端的應用程式，類似於 Hyper-V 的整合服務。
 
 本文件會逐步介紹如何用 Hyper-V 通訊端為基礎來建立簡單的程式。
 
@@ -48,7 +48,7 @@ ms.locfileid: "9620646"
 * [Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk) -- 已預先安裝於 Visual Studio 2015 內，並包含 Update 3 及以上版本。
 * 搭配至少一個虛擬電腦來執行其中一個上述主機作業系統的電腦。 -- 這是用以測試您的應用程式。
 
-> **注意︰** Hyper-V 通訊端的 API 會在稍後於 Windows 10 中公開可用。  使用 HVSocket 的應用程式將在任何 Widnows 10 主機和客體上執行，但僅限使用 Windows SDK 組建 14290 之後的版本進行開發。
+> **注意：** HYPER-V 通訊端的 API 來在 Windows 10 年度更新版中公開可用。 使用 HVSocket 的應用程式會在任何 Windows 10 主機和客體上執行，但只會使用 Windows SDK 組建 14290。
 
 ## <a name="register-a-new-application"></a>註冊新的應用程式
 若要使用 Hyper-V 通訊端，必須在 Hyper-V 主機的登錄中註冊應用程式。

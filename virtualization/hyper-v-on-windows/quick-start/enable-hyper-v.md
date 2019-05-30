@@ -7,17 +7,17 @@ ms.date: 02/15/2019
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: 752dc760-a33c-41bb-902c-3bb2ecd9ac86
-ms.openlocfilehash: a710f8d60f9d82be7fe02b950a9782b94f3ae6e4
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: e1b6b55b2e17ac4f0883078748d75f6d4b9fcafa
+ms.sourcegitcommit: 3c06d6b5cebeacc4c0185dca5c20680ad67655bd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9620726"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "9681899"
 ---
 # <a name="install-hyper-v-on-windows-10"></a>在 Windows 10 上安裝 Hyper-V
 
 在 Windows 10 上啟用 Hyper-V，以建立虛擬機器。  
-啟用 Hyper-V 的方法有很多種，包括使用 Windows 10 控制台、PowerShell (我最愛的方式)，或是使用部署映像服務與管理工具 (DISM)。 本文件會逐步解說每一種選項。
+在許多方面，包括使用 Windows 10 控制台、 PowerShell，或是使用部署映像服務與管理工具 (DISM)，可以啟用 HYPER-V。 本文件會逐步解說每一種選項。
 
 > **注意︰** Hyper-V 是 Windows 內建的選用功能，並未提供 Hyper-V 下載。
 
