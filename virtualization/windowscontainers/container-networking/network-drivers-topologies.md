@@ -8,16 +8,16 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: 40e877c8999574f21ecb9586c3f2bc012607177f
-ms.sourcegitcommit: 40b929dbc72aa308d8e46765ac61616a35b31791
+ms.openlocfilehash: f044cf6f9d0457dd4cc9b444dcbeebc97f22f17b
+ms.sourcegitcommit: bea2c90f31a38fc7fda356619f0dd812f79d008f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "9634387"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "9685285"
 ---
 # <a name="windows-container-network-drivers"></a>Windows 容器網路驅動程式  
 
-使用者除了可以在 Windows 上運用 Docker 建立的預設 'nat' 網路，也可以定義自訂容器網路。 使用者可以使用 Docker CLI [`docker network create -d <NETWORK DRIVER TYPE> <NAME>`](https://docs.docker.com/engine/reference/commandline/network_create/) 命令來建立使用者定義的網路。 在 Windows 上，可使用下列網路驅動程式類型：
+使用者除了可以在 Windows 上運用 Docker 建立的預設 'nat' 網路，也可以定義自訂容器網路。 可以使用 Docker CLI 建立使用者定義的網路[`docker network create -d <NETWORK DRIVER TYPE> <NAME>`](https://docs.docker.com/engine/reference/commandline/network_create/)命令。 在 Windows 上，可使用下列網路驅動程式類型：
 
 - **nat** – 如果容器連接到以 'nat' 驅動程式建立的網路，其將會連接到*內部* Hyper-V 交換器並從使用者指定的 (``--subnet``) IP 首碼收到 IP 位址。 支援從容器主機到容器端點的連接埠轉送/對應。
   

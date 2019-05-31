@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb2848ca-683e-4361-a750-0d1d14ec8031
-ms.openlocfilehash: d897560061fae23fda6f88ebdad6dd804da9a8f1
-ms.sourcegitcommit: c48dcfe43f73b96e0ebd661164b6dd164c775bfa
+ms.openlocfilehash: 871884c04b4165da4a5ab8af65bcda252672efbc
+ms.sourcegitcommit: bea2c90f31a38fc7fda356619f0dd812f79d008f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "9610338"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "9685275"
 ---
 # <a name="optimize-windows-dockerfiles"></a>將 Windows Dockerfiles 最佳化
 
@@ -230,7 +230,7 @@ afba1a3def0a        38 seconds ago       cmd /S /C mkdir test-4   42.46 MB
 6801d964fda5        5 months ago                                  0 B
 ```
 
-這個下一步 Dockerfile 現在已經過稍微修改，與第三個`RUN`指令已變更為新的檔案。 當 Docker 建置針對此 Dockerfile 執行時，前三項指令 (和上個範例中的指令完全相同) 會使用快取映像層。 不過，因為已變更`RUN`指令不快取，變更的指令和所有後續的指示建立新的層供。
+這個下一步 Dockerfile 現在已經過稍微修改，與第三個`RUN`指令已變更為新的檔案。 當 Docker 建置針對此 Dockerfile 執行時，前三項指令 (和上個範例中的指令完全相同) 會使用快取映像層。 不過，因為已變更`RUN`指令不快取，建立新的層供已變更的指令與所有後續指令。
 
 ```dockerfile
 FROM windowsservercore
