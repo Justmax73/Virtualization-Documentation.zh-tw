@@ -3,12 +3,12 @@ title: Windows 容器版本相容性
 description: Windows 要如何跨多個版本執行組建及執行容器
 keywords: 中繼資料, 容器, 版本
 author: taylorb-microsoft
-ms.openlocfilehash: 23258d9181bb3c89cc59de3ba534cc6643c170f4
-ms.sourcegitcommit: a7f9ab96be359afb37783bbff873713770b93758
+ms.openlocfilehash: 4d01fb1d11ee9e8a5fa4271699a5a7c59c27409d
+ms.sourcegitcommit: 71e46750813a996cecc445181974a79b95affc8c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "9681008"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "9685343"
 ---
 # <a name="windows-container-version-compatibility"></a>Windows 容器版本相容性
 
@@ -18,34 +18,51 @@ Windows Server 2016 和 Windows 10 年度更新版 （這兩個版本 14393） �
 
 |容器 OS 版本|主機 OS 版本|相容性|
 |---|---|---|
-|WindowsServer 2016<br>組建：14393.* |WindowsServer 2016<br>組建：14393.* |支援`process`或`hyperv`隔離|
-|WindowsServer 2016<br>組建：14393.* |Windows Server 版本 1709<br>組建：16299.* |僅支援`hyperv`隔離|
+|Windows Server 2019 版本 1903<br>組建 18362.* |Windows Server 版本 1903<br>組建 18362.* |支援`process`或`hyperv`隔離|
+|Windows Server 2019 版本 1903<br>組建 18362.* |Windows 10，版本 1903<br>組建 18362.* |僅支援`hyperv`隔離|
+|Windows Server 2019 版本 1903<br>組建 18362.* |Windows 10 版本 1809<br>組建 17763.* |不支援|
+|Windows Server 2019 版本 1903<br>組建 18362.* |Windows Server 2019<br>組建 17763.* |不支援|
+|Windows Server 2019 版本 1903<br>組建 18362.* |Windows10 (版本 1803)<br>組建 17134.* |不支援|
+|Windows Server 2019 版本 1903<br>組建 18362.* |Windows Server 版本 1803<br>組建 17134.* |不支援|
+|Windows Server 2019 版本 1903<br>組建 18362.* |Windows 10 Fall Creators Update<br>組建：16299.* |不支援|
+|Windows Server 2019 版本 1903<br>組建 18362.* |Windows Server 版本 1709<br>組建：16299.* |不支援|
+|Windows Server 2019 版本 1903<br>組建 18362.* |WindowsServer 2016<br>組建：14393.* |不支援|
+|Windows Server 2019<br>組建 17763.* |Windows Server 版本 1903<br>組建 18362.* |僅支援`hyperv`隔離|
+|Windows Server 2019<br>組建 17763.* |Windows 10，版本 1903<br>組建 18362.* |僅支援`hyperv`隔離|
+|Windows Server 2019<br>組建 17763.* |Windows 10 版本 1809<br>組建 17763.* |僅支援`hyperv`隔離|
+|Windows Server 2019<br>組建 17763.* |Windows Server 2019<br>組建 17763.* |支援`process`或`hyperv`隔離|
+|Windows Server 2019<br>組建 17763.* |Windows10 (版本 1803)<br>組建 17134.* |不支援|
+|Windows Server 2019<br>組建 17763.* |Windows Server 版本 1803<br>組建 17134.* |不支援|
+|Windows Server 2019<br>組建 17763.* |Windows 10 Fall Creators Update<br>組建：16299.* |不支援|
+|Windows Server 2019<br>組建 17763.* |Windows Server 版本 1709<br>組建：16299.* |不支援|
+|Windows Server 2019<br>組建 17763.* |WindowsServer 2016<br>組建：14393.* |不支援|
+|Windows Server 版本 1803<br>組建 17134.* |Windows Server 版本 1903<br>組建 18362.* |僅支援`hyperv`隔離|
+|Windows Server 版本 1803<br>組建 17134.* |Windows 10，版本 1903<br>組建 18362.* |僅支援`hyperv`隔離|
+|Windows Server 版本 1803<br>組建 17134.* |Windows 10 版本 1809<br>組建 17763.* |僅支援`hyperv`隔離|
+|Windows Server 版本 1803<br>組建 17134.* |Windows Server 2019<br>組建 17763.* |僅支援`hyperv`隔離|
+|Windows Server 版本 1803<br>組建 17134.* |Windows10 (版本 1803)<br>組建 17134.* |僅支援`hyperv`隔離|
+|Windows Server 版本 1803<br>組建 17134.* |Windows Server 版本 1803<br>組建 17134.* |支援`process`或`hyperv`隔離|
+|Windows Server 版本 1803<br>組建 17134.* |Windows 10 Fall Creators Update<br>組建：16299.* |不支援|
+|Windows Server 版本 1803<br>組建 17134.* |Windows Server 版本 1709<br>組建：16299.* |不支援|
+|Windows Server 版本 1803<br>組建 17134.* |WindowsServer 2016<br>組建：14393.* |不支援|
+|Windows Server 版本 1709<br>組建：16299.* |Windows Server 版本 1903<br>組建 18362.* |僅支援`hyperv`隔離|
+|Windows Server 版本 1709<br>組建：16299.* |Windows 10，版本 1903<br>組建 18362.* |僅支援`hyperv`隔離|
+|Windows Server 版本 1709<br>組建：16299.* |Windows 10 版本 1809<br>組建 17763.* |僅支援`hyperv`隔離|
+|Windows Server 版本 1709<br>組建：16299.* |Windows Server 2019<br>組建 17763.* |僅支援`hyperv`隔離|
+|Windows Server 版本 1709<br>組建：16299.* |Windows10 (版本 1803)<br>組建 17134.* |僅支援`hyperv`隔離|
+|Windows Server 版本 1709<br>組建：16299.* |Windows Server 版本 1803<br>組建 17134.* |僅支援`hyperv`隔離|
+|Windows Server 版本 1709<br>組建：16299.* |Windows 10 Fall Creators Update<br>組建：16299.* |僅支援`hyperv`隔離|
+|Windows Server 版本 1709<br>組建：16299.* |Windows Server 版本 1709<br>組建：16299.* |支援`process`或`hyperv`隔離|
+|Windows Server 版本 1709<br>組建：16299.* |WindowsServer 2016<br>組建：14393.* |不支援|
+|WindowsServer 2016<br>組建：14393.* |Windows Server 版本 1903<br>組建 18362.* |僅支援`hyperv`隔離|
+|WindowsServer 2016<br>組建：14393.* |Windows 10，版本 1903<br>組建 18362.* |僅支援`hyperv`隔離|
+|WindowsServer 2016<br>組建：14393.* |Windows 10 版本 1809<br>組建 17763.* |僅支援`hyperv`隔離|
+|WindowsServer 2016<br>組建：14393.* |Windows Server 2019<br>組建 17763.* |僅支援`hyperv`隔離|
 |WindowsServer 2016<br>組建：14393.* |Windows 10 Fall Creators Update<br>組建：16299.* |僅支援`hyperv`隔離|
 |WindowsServer 2016<br>組建：14393.* |Windows Server 版本 1803<br>組建 17134.* |僅支援`hyperv`隔離|
 |WindowsServer 2016<br>組建：14393.* |Windows10 (版本 1803)<br>組建 17134.* |僅支援`hyperv`隔離|
-|WindowsServer 2016<br>組建：14393.* |Windows Server 2019<br>組建 17763.* |僅支援`hyperv`隔離|
-|WindowsServer 2016<br>組建：14393.* |Windows 10 版本 1809<br>組建 17763.* |僅支援`hyperv`隔離|
-|Windows Server 版本 1709<br>組建：16299.* |WindowsServer 2016<br>組建：14393.* |不支援|
-|Windows Server 版本 1709<br>組建：16299.* |Windows Server 版本 1709<br>組建：16299.* |支援`process`或`hyperv`隔離|
-|Windows Server 版本 1709<br>組建：16299.* |Windows 10 Fall Creators Update<br>組建：16299.* |僅支援`hyperv`隔離|
-|Windows Server 版本 1709<br>組建：16299.* |Windows Server 版本 1803<br>組建 17134.* |僅支援`hyperv`隔離|
-|Windows Server 版本 1709<br>組建：16299.* |Windows10 (版本 1803)<br>組建 17134.* |僅支援`hyperv`隔離|
-|Windows Server 版本 1709<br>組建：16299.* |Windows Server 2019<br>組建 17763.* |僅支援`hyperv`隔離|
-|Windows Server 版本 1709<br>組建：16299.* |Windows 10 版本 1809<br>組建 17763.* |僅支援`hyperv`隔離|
-|Windows Server 版本 1803<br>組建 17134.* |WindowsServer 2016<br>組建：14393.* |不支援|
-|Windows Server 版本 1803<br>組建 17134.* |Windows Server 版本 1709<br>組建：16299.* |不支援|
-|Windows Server 版本 1803<br>組建 17134.* |Windows 10 Fall Creators Update<br>組建：16299.* |不支援|
-|Windows Server 版本 1803<br>組建 17134.* |Windows Server 版本 1803<br>組建 17134.* |支援`process`或`hyperv`隔離|
-|Windows Server 版本 1803<br>組建 17134.* |Windows10 (版本 1803)<br>組建 17134.* |僅支援`hyperv`隔離|
-|Windows Server 版本 1803<br>組建 17134.* |Windows Server 2019<br>組建 17763.* |僅支援`hyperv`隔離|
-|Windows Server 版本 1803<br>組建 17134.* |Windows 10 版本 1809<br>組建 17763.* |僅支援`hyperv`隔離|
-|Windows Server 2019<br>組建 17763.* |WindowsServer 2016<br>組建：14393.* |不支援|
-|Windows Server 2019<br>組建 17763.* |Windows Server 版本 1709<br>組建：16299.* |不支援
-|Windows Server 2019<br>組建 17763.* |Windows 10 Fall Creators Update<br>組建：16299.* |不支援|
-|Windows Server 2019<br>組建 17763.* |Windows Server 版本 1803<br>組建 17134.* |不支援|
-|Windows Server 2019<br>組建 17763.* |Windows10 (版本 1803)<br>組建 17134.* |不支援|
-|Windows Server 2019<br>組建 17763.* |Windows Server 2019<br>組建 17763.* |支援`process`或`hyperv`隔離|
-|Windows Server 2019<br>組建 17763.* |Windows 10 版本 1809<br>組建 17763.* |僅支援`hyperv`隔離|
+|WindowsServer 2016<br>組建：14393.* |Windows Server 版本 1709<br>組建：16299.* |僅支援`hyperv`隔離|
+|WindowsServer 2016<br>組建：14393.* |WindowsServer 2016<br>組建：14393.* |支援`process`或`hyperv`隔離|
 
 ## <a name="matching-container-host-version-with-container-image-versions"></a>使容器主機版本與容器映像版本相符
 
@@ -122,14 +139,10 @@ docker: Error response from daemon: container b81ed896222eb87906ccab1c3dd2fc4932
 
 ## <a name="choose-which-container-os-version-to-use"></a>選擇要使用的容器 OS 版本
 
-<<<<<<< HEAD
 >[!NOTE]
 >截至 2019 年 4 月 16 日，"latest"標記不再是發佈，或針對[Windows 基本 OS 容器映像](https://hub.docker.com/_/microsoft-windows-base-os-images)的維護。 請宣告特定的標記時提取或從這些存放庫參考映像。
 
-<a name="you-must-know-which-version-you-need-to-use-for-your-container-for-example-if-you-want-windows-server-version-1809-as-your-container-os-and-want-to-have-the-latest-patches-for-it-you-should-use-the-tag-1809-when-specifying-which-version-of-the-base-os-container-images-you-want-like-so"></a>您必須知道您需要適用於您的容器使用哪一個版本。 例如，如果您想為您的容器 OS 的 Windows Server 版本 1809年，並想要為其有最新的修補程式，您應該使用標記`1809`時指定您要哪一個版本的基本 OS 容器映像，像這樣：
-=======
-請務必知道您的用途需要哪一個容器 OS 版本。 如果您使用 Windows Server (版本 1709)，而且想擁有這個版本的最新修補程式，當您在指定您所要的基本 OS 容器映像版本時，應該使用標記 "1709"，就像這樣：
->>>>>>> 原點/主機
+您必須知道您需要適用於您的容器使用哪一個版本。 例如，如果您想為您的容器 OS 的 Windows Server 版本 1809年，並想要為其有最新的修補程式，您應該使用標記`1809`時指定您要哪一個版本的基本 OS 容器映像，像這樣：
 
 ``` dockerfile
 FROM mcr.microsoft.com/windows/nanoserver:1809
