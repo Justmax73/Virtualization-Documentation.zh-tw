@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
-ms.openlocfilehash: 91031f9394cb3fcb1af6c4813f8805ad6f79bf8c
-ms.sourcegitcommit: a7f9ab96be359afb37783bbff873713770b93758
+ms.openlocfilehash: 926e5cd64053b5ea795bb2c75a231700aed443ca
+ms.sourcegitcommit: f6457ee0635864e8e8bb07da43a6f76388ee3cd1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "9681098"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "9734652"
 ---
 # <a name="linux-containers-on-windows-10"></a>Windows 10 上的 Linux 容器
 
@@ -32,15 +32,11 @@ ms.locfileid: "9681098"
 
 ## <a name="prerequisites"></a>必要條件
 
-請確定您符合下列需求： <<<<<<< HEAD
-- 一部執行 Windows 10 專業版或企業版使用秋季版 Creators Update （版本 1709年） 或更新版本的實體電腦系統
-- 請確定[HYPER-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements)已啟用。
-=======
+請確定您符合下列需求：
 - 一部執行 Windows 10 專業版、 Windows 10 企業版或 Windows Server 2019 版本 1809年或更新版本的實體電腦系統
-- 請確定[HYPER-V](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/reference/hyper-v-requirements)已啟用。
->>>>>>> 原點/主機
+- 請確定[HYPER-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements)已啟用。
 
-***HYPER-V 隔離：*** 在 Windows 上的 Linux 容器需要 Windows 10 上的 HYPER-V 隔離，才能為開發人員提供適當的 Linux 核心，來執行容器。 更多關於 HYPER-V 隔離上可找到[關於 Windows 容器](../about/index.md)頁面。
+***HYPER-V 隔離：*** 在 Windows 上的 Linux 容器需要 Windows 10 上的 HYPER-V 隔離，才能為開發人員來執行容器適當的 Linux 核心提供。 更多關於 HYPER-V 隔離上可找到[關於 Windows 容器](../about/index.md)頁面。
 
 ## <a name="install-docker-desktop"></a>安裝 Docker 桌面
 
