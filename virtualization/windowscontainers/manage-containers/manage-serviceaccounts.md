@@ -3,17 +3,17 @@ title: 群組受管理服務帳戶適用於 Windows 容器
 description: 群組受管理服務帳戶適用於 Windows 容器
 keywords: docker，容器，active directory gmsa
 author: rpsqrd
-ms.date: 05/23/2019
+ms.date: 06/12/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
-ms.openlocfilehash: 8f184e58743bd41ab208b530976772c5fcffd189
-ms.sourcegitcommit: 8e7fba17c761bf8f80017ba7f9447f986a20a2a7
+ms.openlocfilehash: 77eadf9c1f842ab679b23813cbdd305c2f2de7e9
+ms.sourcegitcommit: a5ee3e35eb272c77dd61f5e5384aab26a26fab76
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "9677317"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "9770233"
 ---
 # <a name="group-managed-service-accounts-for-windows-containers"></a>群組受管理服務帳戶適用於 Windows 容器
 
@@ -187,7 +187,7 @@ Docker 預期 Docker 資料目錄中尋找**CredentialSpecs**目錄下的認證�
 如果您裝載您的容器中的 IIS 網站，您需要利用 gmsa 身分執行所有會設定您的應用程式集區身分識別為**網路服務**。 您可以在您 Dockerfile 中執行，藉由新增下列命令：
 
 ```dockerfile
-RUN (Get-IISAppPool DefaultAppPool).ProcessModel.IdentityType = "NetworkService"
+RUN %windir%\system32\inetsrv\appcmd.exe set AppPool DefaultAppPool -processModel.identityType:NetworkService
 ```
 
 如果您先前使用靜態的使用者認證，為您的 IIS 應用程式集區，請考慮 gMSA，做為用來取代那些認證。 您可以變更開發人員、 測試及生產環境之間 gMSA，而不需要變更的容器映像目前的身分識別將會自動選取 IIS。
