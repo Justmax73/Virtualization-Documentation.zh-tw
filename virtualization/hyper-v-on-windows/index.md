@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 05269ce0-a54f-4ad8-af75-2ecf5142b866
-ms.openlocfilehash: 18a2d6e58127aba456b279d217794ab5469b06d7
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: daecf2701972a00f4587b409c2271a23a70684ab
+ms.sourcegitcommit: 66f6cba600432f8fac1c214f357b27eb783cb1ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9620686"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "9794585"
 ---
 # <a name="hyper-v-on-windows-10"></a>Windows 10 上的 Hyper-V 
 
@@ -21,40 +21,22 @@ ms.locfileid: "9620686"
 
 下列文件詳細說明 Windows 10 中的 Hyper-V 功能，提供快速入門引導，而且包含進一步的資源和社群論壇的連結。 
 
-<table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:100%" cellpadding="15" cellspacing="3">
-    <tr valign="top">
-        <td><center>![](./media/MeetsRequirements_65.png)</center></td>
-        <td valign="top">
-            <p><strong>關於 Windows 上的 Hyper-V</strong></p>
-            <p>下列文件提供 Windows 上 Hyper-V 的簡介和相關資訊。</p>
-            <ul>
-                <li class="unordered">[Hyper-V 簡介](./about/index.md)<br /><br /></li>
-                <li class="unordered">[支援的客體作業系統](about\supported-guest-os.md)<br /><br /></li>
-            </ul>   
-        </td>
-    </tr>
-    <tr valign="top">
-        <td><center>![](./media/All_ContentTypeIcons_VisualWalkthrough_65.png)</center></td>
-        <td valign="top">
-            <p><strong>開始使用 Hyper-V</strong></p>
-            <p>下列文件提供 Windows 10 Hyper-V 的快速引導介紹。</p>
-            <ul>
-                <li class="unordered">[安裝 Hyper-V](quick-start\enable-hyper-v.md)<br /><br /></li>
-                <li class="unordered">[建立虛擬機器](quick-start\create-virtual-machine.md)<br /><br /></li>
-                <li class="unordered">[建立虛擬交換器](quick-start\connect-to-network.md)<br /><br /></li>
-                <li class="unordered">[Hyper-V 和 PowerShell](quick-start\try-hyper-v-powershell.md)<br /><br /></li>
-            </ul>
-        </td>
-    </tr>
-    <tr valign="top">
-        <td><center>![](./media/Chat_65.png)</center></td>
-        <td valign="top">
-            <p><strong>聯繫社群和支援</strong></p>
-            <p>其他技術支援和社群資源。</p>
-            <ul>
-                <li class="unordered">[Hyper-V 論壇](https://social.technet.microsoft.com/Forums/windowsserver/home?forum=winserverhyperv)<br /><br /></li>
-                <li class="unordered">[Hyper-V 與 Windows 容器的社群資源](/virtualization/community/index.md)<br /><br /></li>
-            </ul>   
-        </td>
-    </tr>
-</table>
+## <a name="about-hyper-v-on-windows"></a>關於 Windows 上的 Hyper-V
+下列文件提供 Windows 上 Hyper-V 的簡介和相關資訊。
+
+* [Hyper-V 簡介](./about/index.md)
+* [支援的客體作業系統](about\supported-guest-os.md)
+
+## <a name="get-started-with-hyper-v"></a>開始使用 Hyper-V
+下列文件提供 Windows 10 Hyper-V 的快速引導介紹。
+
+* [安裝 Hyper-V](quick-start\enable-hyper-v.md)
+* [建立虛擬機器](quick-start\create-virtual-machine.md)
+* [建立虛擬交換器](quick-start\connect-to-network.md)
+* [Hyper-V 和 PowerShell](quick-start\try-hyper-v-powershell.md)
+
+## <a name="connect-with-community-and-support"></a>聯繫社群和支援
+其他技術支援和社群資源。
+
+* [Hyper-V 論壇](https://social.technet.microsoft.com/Forums/windowsserver/home?forum=winserverhyperv)
+* [Hyper-V 與 Windows 容器的社群資源](/virtualization/community/index.md)
