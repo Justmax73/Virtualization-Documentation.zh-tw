@@ -8,12 +8,12 @@ ms.date: 06/17/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.openlocfilehash: c26f4b225287fbc25566e36376eb8cd604d45a68
-ms.sourcegitcommit: 9cd1aa792a417e71192c7aa39e409ae6ca0bc710
+ms.openlocfilehash: d3a8240dbba8af3c74ce5d185620e129d103ef81
+ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "9788545"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "9883181"
 ---
 # <a name="base-image-servicing-lifecycles"></a>基本影像服務週期
 
@@ -35,4 +35,4 @@ Windows 容器基礎映射是以半年通道版本或長期服務通道版本 (W
 |Server Core                      |長期        |1607   |14393   |10/15/2016  |2022 年 1 月 11 日                 |01/11/2027           |
 |Nano 伺服器                      |半年      |1607   |14393   |10/15/2016  |10/09/2018                 |無                  |
 
-如需服務需求及其他其他資訊, 請參閱 [Windows 週期常見問題](https://support.microsoft.com/help/18581/lifecycle-faq-windows-products)、 [windows Server 發行資訊](https://docs.microsoft.com/en-us/windows-server/get-started/windows-server-release-info), 以及[windows 基本 OS 影像 Docker 中樞存放庫](https://hub.docker.com/_/microsoft-windows-base-os-images)。
+如需服務需求及其他其他資訊, 請參閱 [Windows 週期常見問題](https://support.microsoft.com/help/18581/lifecycle-faq-windows-products)、 [windows Server 發行資訊](https://docs.microsoft.com/windows-server/get-started/windows-server-release-info), 以及[windows 基本 OS 影像 Docker 中樞存放庫](https://hub.docker.com/_/microsoft-windows-base-os-images)。

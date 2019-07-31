@@ -1,52 +1,49 @@
 ---
-title: 在 Windows 容器中的 GPU 加速
-description: GPU 加速的程度存在於 Windows 容器
-keywords: docker，容器，裝置硬體
+title: Windows 容器中的 GPU 加速
+description: Windows 容器中存在的 GPU 加速度層級
+keywords: docker、容器、裝置、硬體
 author: cwilhit
-ms.openlocfilehash: 066f97b859b133a03e24df5db95cafe405ea3110
-ms.sourcegitcommit: 2b456022ee666863ef53082580ac1d432de86939
+ms.openlocfilehash: 6e5010efee10f9b488cbeb57b14bc86f30c1e766
+ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "9657366"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "9883271"
 ---
-# <a name="gpu-acceleration-in-windows-containers"></a>在 Windows 容器中的 GPU 加速
+# <a name="gpu-acceleration-in-windows-containers"></a>Windows 容器中的 GPU 加速
 
-對於許多容器化工作負載，CPU 計算資源提供足夠的效能。 不過，某些類別的工作負載，Gpu （圖形處理單元） 所提供的大型平行運算電源可以加快作業大幅度，停機成本，以及區域性改進輸送量。
+針對許多容器化的工作, CPU 計算資源提供足夠的效能。 不過, 針對特定的工作負荷類別, Gpu (圖形處理單元) 所提供的整體平行計算能力可以利用數量級來加速作業, 增加成本並提升輸送量。
 
-Gpu 已為許多常見的工作負載，從傳統的轉譯與機器學習訓練和推斷來模擬的常見工具。 Windows 容器支援 DirectX 和為基礎所建置它的所有架構的 GPU 加速。
-
-> [!IMPORTANT]
-> 此功能需要的支援的 Docker 版本`--device`適用於 Windows 容器的命令列選項。 這項支援目前僅提供的中`Docker Desktop for Windows Edge`發行。 您可以下載 Docker edge 發行[以下](https://docs.docker.com/docker-for-windows/edge-release-notes/)。
+Gpu 已是許多常見工作負載的常見工具, 從傳統轉譯和模擬到機器學習訓練與推斷。 Windows 容器支援 DirectX 的 GPU 加速度, 以及所有以它為基礎的框架。
 
 ## <a name="requirements"></a>需求
 
-此功能才能運作，您的環境必須符合下列需求：
+若要使用此功能, 您的環境必須符合下列需求:
 
-- 容器主機必須執行 Windows Server 2019 或 Windows 10 版本 1809年或更新版本。
-- 容器基本映像必須是[mcr.microsoft.com/windows:1809](https://hub.docker.com/_/microsoft-windowsfamily-windows)或更新版本。 目前不支援 Windows Server Core 與 Nano Server 容器映像。
-- 19.03 或更新版本，容器主機必須執行 Docker 引擎。
-- 容器主機必須有的 GPU 執行顯示器驅動程式版本 WDDM 2.5 或更新版本。
+- 容器主機必須執行 Windows Server 2019 或 Windows 10 (版本1809或更新版本)。
+- 容器基本影像必須是[mcr.microsoft.com/windows:1809](https://hub.docker.com/_/microsoft-windowsfamily-windows)或更新版本。 目前不支援 Windows Server Core 和 Nano Server 容器影像。
+- 容器主機必須執行 Docker 引擎19.03 或更新版本。
+- 容器主機必須有一個 GPU 執行顯示驅動程式版本 WDDM 2.5 或更新版本。
 
-若要檢查您的顯示器驅動程式的 WDDM 版本，請在您的容器主機上執行 DirectX 診斷工具 (dxdiag.exe)。 在此工具的 「 顯示 」 索引標籤中，查看 「 驅動程式 」 區段如下所示。
+若要檢查您的顯示驅動程式的 WDDM 版本, 請在您的容器主機上執行 DirectX 診斷工具 (dxdiag)。 在工具的 [顯示] 索引標籤中, 查看如下所示的「驅動程式」一節。
 
 ![Dxdiag](media/dxdiag.png)
 
-## <a name="run-a-container-with-gpu-acceleration"></a>搭配 GPU 加速執行容器
+## <a name="run-a-container-with-gpu-acceleration"></a>使用 GPU 加速執行容器
 
-若要啟動容器搭配 GPU 加速，執行下列命令：
+若要使用 GPU 加速啟動容器, 請執行下列命令:
 
 ```shell
 docker run --isolation process --device class/5B45201D-F2F2-4F3B-85BB-30FF1F953599 mcr.microsoft.com/windows:1809
 ```
 
 > [!IMPORTANT]
-> DirectX （和所有架構為基礎所建置它） 是現今的唯一 Api 可以加速 GPU 與。 不支援第 3 個廠商架構。
+> DirectX (以及所有以它為基礎的框架) 是唯一可以利用 GPU 來加速的 Api。 不支援協力廠商架構。
 
-## <a name="hyper-v-isolated-windows-container-support"></a>超 V 隔離 Windows 容器支援
+## <a name="hyper-v-isolated-windows-container-support"></a>Hyper-v-隔離的 Windows 容器支援
 
-現今不支援 GPU 加速為超 V 隔離 Windows 容器的工作負載。
+目前不支援在 Hyper-v 中針對工作負載進行 GPU 加速-隔離的 Windows 容器。
 
-## <a name="hyper-v-isolated-linux-container-support"></a>超 V 隔離的 Linux 容器支援
+## <a name="hyper-v-isolated-linux-container-support"></a>Hyper-v-隔離的 Linux 容器支援
 
-現今不支援 GPU 加速為超 V 隔離的 Linux 容器的工作負載。
+Hyper-v 中工作負荷的 GPU 加速功能目前不支援在 Hyper-v 內隔離的 Linux 容器。

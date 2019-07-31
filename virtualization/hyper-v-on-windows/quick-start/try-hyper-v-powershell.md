@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 6d1ae036-0841-4ba5-b7e0-733aad31e9a7
-ms.openlocfilehash: f2df1496b798646b590c9cd3eaf101aef24b507d
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: d53bdce3438c6dafe3a1e0350c7a5df30ff8210b
+ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9620656"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "9883121"
 ---
 # <a name="working-with-hyper-v-and-windows-powershell"></a>使用 Hyper-V 與 Windows PowerShell
 
@@ -21,8 +21,8 @@ ms.locfileid: "9620656"
 
 ### <a name="return-a-list-of-hyper-v-commands"></a>傳回 Hyper-V 命令清單
 
-1.  按一下 Windows 開始按鈕，輸入 **PowerShell**。
-2.  執行下列命令，以顯示搜尋到的 Hyper-V PowerShell 模組可用 PowerShell 命令清單。
+1. 按一下 Windows 開始按鈕，輸入 **PowerShell**。
+2. 執行下列命令，以顯示搜尋到的 Hyper-V PowerShell 模組可用 PowerShell 命令清單。
 
  ```powershell
 Get-Command -Module hyper-v | Out-GridView

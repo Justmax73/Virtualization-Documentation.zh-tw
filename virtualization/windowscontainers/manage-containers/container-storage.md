@@ -3,12 +3,12 @@ title: Windows Server 容器儲存體
 description: Windows Server 容器如何使用主機和其他儲存體類型
 keywords: 容器, 磁碟區, 儲存體, 裝載, 繫結裝載
 author: patricklang
-ms.openlocfilehash: 20179f09260b6ae5de802c2372958356f8de3aee
-ms.sourcegitcommit: a7f9ab96be359afb37783bbff873713770b93758
+ms.openlocfilehash: bddfb3a3510a6af674be73349a7e422434c1e0f4
+ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "9680938"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "9882971"
 ---
 # <a name="overview"></a>概觀
 
@@ -40,7 +40,7 @@ ms.locfileid: "9680938"
 執行中的容器可使用除交易外的大部分 NTFS 作業， 包括設定 ACL，而且所有 ACL 都是在容器內檢查。 如果您想要在容器中以多個使用者執行處理序，您可以在 `Dockerfile` 中使用 `RUN net user /create ...` 建立使用者，設定檔案 ACL，然後使用 [Dockerfile USER 指示詞](https://docs.docker.com/engine/reference/builder/#user)，設定處理序以該使用者執行。
 
 
-##  <a name="image-size"></a>映像大小
+## <a name="image-size"></a>映像大小
 Windows 應用程式的通用模式是先查詢可用磁碟空間量，再安裝或建立新的檔案，或做為清除暫存檔案的觸發程序。  以最大化應用程式相容性為目標，Windows 容器中的 C: 磁碟機代表 20GB 的虛擬可用大小。  某些使用者可能會想要覆寫此預設值，將可用空間設定為較小或較大的值，這可以透過 “storage-opt” 組態中的 “size” 選項完成。
 
 ### <a name="examples"></a>範例
@@ -101,12 +101,12 @@ Docker 有如何[使用磁碟區](https://docs.docker.com/engine/admin/volumes/v
 
 ##### <a name="configuration-steps"></a>設定步驟
 
-1. 容器主機上，全域對應遠端 SMB 共用：
+1. 在容器主機上, 全域對應遠端 SMB 共用:
     ```
     $creds = Get-Credential
     New-SmbGlobalMapping -RemotePath \\contosofileserver\share1 -Credential $creds -LocalPath G:
     ```
-    此命令將會使用認證，向遠端 SMB 伺服器。 然後，將遠端共用路徑對應至 G: 磁碟機代號 (可以是任何其他可用的磁碟機代號)。 在此容器主機上建立的容器，現在可以將其讓資料磁碟區對應至 G: 磁碟機上的路徑。
+    這個命令會使用認證來透過遠端 SMB 伺服器進行驗證。 然後，將遠端共用路徑對應至 G: 磁碟機代號 (可以是任何其他可用的磁碟機代號)。 在此容器主機上建立的容器，現在可以將其讓資料磁碟區對應至 G: 磁碟機上的路徑。
 
     > 注意：對容器使用 SMB 全域對應時，容器主機上的所有使用者都可以存取遠端共用。 容器主機上執行的任何應用程式也都可以存取對應的遠端共用。
 
@@ -137,4 +137,4 @@ Docker 有如何[使用磁碟區](https://docs.docker.com/engine/admin/volumes/v
 5. 在新容器中執行 `dir c:\data` - 檔案仍在那裡
 
 > [!NOTE]
-> Windows Server 會將目標路徑名稱 （在容器的路徑） 轉換成小寫;右移 e `-v unwound:c:\MyData`，或`-v unwound:/app/MyData`中的 Linux 容器，會造成的容器內的目錄中`c:\mydata`，或`/app/mydata`中的 Linux 容器，正在對應 （和建立，如果不存在）。
+> Windows Server 會將目標路徑名 (容器內的路徑) 轉換成小寫;`-v unwound:c:\MyData`i. `-v unwound:/app/MyData`或在 linux 容器中, 會導致在已映射 (且已建立, 如果不`c:\mydata`存在) `/app/mydata`的容器或 linux 容器內的目錄。

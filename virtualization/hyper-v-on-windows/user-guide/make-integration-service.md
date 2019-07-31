@@ -7,12 +7,12 @@ ms.date: 04/07/2017
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: 1ef8f18c-3d76-4c06-87e4-11d8d4e31aea
-ms.openlocfilehash: b0bbca7bcb4c8c05c50ca68965637a6162a0ab85
-ms.sourcegitcommit: a7f9ab96be359afb37783bbff873713770b93758
+ms.openlocfilehash: 89a36ee87bce1da18852f0ebff248e239165eb7d
+ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "9680998"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "9883011"
 ---
 # <a name="make-your-own-integration-services"></a>製作您自己的整合服務
 
@@ -48,7 +48,7 @@ ms.locfileid: "9680998"
 * [Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk) -- 已預先安裝於 Visual Studio 2015 內，並包含 Update 3 及以上版本。
 * 搭配至少一個虛擬電腦來執行其中一個上述主機作業系統的電腦。 -- 這是用以測試您的應用程式。
 
-> **注意：** HYPER-V 通訊端的 API 來在 Windows 10 年度更新版中公開可用。 使用 HVSocket 的應用程式會在任何 Windows 10 主機和客體上執行，但只會使用 Windows SDK 組建 14290。
+> **注意:** 在 Windows 10 年度更新版中, Hyper-v 通訊端 API 已公開提供。 使用 HVSocket 的應用程式將會在任何 Windows 10 主機和來賓上執行, 但您只能在 Windows SDK 中使用組建14290來開發。
 
 ## <a name="register-a-new-application"></a>註冊新的應用程式
 若要使用 Hyper-V 通訊端，必須在 Hyper-V 主機的登錄中註冊應用程式。
@@ -91,9 +91,9 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\G
 ```
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\GuestCommunicationServices\
     999E53D4-3D5C-4C3E-8779-BED06EC056E1\
-        ElementName REG_SZ  VM Session Service
+        ElementName    REG_SZ    VM Session Service
     YourGUID\
-        ElementName REG_SZ  Your Service Friendly Name
+        ElementName    REG_SZ    Your Service Friendly Name
 ```
 
 > **注意：** Linux 客體的服務 GUID 使用 VSOCK 通訊協定，透過 `svm_cid` 和 `svm_port` (而非 guid) 定址。 為了彌補與 Windows 之間的這種不一致情形，使用知名的 GUID 做為主機上的服務範本，這會在客體中轉譯為連接埠。 若要自訂您的服務 GUID，只需將第一個「00000000」變更為所需的連接埠號碼。 例如：「00000ac9」是連接埠 2761。

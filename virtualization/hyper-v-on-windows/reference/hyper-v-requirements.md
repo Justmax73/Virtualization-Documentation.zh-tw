@@ -8,16 +8,16 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 6e5e6b01-7a9d-4123-8cc7-f986e10cd372
-ms.openlocfilehash: ba0a0a83d74aa6ae73dabddf4057eebc98700f66
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: d4e3f7c1e94d0162ae9ee6251d9c6d8cc51bf1d3
+ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9576069"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "9883071"
 ---
 # <a name="windows-10-hyper-v-system-requirements"></a>Windows 10 Hyper-V 系統需求
 
-HYPER-V 是 64 位元版本的 Windows 10 專業版、 企業版和教育版中提供。 Hyper-V 需要第二層位址轉譯 (SLAT) -- Intel 和 AMD 當前推出的 64 位元處理器所具備的一項功能。
+Hyper-v 在64位版本的 Windows 10 專業版、企業版和教育版中都有提供。 Hyper-V 需要第二層位址轉譯 (SLAT) -- Intel 和 AMD 當前推出的 64 位元處理器所具備的一項功能。
 
 您可以在具有 4GB RAM 的主機上執行 3 或 4 部基本虛擬機器，但更多虛擬機器會需要更多資源。 反之，您也可以建立具有 32 個處理器和 512GB RAM 的大型虛擬機器，視您的實體硬體而定。
 
@@ -35,12 +35,12 @@ Hyper-V 角色**無法**安裝在：
 - Windows 10 Mobile
 - Windows10 行動裝置企業版
 
->Windows 10 家用版可以升級到 Windows 10 專業版。 若要這麼做，請開啟 **\[設定\]** > **\[更新和安全性\]** > **\[啟用\]**。 您可以在此瀏覽市集並購買升級。
+>Windows 10 家用版可升級至 Windows 10 專業版。 若要這麼做，請開啟 **\[設定\]** > **\[更新和安全性\]** > **\[啟用\]**。 您可以在此瀏覽市集並購買升級。
 
 ## <a name="hardware-requirements"></a>硬體需求
 
 這份文件未提供與 Hyper-V 相容硬體的完整清單，但下列為必要項目：
-    
+
 - 使用第二層位址轉譯 (SLAT) 的 64 位元處理器。
 - CPU 對 VM 監視模式延伸模組的支援 (Intel CPU 上的 VT-c)。
 - 至少 4 GB 記憶體。 因為虛擬機器與 Hyper-V 主機共用記憶體，所以您必須提供足夠的記憶體來處理預期的虛擬工作負載。
