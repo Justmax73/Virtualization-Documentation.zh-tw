@@ -7,12 +7,12 @@ ms.date: 07/25/2017
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.openlocfilehash: 9cfb5cb062259e906ce499423619ec7a5b814ac9
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: 08efc1092777e5649ecce4d978b056a4df644564
+ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9620836"
+ms.lasthandoff: 08/07/2019
+ms.locfileid: "9998225"
 ---
 # <a name="build-a-sample-app"></a>建置範例應用程式
 
@@ -66,7 +66,7 @@ FROM microsoft/aspnetcore-build:1.1 AS build-env
 WORKDIR /app
 ```
 
-接下來，我們要將 .csproj 檔案複製到暫存容器的 '/app' 目錄中。 因為.csproj 檔案包含專案所需的套件參照的清單，我們可以這麼做。
+接下來，我們要將 .csproj 檔案複製到暫存容器的 '/app' 目錄中。 之所以這麼做, 是因為 .csproj 檔案包含我們的專案所需的套件參照清單。
 
 複製這個檔案之後，dotnet 將讀取其內容，然後開始擷取專案所需的所有相依性和工具。
 
@@ -128,7 +128,7 @@ docker run -d -p 5000:80 --name myapp myasp
 
 我們已經成功地取用 ASP.NET Web 應用程式、使用 Docker 加以設定並建置，而且成功地將它部署到執行中的容器中。 但是，您還可以繼續執行其他步驟！ 您可以將這個 Web 應用程式細分為其他多個元件：執行 Web API 的容器、執行前端的容器，以及執行 SQL Server 的容器。
 
-既然您已經有擱置的容器，身手建置絕佳的容器化的軟體 ！
+現在您已經有了容器的掛起, 您可以在這裡找到並組建出色的製作愉快的軟體!
 
 > [!div class="nextstepaction"]
-> [請查看更多範例容器](../samples.md)
+> [查看更多容器範例](../samples.md)

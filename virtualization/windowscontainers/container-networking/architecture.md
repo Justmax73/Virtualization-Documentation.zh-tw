@@ -1,5 +1,5 @@
 ---
-title: Windows 容器網路功能
+title: Windows 容器網路
 description: 簡單介紹 Windows 容器網路的架構。
 keywords: Docker, 容器
 author: jmesser81
@@ -8,17 +8,17 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: ac0088995dfbda73351d39a494435c431e0939e7
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: cff56843a0eeb48ca5d19b694eb8eb4e758002aa
+ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9576329"
+ms.lasthandoff: 08/07/2019
+ms.locfileid: "9998455"
 ---
-# <a name="windows-container-networking"></a>Windows 容器網路功能
+# <a name="windows-container-networking"></a>Windows 容器網路
 
 >[!IMPORTANT]
->請參考[Docker 容器的網路功能](https://docs.docker.com/engine/userguide/networking/)的一般 docker 網路功能命令、 選項和 syntax.* * * 除了[不支援的功能和網路選項](#unsupported-features-and-network-options)，所有 Docker 網路功能命令是中所述的任何例外情形在 Linux 上支援在 Windows 上相同的語法。 不過，Windows 和 Linux 的網路堆疊並不同，，因此您會發現 Windows 不支援某些 Linux 網路命令 (例如 ifconfig)。
+>請參閱適用于一般 Docker 網路命令、選項及語法的[Docker 容器網路](https://docs.docker.com/engine/userguide/networking/)。 * * * 除了[不支援的功能和網路選項](#unsupported-features-and-network-options)中所述的任何情況以外, 所有的 Docker 網路命令都是在 Windows 上支援的語法與 Linux 上的相同。 不過, Windows 和 Linux 網路堆疊是不一樣的, 因此您會發現 Windows 不支援某些 Linux 網路命令 (例如, ifconfig)。
 
 ## <a name="basic-networking-architecture"></a>基本網路架構
 
@@ -30,8 +30,8 @@ Docker 引擎第一次執行時，會建立預設 NAT 網路 'nat'，它會使�
 
 ![文字](media/docker-network-ls.png)
 
-- **內部**vSwitch 是不直接連接至容器主機上的網路介面卡。
-- **外部**vSwitch 是直接連接至容器主機上的網路介面卡。
+- **內部**vSwitch 是指未直接連線到容器主機上的網路介面卡的情況。
+- **外部**vSwitch 是直接連接至容器主機上的網路介面卡的一個。
 
 ![文字](media/get-vmswitch.png)
 
@@ -64,13 +64,13 @@ Docker 引擎第一次執行時，會建立預設 NAT 網路 'nat'，它會使�
 
 ## <a name="unsupported-features-and-network-options"></a>不支援的功能和網路選項
 
-下列網路選項所目前**不**支援在 Windows 上：
+Windows 目前**不**支援下列網路選項:
 
-- Windows 容器連接到 l2bridge、 NAT 及覆疊網路不支援透過 IPv6 堆疊通訊。
-- 加密 IPsec 透過的容器通訊。
-- 適用於容器的 HTTP proxy 支援。
-- 附加至執行中 HYPER-V 隔離的端點 （熱新增）。
-- 在網路上的虛擬化 Azure 基礎結構，透過透明網路驅動程式。
+- 附加至 l2bridge、NAT 及重迭網路的 Windows 容器不支援經由 IPv6 堆疊進行通訊。
+- 經 IPsec 加密的容器通訊。
+- 容器的 HTTP proxy 支援。
+- 將端點附加至在 Hyper-v 隔離中執行 (熱載入)。
+- 透過透明網路驅動程式在虛擬 Azure 基礎結構上進行網路連接。
 
 | 命令        | 不支援的選項   |
 |---------------|:--------------------:|

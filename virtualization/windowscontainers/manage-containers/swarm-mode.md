@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 5ceb9626-7c48-4d42-81f8-9c936595ad85
-ms.openlocfilehash: 5ab7f684bba9cfa73c59b58ce660d3d519be0b72
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: 088bc844790d94d30f6b4b05c5cd189392f47e66
+ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9621436"
+ms.lasthandoff: 08/07/2019
+ms.locfileid: "9998275"
 ---
 # <a name="getting-started-with-swarm-mode"></a>開始使用群集模式 
 
@@ -24,13 +24,13 @@ ms.locfileid: "9621436"
 群集由兩種容器主機所組成︰*管理員節點*與*背景工作節點*。 每個群集皆透過管理員節點初始化，而所有用來控制及監視群集的 Docker CLI 命令皆必須從自身的其中一個管理員節點執行。 管理員節點可視作群集狀態的「看守員」，兩者共同構成共識群組，可維持對群集上執行之服務的狀態感知，且其負責確保群集的實際狀態一律符合開發人員或系統管理員所定義的預定狀態。 
 
 >[!NOTE]
->任何給定的群集都可以有多個管理員節點，但它永遠必須*至少一個*。 
+>任何指定的 swarm 可以有多個 manager 節點, 但必須*至少有一個*。 
 
 背景工作節點由 Docker 群集透過管理員節點協調。 若要加入群集，背景工作節點必須使用群集初始化時由管理員節點產生的「加入權杖」。 背景工作節點僅需從管理員節點接受工作並予以執行，因此不需要 (也不擁有) 對群集狀態的感知。
 
 ## <a name="swarm-mode-system-requirements"></a>群集模式系統需求
 
-至少一個實體或虛擬電腦系統 （若要使用群集的完整功能至少兩個節點建議選項） 執行**Windows 10 Creators Update**或**Windows Server 2016** *的最新的 updates\ * 所有*，安裝程式做為容器主機 （請參閱主題中， [Windows 10 上的 Windows 容器](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10)或[Windows Server 上的 Windows 容器](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server)的更詳細說明如何開始使用 Windows 10 上的 Docker 容器）。
+至少有一個物理或虛擬電腦系統 (若要使用 swarm 至少有兩個節點的完整功能), 請執行**windows 10 創意者更新**或**windows Server 2016** ,*並使用所有最新的更新 \ **、設定做為容器主機 (如需如何開始使用 Windows 10 上的 Docker 容器的詳細資訊, 請參閱 Windows 10 上的[windows 容器](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10)或[windows Server 上的 windows 容器](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server)主題)。
 
 \***注意**：Windows Server 2016 上的 Docker 群集需要 [KB4015217](https://support.microsoft.com/help/4015217/windows-10-update-kb4015217)
 
@@ -53,7 +53,7 @@ C:\> docker swarm init --advertise-addr=<HOSTIPADDRESS> --listen-addr <HOSTIPADD
 
 ## <a name="adding-nodes-to-a-swarm"></a>將節點新增至群集
 
-多個節點都*不*需要利用群集模式和覆疊網路模式功能。 所有群集/覆疊功能都可與以群集模式執行 (即管理員節點，其使用 `docker swarm init` 命令置入群集模式) 的單一主機搭配使用。
+需要多個** 節點來利用 swarm 模式和重迭網路模式功能。 所有群集/覆疊功能都可與以群集模式執行 (即管理員節點，其使用 `docker swarm init` 命令置入群集模式) 的單一主機搭配使用。
 
 ### <a name="adding-workers-to-a-swarm"></a>將背景工作新增至群集
 
@@ -112,7 +112,7 @@ C:\> docker service create --name=<SERVICENAME> --endpoint-mode dnsrr --network=
 在這裡，\<SERVICENAME\> 是您想要提供給服務的名稱，您將使用該名稱透過服務探索 (其會使用 Docker 的原生 DNS 伺服器) 參考服務。 \<NETWORKNAME\> 是此服務所要連接之網路的名稱 (例如，"myOverlayNet")。 \<CONTAINERIMAGE\> 是要定義服務的容器映像名稱。
 
 >[!NOTE]
->此命令，第二個引數`--endpoint-mode dnsrr`，才能指定 Docker 引擎以平衡服務容器端點間網路流量，會使用 DNS 循環配置資源原則。 DNS 循環配置資源是目前 Windows 唯一支援的平衡策略。尚不支援 Windows Docker 主機的[路由網格](https://docs.docker.com/engine/swarm/ingress/)，但很快就會推出。 現今，要尋找替代負載平衡策略的使用者可以設定外部負載平衡器 (例如 NGINX)，並使用群集的[發行連接埠模式](https://docs.docker.com/engine/reference/commandline/service_create/#/publish-service-ports-externally-to-the-swarm--p---publish)公開要進行負載平衡所透過的容器主機連接埠。
+>這個命令`--endpoint-mode dnsrr`的第二個引數需要指定給 Docker 引擎, DNS 迴圈原則將用來平衡整個服務容器端點的網路流量。 DNS 循環配置資源是目前 Windows 唯一支援的平衡策略。尚不支援 Windows Docker 主機的[路由網格](https://docs.docker.com/engine/swarm/ingress/)，但很快就會推出。 現今，要尋找替代負載平衡策略的使用者可以設定外部負載平衡器 (例如 NGINX)，並使用群集的[發行連接埠模式](https://docs.docker.com/engine/reference/commandline/service_create/#/publish-service-ports-externally-to-the-swarm--p---publish)公開要進行負載平衡所透過的容器主機連接埠。
 
 ## <a name="scaling-a-service"></a>調整服務
 服務部署到群集叢集後，組成該服務的容器執行個體會在叢集間部署。 根據預設，支援服務的容器執行個體數目 (即服務的「複本」或「工作」數目) 為一個。 不過，您可以使用 `docker service create` 命令的 `--replicas` 選項建立具有多個工作的服務，或是在建立服務之後再來調整服務。
@@ -181,7 +181,7 @@ C:\> docker swarm init --advertise-addr=<HOSTIPADDRESS> --listen-addr <HOSTIPADD
 若要將 Docker 服務啟動至混合作業系統群集叢集，必須要有方法可以區分哪些群集節點是執行該服務設計所針對的作業系統，而哪些不是。 [Docker 物件標籤](https://docs.docker.com/engine/userguide/labels-custom-metadata/)提供很好用的方式來標示節點，以方便建立及設定服務，使其只在符合其作業系統的節點上執行。 
 
 >[!NOTE]
->[Docker 物件標籤](https://docs.docker.com/engine/userguide/labels-custom-metadata/)可以用來將中繼資料套用到各種不同的 Docker 物件 （包括容器映像、 容器、 磁碟區和網路），以及各種不同的用途 （例如標籤可以用來分隔前端' 及 '後端' 元件應用程式，藉由允許前端的微服務是只在前端' secheduled 標示為節點和後端 mircoservices 只 '後端' 標示為節點上面排程）。 在此案例中，我們在節點上使用標籤來區分 Windows 作業系統節點和 Linux 作業系統節點。
+>[Docker 物件標籤](https://docs.docker.com/engine/userguide/labels-custom-metadata/)可用來將中繼資料套用到各種 Docker 物件 (包括容器影像、容器、標籤和網路), 以及各種用途 (例如, 標籤可用來分隔「前端」和「後端」元件)。一種應用程式, 只要允許前端微 secheduled 只有在 [前端] 標示的節點和後端 mircoservices, 才會排程在「後端」標籤節點上。 在此案例中，我們在節點上使用標籤來區分 Windows 作業系統節點和 Linux 作業系統節點。
 
 若要標示您現有的群集節點，請使用下列的語法：
 

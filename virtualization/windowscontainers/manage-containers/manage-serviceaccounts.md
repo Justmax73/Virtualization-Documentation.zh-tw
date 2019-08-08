@@ -3,17 +3,17 @@ title: 群組受管理的 Windows 容器服務帳戶
 description: 群組受管理的 Windows 容器服務帳戶
 keywords: docker、容器、active directory、gmsa
 author: rpsqrd
-ms.date: 06/12/2019
+ms.date: 08/02/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
-ms.openlocfilehash: b908a35f63b2f25da3fb19c0f96b55fe3e513350
-ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
+ms.openlocfilehash: ec57152cf077f5007f4bf44a9ec902941c3bc749
+ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "9883171"
+ms.lasthandoff: 08/07/2019
+ms.locfileid: "9998355"
 ---
 # <a name="group-managed-service-accounts-for-windows-containers"></a>群組受管理的 Windows 容器服務帳戶
 
@@ -99,7 +99,7 @@ Add-KdsRootKey -EffectiveTime (Get-Date).AddHours(-10)
 # Replace 'WebApp01' and 'contoso.com' with your own gMSA and domain names, respectively
 
 # To install the AD module on Windows Server, run Install-WindowsFeature RSAT-AD-PowerShell
-# To install the AD module on Windows 10 version 1809 or later, run Install-WindowsCapability -Online 'Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0'
+# To install the AD module on Windows 10 version 1809 or later, run Add-WindowsCapability -Online -Name 'Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0'
 # To install the AD module on older versions of Windows 10, see https://aka.ms/rsat
 
 # Create the security group
@@ -126,7 +126,7 @@ Add-ADGroupMember -Identity "WebApp01Hosts" -Members "ContainerHost01", "Contain
 
     ```powershell
     # To install the AD module on Windows Server, run Install-WindowsFeature RSAT-AD-PowerShell
-    # To install the AD module on Windows 10 version 1809 or later, run Install-WindowsCapability -Online 'Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0'
+    # To install the AD module on Windows 10 version 1809 or later, run Add-WindowsCapability -Online -Name 'Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0'
     # To install the AD module on older versions of Windows 10, see https://aka.ms/rsat
 
     Test-ADServiceAccount WebApp01
@@ -146,7 +146,7 @@ Docker 預期會在 Docker 資料目錄中的**CredentialSpecs**目錄下尋找�
 
 1. 安裝 RSAT AD PowerShell 工具
     - 若是 Windows Server, 請執行**安裝-add-windowsfeature 的 RSAT-AD-PowerShell**。
-    - 如果您使用的是 Windows 10 版本1809或更新版本, 請執行**安裝-WindowsCapability-Online [Rsat. ActiveDirectory. 0.0.1.0**]。
+    - 如果您使用的是 Windows 10 版本1809或更新版本, 請執行**WindowsCapability-Online-Name "Rsat. 0.0.1.0"**。
     - 如果是舊版 Windows 10, 請參閱<https://aka.ms/rsat>。
 2. 執行下列 Cmdlet 以安裝最新版本的[CredentialSpec PowerShell 模組](https://aka.ms/credspec):
 
@@ -394,7 +394,7 @@ EXEC sp_addrolemember 'db_datawriter', 'WebApplication1'
 
     ```powershell
     # To install the AD module on Windows Server, run Install-WindowsFeature RSAT-AD-PowerShell
-    # To install the AD module on Windows 10 version 1809 or later, run Install-WindowsCapability -Online 'Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0'
+    # To install the AD module on Windows 10 version 1809 or later, run Add-WindowsCapability -Online -Name 'Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0'
     # To install the AD module on older versions of Windows 10, see https://aka.ms/rsat
 
     Test-ADServiceAccount WebApp01

@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8ccd4192-4a58-42a5-8f74-2574d10de98e
-ms.openlocfilehash: 69eb4bbd94aee203f22384b6e0db6e922b3bf474
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: 2cc5853648a9e1bb62ae684472fa7d9512cdb978
+ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9621106"
+ms.lasthandoff: 08/07/2019
+ms.locfileid: "9998335"
 ---
 # <a name="implementing-resource-controls-for-windows-containers"></a>實作 Windows 容器適用的資源控制項
 可以針對各個容器和各項資源實作多個資源控制項。  根據預設，容器的執行受限於一般 Windows 資源管理，此管理方式通常是以公平共用為根據，但是經由這些控制項的設定，開發人員或管理員就可以限制或影響資源使用量。  可以控制的資源包含︰CPU/處理器、記憶體/RAM、磁碟/儲存空間和網路功能/輸送量。

@@ -16,7 +16,7 @@
 ## [建立虛擬交換器](quick-start/connect-to-network.md)
 ## [建置整合服務](user-guide/make-integration-service.md)
 ## [移植 Hyper-V WMI](user-guide/refactor-wmiv1-to-wmiv2.md)
-## [在 Azure 虛擬網路中的巢狀虛擬機器](user-guide/nested-virtualization-azure-virtual-network.md) 
+## [Azure 虛擬網路中的嵌套 Vm](user-guide/nested-virtualization-azure-virtual-network.md) 
 
 # 參考
 ## [Hyper-V 需求](reference/hyper-v-requirements.md)
@@ -25,7 +25,7 @@
 ## [Hyper-V 整合服務](reference/integration-services.md)
 ## [Hyper-V 架構](reference/hyper-v-architecture.md)
 ## [Hypervisor 規格](reference/tlfs.md)
-## [HYPER-V 備份方法](reference/HyperVBackupApproaches.md)
+## [Hyper-v 備份方法](reference/HyperVBackupApproaches.md)
 
 # 社群與支援
 ## [Hyper-V 論壇](https://social.technet.microsoft.com/Forums/windowsserver/home?forum=winserverhyperv)

@@ -7,28 +7,28 @@ ms.date: 04/07/2018
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: f1e75efa-8745-4389-b8dc-91ca931fe5ae
-ms.openlocfilehash: 970e92def02e5386d38a2e72d5ef921aa8321fdf
-ms.sourcegitcommit: 08cc38955faad26f075b912a64b8ffb6b36f190c
+ms.openlocfilehash: 6035143bc1449bc4a8e9bb7a4484b4c5329e6d3c
+ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9578681"
+ms.lasthandoff: 08/07/2019
+ms.locfileid: "9998625"
 ---
 # <a name="create-a-virtual-machine-with-hyper-v"></a>使用 Hyper-V 建立虛擬機器
 
 建立虛擬機器，並安裝其作業系統。
 
-我們已建置新的工具，建立虛擬機器，因此過去三個版本的指示已大幅變更。
+我們已建立新的工具來建立虛擬機器, 讓指示在過去三個發行版本本中會有明顯的變更。
 
 請選擇您的作業系統以獲得正確的指示集：
 
-* [Windows 10 Fall Creators Update (v1709) 及更新版本](quick-create-virtual-machine.md#windows-10-fall-creators-update-windows-10-version-1709)
-* [Windows 10 Creators Update (v1703)](quick-create-virtual-machine.md#windows-10-creators-update-windows-10-version-1703)
-* [Windows 10 年度更新版 (v1607) 和較舊版本](quick-create-virtual-machine.md#before-windows-10-creators-update-windows-10-version-1607-and-earlier)
+* [Windows 10 秋季創意更新 (v1709) 及更新版本](quick-create-virtual-machine.md#windows-10-fall-creators-update-windows-10-version-1709)
+* [Windows 10 創意者更新 (v1703)](quick-create-virtual-machine.md#windows-10-creators-update-windows-10-version-1703)
+* [Windows 10 周年紀念更新 (v1607) 及更舊版本](quick-create-virtual-machine.md#before-windows-10-creators-update-windows-10-version-1607-and-earlier)
 
 那就開始吧。
 
-## <a name="windows-10-fall-creators-update-windows-10-version-1709"></a>Windows 10 Fall Creators Update (Windows 10 版本 1709年)
+## <a name="windows-10-fall-creators-update-windows-10-version-1709"></a>Windows 10 秋季版創意者更新 (Windows 10 版本 1709)
 
 在 Fall Creators Update 中，[快速建立] 已擴充為包含虛擬機器資源庫，可從 Hyper-V 管理員獨立啟動。
 
@@ -53,7 +53,7 @@ ms.locfileid: "9578681"
 
 這樣就完成了！  快速建立會打點好剩下的事情。
 
-## <a name="windows-10-creators-update-windows-10-version-1703"></a>Windows 10 Creators Update (Windows 10 版本 1703年)
+## <a name="windows-10-creators-update-windows-10-version-1703"></a>Windows 10 創意者更新 (Windows 10 版本 1703)
 
 ![快速建立 UI 的螢幕擷取畫面](media/quickcreatesteps_inked.jpg)
 
@@ -81,7 +81,7 @@ ms.locfileid: "9578681"
 
 > **注意︰** 除非您是執行大量授權版本的 Windows，否則在虛擬機器內執行的 Windows 需要個別授權。 虛擬機器的作業系統與主機作業系統無關。
 
-## <a name="before-windows-10-creators-update-windows-10-version-1607-and-earlier"></a>在 Windows 10 Creators Update (Windows 10 版本 1607 和更早版本) 之前
+## <a name="before-windows-10-creators-update-windows-10-version-1607-and-earlier"></a>在 Windows 10 創意者更新之前 (Windows 10 版本1607及更舊版本)
 
 如果您不是執行 Windows 10 Creators Update 或更新版本，請遵循下列指示，改用 \[新增虛擬機器精靈\]：
 

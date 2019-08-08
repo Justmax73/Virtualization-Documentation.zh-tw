@@ -1,6 +1,6 @@
 ---
 title: Windows 容器範例
-description: 尋找熱門專案與使用 Windows 容器的程式碼範例的連結。
+description: 使用 Windows 容器尋找常用專案與程式碼範例的連結。
 keywords: docker, 容器, windows, 範例
 author: cwilhit
 ms.date: 12/19/2016
@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 5c6f6350-f8d6-4426-b53d-9fb09c2bf267
-ms.openlocfilehash: fb6910f535337d25b7635ffe339345a7063daa92
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 35becf36d086e325b9c9b0c57fb4a9df65eb57b7
+ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9574549"
+ms.lasthandoff: 08/07/2019
+ms.locfileid: "9998745"
 ---
 # <a name="windows-container-samples"></a>Windows 容器範例
 

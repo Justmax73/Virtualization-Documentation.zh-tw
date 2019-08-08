@@ -1,6 +1,6 @@
 ---
 title: Hyper-V 隔離
-description: Explaination 的 HYPER-V 隔離有何不同處理序隔離容器。
+description: Explaination Hyper-v 隔離與處理常式隔離的容器有何不同。
 keywords: Docker, 容器
 author: scooley
 ms.date: 09/13/2018
@@ -8,26 +8,26 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 42154683-163b-47a1-add4-c7e7317f1c04
-ms.openlocfilehash: 2ff2d1204e1f973d49af5e1d4441e4eacd946101
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 092312848173102bec5a791f2c48fe8166e70d5f
+ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9576899"
+ms.lasthandoff: 08/07/2019
+ms.locfileid: "9998325"
 ---
 # <a name="hyper-v-isolation"></a>Hyper-V 隔離
 
-Windows 容器技術包含兩個不同的層級的隔離容器、 處理程序和 HYPER-V 隔離。 同時類型建立、 管理和運作方式都相同。 而且也會產生及使用相同的容器映像。 兩者的差異在於，在容器、主機作業系統及該主機上執行的所有其他容器之間建立的隔離層級。
+Windows 容器技術包括容器、process 與 Hyper-v 隔離的兩個不同隔離層級。 這兩種類型都是以相同的方式建立、管理和功能。 而且也會產生及使用相同的容器映像。 兩者的差異在於，在容器、主機作業系統及該主機上執行的所有其他容器之間建立的隔離層級。
 
-**處理序隔離**– 執行個體的主機，使用隔離可同時執行多個容器提供透過命名空間、 資源控制以及處理序隔離技術。  容器與主機，以及彼此共用相同的核心。  這是大約相同方式容器在 Linux 上執行。
+程式**隔離**–多個容器實例可以同時在主機上執行, 並透過命名空間、資源控制和進程隔離技術來提供隔離。  容器與主機共用同一個內核, 以及彼此共用。  這與在 Linux 上執行容器的方式大致相同。
 
-**HYPER-V 隔離**– 主機上可以同時執行多個容器執行個體，但每個容器執行在特殊的虛擬機器。 這會提供核心層級的隔離，每個容器，以及在容器主機之間。
+**Hyper-v 隔離**-可在主機上併發執行多個容器實例, 不過, 每個容器都會在特殊的虛擬機器內執行。 這會在每個容器以及容器主機之間提供內核層級隔離。
 
-## <a name="hyper-v-isolation-examples"></a>HYPER-V 隔離範例
+## <a name="hyper-v-isolation-examples"></a>Hyper-v 隔離範例
 
 ### <a name="create-container"></a>建立容器
 
-管理 HYPER-V 隔離容器與 Docker 是管理 Windows Server 容器幾乎完全相同。 若要建立容器使用 HYPER-V 隔離完整 Docker，使用`--isolation`參數來設定`--isolation=hyperv`。
+使用 Docker 管理 Hyper-v 隔離容器與管理 Windows Server 容器幾乎完全相同。 若要以 Hyper-v 隔離完全 Docker 來建立容器, 請使用`--isolation`參數加以設定。 `--isolation=hyperv`
 
 ``` cmd
 docker run -it --isolation=hyperv mcr.microsoft.com/windows/nanoserver:1809 cmd
@@ -35,9 +35,9 @@ docker run -it --isolation=hyperv mcr.microsoft.com/windows/nanoserver:1809 cmd
 
 ### <a name="isolation-explanation"></a>隔離說明
 
-此範例示範隔離功能在 Windows Server 和 HYPER-V 隔離之間的差異。
+這個範例示範 Windows Server 與 Hyper-v 隔離之間隔離功能的差異。
 
-這裡的處理程序隔離的容器部署，並將主控長時間執行的偵測處理序。
+在這裡, 將會部署程式隔離的容器, 並將裝載長時間執行的 ping 程式。
 
 ``` cmd
 docker run -d mcr.microsoft.com/windows/servercore:1809 ping localhost -t
@@ -61,7 +61,7 @@ Handles  NPM(K)    PM(K)      WS(K) VM(M)   CPU(s)     Id  SI ProcessName
      67       5      820       3836 ...71     0.03   3964   3 PING
 ```
 
-作為對比，此範例會啟動 HYPER-V 隔離的容器具有偵測處理序。
+相反地, 此範例也會啟動具有 ping 程式的 Hyper-v 獨立容器。
 
 ```
 docker run -d --isolation=hyperv mcr.microsoft.com/windows/nanoserver:1809 ping -t localhost
