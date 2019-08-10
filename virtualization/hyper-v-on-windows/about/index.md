@@ -7,16 +7,14 @@ ms.date: 06/25/2018
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: eb2b827c-4a6c-4327-9354-50d14fee7ed8
-ms.openlocfilehash: 4c5c53bc63ad8fa129d12bc2cfbdf8962faaa5f9
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: 80bed57672fff97ac4384846af9ba344016d7a2c
+ms.sourcegitcommit: 0762bfade5dd8b01a9affce72ad308831d9eaf5a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9999065"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "10009205"
 ---
-# <a name="introduction-to-hyper-v-on-windows-10"></a>Windows 10 上的 Hyper-V 簡介
-
-> Hyper-V 取代了 Microsoft Virtual PC。
+# <a name="introduction-to-hyper-v-on-windows-10"></a>簡介 Windows 10 上的 Hyper-V
 
 無論您是軟體開發人員、IT 專業人員還是科技愛好者，都很有可能需要執行多個作業系統。 Hyper-V 可讓您在 Windows 上將多個作業系統執行為虛擬機器。
 
