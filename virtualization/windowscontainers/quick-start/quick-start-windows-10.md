@@ -3,23 +3,19 @@ title: Windows 10 上的 windows 和 Linux 容器
 description: 容器部署快速入門
 keywords: docker、樹枝、LCOW
 author: taylorb-microsoft
-ms.date: 11/8/2018
+ms.date: 08/16/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
-ms.openlocfilehash: 094d7adde67b243a4bcadb1580e239d2175562c7
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: aa7a20d914fdb65597c0f31ef6d53b91f6497be4
+ms.sourcegitcommit: 2f8fd4b2e7113fbb7c323d89f3c72df5e1a4437e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998180"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "10044958"
 ---
 # <a name="windows-containers-on-windows-10"></a>Windows 10 上的 Windows 容器
-
-> [!div class="op_single_selector"]
-> - [Windows 上的 Linux 容器](quick-start-windows-10-linux.md)
-> - [Windows 上的 windows 容器](quick-start-windows-10.md)
 
 此練習將逐步引導您在 Windows 10 上建立及執行 Windows 容器。
 
@@ -61,6 +57,9 @@ Windows 容器是從基本映像建置而來。 下列命令會提取 Nano Serve
 ```console
 docker pull mcr.microsoft.com/windows/nanoserver:1809
 ```
+
+> [!NOTE]
+> 如果您看到錯誤訊息`no matching manifest for unknown in the manifest list entries`, 指出您不想要拉 Linux 容器。
 
 提取映像之後再執行 `docker images`，將會傳回已安裝的映像清單，在此案例中為 Nano Server 映像。
 

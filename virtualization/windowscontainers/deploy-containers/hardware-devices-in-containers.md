@@ -3,12 +3,12 @@ title: Windows 上的容器中的裝置
 description: Windows 上的容器存在哪些裝置支援
 keywords: docker、容器、裝置、硬體
 author: cwilhit
-ms.openlocfilehash: ee9c5da5ef87dceb3374977670da2ea50ea87382
-ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
+ms.openlocfilehash: 1ad63c158a42f116882c949b242274dde8d893fc
+ms.sourcegitcommit: 2f8fd4b2e7113fbb7c323d89f3c72df5e1a4437e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "9883161"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "10045028"
 ---
 # <a name="devices-in-containers-on-windows"></a>Windows 上的容器中的裝置
 
@@ -77,8 +77,8 @@ docker run --isolation=process --device="class/{interface class GUID}" --device=
 </tbody>
 </table>
 
-> [!TIP]
-> 上面所列的裝置是目前 Windows 容器中_僅_支援的裝置。 嘗試傳遞任何其他類別的 Guid 將導致容器無法啟動。
+> [!IMPORTANT]
+> 裝置支援是與驅動程式相關的。 嘗試傳遞沒有在上述資料表中定義的類別 Guid, 可能會導致未定義的行為。
 
 ## <a name="hyper-v-isolated-windows-container-support"></a>Hyper-v-隔離的 Windows 容器支援
 
@@ -86,4 +86,4 @@ docker run --isolation=process --device="class/{interface class GUID}" --device=
 
 ## <a name="hyper-v-isolated-linux-container-support"></a>Hyper-v-隔離的 Linux 容器支援
 
-目前不支援裝置作業與裝置在 Hyper-v 中共用工作負載-隔離的 Linux 容器。
+目前不支援在 Hyper-v 中針對工作負載進行裝置指派和裝置共用。
