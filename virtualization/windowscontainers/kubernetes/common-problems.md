@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.prod: containers
 description: 部署 Kubernetes 和加入 Windows 節點時常見問題的解決方案。
 keywords: kubernetes、1.14、linux、compile
-ms.openlocfilehash: a0b24782a0e511dfc8b6cf1a0c0bc24882ff977a
-ms.sourcegitcommit: 42cb47ba4f3e22163869d094bd0c9cff415a43b0
+ms.openlocfilehash: b6e4e648ff050e13a0930f2834949867e44ce895
+ms.sourcegitcommit: d252f356a3de98f224e1550536810dfc75345303
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "9884989"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "10069932"
 ---
 # <a name="troubleshooting-kubernetes"></a>疑難排解 Kubernetes #
 此頁面逐步解說 Kubernetes 設定、網路及部署的數個常見問題。
@@ -43,6 +43,9 @@ nssm set <Service Name> AppStderr C:\k\mysvc.log
 如需其他詳細資料, 請參閱正式[nssm 使用](https://nssm.cc/usage)檔。
 
 ## <a name="common-networking-errors"></a>常見的網路錯誤 ##
+
+### <a name="hostport-publishing-is-not-working"></a>HostPort 發佈無法運作 ###
+目前無法使用 Kubernetes `containers.ports.hostPort`欄位發佈埠, 因為 Windows CNI 外掛程式不會遵守這個欄位。 請使用 NodePort 發佈, 在該節點上發佈埠的時間。
 
 ### <a name="i-am-seeing-errors-such-as-hnscall-failed-in-win32-the-wrong-diskette-is-in-the-drive"></a>我在 Win32 中看到「hnsCall 失敗」之類的錯誤: 磁片磁碟機中有錯誤的磁片。 ###
 當您對 HNS 物件進行自訂修改或安裝新的 Windows 更新, 而不需要撕裂舊的 HNS 物件時, 就會發生此錯誤。 它表示先前在更新與目前安裝的 HNS 版本不相容之前所建立的 HNS 物件。
