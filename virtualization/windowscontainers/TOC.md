@@ -41,7 +41,12 @@
 ### [Docker swarm](manage-containers/swarm-mode.md)
 ### [Windows Docker 主機的遠端系統管理](management/manage_remotehost.md)
 ## 工作負載
-### [群組受管理的服務帳戶](manage-containers/manage-serviceaccounts.md)
+### 群組受管理的服務帳戶
+#### [建立群組 gMSA](manage-containers/manage-serviceaccounts.md)
+#### [將您的 app 設定為使用 gMSA](manage-containers/gmsa-configure-app.md)
+#### [使用 gMSA 執行容器](manage-containers/gmsa-run-container.md)
+#### [使用 gMSA 的協調容器](manage-containers/gmsa-orchestrate-containers.md)
+#### [疑難排解 gMSAs](manage-containers/gmsa-troubleshooting.md)
 ### [印表機服務](deploy-containers/print-spooler.md)
 ## 網路
 ### [概觀](container-networking/architecture.md)
