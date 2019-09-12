@@ -8,19 +8,19 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8ccd4192-4a58-42a5-8f74-2574d10de98e
-ms.openlocfilehash: 2cc5853648a9e1bb62ae684472fa7d9512cdb978
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: 3e9f7e3208222cd6c0f512c5f892453ac6e6980c
+ms.sourcegitcommit: 73134bf279f3ed18235d24ae63cdc2e34a20e7b7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998335"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "10107872"
 ---
 # <a name="implementing-resource-controls-for-windows-containers"></a>實作 Windows 容器適用的資源控制項
 可以針對各個容器和各項資源實作多個資源控制項。  根據預設，容器的執行受限於一般 Windows 資源管理，此管理方式通常是以公平共用為根據，但是經由這些控制項的設定，開發人員或管理員就可以限制或影響資源使用量。  可以控制的資源包含︰CPU/處理器、記憶體/RAM、磁碟/儲存空間和網路功能/輸送量。
 
 Windows 容器會使用[工作物件](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects)來群組和追蹤與每個容器相關聯的處理序。  資源控制項會實作在與容器相關聯的父系工作物件上。 
 
-在 [Hyper-V 隔離](https://docs.microsoft.com/virtualization/windowscontainers/about/index#windows-container-types)的情況下，資源控制項會自動同時套用到虛擬機器以及在虛擬機器內執行之容器的工作物件，如此可確保即便在容器中執行的處理序已略過或逸出工作物件控制項，虛擬機器也會確保它無法超出定義的資源控制項。
+在 [Hyper-V 隔離](./hyperv-container.md)的情況下，資源控制項會自動同時套用到虛擬機器以及在虛擬機器內執行之容器的工作物件，如此可確保即便在容器中執行的處理序已略過或逸出工作物件控制項，虛擬機器也會確保它無法超出定義的資源控制項。
 
 ## <a name="resources"></a>資源
 此部分提供了每項資源與 Docker 命令列介面之間的對應，做為如何將資源控制項用於 (可能會由協調器或其他工具設定) 對應的 Windows 主機運算服務 (HCS) API，以及 Windows 通常如何實作資源控制項 (請注意，這是概要描述，基本實作方式可能有所變更) 的示範。
