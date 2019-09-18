@@ -8,25 +8,25 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 479e05b1-2642-47c7-9db4-d2a23592d29f
-ms.openlocfilehash: 93c56dba88715df41cab054cda676879b275380b
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: 01e687cfa2fd479eb87e5639581e1552ed801aef
+ms.sourcegitcommit: 9100d2218c160bbe9fbf24f3524c8ff5e3dd826c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9999205"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "10135331"
 ---
 # <a name="automating-builds-and-saving-images"></a>自動化組建和儲存映像
 
-在先前的 Windows Server 快速入門中，已從預先建立的 .NET Core 範例建立 Windows 容器。 這個練習示範如何從 Dockerfile 建立您自己的容器影像, 並將容器影像儲存在 Docker 中樞公用登錄中。
+在先前的 Windows Server 快速入門中，已從預先建立的 .NET Core 範例建立 Windows 容器。 這個練習示範如何從 Dockerfile 建立您自己的容器影像，並將容器影像儲存在 Docker 中樞公用登錄中。
 
-此快速入門專用於 Windows server 2019 或 Windows Server 2016 上的 Windows Server 容器, 並將使用 Windows Server Core 分枝基礎影像。 在此頁面左側的目錄中，可以找到其他的快速入門文件。
+此快速入門專用於 Windows server 2019 或 Windows Server 2016 上的 Windows Server 容器，並將使用 Windows Server Core 分枝基礎影像。 在此頁面左側的目錄中，可以找到其他的快速入門文件。
 
 ## <a name="prerequisites"></a>必要條件
 
-請確定您符合下列需求:
+請確定您符合下列需求：
 
-- 一台運行 Windows Server 2019 或 Windows Server 2016 的電腦系統 (物理或虛擬)。
-- 使用 Windows 容器功能和 Docker 來設定此系統。 如需這些步驟的逐步解說, 請參閱[Windows Server 上的 windows 容器](./quick-start-windows-server.md)。
+- 一台運行 Windows Server 2019 或 Windows Server 2016 的電腦系統（物理或虛擬）。
+- 使用 Windows 容器功能和 Docker 來設定此系統。 如需這些步驟的逐步解說，請參閱[Windows Server 上的 windows 容器](./quick-start-windows-server.md)。
 - Docker 識別碼，這會用以將容器映像推送至 Docker Hub。 如果您沒有 Docker 識別碼，請在 [Docker Cloud](https://cloud.docker.com/) 註冊一個。
 
 ## <a name="container-image---dockerfile"></a>容器圖像-Dockerfile
@@ -130,7 +130,7 @@ Login Succeeded
 docker push <user>/iis-dockerfile
 ```
 
-隨著 Docker 會將每個圖層推送到 Docker 中樞, docker 會略過在 Docker 中心或其他機構 (外國層) 中已經存在的圖層。  例如, 在 Microsoft 容器註冊表中託管的最新版本的 Windows Server Core, 或私人公司登錄的層級, 都會被略過, 而且不會推入 Docker 中樞。
+隨著 Docker 會將每個圖層推送到 Docker 中樞，docker 會略過在 Docker 中心或其他機構（外國層）中已經存在的圖層。  例如，在 Microsoft 容器註冊表中託管的最新版本的 Windows Server Core，或私人公司登錄的層級，都會被略過，而且不會推入 Docker 中樞。
 
 現在可以使用 `docker pull`，將容器映像從 Docker Hub 下載至任何 Windows 容器主機。 在本教學課程中，我們會刪除現有映像，然後從 Docker Hub 加以提取。 
 
@@ -159,4 +159,4 @@ docker pull <user>/iis-dockerfile
 如果您想要了解如何封裝範例 ASP.NET 應用程式，請瀏覽以下連結的 Windows 10 教學課程。
 
 > [!div class="nextstepaction"]
-> [Windows 10 上的容器](./quick-start-windows-10.md)
+> [Windows 10 上的容器](./set-up-environment.md?tabs=Windows-10-Client)
