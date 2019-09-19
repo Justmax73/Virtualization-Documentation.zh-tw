@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8e273856-3620-4e58-9d1a-d1e06550448
-ms.openlocfilehash: dbe0e629428bbd8ecfe3ec01bb1a69e3c9c3e231
-ms.sourcegitcommit: 9100d2218c160bbe9fbf24f3524c8ff5e3dd826c
+ms.openlocfilehash: 55fc032613b901ef1f5f9cf989891ceef99aac36
+ms.sourcegitcommit: 668d0c0a81e6d74d75a655be5a47c2bbc5e268de
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "10135341"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "10138509"
 ---
 # <a name="about-windows-containers"></a>關於 Windows 容器
 
@@ -81,8 +81,4 @@ Windows Server 容器會透過程式和命名空間隔離技術提供應用程�
 
 ## <a name="try-windows-server-containers"></a>試試 Windows Server 容器
 
-準備好開始運用容器的強大威力了嗎？ 下列文章將協助您快速入門：
-
-若要在 Windows Server 上設定容器，請參閱[Windows server 快速入門](../quick-start/quick-start-windows-server.md)。
-
-若要在 Windows 10 上設定容器，請參閱[快速入門：設定容器的環境](../quick-start/set-up-environment.md?tabs=Windows-10-Client)。
+若要開始使用 Windows Server 或 Windows 10 上的容器，請參閱[快速入門：設定容器的環境](../quick-start/set-up-environment.md)。
