@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ebd79cd3-5fdd-458d-8dc8-fc96408958b5
-ms.openlocfilehash: 652b1a8e0ab12ac67dd2754051e36c523e3de509
-ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
+ms.openlocfilehash: 16d2794688d60757ef1321d687f6a987ccf0b581
+ms.sourcegitcommit: 62fff5436770151a28b6fea2be3a8818564f3867
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "9882941"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "10147231"
 ---
 # <a name="troubleshooting"></a>疑難排解
 
@@ -93,22 +93,20 @@ sc.exe stop docker
 
 ## <a name="obtaining-stack-dump"></a>取得堆疊轉儲。
 
-一般來說, 只有 Microsoft 支援或 docker 開發人員明確要求時, 才能使用這種做法。 它可以用來協助診斷螢幕畫面看起來好像已暫停的情況。 
+一般來說，只有 Microsoft 支援或 docker 開發人員明確要求時，才能使用這種做法。 它可以用來協助診斷螢幕畫面看起來好像已暫停的情況。 
 
 下載 [docker-signal.exe](https://github.com/jhowardmsft/docker-signal)。
 
 使用方式：
 ```PowerShell
-Get-Process dockerd
-# Note the process ID in the `Id` column
-docker-signal -pid=<id>
+docker-signal --pid=$((Get-Process dockerd).Id)
 ```
 
 輸出檔案會位於執行中的資料根目錄 docker 中。 預設目錄為 `C:\ProgramData\Docker`。 若要確認實際目錄，可以執行 `docker info -f "{{.DockerRootDir}}"`。
 
 檔案就會是`goroutine-stacks-<timestamp>.log`。
 
-請注意`goroutine-stacks*.log` , 不包含個人資訊。
+請注意`goroutine-stacks*.log` ，不包含個人資訊。
 
 
 # <a name="host-compute-service"></a>主機運算服務

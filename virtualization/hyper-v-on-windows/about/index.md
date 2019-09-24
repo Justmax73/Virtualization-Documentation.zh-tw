@@ -7,12 +7,12 @@ ms.date: 06/25/2018
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: eb2b827c-4a6c-4327-9354-50d14fee7ed8
-ms.openlocfilehash: 80bed57672fff97ac4384846af9ba344016d7a2c
-ms.sourcegitcommit: 0762bfade5dd8b01a9affce72ad308831d9eaf5a
+ms.openlocfilehash: b43c3b112700591f67fcd0247b5ebd88a9c53729
+ms.sourcegitcommit: 62fff5436770151a28b6fea2be3a8818564f3867
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "10009205"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "10147201"
 ---
 # <a name="introduction-to-hyper-v-on-windows-10"></a>簡介 Windows 10 上的 Hyper-V
 
@@ -36,9 +36,9 @@ Hyper-V 專門提供硬體虛擬化。  這表示每個虛擬機器都是在虛�
 
 您可以在64位版本的 Windows 10 專業版、企業版和教育版上使用 hyper-v。 家用版不提供此功能。
 
-> 開啟 [**設定** > **更新與安全性** > **啟用**], 從 windows 10 家用版升級至 windows 10 專業版。 您可以在此瀏覽市集並購買升級。
+> 開啟 [**設定** > **更新與安全性** > **啟用**]，從 windows 10 家用版升級至 windows 10 專業版。 您可以在此瀏覽市集並購買升級。
 
-大多數電腦都執行 Hyper-v, 但每個虛擬機器都執行完全獨立的作業系統。  您通常可以在配備 4GB RAM 的電腦上，執行一或多個虛擬機器，但是您需要更多資源，才能執行額外的虛擬機器，或是安裝及執行耗用大量資源的軟體，例如遊戲、視訊編輯或工程設計軟體。
+大多數電腦都執行 Hyper-v，但每個虛擬機器都執行完全獨立的作業系統。  您通常可以在配備 4GB RAM 的電腦上，執行一或多個虛擬機器，但是您需要更多資源，才能執行額外的虛擬機器，或是安裝及執行耗用大量資源的軟體，例如遊戲、視訊編輯或工程設計軟體。
 
 如需 Hyper-V 系統需求以及如何驗證電腦上有執行 Hyper-V 的詳細資訊，請參閱 [Hyper-V 需求參考資料](../reference/hyper-v-requirements.md)。
 

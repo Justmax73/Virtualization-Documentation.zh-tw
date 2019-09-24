@@ -3,12 +3,12 @@ title: Windows Server 容器儲存體
 description: Windows Server 容器如何使用主機和其他儲存體類型
 keywords: 容器, 磁碟區, 儲存體, 裝載, 繫結裝載
 author: patricklang
-ms.openlocfilehash: bddfb3a3510a6af674be73349a7e422434c1e0f4
-ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
+ms.openlocfilehash: 5f8ff4b25ad4a4c34ed2e28683607cfc02891e1e
+ms.sourcegitcommit: 62fff5436770151a28b6fea2be3a8818564f3867
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "9882971"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "10147221"
 ---
 # <a name="overview"></a>概觀
 
@@ -101,14 +101,15 @@ Docker 有如何[使用磁碟區](https://docs.docker.com/engine/admin/volumes/v
 
 ##### <a name="configuration-steps"></a>設定步驟
 
-1. 在容器主機上, 全域對應遠端 SMB 共用:
+1. 在容器主機上，全域對應遠端 SMB 共用：
     ```
     $creds = Get-Credential
     New-SmbGlobalMapping -RemotePath \\contosofileserver\share1 -Credential $creds -LocalPath G:
     ```
     這個命令會使用認證來透過遠端 SMB 伺服器進行驗證。 然後，將遠端共用路徑對應至 G: 磁碟機代號 (可以是任何其他可用的磁碟機代號)。 在此容器主機上建立的容器，現在可以將其讓資料磁碟區對應至 G: 磁碟機上的路徑。
 
-    > 注意：對容器使用 SMB 全域對應時，容器主機上的所有使用者都可以存取遠端共用。 容器主機上執行的任何應用程式也都可以存取對應的遠端共用。
+    > [!NOTE]
+    > 針對容器使用 SMB 全域對應時，容器主機上的所有使用者都可以存取遠端共用。 容器主機上執行的任何應用程式也都可以存取對應的遠端共用。
 
 2. 建立容器並將其資料磁碟區對應至全域裝載的 SMB 共用  docker run -it --name demo -v g:\ContainerData:G:\AppData1 microsoft/windowsservercore:1709 cmd.exe
 
@@ -137,4 +138,4 @@ Docker 有如何[使用磁碟區](https://docs.docker.com/engine/admin/volumes/v
 5. 在新容器中執行 `dir c:\data` - 檔案仍在那裡
 
 > [!NOTE]
-> Windows Server 會將目標路徑名 (容器內的路徑) 轉換成小寫;`-v unwound:c:\MyData`i. `-v unwound:/app/MyData`或在 linux 容器中, 會導致在已映射 (且已建立, 如果不`c:\mydata`存在) `/app/mydata`的容器或 linux 容器內的目錄。
+> Windows Server 會將目標路徑名（容器內的路徑）轉換成小寫;`-v unwound:c:\MyData`i. `-v unwound:/app/MyData`或在 linux 容器中，會導致在已映射（且已建立，如果不`c:\mydata`存在） `/app/mydata`的容器或 linux 容器內的目錄。
