@@ -2,18 +2,18 @@
 title: 將您的 app 設定為使用群組管理的服務帳戶
 description: 如何將應用程式設定為使用群組 Managed 服務帳戶（gMSAs）來進行 Windows 容器。
 keywords: docker、容器、active directory、gmsa、app、應用程式、群組受管理的服務帳戶、群組受管理的服務帳戶、配置
-author: Heidilohr
+author: rpsqrd
 ms.date: 09/10/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
-ms.openlocfilehash: 234909d7f0cb0f30ee7fbf4796dd0381bfbff89f
-ms.sourcegitcommit: 5d4b6823b82838cb3b574da3cd98315cdbb95ce2
+ms.openlocfilehash: 6635381d5f7ddbebf7bdea4624af241b9f6a6864
+ms.sourcegitcommit: 22dcc1400dff44fb85591adf0fc443360ea92856
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "10079723"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "10209865"
 ---
 # <a name="configure-your-app-to-use-a-gmsa"></a>將您的 app 設定為使用 gMSA
 

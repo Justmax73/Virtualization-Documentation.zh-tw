@@ -2,18 +2,18 @@
 title: 使用 gMSA 執行容器
 description: 如何使用群組管理的服務帳戶（gMSA）執行 Windows 容器。
 keywords: docker、容器、active directory、gmsa、群組受管理的服務帳戶、群組受管理的服務帳戶
-author: Heidilohr
+author: rpsqrd
 ms.date: 09/10/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
-ms.openlocfilehash: b9c0406b5fe9527d88365dabf0cfd10114c34c74
-ms.sourcegitcommit: 5d4b6823b82838cb3b574da3cd98315cdbb95ce2
+ms.openlocfilehash: 52625517748356251aa41115caebd7801ec3cdaf
+ms.sourcegitcommit: 22dcc1400dff44fb85591adf0fc443360ea92856
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "10079715"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "10209859"
 ---
 # <a name="run-a-container-with-a-gmsa"></a>使用 gMSA 執行容器
 

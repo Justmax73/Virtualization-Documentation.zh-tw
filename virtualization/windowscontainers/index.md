@@ -9,12 +9,12 @@ ms.topic: landing-page
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 74c9d604-0915-4d89-bc69-0263b76bc66b
-ms.openlocfilehash: d28f91ca5c0957a91c38d51b461449ef869f7493
-ms.sourcegitcommit: 868a64eb97c6ff06bada8403c6179185bf96675f
+ms.openlocfilehash: 9a5b08f87983e285418ae333e3a948af9911d73d
+ms.sourcegitcommit: 22dcc1400dff44fb85591adf0fc443360ea92856
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "10129278"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "10209738"
 ---
 <div id="main" class="v2">
     <ul class="cardsY panelContent featuredContent">
@@ -47,7 +47,7 @@ ms.locfileid: "10129278"
                                 </div>
                             </div>
                             <div class="cardText">
-                                <h3>在 Docker 中樞上查看容器影像</h3>
+                                <h3>在 Docker 中樞上查看容器影像。</h3>
                             </div>
                         </div>
                     </div>
@@ -89,7 +89,7 @@ ms.locfileid: "10129278"
                         <div class="cardText">
                             <h3 style="margin: 8px 0 2px 0;">概觀</h3>
                             <ul>
-                                <li><a href="/en-us/virtualization/windowscontainers/about/index" data-linktype="absolute-path">容器101</a></li>
+                                <li><a href="/en-us/virtualization/windowscontainers/about/index" data-linktype="absolute-path">關於 Windows 容器</a></li>
                                 <li><a href="/en-us/virtualization/windowscontainers/deploy-containers/system-requirements" data-linktype="absolute-path">系統需求</a></li>
                                 <li><a href="/en-us/virtualization/windowscontainers/about/faq" data-linktype="absolute-path">常見問題</a></li>
                             </ul>
@@ -132,9 +132,9 @@ ms.locfileid: "10129278"
                             <h3 style="margin: 8px 0 2px 0;">教學課程</h3>
                             <ul>
                                 <li><a href="/en-us/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile" data-linktype="external">建立 Windows 容器</a></li>
-                                <li><a href="/en-us/virtualization/windowscontainers/kubernetes/getting-started-kubernetes-windows" data-linktype="external">Windows 上的 Kubernetes</a></li>
-                                <li><a href="/en-us/azure/service-fabric/service-fabric-quickstart-containers" data-linktype="external">Windows 上的服務結構</a></li>
-                                <li><a href="/en-us/virtualization/windowscontainers/deploy-containers/linux-containers" data-linktype="external">Windows 上的 Linux 容器</a></li>
+                                <li><a href="/azure/aks/windows-container-cli" data-linktype="external">在 AKS 上執行</a></li>
+                                <li><a href="/azure/service-fabric/service-fabric-quickstart-containers" data-linktype="external">在 Service Fabric 上執行</a></li>
+                                <li><a href="/azure/app-service/app-service-web-get-started-windows-container" data-linktype="external">在 Azure App 服務上執行</a></li>
                             </ul>
                         </div>
                     </div>
@@ -154,11 +154,8 @@ ms.locfileid: "10129278"
                             <h3 style="margin: 8px 0 2px 0;">概念</h3>
                             <ul>
                                 <li><a href="/en-us/virtualization/windowscontainers/manage-docker/configure-docker-daemon" data-linktype="external">Docker</a></li>
-                                <li><a href="/en-us/virtualization/windowscontainers/manage-containers/manage-serviceaccounts" data-linktype="external">工作負載</a></li>
-                                <li><a href="/en-us/virtualization/windowscontainers/container-networking/architecture" data-linktype="external">網路功能</a></li>
-                                <li><a href="/en-us/virtualization/windowscontainers/manage-containers/container-storage" data-linktype="external">儲存空間</a></li>
-                                <li><a href="/en-us/virtualization/windowscontainers/deploy-containers/hardware-devices-in-containers" data-linktype="external">裝置</a></li>
-                                <li><a href="/en-us/virtualization/windowscontainers/manage-containers/hyperv-container" data-linktype="external">Hyper-V 隔離</a></li>
+                                <li><a href="/virtualization/windowscontainers/about/overview-container-orchestrators" data-linktype="external">容器 orchestration</a></li>
+                                <li><a href="/virtualization/windowscontainers/manage-containers/container-base-images" data-linktype="external">Windows 容器基本版</a></li>
                             </ul>
                         </div>
                     </div>

@@ -14,19 +14,15 @@
 ## 建立 Windows 容器
 ### [撰寫 Dockerfile](manage-docker/manage-windows-dockerfile.md)
 ### [優化 Dockerfile](manage-docker/optimize-windows-dockerfile.md)
-## Windows 上的 Kubernetes
-### [Windows 上的 Kubernetes](kubernetes/getting-started-kubernetes-windows.md)
-### [建立 Kubernetes 主版](kubernetes/creating-a-linux-master.md)
-### [選擇網路解決方案](kubernetes/network-topologies.md)
-### [加入 Windows 工作人員](kubernetes/joining-windows-workers.md)
-### [加入 Linux 工作人員](kubernetes/joining-linux-workers.md)
-### [部署 Kubernetes 資源](kubernetes/deploying-resources.md)
-### [疑難排解](kubernetes/common-problems.md)
-### [Kubernetes 上的 Windows 服務](kubernetes/kube-windows-services.md)
-### [編譯 Kubernetes 二進位檔案](kubernetes/compiling-kubernetes-binaries.md)
-## Windows 上的服務結構
+## 在 Azure Kubernetes Service 上執行
+### [在 AKS 上建立 Windows 容器群集](/azure/aks/windows-container-cli)
+### [目前的限制](/azure/aks/windows-node-limitations)
+## 在 Service Fabric 上執行
 ### [部署您的第一個容器](/azure/service-fabric/service-fabric-quickstart-containers)
 ### [在 Windows 容器中部署 .NET 應用程式](/azure/service-fabric/service-fabric-host-app-in-a-container)
+## 在 Azure App 服務上執行
+### [Azure App Service 快速入門](/azure/app-service/app-service-web-get-started-windows-container)
+### [使用 Windows 容器和 Azure App 服務來遷移 ASP.NET 應用程式](/azure/app-service/app-service-web-tutorial-windows-containers-custom-fonts)
 ## Windows 上的 Linux 容器
 ### [概觀](deploy-containers/linux-containers.md)
 ### [執行您的第一個 LCOW 容器](quick-start/quick-start-windows-10-linux.md)
@@ -39,10 +35,24 @@
 ### [資源控制](manage-containers/resource-controls.md)
 ## Docker
 ### [Windows 上的 Docker 引擎](manage-docker/configure-docker-daemon.md)
-### [Docker swarm](manage-containers/swarm-mode.md)
 ### [Windows Docker 主機的遠端系統管理](management/manage_remotehost.md)
 ## 容器 Orchestration
 ### [概觀](about/overview-container-orchestrators.md)
+### Windows 上的 Kubernetes
+#### [Windows 上的 Kubernetes](kubernetes/getting-started-kubernetes-windows.md)
+#### [建立 Kubernetes 主版](kubernetes/creating-a-linux-master.md)
+#### [選擇網路解決方案](kubernetes/network-topologies.md)
+#### [加入 Windows 工作人員](kubernetes/joining-windows-workers.md)
+#### [加入 Linux 工作人員](kubernetes/joining-linux-workers.md)
+#### [部署 Kubernetes 資源](kubernetes/deploying-resources.md)
+#### [疑難排解](kubernetes/common-problems.md)
+#### [Kubernetes 上的 Windows 服務](kubernetes/kube-windows-services.md)
+#### [編譯 Kubernetes 二進位檔案](kubernetes/compiling-kubernetes-binaries.md)
+### Service Fabric
+#### [服務結構與容器](/azure/service-fabric/service-fabric-containers-overview)
+#### [資源管理](/azure/service-fabric/service-fabric-resource-governance)
+### Docker Swarm
+#### [Swarm 模式](manage-containers/swarm-mode.md)
 ## 工作負載
 ### 群組受管理的服務帳戶
 #### [建立群組 gMSA](manage-containers/manage-serviceaccounts.md)
@@ -58,6 +68,7 @@
 ### [設定高級網路選項](container-networking/advanced.md)
 ## 儲存空間
 ### [概觀](manage-containers/container-storage.md)
+### [持久性儲存](manage-containers/persistent-storage.md)
 ## 裝置
 ### [硬體裝置](deploy-containers/hardware-devices-in-containers.md)
 ### [GPU 加速](deploy-containers/gpu-acceleration.md)
