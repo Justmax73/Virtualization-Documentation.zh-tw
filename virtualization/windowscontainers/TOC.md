@@ -2,6 +2,7 @@
 
 # 概觀
 ## [關於 Windows 容器](about/index.md)
+## [容器與 Vm](about/containers-vs-vm.md)
 ## [系統需求](deploy-containers/system-requirements.md)
 ## [常見問題](about/faq.md)
 
@@ -26,6 +27,8 @@
 ## Windows 上的 Linux 容器
 ### [概觀](deploy-containers/linux-containers.md)
 ### [執行您的第一個 LCOW 容器](quick-start/quick-start-windows-10-linux.md)
+## 使用容器搭配 Windows 測試人員計畫
+### [概觀](deploy-containers/insider-overview.md)
 
 # 概念
 ## Windows 容器基本版

@@ -11,7 +11,7 @@
 - 一部電腦系統 (實體或虛擬)，而且執行 Windows 測試人員計畫中最新的 Windows Server 組建及/或 Windows 測試人員計畫中最新的 Windows 10 組建。
 
 > [!IMPORTANT]
-> 您必須使用 windows Server 測試人員預覽版程式的 Windows Server 組建, 或從 Windows 測試人員預覽版程式建立 Windows 10 版本, 才能使用下面所述的基本影像。 如果您沒有使用上述其中一種組建，使用這些基本映像就會導致您無法啟動容器。
+> Windows 需要主機作業系統版本來符合容器作業系統版本。 如果您想要根據較新的 Windows 組建來執行容器，請確定您有相同的主機組建。 否則，您可以使用 Hyper-v 隔離在新的主機組建上執行較舊的容器。 您可以在我們的容器文檔中深入瞭解 Windows 容器版本相容性。
 
 ## <a name="install-docker-enterprise-edition-ee"></a>安裝 Docker Enterprise Edition (EE)
 
@@ -20,7 +20,7 @@
 我們將使用 OneGet 提供者 PowerShell 模組來安裝 Docker EE。 此提供者會啟用您電腦上的容器功能並安裝 Docker EE，這會需要重新開機。 開啟提高權限的 PowerShell 工作階段，並執行下列命令。
 
 > [!NOTE]
-> 在 Windows Server 測試人員組建中安裝 Docker EE 時, 需要的 OneGet 提供者與非測試人員組建所用的不同。 如果 Docker EE 和 DockerMsftProvider OneGet 提供者已經安裝，必須將它們移除才能繼續。
+> 在 Windows Server 測試人員組建中安裝 Docker EE 時，需要的 OneGet 提供者與非測試人員組建所用的不同。 如果 Docker EE 和 DockerMsftProvider OneGet 提供者已經安裝，必須將它們移除才能繼續。
 
 ```powershell
 Stop-Service docker
@@ -48,25 +48,33 @@ Restart-Computer -Force
 
 ## <a name="install-base-container-image"></a>安裝基本容器映像
 
-使用 Windows 容器之前，必須先安裝基本映像。 加入 Windows 測試人員計畫之後，您也可以測試最新的基本映像組建。 在測試人員基本映像中，目前有 4 個以 Windows Server 為基礎的基本映像可用。 請參閱下表以查看每個映像的用途：
+使用 Windows 容器之前，必須先安裝基本映像。 加入 Windows 測試人員計畫之後，您也可以測試最新的基本映像組建。 有了測試人員基礎影像，現在可根據 Windows Server 提供6個可用的基礎映射。 請參閱下表以查看每個映像的用途：
 
 | 基本 OS 映像                       | 用途                      |
 |-------------------------------------|----------------------------|
 | mcr.microsoft.com/windows/servercore         | 生產與開發 |
 | mcr.microsoft.com/windows/nanoserver              | 生產與開發 |
+| mcr.microsoft.com/windows/              | 生產與開發 |
 | mcr.microsoft.com/windows/servercore/insider | 僅限開發           |
 | mcr.microsoft.com/windows/nanoserver/insider        | 僅限開發           |
+| mcr.microsoft.com/windows/insider        | 僅限開發           |
 
-若要提取 Nano Server 測試人員基本映像，請執行下列命令：
+若要拉動伺服器核心測試人員基底影像，請參閱[伺服器核心測試人員 Docker 中心](https://hub.docker.com/_/microsoft-windows-servercore-insider)庫上的特色標籤，以使用下列格式：
 
 ```console
-docker pull mcr.microsoft.com/nanoserver/insider
+docker pull mcr.microsoft.com/windows/servercore/insider:10.0.{build}.{revision}
 ```
 
-若要提取 Windows Server Core 測試人員基本映像，請執行下列命令：
+若要拉出 Nano Server 測試人員基礎影像，請參閱[Nano server 測試人員 Docker 中心](https://store.docker.com/_/microsoft-windows-nanoserver-insider)的 [功能] 標記，以使用下列格式：
 
 ```console
-docker pull mcr.microsoft.com/windows/servercore/insider
+docker pull mcr.microsoft.com/windows/nanoserver/insider:10.0.{build}.{revision}
+```
+
+若要拉動 Windows 測試人員基礎影像，請參閱 Windows 測試人員[中心](https://store.docker.com/_/microsoft-windows-insider)群組的 [功能] 標記，以使用下列格式：
+
+```console
+docker pull mcr.microsoft.com/windows/insider:10.0.{build}.{revision}
 ```
 
 > [!IMPORTANT]
