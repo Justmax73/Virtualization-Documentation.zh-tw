@@ -7,12 +7,12 @@ ms.date: 09/10/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.openlocfilehash: cf8a14002e962242c34e9a10086120e6942d382b
-ms.sourcegitcommit: 6080b2c5053720490d374f6fb0daa870d5ddd4e8
+ms.openlocfilehash: db3caea3f7911ec6641930302198f976bd61240d
+ms.sourcegitcommit: da762ce138467e50dce22d5086ad407138b38e48
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "10257772"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "10261827"
 ---
 # <a name="containerize-a-net-core-app"></a>Containerize .NET Core 應用程式
 
@@ -121,7 +121,7 @@ docker run -d -p 5000:80 --name myapp my-asp-app
 * `--name myapp` 告訴 Docker 可讓這個容器輕鬆地進行查詢，而不需要在執行時間使用 Docker 指派的 contaienr 識別碼。
 * `my-asp-app` 是我們想要 Docker 執行的影像。 這是程式的 culmination `docker build`所產生的容器影像。
 
-開啟網頁瀏覽器網頁瀏覽器，然後`https://localhost:5000`流覽至要由您的容器化應用程式 greeted。
+開啟網頁瀏覽器網頁瀏覽器，然後`http://localhost:5000`流覽至要由您的容器化應用程式 greeted。
 
 >![](media/SampleAppScreenshot.png)
 
