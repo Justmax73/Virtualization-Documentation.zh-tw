@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 25de368c-5a10-40a4-b4aa-ac8c9a9ca022
-ms.openlocfilehash: 19ff54ec032d61b24aea9fec4f14e8fce301d33a
-ms.sourcegitcommit: 347d7c9d34f4c1d2473eb6c94c8ad6187318a037
+ms.openlocfilehash: aeb2b5dd0d9df95ee417b3a160d10d4991304689
+ms.sourcegitcommit: 4b37076f988608b6bf1270497c24325993ef41d3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "10257950"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "10264359"
 ---
 # <a name="frequently-asked-questions-about-containers"></a>有關容器的常見問題
 
@@ -40,9 +40,12 @@ Windows 容器影像[EULA](../images-eula.md)描述的使用方式取決於擁�
 |Windows Server Standard                                         |無限制                                          |pplx-2                                                  |
 |Windows Server Datacenter                                       |無限制                                          |無限制                                          |
 |Windows 10 專業版與企業版                                   |無限制 *（僅限測試或開發目的）*|無限制 *（僅限測試或開發目的）*|
-|Windows 10 IoT 核心版與企業版）                             |無限制 *（僅限測試或開發目的）*|無限制 *（僅限測試或開發目的）*|
+|Windows 10 IoT 核心版與企業版                             |無限                                         |無限                                          |
 
-Windows Server 容器影像的使用方式是透過讀取該[版本](/windows-server/get-started-19/editions-comparison-19.md)支援的虛擬化來賓數量來決定。 在 Windows 版 IoT 版本中，容器的產品使用量視其他授許可權制而定。 請閱讀[容器影像的 EULA](../images-eula.md) ，以瞭解所允許的專案與內容。
+Windows Server 容器影像的使用方式是透過讀取該[版本](/windows-server/get-started-19/editions-comparison-19.md)支援的虛擬化來賓數量來決定。 <br/>
+
+>[!NOTE]
+>\ * Windows 版 IoT 版本中的容器的產品使用量，取決於您是否已同意使用 Windows 10 核心執行時間影像的 Microsoft 商業使用條款或 Windows 10 IoT Enterprise Device 授權（「Windows IoT 商業協定」）。 Windows IoT 商業版協定中的其他條款與限制適用于您在生產環境中使用容器影像的情況。 請閱讀[容器影像的 EULA](../images-eula.md) ，以瞭解所允許的專案與內容。
 
 ## <a name="as-a-developer-do-i-have-to-rewrite-my-app-for-each-type-of-container"></a>作為開發人員，我是否必須針對每個容器類型重新編寫應用程式？
 
