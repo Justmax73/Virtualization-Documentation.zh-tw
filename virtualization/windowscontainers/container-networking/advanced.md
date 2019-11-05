@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: 6480f0657d7def8d6da69bfc52ace81d08b0add4
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: deea1bfbcd3032f52a6912eb0c36ba467d8b9a9c
+ms.sourcegitcommit: b38f6abb399c87c57e1bb146f3dbcdaefd991245
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998805"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "10276491"
 ---
 # <a name="advanced-network-options-in-windows"></a>Windows 中的進階網路選項
 
@@ -46,13 +46,13 @@ C:\> docker network create -d transparent -o com.docker.network.windowsshim.vlan
 
 > 適用于 l2bridge 網路
 
-一般情況下, 當您`l2bridge`使用`docker network create`建立容器網路時, 容器端點沒有套用的 HNS OutboundNAT 原則, 導致樹枝無法到達外部世界。 如果您要建立網路, 您可以使用此`-o com.docker.network.windowsshim.enable_outboundnat=<true|false>`選項來套用 OutboundNAT HNS 原則, 為容器提供外部世界的存取權:
+一般情況下，當您`l2bridge`使用`docker network create`建立容器網路時，容器端點沒有套用的 HNS OutboundNAT 原則，導致樹枝無法到達外部世界。 如果您要建立網路，您可以使用此`-o com.docker.network.windowsshim.enable_outboundnat=<true|false>`選項來套用 OutboundNAT HNS 原則，為容器提供外部世界的存取權：
 
 ```
 C:\> docker network create -d l2bridge -o com.docker.network.windowsshim.enable_outboundnat=true MyL2BridgeNetwork
 ```
 
-如果有一組目的地 (例如, 需要容器與容器連線), 那麼我們也需要指定例外情況:
+如果有一組目的地（例如，需要容器與容器連線），那麼我們也需要指定例外情況：
 
 ```
 C:\> docker network create -d l2bridge -o com.docker.network.windowsshim.enable_outboundnat=true -o com.docker.network.windowsshim.outboundnat_exceptions=10.244.10.0/24
@@ -162,7 +162,6 @@ C:\> docker run -it --network=MyTransparentNet --ip=10.123.174.105 windowsserver
 
 #### <a name="ip-assignment-on-stopped-vs-running-containers"></a>在已停止與執行中的容器上進行 IP 指派
 靜態 IP 指派會直接在容器的網路介面卡上執行，且容器必須處於停止狀態，才能執行。 在執行容器時，(在 Windows Server 2016 中) 不支援容器網路介面卡的「熱新增」或變更網路堆疊。
-> 注意：在 Windows 10 Creators Update 上，此行為已變更，因為現在該平台可支援「熱新增」。 在合併這個[待處理的 Docker 提取要求](https://github.com/docker/libnetwork/pull/1661)之後，此功能將會啟用 E2E
 
 #### <a name="existing-vswitch-not-visible-to-docker-can-block-transparent-network-creation"></a>現有的 vSwitch (Docker 看不到) 會阻止建立透明網路
 如果在建立透明網路時發生錯誤，可能是系統上有未經 Docker 自動探索到的外部 vSwitch，以致透明網路無法繫結至容器主機的外部網路介面卡。 
