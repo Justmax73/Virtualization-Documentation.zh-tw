@@ -8,17 +8,17 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: cff56843a0eeb48ca5d19b694eb8eb4e758002aa
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: 8d2ddb80aa05b511dbc8c9532654b18956e340da
+ms.sourcegitcommit: 7fd95333bd7fd2ef3627b0b5c558067e0bd0e09f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998455"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "10276513"
 ---
 # <a name="windows-container-networking"></a>Windows 容器網路
 
 >[!IMPORTANT]
->請參閱適用于一般 Docker 網路命令、選項及語法的[Docker 容器網路](https://docs.docker.com/engine/userguide/networking/)。 * * * 除了[不支援的功能和網路選項](#unsupported-features-and-network-options)中所述的任何情況以外, 所有的 Docker 網路命令都是在 Windows 上支援的語法與 Linux 上的相同。 不過, Windows 和 Linux 網路堆疊是不一樣的, 因此您會發現 Windows 不支援某些 Linux 網路命令 (例如, ifconfig)。
+>請參閱適用于一般 Docker 網路命令、選項及語法的[Docker 容器網路](https://docs.docker.com/engine/userguide/networking/)。 * * * 除了[不支援的功能和網路選項](#unsupported-features-and-network-options)中所述的任何情況以外，所有的 Docker 網路命令都是在 Windows 上支援的語法與 Linux 上的相同。 不過，Windows 和 Linux 網路堆疊是不一樣的，因此您會發現 Windows 不支援某些 Linux 網路命令（例如，ifconfig）。
 
 ## <a name="basic-networking-architecture"></a>基本網路架構
 
@@ -58,18 +58,18 @@ Docker 引擎第一次執行時，會建立預設 NAT 網路 'nat'，它會使�
 - 預設 NAT 網路：HNS 使用對應的 Windows 防火牆允許規則，建立 WinNAT 連接埠轉送規則/對應
 - 所有其他網路：HNS 利用虛擬篩選平台 (VFP) 來建立原則
     - 這包括：負載平衡、ACL、封裝等。
-    - 查看我們**即將發行**的 HNS API 和結構描述。
+    - 尋找我們[在此](https://docs.microsoft.com/en-us/windows-server/networking/technologies/hcn/hcn-top)發佈的 HNS api 與架構
 
 ![文字](media/HNS-Management-Stack.png)
 
 ## <a name="unsupported-features-and-network-options"></a>不支援的功能和網路選項
 
-Windows 目前**不**支援下列網路選項:
+Windows 目前**不**支援下列網路選項：
 
 - 附加至 l2bridge、NAT 及重迭網路的 Windows 容器不支援經由 IPv6 堆疊進行通訊。
 - 經 IPsec 加密的容器通訊。
 - 容器的 HTTP proxy 支援。
-- 將端點附加至在 Hyper-v 隔離中執行 (熱載入)。
+- 將端點附加至在 Hyper-v 隔離中執行（熱載入）。
 - 透過透明網路驅動程式在虛擬 Azure 基礎結構上進行網路連接。
 
 | 命令        | 不支援的選項   |
