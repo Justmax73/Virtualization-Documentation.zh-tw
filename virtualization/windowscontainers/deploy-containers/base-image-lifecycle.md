@@ -8,25 +8,26 @@ ms.date: 06/17/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.openlocfilehash: d3a8240dbba8af3c74ce5d185620e129d103ef81
-ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
+ms.openlocfilehash: bb5e5fabadde421de9d420edd2fc921457432930
+ms.sourcegitcommit: e61db4d98d9476a622e6cc8877650d9e7a6b4dd9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "9883181"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "10288136"
 ---
 # <a name="base-image-servicing-lifecycles"></a>基本影像服務週期
 
-Windows 容器基礎映射是以半年通道版本或長期服務通道版本 (Windows Server) 為基礎。 本文將說明從兩個通道的不同版本的基本映射支援的持續時間。
+Windows 容器基礎映射是以半年通道版本或長期服務通道版本（Windows Server）為基礎。 本文將說明從兩個通道的不同版本的基本映射支援的持續時間。
 
-半年通道是每年兩次的功能更新版本, 每個版本都有為期十八個月的服務時間軸。 這可讓客戶以更快的速度來利用新的作業系統功能 (無論是在應用程式中 (尤其是在容器與微上建立的元件), 還是軟體定義的混合式資料中心。 如需詳細資訊, 請參閱[Windows Server 半年通道概覽](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview)。
+半年通道是每年兩次的功能更新版本，每個版本都有為期十八個月的服務時間軸。 這可讓客戶以更快的速度來利用新的作業系統功能（無論是在應用程式中（尤其是在容器與微上建立的元件），還是軟體定義的混合式資料中心。 如需詳細資訊，請參閱[Windows Server 半年通道概覽](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview)。
 
-針對伺服器核心影像, 客戶也可以使用長期服務通道, 每兩到三年發行新的主要 Windows Server 主要版本。 長期服務通道發行的期限是五年的主流支援, 以及五年的延長支援。 此通道可與需要較長服務選項和功能性穩定性的系統搭配使用。
+針對伺服器核心影像，客戶也可以使用長期服務通道，每兩到三年發行新的主要 Windows Server 主要版本。 長期服務通道發行的期限是五年的主流支援，以及五年的延長支援。 此通道可與需要較長服務選項和功能性穩定性的系統搭配使用。
 
-下表列出每個類型的基底影像、其服務通道, 以及支援的持續時間。
+下表列出每個類型的基底影像、其服務通道，以及支援的持續時間。
 
 |基底影像                       |維護管道|版本|OS 組建|可用性|主要支援結束日期|延長支援日期|
 |---------------------------------|-----------------|-------|--------|------------|---------------------------|---------------------|
+|伺服器核心版、Nano Server、Windows|半年      |1909   |18363   |2019/11/12  |05/11/2021                 |無                  |
 |伺服器核心版、Nano Server、Windows|半年      |1903   |18362   |05/21/2019  |12/08/2020                 |無                  |
 |Server Core                      |長期        |1809   |17763   |11/13/2018  |01/09/2024                 |01/09/2029           |
 |伺服器核心版、Nano Server、Windows|半年      |1809   |17763   |11/13/2018  |05/12/2020                 |無                  |
@@ -35,4 +36,4 @@ Windows 容器基礎映射是以半年通道版本或長期服務通道版本 (W
 |Server Core                      |長期        |1607   |14393   |10/15/2016  |2022 年 1 月 11 日                 |01/11/2027           |
 |Nano 伺服器                      |半年      |1607   |14393   |10/15/2016  |10/09/2018                 |無                  |
 
-如需服務需求及其他其他資訊, 請參閱 [Windows 週期常見問題](https://support.microsoft.com/help/18581/lifecycle-faq-windows-products)、 [windows Server 發行資訊](https://docs.microsoft.com/windows-server/get-started/windows-server-release-info), 以及[windows 基本 OS 影像 Docker 中樞存放庫](https://hub.docker.com/_/microsoft-windows-base-os-images)。
+如需服務需求及其他其他資訊，請參閱 [Windows 週期常見問題](https://support.microsoft.com/help/18581/lifecycle-faq-windows-products)、 [windows Server 發行資訊](https://docs.microsoft.com/windows-server/get-started/windows-server-release-info)，以及[windows 基本 OS 影像 Docker 中樞存放庫](https://hub.docker.com/_/microsoft-windows-base-os-images)。
