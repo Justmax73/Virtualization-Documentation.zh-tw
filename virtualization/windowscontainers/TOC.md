@@ -49,7 +49,7 @@
 #### [加入 Linux 工作人員](kubernetes/joining-linux-workers.md)
 #### [部署 Kubernetes 資源](kubernetes/deploying-resources.md)
 #### [疑難排解](kubernetes/common-problems.md)
-#### [Kubernetes 上的 Windows 服務](kubernetes/kube-windows-services.md)
+#### [以 Windows 服務 Kubernetes](kubernetes/kube-windows-services.md)
 #### [編譯 Kubernetes 二進位檔案](kubernetes/compiling-kubernetes-binaries.md)
 ### Service Fabric
 #### [服務結構與容器](/azure/service-fabric/service-fabric-containers-overview)
