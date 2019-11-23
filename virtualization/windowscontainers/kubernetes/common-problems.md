@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.prod: containers
 description: 部署 Kubernetes 和加入 Windows 節點時常見問題的解決方案。
 keywords: kubernetes、1.14、linux、compile
-ms.openlocfilehash: b6e4e648ff050e13a0930f2834949867e44ce895
-ms.sourcegitcommit: d252f356a3de98f224e1550536810dfc75345303
+ms.openlocfilehash: 8bebc83e03fe919f6af3968b0e0463ab3c6bb987
+ms.sourcegitcommit: 6b925368d122ba600d7d4c73bd240cdcb915cccd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "10069932"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "10305722"
 ---
 # <a name="troubleshooting-kubernetes"></a>疑難排解 Kubernetes #
 此頁面逐步解說 Kubernetes 設定、網路及部署的數個常見問題。
@@ -20,7 +20,7 @@ ms.locfileid: "10069932"
 > [!tip]
 > 藉由提出 PR 到[我們的文件存放庫](https://github.com/MicrosoftDocs/Virtualization-Documentation/)，建議常見問題集項目。
 
-此頁面分為下列類別:
+此頁面分為下列類別：
 1. [一般問題](#general-questions)
 2. [常見的網路錯誤](#common-networking-errors)
 3. [常見的 Windows 錯誤](#common-windows-errors)
@@ -28,36 +28,49 @@ ms.locfileid: "10069932"
 
 ## <a name="general-questions"></a>一般問題 ##
 
-### <a name="how-do-i-know-startps1-on-windows-completed-successfully"></a>如何知道開始! Windows 上的 ps1 已順利完成？ ###
-您應該會看到 kubelet、kube-proxy, 以及 (如果您選擇 Flannel 做為網路解決方案) flanneld 在您的節點上執行的主機代理程式進程, 且在不同的 PoSh 視窗中顯示正在執行的記錄。 此外, 您的 Windows 節點在您的 Kubernetes 群集中應該會列為 "就緒"。
+### <a name="how-do-i-know-startps1-on-windows-completed-successfully"></a>如何知道開始！ Windows 上的 ps1 已順利完成？ ###
+您應該會看到 kubelet、kube-proxy，以及（如果您選擇 Flannel 做為網路解決方案） flanneld 在您的節點上執行的主機代理程式進程，且在不同的 PoSh 視窗中顯示正在執行的記錄。 此外，您的 Windows 節點在您的 Kubernetes 群集中應該會列為 "就緒"。
 
-### <a name="can-i-configure-to-run-all-of-this-in-the-background-instead-of-posh-windows"></a>我是否可以設定在背景中執行所有這些作業, 而不是 PoSh 視窗？ ###
-從 Kubernetes 版本1.11 開始, kubelet & kube-proxy 可以作為原生[Windows 服務](https://kubernetes.io/docs/getting-started-guides/windows/#kubelet-and-kube-proxy-can-now-run-as-windows-services)執行。 您也可以隨時使用替代服務管理員 (例如[nssm](https://nssm.cc/) ), 在背景中一直執行這些程式 (flanneld、kubelet & kube-proxy)。 如需詳細步驟, 請參閱[Kubernetes 上的 Windows 服務](./kube-windows-services.md)。
+### <a name="can-i-configure-to-run-all-of-this-in-the-background-instead-of-posh-windows"></a>我是否可以設定在背景中執行所有這些作業，而不是 PoSh 視窗？ ###
+從 Kubernetes 版本1.11 開始，kubelet & kube-proxy 可以作為原生[Windows 服務](https://kubernetes.io/docs/getting-started-guides/windows/#kubelet-and-kube-proxy-can-now-run-as-windows-services)執行。 您也可以隨時使用替代服務管理員（例如[nssm](https://nssm.cc/) ），在背景中一直執行這些程式（flanneld、kubelet & kube-proxy）。 如需詳細步驟，請參閱[Kubernetes 上的 Windows 服務](./kube-windows-services.md)。
 
 ### <a name="i-have-problems-running-kubernetes-processes-as-windows-services"></a>我無法執行 Kubernetes 處理常式做為 Windows 服務的問題 ###
-針對初始疑難排解, 您可以在[nssm](https://nssm.cc/)中使用下列標誌, 將 stdout 和 stderr 重新導向到輸出檔:
+針對初始疑難排解，您可以在[nssm](https://nssm.cc/)中使用下列標誌，將 stdout 和 stderr 重新導向到輸出檔：
 ```
 nssm set <Service Name> AppStdout C:\k\mysvc.log
 nssm set <Service Name> AppStderr C:\k\mysvc.log
 ```
-如需其他詳細資料, 請參閱正式[nssm 使用](https://nssm.cc/usage)檔。
+如需其他詳細資料，請參閱正式[nssm 使用](https://nssm.cc/usage)檔。
 
 ## <a name="common-networking-errors"></a>常見的網路錯誤 ##
 
+### <a name="load-balancers-are-plumbed-inconsistently-across-the-cluster-nodes"></a>負載平衡器在整個叢集節點中的查明不一致 ###
+在（預設） kube-proxy 設定中，包含100個 + 負載平衡器的群集可能會用盡可用的暫時（動態）埠，因為每個（非 DSR）負載平衡器的每個節點都會保留大量的埠。 這可能會透過 kube-proxy 中的錯誤資訊清單本身，例如：
+```
+Policy creation failed: hcnCreateLoadBalancer failed in Win32: The specified port already exists.
+```
+
+使用者可以執行[CollectLogs](https://github.com/microsoft/SDN/blob/master/Kubernetes/windows/debug/collectlogs.ps1)腳本來找出這個問題，並查閱`*portrange.txt`檔案。 在中`reservedports.txt`也會產生 heuristical 摘要。
+
+若要解決此問題，可以採取幾個步驟：
+1.  針對永久解決方案，kube-proxy 負載平衡應該設定為[DSR 模式](https://techcommunity.microsoft.com/t5/Networking-Blog/Direct-Server-Return-DSR-in-a-nutshell/ba-p/693710)。 遺憾的是，在新版的[Windows Server 測試人員組建 18945](https://blogs.windows.com/windowsexperience/2019/07/30/announcing-windows-server-vnext-insider-preview-build-18945/#o1bs7T2DGPFpf7HM.97) （或更高版本）中，已完全實現 DSR 模式。
+2. 作為因應措施，使用者也可以使用命令（例如），增加暫時埠的預設 Windows 設定`netsh int ipv4 dynamicportrange TCP <start_range> <end_range>`。 *警告：* 覆寫預設的動態埠範圍可能會對主機上的其他進程/服務產生影響，而主機上的其他進程/服務依賴于可用的 TCP 埠（不是暫時的範圍），因此應謹慎選取此範圍。
+3. 我們也會使用智慧埠池共用來處理非 DSR 模式負載平衡器的可伸縮性增強，這是透過2020年1季度的累積更新發佈。
+
 ### <a name="hostport-publishing-is-not-working"></a>HostPort 發佈無法運作 ###
-目前無法使用 Kubernetes `containers.ports.hostPort`欄位發佈埠, 因為 Windows CNI 外掛程式不會遵守這個欄位。 請使用 NodePort 發佈, 在該節點上發佈埠的時間。
+目前無法使用 Kubernetes `containers.ports.hostPort`欄位發佈埠，因為 Windows CNI 外掛程式不會遵守這個欄位。 請使用 NodePort 發佈，在該節點上發佈埠的時間。
 
-### <a name="i-am-seeing-errors-such-as-hnscall-failed-in-win32-the-wrong-diskette-is-in-the-drive"></a>我在 Win32 中看到「hnsCall 失敗」之類的錯誤: 磁片磁碟機中有錯誤的磁片。 ###
-當您對 HNS 物件進行自訂修改或安裝新的 Windows 更新, 而不需要撕裂舊的 HNS 物件時, 就會發生此錯誤。 它表示先前在更新與目前安裝的 HNS 版本不相容之前所建立的 HNS 物件。
+### <a name="i-am-seeing-errors-such-as-hnscall-failed-in-win32-the-wrong-diskette-is-in-the-drive"></a>我在 Win32 中看到「hnsCall 失敗」之類的錯誤：磁片磁碟機中有錯誤的磁片。 ###
+當您對 HNS 物件進行自訂修改或安裝新的 Windows 更新，而不需要撕裂舊的 HNS 物件時，就會發生此錯誤。 它表示先前在更新與目前安裝的 HNS 版本不相容之前所建立的 HNS 物件。
 
-在 Windows Server 2019 (及以下) 上, 使用者可以透過刪除 HNS 資料檔來刪除 HNS 物件。 
+在 Windows Server 2019 （及以下）上，使用者可以透過刪除 HNS 資料檔來刪除 HNS 物件。 
 ```
 Stop-Service HNS
 rm C:\ProgramData\Microsoft\Windows\HNS\HNS.data
 Start-Service HNS
 ```
 
-使用者應該能夠直接刪除任何不相容的 HNS 端點或網路:
+使用者應該能夠直接刪除任何不相容的 HNS 端點或網路：
 ```
 hnsdiag list endpoints
 hnsdiag delete endpoints <id>
@@ -66,25 +79,25 @@ hnsdiag delete networks <id>
 Restart-Service HNS
 ```
 
-Windows Server 上的使用者, 版本1903可以移至下列登錄位置, 並從網路名稱 (例如`vxlan0` `cbr0`) 刪除任何 nic:
+Windows Server 上的使用者，版本1903可以移至下列登錄位置，並從網路名稱（例如`vxlan0` `cbr0`）刪除任何 nic：
 ```
 \\Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\vmsmp\parameters\NicList
 ```
 
-### <a name="containers-on-my-flannel-host-gw-deployment-on-azure-cannot-reach-the-internet"></a>在我的 Flannel 主機上的容器中, Azure 上的 host-gw 部署無法連接網際網路 ###
-在 Azure 上的主機-gw 模式中部署 Flannel 時, 資料包必須透過 Azure 物理主機 vSwitch 進行。 使用者應該針對指派給節點的每個子網, 為[使用者定義](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview#user-defined)的 "虛擬裝置" 類型進行程式設計。 這可以透過 Azure 入口網站 (請參閱[這裡](https://docs.microsoft.com/en-us/azure/virtual-network/tutorial-create-route-table-portal)的範例) 或經由`az` azure CLI 來完成。 以下是一個名稱為 "MyRoute" 的範例 UDR, 其中包含 IP 10.0.0.4 及各個 pod 子網 10.244.0.0/24 的節點的 az 命令:
+### <a name="containers-on-my-flannel-host-gw-deployment-on-azure-cannot-reach-the-internet"></a>在我的 Flannel 主機上的容器中，Azure 上的 host-gw 部署無法連接網際網路 ###
+在 Azure 上的主機-gw 模式中部署 Flannel 時，資料包必須透過 Azure 物理主機 vSwitch 進行。 使用者應該針對指派給節點的每個子網，為[使用者定義](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview#user-defined)的 "虛擬裝置" 類型進行程式設計。 這可以透過 Azure 入口網站（請參閱[這裡](https://docs.microsoft.com/en-us/azure/virtual-network/tutorial-create-route-table-portal)的範例）或經由`az` azure CLI 來完成。 以下是一個名稱為 "MyRoute" 的範例 UDR，其中包含 IP 10.0.0.4 及各個 pod 子網 10.244.0.0/24 的節點的 az 命令：
 ```
 az network route-table create --resource-group <my_resource_group> --name BridgeRoute 
 az network route-table route create  --resource-group <my_resource_group> --address-prefix 10.244.0.0/24 --route-table-name BridgeRoute  --name MyRoute --next-hop-type VirtualAppliance --next-hop-ip-address 10.0.0.4 
 ```
 
 ### <a name="my-windows-pods-cannot-ping-external-resources"></a>我的 Windows 盒無法 ping 外部資源 ###
-Windows 盒目前沒有為 ICMP 通訊協定預先設定的輸出規則。 不過, 支援 TCP/UDP。 當您嘗試示範與群集以外的資源的連線時, 請`ping <IP>`使用對應`curl <IP>`的命令加以取代。
+Windows 盒目前沒有為 ICMP 通訊協定預先設定的輸出規則。 不過，支援 TCP/UDP。 當您嘗試示範與群集以外的資源的連線時，請`ping <IP>`使用對應`curl <IP>`的命令加以取代。
 
-如果您仍面臨問題, 您在[cni](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/l2bridge/cni/config/cni.conf)中很可能是您的網路設定值得格外注意。 您隨時可以編輯這個靜態檔案, 設定就會套用到任何新近建立的 Kubernetes 資源。
+如果您仍面臨問題，您在[cni](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/l2bridge/cni/config/cni.conf)中很可能是您的網路設定值得格外注意。 您隨時可以編輯這個靜態檔案，設定就會套用到任何新近建立的 Kubernetes 資源。
 
 為什麼？
-其中一個 Kubernetes 網路需求 (請參閱[Kubernetes 模型](https://kubernetes.io/docs/concepts/cluster-administration/networking/)) 是在沒有 NAT 的情況下發生的群集通訊。 若要服從此需求, 我們會針對所有不想要輸出 NAT 發生的通訊, 提供[例外](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/l2bridge/cni/config/cni.conf#L20)順序。 不過, 這也表示您需要排除您嘗試從例外例外中查詢的外部 IP。 只有在您的 Windows 箱中產生的流量, 才能正確 SNAT'ed, 以接收來自外部世界的回應。 在這個方面, 您的例外`cni.conf`順序看起來應該如下:
+其中一個 Kubernetes 網路需求（請參閱[Kubernetes 模型](https://kubernetes.io/docs/concepts/cluster-administration/networking/)）是在沒有 NAT 的情況下發生的群集通訊。 若要服從此需求，我們會針對所有不想要輸出 NAT 發生的通訊，提供[例外](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/l2bridge/cni/config/cni.conf#L20)順序。 不過，這也表示您需要排除您嘗試從例外例外中查詢的外部 IP。 只有在您的 Windows 箱中產生的流量，才能正確 SNAT'ed，以接收來自外部世界的回應。 在這個方面，您的例外`cni.conf`順序看起來應該如下：
 ```conf
 "ExceptionList": [
   "10.244.0.0/16",  # Cluster subnet
@@ -96,44 +109,44 @@ Windows 盒目前沒有為 ICMP 通訊協定預先設定的輸出規則。 不�
 ### <a name="my-windows-node-cannot-access-a-nodeport-service"></a>我的 Windows 節點無法存取 NodePort 服務 ###
 從節點本身進行本機 NodePort 存取將會失敗。 這是已知限制。 NodePort access 將可從其他節點或外部用戶端運作。
 
-### <a name="after-some-time-vnics-and-hns-endpoints-of-containers-are-being-deleted"></a>一段時間之後, 會刪除容器的 vNICs 和 HNS 端點 ###
-當參數未傳遞至`hostname-override` [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/)時, 可能會造成此問題。 若要解決這個問題, 使用者需要將主機名稱傳給 kube-proxy, 如下所示:
+### <a name="after-some-time-vnics-and-hns-endpoints-of-containers-are-being-deleted"></a>一段時間之後，會刪除容器的 vNICs 和 HNS 端點 ###
+當參數未傳遞至`hostname-override` [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/)時，可能會造成此問題。 若要解決這個問題，使用者需要將主機名稱傳給 kube-proxy，如下所示：
 ```
 C:\k\kube-proxy.exe --hostname-override=$(hostname)
 ```
 
-### <a name="on-flannel-vxlan-mode-my-pods-are-having-connectivity-issues-after-rejoining-the-node"></a>在 Flannel (vxlan) 模式下, 在 rejoining 節點後, 我的盒有連接問題 ###
-只要將先前刪除的節點重新加入群集, flannelD 將會嘗試將新的 pod 子網指派給該節點。 使用者應該在下列路徑中移除舊的 pod 子網設定檔:
+### <a name="on-flannel-vxlan-mode-my-pods-are-having-connectivity-issues-after-rejoining-the-node"></a>在 Flannel （vxlan）模式下，在 rejoining 節點後，我的盒有連接問題 ###
+只要將先前刪除的節點重新加入群集，flannelD 將會嘗試將新的 pod 子網指派給該節點。 使用者應該在下列路徑中移除舊的 pod 子網設定檔：
 ```powershell
 Remove-Item C:\k\SourceVip.json
 Remove-Item C:\k\SourceVipRequest.json
 ```
 
-### <a name="after-launching-startps1-flanneld-is-stuck-in-waiting-for-the-network-to-be-created"></a>啟動 start. ps1 之後, Flanneld 停滯在「正在等待建立網路」 ###
-我們正在調查此問題的許多報告;最可能是設定 flannel 網路管理 IP 的時間問題。 因應措施是直接重新開機 start. ps1 或手動重新開機, 如下所示:
+### <a name="after-launching-startps1-flanneld-is-stuck-in-waiting-for-the-network-to-be-created"></a>啟動 start. ps1 之後，Flanneld 停滯在「正在等待建立網路」 ###
+我們正在調查此問題的許多報告;最可能是設定 flannel 網路管理 IP 的時間問題。 因應措施是直接重新開機 start. ps1 或手動重新開機，如下所示：
 ```
 PS C:> [Environment]::SetEnvironmentVariable("NODE_NAME", "<Windows_Worker_Hostname>")
 PS C:> C:\flannel\flanneld.exe --kubeconfig-file=c:\k\config --iface=<Windows_Worker_Node_IP> --ip-masq=1 --kube-subnet-mgr=1
 ```
 
-在目前審查中, 還有一個可解決此問題的[PR](https://github.com/coreos/flannel/pull/1042) 。
+在目前審查中，還有一個可解決此問題的[PR](https://github.com/coreos/flannel/pull/1042) 。
 
 
-### <a name="on-flannel-host-gw-my-windows-pods-do-not-have-network-connectivity"></a>在 Flannel (主機-gw) 上, 我的 Windows 盒沒有網路連線能力 ###
-如果您想要使用 l2bridge 進行網路功能 (亦即[flannel 主機閘道](./network-topologies.md#flannel-in-host-gateway-mode)), 您應該確保已針對 Windows 容器主機 vm (來賓) 啟用 MAC 位址欺騙功能。 若要達到這個目的, 您應該在裝載 Vm 的電腦上以系統管理員身分執行下列動作 (例如, Hyper-v 提供的範例):
+### <a name="on-flannel-host-gw-my-windows-pods-do-not-have-network-connectivity"></a>在 Flannel （主機-gw）上，我的 Windows 盒沒有網路連線能力 ###
+如果您想要使用 l2bridge 進行網路功能（亦即[flannel 主機閘道](./network-topologies.md#flannel-in-host-gateway-mode)），您應該確保已針對 Windows 容器主機 vm （來賓）啟用 MAC 位址欺騙功能。 若要達到這個目的，您應該在裝載 Vm 的電腦上以系統管理員身分執行下列動作（例如，Hyper-v 提供的範例）：
 
 ```powershell
 Get-VMNetworkAdapter -VMName "<name>" | Set-VMNetworkAdapter -MacAddressSpoofing On
 ```
 
 > [!TIP]
-> 如果您使用的是以 VMware 為基礎的產品來符合您的虛擬化需求, 請參閱針對 MAC 欺騙需求啟用[混雜模式](https://kb.vmware.com/s/article/1004099)。
+> 如果您使用的是以 VMware 為基礎的產品來符合您的虛擬化需求，請參閱針對 MAC 欺騙需求啟用[混雜模式](https://kb.vmware.com/s/article/1004099)。
 
 >[!TIP]
-> 如果您是在其他雲端提供者的 Azure 或 IaaS Vm 上自行部署 Kubernetes, 您也可以改為使用重迭[網路](./network-topologies.md#flannel-in-vxlan-mode)。
+> 如果您是在其他雲端提供者的 Azure 或 IaaS Vm 上自行部署 Kubernetes，您也可以改為使用重迭[網路](./network-topologies.md#flannel-in-vxlan-mode)。
 
-### <a name="my-windows-pods-cannot-launch-because-of-missing-runflannelsubnetenv"></a>我的 Windows 盒無法啟動, 因為遺失/run/flannel/subnet.env ###
-這表示 Flannel 未正確啟動。 您可以嘗試重新開機 flanneld, 也可以從`/run/flannel/subnet.env` Kubernetes 主版手動將檔案複製到`C:\run\flannel\subnet.env` Windows worker 節點上, 然後將該`FLANNEL_SUBNET`列修改為指派的子網。 例如, 如果已指派節點子網 10.244.4.1/24:
+### <a name="my-windows-pods-cannot-launch-because-of-missing-runflannelsubnetenv"></a>我的 Windows 盒無法啟動，因為遺失/run/flannel/subnet.env ###
+這表示 Flannel 未正確啟動。 您可以嘗試重新開機 flanneld，也可以從`/run/flannel/subnet.env` Kubernetes 主版手動將檔案複製到`C:\run\flannel\subnet.env` Windows worker 節點上，然後將該`FLANNEL_SUBNET`列修改為指派的子網。 例如，如果已指派節點子網 10.244.4.1/24：
 ```
 FLANNEL_NETWORK=10.244.0.0/16
 FLANNEL_SUBNET=10.244.4.1/24
@@ -143,16 +156,16 @@ FLANNEL_IPMASQ=true
 更安全的做法是讓 flanneld 為您產生此檔案。
 
 ### <a name="pod-to-pod-connectivity-between-hosts-is-broken-on-my-kubernetes-cluster-running-on-vsphere"></a>主機間的 pod 到 pod 連線在 vSphere 上的 Kubernetes 群集中中斷 
-因為 vSphere 和 Flannel 都是重迭網路的埠 4789 (預設 VXLAN 埠), 所以資料包最終會遭到截獲。 如果 vSphere 是用於重迭網路, 則應該將它設定為使用不同的埠才能釋放4789。  
+因為 vSphere 和 Flannel 都是重迭網路的埠4789（預設 VXLAN 埠），所以資料包最終會遭到截獲。 如果 vSphere 是用於重迭網路，則應該將它設定為使用不同的埠才能釋放4789。  
 
 
 ### <a name="my-endpointsips-are-leaking"></a>我的端點/Ip 正在洩漏 ###
-存在2個目前已知問題, 可能會導致端點洩漏。 
+存在2個目前已知問題，可能會導致端點洩漏。 
 1.  第一個[已知問題](https://github.com/kubernetes/kubernetes/issues/68511)是 Kubernetes 版本1.11 中的問題。 請避免使用 Kubernetes 版本 1.11.0-1.11.2。
-2. 可能導致端點洩漏的第二個[已知問題](https://github.com/docker/libnetwork/issues/1950)是端點儲存中的併發問題。 若要接收修正程式, 您必須使用 Docker EE 18.09 或更新版本。
+2. 可能導致端點洩漏的第二個[已知問題](https://github.com/docker/libnetwork/issues/1950)是端點儲存中的併發問題。 若要接收修正程式，您必須使用 Docker EE 18.09 或更新版本。
 
-### <a name="my-pods-cannot-launch-due-to-network-failed-to-allocate-for-range-errors"></a>我的箱無法啟動, 因為「網路: 無法為範圍指派」錯誤 ###
-這表示您節點上的 IP 位址空間已用完。 若要清除任何[洩漏的端點](#my-endpointsips-are-leaking), 請在受影響的節點上遷移任何資源 & 執行下列命令:
+### <a name="my-pods-cannot-launch-due-to-network-failed-to-allocate-for-range-errors"></a>我的箱無法啟動，因為「網路：無法為範圍指派」錯誤 ###
+這表示您節點上的 IP 位址空間已用完。 若要清除任何[洩漏的端點](#my-endpointsips-are-leaking)，請在受影響的節點上遷移任何資源 & 執行下列命令：
 ```
 c:\k\stop.ps1
 Get-HNSEndpoint | Remove-HNSEndpoint
@@ -160,7 +173,7 @@ Remove-Item -Recurse c:\var
 ```
 
 ### <a name="my-windows-node-cannot-access-my-services-using-the-service-ip"></a>我的 Windows 節點無法使用服務 IP 存取我的服務 ###
-這是 Windows 目前網路堆疊的已知限制。 Windows*盒* **** 可以存取服務 IP。
+這是 Windows 目前網路堆疊的已知限制。 Windows*盒***可以存取**服務 IP。
 
 ### <a name="no-network-adapter-is-found-when-starting-kubelet"></a>啟動 Kubelet 時找不到網路介面卡 ###
 Windows 網路堆疊需要虛擬介面卡，才能讓 Kubernetes 網路功能運作。 如果下列命令未傳回任何結果 (在 Admin Shell 中)，表示虛擬網路建立作業 &mdash; 讓 Kubelet 運作所需的必要條件 &mdash; 失敗：
@@ -170,10 +183,10 @@ Get-HnsNetwork | ? Name -ieq "cbr0"
 Get-NetAdapter | ? Name -Like "vEthernet (Ethernet*"
 ```
 
-通常, 修改 start. ps1 腳本的[InterfaceName](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/l2bridge/start.ps1#L6)參數 (如果主機的網路介面卡不是 "Ethernet") 是必要的。 否則, 請參閱`start-kubelet.ps1`腳本的輸出, 查看虛擬網路建立期間是否有錯誤。 
+通常，修改 start. ps1 腳本的[InterfaceName](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/l2bridge/start.ps1#L6)參數（如果主機的網路介面卡不是 "Ethernet"）是必要的。 否則，請參閱`start-kubelet.ps1`腳本的輸出，查看虛擬網路建立期間是否有錯誤。 
 
 ### <a name="pods-stop-resolving-dns-queries-successfully-after-some-time-alive"></a>Pod 在持續運作一段時間後順利停止解析 DNS 查詢 ###
-在 Windows Server、版本1803和下方的網路堆疊中, 可能會發生已知的 DNS 快取問題, 有時可能會造成 DNS 要求失敗。 若要解決此問題, 您可以使用下列登錄機碼, 將最大 TTL 快取值設為零:
+在 Windows Server、版本1803和下方的網路堆疊中，可能會發生已知的 DNS 快取問題，有時可能會造成 DNS 要求失敗。 若要解決此問題，您可以使用下列登錄機碼，將最大 TTL 快取值設為零：
 
 ```Dockerfile
 FROM microsoft/windowsservercore:<your-build>
@@ -187,7 +200,7 @@ New-ItemPropery -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Paramete
   - 您已正確設定您選擇的[網路拓朴](./network-topologies.md)
   - 允許來自 Pod 的流量
   - 允許 HTTP 流量，如果您要部署 Web 服務
-  - 未刪除來自不同通訊協定 (ie ICMP 與 TCP/UDP) 的資料包
+  - 未刪除來自不同通訊協定（ie ICMP 與 TCP/UDP）的資料包
 
 
 ## <a name="common-windows-errors"></a>常見的 Windows 錯誤 ##
@@ -213,9 +226,9 @@ New-ItemPropery -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Paramete
 ### <a name="cannot-connect-to-the-api-server-at-httpsaddressport"></a>無法連線至位於 `https://[address]:[port]` 的 API 伺服器 ###
 這個錯誤通常表示憑證問題。 請確定您已正確產生組態檔，其中的 IP 位址符合您的主機 IP 位址，而且您已將它複製到 API 伺服器裝載的目錄。
 
-如果遵循[我們的指示](./creating-a-linux-master.md), 您可以在以下位置找到:   
+如果遵循[我們的指示](./creating-a-linux-master.md)，您可以在以下位置找到：   
 * `~/kube/kubelet/`
 * `$HOME/.kube/config`
 *  `/etc/kubernetes/admin.conf`
 
- 否則, 請參閱 API 伺服器的資訊清單檔案, 以檢查掛接點。
+ 否則，請參閱 API 伺服器的資訊清單檔案，以檢查掛接點。
