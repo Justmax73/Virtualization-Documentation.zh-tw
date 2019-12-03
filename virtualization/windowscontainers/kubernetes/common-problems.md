@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.prod: containers
 description: 部署 Kubernetes 和加入 Windows 節點時常見問題的解決方案。
 keywords: kubernetes、1.14、linux、compile
-ms.openlocfilehash: 54396f4b350fa7dfe59e073601f41b0a73f06dca
-ms.sourcegitcommit: 76dce6463e820420073dda2dbad822ca4a6241ef
+ms.openlocfilehash: 471731ec50c7c03816a956bd7aae859ad218be6d
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "10307261"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "10332359"
 ---
 # 疑難排解 Kubernetes #
 此頁面逐步解說 Kubernetes 設定、網路及部署的數個常見問題。
@@ -45,7 +45,7 @@ nssm set <Service Name> AppStderr C:\k\mysvc.log
 ## 常見的網路錯誤 ##
 
 ### 負載平衡器在整個叢集節點中的查明不一致 ###
-在（預設） kube-proxy 設定中，包含100個 + 負載平衡器的群集可能會用盡可用的暫時 TCP 埠（a.k.a。 動態埠範圍（通常是埠49152到65535），因為每個節點（非 DSR）負載平衡器都有在每個節點上保留的埠數上限。 這可能會透過 kube-proxy 中的錯誤資訊清單本身，例如：
+在 Windows 上，kube-proxy 會為群集中的每個 Kubernetes 服務建立一個 HNS 負載平衡器。 在（預設） kube-proxy 設定中，包含許多（通常是 100 +）負載平衡器的群集中的節點可能會用盡可用的暫時 TCP 埠（a.k.a。 動態埠範圍，預設為涵蓋埠49152到65535）。 這是由於每個節點（非 DSR）負載平衡器在每個節點上保留了大量的埠。 這個問題可能會透過 kube-proxy 中的錯誤資訊清單本身，例如：
 ```
 Policy creation failed: hcnCreateLoadBalancer failed in Win32: The specified port already exists.
 ```
@@ -55,9 +55,9 @@ Policy creation failed: hcnCreateLoadBalancer failed in Win32: The specified por
 也`CollectLogs.ps1`會模仿 [HNS] 配置邏輯，以測試暫時 TCP 埠範圍中的埠池分配可用性，並在中`reservedports.txt`報告成功/失敗。 此腳本會保留10個範圍的 64 TCP 暫時埠（以模擬 HNS 行為），並將成功的預留埠數 & 失敗，然後釋放已分配的埠範圍。 如果成功數小於10，則表示暫時池已耗盡可用空間。 我們也會在中`reservedports.txt`產生多少64區塊埠保留的 heuristical 摘要。
 
 若要解決此問題，可以採取幾個步驟：
-1.  針對永久解決方案，kube-proxy 負載平衡應該設定為[DSR 模式](https://techcommunity.microsoft.com/t5/Networking-Blog/Direct-Server-Return-DSR-in-a-nutshell/ba-p/693710)。 遺憾的是，在新版的[Windows Server 測試人員組建 18945](https://blogs.windows.com/windowsexperience/2019/07/30/announcing-windows-server-vnext-insider-preview-build-18945/#o1bs7T2DGPFpf7HM.97) （或更高版本）中，已完全實現 DSR 模式。
+1.  針對永久解決方案，kube-proxy 負載平衡應該設定為[DSR 模式](https://techcommunity.microsoft.com/t5/Networking-Blog/Direct-Server-Return-DSR-in-a-nutshell/ba-p/693710)。 DSR 模式已完全實現，且僅適用于較新的[Windows Server 測試人員組建 18945](https://blogs.windows.com/windowsexperience/2019/07/30/announcing-windows-server-vnext-insider-preview-build-18945/#o1bs7T2DGPFpf7HM.97) （或更新版本）。
 2. 作為因應措施，使用者也可以使用命令（例如），增加暫時埠的預設 Windows 設定`netsh int ipv4 set dynamicportrange TCP <start_port> <port_count>`。 *警告：* 覆寫預設的動態埠範圍可能會對主機上的其他進程/服務產生影響，而主機上的其他進程/服務依賴于可用的 TCP 埠（不是暫時的範圍），因此應謹慎選取此範圍。
-3. 我們也會使用智慧埠池共用來處理非 DSR 模式負載平衡器的可伸縮性增強，這是透過2020年1季度的累積更新發佈。
+3. 使用智慧埠池共用來增強非 DSR 模式負載平衡器的伸縮性，這項功能已安排在2020年1日累積更新中發佈。
 
 ### HostPort 發佈無法運作 ###
 目前無法使用 Kubernetes `containers.ports.hostPort`欄位發佈埠，因為 Windows CNI 外掛程式不會遵守這個欄位。 請使用 NodePort 發佈，在該節點上發佈埠的時間。
