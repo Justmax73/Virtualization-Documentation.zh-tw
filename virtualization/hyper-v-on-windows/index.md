@@ -9,11 +9,11 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 05269ce0-a54f-4ad8-af75-2ecf5142b866
 ms.openlocfilehash: 0621a06832844b0350b33c763f0546afa9b596e6
-ms.sourcegitcommit: 62fff5436770151a28b6fea2be3a8818564f3867
-ms.translationtype: MT
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "10147301"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74909118"
 ---
 # <a name="hyper-v-on-windows-10"></a>Windows 10 上的 Hyper-V 
 
