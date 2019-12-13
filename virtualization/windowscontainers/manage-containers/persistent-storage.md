@@ -1,20 +1,20 @@
 ---
-title: 容器中的持久性儲存
-description: Windows 容器如何永久性儲存
+title: 容器中的持續性儲存體
+description: Windows 容器如何能夠持續儲存
 keywords: 容器, 磁碟區, 儲存體, 裝載, 繫結裝載
 author: cwilhit
 ms.openlocfilehash: 945a78d4ecb9c96da4de8f7246f84b6b444dd5b5
-ms.sourcegitcommit: 22dcc1400dff44fb85591adf0fc443360ea92856
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "10209880"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74909668"
 ---
-# <a name="persistent-storage-in-containers"></a>容器中的持久性儲存
+# <a name="persistent-storage-in-containers"></a>容器中的持續性儲存體
 
 <!-- Great diagram would be great! -->
 
-您可能會在某些情況下，讓 app 能夠在容器中保留資料，或想要將檔案顯示在未包含在分枝組建時間的容器中。 您可以透過幾種方式將持久性儲存空間提供給容器：
+在某些情況下，應用程式必須能夠保存容器中的資料，或者您想要將檔案顯示在容器組建時間未包含的容器中。 持續性儲存體可透過幾種方式提供給容器：
 
 - 繫結裝載
 - 具名磁碟區
@@ -29,20 +29,20 @@ Docker 有如何[使用磁碟區](https://docs.docker.com/engine/admin/volumes/v
 
 繫結裝載所使用的權限模型，根據容器的隔離層級而有所不同。
 
-使用**hyper-v 隔離**的容器使用簡單的唯讀或讀寫許可權模型。 使用 `LocalSystem` 帳戶，存取主機上的檔案。 如果您在容器中存取遭拒，請確定 `LocalSystem` 有主機上該目錄的存取權。 使用唯讀旗標時，對容器內磁碟區所做的變更，對主機上的目錄而言是不可見或不保存的。
+使用**hyper-v 隔離**的容器會使用簡單的唯讀或讀寫許可權模型。 使用 `LocalSystem` 帳戶，存取主機上的檔案。 如果您在容器中存取遭拒，請確定 `LocalSystem` 有主機上該目錄的存取權。 使用唯讀旗標時，對容器內磁碟區所做的變更，對主機上的目錄而言是不可見或不保存的。
 
-使用**進程隔離**的 Windows 容器會稍有不同，因為它們會使用容器內的程式身分識別來存取資料，這表示檔案 acl 已生效。 容器內執行中處理序的身分識別 (根據預設，在 Windows Server Core 上為 "ContainerAdministrator"，在 Nano Server 容器上則為 "ContainerUser") 將用來存取裝載磁碟機中的檔案和目錄 (而不使用 `LocalSystem`)，並將需要授與存取權以使用資料。
+使用**進程隔離**的 Windows 容器會有些微不同，因為它們會使用容器內的進程識別來存取資料，這表示會接受檔案 acl。 容器內執行中處理序的身分識別 (根據預設，在 Windows Server Core 上為 "ContainerAdministrator"，在 Nano Server 容器上則為 "ContainerUser") 將用來存取裝載磁碟機中的檔案和目錄 (而不使用 `LocalSystem`)，並將需要授與存取權以使用資料。
 
-由於這些身分識別只存在於容器的內容中（而不是儲存檔案的主機），因此您應該使用眾所周知的安全性群組，例如`Authenticated Users`設定 acl 以授與容器的存取權。
+由於這些身分識別只存在於容器的內容中（而不是儲存檔案的主機上），因此在設定 Acl 以授與容器的存取權時，您應該使用知名的安全性群組，例如 `Authenticated Users`。
 
 > [!WARNING]
 > 請勿將敏感的目錄 (例如 `C:\`) 繫結裝載至未受信任的容器。 這會讓後者變更主機上通常無法存取的檔案，可能會造成安全性缺口。
 
 範例用法：
 
-- `docker run -v c:\ContainerData:c:\data:RO` 用於唯讀存取
-- `docker run -v c:\ContainerData:c:\data:RW` 用於讀寫存取
-- `docker run -v c:\ContainerData:c:\data` 用於讀寫存取 (預設)
+- 唯讀存取的 `docker run -v c:\ContainerData:c:\data:RO`
+- 讀寫存取的 `docker run -v c:\ContainerData:c:\data:RW`
+- 讀寫存取的 `docker run -v c:\ContainerData:c:\data` （預設值）
 
 ### <a name="symlinks"></a>符號連結
 
@@ -50,7 +50,7 @@ Docker 有如何[使用磁碟區](https://docs.docker.com/engine/admin/volumes/v
 
 ### <a name="smb-mounts"></a>SMB 裝載
 
-在 Windows Server 版本1709及更新版本中，名為「SMB 全域對應」的功能可讓您在主機上裝載 SMB 共用，然後將該共用中的目錄傳送到容器中。 容器不需要以特定伺服器、共用、使用者名稱或密碼設定 - 這一切都是在主機上處理。 容器就像擁有本機儲存體一樣運作。
+在 Windows Server 1709 版和更新版本上，稱為「SMB 全域對應」的功能可讓您在主機上掛接 SMB 共用，然後將該共用上的目錄傳遞至容器。 容器不需要以特定伺服器、共用、使用者名稱或密碼設定 - 這一切都是在主機上處理。 容器就像擁有本機儲存體一樣運作。
 
 #### <a name="configuration-steps"></a>設定步驟
 
@@ -59,10 +59,10 @@ Docker 有如何[使用磁碟區](https://docs.docker.com/engine/admin/volumes/v
     $creds = Get-Credential
     New-SmbGlobalMapping -RemotePath \\contosofileserver\share1 -Credential $creds -LocalPath G:
     ```
-    這個命令會使用認證來透過遠端 SMB 伺服器進行驗證。 然後，將遠端共用路徑對應至 G: 磁碟機代號 (可以是任何其他可用的磁碟機代號)。 在此容器主機上建立的容器，現在可以將其讓資料磁碟區對應至 G: 磁碟機上的路徑。
+    此命令將使用認證來向遠端 SMB 伺服器進行驗證。 然後，將遠端共用路徑對應至 G: 磁碟機代號 (可以是任何其他可用的磁碟機代號)。 在此容器主機上建立的容器，現在可以將其讓資料磁碟區對應至 G: 磁碟機上的路徑。
 
     > [!NOTE]
-    > 針對容器使用 SMB 全域對應時，容器主機上的所有使用者都可以存取遠端共用。 容器主機上執行的任何應用程式也都可以存取對應的遠端共用。
+    > 使用容器的 SMB 全域對應時，容器主機上的所有使用者都可以存取遠端共用。 容器主機上執行的任何應用程式也都可以存取對應的遠端共用。
 
 2. 建立容器並將其資料磁碟區對應至全域裝載的 SMB 共用  docker run -it --name demo -v g:\ContainerData:G:\AppData1 microsoft/windowsservercore:1709 cmd.exe
 
@@ -84,11 +84,11 @@ Docker 有如何[使用磁碟區](https://docs.docker.com/engine/admin/volumes/v
 
 範例步驟：
 
-1. `docker volume create unwound` - 建立名稱為 'unwound' 的磁碟區
-2. `docker run -v unwound:c:\data microsoft/windowsservercore` - 啟動容器並將磁碟區對應至 c:\data
+1. `docker volume create unwound`-建立名為「已展開」的磁片區
+2. `docker run -v unwound:c:\data microsoft/windowsservercore`-啟動容器，並將磁片區對應至 c:\data
 3. 在容器中將一些檔案寫入至 c:\data，然後停止容器
-4. `docker run -v unwound:c:\data microsoft/windowsservercore` - 啟動新容器
+4. `docker run -v unwound:c:\data microsoft/windowsservercore`-啟動新的容器
 5. 在新容器中執行 `dir c:\data` - 檔案仍在那裡
 
 > [!NOTE]
-> Windows Server 會將目標路徑名（容器內的路徑）轉換成小寫;`-v unwound:c:\MyData`i. `-v unwound:/app/MyData`或在 linux 容器中，會導致在已映射（且已建立，如果不`c:\mydata`存在） `/app/mydata`的容器或 linux 容器內的目錄。
+> Windows Server 會將目標路徑（容器內的路徑）轉換成小寫;`-v unwound:c:\MyData`或 `-v unwound:/app/MyData` 在 Linux 容器中，會導致 `c:\mydata`容器內的目錄，或在 Linux 容器中 `/app/mydata`，並加以對應（如果不存在，則會建立）。

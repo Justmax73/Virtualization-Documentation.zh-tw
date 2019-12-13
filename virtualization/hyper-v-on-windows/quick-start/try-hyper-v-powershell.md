@@ -9,11 +9,11 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 6d1ae036-0841-4ba5-b7e0-733aad31e9a7
 ms.openlocfilehash: d53bdce3438c6dafe3a1e0350c7a5df30ff8210b
-ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "9883121"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74911508"
 ---
 # <a name="working-with-hyper-v-and-windows-powershell"></a>使用 Hyper-V 與 Windows PowerShell
 
@@ -21,7 +21,7 @@ ms.locfileid: "9883121"
 
 ### <a name="return-a-list-of-hyper-v-commands"></a>傳回 Hyper-V 命令清單
 
-1. 按一下 Windows 開始按鈕，輸入 **PowerShell**。
+1. 按一下 Windows [開始] 按鈕，輸入 **PowerShell**。
 2. 執行下列命令，以顯示搜尋到的 Hyper-V PowerShell 模組可用 PowerShell 命令清單。
 
  ```powershell
@@ -54,7 +54,7 @@ Get-Command -Module hyper-v | Out-GridView
 
  ![](./media/get_vm.png)
 
-2. 若只要傳回已開機的虛擬機器清單，請在 `Get-VM` 命令中新增篩選。 您可以使用 `Where-Object` 命令新增篩選。 如需篩選的詳細資訊，請參閱 [Using the Where-Object Cmdlet](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-powershell-1.0/ee177028(v=technet.10)>) (使用 Where-Object Cmdlet) 文件。
+2. 若只要傳回已開機的虛擬機器清單，請在 `Get-VM` 命令中新增篩選。 您可以使用 `Where-Object` 命令新增篩選。 如需篩選的詳細資訊，請參閱[使用 Where-Object](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-powershell-1.0/ee177028(v=technet.10)>) 文件。
 
  ```powershell
  Get-VM | where {$_.State -eq 'Running'}
@@ -95,7 +95,7 @@ Get-Command -Module hyper-v | Out-GridView
 
 下列範例示範如何在 PowerShell 整合式指令碼環境 (ISE) 中建立新的虛擬機器。 這是一個簡單的範例，可以再擴大包，含其他 PowerShell 功能和更進階的 VM 部署。
 
-1. 若要開啟 PowerShell ISE，請按一下開始，輸入 **PowerShell ISE**。
+1. 若要開啟 PowerShell ISE，請按一下 [開始]，輸入 **PowerShell ISE**。
 2. 執行下列程式碼建立虛擬機器。 如需 `New-VM` 命令的詳細資訊，請參閱 [New-VM](https://docs.microsoft.com/powershell/module/hyper-v/new-vm?view=win10-ps) 文件。
 
  ```powershell
@@ -117,5 +117,5 @@ Get-Command -Module hyper-v | Out-GridView
 
 ## <a name="wrap-up-and-references"></a>結語與參考資料
 
-本文件示範了一些簡單的步驟，來介紹 Hyper-V PowerShell 模組以及一些範例案例。 如需 Hyper-V PowerShell 模組的詳細資訊，請參閱 [Windows PowerShell 參考中的 Hyper-V Cmdlet](https://docs.microsoft.com/powershell/module/hyper-v/index?view=win10-ps) 。  
+本文件示範了一些簡單的步驟，來介紹 Hyper-V PowerShell 模組以及一些範例案例。 如需 Hyper-V PowerShell 模組的詳細資訊，請參閱 [Windows PowerShell 中 Hyper-V Cmdlet 參考資料](https://docs.microsoft.com/powershell/module/hyper-v/index?view=win10-ps)。  
  

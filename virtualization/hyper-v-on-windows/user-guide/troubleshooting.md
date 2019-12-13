@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: f0ec8eb4-ffc4-4bf1-9a19-7a8c3975b359
-ms.openlocfilehash: bdb9feeb2452f2784a3b814e85dc72f3b967a9d3
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: 03bbb4494bbbd790f16c4b6afef387905f7c6c83
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998865"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74910888"
 ---
 # <a name="troubleshoot-hyper-v-on-windows-10"></a>Windows 10 上的 Hyper-V 疑難排解
 
@@ -29,11 +29,11 @@ ms.locfileid: "9998865"
 
 ## <a name="when-i-try-to-create-a-virtual-hard-disk-on-a-flash-drive-an-error-message-is-displayed"></a>當我嘗試在快閃磁碟機上建立虛擬硬碟時，顯示錯誤訊息
 Hyper-V 不支援 FAT/FAT32 格式的磁碟機，因為這些檔案系統不提供存取控制清單 (ACL)，而且不支援大於 4 GB 的檔案。 ExFAT 格式的磁碟只提供有限的 ACL 功能，因此基於安全性考量也不受支援。
-在 PowerShell 中顯示的錯誤訊息是「系統無法建立 '\[path to VHD\]': 無法完成要求的作業，因為檔案系統限制 (0x80070299)」。
+在 PowerShell 中顯示的錯誤訊息是「系統無法建立 '\[path to VHD\]': 因為檔案系統限制，所以無法完成要求的作業。(0x80070299)」。
 
 請改用 NTFS 格式的磁碟機。 
 
 ## <a name="i-get-this-message-when-i-try-to-install-hyper-v-cannot-be-installed-the-processor-does-not-support-second-level-address-translation-slat"></a>當我嘗試安裝時收到這則訊息：「無法安裝 Hyper-V: 處理器不支援第二層位址轉譯 (SLAT)。」
 Hyper-V 需要 SLAT 才能執行虛擬機器。 如果您的電腦不支援 SLAT，則不能成為虛擬機器的主機。
 
-如果您只是想要安裝管理工具，請取消選取 **\[Hyper-V 平台\]** (在 **\[程式和功能\]** > **\[開啟或關閉 Windows 功能\]** 中)。
+如果您只是想要安裝管理工具，請取消選取 **\[Hyper-V 平台\]** (在 **\[程式和功能\]**  >  **\[開啟或關閉 Windows 功能\]** 中)。

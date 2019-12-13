@@ -7,12 +7,12 @@ ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: ae4a18ed-996b-4104-90c5-539c90798e4c
-ms.openlocfilehash: 25c72b910af15fc0b498a5b2abce72d32e6d1efd
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: e3255d236a3fbb5ac4d908143750b84e3db82ceb
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9999035"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74911678"
 ---
 # <a name="supported-windows-guests"></a>支援的 Windows 客體
 
@@ -39,11 +39,11 @@ Microsoft 以下列方式提供支援：
 | Windows 8 | 32 ||
 | Windows 7 含 Service Pack 1 (SP 1) | 4 | 旗艦版、企業版和專業版版本 (32 位元與 64 位元)。 |
 | Windows 7 | 4 | 旗艦版、企業版和專業版版本 (32 位元與 64 位元)。 |
-| Windows Vista (含 Service Pack 2，SP2) | pplx-2 | Business、Enterprise 以及 Ultimate，包含 N 與 KN 版本。 |
+| Windows Vista (含 Service Pack 2，SP2) | 2 | Business、Enterprise 以及 Ultimate，包含 N 與 KN 版本。 |
 | - | | |
 | [Windows Server 半年通道](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview) | 64 | |
 | Windows Server 2019 | 64 | |
-| Windows Server 2016 | 64 | |
+| Windows Server 2016 | 64 | |
 | Windows Server 2012 R2 | 64 | |
 | Windows Server 2012 | 64 | |
 | Windows Server 2008 R2 含 Service Pack 1 (SP 1) | 64 | Datercenter、Enterprise、Standard 以及 Web 版本。 |
@@ -64,4 +64,4 @@ Microsoft 以下列方式提供支援：
 | [Ubuntu](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Ubuntu-virtual-machines-on-Hyper-V) | |
 | [FreeBSD](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-FreeBSD-virtual-machines-on-Hyper-V) | |
 
-如需舊版 Hyper-V 的支援資訊等詳細資訊，請參閱 [Linux and FreeBSD Virtual Machines on Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows) (Hyper-V 上的 Linux 和 FreeBSD 虛擬機器)。
+如需詳細資訊，包括舊版 Hyper-V 的支援資訊，請參閱 [Hyper-V 上的 Linux 和 FreeBSD 虛擬機器](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows)。

@@ -8,19 +8,19 @@ ms.prod: containers
 description: 從原始碼編譯和交叉編譯 Kubernetes 二進位檔案。
 keywords: kubernetes，1.12，linux，編譯
 ms.openlocfilehash: 40bf7e65a8910cdab095abb269aa0a92508189cd
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9574819"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74909868"
 ---
 # <a name="compiling-kubernetes-binaries"></a>編譯 Kubernetes 二進位檔 #
 編譯 Kubernetes 需要正常運作的 Go 環境。 此頁面討論編譯 Linux 二進位檔和交叉編譯 Windows 二進位檔的幾個方式。
 > [!NOTE] 
-> 此頁面是回報，只包含適用於想要試用最新的 & 大原始程式碼有興趣 Kubernetes 開發人員。
+> 此頁面完全自願，而且只包含給想要試驗最新 & 最佳原始程式碼的感興趣 Kubernetes 開發人員使用。
 
 > [!tip]
-> 若要接收通知有關最新的發展您可以訂閱[@kubernetes-announce](https://groups.google.com/forum/#!forum/kubernetes-announce)。
+> 若要接收最新開發的通知，您可以訂閱[@kubernetes-announce](https://groups.google.com/forum/#!forum/kubernetes-announce)。
 
 ## <a name="installing-go"></a>安裝 Go ##
 為了簡單起見，僅討論在暫時、自訂位置中安裝 Go：
@@ -47,11 +47,11 @@ export PATH="$GOROOT/bin:$PATH"
 若要將 Windows 二進位檔複製到各自節點，請使用視覺工具例如 [WinSCP](https://winscp.net/eng/download.php) 或命令列工具例如 [pscp](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)，以將其傳輸至 `C:\k` 目錄。
 
 
-## <a name="building-locally"></a>在本機建置 ##
+## <a name="building-locally"></a>在本機建立 ##
 > [!Tip]  
 > 如果您遇到「權限遭拒」錯誤時，可藉由先建置 Linux `kubelet` 避免這些錯誤，如 [`acs-engine`](https://github.com/Azure/acs-engine/blob/master/scripts/build-windows-k8s.sh#L176) 中的注意事項所述：
 >  
-> _因為看起來是 Kubernetes Windows 建置系統中的錯誤，所以我們必須先建置 Linux 二進位檔以產生 `_output/bin/deepcopy-gen`。 若不這樣做，建置到 Windows 會產生空的 `deepcopy-gen`。_
+> _由於 Kubernetes Windows 組建系統中似乎是 bug，因此必須先建立 Linux 二進位檔以產生 `_output/bin/deepcopy-gen`。以 Windows 為基礎，這麼做會產生空的 `deepcopy-gen`。_
 
 首先，擷取 Kubernetes 存放庫：
 

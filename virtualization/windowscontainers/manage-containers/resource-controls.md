@@ -9,11 +9,11 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8ccd4192-4a58-42a5-8f74-2574d10de98e
 ms.openlocfilehash: 3e9f7e3208222cd6c0f512c5f892453ac6e6980c
-ms.sourcegitcommit: 73134bf279f3ed18235d24ae63cdc2e34a20e7b7
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "10107872"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74910168"
 ---
 # <a name="implementing-resource-controls-for-windows-containers"></a>實作 Windows 容器適用的資源控制項
 可以針對各個容器和各項資源實作多個資源控制項。  根據預設，容器的執行受限於一般 Windows 資源管理，此管理方式通常是以公平共用為根據，但是經由這些控制項的設定，開發人員或管理員就可以限制或影響資源使用量。  可以控制的資源包含︰CPU/處理器、記憶體/RAM、磁碟/儲存空間和網路功能/輸送量。
@@ -28,38 +28,38 @@ Windows 容器會使用[工作物件](https://docs.microsoft.com/windows/desktop
 |  | |
 | ----- | ------|
 | *記憶體* ||
-| Docker 介面 | [--memory](https://docs.docker.com/engine/admin/resource_constraints/#memory) |
+| Docker 介面 | [--記憶體](https://docs.docker.com/engine/admin/resource_constraints/#memory) |
 | HCS 介面 | [MemoryMaximumInMB](https://github.com/Microsoft/hcsshim/blob/b144c605002d4086146ca1c15c79e56bfaadc2a7/interface.go#L67) |
 | 共用的核心 | [JOB_OBJECT_LIMIT_JOB_MEMORY](https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-_jobobject_basic_limit_information) |
 | Hyper-V 隔離 | 虛擬機器記憶體 |
-| _關於 Windows Server 2016 Hyper-V 隔離的注意事項：使用記憶體上限時，您會看到容器最初配置記憶體的上限數量，然後開始將它傳回至容器主機。  在較新版本 (1709 或更新版本)，這已最佳化。_ |
+| _關於 Windows Server 2016 中的 Hyper-v 隔離的注意事項：當使用記憶體上限時，您會看到容器一開始配置上限的記憶體，然後開始將它傳回給容器主機。 在較新的版本（1709或以上）中，這已經過優化。_ |
 | ||
-| *CPU (計數)* ||
-| Docker 介面 | [--cpus](https://docs.docker.com/engine/admin/resource_constraints/#cpu) |
+| *CPU （計數）* ||
+| Docker 介面 | [--cpu](https://docs.docker.com/engine/admin/resource_constraints/#cpu) |
 | HCS 介面 | [ProcessorCount](https://github.com/Microsoft/hcsshim/blob/b144c605002d4086146ca1c15c79e56bfaadc2a7/interface.go#L67) |
 | 共用的核心 | 使用 [JOB_OBJECT_CPU_RATE_CONTROL_HARD_CAP](https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-_jobobject_cpu_rate_control_information)* 模擬 |
 | Hyper-V 隔離 | 公開的虛擬處理器數量 |
 | ||
-| *CPU (百分比)* ||
-| Docker 介面 | [--cpu-percent](https://docs.docker.com/engine/admin/resource_constraints/#cpu) |
+| *CPU （百分比）* ||
+| Docker 介面 | [--cpu-百分比](https://docs.docker.com/engine/admin/resource_constraints/#cpu) |
 | HCS 介面 | [ProcessorMaximum](https://github.com/Microsoft/hcsshim/blob/b144c605002d4086146ca1c15c79e56bfaadc2a7/interface.go#L67) |
 | 共用的核心 | [JOB_OBJECT_CPU_RATE_CONTROL_HARD_CAP](https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-_jobobject_cpu_rate_control_information) |
 | Hyper-V 隔離 | 虛擬處理器上的 Hypervisor 限制 |
 | ||
-| *CPU (共用)* ||
-| Docker 介面 | [--cpu-shares](https://docs.docker.com/engine/admin/resource_constraints/#cpu) |
+| *CPU （共用）* ||
+| Docker 介面 | [--cpu-共用](https://docs.docker.com/engine/admin/resource_constraints/#cpu) |
 | HCS 介面 | [ProcessorWeight](https://github.com/Microsoft/hcsshim/blob/b144c605002d4086146ca1c15c79e56bfaadc2a7/interface.go#L67) |
 | 共用的核心 | [JOB_OBJECT_CPU_RATE_CONTROL_WEIGHT_BASED](https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-_jobobject_cpu_rate_control_information) |
 | Hyper-V 隔離 | Hypervisor 虛擬處理器權重 |
 | ||
-| *儲存空間 (映像)* ||
+| *儲存體（影像）* ||
 | Docker 介面 | [--io-maxbandwidth/--io-maxiops](https://docs.docker.com/edge/engine/reference/commandline/run/#usage) |
 | HCS 介面 | [StorageIOPSMaximum 和 StorageBandwidthMaximum](https://github.com/Microsoft/hcsshim/blob/b144c605002d4086146ca1c15c79e56bfaadc2a7/interface.go#L67) |
 | 共用的核心 | [JOBOBJECT_IO_RATE_CONTROL_INFORMATION](https://docs.microsoft.com/windows/desktop/api/jobapi2/ns-jobapi2-jobobject_io_rate_control_information) |
 | Hyper-V 隔離 | [JOBOBJECT_IO_RATE_CONTROL_INFORMATION](https://docs.microsoft.com/windows/desktop/api/jobapi2/ns-jobapi2-jobobject_io_rate_control_information) |
 | ||
-| *儲存空間 (磁碟區)* ||
-| Docker 介面 | [--storage-opt size=](https://docs.docker.com/edge/engine/reference/commandline/run/#set-storage-driver-options-per-container) |
+| *存放裝置（磁片區）* ||
+| Docker 介面 | [--儲存體-opt 大小 =](https://docs.docker.com/edge/engine/reference/commandline/run/#set-storage-driver-options-per-container) |
 | HCS 介面 | [StorageSandboxSize](https://github.com/Microsoft/hcsshim/blob/b144c605002d4086146ca1c15c79e56bfaadc2a7/interface.go#L67) |
 | 共用的核心 | [JOBOBJECT_IO_RATE_CONTROL_INFORMATION](https://docs.microsoft.com/windows/desktop/api/jobapi2/ns-jobapi2-jobobject_io_rate_control_information) |
 | Hyper-V 隔離 | [JOBOBJECT_IO_RATE_CONTROL_INFORMATION](https://docs.microsoft.com/windows/desktop/api/jobapi2/ns-jobapi2-jobobject_io_rate_control_information) |

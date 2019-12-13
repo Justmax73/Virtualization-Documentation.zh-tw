@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 18930864-476a-40db-aa21-b03dfb4fda98
-ms.openlocfilehash: 6568b68a77fc5506b58249caea44ec78e3e44de2
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: 762b82f3714651ffb488f682581680c9526404a8
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998935"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74911148"
 ---
 # <a name="hyper-v-integration-services"></a>Hyper-V 整合服務
 
@@ -22,20 +22,20 @@ ms.locfileid: "9998935"
 本文提供 Windows 適用之每一項整合服務的參考資料。  如需特定整合服務或其歷程記錄的任何相關資訊，也可以將這篇文章做為起點。
 
 **使用者指南：**  
-* [管理整合服務](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/Manage-Hyper-V-integration-services)
+* [管理 integration services](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/Manage-Hyper-V-integration-services)
 
 
 ## <a name="quick-reference"></a>快速參考
 
-| Name | Windows 服務名稱 | Linux 精靈名稱 |  說明 | 停用時對 VM 的影響 |
+| 名稱 | Windows 服務名稱 | Linux 精靈名稱 |  說明 | 停用時對 VM 的影響 |
 |:---------|:---------|:---------|:---------|:---------|
 | [Hyper-V 活動訊號服務](#hyper-v-heartbeat-service) |  vmicheartbeat | hv_utils | 回報虛擬機器目前正確執行。 | 不定 |
 | [Hyper-V 客體關機服務](#hyper-v-guest-shutdown-service) | vmicshutdown | hv_utils |  可讓主機觸發虛擬機器關機。 | **高** |
 | [Hyper-V 時間同步化服務](#hyper-v-time-synchronization-service) | vmictimesync | hv_utils | 同步虛擬機器的時鐘與主機電腦的時鐘。 | **高** |
-| [Hyper-V 資料交換服務 (KVP)](#hyper-v-data-exchange-service-kvp) | vmickvpexchange | hv_kvp_daemon | 提供在虛擬機器和主機之間交換基本中繼資料的方式。 | 中型 |
+| [Hyper-v 資料交換服務（KVP）](#hyper-v-data-exchange-service-kvp) | vmickvpexchange | hv_kvp_daemon | 提供在虛擬機器和主機之間交換基本中繼資料的方式。 | 中等 |
 | [Hyper-V 磁碟區陰影複製要求者](#hyper-v-volume-shadow-copy-requestor) | vmicvss | hv_vss_daemon | 可讓磁碟區陰影複製服務不需關閉虛擬機器，就對其進行備份。 | 不定 |
 | [Hyper-V 客體服務介面](#hyper-v-powershell-direct-service) | vmicguestinterface | hv_fcopy_daemon | 提供介面以供 Hyper-V 主機在虛擬機器之間複製檔案。 | 低 |
-| [Hyper-V PowerShell Direct 服務](#hyper-v-powershell-direct-service) | vmicvmsession | 無法使用 | 提供一種方法，以使用 PowerShell 管理虛擬機器而不需網路連線。 | 低 |  
+| [Hyper-v PowerShell Direct 服務](#hyper-v-powershell-direct-service) | vmicvmsession | 無法使用 | 提供一種方法，以使用 PowerShell 管理虛擬機器而不需網路連線。 | 低 |  
 
 
 ## <a name="hyper-v-heartbeat-service"></a>Hyper-V 活動訊號服務
@@ -74,7 +74,7 @@ DemoVM  Running  Operating normally
 **Linux 精靈名稱：** hv_utils  
 **描述︰** 可讓 Hyper-V 主機要求虛擬機器關機。  主機一律可以強制關閉虛擬機器，但這就像直接按電源開關來關機一樣。  
 **已新增至：** Windows Server 2012、Windows 8  
-**影響︰****強烈影響：** 停用時，主機即無法觸發虛擬機器內的溫和關機程序。  所有關閉都將會關閉, 這可能會導致資料遺失或資料損毀。  
+**影響︰** **強烈影響：** 停用時，主機即無法觸發虛擬機器內的溫和關機程序。  所有關機都是困難的電源，這可能會造成資料遺失或資料損毀。  
 
 
 ## <a name="hyper-v-time-synchronization-service"></a>Hyper-V 時間同步化服務
@@ -83,7 +83,7 @@ DemoVM  Running  Operating normally
 **Linux 精靈名稱：** hv_utils  
 **描述︰** 同步實體電腦的系統時鐘與虛擬機器的系統時鐘。  
 **已新增至：** Windows Server 2012、Windows 8  
-**影響︰****強烈影響：** 停用時，虛擬機器的時鐘會不規律地漂移。  
+**影響︰** **強烈影響：** 停用時，虛擬機器的時鐘會不規律地漂移。  
 
 
 ## <a name="hyper-v-data-exchange-service-kvp"></a>Hyper-V 資料交換服務 (KVP)
@@ -126,7 +126,7 @@ DemoVM  Running  Operating normally
 **已新增至：** Windows Server 2012 R2、Windows 8.1  
 **影響︰** 停用時，主機即無法使用 `Copy-VMFile` 在客體之間複製檔案。  如需詳細資訊，請參閱 [Copy-VMFile Cmdlet](https://docs.microsoft.com/powershell/module/hyper-v/copy-vmfile?view=win10-ps)。  
 
-**注意：**  
+**附註：**  
 預設為停用。  請參閱[使用 Copy-Item 的 PowerShell Direct](../user-guide/powershell-direct.md#copy-files-with-new-pssession-and-copy-item)。 
 
 
@@ -138,7 +138,7 @@ DemoVM  Running  Operating normally
 **已新增至：** Windows Server TP3、Windows 10  
 **影響︰** 停用此服務會導致主機無法使用 PowerShell Direct 連接到虛擬機器。  
 
-**注意：**  
+**附註：**  
 此服務名稱原本為「Hyper-V VM 工作階段服務」。  
 PowerShell Direct 目前仍在開發中，因此只能在 Windows 10 和 Windows Server Technical Preview 3 或更新版本的主機/客體中使用。
 
@@ -147,5 +147,5 @@ PowerShell Direct 目前仍在開發中，因此只能在 Windows 10 和 Windows
 [深入了解 PowerShell Direct](../user-guide/powershell-direct.md)。  
 
 **使用者指南：**  
-* [在虛擬機器中執行指令碼](../user-guide/powershell-direct.md#run-a-script-or-command-with-invoke-command)
+* [在虛擬機器中執行腳本](../user-guide/powershell-direct.md#run-a-script-or-command-with-invoke-command)
 * [在虛擬機器之間複製檔案](../user-guide/powershell-direct.md#copy-files-with-new-pssession-and-copy-item)

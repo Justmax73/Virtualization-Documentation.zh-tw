@@ -7,12 +7,12 @@ ms.date: 04/13/2017
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: b13a3594-d168-448b-b0a1-7d77153759a8
-ms.openlocfilehash: 963a1cc356c34c8d051c427a069c49021e3c0d27
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: e2d6faabe77346199a5d292fcfd92cdfd63909b8
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998905"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74910898"
 ---
 # <a name="move-from-hyper-v-wmi-v1-to-wmi-v2"></a>從 Hyper-V WMI v1 移至 WMI v2
 
@@ -26,26 +26,26 @@ Windows Management Instrumentation (WMI) 是 Hyper-V 管理員和 Hyper-V 的 Po
 
 ## <a name="msdn-samples"></a>MSDN 範例
 
-[Hyper-V 虛擬機器移轉範例](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-virtual-machine-aef356ee)  
-[Hyper-V 虛擬光纖通道範例](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-virtual-Fiber-35d27dcd)  
-[Hyper-V 計劃的虛擬機器範例](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-planned-virtual-8c7b7499)  
-[Hyper-V 應用程式健康情況監視範例](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-application-health-dc0294f2)  
+[Hyper-v 虛擬機器遷移範例](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-virtual-machine-aef356ee)  
+[Hyper-v 虛擬光纖通道範例](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-virtual-Fiber-35d27dcd)  
+[Hyper-v 規劃的虛擬機器範例](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-planned-virtual-8c7b7499)  
+[Hyper-v 應用程式健全狀況監視範例](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-application-health-dc0294f2)  
 [虛擬硬碟管理範例](http://code.msdn.microsoft.com/windowsdesktop/Virtual-hard-disk-03108ed3)  
-[Hyper-V 複本範例](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-replication-sample-d2558867)  
-[Hyper-V 計量範例](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-metrics-sample-2dab2cb1)  
-[Hyper-V 動態記憶體範例](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-dynamic-memory-9b0b1d05)  
-[Hyper-V 可擴充式交換器延伸模組篩選器驅動程式](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-Extensible-Virtual-e4b31fbb)  
-[Hyper-V 網路功能範例](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-networking-sample-7c47e6f5)  
-[Hyper-V 資源集區管理範例](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-resource-pool-df906d95)  
-[Hyper-V 復原快照範例](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-recovery-snapshot-ea72320c)  
+[Hyper-v 複寫範例](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-replication-sample-d2558867)  
+[Hyper-v 計量範例](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-metrics-sample-2dab2cb1)  
+[Hyper-v 動態記憶體範例](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-dynamic-memory-9b0b1d05)  
+[Hyper-v 可擴充交換器擴充功能篩選器驅動程式](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-Extensible-Virtual-e4b31fbb)  
+[Hyper-v 網路範例](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-networking-sample-7c47e6f5)  
+[Hyper-v 資源集區管理範例](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-resource-pool-df906d95)  
+[Hyper-v 復原快照集範例](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-recovery-snapshot-ea72320c)  
 
 ## <a name="samples-from-blogs"></a>擷取自部落格的範例
 
-[使用 Hyper-V WMI V2 命名空間新增網路介面卡至 VM](http://blogs.msdn.com/b/taylorb/archive/2013/07/15/adding-a-network-adapter-to-a-vm-using-the-hyper-v-wmi-v2-namespace.aspx)  
-[使用 Hyper-V WMI V2 命名空間將 VM 網路介面卡連接至交換器](http://blogs.msdn.com/b/taylorb/archive/2013/07/15/connecting-a-vm-network-adapter-to-a-switch-using-the-hyper-v-wmi-v2-namespace.aspx)  
-[使用 Hyper-V WMI V2 命名空間來變更 NIC 的 MAC 位址](http://blogs.msdn.com/b/taylorb/archive/2013/08/12/changing-the-mac-address-of-nic-using-the-hyper-v-wmi-v2-namespace.aspx)  
-[使用 Hyper-V WMI V2 命名空間從 VM 移除網路介面卡](http://blogs.msdn.com/b/taylorb/archive/2013/08/12/removing-a-network-adapter-to-a-vm-using-the-hyper-v-wmi-v2-namespace.aspx)  
-[使用 Hyper-V WMI V2 命名空間將 VHD 連接至 VM](http://blogs.msdn.com/b/taylorb/archive/2013/08/12/attaching-a-vhd-to-a-vm-using-the-hyper-v-wmi-v2-namespace.aspx)  
-[使用 Hyper-V WMI V2 命名空間從 VM 移除 VHD](http://blogs.msdn.com/b/taylorb/archive/2013/08/12/removing-a-vhd-from-a-vm-using-the-hyper-v-wmi-v2-namespace.aspx)  
-[使用 Hyper-V WMI V2 命名空間來建立 VM](http://blogs.msdn.com/b/virtual_pc_guy/archive/2013/06/20/creating-a-virtual-machine-with-wmi-v2.aspx)
+[使用 Hyper-v WMI V2 命名空間將網路介面卡新增至 VM](http://blogs.msdn.com/b/taylorb/archive/2013/07/15/adding-a-network-adapter-to-a-vm-using-the-hyper-v-wmi-v2-namespace.aspx)  
+[使用 Hyper-v WMI V2 命名空間將 VM 網路介面卡連接到交換器](http://blogs.msdn.com/b/taylorb/archive/2013/07/15/connecting-a-vm-network-adapter-to-a-switch-using-the-hyper-v-wmi-v2-namespace.aspx)  
+[使用 Hyper-v WMI V2 命名空間變更 NIC 的 MAC 位址](http://blogs.msdn.com/b/taylorb/archive/2013/08/12/changing-the-mac-address-of-nic-using-the-hyper-v-wmi-v2-namespace.aspx)  
+[使用 Hyper-v WMI V2 命名空間移除 VM 的網路介面卡](http://blogs.msdn.com/b/taylorb/archive/2013/08/12/removing-a-network-adapter-to-a-vm-using-the-hyper-v-wmi-v2-namespace.aspx)  
+[使用 Hyper-v WMI V2 命名空間將 VHD 附加至 VM](http://blogs.msdn.com/b/taylorb/archive/2013/08/12/attaching-a-vhd-to-a-vm-using-the-hyper-v-wmi-v2-namespace.aspx)  
+[使用 Hyper-v WMI V2 命名空間從 VM 移除 VHD](http://blogs.msdn.com/b/taylorb/archive/2013/08/12/removing-a-vhd-from-a-vm-using-the-hyper-v-wmi-v2-namespace.aspx)  
+[使用 Hyper-v WMI V2 命名空間建立 VM](http://blogs.msdn.com/b/virtual_pc_guy/archive/2013/06/20/creating-a-virtual-machine-with-wmi-v2.aspx)
 

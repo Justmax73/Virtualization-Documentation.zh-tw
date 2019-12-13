@@ -1,50 +1,50 @@
 ---
-title: Windows 服務身分執行 Kubernetes
+title: 以 Windows 服務的形式執行 Kubernetes
 author: daschott
 ms.author: daschott
 ms.date: 02/12/2019
 ms.topic: get-started-article
 ms.prod: containers
-description: Windows 服務身分執行 Kubernetes 元件的方式。
-keywords: kubernetes，1.14，windows，開始使用
+description: 如何以 Windows 服務的形式執行 Kubernetes 元件。
+keywords: kubernetes，1.14，windows，使用者入門
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5c18
 ms.openlocfilehash: cd5026a244b57b5c70d4abfe076839130315a4f5
-ms.sourcegitcommit: aaf115a9de929319cc893c29ba39654a96cf07e1
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "9623093"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74909798"
 ---
-# <a name="kubernetes-components-as-windows-services"></a>Kubernetes 元件為 Windows 服務 
+# <a name="kubernetes-components-as-windows-services"></a>以 Windows 服務的形式 Kubernetes 元件 
 
-某些使用者可能會想要設定處理程序，例如 flanneld.exe、 kubelet.exe、 kube proxy.exe 或其他 Windows 服務身分執行。 這可以為帶來額外的容錯能力權益，例如在未預期的處理程序或節點損毀時自動重新啟動的處理程序。
+某些使用者可能會想要設定像是 flanneld、kubelet、kube-proxy 或其他進程，以 Windows 服務的形式執行。 這會帶來額外的容錯優勢，例如在非預期的進程或節點損毀時自動重新開機進程。
 
 
 ## <a name="prerequisites"></a>必要條件
-1. 您已下載到[nssm.exe](https://nssm.cc/download) `c:\k`目錄
-2. 您已經加入您的叢集節點並先前在您的節點上執行[install.ps1](https://github.com/Microsoft/SDN/tree/master/Kubernetes/flannel/install.ps1)或[start.ps1](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/start.ps1)指令碼
+1. 您已將[nssm](https://nssm.cc/download)下載至 `c:\k` 目錄
+2. 您已將節點加入叢集，並在您的節點上執行[install. ps1](https://github.com/Microsoft/SDN/tree/master/Kubernetes/flannel/install.ps1)或[start. ps1](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/start.ps1)腳本
 
 ## <a name="registering-windows-services"></a>註冊 Windows 服務
-您可以執行[的範例指令碼](https://github.com/Microsoft/SDN/tree/master/Kubernetes/flannel/register-svc.ps1)，將會在登錄哪些使用 nssm.exe `kubelet`， `kube-proxy`，並`flanneld.exe`做為 Windows 服務，在背景中執行：
+您可以執行[範例腳本](https://github.com/Microsoft/SDN/tree/master/Kubernetes/flannel/register-svc.ps1)，它會使用 nssm 來註冊 `kubelet`、`kube-proxy`和 `flanneld.exe` 在背景中以 Windows 服務的形式執行：
 
 ```
 C:\k\register-svc.ps1 -NetworkMode <Network mode> -ManagementIP <Windows Node IP> -ClusterCIDR <Cluster subnet> -KubeDnsServiceIP <Kube-dns Service IP> -LogDir <Directory to place logs>
 ```
 
-# [<a name="managementip"></a>ManagementIP](#tab/ManagementIP)
-IP 位址指派給 Windows 節點。 您可以使用`ipconfig`若要尋找這。
+# <a name="managementiptabmanagementip"></a>[ManagementIP](#tab/ManagementIP)
+指派給 Windows 節點的 IP 位址。 您可以使用 `ipconfig` 來尋找此。
 
 |  |  | 
 |---------|---------|
 |參數     | `-ManagementIP`        |
-|預設值    | n.A.        |
+|預設值    | 馬丁        |
 
 
-# [<a name="networkmode"></a>NetworkMode](#tab/NetworkMode)
-網路模式`l2bridge`(flannel 主機 gw) 或`overlay`(flannel vxlan) 做為[網路解決方案](./network-topologies.md)選擇。
+# <a name="networkmodetabnetworkmode"></a>[NetworkMode](#tab/NetworkMode)
+選擇做為[網路解決方案](./network-topologies.md)的網路模式 `l2bridge` （flannel 主機-gw）或 `overlay` （flannel vxlan）。
 
 > [!Important] 
-> `overlay` 網路功能模式 (flannel vxlan) 需要 Kubernetes v1.14 二進位檔案或更新版本。
+> `overlay` 網路模式（flannel vxlan）需要 Kubernetes v 1.14 二進位檔或更新版本。
 
 |  |  | 
 |---------|---------|
@@ -52,8 +52,8 @@ IP 位址指派給 Windows 節點。 您可以使用`ipconfig`若要尋找這。
 |預設值    | `l2bridge`        |
 
 
-# [<a name="clustercidr"></a>ClusterCIDR](#tab/ClusterCIDR)
-[叢集子網路範圍](./getting-started-kubernetes-windows.md#cluster-subnet-def)。
+# <a name="clustercidrtabclustercidr"></a>[ClusterCIDR](#tab/ClusterCIDR)
+叢集[子網範圍](./getting-started-kubernetes-windows.md#cluster-subnet-def)。
 
 |  |  | 
 |---------|---------|
@@ -61,8 +61,8 @@ IP 位址指派給 Windows 節點。 您可以使用`ipconfig`若要尋找這。
 |預設值    | `10.244.0.0/16`        |
 
 
-# [<a name="kubednsserviceip"></a>KubeDnsServiceIP](#tab/KubeDnsServiceIP)
-[Kubernetes DNS 服務 IP](./getting-started-kubernetes-windows.md#kube-dns-def)。
+# <a name="kubednsserviceiptabkubednsserviceip"></a>[KubeDnsServiceIP](#tab/KubeDnsServiceIP)
+[KUBERNETES DNS 服務 IP](./getting-started-kubernetes-windows.md#kube-dns-def)。
 
 |  |  | 
 |---------|---------|
@@ -70,8 +70,8 @@ IP 位址指派給 Windows 節點。 您可以使用`ipconfig`若要尋找這。
 |預設值    | `10.96.0.10`        |
 
 
-# [<a name="logdir"></a>LogDir](#tab/LogDir)
-其中 kubelet 和 kube proxy 記錄檔會被重新導向至其各自的輸出檔目錄。
+# <a name="logdirtablogdir"></a>[LogDir](#tab/LogDir)
+Kubelet 和 kube proxy 記錄會重新導向至其個別輸出檔案的目錄。
 
 |  |  | 
 |---------|---------|
@@ -82,15 +82,15 @@ IP 位址指派給 Windows 節點。 您可以使用`ipconfig`若要尋找這。
 
 
 > [!TIP] 
-> 應該出現錯誤，請洽詢[疑難排解區段](./common-problems.md#i-have-problems-running-kubernetes-processes-as-windows-services)
+> 萬一發生錯誤，請參閱[疑難排解一節](./common-problems.md#i-have-problems-running-kubernetes-processes-as-windows-services)
 
 ## <a name="manual-approach"></a>手動方法
-應該[上方參照的指令碼](#registering-windows-services)不為此區段，您的工作提供一些*範例命令*，可用來登錄手動逐步說明這些服務。
+如果[上述的參考腳本](#registering-windows-services)無法供您使用，本節會提供一些*範例命令*，可供您以手動方式逐步註冊這些服務。
 
 > [!TIP] 
-> 如需有關如何設定的詳細資訊請參閱[Kubelet 和 kube proxy 現在可以執行做為 Windows 服務](https://kubernetes.io/docs/getting-started-guides/windows/#kubelet-and-kube-proxy-can-now-run-as-windows-services)`kubelet`和`kube-proxy`做為原生 Windows 服務，提供執行`sc`。
+> 如需如何設定 `kubelet` 和 `kube-proxy` 以透過 `sc`以原生 Windows 服務的方式執行的詳細資訊，請參閱[Kubelet 和 kube](https://kubernetes.io/docs/getting-started-guides/windows/#kubelet-and-kube-proxy-can-now-run-as-windows-services) 。
 
-### <a name="register-flanneldexe"></a>註冊 flanneld.exe
+### <a name="register-flanneldexe"></a>註冊 flanneld .exe
 ```
 nssm install flanneld C:\flannel\flanneld.exe
 nssm set flanneld AppParameters --kubeconfig-file=c:\k\config --iface=<ManagementIP> --ip-masq=1 --kube-subnet-mgr=1
@@ -99,7 +99,7 @@ nssm set flanneld AppDirectory C:\flannel
 nssm start flanneld
 ```
 
-### <a name="register-kubeletexe"></a>註冊 kubelet.exe
+### <a name="register-kubeletexe"></a>註冊 kubelet .exe
 ```
 nssm install kubelet C:\k\kubelet.exe
 nssm set kubelet AppParameters --hostname-override=<hostname> --v=6 --pod-infra-container-image=kubeletwin/pause --resolv-conf="" --allow-privileged=true --enable-debugging-handlers --cluster-dns=<DNS-service-IP> --cluster-domain=cluster.local --kubeconfig=c:\k\config --hairpin-mode=promiscuous-bridge --image-pull-progress-deadline=20m --cgroups-per-qos=false  --log-dir=<log directory> --logtostderr=false --enforce-node-allocatable="" --network-plugin=cni --cni-bin-dir=c:\k\cni --cni-conf-dir=c:\k\cni\config
@@ -107,7 +107,7 @@ nssm set kubelet AppDirectory C:\k
 nssm start kubelet
 ```
 
-### <a name="register-kube-proxyexe-l2bridge--host-gw"></a>註冊 kube proxy.exe (l2bridge / 主機 gw)
+### <a name="register-kube-proxyexe-l2bridge--host-gw"></a>註冊 kube-proxy （l2bridge/主機-gw）
 ```
 nssm install kube-proxy C:\k\kube-proxy.exe
 nssm set kube-proxy AppDirectory c:\k
@@ -117,7 +117,7 @@ nssm set kube-proxy DependOnService kubelet
 nssm start kube-proxy
 ```
 
-### <a name="register-kube-proxyexe-overlay--vxlan"></a>註冊 kube proxy.exe (重疊 / vxlan)
+### <a name="register-kube-proxyexe-overlay--vxlan"></a>註冊 kube-proxy （重迭/vxlan）
 ```
 PS C:\k> nssm install kube-proxy C:\k\kube-proxy.exe
 PS C:\k> nssm set kube-proxy AppDirectory c:\k

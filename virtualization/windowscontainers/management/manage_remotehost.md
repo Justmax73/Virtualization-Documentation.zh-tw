@@ -1,19 +1,19 @@
 ---
 title: Windows Docker 主機的遠端管理
 description: 如何安全管理執行 Windows Server 的遠端 Docker 主機。
-keywords: Docker, 容器
+keywords: docker, 容器
 author: taylorb-microsoft
 ms.date: 02/14/2017
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 0cc1b621-1a92-4512-8716-956d7a8fe495
-ms.openlocfilehash: 2e1fec6aa7149c801b1c72a0f8a346ca879015c2
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: b975c593bd5c736ec3e7e1e21b76b2f6a2c8f8a4
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998195"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74909648"
 ---
 # <a name="remote-management-of-a-windows-docker-host"></a>Windows Docker 主機的遠端管理
 
@@ -23,7 +23,7 @@ ms.locfileid: "9998195"
 
 * 使用 [dockertls](https://hub.docker.com/r/stefanscherer/dockertls-windows/) 建立伺服器上的憑證。 如果您要使用 IP 位址建立憑證，建議您使用靜態 IP，以避免 IP 位址變更時需重新建立憑證。
 
-* 重新啟動 Docker 服務 `Restart-Service Docker`
+* 重新開機 docker 服務 `Restart-Service Docker`
 * 建立允許輸入流量的 NSG 規則，以便使用連接埠 Docker 的 TLS 連接埠 2375 和 2376。 請注意，對於安全連線只需允許 2376。  
   入口網站應該會顯示如下的 NSG 設定︰  
   ![NGS](media/nsg.png)  

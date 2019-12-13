@@ -7,28 +7,28 @@ ms.date: 04/07/2018
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: f1e75efa-8745-4389-b8dc-91ca931fe5ae
-ms.openlocfilehash: 6035143bc1449bc4a8e9bb7a4484b4c5329e6d3c
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: 970e92def02e5386d38a2e72d5ef921aa8321fdf
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998625"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74911398"
 ---
 # <a name="create-a-virtual-machine-with-hyper-v"></a>使用 Hyper-V 建立虛擬機器
 
 建立虛擬機器，並安裝其作業系統。
 
-我們已建立新的工具來建立虛擬機器, 讓指示在過去三個發行版本本中會有明顯的變更。
+我們已建立新的工具來建立虛擬機器，因此在過去三個版本中的指示已大幅變更。
 
 請選擇您的作業系統以獲得正確的指示集：
 
-* [Windows 10 秋季創意更新 (v1709) 及更新版本](quick-create-virtual-machine.md#windows-10-fall-creators-update-windows-10-version-1709)
-* [Windows 10 創意者更新 (v1703)](quick-create-virtual-machine.md#windows-10-creators-update-windows-10-version-1703)
-* [Windows 10 周年紀念更新 (v1607) 及更舊版本](quick-create-virtual-machine.md#before-windows-10-creators-update-windows-10-version-1607-and-earlier)
+* [Windows 10 秋季建立者更新（v1709）和更新版本](quick-create-virtual-machine.md#windows-10-fall-creators-update-windows-10-version-1709)
+* [Windows 10 建立者更新（v1703）](quick-create-virtual-machine.md#windows-10-creators-update-windows-10-version-1703)
+* [Windows 10 年度更新版（v1607）和更早版本](quick-create-virtual-machine.md#before-windows-10-creators-update-windows-10-version-1607-and-earlier)
 
 那就開始吧。
 
-## <a name="windows-10-fall-creators-update-windows-10-version-1709"></a>Windows 10 秋季版創意者更新 (Windows 10 版本 1709)
+## <a name="windows-10-fall-creators-update-windows-10-version-1709"></a>Windows 10 秋季建立者更新（Windows 10 版本1709）
 
 在 Fall Creators Update 中，[快速建立] 已擴充為包含虛擬機器資源庫，可從 Hyper-V 管理員獨立啟動。
 
@@ -42,24 +42,24 @@ ms.locfileid: "9998625"
 
     ![資源庫檢視](media/vmgallery.png)
 
-    1. 如果您想使用您自己的映像來建立虛擬機器，請選取 **\[本機安裝來源\]**。
-    1. 選取 **\[變更安裝來源\]**。
-      ![使用本機安裝來源的按鈕](media/change-source.png)
+    1. 如果您想使用您自己的映像來建立虛擬機器，請選取 **\[本機安裝來源\]** 。
+    1. 選取 **\[變更安裝來源\]** 。
+      ![ 按鈕，以使用本機安裝來源](media/change-source.png)
     1. 選擇您想要轉換成新虛擬機器的 .iso 或 .vhdx。
     1. 如果映像是 Linux 映像，請取消選取 \[安全開機\] 選項。
-      ![使用本機安裝來源的按鈕](media/toggle-secure-boot.png)
+      ![ 按鈕，以使用本機安裝來源](media/toggle-secure-boot.png)
 
 1. 選取 \[建立虛擬機器\]
 
 這樣就完成了！  快速建立會打點好剩下的事情。
 
-## <a name="windows-10-creators-update-windows-10-version-1703"></a>Windows 10 創意者更新 (Windows 10 版本 1703)
+## <a name="windows-10-creators-update-windows-10-version-1703"></a>Windows 10 建立者更新（Windows 10 版本1703）
 
 ![快速建立 UI 的螢幕擷取畫面](media/quickcreatesteps_inked.jpg)
 
 1. 從 [開始] 功能表開啟 Hyper-V 管理員。
 
-1. 在 Hyper-V 管理員右邊的 **\[動作\]** 功能表中尋找 **\[快速建立\]**。
+1. 在 Hyper-V 管理員右邊的 **\[動作\]** 功能表中尋找 **\[快速建立\]** 。
 
 1. 自訂您的虛擬機器。
 
@@ -81,7 +81,7 @@ ms.locfileid: "9998625"
 
 > **注意︰** 除非您是執行大量授權版本的 Windows，否則在虛擬機器內執行的 Windows 需要個別授權。 虛擬機器的作業系統與主機作業系統無關。
 
-## <a name="before-windows-10-creators-update-windows-10-version-1607-and-earlier"></a>在 Windows 10 創意者更新之前 (Windows 10 版本1607及更舊版本)
+## <a name="before-windows-10-creators-update-windows-10-version-1607-and-earlier"></a>在 Windows 10 建立者更新之前（Windows 10 1607 版和更早版本）
 
 如果您不是執行 Windows 10 Creators Update 或更新版本，請遵循下列指示，改用 \[新增虛擬機器精靈\]：
 

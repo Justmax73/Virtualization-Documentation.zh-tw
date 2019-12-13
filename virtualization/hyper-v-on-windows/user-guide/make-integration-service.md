@@ -8,11 +8,11 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: 1ef8f18c-3d76-4c06-87e4-11d8d4e31aea
 ms.openlocfilehash: 89a36ee87bce1da18852f0ebff248e239165eb7d
-ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "9883011"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74911028"
 ---
 # <a name="make-your-own-integration-services"></a>製作您自己的整合服務
 
@@ -48,7 +48,7 @@ ms.locfileid: "9883011"
 * [Windows 10 SDK](https://developer.microsoft.com/windows/downloads/windows-10-sdk) -- 已預先安裝於 Visual Studio 2015 內，並包含 Update 3 及以上版本。
 * 搭配至少一個虛擬電腦來執行其中一個上述主機作業系統的電腦。 -- 這是用以測試您的應用程式。
 
-> **注意:** 在 Windows 10 年度更新版中, Hyper-v 通訊端 API 已公開提供。 使用 HVSocket 的應用程式將會在任何 Windows 10 主機和來賓上執行, 但您只能在 Windows SDK 中使用組建14290來開發。
+> **注意：** 適用于 Hyper-v 通訊端的 API 在 Windows 10 年度更新版中公開提供。 使用 Hvsocket.h 的應用程式將會在任何 Windows 10 主機和來賓上執行，但只能使用比組建14290更晚的 Windows SDK 來開發。
 
 ## <a name="register-a-new-application"></a>註冊新的應用程式
 若要使用 Hyper-V 通訊端，必須在 Hyper-V 主機的登錄中註冊應用程式。
@@ -206,7 +206,7 @@ AF_HYPERV 端點並不依賴 IP 或主機名稱，而是高度依賴兩個 GUID�
 
 ### <a name="vmid-wildcards"></a>VMID 萬用字元
 
-| 名稱 | GUID | 描述 |
+| 名稱 | GUID | 說明 |
 |:-----|:-----|:-----|
 | HV_GUID_ZERO | 00000000-0000-0000-0000-000000000000 | 接聽程式應繫結至此 VmId，才可接受來自所有分割區的連線。 |
 | HV_GUID_WILDCARD | 00000000-0000-0000-0000-000000000000 | 接聽程式應繫結至此 VmId，才可接受來自所有分割區的連線。 |
@@ -229,4 +229,4 @@ Socket() Bind() Connect() Send() Listen() Accept()
 ## <a name="useful-links"></a>實用的連結
 [完整 WinSock API](https://docs.microsoft.com/windows/desktop/WinSock/winsock-functions)
 
-[Hyper-V 整合服務參考](../reference/integration-services.md)
+[Hyper-v Integration Services 參考](../reference/integration-services.md)

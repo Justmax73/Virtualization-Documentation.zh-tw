@@ -1,7 +1,7 @@
 ---
 title: 使用 gMSA 執行容器
-description: 如何使用群組管理的服務帳戶（gMSA）執行 Windows 容器。
-keywords: docker、容器、active directory、gmsa、群組受管理的服務帳戶、群組受管理的服務帳戶
+description: 如何使用群組受管理的服務帳戶（gMSA）來執行 Windows 容器。
+keywords: docker，容器，active directory，gmsa，群組受管理的服務帳戶，群組受管理的服務帳戶
 author: rpsqrd
 ms.date: 09/10/2019
 ms.topic: article
@@ -9,15 +9,15 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
 ms.openlocfilehash: 52625517748356251aa41115caebd7801ec3cdaf
-ms.sourcegitcommit: 22dcc1400dff44fb85591adf0fc443360ea92856
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "10209859"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74909758"
 ---
 # <a name="run-a-container-with-a-gmsa"></a>使用 gMSA 執行容器
 
-若要使用群組受管理的服務帳戶（gMSA）執行容器，請將 credential 規格檔案提供`--security-opt`給[docker](https://docs.docker.com/engine/reference/run)的參數：
+若要使用群組受管理的服務帳戶（gMSA）執行容器，請將認證規格檔案提供給[docker run](https://docs.docker.com/engine/reference/run)的 `--security-opt` 參數：
 
 ```powershell
 # For Windows Server 2016, change the image name to mcr.microsoft.com/windows/servercore:ltsc2016
@@ -25,11 +25,11 @@ docker run --security-opt "credentialspec=file://contoso_webapp01.json" --hostna
 ```
 
 >[!IMPORTANT]
->在 Windows Server 2016 版本1709和1803上，容器的主機名稱必須符合 gMSA 的短名稱。
+>在 Windows Server 2016 1709 和1803版上，容器的主機名稱必須符合 gMSA 的簡短名稱。
 
-在上一個範例中，gMSA SAM 帳戶名稱是「webapp01」，因此容器主機名稱也稱為「webapp01」。
+在上述範例中，gMSA SAM 帳戶名稱為 "webapp01"，因此容器主機名稱也會命名為 "webapp01"。
 
-在 Windows Server 2019 及更新版本中，不需要主機名稱欄位，但容器仍會依據 gMSA 名稱（而不是主機名稱）來識別自己，即使您明確提供不同的名稱。
+在 Windows Server 2019 和更新版本上，不需要 hostname 欄位，但是即使您明確提供不同的主機名稱，容器仍然會依照 gMSA 名稱（而不是 hostname）來識別自己。
 
 若要檢查 gMSA 是否正常運作，請在容器中執行下列 Cmdlet：
 
@@ -44,9 +44,9 @@ Trust Verification Status = 0 0x0 NERR_Success
 The command completed successfully
 ```
 
-如果信任的 DC 線上狀態與信任驗證狀態不`NERR_Success`是，請遵循[疑難排解指示](gmsa-troubleshooting.md#check-the-container)來調試問題。
+如果未 `NERR_Success`信任的 DC 線上狀態和信任驗證狀態，請遵循[疑難排解指示](gmsa-troubleshooting.md#check-the-container)來進行問題的檢查。
 
-您可以執行下列命令並檢查用戶端名稱，在容器中驗證 gMSA 身分識別：
+您可以執行下列命令並檢查用戶端名稱，以確認容器內的 gMSA 身分識別：
 
 ```powershell
 PS C:\> klist get krbtgt
@@ -70,14 +70,14 @@ Cached Tickets: (2)
 [...]
 ```
 
-若要將 PowerShell 或其他主控台 app 開啟為 gMSA 帳戶，您可以要求容器在網路服務帳戶下執行，而不是在 [標準] ContainerAdministrator （或 NanoServer 的 ContainerUser）帳戶中執行：
+若要開啟 PowerShell 或另一個主控台應用程式做為 gMSA 帳戶，您可以要求容器在 Network Service 帳戶下執行，而不是一般的 ContainerAdministrator （或 ContainerUser for NanoServer）帳戶：
 
 ```powershell
 # NOTE: you can only run as Network Service or SYSTEM on Windows Server 1709 and later
 docker run --security-opt "credentialspec=file://contoso_webapp01.json" --hostname webapp01 --user "NT AUTHORITY\NETWORK SERVICE" -it mcr.microsoft.com/windows/servercore:ltsc2019 powershell
 ```
 
-當您以網路服務執行時，您可以嘗試在網網域控制站上連線到 SYSVOL，以測試網路驗證作為 gMSA：
+當您以網路服務的身分執行時，您可以嘗試連線到網域控制站上的 SYSVOL，以測試網路驗證作為 gMSA：
 
 ```powershell
 # This command should succeed if you're successfully running as the gMSA
@@ -94,9 +94,9 @@ d----l        2/27/2019   8:09 PM                contoso.com
 
 ## <a name="next-steps"></a>後續步驟
 
-除了執行容器之外，您也可以使用 gMSAs 進行下列作業：
+除了執行容器，您也可以使用 Gmsa 來：
 
 - [設定應用程式](gmsa-configure-app.md)
 - [協調容器](gmsa-orchestrate-containers.md)
 
-如果您在安裝期間遇到任何問題，請參閱我們的[疑難排解指南](gmsa-troubleshooting.md)，以取得可能的解決方案。
+如果您在安裝期間遇到任何問題，請參閱我們的[疑難排解指南](gmsa-troubleshooting.md)以取得可能的解決方案。

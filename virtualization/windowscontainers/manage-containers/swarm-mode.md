@@ -9,11 +9,11 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 5ceb9626-7c48-4d42-81f8-9c936595ad85
 ms.openlocfilehash: 560e9ffc92728628268d7d557b8fa8428316c8ec
-ms.sourcegitcommit: 551b783410ba49b4d439e3da084986cceffcb7e0
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "10278960"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74909678"
 ---
 # <a name="getting-started-with-swarm-mode"></a>開始使用群集模式 
 
@@ -24,17 +24,17 @@ ms.locfileid: "10278960"
 群集由兩種容器主機所組成︰*管理員節點*與*背景工作節點*。 每個群集皆透過管理員節點初始化，而所有用來控制及監視群集的 Docker CLI 命令皆必須從自身的其中一個管理員節點執行。 管理員節點可視作群集狀態的「看守員」，兩者共同構成共識群組，可維持對群集上執行之服務的狀態感知，且其負責確保群集的實際狀態一律符合開發人員或系統管理員所定義的預定狀態。 
 
 >[!NOTE]
->任何指定的 swarm 可以有多個 manager 節點，但必須*至少有一個*。 
+>任何指定的 swarm 都可以有多個 manager 節點，但一定要有*至少一個*。 
 
 背景工作節點由 Docker 群集透過管理員節點協調。 若要加入群集，背景工作節點必須使用群集初始化時由管理員節點產生的「加入權杖」。 背景工作節點僅需從管理員節點接受工作並予以執行，因此不需要 (也不擁有) 對群集狀態的感知。
 
 ## <a name="swarm-mode-system-requirements"></a>群集模式系統需求
 
-至少有一個物理或虛擬電腦系統（若要使用 swarm 至少有兩個節點的完整功能），請執行**windows 10 創意者更新**或**windows Server 2016** ，*並使用所有最新的更新 \ **、設定做為容器主機（如需如何開始使用 Windows 10 上的 Docker 容器的詳細資訊，請參閱 Windows 10 上的[windows 容器](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10)或[windows Server 上的 windows 容器](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server)主題）。
+至少要有一部實體或虛擬電腦系統（若要使用至少兩個節點的 swarm 完整功能），執行**windows 10 建立者更新**或**windows server 2016** *與所有最新的更新\** 、安裝為容器主機[（如需](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server)如何在[windows 10 上](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10)開始使用 Docker 容器的詳細資訊，請參閱主題，
 
-\***注意**：Windows Server 2016 上的 Docker 群集需要 [KB4015217](https://support.microsoft.com/help/4015217/windows-10-update-kb4015217)
+\***注意**： Windows Server 2016 上的 Docker Swarm 需要[KB4015217](https://support.microsoft.com/help/4015217/windows-10-update-kb4015217)
 
-**Docker 引擎 1.13.0 或更新版本**
+**Docker Engine v 1.13.0 或更新版本**
 
 開啟連接埠︰每部主機皆必須可以使用下列連接埠。 在某些系統上，這些連接埠預設為開啟。
 - 用於叢集管理通訊的 TCP 連接埠 2377
@@ -53,7 +53,7 @@ C:\> docker swarm init --advertise-addr=<HOSTIPADDRESS> --listen-addr <HOSTIPADD
 
 ## <a name="adding-nodes-to-a-swarm"></a>將節點新增至群集
 
-*需要多*個節點來利用 swarm 模式和重迭網路模式功能。 所有群集/覆疊功能都可與以群集模式執行 (即管理員節點，其使用 `docker swarm init` 命令置入群集模式) 的單一主機搭配使用。
+您*不*需要多個節點來運用 swarm 模式和重迭網路模式功能。 所有群集/覆疊功能都可與以群集模式執行 (即管理員節點，其使用 `docker swarm init` 命令置入群集模式) 的單一主機搭配使用。
 
 ### <a name="adding-workers-to-a-swarm"></a>將背景工作新增至群集
 
@@ -63,7 +63,7 @@ C:\> docker swarm init --advertise-addr=<HOSTIPADDRESS> --listen-addr <HOSTIPADD
 C:\> docker swarm join --token <WORKERJOINTOKEN> <MANAGERIPADDRESS>
 ```
 
-在這裡，\<MANAGERIPADDRESS\> 是群集管理員節點的本機 IP 位址，而 \<WORKERJOINTOKEN\> 則是背景工作加入權杖，是自管理員節點執行 `docker swarm init` 命令時從其輸出取得的資訊。 加入權杖也可使用另一方式取得，即在群集初始化後自管理員節點執行其中一項下列命令︰
+在此，\<MANAGERIPADDRESS\> 是群集管理員節點的本機 IP 位址，而 \<WORKERJOINTOKEN\> 是由自管理員節點執行的 `docker swarm init` 命令所提供作為輸出的背景工作加入權杖。 加入權杖也可使用另一方式取得，即在群集初始化後自管理員節點執行其中一項下列命令︰
 
 ```
 # Get the full command required to join a worker node to the swarm
@@ -80,7 +80,7 @@ C:\> docker swarm join-token worker -q
 C:\> docker swarm join --token <MANAGERJOINTOKEN> <MANAGERIPADDRESS>
 ```
 
-同樣地，\<MANAGERIPADDRESS\> 是群集管理員節點的本機 IP 位址。 加入權杖 \<MANAGERJOINTOKEN\> 是群集的*管理員*加入權杖，可透過自現有管理員節點執行下列其中一項命令取得︰
+同樣地，\<MANAGERIPADDRESS\> 是群集管理員節點的本機 IP 位址。 加入權杖 \<MANAGERJOINTOKEN\> 是群集的*管理員*加入權杖，可透過自現有管理員節點執行其中一項下列命令取得︰
 
 ```
 # Get the full command required to join a **manager** node to the swarm
@@ -99,7 +99,7 @@ C:\> docker swarm join-token manager -q
 C:\> docker network create --driver=overlay <NETWORKNAME>
 ```
 
-在這裡，\<NETWORKNAME\> 是您想要提供給網路的名稱。
+在此，\<NETWORKNAME\> 是您想要提供給網路的名稱。
 
 ## <a name="deploying-services-to-a-swarm"></a>將服務部署到群集
 覆疊網路建立後，即可建立服務並將其連接至網路。 建立服務的語法如下︰
@@ -109,10 +109,10 @@ C:\> docker network create --driver=overlay <NETWORKNAME>
 C:\> docker service create --name=<SERVICENAME> --endpoint-mode dnsrr --network=<NETWORKNAME> <CONTAINERIMAGE> [COMMAND] [ARGS…]
 ```
 
-在這裡，\<SERVICENAME\> 是您想要提供給服務的名稱，您將使用該名稱透過服務探索 (其會使用 Docker 的原生 DNS 伺服器) 參考服務。 \<NETWORKNAME\> 是此服務所要連接之網路的名稱 (例如，"myOverlayNet")。 \<CONTAINERIMAGE\> 是要定義服務的容器映像名稱。
+在此，\<SERVICENAME\> 是您想要提供給服務的名稱，您將使用該名稱透過服務探索 (其會使用 Docker 的原生 DNS 伺服器) 參考服務。 \<NETWORKNAME\> 是您想要用來連接此服務的網路名稱（例如，"myOverlayNet"）。 \<INSTALL-CONTAINERIMAGE\> 是將定義服務的容器映射名稱。
 
 >[!NOTE]
->這個命令`--endpoint-mode dnsrr`的第二個引數需要指定給 Docker 引擎，DNS 迴圈原則將用來平衡整個服務容器端點的網路流量。 目前，DNS 迴圈式是 Windows Server 2016 上唯一支援的負載平衡策略。Windows Server 2019 （及更新版本）上支援 Windows docker 主機的[路由網格](https://docs.docker.com/engine/swarm/ingress/)，但在 windows server 2016 上則不支援。 在 Windows Server 2016 上搜尋替代負載平衡策略的使用者，可以設定外部負載平衡器（例如 NGINX），並使用 Swarm 的 [[發佈埠] 模式](https://docs.docker.com/engine/reference/commandline/service_create/#/publish-service-ports-externally-to-the-swarm--p---publish)來公開要平衡流量的容器主機埠。
+>此命令的第二個引數（`--endpoint-mode dnsrr`）是指定給 Docker 引擎的必要條件，DNS 迴圈配置資源原則將用來平衡服務容器端點間的網路流量。 目前，DNS 迴圈配置資源是 Windows Server 2016 上唯一支援的負載平衡策略。Windows Server 2019 （和更新版本）支援 Windows docker 主機的[路由網格](https://docs.docker.com/engine/swarm/ingress/)，但 windows server 2016 上則不支援。 目前在 Windows Server 2016 上尋求替代負載平衡策略的使用者可以設定外部負載平衡器（例如 NGINX），並使用 Swarm 的[發佈埠模式](https://docs.docker.com/engine/reference/commandline/service_create/#/publish-service-ports-externally-to-the-swarm--p---publish)來公開要平衡流量的容器主機埠。
 
 ## <a name="scaling-a-service"></a>調整服務
 服務部署到群集叢集後，組成該服務的容器執行個體會在叢集間部署。 根據預設，支援服務的容器執行個體數目 (即服務的「複本」或「工作」數目) 為一個。 不過，您可以使用 `docker service create` 命令的 `--replicas` 選項建立具有多個工作的服務，或是在建立服務之後再來調整服務。
@@ -123,7 +123,7 @@ C:\> docker service create --name=<SERVICENAME> --endpoint-mode dnsrr --network=
 C:\> docker service scale <SERVICENAME>=<REPLICAS>
 ```
 
-在這裡，\<SERVICENAME\> 是進行調整的服務名稱，而 \<REPLICAS\> 是進行調整之服務的工作或容器執行個體數目。
+在此，\<SERVICENAME\> 是進行縮放的服務名稱，而 \<REPLICAS\> 是進行縮放之服務的工作或容器執行個體數目。
 
 
 ## <a name="viewing-the-swarm-state"></a>檢視群集狀態
@@ -162,9 +162,9 @@ C:\> docker service ps <SERVICENAME>
 ## <a name="linuxwindows-mixed-os-clusters"></a>Linux + Windows 混合作業系統叢集
 
 最近我們的小組成員張貼了一個簡短的三部分示範，說明如何使用 Docker 群集來設定 Windows+Linux 混合作業系統應用程式。 如果您是 Docker 群集的新手，或是要用它來執行混合作業系統應用程式，這都是很棒的起始點。 快來一探究竟：
-- [使用 Docker 群集來執行 Windows+Linux 容器化應用程式 (第 1 部分，共 3 部分)](https://www.youtube.com/watch?v=ZfMV5JmkWCY&t=170s)
-- [使用 Docker 群集來執行 Windows+Linux 容器化應用程式 (第 2 部分，共 3 部分)](https://www.youtube.com/watch?v=VbzwKbcC_Mg&t=406s)
-- [使用 Docker 群集來執行 Windows+Linux 容器化應用程式 (第 3 部分，共 3 部分)](https://www.youtube.com/watch?v=I9oDD78E_1E&t=354s)
+- [使用 Docker Swarm 執行 Windows + Linux 容器化應用程式（第1/3 部分）](https://www.youtube.com/watch?v=ZfMV5JmkWCY&t=170s)
+- [使用 Docker Swarm 執行 Windows + Linux 容器化應用程式（第2/3 部分）](https://www.youtube.com/watch?v=VbzwKbcC_Mg&t=406s)
+- [使用 Docker Swarm 執行 Windows + Linux 容器化應用程式（第3/3 部分）](https://www.youtube.com/watch?v=I9oDD78E_1E&t=354s)
 
 ### <a name="initializing-a-linuxwindows-mixed-os-cluster"></a>初始化 Linux + Windows 混合作業系統叢集
 初始化混合作業系統叢集很簡單，只要您的防火牆規則設定得當，而且您的主機可以互相存取，就只需要使用標準 `docker swarm join` 命令，即可將 Linux 主機新增至群集：
@@ -181,7 +181,7 @@ C:\> docker swarm init --advertise-addr=<HOSTIPADDRESS> --listen-addr <HOSTIPADD
 若要將 Docker 服務啟動至混合作業系統群集叢集，必須要有方法可以區分哪些群集節點是執行該服務設計所針對的作業系統，而哪些不是。 [Docker 物件標籤](https://docs.docker.com/engine/userguide/labels-custom-metadata/)提供很好用的方式來標示節點，以方便建立及設定服務，使其只在符合其作業系統的節點上執行。 
 
 >[!NOTE]
->[Docker 物件標籤](https://docs.docker.com/engine/userguide/labels-custom-metadata/)可用來將中繼資料套用到各種 Docker 物件（包括容器影像、容器、標籤和網路），以及各種用途（例如，標籤可用來分隔「前端」和「後端」元件）。一種應用程式，只要允許前端微 secheduled 只有在 [前端] 標示的節點和後端 mircoservices，才會排程在「後端」標籤節點上。 在此案例中，我們在節點上使用標籤來區分 Windows 作業系統節點和 Linux 作業系統節點。
+>[Docker 物件標籤](https://docs.docker.com/engine/userguide/labels-custom-metadata/)可以用來將中繼資料套用至各種 docker 物件（包括容器映射、容器、磁片區和網路）和適用于各種用途（例如標籤可以用來分隔應用程式的「前端」和「後端」元件，方法是允許前端微服務只能在「前端」標示的節點和後端 mircoservices 上 secheduled，只在「後端」標記的節點上排程）。 在此案例中，我們在節點上使用標籤來區分 Windows 作業系統節點和 Linux 作業系統節點。
 
 若要標示您現有的群集節點，請使用下列的語法：
 
@@ -189,7 +189,7 @@ C:\> docker swarm init --advertise-addr=<HOSTIPADDRESS> --listen-addr <HOSTIPADD
 C:\> docker node update --label-add <LABELNAME>=<LABELVALUE> <NODENAME>
 ```
 
-在這裡，`<LABELNAME>` 是您要建立的標籤名稱，例如，在此案例中，我們是依作業系統來區分節點，因此標籤的邏輯名稱可以用 "os"。 `<LABELVALUE>` 是標籤的值，在此案例中，您可以選擇使用值 "windows" 和 "linux"  (當然，您可以為您的標籤和標籤值選擇任何名稱，只要保持一致即可)。 `<NODENAME>` 是您要標示的節點名稱；您可以執行 `docker node ls` 來提醒自己節點的名稱。 
+在這裡，`<LABELNAME>` 是您要建立的標籤名稱，例如，在此案例中，我們是依作業系統來區分節點，因此標籤的邏輯名稱可以用 "os"。 `<LABELVALUE>` 是標籤的值，在此案例中，您可以選擇使用 "windows" 和 "linux" 的值。 (當然，您可以為您的標籤和標籤值選擇任何名稱，只要保持一致即可)。 `<NODENAME>` 是您要加上標籤的節點名稱;您可以藉由執行 `docker node ls`，提醒自己的節點名稱。 
 
 **例如**，如果您的叢集中有四個群集節點，包括兩個 Windows 節點和兩個 Linux 節點，您的標籤更新命令看起來會像這樣：
 
@@ -224,13 +224,13 @@ C:\> docker service create --name=linux_s1 --endpoint-mode dnsrr --network testo
 ## <a name="limitations"></a>限制
 目前，Windows 上的群集模式有以下限制︰
 - 不支援資料層加密 (亦即使用 `--opt encrypted` 選項的容器至容器流量)
-- Windows Server 2016 不支援 Windows docker 主機的[路由網格](https://docs.docker.com/engine/swarm/ingress/)，但只能從 Windows server 2019 向前進行。 現今，要尋找替代負載平衡策略的使用者可以設定外部負載平衡器 (例如 NGINX)，並使用群集的[發行連接埠模式](https://docs.docker.com/engine/reference/commandline/service_create/#/publish-service-ports-externally-to-the-swarm--p---publish)公開要進行負載平衡所透過的容器主機連接埠。 以下提供更多詳細資料。
+- Windows Server 2016 不支援 Windows docker 主機的[路由網狀](https://docs.docker.com/engine/swarm/ingress/)，而是只從 windows server 2019 開始。 現今，要尋找替代負載平衡策略的使用者可以設定外部負載平衡器 (例如 NGINX)，並使用群集的[發行連接埠模式](https://docs.docker.com/engine/reference/commandline/service_create/#/publish-service-ports-externally-to-the-swarm--p---publish)公開要進行負載平衡所透過的容器主機連接埠。 以下提供更多詳細資料。
 
  >[!NOTE]
->如需如何設定 Docker Swarm 路由網格的詳細資訊，請參閱此[博客文章](https://docs.microsoft.com/en-us/virtualization/community/team-blog/2017/20170926-docker-s-routing-mesh-available-with-windows-server-version-1709)
+>如需有關如何設定 Docker Swarm 路由網格的詳細資訊，請參閱這[篇 blog 文章](https://docs.microsoft.com/en-us/virtualization/community/team-blog/2017/20170926-docker-s-routing-mesh-available-with-windows-server-version-1709)
 
 ## <a name="publish-ports-for-service-endpoints"></a>為服務端點發佈連接埠
- 您可以使用 [發佈埠] 模式或 Docker Swarm 的 [[路由] 網格](https://docs.docker.com/engine/swarm/ingress/)功能，來尋找要為其服務端點發佈埠的使用者。 
+ 想要為其服務端點發佈埠的使用者，可以使用發佈埠模式或 Docker Swarm 的[路由網格](https://docs.docker.com/engine/swarm/ingress/)功能來立即執行此動作。 
 
 若要為定義服務的每個工作/容器端點發佈主機連接埠，請在 `docker service create` 命令中使用 `--publish mode=host,target=<CONTAINERPORT>` 引數：
 
@@ -250,12 +250,12 @@ C:\ > docker service create --name=s1 --publish mode=host,target=80 --endpoint-m
 ```
 C:\ > docker service ps <SERVICENAME>
 ```
-上述命令將會傳回針對服務執行之每個容器執行個體的詳細資料 (在所有群集主機上)。 輸出的其中一欄 (「連接埠」欄) 將會包含每個主機的連接埠資訊，格式為 \<HOSTPORT\>->\<CONTAINERPORT\>/tcp。 針對每個容器執行個體，\<HOSTPORT\> 的值各不相同，因為每個容器都是在自己的主機連接埠上發佈。
+上述命令將會傳回針對服務執行之每個容器執行個體的詳細資料 (在所有群集主機上)。 輸出的其中一個資料行（[埠] 資料行）將會包含每個表單主機的通訊埠資訊 \<HOSTPORT\>->\<CONTAINERPORT\>/tcp。 每個容器實例的 \<HOSTPORT\> 值都會不同，因為每個容器都是在自己的主機埠上發行。
 
 
 ## <a name="tips--insights"></a>提示與深入解析 
 
-#### *<a name="existing-transparent-network-can-block-swarm-initializationoverlay-network-creation"></a>現有的透明網路可以阻止初始化群集/建立覆疊網路* 
+#### <a name="existing-transparent-network-can-block-swarm-initializationoverlay-network-creation"></a>*現有的透明網路可以封鎖 swarm 初始化/重迭網路建立* 
 在 Windows 中，overlay 和 transparent 網路驅動程式需要有外部 vSwitch 才能連結至 (虛擬) 主機網路介面卡。 建立覆疊網路之後，會建立新的交換器，然後將其連接到開放式網路介面卡。 透明網路模式也會使用主機網路介面卡。 同時，任何特定網路介面卡一次都只能連結至一個交換器；如果主機只有一個網路介面卡，則它一次只能連接至一個外部 vSwitch，無論該 vSwitch 是要用於覆疊網路還是透明網路。 
 
 因此，如果容器主機只有一個網路介面卡，很可能會遇到透明網路阻止建立覆疊網路 (反之亦然) 的問題，因為透明網路目前正在占用主機唯一的虛擬網路介面。

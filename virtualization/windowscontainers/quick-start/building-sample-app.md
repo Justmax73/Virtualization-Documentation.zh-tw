@@ -1,7 +1,7 @@
 ---
-title: Containerize .NET Core 應用程式
-description: 瞭解如何使用容器建立範例 .NET 核心應用程式
-keywords: Docker, 容器
+title: 容器化 .NET Core 應用程式
+description: 瞭解如何使用容器建立範例 .NET core 應用程式
+keywords: docker, 容器
 author: cwilhit
 ms.author: crwilhit
 ms.date: 11/12/2019
@@ -9,32 +9,32 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.openlocfilehash: fab0dc46ddcc8c82a010d408032e5f3c4cea8d69
-ms.sourcegitcommit: e61db4d98d9476a622e6cc8877650d9e7a6b4dd9
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "10288066"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74910138"
 ---
-# <a name="containerize-a-net-core-app"></a>Containerize .NET Core 應用程式
+# <a name="containerize-a-net-core-app"></a>容器化 .NET Core 應用程式
 
-本主題說明如何將現有的範例 .NET app 封裝為 Windows 容器，請在按照「開始使用」中所述的步驟設定您的環境後[： [準備適用于容器的視窗](set-up-environment.md)]，並執行您的第一個容器，如[執行您的第一個 Windows 容器](run-your-first-container.md)中所述。
+本主題說明如何在設定環境之後，將現有的範例 .NET 應用程式封裝為 Windows 容器，如[開始使用：準備適用于容器的 windows](set-up-environment.md)和執行您的第一個容器（如[執行您的第一個 Windows 容器](run-your-first-container.md)中所述）。
 
-您也需要在電腦上安裝 Git 來源控制系統。 若要安裝它，請造訪[Git](https://git-scm.com/download)。
+您也需要安裝在您電腦上的 Git 原始檔控制系統。 若要安裝它，請造訪[Git](https://git-scm.com/download)。
 
-## <a name="clone-the-sample-code-from-github"></a>從 GitHub 克隆範例程式碼
+## <a name="clone-the-sample-code-from-github"></a>從 GitHub 複製範例程式碼
 
-在名`windows-container-samples`為的資料夾中，所有容器範例原始程式碼都保留在[虛擬化-檔](https://github.com/MicrosoftDocs/Virtualization-Documentation)git 儲存庫（非正式稱為儲存庫）底下。
+所有容器範例原始程式碼都會保留在名為 `windows-container-samples`之資料夾中的[虛擬化檔](https://github.com/MicrosoftDocs/Virtualization-Documentation)git 存放庫（稱為「儲存機制」）底下。
 
-1. 開啟 PowerShell 會話，然後將目錄變更為您要儲存資料庫的資料夾。 （其他命令提示字元視窗類型也能正常運作，但我們的範例命令會使用 PowerShell。）
-2. 將存放庫克隆到您目前的工作目錄：
+1. 開啟 PowerShell 會話，並將目錄變更為您要儲存此存放庫的資料夾。 （其他的命令提示字元視窗類型也可以運作，但我們的範例命令會使用 PowerShell）。
+2. 將存放庫複製到您目前的工作目錄：
 
    ```PowerShell
    git clone https://github.com/MicrosoftDocs/Virtualization-Documentation.git
    ```
 
-3. 使用下列命令流覽至 [建立`Virtualization-Documentation\windows-container-samples\asp-net-getting-started` Dockerfile] 底下所找到的範例目錄。
+3. 流覽至 `Virtualization-Documentation\windows-container-samples\asp-net-getting-started` 底下找到的範例目錄，並使用下列命令建立 Dockerfile。
 
-   [Dockerfile](https://docs.docker.com/engine/reference/builder/)就像是 makefile 一樣，它是一份指示容器引擎如何建立容器影像的指示。
+   [Dockerfile](https://docs.docker.com/engine/reference/builder/)就像是 makefile，它是告訴容器引擎如何建立容器映射的指示清單。
 
    ```Powershell
    # Navigate into the sample directory
@@ -46,7 +46,7 @@ ms.locfileid: "10288066"
 
 ## <a name="write-the-dockerfile"></a>撰寫 Dockerfile
 
-開啟您剛剛使用您喜歡的任何文字編輯器建立的 Dockerfile，然後新增下列內容：
+使用您喜歡的任何文字編輯器來開啟您剛才建立的 Dockerfile，然後新增下列內容：
 
 ```Dockerfile
 FROM mcr.microsoft.com/dotnet/core/sdk:2.1 AS build-env
@@ -64,33 +64,33 @@ COPY --from=build-env /app/out .
 ENTRYPOINT ["dotnet", "asp-net-getting-started.dll"]
 ```
 
-讓我們逐行劃分並說明每個指示的功能。
+讓我們逐行細分，並說明每個指示的作用。
 
 ```Dockerfile
 FROM mcr.microsoft.com/dotnet/core/sdk:2.1 AS build-env
 WORKDIR /app
 ```
 
-第一組程式碼行會宣告我們將使用哪個基本映像做為建置容器的基礎。 如果本機系統原本沒有這個映像，則 Docker 將自動嘗試擷取該映像。 `mcr.microsoft.com/dotnet/core/sdk:2.1`隨附于已安裝 .net CORE 2.1 SDK 的封裝，所以它是由建立以版本2.1 為目標的 ASP .net 核心專案所產生的工作。 下一個指令會將`/app`容器中的工作目錄變更成，因此在這個內容下的所有命令都要執行。
+第一組程式碼行會宣告我們將使用哪個基本映像做為建置容器的基礎。 如果本機系統原本沒有這個映像，則 Docker 將自動嘗試擷取該映像。 `mcr.microsoft.com/dotnet/core/sdk:2.1` 隨附于已安裝的 .NET core 2.1 SDK 中，因此您可以建立以版本2.1 為目標的 ASP .NET core 專案。 下一個指令會將容器中的工作目錄變更為 `/app`，因此此動作後面的所有命令都會在此內容下執行。
 
 ```Dockerfile
 COPY *.csproj ./
 RUN dotnet restore
 ```
 
-接著，這些指示會將 .csproj 檔案複製到`build-env`容器的`/app`目錄中。 複製此檔案之後，.NET 就會從該檔案中讀取，然後取出並提取專案所需的所有相依性與工具。
+接下來，這些指示會將 .csproj 檔案複製到 `build-env` 容器的 `/app` 目錄中。 複製此檔案之後，.NET 會從該檔案讀取，然後再提取專案所需的所有相依性和工具。
 
 ```Dockerfile
 COPY . ./
 RUN dotnet publish -c Release -o out
 ```
 
-一旦 .NET 將所有相依性移入`build-env`容器，下一個指令就會將所有專案來源檔案複製到容器中。 接著，我們會告知 .NET 以發行設定發佈應用程式，並在中指定輸出路徑。
+.NET 將所有相依性提取到 `build-env` 容器之後，下一個指令會將所有專案來源檔案複製到容器中。 接著，我們會告訴 .NET 以發行設定發行應用程式，並在中指定輸出路徑。
 
-編譯應該會成功。 現在，我們必須建立最終的影像。 
+編譯應會成功。 現在，我們必須建立最終的映射。 
 
 > [!TIP]
-> 此快速入門從來源建立 .NET 核心專案。 建立容器影像時，最好_只_在容器影像中包含生產負載及其相依性。 我們不想在我們的最終影像中包含 .NET core SDK，因為我們只需要 .NET 核心執行時間，所以 dockerfile 是使用與用`build-env`來建立應用程式的 SDK 封裝的臨時容器一起撰寫。
+> 本快速入門會從來源建立 .NET core 專案。 建立容器映射時，最好_只_在容器映射中包含生產裝載和其相依性。 我們不想讓 .NET core SDK 包含在最終的映射中，因為我們只需要 .NET core 執行時間，因此 dockerfile 會撰寫成使用與 SDK 一起封裝的暫存容器，稱為 `build-env` 來建立應用程式。
 
 ```Dockerfile
 FROM mcr.microsoft.com/dotnet/core/aspnet:2.1
@@ -99,53 +99,53 @@ COPY --from=build-env /app/out .
 ENTRYPOINT ["dotnet", "asp-net-getting-started.dll"]
 ```
 
-因為我們的應用程式是 ASP.NET，所以我們會指定包含此執行時間的影像。 然後，我們要將所有檔案從暫存容器的輸出目錄複製到最終容器中。 我們將容器設定為在容器啟動時使用新的應用程式作為進入點來執行
+因為我們的應用程式是 ASP.NET，所以我們會指定包含此執行時間的映射。 然後，我們要將所有檔案從暫存容器的輸出目錄複製到最終容器中。 我們會將容器設定為在容器啟動時，以新的應用程式作為其進入點來執行
 
-我們已撰寫 dockerfile 來執行_多階段組建_。 當 dockerfile 執行時，它將會使用臨時容器`build-env`，搭配 .net CORE 2.1 SDK 來建立範例應用程式，然後將輸出二進位檔案複製到另一個容器，只包含 .net core 2.1 執行時間，因此我們將最終容器的大小最小化。
+我們已撰寫 dockerfile 來執行_多階段組建_。 執行 dockerfile 時，它會使用暫存容器（`build-env`）搭配 .NET core 2.1 SDK 來建立範例應用程式，然後將輸出的二進位檔複製到僅包含 .NET core 2.1 執行時間的另一個容器，以便將最終容器的大小最小化。
 
 ## <a name="build-and-run-the-app"></a>建置和執行應用程式
 
-在撰寫 Dockerfile 的情況下，我們可以將 Docker 指向我們的 Dockerfile，並告訴它建立並執行影像：
+撰寫 Dockerfile 之後，我們可以將 Docker 指向我們的 Dockerfile，並告訴它建立並執行我們的映射：
 
-1. 在命令提示字元視窗中，流覽至 dockerfile 所在的目錄，然後執行[docker 建立](https://docs.docker.com/engine/reference/commandline/build/)命令，以從 dockerfile 建立容器。
+1. 在 [命令提示字元] 視窗中，流覽至 dockerfile 所在的目錄，然後執行[docker build](https://docs.docker.com/engine/reference/commandline/build/)命令以從 dockerfile 建立容器。
 
    ```Powershell
    docker build -t my-asp-app .
    ```
 
-2. 若要執行新建立的容器，請執行[docker [執行](https://docs.docker.com/engine/reference/commandline/run/)] 命令。
+2. 若要執行新建立的容器，請執行[docker run](https://docs.docker.com/engine/reference/commandline/run/)命令。
 
    ```Powershell
    docker run -d -p 5000:80 --name myapp my-asp-app
    ```
 
-   讓我們 dissect 這個命令：
+   讓我們來仔細分析此命令：
 
-   * `-d` 告訴 Docker tun 執行容器「已分離」，這表示容器內的主機上沒有任何主機掛接到主機。 容器在背景中執行。 
-   * `-p 5000:80` 指示 Docker 將主機上的埠5000對應到容器中的埠80。 每個容器都會取得自己的 IP 位址。 ASP .NET 預設會在埠80上偵聽。 埠對應可讓我們移至對應埠中主機的 IP 位址，而 Docker 會將所有流量轉寄到容器內的目的地埠。
-   * `--name myapp` 告訴 Docker 可讓這個容器輕鬆地進行查詢，而不需要在執行時間使用 Docker 指派的 contaienr 識別碼。
-   * `my-asp-app` 是我們想要 Docker 執行的影像。 這是程式的 culmination `docker build`所產生的容器影像。
+   * `-d` 會告訴 Docker 執行執行容器「卸離」，表示沒有主控台連接到容器內的主控台。 容器會在背景中執行。 
+   * `-p 5000:80` 會指示 Docker 將主機上的埠5000對應至容器中的埠80。 每個容器都會取得自己的 IP 位址。 根據預設，ASP .NET 會在埠80上接聽。 埠對應可讓我們移至對應埠上主機的 IP 位址，而 Docker 會將所有流量轉送至容器內的目的地埠。
+   * `--name myapp` 會告訴 Docker 提供此容器一個方便查詢的名稱，而不需要查閱 Docker 在執行時間指派的 contaienr 識別碼。
+   * `my-asp-app` 是我們想要 Docker 執行的映射。 這是 `docker build` 進程的高潮所產生的容器映射。
 
-3. 開啟網頁瀏覽器網頁瀏覽器，然後`http://localhost:5000`流覽至要查看您的容器化應用程式，如下列螢幕擷取畫面所示：
+3. 開啟網頁瀏覽器網頁瀏覽器並流覽至 `http://localhost:5000`，以查看您的容器化應用程式，如下列螢幕擷取畫面所示：
 
-   >![從容器中的 localhost 執行 ASP.NET 核心網頁](media/SampleAppScreenshot.png)
+   >![ASP.NET Core 網頁，從容器中的 localhost 執行](media/SampleAppScreenshot.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-1. 下一步是使用 Azure 容器登錄，將您的容器化 ASP.NET web 應用程式發佈到專用的註冊表。 這可讓您將它部署在您的組織中。
+1. 下一步是使用 Azure Container Registry 將您的容器化 ASP.NET web 應用程式發佈至私人登錄。 這可讓您將它部署在您的組織中。
 
    > [!div class="nextstepaction"]
-   > [建立私人容器註冊表](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-powershell)
+   > [建立私人容器登錄](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-powershell)
 
-   當您到達將[容器影像推入到註冊表](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-powershell#push-image-to-registry)的區段時，請指定您剛剛封裝（`my-asp-app`）的 ASP.NET app 名稱，以及您的容器登錄（例如： `contoso-container-registry`）：
+   當您進入將[容器映射推送至](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-powershell#push-image-to-registry)登錄的區段時，請指定您剛封裝的 ASP.NET 應用程式的名稱（`my-asp-app`）和您的容器登錄（例如： `contoso-container-registry`）：
 
    ```PowerShell
    docker tag my-asp-app contoso-container-registry.azurecr.io/my-asp-app:v1
    ```
 
-   若要查看更多應用程式範例及其相關 dockerfiles，請參閱[其他容器範例](../samples.md)。
+   若要查看更多應用程式範例和其相關聯的 dockerfile，請參閱[其他容器範例](../samples.md)。
 
-2. 將應用程式發佈到容器登錄後，下一步就是將應用程式部署到您使用 Azure Kubernetes 服務建立的 Kubernetes 群集。
+2. 將應用程式發佈至容器登錄之後，下一步就是將應用程式部署到您使用 Azure Kubernetes Service 建立的 Kubernetes 叢集。
 
    > [!div class="nextstepaction"]
-   > [建立 Kubernetes 群集](https://docs.microsoft.com/azure/aks/windows-container-cli)
+   > [建立 Kubernetes 叢集](https://docs.microsoft.com/azure/aks/windows-container-cli)

@@ -8,22 +8,22 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: fb228e06-e284-45c0-b6e6-e7b0217c3a49
-ms.openlocfilehash: ed96c7ba30c83906cd3245a279ab078229400d8d
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: ea6b71200d3115ba3d156b2c133e1be2fa495261
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998725"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74910918"
 ---
 # <a name="virtual-machine-automation-and-management-using-powershell"></a>使用 PowerShell 進行虛擬機器自動化與管理
 
 您可以使用 PowerShell Direct，透過 Hyper-V 主機，在 Windows 10 或 Windows Server 2016 虛擬機器中執行任意 PowerShell (不論網路設定或遠端管理設定為何皆可)。
 
-以下是一些您可以直接執行 PowerShell Direct 的方法:
+以下是您可以執行 PowerShell Direct 的一些方式：
 
-* [使用 Enter-PSSession Cmdlet 做為互動式會話](#create-and-exit-an-interactive-powershell-session)
-* [使用 Invoke 命令 Cmdlet 作為單一使用區段來執行單一命令或腳本](#run-a-script-or-command-with-invoke-command)
-* [使用新的 PSSession、複本專案和移除 PSSession Cmdlet 作為 persistant 會話 (組建14280及更新版本)](#copy-files-with-new-pssession-and-copy-item)
+* [做為使用輸入-PSSession Cmdlet 的互動式會話](#create-and-exit-an-interactive-powershell-session)
+* [做為使用調用命令 Cmdlet 來執行單一命令或腳本的單一使用區段](#run-a-script-or-command-with-invoke-command)
+* [做為永續性會話（組建14280和更新版本），使用新的-PSSession、Copy-Item 和 Remove-PSSession Cmdlet](#copy-files-with-new-pssession-and-copy-item)
 
 ## <a name="requirements"></a>需求
 **作業系統需求：**
@@ -46,7 +46,7 @@ ms.locfileid: "9998725"
 
 當工作階段啟動時，您輸入的命令會在虛擬機器上執行，就如同您直接在虛擬機器本身的 PowerShell 工作階段輸入一樣。
 
-**啟動互動式工作階段：**
+**若要啟動互動式會話：**
 
 1. 在 Hyper-V 主機上，以系統管理員身分開啟 PowerShell。
 
@@ -85,7 +85,7 @@ ms.locfileid: "9998725"
 
 PowerShell Direct 與 Invoke-Command 最適合您需要在虛擬機器上執行一個命令或一個指令碼，但超過該時間點便不需要繼續與虛擬機器互動的情況。
 
-**執行單一命令：**
+**若要執行單一命令：**
 
 1. 在 Hyper-V 主機上，以系統管理員身分開啟 PowerShell。
 
@@ -101,7 +101,7 @@ PowerShell Direct 與 Invoke-Command 最適合您需要在虛擬機器上執行�
    命令會在虛擬機器上執行，如果有送往主控台的輸出，它會列印到您的主控台。  命令執行之後便會自動關閉連線。
    
    
-**執行指令碼：**
+**執行腳本：**
 
 1. 在 Hyper-V 主機上，以系統管理員身分開啟 PowerShell。
 
@@ -128,7 +128,7 @@ PowerShell Direct 與 Invoke-Command 最適合您需要在虛擬機器上執行�
 
 工作階段藉由相同的權杖來保存狀態。  因為持續性工作階段會持續存在，工作階段中建立的任何變數，或是傳遞至工作階段的任何變數，都將會在多個呼叫之間保留。 有數種工具可用來處理持續性工作階段。  在本例中，我們將使用 [New-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Core/New-PSSession?view=powershell-5.1) 和 [Copy-Item](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Management/Copy-Item?view=powershell-5.1) 來將資料從主機移到虛擬機器，以及從虛擬機器移到主機。
 
-**建立工作階段然後複製檔案︰**  
+**若要建立會話，請複製檔案：**  
 
 1. 在 Hyper-V 主機上，以系統管理員身分開啟 PowerShell。
 
@@ -174,7 +174,7 @@ PowerShell Direct 有一小組常見的錯誤訊息。  以下是最常見的訊
 
 ### <a name="-vmname-or--vmid-parameters-dont-exist"></a>-VMName 或 -VMID 參數不存在
 **問題：**  
-`Enter-PSSession`、`Invoke-Command` 或 `New-PSSession` 沒有 `-VMName` 或 `-VMId` 參數。
+`Enter-PSSession`、`Invoke-Command`或 `New-PSSession` 沒有 `-VMName` 或 `-VMId` 參數。
 
 **可能的原因：**  
 最可能的問題是您的主機作業系統不支援 PowerShell Direct。
@@ -219,7 +219,7 @@ New-PSSession : An error has occurred which Windows PowerShell cannot handle. A 
 ```
 
 **可能的原因：**
-* 上面所列的其中一個原因 - 它們都同樣適用於 `New-PSSession`  
+* 以上所列的其中一個原因，它們都同樣適用于 `New-PSSession`  
 * 目前組建中的錯誤，其中必須使用 `-Credential` 來明確傳遞認證。  發生這種情況時，客體作業系統中的整個服務會停止回應，並需要重新啟動。  您可以使用 Enter-PSSession，檢查工作階段是否仍然可用。
 
 若要解決認證問題，請使用 VMConnect 登入虛擬機器、開啟 PowerShell，然後使用下列 PowerShell 來重新啟動 vmicvmsession 服務︰
@@ -235,7 +235,7 @@ Enter-PSSession : Parameter set cannot be resolved using the specified named par
 ```
 
 **可能的原因：**  
-* `-RunAsAdministrator` 連接到虛擬機器時不受支援。
+* 連接到虛擬機器時，不支援 `-RunAsAdministrator`。
      
   連接到 Windows 容器時，`-RunAsAdministrator` 旗標允許系統管理員不需明確的認證即可連線。  由於虛擬機器不會提供主機隱含的系統管理員存取權，所以您必須明確地輸入認證。
 

@@ -1,6 +1,6 @@
 ---
 title: Windows 容器範例
-description: 使用 Windows 容器尋找常用專案與程式碼範例的連結。
+description: 使用 Windows 容器尋找熱門專案和程式碼範例的連結。
 keywords: docker, 容器, windows, 範例
 author: cwilhit
 ms.date: 12/19/2016
@@ -9,11 +9,11 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 5c6f6350-f8d6-4426-b53d-9fb09c2bf267
 ms.openlocfilehash: e68f99c095d3cc1e7bb3a08d48bef7e1f877b837
-ms.sourcegitcommit: 2f8fd4b2e7113fbb7c323d89f3c72df5e1a4437e
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "10044948"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74909548"
 ---
 # <a name="windows-container-samples"></a>Windows 容器範例
 
@@ -27,17 +27,17 @@ ms.locfileid: "10044948"
 
 [iis](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/iis)
 
-[iis arr](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/iis-arr)
+[iis-arr](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/iis-arr)
 
-[iis https](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/iis-https)
+[iis-HTTPs](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/iis-https)
 
-[iis php](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/iis-php)
+[iis-php](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/iis-php)
 
 [Django](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/Django)
 
-[apache-http](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/apache-http)
+[apache-HTTP](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/apache-http)
 
-[apache-http-php](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/apache-http-php)
+[apache-HTTP-php](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/apache-http-php)
 
 [nginx](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/nginx)
 
@@ -55,9 +55,9 @@ ms.locfileid: "10044948"
 
 [rails](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/rails)
 
-[ruby](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/ruby)
+[加注](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/ruby)
 
-[server-jre-8u51-windows-x64](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/server-jre-8u51-windows-x64)
+[伺服器-jre-8u51-windows-x64](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/server-jre-8u51-windows-x64)
 
 ## <a name="databases"></a>資料庫
 
@@ -73,7 +73,7 @@ sqlserver-express - [Docker Hub 映像](https://hub.docker.com/r/microsoft/mssql
 
 ## <a name="infrastructure-and-ci-tools"></a>基礎結構和 CI 工具
 
-[PowerShellDSC_iis-10.0](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/PowerShellDSC_iis-10.0)
+[PowerShellDSC_iis-10。0](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/PowerShellDSC_iis-10.0)
 
 ## <a name="just-for-fun"></a>輕鬆一下
 
@@ -81,4 +81,4 @@ sqlserver-express - [Docker Hub 映像](https://hub.docker.com/r/microsoft/mssql
 
 ## <a name="other"></a>其他
 
-[DirectX](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/master/windows-container-samples/directx)(包括 GPU 加速)
+[DirectX](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/master/windows-container-samples/directx) （包括 GPU 加速）

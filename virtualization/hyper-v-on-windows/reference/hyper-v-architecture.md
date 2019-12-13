@@ -22,7 +22,7 @@ Hyper-V 是以 Hypervisor 為基礎的虛擬化技術，適用於特定 x64 版 
 * **IC** – 整合元件 (Integration component) – 可讓子磁碟分割與其他磁碟分割和 Hypervisor 通訊的元件。
 * **I/O 堆疊 (I/O stack)** – 輸入/輸出堆疊
 * **MSR** – 記憶體服務常式 (Memory Service Routine)
-* **根磁碟分割 (Root Partition)**– 有時稱為父磁碟分割。  管理機器層級的功能，例如裝置驅動程式、電源管理，以及熱新增/移除裝置。 根 (或父) 磁碟分割是唯一可以直接存取實體記憶體和裝置的磁碟分割。
+* **根磁碟分割 (Root Partition)** – 有時稱為父磁碟分割。  管理機器層級的功能，例如裝置驅動程式、電源管理，以及熱新增/移除裝置。 根 (或父) 磁碟分割是唯一可以直接存取實體記憶體和裝置的磁碟分割。
 * **VID** – 虛擬化基礎結構驅動程式 (Virtualization Infrastructure Driver) – 為磁碟分割提供磁碟分割管理服務、虛擬處理器管理服務，以及記憶體管理服務。
 * **VMBus** – 通道型通訊機制，可在具有多個使用中虛擬化磁碟分割的系統上，用來進行磁碟分割間的通訊和裝置列舉。 VMBus 會隨著 Hyper-V 整合服務一起安裝。
 * **VMMS** – 虛擬機器管理服務 (Virtual Machine Management Service) – 負責管理子磁碟分割中所有虛擬機器的狀態。

@@ -7,17 +7,17 @@ ms.date: 02/15/2019
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: 752dc760-a33c-41bb-902c-3bb2ecd9ac86
-ms.openlocfilehash: bad59fcc65bf66ab3c6dc940a17111e46a9bc226
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: e1b6b55b2e17ac4f0883078748d75f6d4b9fcafa
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9999025"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74909458"
 ---
 # <a name="install-hyper-v-on-windows-10"></a>在 Windows 10 上安裝 Hyper-V
 
 在 Windows 10 上啟用 Hyper-V，以建立虛擬機器。  
-您可以透過多種方式啟用 hyper-v, 包括使用 Windows 10 [控制台]、[PowerShell] 或使用部署影像處理服務與管理工具 (DISM)。 本文件會逐步解說每一種選項。
+Hyper-v 可透過許多方式啟用，包括使用 Windows 10 控制台、PowerShell 或使用部署映射服務與管理工具（DISM）。 本文件會逐步解說每一種選項。
 
 > **注意︰** Hyper-V 是 Windows 內建的選用功能，並未提供 Hyper-V 下載。
 
@@ -25,12 +25,12 @@ ms.locfileid: "9999025"
 
 * Windows 10 企業版、專業版或教育版
 * 使用第二層位址轉譯 (SLAT) 的 64 位元處理器。
-* VM 監視器模式延伸的 CPU 支援 (在 Intel Cpu 上為 VT-c)。
+* VM 監視器模式延伸模組的 CPU 支援 (Intel CPU 上的 VT-c)。
 * 至少 4 GB 記憶體。
 
 Hyper-V 角色**無法**安裝於 Windows 10 家用版。
 
-開啟 [**設定** > **更新與安全性** > **啟用**], 從 windows 10 家用版升級至 windows 10 專業版。
+藉由開啟 **設定** > **更新和安全性** > **啟用**，從 Windows 10 Home edition 升級至 windows 10 專業版。
 
 如需詳細資訊及疑難排解資訊，請參閱 [Windows 10 Hyper-V 系統需求](../reference/hyper-v-requirements.md)。
 
@@ -70,15 +70,15 @@ Hyper-V 角色**無法**安裝於 Windows 10 家用版。
 
 1. 以滑鼠右鍵按一下 Windows 鍵，然後選取 \[應用程式與功能\]。
 
-2. 在右側的 [相關設定] 底下選取 [**程式和功能**]。 
+2. 選取右側 [相關設定] 底下的 [**程式和功能**]。 
 
-3. 選取 **\[開啟或關閉 Windows 功能\]**。
+3. 選取 **\[開啟或關閉 Windows 功能\]** 。
 
-4. 選取 **\[Hyper-V\]**，然後按一下 **\[確定\]**。
+4. 選取 **\[Hyper-V\]** ，然後按一下 **\[確定\]** 。
 
 ![Windows 程式和功能對話方塊](media/enable_role_upd.png)
 
-安裝完成後，系統會提示您重新開機電腦。
+安裝完成後，系統會提示您重新啟動電腦。
 
 ## <a name="make-virtual-machines"></a>建立虛擬機器
 

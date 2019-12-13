@@ -1,32 +1,32 @@
 ---
-title: Windows 容器中的列印多工緩衝處理器
+title: 在 Windows 容器中列印多工緩衝處理器
 description: 說明 Windows 容器中的列印多工緩衝處理器服務目前的工作行為
-keywords: docker、容器、印表機、多工緩衝處理程式
+keywords: docker，容器，印表機，多工緩衝處理器
 author: cwilhit
-ms.openlocfilehash: e104a87046545b90d244783aafb62ad9d151e14b
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: 48130bc6a826a45dfa49d0a3b4600d227f34704e
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9999095"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74910528"
 ---
-# <a name="print-spooler-in-windows-containers"></a>Windows 容器中的列印多工緩衝處理器
+# <a name="print-spooler-in-windows-containers"></a>在 Windows 容器中列印多工緩衝處理器
 
-在列印服務上有相依相依性的應用程式, 可以使用 Windows 容器成功建立容器。 必須符合一些特殊需求, 才能成功啟用印表機服務功能。 本指南說明如何正確地設定您的部署。
+與列印服務有相依性的應用程式可以使用 Windows 容器成功地容器化。 為了成功啟用印表機服務功能，有一些特殊需求必須符合。 本指南說明如何正確設定您的部署。
 
 > [!IMPORTANT]
-> 在容器中成功存取列印服務時, 功能在表單中受到限制;某些與列印相關的動作可能無法運作。 例如, 由於不**支援從容器中安裝驅動程式**, 因此無法以容器方式將印表機驅動程式安裝到主機的 app。 如果您發現您想要在容器中支援的列印功能不受支援, 請開啟下方的意見反應。
+> 在容器中順利存取列印服務時，功能的形式有限;某些列印相關的動作可能無法正常執行。 例如，相依于將印表機驅動程式安裝到主機的應用程式無法容器化，因為**不支援從容器內進行驅動程式安裝**。 如果您發現您想要在容器中支援的列印功能不受支援，請在下方開啟意見反應。
 
 ## <a name="setup"></a>設定
 
-* 主機應該是 Windows Server 2019 或 Windows 10 專業版/企業版2018更新或更新版本。
-* [Mcr.microsoft.com/windows](https://hub.docker.com/_/microsoft-windowsfamily-windows)影像應該是目標的基底影像。 其他 Windows 容器基底影像 (例如 Nano Server 和 Windows Server Core) 不會攜帶列印伺服器角色。
+* 主機應該是 Windows Server 2019 或 Windows 10 Pro/企業版2018更新或更新版本。
+* [Mcr.microsoft.com/windows](https://hub.docker.com/_/microsoft-windowsfamily-windows)映射應該是目標基底映射。 其他 Windows 容器基底映射（如 Nano Server 和 Windows Server Core）則不會包含列印伺服器角色。
 
 ### <a name="hyper-v-isolation"></a>Hyper-V 隔離
 
-我們建議您使用 Hyper-v 隔離來執行容器。 在此模式下執行時, 您可以有多個您想要執行列印服務存取的容器。 您不需要修改主機上的多工緩衝處理程式服務。
+建議您使用 Hyper-v 隔離來執行您的容器。 在此模式中執行時，您可以擁有多個您想要以存取列印服務的容器。 您不需要修改主機上的多工緩衝處理器服務。
 
-您可以使用下列 PowerShell 查詢驗證功能:
+您可以使用下列 PowerShell 查詢來驗證功能：
 
 ```PowerShell
 PS C:\Users\Administrator> docker run -it --isolation hyperv mcr.microsoft.com/windows:1809 powershell.exe
@@ -52,14 +52,14 @@ Fax                                            Local        Microsoft Shared Fax
 PS C:\>
 ```
 
-### <a name="process-isolation"></a>進程隔離
+### <a name="process-isolation"></a>處理序隔離
 
-由於進程隔離容器的共用內核本質, 目前的行為限制使用者只能在整個主機及其所有容器子網站上執行印表機多工緩衝處理程式服務的**一個實例**。 如果主機上的印表機列印多工緩衝處理器正在執行, 您必須先停止主機上的服務, 然後 attemping 才能在來賓中啟動印表機服務。
+由於進程隔離容器的共用核心本質，因此目前的行為會限制使用者只能在主機及其所有容器子系上執行**一個印表機多**任務緩衝處理器服務實例。 如果主機上有執行中的印表機多工緩衝處理器，則您必須先停止主機上的服務，然後再嘗試啟動來賓中的印表機服務。
 
 > [!TIP]
-> 如果您同時在容器與主機中同時啟動某個多工緩衝處理程式服務的容器和查詢, 這兩者都會將其狀態報表為「正在執行」。 但不要 deceived--容器將無法查詢可用印表機的清單。 主機的多工緩衝處理程式服務不能執行。 
+> 如果您同時啟動容器，並同時查詢容器和主機中的多工緩衝處理器服務，這兩個都會將其狀態報表為「執行中」。 但不是 deceived--容器將無法查詢可用的印表機清單。 主機的多工緩衝處理器服務不得執行。 
 
-若要檢查主機是否正在執行印表機服務, 請使用下列在 PowerShell 中的查詢:
+若要檢查主機是否正在執行印表機服務，請使用下列 PowerShell 中的查詢：
 
 ```PowerShell
 PS C:\Users\Administrator> Get-Service spooler
@@ -71,14 +71,14 @@ Running  spooler            Print Spooler
 PS C:\Users\Administrator>
 ```
 
-若要在主機上停止列印多工緩衝處理器服務, 請在下面的 PowerShell 中使用下列命令:
+若要停止主機上的多工緩衝處理器服務，請在下列 PowerShell 中使用下列命令：
 
 ```PowerShell
 Stop-Service spooler
 Set-Service spooler -StartupType Disabled
 ```
 
-啟動容器並驗證對印表機的存取權。
+啟動容器並確認對印表機的存取。
 
 ```PowerShell
 PS C:\Users\Administrator> docker run -it --isolation process mcr.microsoft.com/windows:1809 powershell.exe

@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: d9238389-7028-4015-8140-27253b156f37
-ms.openlocfilehash: 1348b9923d9de1314818f13414abdacee2cb9735
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: c7a6462b331f469148eb4cf5a0a2740c9929fa29
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998605"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74911058"
 ---
 # <a name="create-a-custom-virtual-machine-gallery"></a>建立自訂虛擬機器資源庫
 
@@ -43,7 +43,7 @@ ms.locfileid: "9998605"
 
 值名稱： `GalleryLocations`
 
-類型： `REG_MULTI_SZ`
+類型：`REG_MULTI_SZ`
 
 ## <a name="create-gallery-compatible-virtual-machines"></a>建立資源庫相容的虛擬機器
 
@@ -60,13 +60,13 @@ ms.locfileid: "9998605"
 
 若要驗證虛擬機器映像是否能啟動並執行：
 
-1. 開啟 VM 資源庫 (Hyper-V 快速建立) 並選取 **\[本機安裝來源\]**。
-  ![使用本機安裝來源的按鈕](media/use-local-source.png)
-1. 選取 **\[變更安裝來源\]**。
-  ![使用本機安裝來源的按鈕](media/change-source.png)
+1. 開啟 VM 資源庫 (Hyper-V 快速建立) 並選取 **\[本機安裝來源\]** 。
+  ![ 按鈕，以使用本機安裝來源](media/use-local-source.png)
+1. 選取 **\[變更安裝來源\]** 。
+  ![ 按鈕，以使用本機安裝來源](media/change-source.png)
 1. 選擇要在資源庫中使用的 .iso 或 .vhdx。
 1. 如果映像是 Linux 映像，請取消選取 \[安全開機\] 選項。
-  ![使用本機安裝來源的按鈕](media/toggle-secure-boot.png)
+  ![ 按鈕，以使用本機安裝來源](media/toggle-secure-boot.png)
 1. 建立虛擬機器。  如果虛擬機器可以正確開機，就已為資源庫做好準備。
 
 ## <a name="build-a-new-gallery-source"></a>建置新的資源庫來源
@@ -99,11 +99,11 @@ ms.locfileid: "9998605"
 
 * **logo** - 必要
 * symbol
-* thumbnail
+* 縮圖
 
 以及，當然，您的虛擬機器 (.iso 或.vhdx)。
 
-若要產生雜湊, 您可以使用下列 powershell 命令:
+若要產生雜湊，您可以使用下列 powershell 命令：
 
   ``` PowerShell
   Get-FileHash -Path .\TMLogo.jpg -Algorithm SHA256
@@ -121,7 +121,7 @@ ms.locfileid: "9998605"
 1. 瀏覽至 `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\`
 1. 尋找 `GalleryLocations` 項目。
 
-    如果項目已存在，請移至 **\[編輯\]** 功能表和 **\[修改\]**。
+    如果項目已存在，請移至 **\[編輯\]** 功能表和 **\[修改\]** 。
 
     如果項目不存在，請移至 **\[編輯\]** 功能表中，從 **\[新增\]** 瀏覽到 **\[多字串值\]**
 
@@ -136,7 +136,7 @@ ms.locfileid: "9998605"
 虛擬機器資源庫會在 Windows 事件檢視器中提供錯誤報告。  若要檢查是否有錯誤：
 
 1. 開啟事件檢視器
-1. 瀏覽至 **\[Windows 記錄\]** -> **\[應用程式\]**
+1. 瀏覽至 **\[Windows 記錄\]**  ->  **\[應用程式\]**
 1. 從來源 VMCreate 尋找事件。
 
 ## <a name="resources"></a>資源
