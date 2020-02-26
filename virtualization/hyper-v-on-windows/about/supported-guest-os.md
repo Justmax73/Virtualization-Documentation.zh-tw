@@ -7,12 +7,12 @@ ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: ae4a18ed-996b-4104-90c5-539c90798e4c
-ms.openlocfilehash: e3255d236a3fbb5ac4d908143750b84e3db82ceb
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 25c72b910af15fc0b498a5b2abce72d32e6d1efd
+ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74911678"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77439595"
 ---
 # <a name="supported-windows-guests"></a>支援的 Windows 客體
 
@@ -32,7 +32,7 @@ Microsoft 以下列方式提供支援：
 
 ## <a name="supported-guest-operating-systems"></a>支援的客體作業系統
 
-| 客體作業系統 |  虛擬處理器數量的上限 | 附註 |
+| 客體作業系統 |  虛擬處理器數量的上限 | 注意事項 |
 |:-----|:-----|:-----|
 | Windows 10 | 32 |加強的工作階段模式無法在 Windows 10 家用版上運作 |
 | Windows 8.1 | 32 | |

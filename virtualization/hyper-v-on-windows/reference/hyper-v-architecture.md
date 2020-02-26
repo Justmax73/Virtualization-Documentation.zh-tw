@@ -14,7 +14,7 @@ Hyper-V 是以 Hypervisor 為基礎的虛擬化技術，適用於特定 x64 版 
 
 ![](./media/hv_architecture.png)
 
-## <a name="glossary"></a>詞彙
+## <a name="glossary"></a>字彙
 * **APIC** – 進階可程式化插斷控制器 (Advanced Programmable Interrupt Controller) – 此裝置可允許為其插斷輸出指派優先順序層級。
 * **子磁碟分割 (Child Partition)** – 裝載客體作業系統的磁碟分割 - 子磁碟分割對實體記憶體和裝置的所有存取權，都是透過虛擬機器匯流排 (VMBus) 或 Hypervisor 來提供。
 * **Hypercall** – 用來與 Hypervisor 通訊的介面 - Hypercall 介面可供存取 Hypervisor 所提供的最佳化。

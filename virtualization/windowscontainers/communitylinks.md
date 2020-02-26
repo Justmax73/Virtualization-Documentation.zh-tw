@@ -8,18 +8,18 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: cfbb2542-fead-48e7-8318-4da92a7b5b6f
-ms.openlocfilehash: 55b428894b22ded48ce9db8f24928924964ce96d
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 338dd0570f1a2e73295b2bacf2c4282b3fdd7956
+ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910078"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77439295"
 ---
 # <a name="community-videos-and-blogs"></a>社群影片與部落格
 
 此頁面包含由部落格成員或容器社群所建立之影片與部落格的連結。  您可以將您發現到的絕佳資源，或您自己所建立的資源提交到 PR 加入此清單之中。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 [在 windows 10 上執行 Linux 和 windows 容器](https://stefanscherer.github.io/run-linux-and-windows-containers-on-windows-10/)-Stefan Scherer
 

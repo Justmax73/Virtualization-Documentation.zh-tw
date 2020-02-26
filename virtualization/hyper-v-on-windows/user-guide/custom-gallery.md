@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: d9238389-7028-4015-8140-27253b156f37
-ms.openlocfilehash: c7a6462b331f469148eb4cf5a0a2740c9929fa29
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 1348b9923d9de1314818f13414abdacee2cb9735
+ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74911058"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77439708"
 ---
 # <a name="create-a-custom-virtual-machine-gallery"></a>建立自訂虛擬機器資源庫
 
@@ -43,7 +43,7 @@ ms.locfileid: "74911058"
 
 值名稱： `GalleryLocations`
 
-類型：`REG_MULTI_SZ`
+類型： `REG_MULTI_SZ`
 
 ## <a name="create-gallery-compatible-virtual-machines"></a>建立資源庫相容的虛擬機器
 
@@ -99,7 +99,7 @@ ms.locfileid: "74911058"
 
 * **logo** - 必要
 * symbol
-* 縮圖
+* thumbnail
 
 以及，當然，您的虛擬機器 (.iso 或.vhdx)。
 
@@ -118,7 +118,7 @@ ms.locfileid: "74911058"
 新增自訂資源庫來源至 VM 資源庫的最簡單方法，就是在 regedit 中將其加入。
 
 1. 開啟 **regedit.exe**
-1. 瀏覽至 `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\`
+1. 流覽至 `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\`
 1. 尋找 `GalleryLocations` 項目。
 
     如果項目已存在，請移至 **\[編輯\]** 功能表和 **\[修改\]** 。

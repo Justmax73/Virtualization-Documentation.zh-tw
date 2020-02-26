@@ -1,6 +1,6 @@
 ---
-title: Windows 10 Hyper-V 系統需求
-description: Windows 10 Hyper-V 系統需求
+title: Windows 10 Hyoer-V 系統需求
+description: Windows 10 Hyoer-V 系統需求
 keywords: windows 10, hyper-v
 author: scooley
 ms.date: 05/02/2016
@@ -8,14 +8,14 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 6e5e6b01-7a9d-4123-8cc7-f986e10cd372
-ms.openlocfilehash: d4e3f7c1e94d0162ae9ee6251d9c6d8cc51bf1d3
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: d3375cd912097f85f0a350b8f329c008323cab37
+ms.sourcegitcommit: cea415924b7b6a690d0ba9ff31beed30e9c187d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74911218"
+ms.lasthandoff: 01/25/2020
+ms.locfileid: "76750189"
 ---
-# <a name="windows-10-hyper-v-system-requirements"></a>Windows 10 Hyper-V 系統需求
+# <a name="windows-10-hyper-v-system-requirements"></a>Windows 10 Hyoer-V 系統需求
 
 Hyper-v 可在64位版本的 Windows 10 專業版、企業版和教育版中使用。 Hyper-V 需要第二層位址轉譯 (SLAT) -- Intel 和 AMD 當前推出的 64 位元處理器所具備的一項功能。
 
@@ -42,7 +42,7 @@ Hyper-V 角色**無法**安裝在：
 這份文件未提供與 Hyper-V 相容硬體的完整清單，但下列為必要項目：
 
 - 使用第二層位址轉譯 (SLAT) 的 64 位元處理器。
-- CPU 對 VM 監視模式延伸模組的支援 (Intel CPU 上的 VT-c)。
+- VM 監視器模式擴充功能的 CPU 支援（Intel CPU 上的 VT-x）。
 - 至少 4 GB 記憶體。 因為虛擬機器與 Hyper-V 主機共用記憶體，所以您必須提供足夠的記憶體來處理預期的虛擬工作負載。
 
 在系統 BIOS 中必須啟用下列項目：
@@ -51,7 +51,7 @@ Hyper-V 角色**無法**安裝在：
 
 ## <a name="verify-hardware-compatibility"></a>確認硬體相容性
 
-若要確認相容性，請開啟 PowerShell 或命令提示字元 (cmd.exe)，然後輸入 **systeminfo**。 如果所有列出的 Hyper-V 需求值皆為 **\[是\]** ，您的系統即可執行 Hyper-V 角色。 如有任何項目傳回 **\[否\]** ，請檢閱這份文件中列出的需求，並盡可能調整。
+若要確認相容性，請開啟 PowerShell 或命令提示字元 (cmd.exe)，然後輸入 **systeminfo**。 如果所有列出的 Hyper-V 需求的值皆為[Yes]，則您的系統可執行 Hyper-V 角色。 如有任何項目傳回 **[否]** ，請檢閱這份文件中列出的需求，並盡可能調整。
 
 ![](media/SystemInfo-upd.png)
 

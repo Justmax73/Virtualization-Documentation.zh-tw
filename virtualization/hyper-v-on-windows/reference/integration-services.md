@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 18930864-476a-40db-aa21-b03dfb4fda98
-ms.openlocfilehash: 762b82f3714651ffb488f682581680c9526404a8
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 6568b68a77fc5506b58249caea44ec78e3e44de2
+ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74911148"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77439565"
 ---
 # <a name="hyper-v-integration-services"></a>Hyper-V 整合服務
 
@@ -27,13 +27,13 @@ ms.locfileid: "74911148"
 
 ## <a name="quick-reference"></a>快速參考
 
-| 名稱 | Windows 服務名稱 | Linux 精靈名稱 |  說明 | 停用時對 VM 的影響 |
+| 名稱 | Windows 服務名稱 | Linux 精靈名稱 |  描述 | 停用時對 VM 的影響 |
 |:---------|:---------|:---------|:---------|:---------|
-| [Hyper-V 活動訊號服務](#hyper-v-heartbeat-service) |  vmicheartbeat | hv_utils | 回報虛擬機器目前正確執行。 | 不定 |
-| [Hyper-V 客體關機服務](#hyper-v-guest-shutdown-service) | vmicshutdown | hv_utils |  可讓主機觸發虛擬機器關機。 | **高** |
-| [Hyper-V 時間同步化服務](#hyper-v-time-synchronization-service) | vmictimesync | hv_utils | 同步虛擬機器的時鐘與主機電腦的時鐘。 | **高** |
-| [Hyper-v 資料交換服務（KVP）](#hyper-v-data-exchange-service-kvp) | vmickvpexchange | hv_kvp_daemon | 提供在虛擬機器和主機之間交換基本中繼資料的方式。 | 中等 |
-| [Hyper-V 磁碟區陰影複製要求者](#hyper-v-volume-shadow-copy-requestor) | vmicvss | hv_vss_daemon | 可讓磁碟區陰影複製服務不需關閉虛擬機器，就對其進行備份。 | 不定 |
+| [Hyper-V 活動訊號服務](#hyper-v-heartbeat-service) |  vmicheartbeat | hv_utils | 回報虛擬機器目前正確執行。 | 非固定 |
+| [Hyper-V 客體關機服務](#hyper-v-guest-shutdown-service) | vmicshutdown | hv_utils |  可讓主機觸發虛擬機器關機。 | **更** |
+| [Hyper-V 時間同步化服務](#hyper-v-time-synchronization-service) | vmictimesync | hv_utils | 同步虛擬機器的時鐘與主機電腦的時鐘。 | **更** |
+| [Hyper-v 資料交換服務（KVP）](#hyper-v-data-exchange-service-kvp) | vmickvpexchange | hv_kvp_daemon | 提供在虛擬機器和主機之間交換基本中繼資料的方式。 | 中 |
+| [Hyper-V 磁碟區陰影複製要求者](#hyper-v-volume-shadow-copy-requestor) | vmicvss | hv_vss_daemon | 可讓磁碟區陰影複製服務不需關閉虛擬機器，就對其進行備份。 | 非固定 |
 | [Hyper-V 客體服務介面](#hyper-v-powershell-direct-service) | vmicguestinterface | hv_fcopy_daemon | 提供介面以供 Hyper-V 主機在虛擬機器之間複製檔案。 | 低 |
 | [Hyper-v PowerShell Direct 服務](#hyper-v-powershell-direct-service) | vmicvmsession | 無法使用 | 提供一種方法，以使用 PowerShell 管理虛擬機器而不需網路連線。 | 低 |  
 
@@ -74,7 +74,7 @@ DemoVM  Running  Operating normally
 **Linux 精靈名稱：** hv_utils  
 **描述︰** 可讓 Hyper-V 主機要求虛擬機器關機。  主機一律可以強制關閉虛擬機器，但這就像直接按電源開關來關機一樣。  
 **已新增至：** Windows Server 2012、Windows 8  
-**影響︰** **強烈影響：** 停用時，主機即無法觸發虛擬機器內的溫和關機程序。  所有關機都是困難的電源，這可能會造成資料遺失或資料損毀。  
+**影響：** 在停用時的**高影響力**，主機無法在虛擬機器內觸發易記的關機。  所有關機都是困難的電源，這可能會造成資料遺失或資料損毀。  
 
 
 ## <a name="hyper-v-time-synchronization-service"></a>Hyper-V 時間同步化服務
@@ -83,7 +83,7 @@ DemoVM  Running  Operating normally
 **Linux 精靈名稱：** hv_utils  
 **描述︰** 同步實體電腦的系統時鐘與虛擬機器的系統時鐘。  
 **已新增至：** Windows Server 2012、Windows 8  
-**影響︰** **強烈影響：** 停用時，虛擬機器的時鐘會不規律地漂移。  
+**影響：** 在停用時的**高影響力**，虛擬機器的時鐘將會漂移。  
 
 
 ## <a name="hyper-v-data-exchange-service-kvp"></a>Hyper-V 資料交換服務 (KVP)

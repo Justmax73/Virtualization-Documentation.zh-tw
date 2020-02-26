@@ -3,12 +3,12 @@ title: 在 Windows 容器中列印多工緩衝處理器
 description: 說明 Windows 容器中的列印多工緩衝處理器服務目前的工作行為
 keywords: docker，容器，印表機，多工緩衝處理器
 author: cwilhit
-ms.openlocfilehash: 48130bc6a826a45dfa49d0a3b4600d227f34704e
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: e104a87046545b90d244783aafb62ad9d151e14b
+ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910528"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77439535"
 ---
 # <a name="print-spooler-in-windows-containers"></a>在 Windows 容器中列印多工緩衝處理器
 
@@ -17,7 +17,7 @@ ms.locfileid: "74910528"
 > [!IMPORTANT]
 > 在容器中順利存取列印服務時，功能的形式有限;某些列印相關的動作可能無法正常執行。 例如，相依于將印表機驅動程式安裝到主機的應用程式無法容器化，因為**不支援從容器內進行驅動程式安裝**。 如果您發現您想要在容器中支援的列印功能不受支援，請在下方開啟意見反應。
 
-## <a name="setup"></a>設定
+## <a name="setup"></a>安裝程式
 
 * 主機應該是 Windows Server 2019 或 Windows 10 Pro/企業版2018更新或更新版本。
 * [Mcr.microsoft.com/windows](https://hub.docker.com/_/microsoft-windowsfamily-windows)映射應該是目標基底映射。 其他 Windows 容器基底映射（如 Nano Server 和 Windows Server Core）則不會包含列印伺服器角色。
@@ -52,7 +52,7 @@ Fax                                            Local        Microsoft Shared Fax
 PS C:\>
 ```
 
-### <a name="process-isolation"></a>處理序隔離
+### <a name="process-isolation"></a>進程隔離
 
 由於進程隔離容器的共用核心本質，因此目前的行為會限制使用者只能在主機及其所有容器子系上執行**一個印表機多**任務緩衝處理器服務實例。 如果主機上有執行中的印表機多工緩衝處理器，則您必須先停止主機上的服務，然後再嘗試啟動來賓中的印表機服務。
 

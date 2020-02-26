@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 88e6e080-cf8f-41d8-a301-035959dc5ce0
-ms.openlocfilehash: 2a69fbace51589cce08476bd68fdb5c34a7907e6
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 9884cc0ae2d2f398d2dc2fb1997a70493a6de6c0
+ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74909778"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76764183"
 ---
 # <a name="container-base-images"></a>容器基底映射
 
@@ -144,4 +144,4 @@ Microsoft 會提供每個容器基底映射的「insider」版本。 這些 insi
 
 `Windows Server Core` 和 `Nanoserver` 是要作為目標的最常見基底映射。 這些映射的主要差異在於，Nanoserver 有一個明顯較小的 API 介面。 PowerShell、WMI 和 Windows 服務堆疊不存在於 Nanoserver 映射中。
 
-Nanoserver 的建立是為了提供足夠的 API 介面，以執行相依于 .NET core 或其他現代化開放原始碼架構的應用程式。 對於較小的 APi 介面，Nanoserver 映射的磁片使用量明顯小於其餘的 Windows 基底映射。 請記住，您隨時都可以視需要在 Nano Server 之上新增層級。 如需範例，請參閱 [.NET Core Nano Server Dockerfile](https://github.com/dotnet/dotnet-docker/blob/master/2.1/sdk/nanoserver-1803/amd64/Dockerfile)。
+Nanoserver 的建立是為了提供足夠的 API 介面，以執行相依于 .NET core 或其他現代化開放原始碼架構的應用程式。 對於較小的 APi 介面，Nanoserver 映射的磁片使用量明顯小於其餘的 Windows 基底映射。 請記住，您隨時都可以視需要在 Nano Server 之上新增層級。 如需範例，請參閱 [.NET Core Nano Server Dockerfile](https://github.com/dotnet/dotnet-docker/blob/master/2.1/sdk/nanoserver-1909/amd64/Dockerfile)。

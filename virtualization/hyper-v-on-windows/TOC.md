@@ -18,7 +18,7 @@
 ## [移植 Hyper-V WMI](user-guide/refactor-wmiv1-to-wmiv2.md)
 ## [Azure 虛擬網路中的巢狀 VM](user-guide/nested-virtualization-azure-virtual-network.md) 
 
-# 參考
+# 參考資料
 ## [Hyper-V 需求](reference/hyper-v-requirements.md)
 ## [支援的客體作業系統](about/supported-guest-os.md)
 ## [Hyper-V PowerShell](https://docs.microsoft.com/powershell/module/hyper-v/index?view=win10-ps)

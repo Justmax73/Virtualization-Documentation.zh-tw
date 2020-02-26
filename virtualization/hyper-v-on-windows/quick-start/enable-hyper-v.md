@@ -7,12 +7,12 @@ ms.date: 02/15/2019
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: 752dc760-a33c-41bb-902c-3bb2ecd9ac86
-ms.openlocfilehash: e1b6b55b2e17ac4f0883078748d75f6d4b9fcafa
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: bad59fcc65bf66ab3c6dc940a17111e46a9bc226
+ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74909458"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77439695"
 ---
 # <a name="install-hyper-v-on-windows-10"></a>在 Windows 10 上安裝 Hyper-V
 
@@ -25,7 +25,7 @@ Hyper-v 可透過許多方式啟用，包括使用 Windows 10 控制台、PowerS
 
 * Windows 10 企業版、專業版或教育版
 * 使用第二層位址轉譯 (SLAT) 的 64 位元處理器。
-* VM 監視器模式延伸模組的 CPU 支援 (Intel CPU 上的 VT-c)。
+* VM 監視器模式擴充功能的 CPU 支援（Intel Cpu 上的 VT-c）。
 * 至少 4 GB 記憶體。
 
 Hyper-V 角色**無法**安裝於 Windows 10 家用版。
@@ -52,7 +52,7 @@ Hyper-V 角色**無法**安裝於 Windows 10 家用版。
 
 部署映像服務與管理工具 (DISM) 可協助您設定 Windows 和 Windows 映像。  DISM 有許多方面的應用，其中一項即是可於作業系統正在執行時啟用 Windows 功能。
 
-使用 DISM 啟用 Hyper-V 角色：
+使用 DISM 啟動 Hyper-V 角色：
 
 1. 以系統管理員身分開啟 PowerShell 或 CMD 工作階段。
 
@@ -72,13 +72,13 @@ Hyper-V 角色**無法**安裝於 Windows 10 家用版。
 
 2. 選取右側 [相關設定] 底下的 [**程式和功能**]。 
 
-3. 選取 **\[開啟或關閉 Windows 功能\]** 。
+3. 選取 **[開啟或關閉 Windows 功能]** 。
 
-4. 選取 **\[Hyper-V\]** ，然後按一下 **\[確定\]** 。
+4. 選取 **[Hyper-V]** ，然後按一下 **[確定]** 。
 
 ![Windows 程式和功能對話方塊](media/enable_role_upd.png)
 
-安裝完成後，系統會提示您重新啟動電腦。
+安裝完成時，系統會提示您重新啟動您的電腦。
 
 ## <a name="make-virtual-machines"></a>建立虛擬機器
 

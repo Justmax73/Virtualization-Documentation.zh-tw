@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: fb228e06-e284-45c0-b6e6-e7b0217c3a49
-ms.openlocfilehash: ea6b71200d3115ba3d156b2c133e1be2fa495261
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: ed96c7ba30c83906cd3245a279ab078229400d8d
+ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910918"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77439545"
 ---
 # <a name="virtual-machine-automation-and-management-using-powershell"></a>使用 PowerShell 進行虛擬機器自動化與管理
 
@@ -173,7 +173,7 @@ PowerShell Direct 與 Invoke-Command 最適合您需要在虛擬機器上執行�
 PowerShell Direct 有一小組常見的錯誤訊息。  以下是最常見的訊息、部分原因，以及用來診斷問題的工具。
 
 ### <a name="-vmname-or--vmid-parameters-dont-exist"></a>-VMName 或 -VMID 參數不存在
-**問題：**  
+**問題**  
 `Enter-PSSession`、`Invoke-Command`或 `New-PSSession` 沒有 `-VMName` 或 `-VMId` 參數。
 
 **可能的原因：**  

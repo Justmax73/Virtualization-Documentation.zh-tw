@@ -8,12 +8,12 @@ ms.prod: containers
 description: 使用 v 1.14 將 Windows 節點加入至 Kubernetes 叢集。
 keywords: kubernetes，1.14，windows，使用者入門
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: c380f5dc10430a94959718a5ce92f311603db733
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 18734f102042ec951255061dcd82229e18d29a15
+ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910358"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77439525"
 ---
 # <a name="kubernetes-on-windows"></a>Windows 上的 Kubernetes
 
@@ -38,10 +38,10 @@ ms.locfileid: "74910358"
 
 <a name="definitions"></a>當 Kubernetes 叢集引進 pod 和服務的新子網時，請務必確保它們都不會與您環境中的任何其他現有網路衝突。 以下是必須釋放才能成功部署 Kubernetes 的所有位址空間：
 
-| 子網/位址範圍 | 說明 | 預設值 |
+| 子網/位址範圍 | 描述 | 預設值 |
 | --------- | ------------- | ------------- |
 | <a name="service-subnet-def"></a>**服務子網** | 一個不可路由傳送的單純虛擬子網，可供 pod 用來 uniformally 存取服務，而不需管也網路拓朴。 節點上執行的 `kube-proxy` 可在服務子網路與可路由的位址空間之間來回轉譯。 | "10.96.0.0/12" |
-| <a name="cluster-subnet-def"></a>**叢集子網** |  這是叢集中所有 pod 使用的全域子網。 每個節點都會被指派一個較小/24 個子網，以供其 pod 使用。 它必須夠大，才能容納叢集中使用的所有 pod。 若要計算「最小」的子網路大小：`(number of nodes) + (number of nodes * maximum pods per node that you configure)` <p/>適用于每個節點 100 pod 的5個節點叢集範例： `(5) + (5 *  100) = 505`。  | "10.244.0.0/16" |
+| <a name="cluster-subnet-def"></a>**叢集子網** |  這是叢集中所有 pod 使用的全域子網。 每個節點都會被指派一個較小/24 個子網，以供其 pod 使用。 它必須夠大，才能容納叢集中使用的所有 pod。 若要計算*最小*子網大小： `(number of nodes) + (number of nodes * maximum pods per node that you configure)` <p/>適用于每個節點 100 pod 的5個節點叢集範例： `(5) + (5 *  100) = 505`。  | "10.244.0.0/16" |
 | **Kubernetes DNS 服務 IP** | 將用於 DNS 解析 & 叢集服務探索的 IP 位址 "kube"。 | "10.96.0.10" |
 
 > [!NOTE]
@@ -63,4 +63,4 @@ ms.locfileid: "74910358"
 在本節中，我們討論了在今天成功部署 Kubernetes 到 Windows 所需的重要必要條件 & 假設。 繼續瞭解如何設定 Kubernetes 主機：
 
 >[!div class="nextstepaction"]
->[建立 Kubernetes 主機](./creating-a-linux-master.md)
+>[建立 Kubernetes 主檔](./creating-a-linux-master.md)
