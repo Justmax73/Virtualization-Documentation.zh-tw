@@ -3,12 +3,12 @@ title: Windows 容器版本相容性
 description: Windows 要如何跨多個版本執行組建及執行容器
 keywords: 中繼資料, 容器, 版本
 author: taylorb-microsoft
-ms.openlocfilehash: 1f068cd011b2172e75c240d566473ccab25d984a
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 32d40997ffef47e4eae2d06303f45522623a5e54
+ms.sourcegitcommit: 530712469552a1ef458883001ee748bab2c65ef7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910478"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77628943"
 ---
 # <a name="windows-container-version-compatibility"></a>Windows 容器版本相容性
 
@@ -19,7 +19,7 @@ Windows Server 2016 和 Windows 10 年度更新版（版本14393）是第一個�
 ## <a name="windows-server-host-os-compatibility"></a>Windows Server 主機作業系統相容性
 
 <!-- start tab view -->
-# <a name="windows-server-version-1909tabwindows-server-1909"></a>[Windows Server，版本1909](#tab/windows-server-1909)
+# <a name="windows-server-version-1909"></a>[Windows Server，版本1909](#tab/windows-server-1909)
 
 |容器基底映射作業系統版本|支援 Hyper-v 隔離|支援進程隔離|
 |---|:---:|:---:|
@@ -28,7 +28,7 @@ Windows Server 2016 和 Windows 10 年度更新版（版本14393）是第一個�
 |Windows Server 2019|&#10004;|&#10060;|
 |Windows Server 2016|&#10004;|&#10060;|
 
-# <a name="windows-server-version-1903tabwindows-server-1903"></a>[Windows Server，版本1903](#tab/windows-server-1903)
+# <a name="windows-server-version-1903"></a>[Windows Server，版本1903](#tab/windows-server-1903)
 
 |容器基底映射作業系統版本|支援 Hyper-v 隔離|支援進程隔離|
 |---|:---:|:---:|
@@ -37,7 +37,7 @@ Windows Server 2016 和 Windows 10 年度更新版（版本14393）是第一個�
 |Windows Server 2019|&#10004;|&#10060;|
 |Windows Server 2016|&#10004;|&#10060;|
 
-# <a name="windows-server-2019tabwindows-server-2019"></a>[Windows Server 2019](#tab/windows-server-2019)
+# <a name="windows-server-2019"></a>[Windows Server 2019](#tab/windows-server-2019)
 
 |容器基底映射作業系統版本|支援 Hyper-v 隔離|支援進程隔離|
 |---|:---:|:---:|
@@ -46,7 +46,7 @@ Windows Server 2016 和 Windows 10 年度更新版（版本14393）是第一個�
 |Windows Server 2019|&#10004;|&#10004;|
 |Windows Server 2016|&#10004;|&#10060;|
 
-# <a name="windows-server-2016tabwindows-server-2016"></a>[Windows Server 2016](#tab/windows-server-2016)
+# <a name="windows-server-2016"></a>[Windows Server 2016](#tab/windows-server-2016)
 
 |容器基底映射作業系統版本|支援 Hyper-v 隔離|支援進程隔離|
 |---|:---:|:---:|
@@ -62,7 +62,7 @@ Windows Server 2016 和 Windows 10 年度更新版（版本14393）是第一個�
 
 <!-- start tab view -->
 
-# <a name="windows-10-version-1909tabwindows-10-1909"></a>[Windows 10 版本1909](#tab/windows-10-1909)
+# <a name="windows-10-version-1909"></a>[Windows 10 版本1909](#tab/windows-10-1909)
 
 |容器基底映射作業系統版本|支援 Hyper-v 隔離|支援進程隔離|
 |---|:---:|:---:|
@@ -71,7 +71,7 @@ Windows Server 2016 和 Windows 10 年度更新版（版本14393）是第一個�
 |Windows Server 2019|&#10004;|&#10060;|
 |Windows Server 2016|&#10004;|&#10060;|
 
-# <a name="windows-10-version-1903tabwindows-10-1903"></a>[Windows 10 1903 版](#tab/windows-10-1903)
+# <a name="windows-10-version-1903"></a>[Windows 10 版本1903](#tab/windows-10-1903)
 
 |容器基底映射作業系統版本|支援 Hyper-v 隔離|支援進程隔離|
 |---|:---:|:---:|
@@ -80,7 +80,7 @@ Windows Server 2016 和 Windows 10 年度更新版（版本14393）是第一個�
 |Windows Server 2019|&#10004;|&#10060;|
 |Windows Server 2016|&#10004;|&#10060;|
 
-# <a name="windows-10-version-1809tabwindows-10-1809"></a>[Windows 10 1809 版](#tab/windows-10-1809)
+# <a name="windows-10-version-1809"></a>[Windows 10 版本1809](#tab/windows-10-1809)
 
 |容器基底映射作業系統版本|支援 Hyper-v 隔離|支援進程隔離|
 |---|:---:|:---:|
@@ -104,15 +104,17 @@ Windows Server 2016 和 Windows 10 年度更新版（版本14393）是第一個�
 
 #### <a name="revision-number-patching"></a>修訂編號（修補）
 
-當容器主機的修訂號碼和容器映射不同時，Windows Server 容器不會被封鎖而無法啟動。 例如，如果容器主機為版本10.0.14393.1914 （已套用 KB4051033 的 Windows Server 2016），且容器映射為版本10.0.14393.1944 （已套用 KB4053579 的 Windows Server 2016），則映射仍然會啟動，即使其修訂數位不同。
+當容器主機的修訂號碼和容器映射不同時，Windows Server 2016 容器會被封鎖而無法啟動。 例如，如果容器主機為版本10.0.14393。**1914** （已套用 KB4051033 的 Windows Server 2016），而容器映射為版本10.0.14393。**1944** （已套用 KB4053579 的 Windows Server 2016），映射將無法啟動。
 
-若為 Windows Server 2016 主機或映射，容器映射的修訂必須與主機相符，才會處於支援的設定中。 不過，對於使用 Windows Server 1709 版和更新版本的主機或映射，此規則不適用，且主機和容器映射不需要有相符的修訂。 建議您使用最新的修補程式和更新，讓您的系統保持在最新狀態。
+不過，對於使用 Windows Server 1809 版和更新版本的主機或映射，此規則不適用，且主機和容器映射不需要有相符的修訂。 
+
+建議您使用最新的修補程式和更新，讓您的系統（主機和容器）保持在最新狀態，以確保安全。
 
 #### <a name="practical-application"></a>實際應用
 
 範例1：容器主機正在執行 Windows Server 2016，並已套用 KB4041691。 任何部署到此主機的 Windows Server 容器都必須以10.0.14393.1770 容器基底映射版本為基礎。 如果您將 KB4053579 套用到主機容器，您也必須更新這些映射，以確保主機容器支援它們。
 
-範例2：容器主機正在執行 Windows Server 1709 版，並已套用 KB4043961。 任何部署到此主機的 Windows Server 容器都必須以 Windows Server 1709 版（10.0.16299）容器基底映射為基礎，但不需要符合主機 KB。 如果 KB4054517 套用至主機，容器映射仍會受到支援，但建議您加以更新以解決任何潛在的安全性問題。
+範例2：容器主機正在執行 Windows Server 1809 版，並已套用 KB4534273。 任何部署到此主機的 Windows Server 容器都必須以 Windows Server 1809 版（10.0.17763）容器基底映射為基礎，但不需要符合主機 KB。 如果 KB4534273 套用至主機，容器映射仍會受到支援，但建議您加以更新以解決任何潛在的安全性問題。
 
 #### <a name="querying-version"></a>查詢版本
 
@@ -129,7 +131,7 @@ Microsoft Windows [Version 10.0.16299.125]
 
 方法2：查詢下列登錄機碼： HKEY_LOCAL_MACHINE \Software\microsoft\windows server\ NT\CurrentVersion
 
-例如：
+例如，
 
 ```batch
 C:\>reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion" /v BuildLabEx
@@ -241,7 +243,7 @@ y5blbdum70zoh1f6uhx5nxsfv    \_ angry_liskov.1   microsoft/iis:windowsservercore
 
 ### <a name="fix---update-the-service-to-use-a-matching-version"></a>修正 - 更新服務，以使用相符的版本
 
-Docker Swarm 有兩個考量事項。 如果您的撰寫檔案具有使用您未建立之映射的服務，您會想要據以更新參考。 例如：
+Docker Swarm 有兩個考量事項。 如果您的撰寫檔案具有使用您未建立之映射的服務，您會想要據以更新參考。 例如，
 
 ``` yaml
 version: '3'

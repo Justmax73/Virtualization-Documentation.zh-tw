@@ -3,17 +3,17 @@ title: 建立適用于 Windows 容器的 Gmsa
 description: 如何建立適用于 Windows 容器的群組受管理的服務帳戶（Gmsa）。
 keywords: docker，容器，active directory，gmsa，群組受管理的服務帳戶，群組受管理的服務帳戶
 author: rpsqrd
-ms.date: 09/10/2019
+ms.date: 01/03/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
-ms.openlocfilehash: 9ed9029e534d56bfe1830281d0bfd3ddde0cee9e
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 36061cfc491dd9dd581d1e6bce92a29e4a6f217d
+ms.sourcegitcommit: 530712469552a1ef458883001ee748bab2c65ef7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910248"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77628933"
 ---
 # <a name="create-gmsas-for-windows-containers"></a>建立適用于 Windows 容器的 Gmsa
 
@@ -109,7 +109,7 @@ New-ADGroup -Name "WebApp01 Authorized Hosts" -SamAccountName "WebApp01Hosts" -G
 New-ADServiceAccount -Name "WebApp01" -DnsHostName "WebApp01.contoso.com" -ServicePrincipalNames "host/WebApp01", "host/WebApp01.contoso.com" -PrincipalsAllowedToRetrieveManagedPassword "WebApp01Hosts"
 
 # Add your container hosts to the security group
-Add-ADGroupMember -Identity "WebApp01Hosts" -Members "ContainerHost01", "ContainerHost02", "ContainerHost03"
+Add-ADGroupMember -Identity "WebApp01Hosts" -Members "ContainerHost01$", "ContainerHost02$", "ContainerHost03$"
 ```
 
 我們建議您為開發、測試和生產環境建立個別的 gMSA 帳戶。
@@ -164,13 +164,19 @@ Docker 預期會在 Docker data 目錄中的**CredentialSpecs**目錄下尋找�
 
     根據預設，此 Cmdlet 會使用提供的 gMSA 名稱作為容器的電腦帳戶，來建立認證規格。 檔案將會使用檔案名的 gMSA 網域和帳戶名稱儲存在 Docker CredentialSpecs 目錄中。
 
-    如果您是在容器中執行服務或進程做為次要 gMSA，您可以建立包含其他 gMSA 帳戶的認證規格。 若要這麼做，請使用 `-AdditionalAccounts` 參數：
+    如果您想要將檔案儲存到另一個目錄，請使用 `-Path` 參數：
+
+    ```powershell
+    New-CredentialSpec -AccountName WebApp01 -Path "C:\MyFolder\WebApp01_CredSpec.json"
+    ```
+
+    如果您在容器中執行服務或進程做為次要 gMSA，您也可以建立包含其他 gMSA 帳戶的認證規格。 若要這麼做，請使用 `-AdditionalAccounts` 參數：
 
     ```powershell
     New-CredentialSpec -AccountName WebApp01 -AdditionalAccounts LogAgentSvc, OtherSvc
     ```
 
-    如需支援參數的完整清單，請執行 `Get-Help New-CredentialSpec`。
+    如需支援參數的完整清單，請執行 `Get-Help New-CredentialSpec -Full`。
 
 4. 您可以使用下列 Cmdlet 來顯示所有認證規格及其完整路徑的清單：
 
