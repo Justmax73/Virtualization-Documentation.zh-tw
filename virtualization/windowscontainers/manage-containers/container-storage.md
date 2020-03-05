@@ -3,12 +3,12 @@ title: 容器儲存體總覽
 description: Windows Server 容器如何使用主機和其他儲存體類型
 keywords: 容器, 磁碟區, 儲存體, 裝載, 繫結裝載
 author: cwilhit
-ms.openlocfilehash: fba08de884d59cc1b656895ec2b7078ba3975269
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: f758877f1131813fe4637a01c03b49d7a18a83c4
+ms.sourcegitcommit: db085db8a54664184a2f7cfa01d00598a1c66992
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910268"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78288670"
 ---
 # <a name="container-storage-overview"></a>容器儲存體總覽
 
@@ -60,7 +60,7 @@ Windows 應用程式的通用模式是先查詢可用磁碟空間量，再安裝
 或者，您可以直接變更 docker 設定檔：
 
 ```Docker Configuration File
-"storage-opts": [
+"storage-opt": [
     "size=50GB"
   ]
 ```
