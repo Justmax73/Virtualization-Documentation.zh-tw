@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: 46eefb03f8f5a53333f5e7eca7074ab34e72a767
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: cd16f496b85c0977af0d40142768833acadea0f4
+ms.sourcegitcommit: 6f505becbafb1e9785c67d6b0715c4c3af074116
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910068"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78338042"
 ---
 # <a name="windows-container-network-drivers"></a>Windows 容器網路驅動程式  
 
@@ -48,9 +48,8 @@ ms.locfileid: "74910068"
   2. 已使用新的自訂 IP 子網設定 L2bridge 網路
   
   在 configuration 2 中，使用者必須在做為閘道的主機網路區間上新增端點，並為指定的前置詞設定路由功能。 
-  > 需要：需要 Windows Server 2016、Windows 10 建立者更新或更新版本。
-
-  > 需要：外部連線的[OutboundNAT 原則](./advanced.md#specify-outboundnat-policy-for-a-network)。
+  >[!TIP]
+  >如需如何設定和安裝 l2bridge 的詳細資訊，請參閱[這裡](https://techcommunity.microsoft.com/t5/networking-blog/l2bridge-container-networking/ba-p/1180923)。
 
 - **l2tunnel** -類似于 l2bridge，但_此驅動程式只應用於 Microsoft Cloud 堆疊（Azure）_ 。 來自容器的封包會傳送至套用 SDN 原則的虛擬化主機。
 
@@ -61,7 +60,7 @@ ms.locfileid: "74910068"
 
 ### <a name="networking-modesdocker-drivers"></a>網路模式/Docker 驅動程式
 
-  | Docker Windows 網路驅動程式 | 典型的使用案例 | 容器對容器（單一節點） | 容器對外部（單一節點 + 多節點） | 容器對容器（多節點） |
+  | Docker Windows 網路驅動程式 | 一般用途 | 容器對容器（單一節點） | 容器對外部（單一節點 + 多節點） | 容器對容器（多節點） |
   |-------------------------------|:------------:|:------------------------------------:|:------------------------------------------------:|:-----------------------------------:|
   | **NAT （預設值）** | 適用於開發人員 | <ul><li>相同子網路：透過 Hyper-V 虛擬交換器橋接的連線</li><li> 跨子網：不支援（僅限一個 NAT 內部首碼）</li></ul> | 透過管理 vNIC 路由 (繫結至 WinNAT) | 不直接支援：需要透過主機公開連接埠 |
   | **變成** | 適用於開發人員或小型部署 | <ul><li>相同子網路：透過 Hyper-V 虛擬交換器橋接的連線</li><li>跨子網路：透過容器主機路由</li></ul> | 透過容器主機以及直接存取 (實體) 網路介面卡來路由 | 透過容器主機以及直接存取 (實體) 網路介面卡來路由 |
@@ -77,7 +76,7 @@ ms.locfileid: "74910068"
 | -------------------------|:----:|
 | NAT | 來自內部 NAT 子網首碼的主機網路服務（HNS）動態 IP 配置和指派 |
 | 透明 | 靜態或動態 (使用外部 DHCP 伺服器) IP 配置並從容器主機網路首碼中的 IP 位址指派 |
-| Overlay | 來自 Docker 引擎群集模式受管理首碼的動態 IP 配置並透過 HNS 指派 |
+| 重疊 | 來自 Docker 引擎群集模式受管理首碼的動態 IP 配置並透過 HNS 指派 |
 | L2Bridge | 從容器主機的網路首碼（也可以透過 HNS 指派）中的 IP 位址進行靜態 IP 配置和指派 |
 | L2Tunnel | 僅限 Azure - 動態 IP 配置並透過外掛程式指派 |
 
