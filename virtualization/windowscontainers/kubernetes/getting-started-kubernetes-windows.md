@@ -8,12 +8,12 @@ ms.prod: containers
 description: 使用 v 1.14 將 Windows 節點加入至 Kubernetes 叢集。
 keywords: kubernetes，1.14，windows，使用者入門
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: 18734f102042ec951255061dcd82229e18d29a15
-ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
+ms.openlocfilehash: c380f5dc10430a94959718a5ce92f311603db733
+ms.sourcegitcommit: 6f505becbafb1e9785c67d6b0715c4c3af074116
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77439525"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78338055"
 ---
 # <a name="kubernetes-on-windows"></a>Windows 上的 Kubernetes
 
