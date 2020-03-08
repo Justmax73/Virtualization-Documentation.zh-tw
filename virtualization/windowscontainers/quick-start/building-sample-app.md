@@ -1,19 +1,19 @@
 ---
 title: 容器化 .NET Core 應用程式
 description: 瞭解如何使用容器建立範例 .NET core 應用程式
-keywords: docker, 容器
+keywords: Docker, 容器
 author: cwilhit
 ms.author: crwilhit
 ms.date: 11/12/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.openlocfilehash: fab0dc46ddcc8c82a010d408032e5f3c4cea8d69
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 587e8de5f0d593f92f6301c87bf68e08a8bbd839
+ms.sourcegitcommit: ac923217ee2f74f08df2b71c2a4c57b694f0d7c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910138"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78854002"
 ---
 # <a name="containerize-a-net-core-app"></a>容器化 .NET Core 應用程式
 
@@ -126,7 +126,7 @@ ENTRYPOINT ["dotnet", "asp-net-getting-started.dll"]
    * `--name myapp` 會告訴 Docker 提供此容器一個方便查詢的名稱，而不需要查閱 Docker 在執行時間指派的 contaienr 識別碼。
    * `my-asp-app` 是我們想要 Docker 執行的映射。 這是 `docker build` 進程的高潮所產生的容器映射。
 
-3. 開啟網頁瀏覽器網頁瀏覽器並流覽至 `http://localhost:5000`，以查看您的容器化應用程式，如下列螢幕擷取畫面所示：
+3. 開啟網頁瀏覽器，並流覽至 `http://localhost:5000` 以查看您的容器化應用程式，如下列螢幕擷取畫面所示：
 
    >![ASP.NET Core 網頁，從容器中的 localhost 執行](media/SampleAppScreenshot.png)
 

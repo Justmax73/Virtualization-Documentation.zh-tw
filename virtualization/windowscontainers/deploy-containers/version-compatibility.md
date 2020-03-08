@@ -3,12 +3,12 @@ title: Windows 容器版本相容性
 description: Windows 要如何跨多個版本執行組建及執行容器
 keywords: 中繼資料, 容器, 版本
 author: taylorb-microsoft
-ms.openlocfilehash: 32d40997ffef47e4eae2d06303f45522623a5e54
-ms.sourcegitcommit: 530712469552a1ef458883001ee748bab2c65ef7
+ms.openlocfilehash: 326a56789d07f601beceebed01fdc3d49bc7471e
+ms.sourcegitcommit: ac923217ee2f74f08df2b71c2a4c57b694f0d7c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77628943"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78853862"
 ---
 # <a name="windows-container-version-compatibility"></a>Windows 容器版本相容性
 
@@ -26,7 +26,7 @@ Windows Server 2016 和 Windows 10 年度更新版（版本14393）是第一個�
 |Windows Server，版本1909|&#10004;|&#10004;|
 |Windows Server 版本 1903|&#10004;|&#10060;|
 |Windows Server 2019|&#10004;|&#10060;|
-|Windows Server 2016|&#10004;|&#10060;|
+|Windows Server 2016|&#10004;|&#10060;|
 
 # <a name="windows-server-version-1903"></a>[Windows Server，版本1903](#tab/windows-server-1903)
 
@@ -35,7 +35,7 @@ Windows Server 2016 和 Windows 10 年度更新版（版本14393）是第一個�
 |Windows Server，版本1909|&#10060;|&#10060;|
 |Windows Server 版本 1903|&#10004;|&#10004;|
 |Windows Server 2019|&#10004;|&#10060;|
-|Windows Server 2016|&#10004;|&#10060;|
+|Windows Server 2016|&#10004;|&#10060;|
 
 # <a name="windows-server-2019"></a>[Windows Server 2019](#tab/windows-server-2019)
 
@@ -44,7 +44,7 @@ Windows Server 2016 和 Windows 10 年度更新版（版本14393）是第一個�
 |Windows Server，版本1909|&#10060;|&#10060;|
 |Windows Server 版本 1903|&#10060;|&#10060;|
 |Windows Server 2019|&#10004;|&#10004;|
-|Windows Server 2016|&#10004;|&#10060;|
+|Windows Server 2016|&#10004;|&#10060;|
 
 # <a name="windows-server-2016"></a>[Windows Server 2016](#tab/windows-server-2016)
 
@@ -53,7 +53,7 @@ Windows Server 2016 和 Windows 10 年度更新版（版本14393）是第一個�
 |Windows Server，版本1909|&#10060;|&#10060;|
 |Windows Server 版本 1903|&#10060;|&#10060;|
 |Windows Server 2019|&#10060;|&#10060;|
-|Windows Server 2016|&#10004;|&#10004;|
+|Windows Server 2016|&#10004;|&#10004;|
 
 ---
 <!-- stop tab view -->
@@ -69,7 +69,7 @@ Windows Server 2016 和 Windows 10 年度更新版（版本14393）是第一個�
 |Windows Server，版本1909|&#10004;|&#10060;|
 |Windows Server 版本 1903|&#10004;|&#10060;|
 |Windows Server 2019|&#10004;|&#10060;|
-|Windows Server 2016|&#10004;|&#10060;|
+|Windows Server 2016|&#10004;|&#10060;|
 
 # <a name="windows-10-version-1903"></a>[Windows 10 版本1903](#tab/windows-10-1903)
 
@@ -78,7 +78,7 @@ Windows Server 2016 和 Windows 10 年度更新版（版本14393）是第一個�
 |Windows Server，版本1909|&#10060;|&#10060;|
 |Windows Server 版本 1903|&#10004;|&#10060;|
 |Windows Server 2019|&#10004;|&#10060;|
-|Windows Server 2016|&#10004;|&#10060;|
+|Windows Server 2016|&#10004;|&#10060;|
 
 # <a name="windows-10-version-1809"></a>[Windows 10 版本1809](#tab/windows-10-1809)
 
@@ -87,7 +87,7 @@ Windows Server 2016 和 Windows 10 年度更新版（版本14393）是第一個�
 |Windows Server，版本1909|&#10060;|&#10060;|
 |Windows Server 版本 1903|&#10060;|&#10060;|
 |Windows Server 2019|&#10004;|&#10060;|
-|Windows Server 2016|&#10004;|&#10060;|
+|Windows Server 2016|&#10004;|&#10060;|
 
 ---
 <!-- stop tab view -->
@@ -137,7 +137,7 @@ Microsoft Windows [Version 10.0.16299.125]
 C:\>reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion" /v BuildLabEx
 ```
 
-```batch
+```powershell
 Windows PowerShell
 Copyright (C) 2016 Microsoft Corporation. All rights reserved.
 
@@ -174,28 +174,28 @@ docker: Error response from daemon: container b81ed896222eb87906ccab1c3dd2fc4932
 
 您必須知道您的容器需要使用哪個版本。 例如，如果您想要 Windows Server 1809 版做為容器 OS，而且想要有最新的修補程式，請在指定所需的基底 OS 容器映射版本時，使用標籤 `1809`，如下所示：
 
-``` dockerfile
+```dockerfile
 FROM mcr.microsoft.com/windows/nanoserver:1809
 ...
 ```
 
 不過，如果您想要 Windows Server 1809 版的特定修補程式，您可以在標記中指定 KB 號碼。 例如，若要從已套用 KB4493509 的 Windows Server 1809 版取得 Nano Server 基本 OS 容器映射，您可以將它指定如下：
 
-``` dockerfile
+```dockerfile
 FROM mcr.microsoft.com/windows/nanoserver:1809-KB4493509
 ...
 ```
 
 您也可以藉由在標籤中指定作業系統版本，指定所需的確切修補程式，以及我們先前使用的架構：
 
-``` dockerfile
+```dockerfile
 FROM mcr.microsoft.com/windows/nanoserver:10.0.17763.437
 ...
 ```
 
 以 Windows Server 2019 和 Windows Server 2016 為基礎的 Server Core 基礎映射是[長期維護通道（LTSC）](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc)版本。 如果您想要讓 Windows Server 2019 做為伺服器核心映射的容器 OS，而且想要有最新的修補程式，您可以指定 LTSC 版本，如下所示：
 
-``` dockerfile
+```dockerfile
 FROM mcr.microsoft.com/windows/servercore:ltsc2019
 ...
 ```

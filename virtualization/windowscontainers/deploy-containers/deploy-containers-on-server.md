@@ -1,19 +1,19 @@
 ---
 title: 在 Windows Server 上部署 Windows 容器
 description: 在 Windows Server 上部署 Windows 容器
-keywords: docker, 容器
+keywords: Docker, 容器
 author: taylorb-microsoft
 ms.date: 09/09/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ba4eb594-0cdb-4148-81ac-a83b4bc337bc
-ms.openlocfilehash: 6e3996af36b4a710f9a12b3a1371138b053a43d8
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 9899a2d76bfa1fe312e3bd983f60d09d77c272e9
+ms.sourcegitcommit: ac923217ee2f74f08df2b71c2a4c57b694f0d7c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74909898"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78853909"
 ---
 # <a name="container-host-deployment-windows-server"></a>容器主機部署： Windows Server
 
@@ -49,7 +49,7 @@ Restart-Computer -Force
 
 適用于 Windows Server 的 Docker EE 目前有兩個可用的通道：
 
-* `17.06`-如果您使用的是 Docker Enterprise Edition （Docker 引擎、UCP、DTR），請使用此版本。 `17.06` 是預設值。
+* `17.06`-如果您使用的是 Docker Enterprise Edition （Docker 引擎、UCP、DTR），請使用此版本。 預設值為 `17.06`。
 * `18.03`-如果您要單獨執行 Docker EE 引擎，請使用此版本。
 
 若要安裝特定版本，請使用 `RequiredVersion` 旗標：
@@ -76,7 +76,8 @@ Install-Package -Name docker -ProviderName DockerMsftProvider -Update -Force -Re
 
 使用 Windows 容器之前，必須先安裝基本映像。 目前已經有以 Windows Server Core 或 Nano Server 做為容器作業系統的基本映像。 如需 Docker 容器映像的詳細資訊，請參閱 [docker.com 上建置自己的映像](https://docs.docker.com/engine/tutorials/dockerimages/)。
 
-隨著 Windows Server 2019 的發行，Microsoft 來源的容器映射會移至名為 Microsoft Container Registry 的新登錄。 Microsoft 所發佈的容器映射應該繼續透過 Docker Hub 探索。 對於隨 Windows Server 2019 和更新發行的新容器映射，您應該尋找從 MCR 提取它們。 針對在 Windows Server 2019 之前發佈的舊版容器映射，您應該繼續從 Docker 的登錄中提取它們。
+> [!TIP]
+> 從5月2018日起，提供一致且值得信賴的取得體驗，幾乎所有 Microsoft 來源的容器映射都會從 Microsoft Container Registry （ _mcr.microsoft.com_）提供，同時透過[_Docker Hub_](https://hub.docker.com/publishers/microsoftowner)維護目前的探索流程。
 
 ### <a name="windows-server-2019-and-newer"></a>Windows Server 2019 和更新版本
 
@@ -112,7 +113,7 @@ docker pull mcr.microsoft.com/windows/nanoserver:1803
 
 您必須擁有 Hyper-v 角色，才能執行 Hyper-v 隔離。 如果 Windows 容器主機本身為 Hyper-V 虛擬機器，則必須先啟用巢狀虛擬化，才能安裝 Hyper-V 角色。 如需巢狀虛擬化的詳細資訊，請參閱[巢狀虛擬化](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)。
 
-### <a name="nested-virtualization"></a>巢狀虛擬化
+### <a name="nested-virtualization"></a>嵌套虛擬化
 
 下列指令碼可設定容器主機的巢狀虛擬化。 此指令碼要在父 HYPER-V 機器上執行。 執行這個指令碼時，容器主機的虛擬機器務必要關閉。
 

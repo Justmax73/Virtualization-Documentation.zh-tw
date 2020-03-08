@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ebd79cd3-5fdd-458d-8dc8-fc96408958b5
-ms.openlocfilehash: 1de86a2492ca899dc3fb932e0d57927fa4000fd0
-ms.sourcegitcommit: 15b5ab92b7b8e96c180767945fdbb2963c3f6f88
+ms.openlocfilehash: 549209c40c2332bdc197375ce4e501467280fa18
+ms.sourcegitcommit: ac923217ee2f74f08df2b71c2a4c57b694f0d7c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74911708"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78853883"
 ---
 # <a name="troubleshooting"></a>疑難排解
 
@@ -112,7 +112,7 @@ SERVICE_NAME: docker
 - 使用 \ 逸出每一個 "
 - 使用 " 括住整個命令
 
-接著在執行後接新字串的 `sc.exe config docker binpath=`。 例如： 
+接著在執行後接新字串的 `sc.exe config docker binpath=`。 例如， 
 ```
 sc.exe config docker binpath= "\"C:\Program Files\Docker\dockerd.exe\" --run-service -D"
 ```
@@ -136,9 +136,9 @@ sc.exe stop docker
 
 一般來說，這只有在 Microsoft 支援服務或 docker 開發人員明確要求時才有用。 它可以用來協助診斷 docker 似乎已停止回應的情況。 
 
-下載 [docker-signal.exe](https://github.com/jhowardmsft/docker-signal)。
+下載 [docker-signal.exe](https://github.com/moby/docker-signal)。
 
-使用方式：
+用法：
 ```PowerShell
 docker-signal --pid=$((Get-Process dockerd).Id)
 ```
@@ -155,9 +155,9 @@ Docker 引擎需要 Windows 專用的主機運算服務。 此服務有自己的
 - Microsoft-Windows-Hyper-V-Compute-Admin
 - Microsoft-Windows-Hyper-V-Compute-Operational
 
-這些記錄檔會顯示在事件檢視器中，也可以使用 PowerShell 進行查詢。
+它們會顯示在事件檢視器中，而且也可以使用 PowerShell 進行查詢。
 
-例如：
+例如，
 ```PowerShell
 Get-WinEvent -LogName Microsoft-Windows-Hyper-V-Compute-Admin
 Get-WinEvent -LogName Microsoft-Windows-Hyper-V-Compute-Operational 

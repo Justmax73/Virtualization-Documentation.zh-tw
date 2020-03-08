@@ -1,19 +1,19 @@
 ---
 title: Windows 容器網路功能
 description: Windows 容器的網路驅動程式和拓撲。
-keywords: docker, 容器
+keywords: Docker, 容器
 author: jmesser81
 ms.date: 03/27/2018
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: cd16f496b85c0977af0d40142768833acadea0f4
-ms.sourcegitcommit: 6f505becbafb1e9785c67d6b0715c4c3af074116
+ms.openlocfilehash: f54c715f474c50c4b3073912adc4e0ab1c42d662
+ms.sourcegitcommit: ac923217ee2f74f08df2b71c2a4c57b694f0d7c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78338042"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78853922"
 ---
 # <a name="windows-container-network-drivers"></a>Windows 容器網路驅動程式  
 
@@ -33,7 +33,7 @@ ms.locfileid: "78338042"
   
   > 需要：在虛擬化案例（容器主機是 VM）中使用此模式時 _，必須要有 MAC 位址_詐騙。
 
-- **overlay** - 當 Docker 引擎以[群集模式](../manage-containers/swarm-mode.md)執行時，連接到重疊網路的容器可以與連接到相同網路的其他容器跨多個容器主機進行通訊。 建立在群集叢集上的每個覆疊網路，在建立時即具有其本身的 IP 子網路 (由私人 IP 首碼定義)。 overlay 網路驅動程式會使用 VXLAN 封裝。 **使用適當的網路控制平面（例如 Flannel）時，可以與 Kubernetes 搭配使用。**
+- **overlay** - 當 Docker 引擎以[群集模式](../manage-containers/swarm-mode.md)執行時，連接到重疊網路的容器可以與連接到相同網路的其他容器跨多個容器主機進行通訊。 建立在群集叢集上的每個重疊網路，在建立時即具有其本身的 IP 子網路 (由私人 IP 首碼定義)。 overlay 網路驅動程式會使用 VXLAN 封裝。 **使用適當的網路控制平面（例如 Flannel）時，可以與 Kubernetes 搭配使用。**
   > 需要：請確定您的環境符合建立重迭[網路所需的必要條件。](https://docs.docker.com/network/overlay/#operations-for-all-overlay-networks)
 
   > 需要：在 Windows Server 2019 上，這需要[KB4489899](https://support.microsoft.com/help/4489899)。
@@ -42,6 +42,14 @@ ms.locfileid: "78338042"
 
   >[!NOTE]
   >在 Windows Server 2019 上，Docker Swarm 所建立的重迭網路會利用 VFP NAT 規則來輸出連線能力。 這表示指定的容器會收到1個 IP 位址。 這也表示以 ICMP 為基礎的工具（例如 `ping` 或 `Test-NetConnection`）應該使用其在偵錯工具中的 TCP/UDP 選項進行設定。
+
+- **l2bridge** -與 `transparent` 網路模式類似，連接到以 ' l2bridge ' 驅動程式建立的網路的容器將會透過*外部*hyper-v 交換器連接到實體網路。 L2bridge 的差異在於，容器端點會有與主機相同的 MAC 位址，因為輸入和輸出的第2層位址轉譯（MAC 重新寫入）作業。 在叢集案例中，這有助於減輕交換器的壓力，而必須瞭解有時候短期容器的 MAC 位址。 L2bridge 網路可透過兩種不同的方式來設定：
+  1. 已使用與容器主機相同的 IP 子網來設定 L2bridge 網路
+  2. 已使用新的自訂 IP 子網設定 L2bridge 網路
+  
+  在 configuration 2 中，使用者必須在做為閘道的主機網路區間上新增端點，並為指定的前置詞設定路由功能。 
+  > 需要：需要 Windows Server 2016、Windows 10 建立者更新或更新版本。
+
 
 - **l2bridge** -與 `transparent` 網路模式類似，連接到以 ' l2bridge ' 驅動程式建立的網路的容器將會透過*外部*hyper-v 交換器連接到實體網路。 L2bridge 的差異在於，容器端點會有與主機相同的 MAC 位址，因為輸入和輸出的第2層位址轉譯（MAC 重新寫入）作業。 在叢集案例中，這有助於減輕交換器的壓力，而必須瞭解有時候短期容器的 MAC 位址。 L2bridge 網路可透過兩種不同的方式來設定：
   1. 已使用與容器主機相同的 IP 子網來設定 L2bridge 網路

@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 1ecb85a6-d938-4c30-a29b-d18bd007ba08
-ms.openlocfilehash: efd180c458457da1cea6b379e21ba3a37083d15a
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: b7944e34cab66df07df0ccc78947a774d775c9a7
+ms.sourcegitcommit: ac923217ee2f74f08df2b71c2a4c57b694f0d7c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910958"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78853942"
 ---
 # <a name="configure-nested-vms-to-communicate-with-resources-in-an-azure-virtual-network"></a>設定要與 Azure 虛擬網路中的資源進行通訊的嵌套 Vm
 
@@ -58,13 +58,13 @@ ms.locfileid: "74910958"
 5. 移至 [網路] 索引標籤
 6. 使用下列設定建立新的虛擬網路
     * VNet 位址空間： 10.0.0.0/22
-    * 子網路 1
+    * 子網1
         * 名稱： NAT
         * 位址空間： 10.0.0.0/24
-    * 子網路 2
+    * 子網2
         * 名稱： Hyper-v-LAN
         * 位址空間： 10.0.1.0/24
-    * 子網路 3
+    * 子網3
         * 名稱：幻影
         * 位址空間： 10.0.2.0/24
     * 子網4
@@ -91,7 +91,7 @@ ms.locfileid: "74910958"
 ## <a name="setting-up-hyper-v"></a>設定 Hyper-v
 1. 遠端至您的主機
 2. 開啟已提升許可權的 PowerShell 提示字元
-3. 執行下列命令：`Install-WindowsFeature -Name Hyper-V -IncludeManagementTools -Restart`
+3. 執行下列命令 `Install-WindowsFeature -Name Hyper-V -IncludeManagementTools -Restart`
 4. 這會重新開機主機
 5. 重新連線至主機，以繼續進行安裝程式的其餘部分
 
@@ -124,7 +124,7 @@ ms.locfileid: "74910958"
 3. 在嚮導上選取 [下一步]，檢查 [自訂設定] 的星形按鈕，然後選取 [下一步]。
 4. 核取 [NAT] 和 [LAN 路由]，然後選取 [下一步]，然後按一下 [完成]。 如果它要求您啟動服務，請執行此動作。
 5. 現在，流覽至 [IPv4] 節點並將它展開，讓 [NAT] 節點可供使用。
-6. 以滑鼠右鍵按一下 [NAT]，選取 [新增介面 ...]然後選取 [Ethernet]，這應該是您的第一個 IP 為 "10.0.0.4" 的 NIC
+6. 以滑鼠右鍵按一下 [NAT]，選取 [新增介面 ...]然後選取 [Ethernet]，這應該是您的第一個 IP 為 "10.0.0.4" 的 NIC，然後選取 [公用介面] [連線到網際網路]，並在此介面上啟用 NAT。 
 7. 現在，我們需要建立一些靜態路由，以強制將 LAN 流量輸出到第二個 NIC。 若要這麼做，請前往 [IPv4] 底下的 [靜態路由] 節點。
 8. 之後，我們會建立下列路由。
     * 路由1
@@ -147,7 +147,7 @@ ms.locfileid: "74910958"
 
 如需深入瞭解如何在 Azure 中建立及管理路由，請參閱[這篇文章](https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-portal)。
 
-1. 瀏覽到 https://portal.azure.com 。
+1. 瀏覽到 https://portal.azure.com。
 2. 在左上角，選取 [建立資源]。
 3. 在搜尋欄位中輸入「路由表」，然後按 enter 鍵。
 4. 最上方的結果會是 [路由表]，選取此，然後選取 [建立]

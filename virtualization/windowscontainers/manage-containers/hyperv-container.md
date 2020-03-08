@@ -1,25 +1,25 @@
 ---
 title: 隔離模式
 description: 說明 Hyper-v 隔離與進程隔離容器的不同之處。
-keywords: docker, 容器
+keywords: Docker, 容器
 author: crwilhit
 ms.date: 09/26/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 42154683-163b-47a1-add4-c7e7317f1c04
-ms.openlocfilehash: fa95ffe1c699a2c837076fcc1b662f6b792b7dfb
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 362805fa230f461414ccc53643644f6c1b3474a8
+ms.sourcegitcommit: ac923217ee2f74f08df2b71c2a4c57b694f0d7c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74909748"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78853952"
 ---
 # <a name="isolation-modes"></a>隔離模式
 
 Windows 容器提供兩種不同的執行時間隔離模式： `process` 和 `Hyper-V` 隔離。 在這兩種隔離模式下執行的容器都是以相同方式來建立、管理和運作。 而且也會產生及使用相同的容器映像。 隔離模式的差異在於容器、主機作業系統，以及在該主機上執行的所有其他容器之間建立的隔離程度。
 
-## <a name="process-isolation"></a>處理序隔離
+## <a name="process-isolation"></a>進程隔離
 
 這是容器的「傳統」隔離模式，也是[Windows 容器總覽](../about/index.md)中所述的內容。 使用進程隔離時，多個容器實例會在指定的主機上同時執行，並透過命名空間、資源控制和進程隔離技術來提供隔離。 在此模式中執行時，容器會與主機和彼此共用相同的核心。  這與 Linux 容器的執行方式大致相同。
 
@@ -40,7 +40,7 @@ Windows 容器提供兩種不同的執行時間隔離模式： `process` 和 `Hy
 docker run -it --isolation=hyperv mcr.microsoft.com/windows/servercore:ltsc2019 cmd
 ```
 
-若要以完整的 Docker 建立具有進程隔離的容器，請使用 `--isolation` 參數來設定 `--isolation=process`。
+若要透過 Docker 建立具有進程隔離的容器，請使用 `--isolation` 參數來設定 `--isolation=process`。
 
 ```cmd
 docker run -it --isolation=process mcr.microsoft.com/windows/servercore:ltsc2019 cmd

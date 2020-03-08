@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: aee64ad0-752f-4075-a115-2d6b983b4f49
-ms.openlocfilehash: afbbcf120961081191aaf9051866427c9ce1478e
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: f1b33bf805f7868bb42ee1f49965c2ea9a45916f
+ms.sourcegitcommit: ac923217ee2f74f08df2b71c2a4c57b694f0d7c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74911178"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78853972"
 ---
 # <a name="hypervisor-specifications"></a>Hypervisor 規格
 
@@ -26,8 +26,9 @@ Hyper-V Hypervisor 功能規格概要 (TLFS) 描述其他作業系統元件看�
 #### <a name="download"></a>下載
 發行 | 文件
 --- | ---
+Windows Server 2019 | [虛擬程式前端層級功能規格6.0 版 .pdf](https://github.com/MicrosoftDocs/Virtualization-Documentation/raw/master/tlfs/Hypervisor%20Top%20Level%20Functional%20Specification%20v6.0.pdf)
 Windows Server 2016 (修訂版 C) | [虛擬程式管理層頂級功能規格 v 5.0 c .pdf](https://github.com/MicrosoftDocs/Virtualization-Documentation/raw/live/tlfs/Hypervisor%20Top%20Level%20Functional%20Specification%20v5.0C.pdf)
-Windows Server 2012 R2 (修訂版 B) | [Hypervisor 功能規格概要 v4.0b.pdf](https://github.com/Microsoft/Virtualization-Documentation/raw/master/tlfs/Hypervisor%20Top%20Level%20Functional%20Specification%20v4.0b.pdf)
+Windows Server 2012 R2 (Revision B) | [Hypervisor 功能規格概要 v4.0b.pdf](https://github.com/Microsoft/Virtualization-Documentation/raw/master/tlfs/Hypervisor%20Top%20Level%20Functional%20Specification%20v4.0b.pdf)
 Windows Server 2012 | [Hypervisor 功能規格概要 v3.0.pdf](https://github.com/Microsoft/Virtualization-Documentation/raw/master/tlfs/Hypervisor%20Top%20Level%20Functional%20Specification%20v3.0.pdf)
 Windows Server 2008 R2 | [Hypervisor 功能規格概要 v2.0.pdf](https://github.com/Microsoft/Virtualization-Documentation/raw/master/tlfs/Hypervisor%20Top%20Level%20Functional%20Specification%20v2.0.pdf)
 

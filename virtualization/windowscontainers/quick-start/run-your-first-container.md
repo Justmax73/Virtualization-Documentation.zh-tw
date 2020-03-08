@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
-ms.openlocfilehash: a664b5b8eb87adffdf7eba3ffca9f4194128df80
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 551d405d836cfb16b587ef78bc2d5f5abbd8648f
+ms.sourcegitcommit: ac923217ee2f74f08df2b71c2a4c57b694f0d7c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74909568"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78853812"
 ---
 # <a name="get-started-run-your-first-windows-container"></a>開始使用：執行您的第一個 Windows 容器
 
@@ -22,7 +22,7 @@ ms.locfileid: "74909568"
 
 ## <a name="install-a-container-base-image"></a>安裝容器基底映射
 
-所有容器都是從容器映射建立。 Microsoft 提供數個入門映射（稱為基底映射）以供選擇（如需詳細資訊，請參閱[容器基底映射](../manage-containers/container-base-images.md)）。 此程式會提取（下載並安裝）輕量 Nano Server 基底映射。
+所有容器都是從容器映像建立而來。 Microsoft 提供數個入門映射（稱為基底映射）以供選擇（如需詳細資訊，請參閱[容器基底映射](../manage-containers/container-base-images.md)）。 此程式會提取（下載並安裝）輕量 Nano Server 基底映射。
 
 1. 開啟 [命令提示字元] 視窗（例如內建的命令提示字元、PowerShell 或[Windows 終端](https://www.microsoft.com/p/windows-terminal-preview/9n0dx20hk701?activetab=pivot:overviewtab)機），然後執行下列命令來下載並安裝基底映射：
 
@@ -33,7 +33,7 @@ ms.locfileid: "74909568"
    > [!TIP]
    > 如果您看到錯誤訊息，指出 `no matching manifest for unknown in the manifest list entries`，請確定 Docker 未設定為執行 Linux 容器。
 
-2. 映射下載完成之後，請在等候時閱讀[EULA](../images-eula.md) -藉由查詢本機 docker 映射存放庫來確認它是否存在於您的系統上。 執行命令 `docker images` 會傳回已安裝的映射清單。
+2. 映射下載完成之後，請在等候時閱讀[EULA](../images-eula.md) -藉由查詢本機 docker 映射存放庫確認其是否存在於您的系統上。 執行命令 `docker images` 會傳回已安裝的映射清單。
 
    以下是顯示 Nano 伺服器映射的輸出範例。
 

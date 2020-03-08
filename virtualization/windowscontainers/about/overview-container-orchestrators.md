@@ -1,23 +1,23 @@
 ---
 title: Windows 容器協調流程總覽
 description: 瞭解 Windows container 協調器。
-keywords: docker, 容器
+keywords: Docker, 容器
 author: Heidilohr
 ms.author: helohr
 ms.date: 05/22/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.openlocfilehash: 99a3b47a9d80e21c246fb3b4f61d650557eb37fa
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 23dd1e56ba68a679945779f5e7dbc15225412934
+ms.sourcegitcommit: ac923217ee2f74f08df2b71c2a4c57b694f0d7c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910718"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78853903"
 ---
 # <a name="windows-container-orchestration-overview"></a>Windows 容器協調流程總覽
 
-由於容器的大小和應用程式方向很小，因此適用于 agile 傳遞環境和以微服務為基礎的架構。 不過，使用容器和 microservers 的環境可以有數百或數千個元件來追蹤。 您或許可以手動管理數十部虛擬機器或實體伺服器，但沒有任何方法可以適當地管理生產級別的容器環境，而不需要自動化。 這項工作應該落在您的 orchestrator 中，這是一種程式，可自動化和管理大量容器，以及它們彼此互動的方式。
+由於容器的大小和應用程式方向很小，因此適用于 agile 傳遞環境和以微服務為基礎的架構。 不過，使用容器和微服務的環境可以有數百或數千個元件來追蹤。 您或許可以手動管理數十部虛擬機器或實體伺服器，但沒有任何方法可以適當地管理生產級別的容器環境，而不需要自動化。 這項工作應該落在您的 orchestrator 中，這是一種程式，可自動化和管理大量容器，以及它們彼此互動的方式。
 
 協調器會執行下列工作：
 

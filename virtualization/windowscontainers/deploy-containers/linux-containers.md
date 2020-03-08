@@ -1,21 +1,21 @@
 ---
-title: Windows 上的 Linux 容器
-description: 瞭解您可以使用 Hyper-v 在 Windows 上執行 Linux 容器的不同方式，就像是原生一樣。
-keywords: LCOW，linux 容器，docker，容器
+title: Windows 10 上的 Linux 容器
+description: 瞭解您可以使用 Hyper-v 在 Windows 10 上執行 Linux 容器的不同方式，就像是原生一樣。
+keywords: LCOW，linux 容器，docker，容器，windows 10
 author: scooley
 ms.date: 09/17/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: edfd11c8-ee99-42d8-9878-efc126fe1826
-ms.openlocfilehash: 14445f3e9d292dbdab28986e772d0c045fca1586
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 843bd0ab7ccf3a227482ba3a3d2677e36b395b29
+ms.sourcegitcommit: ac923217ee2f74f08df2b71c2a4c57b694f0d7c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910568"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78854012"
 ---
-# <a name="linux-containers-on-windows"></a>Windows 上的 Linux 容器
+# <a name="linux-containers-on-windows-10"></a>Windows 10 上的 Linux 容器
 
 Linux 容器占整體容器生態系統的龐大百分比，同時也是開發人員經驗和生產環境的基礎。  由於容器與容器主機共用核心，因此，在 Windows 上直接執行 Linux 容器不是[*](linux-containers.md#other-options-we-considered)的選項。  這就是虛擬化進入此目標的地方。
 
@@ -23,6 +23,8 @@ Linux 容器占整體容器生態系統的龐大百分比，同時也是開發�
 
 - 在完整的 Linux VM 中執行 Linux 容器-這是 Docker 通常會執行的工作。
 - 使用[hyper-v 隔離](../manage-containers/hyperv-container.md)執行 Linux 容器（LCOW）-這是適用於 Windows 的 Docker 中的新選項。
+
+> _在 Windows Server OS 上執行 Linux 容器目前仍在實驗性階段。需要額外的 Docker EE 程式授權，才能嘗試這種情況。**本文的其餘部分只會與 Windows 10 相關**。_
 
 本文概述每種方法的運作方式、提供何時選擇哪些解決方案，以及共用進行中工作的指引。
 
@@ -47,7 +49,7 @@ Docker 已能夠在 Windows 桌面上執行 Linux 容器，因為它是第一次
 
 ## <a name="linux-containers-with-hyper-v-isolation"></a>具有 Hyper-v 隔離的 Linux 容器
 
-若要嘗試 Windows 上的 Linux 容器（LCOW），請遵循[windows 10 上 linux](../quick-start/quick-start-windows-10-linux.md)容器中的 linux 容器指示。
+若要嘗試 Windows 10 （LCOW10）上的 Linux 容器，請遵循[windows 10 上 linux](../quick-start/quick-start-windows-10-linux.md)容器中的 linux 容器指示。 
 
 具有 Hyper-v 隔離的 Linux 容器會在優化的 Linux VM 中執行每個 Linux 容器，只要有足夠的 OS 即可執行容器。 相對於 Moby VM 方法，每個 Linux 容器都有自己的核心和自己的 VM 沙箱。 它們也是由 Windows 上的 Docker 直接管理。
 
@@ -74,10 +76,10 @@ LCOW 正在開發中。 在[GitHub](https://github.com/moby/moby/issues/33850)�
 * MkNod
 * XAttrWalk
 * XAttrCreate
-* Lock
+* 鎖定
 * Getlock
-* Auth
-* Flush
+* 驗證
+* 清除
 * INotify
 
 也有一些作業並未完整實作：
